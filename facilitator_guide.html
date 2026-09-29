@@ -95,9 +95,8 @@
   <div class="in">
     <div class="logo">Ascentium<span>.</span></div>
     <nav>
-      <a href="#what">是什么</a><a href="#tree">目录</a><a href="#usage">用法</a>
-      <a href="#install">安装</a><a href="#facilitator">现场</a><a href="#autorun">auto-run</a>
-      <a href="#showcase">加分</a><a href="#cheat">小抄</a>
+      <a href="#duty">职责</a><a href="#what">是什么</a><a href="#tree">目录</a><a href="#usage">用法</a>
+      <a href="#install">安装</a><a href="#facilitator">现场</a><a href="#tips">tips</a>
     </nav>
   </div>
 </div>
@@ -107,14 +106,39 @@
   <header class="hero" id="what">
     <div class="tag">Facilitator Guide</div>
     <h1>Ascentium Mini-Hackathon</h1>
-    <p>5 分钟读懂，45 分钟带队跑完。营销商业方案挑战 —— 不是 AI 产品挑战。</p>
+    <p>5 分钟读懂，50 分钟带队跑完。营销商业方案挑战 —— 不是 AI 产品挑战。</p>
   </header>
 
+  <section id="duty">
+    <h2>1 · Facilitator 职责</h2>
+    <div class="note" style="margin-bottom:14px;"><b>一句话</b>：你是每组的 <b>Robot Facilitator（FACI-01 ~ 08）</b> —— 桌上的 AI 机器人助手兼控场主持。团队负责所有判断，你负责让大家把 Toolkit 用顺、在 50 分钟里跑出方案，并且人人都在局里。</div>
+    <table>
+      <thead><tr><th>职责</th><th>具体做什么</th></tr></thead>
+      <tbody>
+        <tr><td><b>① 按时交付</b></td><td>守住 50 分钟节奏（40′ 产出 + 10′ Showcase 准备），确保团队顺利用 Toolkit 跑完、按点产出；剩 20′ / 10′（每关 3′ / 1′）口头播报，到点就推进。</td></tr>
+        <tr><td><b>② 出题与给选项</b></td><td>每关先给 6–8 个带依据的候选「菜单」，绝不甩开放式问题；团队选完再落地。</td></tr>
+        <tr><td><b>③ 卡点解围</b></td><td>团队卡住时降级：给 2 个候选请点头、或换个切入点，把人从死胡同里拉出来。</td></tr>
+        <tr><td><b>④ 人人参与</b></td><td>确保 14 个人都有活干：把任务分路（研究 / 创意 / 算账 / 做图 / 讲稿），点名让安静的人认领一路。</td></tr>
+        <tr><td><b>⑤ 人机协作</b></td><td>带团队适应「和 AI 一起干活」（会提问、会选菜单、会改稿），而不是让 AI 自己把活干完。</td></tr>
+        <tr><td><b>⑥ 人做主</b></td><td>创意 / 选市场 / 定指标 / 定阈值 / 选视觉 —— 一律团队拍板，AI 只执行与放大。</td></tr>
+        <tr><td><b>⑦ 记录与落地</b></td><td>把每个决定写进 <code>insight.yaml / plan.yaml / metrics.yaml</code> + <code>RUN-LOG.md</code>；最后拼装 HTML 产物、协助提交。</td></tr>
+        <tr><td><b>⑧ 真研究与品牌</b></td><td>用 <code>agent-reach</code> 搜真实数据（不编数字）；所有产物套 Ascentium 品牌（<code>ascentium-brand</code>）。</td></tr>
+      </tbody>
+    </table>
+    <div class="card" style="margin-top:14px;">
+      <ul>
+        <li><b>团队（14 人）</b>：发散创意、做选择、下判断。</li>
+        <li><b>AI（你）</b>：给菜单、控时间、记录、算账、排版。</li>
+        <li><b>每关三步</b>：<b>AI 出菜单 → 团队选 → AI 落地</b>。</li>
+      </ul>
+    </div>
+  </section>
+
   <section>
-    <h2>1 · 这是什么</h2>
+    <h2>2 · 这是什么</h2>
     <div class="card">
       <ul>
-        <li><b>Workshop</b>：45 分钟商业方案共创，110 人 / 10 组 × 11 人，产出方案并 Showcase PK。</li>
+        <li><b>Workshop</b>：50 分钟商业方案共创（40′ 产出 + 10′ Showcase 准备），112 人 / 8 组 × 14 人，产出方案并 Showcase PK。</li>
         <li><b>两道题</b>：Quest A —— Doha 2030 门票营销（把东南亚变成最大"客队"）；Quest B —— 成都熊猫基地全球化 IP。</li>
         <li><b>Toolkit 的作用</b>：Facilitator 控场 + 小组做决策 + AI 干重活（研究 / 起草 / 算账 / 做图）。营销口径，开箱即用。</li>
       </ul>
@@ -122,17 +146,32 @@
   </section>
 
   <section id="tree">
-    <h2>2 · 目录结构</h2>
-    <pre>.opencode/
-├── skills/      insight · plan(含 poster) · prove · showcase   ← 四阶段
-│                + facilitation · ascentium-brand · agent-reach（支撑）
-├── agents/      facilitator(编排) · runner(自动) · researcher(研究)
-├── commands/    /start /insight /plan /poster /prove /showcase /evaluate /run
-└── evaluation-rubric.md</pre>
+    <h2>3 · 目录结构</h2>
+    <pre>.opencode/                        # opencode 项目级配置（打开该目录即自动加载）
+├── README.md                    # Facilitator 手册（人机契约 + 编排）
+├── DESIGN.md                    # 设计说明
+├── evaluation-rubric.md         # 方案评分卡（7 维度）
+├── skills/                      # 技能：&lt;stage&gt;/SKILL.md；子技能嵌在该阶段的 sub-skills/
+│   ├── insight/                 # 洞察门 → insight-brief.html
+│   │   ├── references/ · templates/
+│   │   └── sub-skills/          # agent-reach · business-research · audience-analysis · swot-analysis
+│   ├── plan/                    # 策划门 → campaign-plan.html
+│   │   ├── references/ · templates/
+│   │   └── sub-skills/          # creative-concept · opportunity-definition · poster
+│   ├── prove/                   # 论证门 → proof.html（含 KPI 看板）
+│   │   ├── references/ · templates/
+│   │   └── sub-skills/          # campaign-metrics · data-visualizer-pro
+│   ├── showcase/                # 呈现门（AUTO）→ proposal / pitch-deck / prompt-pack
+│   │   └── references/ · scripts/ · templates/
+│   ├── facilitation/            # 共创引擎（协议 · 节奏 · 话术 · 选项菜单 · 采集契约）
+│   └── ascentium-brand/         # 品牌执行器（brand-guideline.md + tokens.css 等）
+├── agents/                      # facilitator(编排) · runner(自动) · researcher(研究)
+└── commands/                    # /start /insight /plan /poster /prove /showcase /evaluate /run</pre>
+    <div class="note"><b>说明</b>：四阶段 = <code>insight → plan → prove → showcase</code>；<code>poster</code> 是 <code>plan</code> 的子技能（另有自己的 <code>/poster</code> 命令），<code>agent-reach</code> 是 <code>insight</code> 的子技能。打开该目录时，opencode 会递归加载所有 <code>SKILL.md</code>。<code>package.json</code> / <code>node_modules</code> 为运行时产物，已 gitignore。</div>
   </section>
 
   <section id="usage">
-    <h2>3 · 用法总览</h2>
+    <h2>4 · 用法总览</h2>
     <div class="flow">
       <div class="node start"><div class="n">/start</div><div class="t">开场</div></div>
       <div class="arrow">→</div>
@@ -194,7 +233,7 @@
   </section>
 
   <section id="install">
-    <h2>4 · 安装配置（一次性 · 4 步）</h2>
+    <h2>5 · 安装配置（一次性 · 4 步）</h2>
     <div class="card">
       <ol class="steps">
         <li><b>安装 opencode，并配置 DeepSeek API KEY</b>
@@ -230,7 +269,8 @@ opencode</code></pre>
   </section>
 
   <section id="facilitator">
-    <h2>5 · 现场 facilitator 模式（以 Quest A 为例）</h2>
+    <h2>6 · 现场 facilitator 模式（以 Quest A 为例）</h2>
+    <div class="note" style="margin-bottom:14px;">⏱ <b>50 分钟怎么分</b>：<b>40′</b> 用 Toolkit 跑完整个输出（洞察 → 策划 → 海报 → 论证 → 呈现）；<b>10′</b> 整理 Showcase 输出、准备 Showcase 形式，并提交。</div>
     <div class="card">
       <ol class="steps">
         <li><b><code>/start</code> 开场</b>：读 Quest A 卡，讲清规则。</li>
@@ -242,42 +282,83 @@ opencode</code></pre>
       </ol>
       <div class="note">所有决策写进 <code>insight.yaml / plan.yaml / metrics.yaml</code> + <code>RUN-LOG.md</code>，可回溯。</div>
     </div>
-  </section>
 
-  <section id="autorun">
-    <h2>6 · auto-run（紧急 / 兜底）</h2>
     <div class="card">
+      <div class="eyebrow">机动 · auto-run（现场需要时兜底）</div>
       <ul>
-        <li>触发：<code>/run</code>（runner agent），Quest 默认 A。</li>
+        <li>触发：<code>/run</code>（runner agent），Quest 默认 A —— 现场需要时用它一键跑完整链路。</li>
         <li>产出同上；<b>默认决策需人工复核后再对外</b>。</li>
       </ul>
     </div>
   </section>
 
-  <section id="showcase">
-    <h2>7 · 给 Showcase 加分（Quest A 示例）</h2>
+  <section id="tips">
+    <h2>7 · Facilitator Tips</h2>
+
     <div class="card">
+      <div class="eyebrow">① 带节奏</div>
       <ul>
-        <li><b>海报 3 风格</b>：A · Matchday Roar（运动海报）· B · Supporter Passport（机票/护照风）· C · Midnight Minimal（极简黑）。在 pitch-deck 的海报页点按钮切换选择。</li>
-        <li><b>音频 / 视频 / 图片</b>：<code>prompt-pack.html</code> 里是现成 prompt，复制到对应工具即可——</li>
+        <li><b>50 分钟不是用来追求完美的，是用来出方案的。</b>每关做到「够好」就推进，把打磨留到散场后。</li>
+        <li><b>时间要用嘴说出来。</b>「还剩 20 分钟」「这关还剩 1 分钟」—— 比任何看板都管用，团队会自己加速。</li>
+        <li><b>冷场时，先给选项再给时间。</b>「这 6 个方向，3 分钟选 2 个」，比「大家想想吧」有效得多。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">② 出菜单 · 解围</div>
+      <ul>
+        <li><b>菜单要有数字。</b>每个候选带一个真实数据或案例（<code>agent-reach</code> 搜来的），团队才是在「有信息」地做选择，而不是瞎猜。</li>
+        <li><b>卡住就降级。</b>从 6 个缩到 2 个，请他「点头」即可；或换个角度重新出 2–3 个。</li>
+        <li><b>别问开放题。</b>「你们想做什么？」会让 14 个人沉默；「选 2–3 个」立刻有进度。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">③ 人做主 · 人人参与</div>
+      <ul>
+        <li><b>把 14 人分成几路。</b>研究取证 / 创意发散 / 算账定指标 / 做图排版 / 写讲稿 —— 让每个人认领一路，而不是围观 AI。</li>
+        <li><b>点名让安静的人开口。</b>「这块交给你，怎么样？」一句话就把人拉进局里。</li>
+        <li><b>Showcase 分工要「并行」。</b>别等所有产物都定稿才开工：一边让 2–3 人搭故事线、练讲稿，另一边继续优化 poster、试音频 / 视频的锦上添花 —— 散场前大家手里都有活。</li>
+        <li><b>决策永远留给团队。</b>市场、创意、指标、阈值、视觉 —— AI 只给建议和默认值，拍板的是人。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">④ 和 AI 协作</div>
+      <ul>
+        <li><b>鼓励队员亲自和 AI 对话。</b>提问、选菜单、让 AI 改稿 —— 他们要带走的是这个能力，而不是一份现成文件。</li>
+        <li><b>先确认工具跑得动。</b>每关开始前确认命令 / 阶段能跑通；卡在工具上，比卡在创意上更亏。</li>
+        <li><b>随手记录。</b>每个决定当场落 YAML + RUN-LOG，散场时就是一份可回溯的方案；数据宁可用公开口径 + 标注 <code>Data as of</code>，也不编。</li>
+        <li><b>弹性调度。</b>需要就跳关 / 重投票 / 换市场 / 合并创意 —— 流程服务于产出，不是反过来。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">⑤ 散场前 · 锦上添花</div>
+      <ul>
+        <li><b>海报 3 风格随你选</b>：A · Matchday Roar（运动海报）· B · Supporter Passport（机票 / 护照风）· C · Midnight Minimal（极简黑）。在 pitch-deck 的海报页点按钮即可切换。</li>
+        <li><b>音频 / 视频 / 图片</b>：<code>prompt-pack.html</code> 里是现成 prompt，复制到对应工具即可 ——</li>
       </ul>
       <pre><code>歌（Suno）   Anthemic stadium football chant … "THE AWAY END — hear the nation sing!"
 视频（Runway） 30s hero film — a fan alone on his phone → a crew boards → a full away end roars…
 图（GPT）     flat poster, orange #FF6611 + midnight, a packed away section, no text…</code></pre>
-      <ul><li>生成后把文件拖回来，AI 会嵌入 deck 对应槽位。</li></ul>
+      <ul>
+        <li>生成后把文件拖回来，AI 会嵌入 deck 对应槽位。</li>
+        <li><b>散场前确认交付物</b>：<code>proposal.html</code>（含 poster + KPI + Go/No-Go）已生成 —— 这就是你们要交的方案。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">⑥ 现场速查</div>
+      <div class="cheat">
+        <div class="c"><b>PPT</b>全屏 <code>F</code>，翻页 <code>← →</code></div>
+        <div class="c"><b>海报</b>开 <code>poster-a/b/c.html</code>，A3 打印</div>
+        <div class="c"><b>提案</b>左侧栏可收缩，点导航看产物</div>
+      </div>
     </div>
   </section>
 
-  <section id="cheat">
-    <h2>8 · 小抄（现场速查）</h2>
-    <div class="cheat">
-      <div class="c"><b>PPT</b>全屏 <code>F</code>，翻页 <code>← →</code></div>
-      <div class="c"><b>海报</b>开 <code>poster-a/b/c.html</code>，A3 打印</div>
-      <div class="c"><b>提案</b>左侧栏可收缩，点导航看产物</div>
-    </div>
-  </section>
-
-  <footer>Ascentium Mini-Hackathon · 2026-10-13 深圳 · 110 人 · 10 组 × 11 人 · 45 分钟 · 人决策 + AI 干活</footer>
+  <footer>Ascentium Mini-Hackathon · 2026-10-13 深圳 · 112 人 · 8 组 × 14 人 · 50 分钟（40′ 产出 + 10′ Showcase 准备） · 人决策 + AI 干活</footer>
 
 </div>
 
