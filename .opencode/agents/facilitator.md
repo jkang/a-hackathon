@@ -11,6 +11,7 @@ tools:
   bash: true
   todo: true
   task: true
+  skill: true
 temperature: 0.3
 ---
 

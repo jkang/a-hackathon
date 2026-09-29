@@ -8,6 +8,7 @@ tools:
   grep: true
   bash: true
   write: true
+  skill: true
 temperature: 0.4
 ---
 
