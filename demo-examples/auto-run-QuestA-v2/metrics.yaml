@@ -1,11 +1,11 @@
 # Quest A · PROVE — runner auto-run (autopilot)
 quest: A
 victory_conditions:
-  - "400K tickets sold to SEA-based fans (~15% of inventory)"
-  - ">=85% avg attendance in sessions featuring SEA teams"
-  - "250K SEA visitors arriving in Qatar during Games week"
-  - "USD 40M merch + hospitality revenue from SEA fans"
-  - "500M social impressions across 6 SEA markets"
+  - "400K tickets sold to Asia-based fans (~15% of inventory)"
+  - ">=85% avg attendance in sessions featuring Asian teams"
+  - "250K Asian visitors arriving in Qatar during Games week"
+  - "USD 40M merch + hospitality revenue from Asian fans"
+  - "500M social impressions across 6 Asian markets"
 metrics:
   - name: "Crew sign-up rate"
     formula: "crew / Supporter Passport sign-ups / qualified visits"
@@ -21,13 +21,13 @@ metrics:
     threshold_no_go: ">USD 18"
   - name: "Creator reach (6 weeks)"
     formula: "sum of campaign impressions"
-    benchmark_ref: "VC = 500M impressions; SEA TikTok MAU = 460M (TikTok 2025)"
+    benchmark_ref: "VC = 500M impressions; TikTok MAU 460M in our first Asian markets (TikTok 2025)"
     target: "150M"
     threshold_go: ">=120M"
     threshold_no_go: "<60M"
   - name: "Group-booking ratio"
     formula: "orders with >=2 tickets / total orders"
-    benchmark_ref: "SEA fans travel as crews; ~4 in 5 group trips booked via an agent (worldmetrics 2026)"
+    benchmark_ref: "Asian fans travel as crews; ~4 in 5 group trips booked via an agent (worldmetrics 2026)"
     target: "45%"
     threshold_go: ">=35%"
     threshold_no_go: "<20%"

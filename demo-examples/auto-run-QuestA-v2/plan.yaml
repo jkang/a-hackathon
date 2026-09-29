@@ -3,7 +3,7 @@ quest: A
 doc_type: "Campaign Plan"
 selected_insights: [1, 2, 3]
 anchor:
-  segment: "The Away Crew — SEA Gen-Z & young Millennials (ID/TH)"
+  segment: "The Away Crew — Asia Gen-Z & young Millennials (ID/TH)"
   job: "travel with my crew and belong to a national moment"
   moment: "the creator-film drop / ticket-sale day"
   mechanic: "creator-led national away crews + a Supporter Passport that unlocks priority tickets and a fly-stay bundle"
@@ -12,9 +12,9 @@ scenario:
   - {moment: "The Drop", time: "18 months out", place: "phone — creator feed", event: "a creator films the away end and opens crew enrolment"}
   - {moment: "The Crew", time: "booking window", place: "crew group chat + Qatar Airways", event: "the crew books as one — ticket + flight + stay"}
   - {moment: "The Arrival", time: "Games week", place: "the away end, Khalifa Int'l Stadium", event: "a full, loud national away section"}
-hmw: "How might we turn 460M SEA short-video fans into organised away crews that fill Doha's stands — one market at a time?"
+hmw: "How might we turn 460M Asia short-video fans into organised away crews that fill Doha's stands — one market at a time?"
 ideas:
-  - {id: 1, name: "THE AWAY END", one_line: "creator squads recruit national away crews", insight: "3 — SEA is creator-led", mechanic: "creators recruit and lead national crews"}
+  - {id: 1, name: "THE AWAY END", one_line: "creator squads recruit national away crews", insight: "3 — Asia is creator-led", mechanic: "creators recruit and lead national crews"}
   - {id: 2, name: "THE SUPPORTER PASSPORT", one_line: "paid fan membership with priority tickets", insight: "6 — belonging beats browsing", mechanic: "membership unlocks priority ticket allocation"}
   - {id: 3, name: "FLY TOGETHER", one_line: "Qatar Airways fly-stay-ticket bundle", insight: "4/5 — visa-free hub, cost friction", mechanic: "one bundle folds ticket + flight + hotel"}
   - {id: 4, name: "THE FAMILY STAND", one_line: "Nov cool-season family bundles", insight: "4 — visa map + timing", mechanic: "family bundle in the holiday window"}
@@ -25,20 +25,20 @@ combination: "THE AWAY END (1) + THE SUPPORTER PASSPORT (2) + FLY TOGETHER (3)"
 concept:
   name: "THE AWAY END"
   slogan: "Book with your crew. Arrive as a nation."
-  proposition: "Creator-led national supporter clubs turn scattered SEA fandom into organised away crews — a Supporter Passport unlocks priority tickets, and a Qatar Airways fly-stay bundle removes visa, cost and logistics friction."
+  proposition: "Creator-led national supporter clubs turn scattered Asia fandom into organised away crews — a Supporter Passport unlocks priority tickets, and a Qatar Airways fly-stay bundle removes visa, cost and logistics friction."
   offer: "Away Crew pass — free to join; Supporter Passport (paid) = priority tickets + fly-stay bundle + crew community + merch"
 opportunity:
-  e1: "For SEA football-mad Gen-Z, THE AWAY END converts scattered, creator-led fandom into organised national away crews that book together."
-  e2: "The Away Crew (SEA Gen-Z 18-32) in Indonesia + Thailand, at the creator-film drop / ticket-sale day."
-  e3: "Demand does not appear by itself (Nagoya sold under 60% for big-stadium sports), and SEA fans won't travel alone — without a crew the decision stalls."
+  e1: "For Asia football-mad Gen-Z, THE AWAY END converts scattered, creator-led fandom into organised national away crews that book together."
+  e2: "The Away Crew (Asia Gen-Z 18-32) in Indonesia + Thailand, at the creator-film drop / ticket-sale day."
+  e3: "Demand does not appear by itself (Nagoya sold under 60% for big-stadium sports), and Asian fans won't travel alone — without a crew the decision stalls."
   e4: "Creator-led crews + a Supporter Passport + a Qatar Airways fly-stay bundle; guardrail = no over-promise on ticket inventory, transparent local-language pricing."
   e5: "A near-full, loud away section and a repeatable fan pipeline that can carry the full 400K-ticket Victory Condition."
-  value_breakdown: {scope: "Indonesia + Thailand", frequency: "3-month pilot, 4 recruitment waves", per_instance: "crew ticket + bundle margin per member", cumulative: "ladder to 400K SEA tickets + USD 40M merch/hospitality"}
+  value_breakdown: {scope: "Indonesia + Thailand", frequency: "3-month pilot, 4 recruitment waves", per_instance: "crew ticket + bundle margin per member", cumulative: "ladder to 400K Asia tickets + USD 40M merch/hospitality"}
 variants:
   A:
     name: "THE AWAY END"
     slogan: "Book with your crew. Arrive as a nation."
-    positioning: "For SEA Gen-Z fans who want a once-in-a-lifetime trip with their crew, Doha 2030 is the visa-free, close-haul Games — and unlike Nagoya, we recruit supporters into visible national away crews instead of waiting for demand."
+    positioning: "For Asia Gen-Z fans who want a once-in-a-lifetime trip with their crew, Doha 2030 is the visa-free, close-haul Games — and unlike Nagoya, we recruit supporters into visible national away crews instead of waiting for demand."
     offering: "campaign + Supporter Passport + crew bundle"
     mix: {product: "Supporter Passport + crew fly-stay-ticket bundle", price: "free tier + paid passport; bundle at transparent, tiered pricing", place: "TikTok/IG creator feeds; crew group chats; Qatar Airways + Discover Qatar; diaspora clubs", promotion: "creator-led recruitment in 4 waves; hero film; countdown; crew referral"}
     pilot:
@@ -58,7 +58,7 @@ variants:
   B:
     name: "FLY TOGETHER"
     slogan: "One bundle. The whole crew."
-    positioning: "For price-sensitive SEA and China families, Doha 2030 is the affordable year-end holiday — one bundle folds ticket, flight and hotel into a single, visa-light purchase."
+    positioning: "For price-sensitive Asia and China families, Doha 2030 is the affordable year-end holiday — one bundle folds ticket, flight and hotel into a single, visa-light purchase."
     offering: "fly-stay-ticket bundle"
     mix: {product: "fly-stay-ticket family/crew bundle", price: "discount-led, family-tier", place: "OTAs, travel agencies, Qatar Airways, Discover Qatar", promotion: "price-led OTA placement + parent creators"}
     pilot:
