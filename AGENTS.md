@@ -49,7 +49,7 @@
 │   ├── agent-reach/                   # 实时研究（insight 使用；CLI 需预装）
 │   ├── facilitation/                  # 共创引擎（协议库/节奏/话术/选项菜单/采集契约）
 │   ├── ascentium-brand/               # 品牌执行器（tokens.css + 规则 + brand-guideline.md）
-│   └── brainstorming/ using-superpowers/ verification-before-completion/ writing-plans/
+│   └── sub-skills/                 (per stage — e.g. insight/sub-skills/: agent-reach · business-research · swot-analysis)
 ├── agents/                            # facilitator.md（编排）· researcher.md（研究）
 ├── commands/                          # start · insight · plan · poster · prove · showcase · evaluate
 └── evaluation-rubric.md               # 方案评分卡（7 维度）
@@ -72,7 +72,7 @@ opencode 发现约定为**扁平** `skills/<name>/SKILL.md`；`agent-reach` / `p
 | `prove` | Campaign Metrics · Go/No-Go · Cost-Benefit · Data Analysis & Viz | `mvp-metrics-generator`、`data-visualizer-pro` |
 | `showcase` | Showcase Report Agent (AUTO) | `html-ppt-generator` |
 
-支撑技能：`ascentium-brand`（新建，品牌执行器）、`facilitation`（新建，共创引擎）、`agent-reach`（复用）、`superpowers`（复用）。
+支撑技能：`ascentium-brand`（品牌执行器）、`facilitation`（共创引擎）、`agent-reach`（实时研究）、`brainstorming`（plan 阶段发散子技能）。
 > Poster 归 Create 阶段（题卡 Create: Creative Concept · MVP Pilot Design · **Poster**），故独立成 `poster`；showcase 只**内嵌** poster，不重复产出。
 
 **明确弃用**：`persona-journey-designer`（产品 UX 口径）、`ai-roi-calculator`（AI 项目 ROI 口径）、`company-ai-maturity-research`（AI 就绪度口径）、`unified-report-dashboard`（过重）。
@@ -132,3 +132,9 @@ opencode 发现约定为**扁平** `skills/<name>/SKILL.md`；`agent-reach` / `p
 - 2026-09-28：insight 环节要求 **AI 主动用 `agent-reach` 搜真实数据/报告**，把事实蒸馏成「带数字的洞察选项」再让团队选（菜单必须有数据依据，非机械标签）。已更新 facilitation/insight/insight-method/DESIGN。
 - 2026-09-28：`toolkit/` 改名为项目运行时配置 **`.opencode/`**（opencode 项目级）。技能扁平化为 `skills/<name>/SKILL.md`；**命名一律去掉 `quest`**（skill: `insight`/`plan`/`poster`/`prove`/`showcase`；agent: `facilitator`/`researcher`；command: `/start` 等）；`agent-reach`/`poster` 平铺（逻辑归 insight/plan）。新增 `commands/`（7 个）与 `agents/`（facilitator · researcher）。
 - 2026-09-28：完成方案设计（DESIGN.md v2，人机共创版 + 弹性调度 + 全英文）；实现 `ascentium-brand` / `facilitation` / 4 个 `quest-*` / `facilitator` / README；Quest A 冒烟验证通过。
+- 2026-09-28：**四阶段技能 review + 重构**（营销口径统一 + 全英文 + 去无效文件）：
+  - **insight**：研究链 `agent-reach → business-research → audience-analysis → swot-analysis`；产出 **~6 条关键 insight → 团队选 2–3 条** 深挖做 plan；insight-brief 模板加 Key Insights 卡。
+  - **plan**：`brainstorming` 并入并改名 **`creative-concept`**（内嵌 HMW + 创意方法 → ~6 ideas → 选/综合）；删 `pol-probe-advisor`；**campaign plan 出 ≥2 套 A/B → 团队选**；`campaign-plan.html` 改为含两套 A/B；3 个 references（budget/marketing-plan/pilot-experiment）接线。
+  - **prove**：删 `creating-financial-models`（投资估值口径，无效）；`mvp-metrics-generator` 改名 **`campaign-metrics`**；成本收益由 `references/cost-benefit.md` 承担。
+  - **showcase**：删 `ref-palette-slide`（PPTX 口径）与 `html-ppt-generator`（冗余）；storyline/beat 表三处统一为模板权威版；**`proposal.html` 为统一报告**（整合所有 HTML，非 deck）。
+  - 全库 skills/agents/commands **英文**（仅 `brand-guideline.md` 源文件 + AGENTS/DESIGN 内部文档保留中文）。
