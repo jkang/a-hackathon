@@ -103,6 +103,16 @@ opencode 发现约定为**扁平** `skills/<name>/SKILL.md`；`agent-reach` / `p
 - 改动技能后，至少跑一次对应命题（Quest A / Quest B）的冒烟验证，确认链路可用。
 - 复制 / 移动类操作后，用 `find` 核对目标目录与 SKILL.md 完整性。
 
+### 5.6 文案措辞（business 口径 · 拒绝油腔滑调）
+- **一切 hackathon 相关文案一律用朴实、准确、专业的 business 语言。** 覆盖范围：`facilitator_guide.html`、题卡 / workshop 页、`README.md` / `DESIGN.md`、技能与命令正文（SKILL.md）、现场话术、示例产物文案。
+- **禁止**口语化、网络化、俏皮化、比喻化的措辞，例如（黑名单，非穷举）：
+  - 俚语 / 网感：`局里`、`上桌`、`整活`、`搞事情`、`拿捏`、`破防`、`上头`、`大招`
+  - 比喻化口语：`干重活`、`甩手掌柜`、`死胡同`、`拉进局里`、`手里都有活`、`够好`
+  - 语气过硬的口语指令：`别问`、`别等`、`绝不甩`、`卡住就降级`、`用嘴说出来`、`拍板`
+- **改用**（正例）：`参与其中` · `承担主要执行工作` · `推进` · `降低选择难度` · `帮助团队走出僵局` · `口头提醒` · `由团队决定` · `达到可用水平`。
+- **判断标准**：这句话能否原样放进一份交给客户或管理层的商业方案？不能就重写。
+- **例外**：机制 / 产品专有名词（如「菜单 Option Menu」「洞察 Insight」）与英文术语保持原样。
+
 ---
 
 ## 6. 进度与下一步
@@ -138,3 +148,6 @@ opencode 发现约定为**扁平** `skills/<name>/SKILL.md`；`agent-reach` / `p
   - **prove**：删 `creating-financial-models`（投资估值口径，无效）；`mvp-metrics-generator` 改名 **`campaign-metrics`**；成本收益由 `references/cost-benefit.md` 承担。
   - **showcase**：删 `ref-palette-slide`（PPTX 口径）与 `html-ppt-generator`（冗余）；storyline/beat 表三处统一为模板权威版；**`proposal.html` 为统一报告**（整合所有 HTML，非 deck）。
   - 全库 skills/agents/commands **英文**（仅 `brand-guideline.md` 源文件 + AGENTS/DESIGN 内部文档保留中文）。
+- 2026-09-29：**活动口径统一**：**112 人 = 8 组 × 14 人 · 每组 1 名 Facilitator（FACI-01~08）· 50 分钟（40′ Toolkit 产出 + 10′ Showcase 整理 / 形式 / 提交）**。同步 `AGENTS.md` / `DESIGN.md` / `Run Sheet.csv`。
+- 2026-09-29：`guide.html` 更名为 **`facilitator_guide.html`**；新增「Facilitator 核心职责」（4 条）+ 分类 `Facilitator Tips`（6 类）；`auto-run` 并入现场模式作为机动备用；§3 目录树按真实仓库重写。
+- 2026-09-29：**新增 §5.6 文案措辞规范**（business 口径，拒绝油腔滑调：`局里`/`干重活`/`死胡同`/`兜底`/`拍板` 等黑名单 + 正例 + 判断标准）；据此清理 `facilitator_guide.html` 全篇措辞。
