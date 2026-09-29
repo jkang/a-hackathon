@@ -35,28 +35,27 @@
 
 ```
 .opencode/
-├── README.md · DESIGN.md              # 文档
-├── skills/                            # 技能（扁平：一技能一目录 —— opencode 发现约定）
-│   ├── insight/                       # 洞察门 → insight-brief.html + insight.yaml
-│   │   └── sources/  business-research/ · swot-analysis/
-│   ├── plan/                          # 策划门 → campaign-plan.html + plan.yaml
-│   │   └── sources/  opportunity-definition/ · pol-probe-advisor/ · creating-financial-models/
-│   ├── poster/                        # Poster（Create 阶段）→ poster.html
-│   ├── prove/                         # 论证门 → proof.html + kpi-dashboard.html + metrics.yaml
-│   │   └── sources/  mvp-metrics-generator/ · data-visualizer-pro/
-│   ├── showcase/                      # 呈现门（AUTO）→ pitch-deck.html + prompt-pack.html（内嵌 poster）
-│   │   └── sources/  ref-palette-slide/ · html-ppt-generator/
-│   ├── agent-reach/                   # 实时研究（insight 使用；CLI 需预装）
+├── README.md · DESIGN.md              # 文档（Facilitator 手册 · 设计说明）
+├── evaluation-rubric.md               # 方案评分卡（7 维度）
+├── skills/                            # 技能：一技能一目录；opencode 递归发现 **/SKILL.md
+│   ├── insight/                       # 洞察门 → insight-brief.html
+│   │   └── sub-skills/  business-research · audience-analysis · swot-analysis
+│   ├── plan/                          # 策划门 → campaign-plan.html
+│   │   └── sub-skills/  creative-concept · opportunity-definition
+│   ├── poster/                        # Poster（Create 阶段，独立）→ poster-a/b/c.html + poster.html
+│   ├── prove/                         # 论证门 → proof.html（含 KPI 看板）
+│   │   └── sub-skills/  campaign-metrics · data-visualizer-pro
+│   ├── showcase/                      # 呈现门（AUTO）→ proposal / pitch-deck / prompt-pack（内嵌 poster）
+│   ├── agent-reach/                   # 实时研究（insight 调用；CLI 需预装）
 │   ├── facilitation/                  # 共创引擎（协议库/节奏/话术/选项菜单/采集契约）
-│   ├── ascentium-brand/               # 品牌执行器（tokens.css + 规则 + brand-guideline.md）
-│   └── sub-skills/                 (per stage — e.g. insight/sub-skills/: agent-reach · business-research · swot-analysis)
-├── agents/                            # facilitator.md（编排）· researcher.md（研究）
-├── commands/                          # start · insight · plan · poster · prove · showcase · evaluate
-└── evaluation-rubric.md               # 方案评分卡（7 维度）
+│   └── ascentium-brand/               # 品牌执行器（tokens.css + 规则 + brand-guideline.md）
+├── agents/                            # facilitator.md（编排）· runner.md（自动）· researcher.md（研究）
+├── commands/                          # start · insight · plan · poster · prove · showcase · evaluate · run
+└── package.json · node_modules/       # opencode 运行时（已 gitignore）
 ```
 
-每个技能含 `SKILL.md` + `references/` +（可选）`templates/`；`sources/` 仅作原料。
-opencode 发现约定为**扁平** `skills/<name>/SKILL.md`；`agent-reach` / `poster` 平铺（逻辑归 `insight` / `plan`）。命名**一律不带 `quest`**。
+每个技能含 `SKILL.md` + `references/` +（可选）`templates/` `scripts/`；子技能嵌在所属阶段的 `sub-skills/`。
+`poster` 与 `agent-reach` **平铺为顶层技能**（逻辑上归 `plan` / `insight`，被它们引用）。命名**一律不带 `quest`**。
 
 ---
 
@@ -128,16 +127,17 @@ opencode 发现约定为**扁平** `skills/<name>/SKILL.md`；`agent-reach` / `p
 2. 在真实设备上用 Quest A / Quest B 做一次端到端彩排（含 facilitator 台词与计时）。
 3. 视需要补充 output HTML 的打印/截图样式。
 
-**待办 · 命题修订（用户 2026-09-28 提出，回头更新 `quest-cards.html`）**
-- **Quest A 的市场范围要放宽**：`目标市场`从「Southeast Asia (SEA)」扩为**亚运会覆盖的国家范围（Asia-wide）**，且**明确包含 China**（不再排除中国大陆）。Mission 措辞相应从 "make Southeast Asia Doha's biggest away crowd" 调整为「亚运会参赛国家（含中国 + 东南亚）成为多哈最大客队」一类。
-- 影响面（更新命题卡时一并核对）：`quest-cards.html` 的 Quest A Scout Report / Mission / HWM / Deliverables 里的 SEA 表述；`toolkit` 里 Quest A 相关示例（insight/plan 的 segment 与 market 口径）如需同步。
+**已完成 · 命题修订（2026-09-29）**
+- **Quest A 市场范围已放宽为 Asia-wide**：Mission 改为「make Asia's away crowd Doha's biggest in Asian Games history」；Scout / HWM / KPI / pilot / 语言表一并调整。
+- 已同步文件：`quest-cards.html`、`index.html`、`ascentium-hackathon-standalone.html`、`ascentium-hackathon-standalone-zh.html`，以及 `.opencode` 内 Quest A 示例（insight-method / creative-methods / budget-model / pilot-experiment / metrics-method / cost-benefit / prove SKILL / DESIGN）。
+- **概念澄清（重要）**：**「参与者来自 SEA」≠「Quest 受众限于 SEA」**——参与地区与命题的目标市场是两个独立概念；每个 Quest 自行定义目标市场（Quest A = Asia-wide；Quest B = 全球）。
 
 ---
 
 ## 7. 变更记录
 
 - 2026-09-28：创建本文件；完成 toolkit 骨架与可复用技能复制。
-- 2026-09-28：登记 Quest A 市场范围修订（SEA → 亚运覆盖国家范围、含 China），待更新 `quest-cards.html`。
+- 2026-09-28：登记 Quest A 市场范围修订（SEA → 亚运覆盖国家范围），待更新 `quest-cards.html`。
 - 2026-09-28：facilitation 新增「选项菜单 Option Menu」choice-first 机制（AI 先出 6–8 候选、团队选择题、+1 自选），并同步更新 4 个 quest 技能的 HITL 流程、facilitator、DESIGN.md。
 - 2026-09-28：insight 环节要求 **AI 主动用 `agent-reach` 搜真实数据/报告**，把事实蒸馏成「带数字的洞察选项」再让团队选（菜单必须有数据依据，非机械标签）。已更新 facilitation/insight/insight-method/DESIGN。
 - 2026-09-28：`toolkit/` 改名为项目运行时配置 **`.opencode/`**（opencode 项目级）。技能扁平化为 `skills/<name>/SKILL.md`；**命名一律去掉 `quest`**（skill: `insight`/`plan`/`poster`/`prove`/`showcase`；agent: `facilitator`/`researcher`；command: `/start` 等）；`agent-reach`/`poster` 平铺（逻辑归 insight/plan）。新增 `commands/`（7 个）与 `agents/`（facilitator · researcher）。
@@ -151,3 +151,5 @@ opencode 发现约定为**扁平** `skills/<name>/SKILL.md`；`agent-reach` / `p
 - 2026-09-29：**活动口径统一**：**112 人 = 8 组 × 14 人 · 每组 1 名 Facilitator（FACI-01~08）· 50 分钟（40′ Toolkit 产出 + 10′ Showcase 整理 / 形式 / 提交）**。同步 `AGENTS.md` / `DESIGN.md` / `Run Sheet.csv`。
 - 2026-09-29：`guide.html` 更名为 **`facilitator_guide.html`**；新增「Facilitator 核心职责」（4 条）+ 分类 `Facilitator Tips`（6 类）；`auto-run` 并入现场模式作为机动备用；§3 目录树按真实仓库重写。
 - 2026-09-29：**新增 §5.6 文案措辞规范**（business 口径，拒绝油腔滑调：`局里`/`干重活`/`死胡同`/`兜底`/`拍板` 等黑名单 + 正例 + 判断标准）；据此清理 `facilitator_guide.html` 全篇措辞。
+- 2026-09-29：**目录结构对齐** —— `poster`（原 `plan/sub-skills/poster`）与 `agent-reach`（原 `insight/sub-skills/agent-reach`）**平铺为顶层技能** `skills/poster/` · `skills/agent-reach/`，与 AGENTS/DESIGN/README 的设计意图（「平铺，逻辑归 plan/insight」）一致；同步 AGENTS.md / README.md / DESIGN.md / facilitator_guide 四处目录树（并移除已废弃的 `sources/` 说法）。
+- 2026-09-29：**Quest A 市场口径 SEA → Asia-wide**；明确「参与者来自 SEA ≠ Quest 受众限于 SEA」；Quest B 保持全球定位。quest-cards / index / standalone(en+zh) / `.opencode` Quest A 示例全部同步。

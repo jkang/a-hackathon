@@ -140,15 +140,19 @@ The agenda is a **suggested happy path**. On any team signal, comply in one line
 ```
 .opencode/
 ├── skills/                     # loaded by opencode (recursive **/SKILL.md)
-│   ├── insight/  plan/  prove/  showcase/     # the 4 stage skills
-│   │   └── sub-skills/ …                       # their sub-skills (research, poster, metrics, …)
-│   ├── facilitator / …                         # (agents are separate)
-│   ├── facilitation/                           # the co-creation engine (protocols + option menu)
-│   ├── ascentium-brand/                        # brand executor (+ brand-guideline.md)
-│   ├── agent-reach/                            # live research
-│   └── sub-skills/                 (per stage — e.g. insight/sub-skills/: agent-reach · business-research · swot-analysis)
-├── agents/                     # facilitator.md · researcher.md
-├── commands/                   # start · insight · plan · poster · prove · showcase · evaluate
+│   ├── insight/                # stage skill
+│   │   └── sub-skills/         # business-research · audience-analysis · swot-analysis
+│   ├── plan/                   # stage skill
+│   │   └── sub-skills/         # creative-concept · opportunity-definition
+│   ├── poster/                 # Create-stage deliverable skill (poster-a/b/c.html)
+│   ├── prove/                  # stage skill
+│   │   └── sub-skills/         # campaign-metrics · data-visualizer-pro
+│   ├── showcase/               # AUTO stage skill (proposal / pitch-deck / prompt-pack)
+│   ├── agent-reach/            # live research (top-level)
+│   ├── facilitation/           # the co-creation engine (protocols + option menu)
+│   └── ascentium-brand/        # brand executor (+ brand-guideline.md)
+├── agents/                     # facilitator.md · runner.md · researcher.md
+├── commands/                   # start · insight · plan · poster · prove · showcase · evaluate · run
 ├── evaluation-rubric.md        # 7-dimension pitch scorecard
 ├── README.md                   # this manual
 └── DESIGN.md                   # full design spec

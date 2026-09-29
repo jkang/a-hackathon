@@ -2,7 +2,7 @@
 
 ## 1. Victory Conditions (from the card)
 
-**Quest A** — 400K tickets to SEA fans (~15%); ≥85% attendance in SEA-team sessions; 250K SEA visitors in Qatar during Games week; $40M merch + hospitality from SEA; 500M social impressions across 6 SEA markets.
+**Quest A** — 400K tickets to Asia fans (~15%); ≥85% attendance in Asian-team sessions; 250K Asian visitors in Qatar during Games week; $40M merch + hospitality from Asia; 500M social impressions across 6 priority Asian markets.
 
 **Quest B** — international visitor share 12% (from ~5%) → 1M+/yr; 1M members in 12 months (20% overseas, 30% repeat); $28M annual international licensing & merch; 10M followers (TikTok/IG/YouTube); non-ticket spend $6 → $15 per visitor.
 
@@ -21,7 +21,7 @@ Suggested candidates (team chooses/edits):
 | Reach | social impressions per market | organic follower growth |
 | Engagement | content saves/shares; waitlist sign-ups | content engagement; community joins |
 | Conversion | ticket hold → purchase rate | visitor → member conversion |
-| Outcome | SEA tickets sold / CAC | members acquired / merch sell-through |
+| Outcome | Asia tickets sold / CAC | members acquired / merch sell-through |
 | Economics | CAC vs LTV | acquisition cost vs member value |
 
 ## 3. Defending "no fixed numbers"

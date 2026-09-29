@@ -149,23 +149,25 @@
 ├── README.md                    # Facilitator 手册（人机契约 + 编排）
 ├── DESIGN.md                    # 设计说明
 ├── evaluation-rubric.md         # 方案评分卡（7 维度）
-├── skills/                      # 技能：&lt;stage&gt;/SKILL.md；子技能嵌在该阶段的 sub-skills/
+├── skills/                      # 技能：一技能一目录；opencode 递归发现 **/SKILL.md
 │   ├── insight/                 # 洞察门 → insight-brief.html
 │   │   ├── references/ · templates/
-│   │   └── sub-skills/          # agent-reach · business-research · audience-analysis · swot-analysis
+│   │   └── sub-skills/          # business-research · audience-analysis · swot-analysis
 │   ├── plan/                    # 策划门 → campaign-plan.html
 │   │   ├── references/ · templates/
-│   │   └── sub-skills/          # creative-concept · opportunity-definition · poster
+│   │   └── sub-skills/          # creative-concept · opportunity-definition
+│   ├── poster/                  # 海报（Create 阶段，独立）→ poster-a/b/c.html + poster.html
 │   ├── prove/                   # 论证门 → proof.html（含 KPI 看板）
 │   │   ├── references/ · templates/
 │   │   └── sub-skills/          # campaign-metrics · data-visualizer-pro
 │   ├── showcase/                # 呈现门（AUTO）→ proposal / pitch-deck / prompt-pack
 │   │   └── references/ · scripts/ · templates/
+│   ├── agent-reach/             # 实时研究（insight 调用；CLI 需预装）
 │   ├── facilitation/            # 共创引擎（协议 · 节奏 · 话术 · 选项菜单 · 采集契约）
 │   └── ascentium-brand/         # 品牌执行器（brand-guideline.md + tokens.css 等）
 ├── agents/                      # facilitator(编排) · runner(自动) · researcher(研究)
 └── commands/                    # /start /insight /plan /poster /prove /showcase /evaluate /run</pre>
-    <div class="note"><b>说明</b>：四阶段 = <code>insight → plan → prove → showcase</code>；<code>poster</code> 是 <code>plan</code> 的子技能（另有自己的 <code>/poster</code> 命令），<code>agent-reach</code> 是 <code>insight</code> 的子技能。打开该目录时，opencode 会递归加载所有 <code>SKILL.md</code>。<code>package.json</code> / <code>node_modules</code> 为运行时产物，已 gitignore。</div>
+    <div class="note"><b>说明</b>：四阶段 = <code>insight → plan → prove → showcase</code>；<code>poster</code> 与 <code>agent-reach</code> 平铺为顶层技能（逻辑上分属 <code>plan</code> / <code>insight</code>）。打开该目录时，opencode 会递归加载所有 <code>SKILL.md</code>。<code>package.json</code> / <code>node_modules</code> 为运行时产物，已 gitignore。</div>
   </section>
 
   <section id="usage">

@@ -4,7 +4,7 @@ Adapted from the PoL-probe idea: run a **small, honest, time-boxed test** to pro
 
 ## 1. The pilot framing (from the card)
 
-- **A**: USD 1.5M · 3 months · 2 SEA markets. Prove the campaign can one day put 400K SEA fans in Doha's stands.
+- **A**: USD 1.5M · 3 months · 2 Asian markets. Prove the campaign can one day put 400K Asian fans in Doha's stands.
 - **B**: USD 1.1M · 3 months · 2 overseas markets. Prove panda fandom can become a paying global membership.
 
 ## 2. The experiment plan

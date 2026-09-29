@@ -8,7 +8,7 @@
 
 ## 1. 背景与目标
 
-Ascentium AI Transformation Mini-hackathon（2026-10-13 · 深圳）：112 人 / 8 组 × 14 人，50 分钟实战（40′ 产出 + 10′ Showcase 准备），围绕 Quest A（2030 多哈亚运 SEA 门票营销）与 Quest B（成都熊猫基地全球化 IP）产出商业方案并 Showcase PK。
+Ascentium AI Transformation Mini-hackathon（2026-10-13 · 深圳）：112 人 / 8 组 × 14 人，50 分钟实战（40′ 产出 + 10′ Showcase 准备），围绕 Quest A（2030 多哈亚运会门票营销）与 Quest B（成都熊猫基地全球化 IP）产出商业方案并 Showcase PK。
 
 Toolkit 目标：让**每组 14 个人的创意与判断**在 50 分钟内被充分激发、投票、拼装成一套可路演的方案；AI 全程只做「主持 + 排版 + 脚手架」，**不替团队做创意/判断类决定**。
 
@@ -76,7 +76,7 @@ AI 给脚手架/问题  →  团队发散(人人出点子)  →  团队收敛(�
 
 | # | 交付物（A 原话 / B 原话） | 覆盖技能 | 人的决定 |
 |---|---|---|---|
-| 1 | Pilot **campaign** concept（2 SEA markets, 3mo）／Pilot **membership** design（2 overseas markets, 3mo） | `plan`（creative-concept → `offering`） | 大创意 + 会员设计 |
+| 1 | Pilot **campaign** concept（2 Asian markets, 3mo）／Pilot **membership** design（2 overseas markets, 3mo） | `plan`（creative-concept → `offering`） | 大创意 + 会员设计 |
 | 2 | Experiment plan & **measurement setup** | `plan`（`experiment.measurement_setup`）+ `prove` | 选市场 / 成功口径 |
 | 3 | Hero visual / poster ／ **Founding-member offer** + hero visual | `plan`（`offering.founding_offer`）+ **`poster`**（hero visual） | 视觉方向 |
 | 4 | **KPI dashboard mock**（仅 A 明列；B 由 measurement setup 隐含） | `prove`（dashboard） | 样例数字 |
@@ -331,26 +331,27 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 ```
 .opencode/
 ├── DESIGN.md · README.md            # 文档
-├── skills/                          # 技能（扁平：一技能一目录 —— opencode 发现约定）
+├── evaluation-rubric.md             # 方案评分卡
+├── skills/                          # 技能：一技能一目录；opencode 递归发现 **/SKILL.md
 │   ├── insight/                     # 洞察门
+│   │   └── sub-skills/  business-research · audience-analysis · swot-analysis
 │   ├── plan/                        # 策划门
-│   ├── poster/                      # 海报（Create 阶段）
+│   │   └── sub-skills/  creative-concept · opportunity-definition
+│   ├── poster/                      # 海报（Create 阶段，独立）
 │   ├── prove/                       # 论证门
-│   ├── showcase/                    # 呈现门
-│   ├── agent-reach/                 # 实时研究（insight 使用）
+│   │   └── sub-skills/  campaign-metrics · data-visualizer-pro
+│   ├── showcase/                    # 呈现门（AUTO）
+│   ├── agent-reach/                 # 实时研究（insight 调用）
 │   ├── facilitation/                # 共创引擎（含 option-menu）
-│   ├── ascentium-brand/             # 品牌执行器（tokens + 规则 + brand-guideline.md）
-│   └── sub-skills/                 (per stage — e.g. insight/sub-skills/: agent-reach · business-research · swot-analysis)
-├── agents/                          # facilitator.md · researcher.md
-├── commands/                        # start · insight · plan · poster · prove · showcase · evaluate
-└── evaluation-rubric.md             # 方案评分卡
+│   └── ascentium-brand/             # 品牌执行器（tokens + 规则 + brand-guideline.md）
+├── agents/                          # facilitator.md · runner.md · researcher.md
+└── commands/                        # start · insight · plan · poster · prove · showcase · evaluate · run
 ```
 
-> **opencode 发现约定 = 扁平** `skills/<name>/SKILL.md`。`agent-reach`、`poster` 作为同级技能平铺（逻辑上归 `insight` / `plan`，被它们引用）。
-> 命名约定：**技能/Agent/Command 名一律不带 `quest`**（skill: `insight`/`plan`/`poster`/`prove`/`showcase`；agent: `facilitator`/`researcher`；command: `/start` 等）。
+> **opencode 发现约定 = 递归 `**/SKILL.md`**。四阶段技能 `insight` / `plan` / `prove` / `showcase` 各自带 `sub-skills/`；`poster`、`agent-reach` **平铺为顶层技能**（逻辑上归 `plan` / `insight`，被它们引用）。
+> 命名约定：**技能/Agent/Command 名一律不带 `quest`**（skill: `insight`/`plan`/`poster`/`prove`/`showcase`；agent: `facilitator`/`runner`/`researcher`；command: `/start`、`/run` 等）。
 
-每个技能目录：`SKILL.md`（frontmatter `name` + `description`，**触发词全英文**）+ `references/` +（可选）`templates/`、`scripts/`。
-`*/sources/` 仅作原料，改写产物写到上级 SKILL.md / references/，不改 sources。
+每个技能目录：`SKILL.md`（frontmatter `name` + `description`，**触发词全英文**）+ `references/` +（可选）`templates/`、`scripts/`、`sub-skills/`。
 **语言约定（English-only）**：所有 SKILL.md 正文、references、templates、scripts 注释、YAML schema 字段、输出 HTML 文本，一律英文；中文字样仅在 `brand-guideline.md` 源文件与本 DESIGN.md / AGENTS.md 内部文档出现。
 
 ---

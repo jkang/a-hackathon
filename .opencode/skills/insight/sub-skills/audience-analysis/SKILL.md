@@ -19,7 +19,7 @@ The insight gate's counterpart to `business-research`: research the **audience**
 | Input | Required | Notes |
 |---|---|---|
 | Marketing objective | yes | what the campaign must achieve |
-| Market / region | yes | e.g. SEA + China, overseas markets |
+| Market / region | yes | e.g. Asia, overseas markets |
 | Org profile | recommended | from `business-research` (offer, assets) |
 | Audience data / trend reports | recommended | the user may supply; otherwise fetch via `agent-reach` |
 

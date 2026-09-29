@@ -26,7 +26,7 @@ roi         = (full_return − full_budget) / full_budget
 Worked example (Quest A):
 ```
 pilot validates: intent 3.2%, CAC $7.40, group ratio 41%
-full scale (18 mo, 6 SEA markets, USD 30M):
+full scale (18 mo, 6 priority Asian markets, USD 30M):
   tickets = 400K (Victory Condition) × ~$85 avg bundle value = $34M
   merch   = $40M (Victory Condition)
   return  = $34M + $40M = $74M

@@ -50,7 +50,7 @@ The AI must not pick them. Always keep the `+1 of our own` channel open.
 ```yaml
 quest: A | B
 victory_conditions:
-  - "400K tickets sold to SEA fans"          # from the card
+  - "400K tickets sold to Asia fans"          # from the card
 metrics:
   - name: "Pilot ticket conversion rate"
     formula: "tickets / qualified site visits"

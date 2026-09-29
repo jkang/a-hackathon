@@ -52,7 +52,7 @@ One natural-language scene prompt. Structure:
 
 Example:
 ```
-Cinematic 5-second shot: a 22-year-old SEA fan in a jersey scrolls TikTok at midnight
+Cinematic 5-second shot: a 22-year-old fan in a jersey scrolls TikTok at midnight
 in a dim Jakarta bedroom, the phone glows vivid orange with the words "THE AWAY END",
 he looks up with rising excitement, camera whip-pans to a packed stadium roaring under
 floodlights — warm orange grade, handheld energy, 16:9

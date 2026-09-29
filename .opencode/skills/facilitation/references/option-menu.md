@@ -16,9 +16,9 @@
 
 A menu is only as good as its options. **Generic labels are worthless.** Before drafting the menu — especially in the **insight gate** — the AI **gathers real facts** via `agent-reach` (web / social / reports) plus the quest card, and turns them into **data-backed mini-insights**.
 
-- ❌ "Group travel" → ✅ "SEA crew/group travel is rising — ~X% of SEA travellers now book in groups (source)".
-- ❌ "Fans like creators" → ✅ "Creator-led content out-converts brand ads in SEA (TikTok SEA benchmark)".
-- ❌ "Visa is easier" → ✅ "Qatar visa-free for SEA passports since YYYY → removes the #1 booking barrier".
+- ❌ "Group travel" → ✅ "Asia crew/group travel is rising — ~X% of Asian travellers now book in groups (source)".
+- ❌ "Fans like creators" → ✅ "Creator-led content out-converts brand ads in Asia (TikTok Asia benchmark)".
+- ❌ "Visa is easier" → ✅ "Qatar visa-free for many Asian passports since YYYY → removes the #1 booking barrier".
 
 Each option should carry a **fact, number, or named behavior**; cite the source in the option (or keep it in the capture) so it is defensible.
 

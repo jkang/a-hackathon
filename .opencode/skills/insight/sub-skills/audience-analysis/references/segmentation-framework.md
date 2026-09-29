@@ -46,7 +46,7 @@ Pick **one primary basis** (you may layer a secondary). State it explicitly — 
 Do not fake precision. Use a simple funnel:
 
 ```
-Universe      = total addressable audience (e.g. SEA fans, global panda fans)   [source]
+Universe      = total addressable audience (e.g. Asia fans, global panda fans)   [source]
 Reachable     = those you can actually reach with the channels               [% × source]
 Serviceable   = those the offer fits (market, budget, intent)                 [% × assumption]
 ```

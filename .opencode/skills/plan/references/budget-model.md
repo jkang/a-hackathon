@@ -6,7 +6,7 @@ The card says: **"Budget allocation is part of the solution."** The team allocat
 
 | Quest | Total approved | MVP unlock | Pilot window | Scope |
 |---|---|---|---|---|
-| A | USD 30M | 5% = **USD 1.5M** | 3 months | 2 SEA markets |
+| A | USD 30M | 5% = **USD 1.5M** | 3 months | 2 Asian markets |
 | B | USD 11M | 10% = **USD 1.1M** | 3 months | 2 overseas markets |
 
 ## 2. Allocation categories (starter menu)

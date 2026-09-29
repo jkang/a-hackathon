@@ -71,7 +71,7 @@ A **tension**, not a summary. It connects audience's job ↔ market gap ↔ tren
 > "[Audience] already [feels/does X], yet [barrier/gap] — so [mission] at [moment]."
 
 Examples:
-- A: *"SEA Gen-Z already travel in crews and follow creators, yet no Asian Games host has ever activated them — so make SEA Doha's loudest away crowd, starting at the moment they see a creator film."*
+- A: *"Asia's Gen-Z already travel in crews and follow creators, yet no Asian Games host has ever activated them — so make Asia Doha's loudest away crowd, starting at the moment they see a creator film."*
 - B: *"Millions already love pandas like their own, yet there's no way to belong from afar — so turn that love into a global membership, at the moment a panda clip goes viral."*
 
 ## Anti-patterns
