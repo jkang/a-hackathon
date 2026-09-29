@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facilitator Guide · Ascentium Mini-Hackathon</title>
+<style>
+  :root{
+    --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
+    --orange-1:#FFF0E7; --orange-2:#FFD1B8; --teal:#077069; --teal-1:#CDE2E1;
+    --line:#E4E8E7; --bg:#F7F6F4; --card:#FFFFFF; --mut:#5A6663;
+    --accent:#FF6611; --accent-tint:#FFF0E7; --accent-line:#FFD1B8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:"Poppins","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+       background:var(--bg);color:var(--ascentium-midnight);-webkit-font-smoothing:antialiased;line-height:1.6;}
+  a{color:var(--accent);}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);
+          border-bottom:1px solid var(--line);}
+  .topbar .in{width:85%;margin:0 auto;padding:12px 0;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .topbar .logo{font-weight:800;font-size:18px;} .topbar .logo span{color:var(--accent);}
+  .topbar nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto;}
+  .topbar nav a{font-size:12px;font-weight:600;color:var(--mut);text-decoration:none;padding:5px 10px;border-radius:999px;}
+  .topbar nav a:hover{background:var(--accent-tint);color:var(--accent);}
+
+  .page{width:85%;margin:0 auto;padding:34px 0 70px;}
+
+  header.hero{border-bottom:3px solid var(--accent);padding-bottom:18px;}
+  header.hero .tag{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);}
+  header.hero h1{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-top:6px;}
+  header.hero p{font-size:14px;color:var(--mut);margin-top:8px;}
+
+  section{margin-top:32px;scroll-margin-top:70px;}
+  .eyebrow{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);}
+  h2{font-size:22px;font-weight:800;letter-spacing:-.01em;margin-top:4px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:14px;}
+  ul{margin:10px 0 0 0;padding-left:18px;}
+  li{margin:5px 0;font-size:14px;}
+  p{font-size:14px;}
+
+  pre{background:#0F1514;color:#E8ECEB;border-radius:10px;padding:14px 16px;overflow:auto;
+      font-family:"SF Mono",Consolas,Menlo,monospace;font-size:12.5px;line-height:1.6;margin-top:12px;}
+  code{font-family:"SF Mono",Consolas,Menlo,monospace;font-size:12.5px;background:var(--accent-tint);
+       color:#B24000;border-radius:5px;padding:1px 6px;}
+  pre code{background:none;color:inherit;padding:0;}
+
+  /* flow */
+  .flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;margin-top:14px;}
+  .flow .node{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;min-width:140px;flex:1;}
+  .flow .node.start{background:var(--ascentium-midnight);color:#fff;border-color:var(--ascentium-midnight);flex:0 0 auto;}
+  .flow .node.start .n{color:var(--accent);}
+  .flow .node .n{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);}
+  .flow .node .t{font-size:14px;font-weight:800;margin-top:4px;}
+  .flow .node .d{font-size:11.5px;color:var(--mut);margin-top:3px;}
+  .flow .node.start .d{color:#9AA5A2;}
+  .flow .arrow{align-self:center;color:var(--accent);font-weight:800;font-size:16px;}
+
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:12px;background:#fff;border-radius:12px;overflow:hidden;}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);background:#FAFBFA;}
+  td b{color:var(--ascentium-midnight);}
+
+  /* example embed */
+  .demo{margin-top:16px;}
+  .demo .cap{display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:700;color:var(--ascentium-midnight);margin-bottom:8px;}
+  .demo .cap .file{color:var(--mut);font-weight:500;}
+  .demo .cap a{margin-left:auto;font-size:12px;text-decoration:none;border:1px solid var(--accent-line);
+        background:var(--accent-tint);border-radius:999px;padding:4px 12px;}
+  .demo iframe{width:100%;border:1px solid var(--line);border-radius:12px;background:#fff;display:block;}
+
+  .note{background:var(--accent-tint);border-left:5px solid var(--accent);border-radius:10px;
+        padding:12px 16px;font-size:13px;margin-top:14px;}
+  .steps{counter-reset:s;list-style:none;padding-left:0;margin-top:10px;}
+  .steps li{counter-increment:s;position:relative;padding:6px 0 6px 34px;font-size:14px;}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:999px;
+        background:var(--accent);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+  .cheat{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px;}
+  .cheat .c{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:13px;}
+  .cheat .c b{display:block;color:var(--accent);font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;}
+  footer{margin-top:40px;border-top:1px dashed var(--line);padding-top:14px;font-size:11px;color:#9AA5A2;}
+
+  @media (max-width:760px){
+    .cheat{grid-template-columns:1fr;}
+    header.hero h1{font-size:26px;}
+  }
+  @media print{ .topbar{display:none;} .demo iframe{display:none;} .demo .cap a{display:none;} }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="in">
+    <div class="logo">Ascentium<span>.</span></div>
+    <nav>
+      <a href="#what">是什么</a><a href="#tree">目录</a><a href="#usage">用法</a>
+      <a href="#install">安装</a><a href="#facilitator">现场</a><a href="#autorun">auto-run</a>
+      <a href="#showcase">加分</a><a href="#cheat">小抄</a>
+    </nav>
+  </div>
+</div>
+
+<div class="page">
+
+  <header class="hero" id="what">
+    <div class="tag">Facilitator Guide</div>
+    <h1>Ascentium Mini-Hackathon</h1>
+    <p>5 分钟读懂，45 分钟带队跑完。营销商业方案挑战 —— 不是 AI 产品挑战。</p>
+  </header>
+
+  <section>
+    <h2>1 · 这是什么</h2>
+    <div class="card">
+      <ul>
+        <li><b>Workshop</b>：45 分钟商业方案共创，110 人 / 10 组 × 11 人，产出方案并 Showcase PK。</li>
+        <li><b>两道题</b>：Quest A —— Doha 2030 门票营销（把东南亚变成最大"客队"）；Quest B —— 成都熊猫基地全球化 IP。</li>
+        <li><b>Toolkit 的作用</b>：Facilitator 控场 + 小组做决策 + AI 干重活（研究 / 起草 / 算账 / 做图）。营销口径，开箱即用。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="tree">
+    <h2>2 · 目录结构</h2>
+    <pre>.opencode/
+├── skills/      insight · plan(含 poster) · prove · showcase   ← 四阶段
+│                + facilitation · ascentium-brand · agent-reach（支撑）
+├── agents/      facilitator(编排) · runner(自动) · researcher(研究)
+├── commands/    /start /insight /plan /poster /prove /showcase /evaluate /run
+└── evaluation-rubric.md</pre>
+  </section>
+
+  <section id="usage">
+    <h2>3 · 用法总览</h2>
+    <div class="flow">
+      <div class="node start"><div class="n">/start</div><div class="t">开场</div></div>
+      <div class="arrow">→</div>
+      <div class="node"><div class="n">① insight</div><div class="t">研究 → 洞察</div><div class="d">数据 → 选 2–3 条</div></div>
+      <div class="arrow">→</div>
+      <div class="node"><div class="n">② plan</div><div class="t">创意 → A/B 方案</div><div class="d">选组合 + 选 A/B</div></div>
+      <div class="arrow">→</div>
+      <div class="node"><div class="n">③ poster</div><div class="t">3 种风格</div><div class="d">选 1 种</div></div>
+      <div class="arrow">→</div>
+      <div class="node"><div class="n">④ prove</div><div class="t">指标 → 裁决</div><div class="d">Go/No-Go</div></div>
+      <div class="arrow">→</div>
+      <div class="node"><div class="n">⑤ showcase</div><div class="t">提案 + PPT</div><div class="d">+ 提示词</div></div>
+    </div>
+
+    <table>
+      <thead><tr><th>阶段</th><th>目标</th><th>产出</th></tr></thead>
+      <tbody>
+        <tr><td><b>insight</b></td><td>把题库 + 真实数据变成洞察</td><td><code>insight.yaml</code> + <code>insight-brief.html</code></td></tr>
+        <tr><td><b>plan</b></td><td>发散创意 → 定 A/B 方案</td><td><code>plan.yaml</code> + <code>campaign-plan.html</code></td></tr>
+        <tr><td><b>poster</b></td><td>出 3 种海报风格供选</td><td><code>poster-a/b/c.html</code> + <code>poster.html</code></td></tr>
+        <tr><td><b>prove</b></td><td>定指标 → 算 ROI、出 Go/No-Go</td><td><code>metrics.yaml</code> + <code>proof.html</code>（含 KPI 看板）</td></tr>
+        <tr><td><b>showcase</b></td><td>组装提案 / PPT / 提示词</td><td><code>proposal.html</code> + <code>pitch-deck.html</code> + <code>prompt-pack.html</code></td></tr>
+      </tbody>
+    </table>
+
+    <div class="note"><b>每门都是三步</b>：AI 出菜单 → 团队选 → AI 落地。</div>
+
+    <h2 style="margin-top:26px;">产出示例（Quest A · 直接可读）</h2>
+
+    <div class="demo">
+      <div class="cap"><span>提案</span><span class="file">demo-examples/auto-run-QuestA-v2/proposal.html</span><a href="demo-examples/auto-run-QuestA-v2/proposal.html" target="_blank">打开 ↗</a></div>
+      <iframe data-auto src="demo-examples/auto-run-QuestA-v2/proposal.html" height="560" title="Proposal"></iframe>
+    </div>
+
+    <div class="demo">
+      <div class="cap"><span>PPT</span><span class="file">demo-examples/auto-run-QuestA-v2/pitch-deck.html · 11 页 / 5 分钟</span><a href="demo-examples/auto-run-QuestA-v2/pitch-deck.html" target="_blank">打开 ↗</a></div>
+      <iframe data-fixed src="demo-examples/auto-run-QuestA-v2/pitch-deck.html" height="460" title="Pitch Deck"></iframe>
+    </div>
+
+    <div class="demo">
+      <div class="cap"><span>海报</span><span class="file">demo-examples/auto-run-QuestA-v2/poster.html · 3 风格可切换</span><a href="demo-examples/auto-run-QuestA-v2/poster.html" target="_blank">打开 ↗</a></div>
+      <iframe data-auto src="demo-examples/auto-run-QuestA-v2/poster.html" height="640" title="Poster"></iframe>
+    </div>
+  </section>
+
+  <section id="install">
+    <h2>4 · 安装配置（一次性）</h2>
+    <div class="card">
+      <ol class="steps">
+        <li>装好 opencode；按 <code>install.md</code> 装 <code>agent-reach</code>（实时研究 / 搜数据用）。</li>
+        <li>首次跑 <code>/start</code> 自检环境。</li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="facilitator">
+    <h2>5 · 现场 facilitator 模式（以 Quest A 为例）</h2>
+    <div class="card">
+      <ol class="steps">
+        <li><b><code>/start</code> 开场</b>：读 Quest A 卡，讲清规则。</li>
+        <li><b><code>/insight</code> 洞察</b>：AI 用 agent-reach 搜真实数据 → 出 ~6 条带数字的洞察 → <b>团队选 2–3 条</b>。</li>
+        <li><b><code>/plan</code> 策划</b>：AI 出 ~6 个创意 → 团队选/综合 → 出 <b>A/B 两套方案</b> → <b>团队选 A 或 B</b>。</li>
+        <li><b><code>/poster</code> 海报</b>：AI 出 <b>3 种风格</b> → 团队选 1 种。</li>
+        <li><b><code>/prove</code> 论证</b>：团队定 3–5 个指标 + 阈值（AI 出建议）→ AI 算 ROI、出 Go/No-Go。</li>
+        <li><b><code>/showcase</code> 呈现</b>：团队选 storyline → AI 生成提案 + PPT + 提示词。</li>
+      </ol>
+      <div class="note">所有决策写进 <code>insight.yaml / plan.yaml / metrics.yaml</code> + <code>RUN-LOG.md</code>，可回溯。</div>
+    </div>
+  </section>
+
+  <section id="autorun">
+    <h2>6 · auto-run（紧急 / 兜底）</h2>
+    <div class="card">
+      <ul>
+        <li>触发：<code>/run</code>（runner agent），Quest 默认 A。</li>
+        <li>产出同上；<b>默认决策需人工复核后再对外</b>。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="showcase">
+    <h2>7 · 给 Showcase 加分（Quest A 示例）</h2>
+    <div class="card">
+      <ul>
+        <li><b>海报 3 风格</b>：A · Matchday Roar（运动海报）· B · Supporter Passport（机票/护照风）· C · Midnight Minimal（极简黑）。在 pitch-deck 的海报页点按钮切换选择。</li>
+        <li><b>音频 / 视频 / 图片</b>：<code>prompt-pack.html</code> 里是现成 prompt，复制到对应工具即可——</li>
+      </ul>
+      <pre><code>歌（Suno）   Anthemic stadium football chant … "THE AWAY END — hear the nation sing!"
+视频（Runway） 30s hero film — a fan alone on his phone → a crew boards → a full away end roars…
+图（GPT）     flat poster, orange #FF6611 + midnight, a packed away section, no text…</code></pre>
+      <ul><li>生成后把文件拖回来，AI 会嵌入 deck 对应槽位。</li></ul>
+    </div>
+  </section>
+
+  <section id="cheat">
+    <h2>8 · 小抄（现场速查）</h2>
+    <div class="cheat">
+      <div class="c"><b>PPT</b>全屏 <code>F</code>，翻页 <code>← →</code></div>
+      <div class="c"><b>海报</b>开 <code>poster-a/b/c.html</code>，A3 打印</div>
+      <div class="c"><b>提案</b>左侧栏可收缩，点导航看产物</div>
+    </div>
+  </section>
+
+  <footer>Ascentium Mini-Hackathon · 2026-10-13 深圳 · 110 人 · 10 组 × 11 人 · 45 分钟 · 人决策 + AI 干活</footer>
+
+</div>
+
+<script>
+(function(){
+  // Auto-fit the embedded example iframes to their content height (srcdoc-free, same-origin file://).
+  function fit(f){
+    try{
+      var d = f.contentDocument || (f.contentWindow && f.contentWindow.document);
+      if(!d) return;
+      var h = Math.max(d.documentElement ? d.documentElement.scrollHeight : 0,
+                       d.body ? d.body.scrollHeight : 0);
+      if(h > 120) f.style.height = Math.min(h + 6, 900) + 'px';
+    }catch(e){ /* file:// cross-document guard — keep the fallback height */ }
+  }
+  Array.prototype.slice.call(document.querySelectorAll('iframe')).forEach(function(f){
+    f.addEventListener('load', function(){ fit(f); });
+  });
+  window.addEventListener('load', function(){
+    Array.prototype.slice.call(document.querySelectorAll('iframe')).forEach(fit);
+  });
+})();
+</script>
+</body>
+</html>

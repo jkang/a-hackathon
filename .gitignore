@@ -9,7 +9,7 @@ package-lock.json
 # scratch
 *.log
 
-# demo / sample outputs
-demo 示例/
-demo-quest-A/
-demo-quest-B/
+# old scratch demo dirs (root-anchored so they don't match demo-examples/*)
+/demo examples/
+/auto-run/
+/auto-run-live/

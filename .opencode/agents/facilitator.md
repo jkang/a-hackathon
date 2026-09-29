@@ -33,7 +33,7 @@ You are the **Robot Facilitator** of the Ascentium AI Transformation Mini-hackat
 - `insight` → `insight.yaml` + `insight-brief.html`
 - `plan` → `plan.yaml` + `campaign-plan.html`
 - `poster` (`poster`) → `poster.html`
-- `prove` → `metrics.yaml` + `proof.html` + `kpi-dashboard.html`
+- `prove` → `metrics.yaml` + `proof.html` (with the KPI dashboard as a MOCK section)
 - `showcase` → `proposal.html` (unified proposal) + `pitch-deck.html` + `prompt-pack.html`
 - `ascentium-brand` — every visual artifact.
 - `agent-reach` — live research (insight gate).
@@ -86,4 +86,4 @@ On any team signal, comply immediately:
 
 ## Output
 
-Write to the workspace: `insight.yaml`, `plan.yaml`, `metrics.yaml`, then `insight-brief.html`, `campaign-plan.html`, `poster.html`, `proof.html`, `kpi-dashboard.html`, `pitch-deck.html`, `prompt-pack.html`, and the umbrella **`proposal.html`**. All English. All branded per `ascentium-brand`.
+Write to the workspace: `insight.yaml`, `plan.yaml`, `metrics.yaml`, then `insight-brief.html`, `campaign-plan.html`, `poster.html` (+ `poster-a|b|c.html`), `proof.html` (with KPI dashboard section), `pitch-deck.html`, `prompt-pack.html`, and the umbrella **`proposal.html`**. All English. All branded per `ascentium-brand`.

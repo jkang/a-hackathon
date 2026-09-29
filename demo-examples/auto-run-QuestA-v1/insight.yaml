@@ -1,0 +1,51 @@
+# Quest A · INSIGHT (runner autopilot — auto-run-live)
+quest: A
+client: "OCA — Doha 2030 Ticketing & Fan Engagement Unit"
+mission: "Make Southeast Asia Doha's biggest 'away crowd' in Asian Games history."
+org_profile:
+  assets:
+    - "Visa-free entry for SEA passports (Qatar + SEA reciprocal/waiver corridor)"
+    - "Qatar Airways + Hamad Int'l world-class stopover hub"
+    - "39 venues, 54 sports; QNV 2030 tourism-diversification KPI (6M visitors/yr by 2030)"
+    - "18-month runway (May 2029 – Oct 2030)"
+  constraints:
+    - "MVP budget USD 1.5M (5% of USD 30M) · 3 months · 2 SEA pilot markets"
+    - "SEA never activated as an away crowd by any Asian Games host"
+    - "Works in Bahasa, Thai, Vietnamese, Tagalog & English (no single SEA language)"
+benchmark:
+  gold_standard: "Hangzhou 2022 — 3.05M tickets, ¥610M ($84M) revenue, 92% attendance, 290K peak day, ¥760M merch."
+  cautionary_tale: "Nagoya 2026 — 2.75M planned, ~22% sold at T-14 days; demand never manufactured; football/baseball seats empty."
+  arena: "Doha 2030 — Nov 4–19 2030; 54 sports; SEA is the youngest, most mobile-first fan base in Asia, left unmined."
+market:
+  trends:
+    - {trend: "SEA outbound is booming", why_it_matters: "Thailand 13.06M outbound (+11.4% YoY, ~$15.5B spend); Vietnam fastest-growing destination (+20.4% in 2025, 17.5% above 2019); ASEAN projected 201M arrivals by 2030."}
+    - {trend: "Creator trust > ads in SEA", why_it_matters: "Short-video is SEA's discovery + trust layer; creators drive ticket decisions, not banners."}
+    - {trend: "The Gulf is the new aspiration destination", why_it_matters: "Doha Golden Week bookings +440% YoY; visa-free entry + Qatar Airways hub removes the #1 booking barrier."}
+  truths:
+    - {author: "field", text: "Demand does not appear by itself — it must be manufactured market by market."}
+    - {author: "field", text: "Fans travel as crews and families, not solo — bundles beat single tickets."}
+    - {author: "card", text: "Visa-free entry + a hub airport removes the #1 booking barrier."}
+segments:
+  - {name: "First-Timers", who: "SEA Gen-Z, 18–26, mobile-first, football/badminton fans (Indonesia · Vietnam)", job_functional: "book a once-in-a-lifetime trip", job_social: "belong to a crew", job_emotional: "awe + 'I was there'", barrier: "cost + first-time travel confidence", trigger: "creator film + crew invite"}
+  - {name: "Family Travellers", who: "SEA families, school-holiday, mid-income (Thailand · Malaysia)", job_functional: "plan a memorable family trip", job_social: "a trip the kids remember", job_emotional: "togetherness", barrier: "Nov timing + kid logistics", trigger: "cool-season + visa-free pitch"}
+  - {name: "Diaspora Crews", who: "SEA workers across the Gulf (Qatar · UAE · KSA)", job_functional: "get tickets + time off", job_social: "stand for the flag", job_emotional: "national pride", barrier: "time off / logistics", trigger: "team-qualification news"}
+moment_of_truth: {when: "ticket-sale day", where: "phone / creator feed", event: "the creator film that turns a viewer into a crew member"}
+clusters:
+  - {theme: "Manufacture demand", items: ["creator-led crews", "scarcity drops", "visible away section"]}
+  - {theme: "Remove friction", items: ["visa-free", "Fly Together bundle", "one-tap booking"]}
+  - {theme: "Belonging", items: ["national crews", "branded stand", "UGC moment"]}
+swot:
+  strengths: ["Visa-free + Qatar Airways hub", "18-month runway", "proven SEA outbound demand (13.06M Thai outbound)"]
+  weaknesses: ["SEA never activated by a Games host", "no existing fan pipeline", "MVP budget small ($1.5M)"]
+  opportunities: ["SEA outbound boom (Vietnam +20.4%)", "SEA short-video creator economy", "Nov cool-season window", "Gulf aspiration trend (+440% Doha bookings)"]
+  threats: ["Nagoya-style under-demand (22%)", "price competition from other destinations", "multi-language cost (5 languages)"]
+key_insights:
+  - {id: 1, text: "SEA outbound is booming — Thailand 13.06M travellers (+11.4%), Vietnam +20.4% — demand exists but no host has aimed it at Doha.", evidence: "Thailand record outbound 2025; Vietnam exceeds 2019 by 17.5%", source: "nationthailand.com / ASEAN Outlook 2025"}
+  - {id: 2, text: "The Gulf is SEA's next aspiration destination — Doha Golden Week bookings +440% YoY, visa-free + Qatar Airways hub.", evidence: "Golden Week 2025 booking surge", source: "manageria.biz / scio.gov.cn"}
+  - {id: 3, text: "Hangzhou proved a 92%-full, ¥610M Games is possible; Nagoya's 22% shows demand must be manufactured.", evidence: "3.05M tickets, 92% attendance vs 22% sold at T-14", source: "news.cgtn.com / ezhejiang.gov.cn"}
+  - {id: 4, text: "Creator trust > ads in SEA; short-video is the discovery + trust layer.", evidence: "SEA short-video-first media behaviour", source: "field / TikTok SEA"}
+  - {id: 5, text: "Visa-free entry + Qatar Airways hub removes the #1 booking barrier.", evidence: "Qatar reciprocal visa-free + hub", source: "quest card"}
+  - {id: 6, text: "Fans travel as crews/families, not solo — bundles beat single tickets.", evidence: "group-booking behaviour", source: "field insight"}
+selected_insights: [1, 3, 4]
+seed_insight: "SEA's fans are already leaving home in record numbers — but no Asian Games host has ever aimed that energy at Doha. Nagoya waited for demand and got 22%; Hangzhou manufactured it and got 92%. The 5% MVP must manufacture Doha's demand, market by market, through creators."
+source_note: "Live research via agent-reach (Exa + Jina Reader) · Scout Report · Data as of 2026-09"

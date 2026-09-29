@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insight Brief · Quest A · OCA Doha 2030</title>
+<style>
+  :root{
+    --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
+    --orange-1:#FFF0E7; --orange-2:#FFD1B8; --orange-3:#FFA370;
+    --teal:#077069; --teal-1:#CDE2E1; --teal-3:#398D87;
+    --sky:#1877F2; --sky-1:#BDD5EF;
+    --line:#E4E8E7; --bg:#F7F6F4; --card:#FFFFFF; --mut:#5A6663;
+    --accent: var(--ascentium-orange);
+    --accent-tint: var(--orange-1);
+    --accent-line: var(--orange-2);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"Poppins","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+       background:var(--bg);color:var(--ascentium-midnight);-webkit-font-smoothing:antialiased;}
+  .page{max-width:960px;margin:0 auto;padding:40px 28px 56px;}
+  .brandbar{display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--accent);padding-bottom:14px;}
+  .brandbar .logo{font-weight:700;font-size:20px;letter-spacing:-.01em;}
+  .brandbar .logo span{color:var(--accent);}
+  .brandbar .tag{font-size:12px;font-weight:600;color:var(--mut);letter-spacing:.14em;text-transform:uppercase;}
+  h1{font-size:34px;font-weight:800;line-height:1.15;margin-top:22px;letter-spacing:-.01em;}
+  .client{margin-top:8px;font-size:13px;color:var(--mut);font-weight:500;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+  .card h2{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;}
+  .card ul{list-style:none;}
+  .card li{font-size:13.5px;line-height:1.6;padding:4px 0 4px 14px;position:relative;}
+  .card li::before{content:"▸";position:absolute;left:0;color:var(--accent);}
+  .wide{grid-column:1 / -1;}
+  .bench{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:4px;}
+  .bench .b{border-radius:10px;padding:12px 14px;border:1px solid var(--line);}
+  .bench .gold{background:#F7ECD2;border-color:#EAD9AC;}
+  .bench .red{background:#FBE4E1;border-color:#F0C4BE;}
+  .bench .sky{background:var(--sky-1);border-color:#A9C6EA;}
+  .bench .bt{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;}
+  .bench .gold .bt{color:#B98A1D;} .bench .red .bt{color:#C0392B;} .bench .sky .bt{color:var(--sky);}
+  .bench p{font-size:12px;line-height:1.55;}
+
+  .trends{display:grid;gap:10px;}
+  .trend{border-radius:10px;background:var(--bg);border:1px solid var(--line);padding:11px 14px;}
+  .trend .t{font-size:13px;font-weight:700;color:var(--ascentium-midnight);}
+  .trend .w{font-size:12px;color:var(--mut);margin-top:3px;line-height:1.5;}
+
+  .segments{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .seg{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card);}
+  .seg .name{font-size:15px;font-weight:700;color:var(--accent);}
+  .seg .who{font-size:11px;color:var(--mut);margin-top:2px;line-height:1.5;}
+  .seg .job{font-size:12.5px;margin-top:9px;line-height:1.5;color:var(--ascentium-midnight);}
+  .seg .job b{color:var(--accent);}
+  .seg .row{font-size:11.5px;margin-top:7px;line-height:1.5;color:#3B4442;}
+  .seg .row b{color:var(--ascentium-midnight);}
+
+  .moment{background:var(--accent);color:#fff;border-radius:12px;padding:16px 20px;margin-top:16px;}
+  .moment .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.85;}
+  .moment .txt{font-size:15px;font-weight:700;margin-top:6px;line-height:1.5;}
+
+  .truths{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
+  .chip{font-size:12px;line-height:1.4;background:var(--accent-tint);color:var(--accent);
+        border:1px solid var(--accent-line);border-radius:999px;padding:6px 12px;}
+  .clusters{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+  .cluster{font-size:11.5px;font-weight:700;background:var(--ascentium-midnight);color:#fff;border-radius:8px;padding:6px 12px;}
+  .seed{margin-top:26px;background:var(--accent-tint);border-left:6px solid var(--accent);border-radius:12px;padding:20px 24px;}
+  .seed .lbl{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
+  .seed p{font-size:19px;font-weight:600;line-height:1.5;margin-top:8px;}
+  .kinsights{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
+  .kin{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card);position:relative;}
+  .kin .id{font-size:10px;font-weight:800;letter-spacing:.08em;color:var(--accent);}
+  .kin .t{font-size:13.5px;font-weight:600;line-height:1.5;margin-top:5px;padding-right:60px;}
+  .kin .ev{font-size:11px;color:var(--mut);margin-top:7px;line-height:1.45;}
+  .kin.sel{border:2px solid var(--accent);background:var(--accent-tint);}
+  .kin.sel::after{content:"SELECTED";position:absolute;top:12px;right:14px;font-size:9px;font-weight:800;letter-spacing:.1em;color:var(--accent);}
+  footer{margin-top:26px;border-top:1px dashed var(--line);padding-top:12px;font-size:10.5px;color:#9AA5A2;line-height:1.6;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="brandbar">
+    <div class="logo">Ascentium<span>.</span></div>
+    <div class="tag">Insight Brief · Quest A</div>
+  </div>
+
+  <h1>Make Southeast Asia Doha's biggest "away crowd" in Asian Games history.</h1>
+  <div class="client">Client · OCA — Doha 2030 Ticketing &amp; Fan Engagement Unit &nbsp;|&nbsp; Quest A &nbsp;|&nbsp; Data as of 2026-09-29 &nbsp;|&nbsp; runner · autopilot</div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Scout Summary</h2>
+      <ul>
+        <li><b>Gold standard — Hangzhou 2022/23:</b> 3.05M tickets, RMB 610M (~USD 83.5M) ticket revenue, ~90% attendance, RMB 5.3B market development, RMB 700M licensed merch (mascots = 70%).</li>
+        <li><b>Cautionary tale — Aichi-Nagoya 2026:</b> planned 2.75M tickets, only ~700–800K sold by late Aug; &lt;60% sold for football + 7 other big-stadium sports, while badminton/fencing topped 90%.</li>
+        <li><b>Your arena — Doha 2030:</b> 4–19 Nov 2030; visa-free for CN/ID/TH/MY/SG (not PH/VN); World-Cup-proven venues, hotels and airlift.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>Org / IP Profile</h2>
+      <ul>
+        <li><b>Assets:</b> visa-free entry for most target markets; Qatar Airways + Hamad Int'l hub (170+ destinations); World-Cup-proven venues; 18-month runway; National Vision 2030 tourism backing.</li>
+        <li><b>Constraints:</b> MVP budget USD 1.5M (5% of USD 30M); SEA never activated by a Games host; <b>date risk</b> — OCA proposes moving Doha 2030 → 2031.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Market Trends</h2>
+      <div class="trends">
+        <div class="trend"><div class="t">SEA outbound at an all-time high</div><div class="w">Thailand 13.06M outbound (2025, +11.4%, record); Indonesia 8.95M (2024, +19.0%) — the demand engine exists.</div></div>
+        <div class="trend"><div class="t">SEA is the world's most mobile-first fan base</div><div class="w">TikTok 460M MAU across SEA (ID 160M, VN 70M, TH 50M); 74% of SEA adults are football fans.</div></div>
+        <div class="trend"><div class="t">Doha has already proved it can host the world</div><div class="w">Qatar 2022: 1.4M international visitors, 3.18M tickets, 96.3% attendance — venue + airlift de-risked.</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Benchmark</h2>
+      <div class="bench" style="grid-template-columns:1fr;gap:8px;">
+        <div class="b gold"><div class="bt">Gold Standard</div><p>Hangzhou 2022/23 — 3.05M tickets, RMB 610M revenue, ~90% attendance, RMB 5.3B market development.</p></div>
+        <div class="b red"><div class="bt">Cautionary Tale</div><p>Aichi-Nagoya 2026 — demand never manufactured; &lt;60% sold for football &amp; 7 other big-stadium sports.</p></div>
+        <div class="b sky"><div class="bt">Your Arena</div><p>Doha 2030 — SEA's 13.06M Thai + 8.95M Indonesian travellers, all visa-free; Nagoya left this market unmined.</p></div>
+      </div>
+    </div>
+
+    <div class="card wide">
+      <h2>Audience Segments — who they are &amp; the job they hire</h2>
+      <div class="segments">
+        <div class="seg">
+          <div class="name">The Away Crew</div>
+          <div class="who">SEA Gen-Z &amp; young Millennials, 18–32, football- and short-video-first (ID/TH/VN)</div>
+          <div class="job"><b>Job:</b> travel with my crew and belong to a national moment</div>
+          <div class="row"><b>Barrier:</b> cost + who-to-go-with</div>
+          <div class="row"><b>Trigger:</b> a creator my crew trusts films the away end</div>
+        </div>
+        <div class="seg">
+          <div class="name">The Family Stand</div>
+          <div class="who">SEA + China families, school-holiday travellers</div>
+          <div class="job"><b>Job:</b> a once-in-a-decade family trip</div>
+          <div class="row"><b>Barrier:</b> Nov timing unknown + visa/hotel confidence</div>
+          <div class="row"><b>Trigger:</b> cool-season + visa-free + a family bundle</div>
+        </div>
+        <div class="seg">
+          <div class="name">The Gulf Crew</div>
+          <div class="who">SEA diaspora working across the Gulf (Qatar/UAE/KSA)</div>
+          <div class="job"><b>Job:</b> see my nation play, close to home</div>
+          <div class="row"><b>Barrier:</b> time off + ticket access</div>
+          <div class="row"><b>Trigger:</b> team draw + crew invite</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card wide">
+      <h2>Market Truths — from the research</h2>
+      <div class="truths">
+        <span class="chip">Demand does not appear by itself — Nagoya planned 2.75M and sold &lt;30%</span>
+        <span class="chip">SEA fans book as crews and families — never solo</span>
+        <span class="chip">Visa-free status, not desire, decides who can travel</span>
+      </div>
+      <div class="clusters">
+        <span class="cluster">Demand exists</span>
+        <span class="cluster">Distribution = creators</span>
+        <span class="cluster">Friction = logistics</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="moment">
+    <div class="lbl">Moment of Truth</div>
+    <div class="txt">Ticket-sale day / the creator-film drop · phone — TikTok &amp; IG creator feed · a trusted creator films the away end and invites the crew</div>
+  </div>
+
+  <div class="seed">
+    <div class="lbl">Key Insights · AI-drafted from org + trends + audience + SWOT</div>
+    <p>Auto-selected <b>2–3</b> to deep-dive in the plan: "Doha's biggest away crowd won't be bought with ads — it will be recruited, crew by crew, by the creators SEA fans already trust."</p>
+  </div>
+
+  <div class="kinsights">
+    <div class="kin sel"><div class="id">INSIGHT 01</div><div class="t">SEA outbound is at a record high, but no Games host has ever aimed it at Doha.</div><div class="ev">Thailand 13.06M outbound in 2025 (+11.4%); Indonesia 8.95M in 2024 (+19.0%) — Nation Thailand 2026 / BPS 2025</div></div>
+    <div class="kin sel"><div class="id">INSIGHT 02</div><div class="t">Demand must be manufactured — and it fails by sport: Nagoya sold &lt;60% for big-stadium sports while badminton topped 90%.</div><div class="ev">Aichi-Nagoya 2026: &lt;60% sold for 8 sports incl. football — Kyodo News 2026-09-25</div></div>
+    <div class="kin sel"><div class="id">INSIGHT 03</div><div class="t">SEA is the most mobile-first, creator-trusting fan base on earth — 460M TikTok MAU, 74% football fandom.</div><div class="ev">TikTok Newsroom 2025; Nielsen via Zakgt 2025</div></div>
+    <div class="kin"><div class="id">INSIGHT 04</div><div class="t">Qatar's visa-free map — not desire — decides the addressable market: CN/ID/TH/MY/SG in; PH/VN need a Hayya e-visa.</div><div class="ev">Visit Qatar visa policy 2026-08</div></div>
+    <div class="kin"><div class="id">INSIGHT 05</div><div class="t">Doha already proved it can fill a stadium with the world — 96.3% attendance at Qatar 2022.</div><div class="ev">FIFA Annual Report 2022; Gulf Business 2022</div></div>
+    <div class="kin"><div class="id">INSIGHT 06</div><div class="t">Belonging beats browsing: paid supporter clubs and early group booking convert fandom into ticket priority.</div><div class="ev">England Supporters Travel Club; worldmetrics 2026</div></div>
+  </div>
+
+  <footer>
+    Sources: Quest Card Scout Report (Hangzhou 2023 OCA briefing; Xinhua/Caixin on Aichi-Nagoya 2026; OCA Doha 2030 progress report) + live research via agent-reach (Nation Thailand, Kyodo News, TikTok Newsroom, FIFA Annual Report 2022, Visit Qatar, Xinhua). Data as of 2026-09-29. Generated by the Ascentium Hackathon toolkit — runner autopilot.
+  </footer>
+
+</div>
+</body>
+</html>

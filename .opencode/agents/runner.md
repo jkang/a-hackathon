@@ -47,6 +47,6 @@ At each menu, pick the option that best **fits the Victory Conditions** and is *
 
 Write to the workspace (e.g. an `auto-run/` folder):
 
-`insight.yaml` · `plan.yaml` · `metrics.yaml` · `insight-brief.html` · `campaign-plan.html` (A/B) · `poster.html` · `proof.html` · `kpi-dashboard.html` · `pitch-deck.html` · `prompt-pack.html` · **`proposal.html`** (unified report) · **`RUN-LOG.md`**.
+`insight.yaml` · `plan.yaml` · `metrics.yaml` · `insight-brief.html` · `campaign-plan.html` (A/B) · `poster.html` (+ `poster-a|b|c.html`) · `proof.html` (with KPI dashboard section) · `pitch-deck.html` · `prompt-pack.html` · **`proposal.html`** (unified report) · **`RUN-LOG.md`**.
 
 All English, Ascentium-branded, single-file HTML. Every auto-decision is logged in `RUN-LOG.md` with a one-line reason.

@@ -35,9 +35,15 @@ The AI must not pick them. Always keep the `+1 of our own` channel open.
 
 ## Output
 
-- `proof.html` — metrics + Go/No-Go + cost-benefit summary.
-- `kpi-dashboard.html` — the KPI dashboard **mock** (deliverable #4; Quest A explicit, Quest B implied).
+- `proof.html` — **one proof page** that binds the whole gate, in this order:
+  1. Victory Conditions
+  2. Sub-Metrics &amp; thresholds (definition table, benchmark-defended)
+  3. Go/No-Go rule
+  4. **KPI Dashboard (MOCK)** — the board as it will look in-flight (tiles + progress vs Go + weekly trajectory + read)
+  5. Cost-Benefit &amp; verdict
 - `metrics.yaml` — structured capture.
+
+> The KPI dashboard is **not** a separate artifact anymore — it is a `MOCK` section inside `proof.html` (the definition table shows the rules; the dashboard shows the same metrics running with sample data; the cost-benefit lands the verdict last).
 
 ### metrics.yaml schema
 
@@ -62,8 +68,7 @@ cost_benefit:
 
 ## Assemble
 
-- **proof.html** — victory conditions, the 3–5 metrics table (with benchmark refs and thresholds), a simple Go/No-Go rule, and the cost-benefit verdict.
-- **kpi-dashboard.html** — a mock board with KPI tiles + one trend line, built with `data-visualizer-pro` (manual-entry path — the team types numbers; no CSV needed).
+- **proof.html** — a single page in this order: victory conditions → the 3–5 metrics table (with benchmark refs and thresholds) → Go/No-Go rule → the **mock KPI dashboard** (tiles + progress bars vs Go + weekly trajectory, labelled `MOCK`) → the cost-benefit verdict. The dashboard section is built with `data-visualizer-pro` (manual-entry path — the team types numbers; no CSV needed).
 - Use `ascentium-brand`.
 
 ## Methodology anchors

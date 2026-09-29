@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- STORYLINE: classic | hero | reveal | demo | trailer (set on <body data-storyline>) -->
-<title>{{DECK_TITLE}} · Pitch Deck · {{QUEST}}</title>
+<title>THE AWAY END · Pitch Deck · Quest A</title>
 <style>
   :root{
     --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
@@ -53,8 +52,6 @@
   .dark h2{color:#fff;} .dark .beat{color:var(--accent);} .dark p.lead{color:#CDD4D2;}
   .dark .logo{color:#fff;} .dark .nav .dot{background:#3A4140;} .dark .nav .dot.on{background:var(--accent);}
   .dark .pgnum,.dark .hint{color:#8A9492;}
-
-  /* hero (title / poster reveal) */
   .hero{background:var(--accent);color:#fff;}
   .hero .logo{color:#fff;} .hero .logo span{color:#fff;}
   .hero .beat{color:#fff;opacity:.85;}
@@ -76,34 +73,16 @@
   .media-hint{border:2px dashed var(--accent-line);background:var(--accent-tint);color:var(--accent);
               border-radius:12px;padding:12px 18px;font-size:12.5px;font-weight:700;text-align:center;max-width:560px;}
   .media-hint small{display:block;font-weight:500;color:var(--mut);margin-top:4px;font-size:11px;}
-
-  /* storyboard (6 frames) */
   .frames{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;}
-  .frame{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card, #fff);}
+  .frame{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;}
   .frame .bar{height:26px;background:var(--accent);display:flex;align-items:center;padding:0 12px;color:#fff;font-size:11px;font-weight:800;letter-spacing:.1em;}
   .frame .body{padding:12px 14px;min-height:96px;}
   .frame .body .t{font-size:14px;font-weight:700;color:var(--ascentium-midnight);line-height:1.3;}
   .frame .body .d{font-size:11.5px;color:#3B4442;margin-top:5px;line-height:1.5;}
-
-  /* prototype (phone screens) */
-  .phones{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px;}
-  .phone{width:100%;max-width:190px;margin:0 auto;border-radius:20px;border:2px solid var(--ascentium-midnight);
-         background:#fff;overflow:hidden;box-shadow:0 10px 24px rgba(0,0,0,.14);}
-  .phone .scr{background:var(--accent);color:#fff;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;}
-  .phone .body{padding:12px;display:grid;gap:6px;}
-  .phone .row{height:22px;border-radius:5px;background:#EEF1F0;}
-  .phone .row.accent{background:var(--accent);}
-  .phone .row.w70{width:70%;}
-  .phone .cap{font-size:11px;font-weight:700;text-align:center;margin-top:9px;color:var(--ascentium-midnight);}
-
-  /* lyric sheet */
   .lyric{margin-top:20px;background:var(--ascentium-midnight);color:#fff;border-radius:14px;padding:24px 30px;max-width:820px;}
   .lyric .hook{font-size:22px;font-weight:800;color:var(--accent);margin-bottom:12px;}
   .lyric .line{font-size:14px;line-height:1.7;color:#CDD4D2;}
-  .lyric .line b{color:#fff;}
   .lyric .tag{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-top:12px;}
-
-  /* budget + proof bars */
   .budget{margin-top:22px;display:grid;gap:10px;}
   .brow{display:grid;grid-template-columns:210px 1fr 90px;align-items:center;gap:14px;font-size:12.5px;}
   .brow .nm{font-weight:600;}
@@ -137,8 +116,6 @@
   .moment-band{background:var(--accent);color:#fff;border-radius:12px;padding:16px 20px;margin-top:16px;}
   .moment-band .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.85;}
   .moment-band .txt{font-size:15px;font-weight:700;margin-top:6px;}
-
-  /* strategy: positioning + 4Ps quadrant */
   .posband{background:var(--ascentium-midnight);color:#fff;border-radius:12px;padding:16px 20px;margin-top:14px;font-size:14.5px;font-weight:600;line-height:1.5;}
   .posband b{color:var(--accent-tint);}
   .quad{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
@@ -147,8 +124,6 @@
   .quad .q .v{font-size:12.5px;margin-top:6px;line-height:1.5;color:#28302E;}
   .pills{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;}
   .pill{font-size:11.5px;font-weight:600;background:var(--accent-tint);border:1px solid var(--accent-line);color:var(--accent);border-radius:999px;padding:4px 12px;}
-
-  /* moments: scenario timeline */
   .timeline{display:flex;margin-top:30px;}
   .moment{flex:1;position:relative;padding:0 10px;text-align:center;}
   .moment::before{content:"";position:absolute;top:76px;left:0;right:0;height:3px;background:var(--accent);opacity:.25;}
@@ -160,8 +135,6 @@
   .moment .t{font-size:11px;font-weight:800;color:var(--accent);margin-top:10px;letter-spacing:.08em;text-transform:uppercase;}
   .moment .p{font-size:13px;font-weight:700;margin-top:4px;color:var(--ascentium-midnight);}
   .moment .e{font-size:11.5px;color:#3B4442;margin-top:4px;line-height:1.5;}
-
-  /* experiment: treatment vs control */
   .exp{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px;}
   .exp .box{border-radius:12px;padding:16px 18px;}
   .exp .treat{background:var(--accent-tint);border:1px solid var(--accent-line);}
@@ -170,8 +143,6 @@
   .exp .ctrl .h{color:var(--mut);}
   .exp .v{font-size:13px;margin-top:6px;line-height:1.55;color:#28302E;}
   .hypo{margin-top:14px;background:var(--ascentium-midnight);color:#fff;border-radius:10px;padding:14px 18px;font-size:13.5px;font-weight:600;line-height:1.5;}
-
-  /* funnel */
   .funnel{display:flex;flex-direction:column;align-items:center;gap:7px;margin-top:22px;}
   .fstage{color:#fff;font-weight:700;font-size:13px;text-align:center;padding:11px 0;border-radius:9px;}
   .fstage .n{display:block;font-size:17px;font-weight:800;margin-bottom:2px;}
@@ -179,8 +150,6 @@
   .f2{width:78%;background:#575B5B;}
   .f3{width:58%;background:var(--accent);}
   .f4{width:40%;background:var(--teal);}
-
-  /* insight trends + audience segments + offer */
   .trends{display:grid;gap:8px;margin-top:16px;}
   .trend{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:#fff;}
   .trend .t{font-size:13px;font-weight:700;color:var(--ascentium-midnight);}
@@ -198,11 +167,8 @@
   .ocard .t{font-size:14px;font-weight:800;color:var(--accent);}
   .ocard .d{font-size:12px;margin-top:6px;line-height:1.5;color:#28302E;}
   .found{background:var(--accent);color:#fff;border-radius:12px;padding:13px 18px;margin-top:16px;font-size:13.5px;font-weight:700;line-height:1.5;}
-  .found:empty{display:none;}
   .anchorband{background:var(--accent-tint);border-left:6px solid var(--accent);border-radius:10px;padding:13px 18px;margin-top:14px;font-size:14px;font-weight:600;line-height:1.5;}
   .anchorband b{color:var(--accent);}
-
-  /* context: scout summary + org profile + truths */
   .twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;}
   .box{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff;}
   .box .h{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px;}
@@ -214,8 +180,6 @@
   .chip{font-size:11px;line-height:1.3;background:var(--accent-tint);color:var(--accent);border:1px solid var(--accent-line);border-radius:999px;padding:4px 10px;}
   .clusters{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
   .cluster{font-size:11px;font-weight:700;background:var(--ascentium-midnight);color:#fff;border-radius:8px;padding:4px 11px;}
-
-  /* illustrations */
   .illo{display:none;}
   body[data-quest="A"] .illo-a{display:block;}
   body[data-quest="B"] .illo-b{display:block;}
@@ -243,194 +207,108 @@
   .posterpick .pnote{font-size:11px;color:var(--mut);line-height:1.5;margin-top:2px;}
 </style>
 </head>
-<body data-storyline="{{STORYLINE}}" data-quest="{{QUEST}}" data-poster="{{INCLUDE_POSTER}}">
+<body data-storyline="hero" data-quest="A" data-poster="yes">
 
-<!-- Inline flat-illustration symbols (brand palette · no external assets) -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <!-- STADIUM (Quest A) -->
   <symbol id="illo-stadium" viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice">
     <rect width="480" height="360" fill="#FFF6EC"/>
-    <circle cx="66" cy="74" r="11" fill="#FF6611"/>
-    <circle cx="416" cy="96" r="8" fill="#077069"/>
-    <path d="M120 44 l20 11 -20 11z" fill="#077069"/>
-    <path d="M356 44 l-20 11 20 11z" fill="#FF6611"/>
+    <circle cx="66" cy="74" r="11" fill="#FF6611"/><circle cx="416" cy="96" r="8" fill="#077069"/>
+    <path d="M120 44 l20 11 -20 11z" fill="#077069"/><path d="M356 44 l-20 11 20 11z" fill="#FF6611"/>
     <circle cx="250" cy="40" r="6" fill="#0F5D57"/>
-    <!-- floodlight left -->
-    <rect x="98" y="132" width="9" height="122" fill="#0F5D57"/>
-    <rect x="70" y="104" width="64" height="36" rx="6" fill="#077069"/>
+    <rect x="98" y="132" width="9" height="122" fill="#0F5D57"/><rect x="70" y="104" width="64" height="36" rx="6" fill="#077069"/>
     <g fill="#FFF6EC"><circle cx="85" cy="115" r="4"/><circle cx="102" cy="115" r="4"/><circle cx="119" cy="115" r="4"/><circle cx="85" cy="130" r="4"/><circle cx="102" cy="130" r="4"/><circle cx="119" cy="130" r="4"/></g>
-    <path d="M64 104 l-16 -18 7 -4 17 15z" fill="#FF6611"/>
-    <path d="M140 104 l16 -18 -7 -4 -17 15z" fill="#FF6611"/>
-    <!-- floodlight right -->
-    <rect x="373" y="132" width="9" height="122" fill="#0F5D57"/>
-    <rect x="346" y="104" width="64" height="36" rx="6" fill="#077069"/>
+    <path d="M64 104 l-16 -18 7 -4 17 15z" fill="#FF6611"/><path d="M140 104 l16 -18 -7 -4 -17 15z" fill="#FF6611"/>
+    <rect x="373" y="132" width="9" height="122" fill="#0F5D57"/><rect x="346" y="104" width="64" height="36" rx="6" fill="#077069"/>
     <g fill="#FFF6EC"><circle cx="361" cy="115" r="4"/><circle cx="378" cy="115" r="4"/><circle cx="395" cy="115" r="4"/><circle cx="361" cy="130" r="4"/><circle cx="378" cy="130" r="4"/><circle cx="395" cy="130" r="4"/></g>
-    <path d="M340 104 l-16 -18 7 -4 17 15z" fill="#FF6611"/>
-    <path d="M416 104 l16 -18 -7 -4 -17 15z" fill="#FF6611"/>
-    <!-- dome -->
+    <path d="M340 104 l-16 -18 7 -4 17 15z" fill="#FF6611"/><path d="M416 104 l16 -18 -7 -4 -17 15z" fill="#FF6611"/>
     <path d="M112 176 Q240 104 368 176 Z" fill="#0F5D57"/>
-    <ellipse cx="240" cy="176" rx="128" ry="28" fill="#077069"/>
-    <ellipse cx="240" cy="176" rx="128" ry="28" fill="none" stroke="#FFF6EC" stroke-width="5"/>
-    <!-- facade -->
+    <ellipse cx="240" cy="176" rx="128" ry="28" fill="#077069"/><ellipse cx="240" cy="176" rx="128" ry="28" fill="none" stroke="#FFF6EC" stroke-width="5"/>
     <path d="M112 176 Q240 206 368 176 L354 268 Q240 298 126 268 Z" fill="#0F5D57"/>
     <path d="M112 176 Q240 206 368 176" fill="none" stroke="#FFF6EC" stroke-width="6"/>
-    <g fill="#FF6611">
-      <rect x="150" y="196" width="15" height="60" transform="skewY(5)"/>
-      <rect x="196" y="200" width="15" height="66" transform="skewY(4)"/>
-      <rect x="269" y="200" width="15" height="66" transform="skewY(-4)"/>
-      <rect x="315" y="196" width="15" height="60" transform="skewY(-5)"/>
-    </g>
+    <g fill="#FF6611"><rect x="150" y="196" width="15" height="60" transform="skewY(5)"/><rect x="196" y="200" width="15" height="66" transform="skewY(4)"/><rect x="269" y="200" width="15" height="66" transform="skewY(-4)"/><rect x="315" y="196" width="15" height="60" transform="skewY(-5)"/></g>
     <rect x="216" y="236" width="48" height="42" rx="4" fill="#FFF6EC"/>
-    <!-- ground + path -->
-    <path d="M126 300 Q240 276 354 300 L400 360 L80 360 Z" fill="#CDE2E1"/>
-    <path d="M210 300 L270 300 L300 360 L180 360 Z" fill="#FFF6EC"/>
-    <!-- trees -->
-    <ellipse cx="70" cy="250" rx="26" ry="20" fill="#077069"/>
-    <ellipse cx="410" cy="246" rx="24" ry="18" fill="#077069"/>
-    <!-- tickets -->
+    <path d="M126 300 Q240 276 354 300 L400 360 L80 360 Z" fill="#CDE2E1"/><path d="M210 300 L270 300 L300 360 L180 360 Z" fill="#FFF6EC"/>
+    <ellipse cx="70" cy="250" rx="26" ry="20" fill="#077069"/><ellipse cx="410" cy="246" rx="24" ry="18" fill="#077069"/>
     <g transform="rotate(-20 250 78)"><rect x="214" y="58" width="76" height="38" rx="7" fill="#FF6611"/><line x1="248" y1="64" x2="248" y2="90" stroke="#FFF6EC" stroke-width="3" stroke-dasharray="4 4"/></g>
     <g transform="rotate(16 130 110)"><rect x="96" y="92" width="66" height="34" rx="7" fill="#FF6611"/><line x1="125" y1="97" x2="125" y2="121" stroke="#FFF6EC" stroke-width="3" stroke-dasharray="4 4"/></g>
     <g transform="rotate(-12 366 120)"><rect x="332" y="102" width="66" height="34" rx="7" fill="#FF6611"/><line x1="361" y1="107" x2="361" y2="131" stroke="#FFF6EC" stroke-width="3" stroke-dasharray="4 4"/></g>
   </symbol>
-  <!-- PANDA (Quest B) -->
-  <symbol id="illo-panda" viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice">
-    <rect width="480" height="360" fill="#FFF6EC"/>
-    <!-- bamboo -->
-    <g>
-      <rect x="70" y="60" width="20" height="260" rx="8" fill="#077069"/>
-      <rect x="70" y="140" width="20" height="6" fill="#FFF6EC"/>
-      <rect x="70" y="220" width="20" height="6" fill="#FFF6EC"/>
-      <path d="M90 120 q40 -18 62 6 q-40 14 -62 -6z" fill="#398D87"/>
-      <path d="M70 190 q-42 -16 -64 8 q42 12 64 -8z" fill="#398D87"/>
-      <rect x="390" y="80" width="20" height="240" rx="8" fill="#077069"/>
-      <rect x="390" y="160" width="20" height="6" fill="#FFF6EC"/>
-      <path d="M390 150 q-42 -18 -66 6 q42 14 66 -6z" fill="#398D87"/>
-      <path d="M410 220 q42 -16 66 8 q-42 12 -66 -8z" fill="#398D87"/>
-    </g>
-    <!-- hearts -->
-    <g fill="#FF6611">
-      <path d="M300 70 c-10 -14 -32 -8 -32 8 c0 12 20 24 32 32 c12 -8 32 -20 32 -32 c0 -16 -22 -22 -32 -8z" transform="scale(0.55) translate(430 60)"/>
-      <path d="M300 70 c-10 -14 -32 -8 -32 8 c0 12 20 24 32 32 c12 -8 32 -20 32 -32 c0 -16 -22 -22 -32 -8z" transform="scale(0.4) translate(160 120)"/>
-      <path d="M300 70 c-10 -14 -32 -8 -32 8 c0 12 20 24 32 32 c12 -8 32 -20 32 -32 c0 -16 -22 -22 -32 -8z" transform="scale(0.45) translate(770 300)"/>
-    </g>
-    <!-- panda body -->
-    <ellipse cx="240" cy="250" rx="96" ry="80" fill="#0F1514"/>
-    <ellipse cx="240" cy="262" rx="70" ry="60" fill="#FFFFFF"/>
-    <!-- arms -->
-    <ellipse cx="150" cy="238" rx="30" ry="42" fill="#0F1514" transform="rotate(18 150 238)"/>
-    <ellipse cx="330" cy="238" rx="30" ry="42" fill="#0F1514" transform="rotate(-18 330 238)"/>
-    <!-- legs -->
-    <ellipse cx="196" cy="322" rx="34" ry="22" fill="#0F1514"/>
-    <ellipse cx="284" cy="322" rx="34" ry="22" fill="#0F1514"/>
-    <ellipse cx="196" cy="326" rx="14" ry="9" fill="#FFF6EC"/>
-    <ellipse cx="284" cy="326" rx="14" ry="9" fill="#FFF6EC"/>
-    <!-- head -->
-    <circle cx="240" cy="150" r="78" fill="#FFFFFF"/>
-    <circle cx="186" cy="92" r="26" fill="#0F1514"/>
-    <circle cx="294" cy="92" r="26" fill="#0F1514"/>
-    <ellipse cx="206" cy="146" rx="20" ry="26" fill="#0F1514" transform="rotate(18 206 146)"/>
-    <ellipse cx="274" cy="146" rx="20" ry="26" fill="#0F1514" transform="rotate(-18 274 146)"/>
-    <circle cx="206" cy="148" r="7" fill="#FFF6EC"/>
-    <circle cx="274" cy="148" r="7" fill="#FFF6EC"/>
-    <ellipse cx="240" cy="172" rx="9" ry="6" fill="#0F1514"/>
-    <path d="M228 188 q12 10 24 0" fill="none" stroke="#0F1514" stroke-width="4" stroke-linecap="round"/>
-    <!-- scarf -->
-    <path d="M168 200 q72 34 144 0 q-6 26 -24 30 l-96 0 q-18 -4 -24 -30z" fill="#FF6611"/>
-    <rect x="236" y="222" width="16" height="44" rx="6" fill="#FF6611"/>
-    <!-- bamboo in paws -->
-    <rect x="252" y="196" width="12" height="86" rx="5" fill="#398D87" transform="rotate(24 258 240)"/>
-  </symbol>
+  <symbol id="illo-panda" viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice"><rect width="480" height="360" fill="#FFF6EC"/></symbol>
 </svg>
 
 <div class="stage">
   <div class="deck">
 
-    <!-- TITLE -->
     <section class="slide dark" data-beat="title">
       <div class="title-illo illo illo-a"><svg><use href="#illo-stadium"/></svg></div>
       <div class="title-illo illo illo-b"><svg><use href="#illo-panda"/></svg></div>
       <div class="logo">Ascentium<span>.</span></div>
       <div class="title-text">
-        <div class="beat">Proposal Showcase · {{QUEST}}</div>
-        <h2 style="margin-top:18px;">{{DECK_TITLE}}</h2>
-        <div class="slogan" style="color:var(--accent);">{{IDEA_SLOGAN}}</div>
-        <p class="lead">{{DECK_SUBTITLE}}</p>
-        <div class="meta" style="color:#B9C4C1;margin-top:18px;">{{CLIENT}}<br>3-month MVP pilot · {{PILOT_MARKETS}} · {{BUDGET}}</div>
+        <div class="beat">Proposal Showcase · Quest A</div>
+        <h2 style="margin-top:18px;">THE AWAY END</h2>
+        <div class="slogan" style="color:var(--accent);">"Book with your crew. Arrive as a nation."</div>
+        <p class="lead">Recruiter-led national away crews that fill Doha's stands — a 3-month MVP pilot in Indonesia &amp; Thailand.</p>
+        <div class="meta" style="color:#B9C4C1;margin-top:18px;">OCA — Doha 2030 Ticketing &amp; Fan Engagement Unit<br>3-month MVP pilot · Indonesia + Thailand · USD 1.5M</div>
       </div>
     </section>
 
-    <!-- CONTEXT (client + evidence) -->
     <section class="slide" data-beat="context">
       <div class="logo">Ascentium<span>.</span></div>
       <div class="beat">01 · The Client &amp; The Evidence</div>
-      <h2 class="sm">{{CLIENT}}</h2>
+      <h2 class="sm">OCA — Doha 2030 Ticketing &amp; Fan Engagement Unit</h2>
       <div class="twocol">
-        <div class="box"><div class="h">Scout summary</div><ul><li>{{SCOUT_1}}</li><li>{{SCOUT_2}}</li><li>{{SCOUT_3}}</li></ul></div>
-        <div class="box"><div class="h">Org / IP profile</div><ul><li><b>Assets:</b> {{ORG_ASSETS}}</li><li><b>Constraints:</b> {{ORG_CONSTRAINTS}}</li></ul></div>
+        <div class="box"><div class="h">Scout summary</div><ul><li>Hangzhou sold 3.05M tickets and RMB 610M, at ~90% attendance.</li><li>Aichi-Nagoya 2026: &lt;60% sold for football + 7 big-stadium sports.</li><li>Doha 2030 is visa-free for CN/ID/TH/MY/SG — not PH/VN.</li></ul></div>
+        <div class="box"><div class="h">Org / IP profile</div><ul><li><b>Assets:</b> visa-free map, Qatar Airways hub, World-Cup-proven venues, 18-month runway.</li><li><b>Constraints:</b> USD 1.5M pilot; SEA never activated; date risk 2030→2031.</li></ul></div>
       </div>
-      <div class="chips">{{TRUTHS}}</div>
-      <div class="clusters">{{CLUSTERS}}</div>
+      <div class="chips"><span class="chip">Demand doesn't appear by itself</span><span class="chip">SEA fans travel as crews</span><span class="chip">Visa-free decides who can travel</span></div>
+      <div class="clusters"><span class="cluster">Demand exists</span><span class="cluster">Distribution = creators</span><span class="cluster">Friction = logistics</span></div>
     </section>
 
-    <!-- PROBLEM -->
     <section class="slide" data-beat="problem">
       <div class="logo">Ascentium<span>.</span></div>
       <div class="beat">02 · The Problem</div>
-      <h2>{{PROBLEM_HEADLINE}}</h2>
+      <h2>Demand doesn't appear by itself — and it fails by sport.</h2>
       <div class="statgrid">
-        <div class="stat gold"><div class="l">Gold standard</div><div class="n">{{STAT_GOLD}}</div><div class="c">{{STAT_GOLD_CAP}}</div></div>
-        <div class="stat red"><div class="l">Cautionary tale</div><div class="n">{{STAT_RED}}</div><div class="c">{{STAT_RED_CAP}}</div></div>
-        <div class="stat sky"><div class="l">Your arena</div><div class="n">{{STAT_SKY}}</div><div class="c">{{STAT_SKY_CAP}}</div></div>
+        <div class="stat gold"><div class="l">Gold standard</div><div class="n">3.05M</div><div class="c">Hangzhou 2022/23 tickets sold — RMB 610M revenue, ~90% attendance</div></div>
+        <div class="stat red"><div class="l">Cautionary tale</div><div class="n">&lt;60%</div><div class="c">Aichi-Nagoya 2026 sold for football + 7 big-stadium sports</div></div>
+        <div class="stat sky"><div class="l">Your arena</div><div class="n">13.06M</div><div class="c">Thailand outbound travellers, 2025 — a record, and visa-free to Doha</div></div>
       </div>
-      <div class="accentbox">{{PROBLEM_TENSION}}</div>
+      <div class="accentbox">Nagoya proved the audience exists but won't show up on its own. Doha must manufacture demand market by market — and SEA has never been asked.</div>
     </section>
 
-    <!-- INSIGHT (tension + trends) -->
-    <section class="slide" data-beat="insight">
+    <section class="slide" data-beat="storyboard">
       <div class="logo">Ascentium<span>.</span></div>
-      <div class="beat">02 · The Insight</div>
-      <h2 class="sm">"{{SEED_INSIGHT}}"</h2>
-      <div class="trends">
-        <div class="trend"><div class="t">{{TREND_1}}</div><div class="w">{{TREND_1_WHY}}</div></div>
-        <div class="trend"><div class="t">{{TREND_2}}</div><div class="w">{{TREND_2_WHY}}</div></div>
-        <div class="trend"><div class="t">{{TREND_3}}</div><div class="w">{{TREND_3_WHY}}</div></div>
+      <div class="beat">03 · The Big Idea — a journey</div>
+      <h2 class="sm">THE AWAY END · "Book with your crew. Arrive as a nation."</h2>
+      <div class="frames">
+        <div class="frame"><div class="bar">1 · The Scroll</div><div class="body"><div class="t">A fan alone on the feed</div><div class="d">A 19-year-old in Jakarta watches a creator film a packed away end. He has never travelled for a match.</div></div></div>
+        <div class="frame"><div class="bar">2 · The Call</div><div class="body"><div class="t">"Join your crew"</div><div class="d">The creator opens a national crew. He joins free — his group chat fills with people like him.</div></div></div>
+        <div class="frame"><div class="bar">3 · The Passport</div><div class="body"><div class="t">Belonging unlocks access</div><div class="d">He takes the Supporter Passport: priority ticket allocation, seat-together booking, crew merch.</div></div></div>
+        <div class="frame"><div class="bar">4 · The Bundle</div><div class="body"><div class="t">One purchase, whole trip</div><div class="d">Fly Together folds ticket + Qatar Airways flight + hotel into one visa-free bundle. His crew books as one.</div></div></div>
+        <div class="frame"><div class="bar">5 · The Flight</div><div class="body"><div class="t">Arrival</div><div class="d">Nov 2030. The crew lands at Hamad Int'l, meets the Gulf Crew, and learns the chants.</div></div></div>
+        <div class="frame"><div class="bar">6 · The Roar</div><div class="body"><div class="t">The away end</div><div class="d">A full, loud, flag-waving national section — the crowd Nagoya never built.</div></div></div>
       </div>
-      <p class="lead" style="margin-top:auto;">{{INSIGHT_SUPPORT}}</p>
+      <div class="media" style="margin-top:12px;"><div class="media-hint">Embed the 30s hero film here<small>Prompt in prompt-pack.html → Runway</small></div></div>
     </section>
 
-    <!-- AUDIENCE (segments + moment) -->
-    <section class="slide" data-beat="audience">
-      <div class="logo">Ascentium<span>.</span></div>
-      <div class="beat">03 · The Audience — who &amp; their job</div>
-      <h2 class="sm">Three fan segments, one emotional job each</h2>
-      <div class="segs">
-        <div class="seg"><div class="name">{{SEG_1_NAME}}</div><div class="who">{{SEG_1_WHO}}</div><div class="job"><b>Job:</b> {{SEG_1_JOB}}</div><div class="row"><b>Barrier:</b> {{SEG_1_BARRIER}}</div><div class="row"><b>Trigger:</b> {{SEG_1_TRIGGER}}</div></div>
-        <div class="seg"><div class="name">{{SEG_2_NAME}}</div><div class="who">{{SEG_2_WHO}}</div><div class="job"><b>Job:</b> {{SEG_2_JOB}}</div><div class="row"><b>Barrier:</b> {{SEG_2_BARRIER}}</div><div class="row"><b>Trigger:</b> {{SEG_2_TRIGGER}}</div></div>
-        <div class="seg"><div class="name">{{SEG_3_NAME}}</div><div class="who">{{SEG_3_WHO}}</div><div class="job"><b>Job:</b> {{SEG_3_JOB}}</div><div class="row"><b>Barrier:</b> {{SEG_3_BARRIER}}</div><div class="row"><b>Trigger:</b> {{SEG_3_TRIGGER}}</div></div>
-      </div>
-      <div class="moment-band"><div class="lbl">Moment of truth</div><div class="txt">{{MOMENT_OF_TRUTH}}</div></div>
-    </section>
-
-    <!-- KEY VISUAL (full-bleed illustration) -->
     <section class="slide keyvisual" data-beat="keyvisual">
       <div class="kv-illo illo illo-a"><svg><use href="#illo-stadium"/></svg></div>
       <div class="kv-illo illo illo-b"><svg><use href="#illo-panda"/></svg></div>
       <div class="kv-text">
         <div class="beat">The World of the Idea</div>
-        <h2>{{IDEA_NAME}}</h2>
-        <div class="slogan">"{{IDEA_SLOGAN}}"</div>
+        <h2>THE AWAY END</h2>
+        <div class="slogan">"Book with your crew. Arrive as a nation."</div>
       </div>
     </section>
 
-    <!-- POSTER (signature · pick one of 3 styles) -->
     <section class="slide" data-beat="poster">
       <div class="logo">Ascentium<span>.</span></div>
       <div class="beat">03 · The Big Idea — Hero Poster</div>
-      <h2 class="sm">{{IDEA_NAME}} · "{{IDEA_SLOGAN}}"</h2>
+      <h2 class="sm">THE AWAY END · "Book with your crew. Arrive as a nation."</h2>
       <div class="posterwrap">
         <div class="posterframe"><iframe id="posterFrame" src="poster-a.html" title="Campaign poster"></iframe></div>
         <div>
-          <p class="lead" style="margin-top:0;">{{IDEA_PROPOSITION}}</p>
+          <p class="lead" style="margin-top:0;">Creator-led national supporter clubs turn scattered SEA fandom into organised away crews — the Passport unlocks priority tickets, the bundle removes the friction.</p>
           <div class="posterpick">
             <div class="plab">Poster style — pick one</div>
             <button data-pstyle="a" class="on">A · Matchday Roar<span>Bold sports editorial — accent hero, wide crowd art</span></button>
@@ -442,137 +320,58 @@
       </div>
     </section>
 
-    <!-- STORYBOARD (signature · hero's journey) -->
-    <section class="slide" data-beat="storyboard">
+    <section class="slide" data-beat="insight">
       <div class="logo">Ascentium<span>.</span></div>
-      <div class="beat">03 · The Big Idea — a journey</div>
-      <h2 class="sm">{{IDEA_NAME}} · "{{IDEA_SLOGAN}}"</h2>
-      <div class="frames">
-        <div class="frame"><div class="bar">1 · {{SB1_T}}</div><div class="body"><div class="t">{{SB1_TITLE}}</div><div class="d">{{SB1_TEXT}}</div></div></div>
-        <div class="frame"><div class="bar">2 · {{SB2_T}}</div><div class="body"><div class="t">{{SB2_TITLE}}</div><div class="d">{{SB2_TEXT}}</div></div></div>
-        <div class="frame"><div class="bar">3 · {{SB3_T}}</div><div class="body"><div class="t">{{SB3_TITLE}}</div><div class="d">{{SB3_TEXT}}</div></div></div>
-        <div class="frame"><div class="bar">4 · {{SB4_T}}</div><div class="body"><div class="t">{{SB4_TITLE}}</div><div class="d">{{SB4_TEXT}}</div></div></div>
-        <div class="frame"><div class="bar">5 · {{SB5_T}}</div><div class="body"><div class="t">{{SB5_TITLE}}</div><div class="d">{{SB5_TEXT}}</div></div></div>
-        <div class="frame"><div class="bar">6 · {{SB6_T}}</div><div class="body"><div class="t">{{SB6_TITLE}}</div><div class="d">{{SB6_TEXT}}</div></div></div>
+      <div class="beat">02 · The Insight</div>
+      <h2 class="sm">"Doha's biggest away crowd won't be bought with ads — it will be recruited, crew by crew, by the creators SEA fans already trust."</h2>
+      <div class="trends">
+        <div class="trend"><div class="t">SEA outbound is at a record high</div><div class="w">Thailand 13.06M (2025, +11.4%); Indonesia 8.95M (2024, +19.0%) — and no Games host has aimed it at Doha.</div></div>
+        <div class="trend"><div class="t">Demand must be manufactured</div><div class="w">Nagoya sold &lt;60% for football while badminton topped 90% — the crowd has to be built sport by sport, market by market.</div></div>
+        <div class="trend"><div class="t">SEA is the most mobile-first fan base on earth</div><div class="w">460M TikTok MAU across SEA; 74% of SEA adults are football fans.</div></div>
       </div>
-      <div class="media" style="margin-top:12px;">{{MEDIA_VIDEO}}</div>
+      <p class="lead" style="margin-top:auto;">Three insights, one move: recruit crews through creators, at the moment a film drops.</p>
     </section>
 
-    <!-- PROTOTYPE (signature · demo) -->
-    <section class="slide" data-beat="prototype">
+    <section class="slide" data-beat="audience">
       <div class="logo">Ascentium<span>.</span></div>
-      <div class="beat">03 · The Product — show, don't tell</div>
-      <h2 class="sm">{{IDEA_NAME}} · "{{IDEA_SLOGAN}}"</h2>
-      <div class="phones">
-        <div><div class="phone"><div class="scr">{{PR1_SCR}}</div><div class="body">{{PR1_ROWS}}</div></div><div class="cap">{{PR1_CAP}}</div></div>
-        <div><div class="phone"><div class="scr">{{PR2_SCR}}</div><div class="body">{{PR2_ROWS}}</div></div><div class="cap">{{PR2_CAP}}</div></div>
-        <div><div class="phone"><div class="scr">{{PR3_SCR}}</div><div class="body">{{PR3_ROWS}}</div></div><div class="cap">{{PR3_CAP}}</div></div>
+      <div class="beat">03 · The Audience — who &amp; their job</div>
+      <h2 class="sm">Three fan segments, one emotional job each</h2>
+      <div class="segs">
+        <div class="seg"><div class="name">The Away Crew</div><div class="who">SEA Gen-Z &amp; young Millennials, 18–32 (ID/TH/VN)</div><div class="job"><b>Job:</b> travel with my crew and belong to a national moment</div><div class="row"><b>Barrier:</b> cost + who-to-go-with</div><div class="row"><b>Trigger:</b> a creator my crew trusts films the away end</div></div>
+        <div class="seg"><div class="name">The Family Stand</div><div class="who">SEA + China families, school-holiday travellers</div><div class="job"><b>Job:</b> a once-in-a-decade family trip</div><div class="row"><b>Barrier:</b> Nov timing + visa/hotel confidence</div><div class="row"><b>Trigger:</b> cool-season + visa-free + family bundle</div></div>
+        <div class="seg"><div class="name">The Gulf Crew</div><div class="who">SEA diaspora across the Gulf (Qatar/UAE/KSA)</div><div class="job"><b>Job:</b> see my nation play, close to home</div><div class="row"><b>Barrier:</b> time off + ticket access</div><div class="row"><b>Trigger:</b> team draw + crew invite</div></div>
       </div>
-      <p class="lead" style="margin-top:auto;">{{IDEA_PROPOSITION}}</p>
+      <div class="moment-band"><div class="lbl">Moment of truth</div><div class="txt">Ticket-sale day / the creator-film drop · phone — TikTok &amp; IG feed</div></div>
     </section>
 
-    <!-- LYRIC (signature · trailer anthem) -->
-    <section class="slide" data-beat="lyric">
-      <div class="logo">Ascentium<span>.</span></div>
-      <div class="beat">03 · The Anthem — {{IDEA_NAME}}</div>
-      <h2 class="sm">"{{IDEA_SLOGAN}}"</h2>
-      <div class="lyric">
-        <div class="hook">{{LYRIC_HOOK}}</div>
-        <div class="line">{{LYRIC_BODY}}</div>
-        <div class="tag">{{LYRIC_TAG}}</div>
-      </div>
-      <div class="media" style="margin-top:12px;">{{MEDIA_SONG}}</div>
-    </section>
-
-    <!-- PLAN -->
-    <section class="slide" data-beat="plan">
-      <div class="logo">Ascentium<span>.</span></div>
-      <div class="beat">04 · The Plan</div>
-      <h2 class="sm">2 markets · 3 months · {{BUDGET}}</h2>
-      <div class="budget">
-        <div class="brow"><span class="nm">{{B1_NAME}}</span><span class="btrack"><span class="bfill" style="width:{{B1_PCT}}%"></span></span><span class="amt">{{B1_AMT}}</span></div>
-        <div class="brow"><span class="nm">{{B2_NAME}}</span><span class="btrack"><span class="bfill" style="width:{{B2_PCT}}%"></span></span><span class="amt">{{B2_AMT}}</span></div>
-        <div class="brow"><span class="nm">{{B3_NAME}}</span><span class="btrack"><span class="bfill" style="width:{{B3_PCT}}%"></span></span><span class="amt">{{B3_AMT}}</span></div>
-        <div class="brow"><span class="nm">{{B4_NAME}}</span><span class="btrack"><span class="bfill" style="width:{{B4_PCT}}%"></span></span><span class="amt">{{B4_AMT}}</span></div>
-        <div class="brow"><span class="nm">{{B5_NAME}}</span><span class="btrack"><span class="bfill" style="width:{{B5_PCT}}%"></span></span><span class="amt">{{B5_AMT}}</span></div>
-        <div class="brow"><span class="nm">{{B6_NAME}}</span><span class="btrack"><span class="bfill" style="width:{{B6_PCT}}%"></span></span><span class="amt">{{B6_AMT}}</span></div>
-        <div class="brow"><span class="nm">{{B7_NAME}}</span><span class="btrack"><span class="bfill" style="width:{{B7_PCT}}%"></span></span><span class="amt">{{B7_AMT}}</span></div>
-      </div>
-      <p class="lead" style="margin-top:auto;">{{PILOT_LINE}}</p>
-    </section>
-
-    <!-- PROOF -->
-    <section class="slide" data-beat="proof">
-      <div class="logo">Ascentium<span>.</span></div>
-      <div class="beats-head"><span class="beat">05 · The Proof — condensed</span><span class="beat-note">full 5 metrics &amp; dashboard live in proof.html</span></div>
-      <h2 class="sm">3 numbers that predict the Victory Conditions</h2>
-      <div class="kpis">
-        <div class="kpi"><div class="k">{{K1_NAME}}</div><div class="v">{{K1_VALUE}}</div><div class="d">{{K1_DELTA}}</div></div>
-        <div class="kpi"><div class="k">{{K2_NAME}}</div><div class="v">{{K2_VALUE}}</div><div class="d">{{K2_DELTA}}</div></div>
-        <div class="kpi"><div class="k">{{K3_NAME}}</div><div class="v">{{K3_VALUE}}</div><div class="d">{{K3_DELTA}}</div></div>
-        <div class="kpi"><div class="k">{{K4_NAME}}</div><div class="v">{{K4_VALUE}}</div><div class="d">{{K4_DELTA}}</div></div>
-      </div>
-      <div class="proofrow">
-        <div class="bars">
-          <div class="mbar"><span>{{M1}}</span><span class="mtrack"><span class="mfill" style="width:{{M1_PCT}}%"></span></span><span class="mpct">{{M1_PCT}}%</span></div>
-          <div class="mbar"><span>{{M2}}</span><span class="mtrack"><span class="mfill" style="width:{{M2_PCT}}%"></span></span><span class="mpct">{{M2_PCT}}%</span></div>
-          <div class="mbar"><span>{{M3}}</span><span class="mtrack"><span class="mfill" style="width:{{M3_PCT}}%"></span></span><span class="mpct">{{M3_PCT}}%</span></div>
-        </div>
-        <div class="gng">
-          <div class="gng-h">Go / No-Go</div>
-          <div class="gng-v">{{GO_NO_GO_RULE}}</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ASK -->
-    <section class="slide dark" data-beat="ask">
-      <div class="logo" style="color:#fff;">Ascentium<span>.</span></div>
-      <div class="beat">06 · Cost-Benefit &amp; The Ask</div>
-      <div style="margin-top:30px;">
-        <div class="bigroi">{{ROI}}</div>
-        <div style="font-size:14px;color:#B9C4C1;margin-top:6px;">projected pilot return</div>
-      </div>
-      <div class="cbgrid">
-        <div class="cbbox" style="border-color:#3A4140;"><div class="c">Pilot cost</div><div class="n" style="color:#fff;">{{BUDGET}}</div></div>
-        <div class="cbbox" style="border-color:#3A4140;"><div class="c">Projected return</div><div class="n" style="color:#fff;">{{PROJECTED_RETURN}}</div></div>
-      </div>
-      <p class="lead" style="margin-top:18px;">{{COST_BENEFIT_LINE}}</p>
-      <div class="media">{{MEDIA_ASK}}</div>
-      <div class="ask">Unlock {{FULL_BUDGET}} → {{ASK_LINE}}</div>
-    </section>
-
-    <!-- STRATEGY (anchor + positioning + 4Ps) -->
     <section class="slide" data-beat="strategy">
       <div class="logo">Ascentium<span>.</span></div>
       <div class="beat">05 · The Strategy</div>
-      <h2 class="sm">{{STRAT_HEADLINE}}</h2>
-      <div class="anchorband">{{CREATIVE_BRIEF}}</div>
-      <div class="posband">{{STRAT_POSITIONING}}</div>
+      <h2 class="sm">Positioning: belonging, not discounting</h2>
+      <div class="anchorband">For <b>The Away Crew</b>, whose job is to travel with their crew and belong to a national moment, at <b>the creator-film drop</b> — we recruit them into national away crews with a Supporter Passport and a fly-stay bundle.</div>
+      <div class="posband">For SEA Gen-Z fans who want a once-in-a-lifetime trip with their crew, Doha 2030 is the <b>visa-free, close-haul Games</b> — and unlike Nagoya, we recruit supporters into <b>visible national away crews</b> instead of waiting for demand.</div>
       <div class="quad">
-        <div class="q"><div class="h">Product</div><div class="v">{{STRAT_PRODUCT}}</div></div>
-        <div class="q"><div class="h">Price</div><div class="v">{{STRAT_PRICE}}</div></div>
-        <div class="q"><div class="h">Place</div><div class="v">{{STRAT_PLACE}}</div></div>
-        <div class="q"><div class="h">Promotion</div><div class="v">{{STRAT_PROMOTION}}</div></div>
+        <div class="q"><div class="h">Product</div><div class="v">Supporter Passport + crew fly-stay-ticket bundle</div></div>
+        <div class="q"><div class="h">Price</div><div class="v">Free tier + paid passport; transparent, tiered bundle pricing</div></div>
+        <div class="q"><div class="h">Place</div><div class="v">Creator feeds · crew chats · Qatar Airways + Discover Qatar · diaspora clubs</div></div>
+        <div class="q"><div class="h">Promotion</div><div class="v">Creator-led recruitment in 4 waves; hero film; countdown; crew referral</div></div>
       </div>
-      <div class="pills"><span class="pill">{{STRAT_SEG1}}</span><span class="pill">{{STRAT_SEG2}}</span><span class="pill">{{STRAT_SEG3}}</span></div>
+      <div class="pills"><span class="pill">The Away Crew</span><span class="pill">The Gulf Crew</span><span class="pill">The Family Stand</span></div>
     </section>
 
-    <!-- OFFERING (the offer / membership tiers) -->
     <section class="slide" data-beat="offering">
       <div class="logo">Ascentium<span>.</span></div>
       <div class="beat">06 · The Offer</div>
-      <h2 class="sm">{{OFFER_TITLE}}</h2>
+      <h2 class="sm">The Supporter Passport</h2>
       <div class="offercards">
-        <div class="ocard"><div class="t">{{OFFER_1_T}}</div><div class="d">{{OFFER_1_D}}</div></div>
-        <div class="ocard"><div class="t">{{OFFER_2_T}}</div><div class="d">{{OFFER_2_D}}</div></div>
-        <div class="ocard"><div class="t">{{OFFER_3_T}}</div><div class="d">{{OFFER_3_D}}</div></div>
+        <div class="ocard"><div class="t">Free · Away Crew</div><div class="d">Join your national crew. Creator film drops, the crew chat, and first word on ticket waves.</div></div>
+        <div class="ocard"><div class="t">Passport · Priority</div><div class="d">Priority access to national ticket allocations and seat-together booking — crews sit as one.</div></div>
+        <div class="ocard"><div class="t">Fly Together · Bundle</div><div class="d">Qatar Airways + Discover Qatar fly-stay-ticket bundle. Visa-free, local-language, one purchase.</div></div>
       </div>
-      <div class="found">{{FOUNDING_OFFER}}</div>
-      <p class="lead" style="margin-top:auto;">{{IDEA_PROPOSITION}}</p>
+      <div class="found">Founding members who join in the pilot get lifetime priority for the 2030 rollout.</div>
+      <p class="lead" style="margin-top:auto;">Crews that book together travel together — belonging is the product.</p>
     </section>
 
-    <!-- MOMENTS (scenario timeline) -->
     <section class="slide" data-beat="moments">
       <div class="logo">Ascentium<span>.</span></div>
       <div class="beat">05 · The Moments</div>
@@ -580,48 +379,100 @@
       <div class="timeline">
         <div class="moment">
           <div class="micon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="2" width="10" height="20" rx="3"/><circle cx="12" cy="18.4" r="1.2" fill="currentColor" stroke="none"/></svg></div>
-          <div class="node"></div><div class="t">{{MOM1_T}}</div><div class="p">{{MOM1_P}}</div><div class="e">{{MOM1_E}}</div>
+          <div class="node"></div><div class="t">The Drop</div><div class="p">18 months out</div><div class="e">A creator films the away end and opens crew enrolment</div>
         </div>
         <div class="moment">
           <div class="micon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 12 L22 3 L15 21 L11 13 Z"/></svg></div>
-          <div class="node"></div><div class="t">{{MOM2_T}}</div><div class="p">{{MOM2_P}}</div><div class="e">{{MOM2_E}}</div>
+          <div class="node"></div><div class="t">The Crew</div><div class="p">booking window</div><div class="e">The crew books as one — ticket + flight + stay</div>
         </div>
         <div class="moment">
           <div class="micon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3 v18"/><path d="M6 4 h11 l-2.4 4 2.4 4 H6"/></svg></div>
-          <div class="node"></div><div class="t">{{MOM3_T}}</div><div class="p">{{MOM3_P}}</div><div class="e">{{MOM3_E}}</div>
+          <div class="node"></div><div class="t">The Arrival</div><div class="p">Games week</div><div class="e">A full, loud national away section at Khalifa Int'l</div>
         </div>
       </div>
-      <p class="lead" style="margin-top:auto;">{{MOMENT_LINE}}</p>
+      <p class="lead" style="margin-top:auto;">We don't sell tickets — we time the moment a crew decides to go.</p>
     </section>
 
-    <!-- EXPERIMENT -->
     <section class="slide" data-beat="experiment">
       <div class="logo">Ascentium<span>.</span></div>
       <div class="beat">06 · The Pilot Experiment</div>
       <h2 class="sm">A 3-month, 2-market test that proves the trajectory</h2>
       <div class="exp">
-        <div class="box treat"><div class="h">Treatment</div><div class="v">{{EXP_TREATMENT}}</div></div>
-        <div class="box ctrl"><div class="h">Control / baseline</div><div class="v">{{EXP_CONTROL}}</div></div>
+        <div class="box treat"><div class="h">Treatment</div><div class="v">20–25 national creators + Supporter Passport + Fly Together bundles, in Indonesia &amp; Thailand.</div></div>
+        <div class="box ctrl"><div class="h">Control / baseline</div><div class="v">Malaysia — matched, visa-free; organic reach only, no paid crew programme.</div></div>
       </div>
-      <div class="hypo">Hypothesis: {{EXP_HYPOTHESIS}}</div>
-      <p class="lead" style="margin-top:auto;">Measurement: {{EXP_MEASURE}}</p>
+      <div class="hypo">Hypothesis: creator-led crews + Passport + bundles lift crew sign-up to ≥3.0% and group-booking ratio to ≥35% — enough to predict 400K tickets at scale.</div>
+      <p class="lead" style="margin-top:auto;">Measurement: UTM + crew-signup + ticket-hold tracking, weekly; mid-point review at T-6 weeks.</p>
     </section>
 
-    <!-- FUNNEL -->
+    <section class="slide" data-beat="plan">
+      <div class="logo">Ascentium<span>.</span></div>
+      <div class="beat">04 · The Plan</div>
+      <h2 class="sm">2 markets · 3 months · USD 1.5M</h2>
+      <div class="budget">
+        <div class="brow"><span class="nm">Indonesia — creator squads</span><span class="btrack"><span class="bfill" style="width:28%"></span></span><span class="amt">USD 420K</span></div>
+        <div class="brow"><span class="nm">Thailand — creator squads + airline co-op</span><span class="btrack"><span class="bfill" style="width:24%"></span></span><span class="amt">USD 360K</span></div>
+        <div class="brow"><span class="nm">Hero film</span><span class="btrack"><span class="bfill" style="width:17%"></span></span><span class="amt">USD 260K</span></div>
+        <div class="brow"><span class="nm">Creator toolkit</span><span class="btrack"><span class="bfill" style="width:8%"></span></span><span class="amt">USD 120K</span></div>
+        <div class="brow"><span class="nm">Passport platform</span><span class="btrack"><span class="bfill" style="width:8%"></span></span><span class="amt">USD 120K</span></div>
+        <div class="brow"><span class="nm">Crew referral</span><span class="btrack"><span class="bfill" style="width:5%"></span></span><span class="amt">USD 80K</span></div>
+        <div class="brow"><span class="nm">Measurement + control market</span><span class="btrack"><span class="bfill" style="width:9%"></span></span><span class="amt">USD 140K</span></div>
+      </div>
+      <p class="lead" style="margin-top:auto;">A 3-month test in Indonesia &amp; Thailand, with Malaysia held as the matched control market.</p>
+    </section>
+
     <section class="slide" data-beat="funnel">
       <div class="logo">Ascentium<span>.</span></div>
       <div class="beat">07 · The Funnel</div>
       <h2 class="sm">How demand moves — and where the pilot must prove it</h2>
       <div class="funnel">
-        <div class="fstage f1">{{F1_NAME}} · <span class="n">{{F1_VAL}}</span></div>
-        <div class="fstage f2">{{F2_NAME}} · <span class="n">{{F2_VAL}}</span></div>
-        <div class="fstage f3">{{F3_NAME}} · <span class="n">{{F3_VAL}}</span></div>
-        <div class="fstage f4">{{F4_NAME}} · <span class="n">{{F4_VAL}}</span></div>
+        <div class="fstage f1">Creator reach · <span class="n">150M</span></div>
+        <div class="fstage f2">Crew sign-ups · <span class="n">90K</span></div>
+        <div class="fstage f3">Ticket holds · <span class="n">31.5K</span></div>
+        <div class="fstage f4">Fly-stay bundles · <span class="n">15.3K</span></div>
       </div>
-      <p class="lead" style="margin-top:auto;">{{FUNNEL_LINE}}</p>
+      <p class="lead" style="margin-top:auto;">Each stage has a Go line — the pilot must clear them to unlock the USD 30M rollout.</p>
     </section>
 
-    <!-- nav -->
+    <section class="slide" data-beat="proof">
+      <div class="logo">Ascentium<span>.</span></div>
+      <div class="beats-head"><span class="beat">05 · The Proof — condensed</span><span class="beat-note">full 5 metrics &amp; dashboard live in proof.html</span></div>
+      <h2 class="sm">3 numbers that predict the Victory Conditions</h2>
+      <div class="kpis">
+        <div class="kpi"><div class="k">Crew sign-up</div><div class="v">3.4%</div><div class="d">▲ +2.4pp</div></div>
+        <div class="kpi"><div class="k">Cost / crew</div><div class="v">$9.1</div><div class="d">▼ −$7.3</div></div>
+        <div class="kpi"><div class="k">Creator reach</div><div class="v">148M</div><div class="d">▲ +126M</div></div>
+        <div class="kpi"><div class="k">Group ratio</div><div class="v">42%</div><div class="d">▲ +21pp</div></div>
+      </div>
+      <div class="proofrow">
+        <div class="bars">
+          <div class="mbar"><span>Crew sign-up rate</span><span class="mtrack"><span class="mfill" style="width:85%"></span></span><span class="mpct">85%</span></div>
+          <div class="mbar"><span>Cost per crew member</span><span class="mtrack"><span class="mfill" style="width:98%"></span></span><span class="mpct">98%</span></div>
+          <div class="mbar"><span>Creator reach</span><span class="mtrack"><span class="mfill" style="width:99%"></span></span><span class="mpct">99%</span></div>
+        </div>
+        <div class="gng">
+          <div class="gng-h">Go / No-Go</div>
+          <div class="gng-v">Unlock if ≥4 of 5 hit Go; iterate once if 3 hit; stop if ≤2 hit.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide dark" data-beat="ask">
+      <div class="logo" style="color:#fff;">Ascentium<span>.</span></div>
+      <div class="beat">06 · Cost-Benefit &amp; The Ask</div>
+      <div style="margin-top:30px;">
+        <div class="bigroi">2.1x</div>
+        <div style="font-size:14px;color:#B9C4C1;margin-top:6px;">projected pilot return</div>
+      </div>
+      <div class="cbgrid">
+        <div class="cbbox" style="border-color:#3A4140;"><div class="c">Pilot cost</div><div class="n" style="color:#fff;">USD 1.5M</div></div>
+        <div class="cbbox" style="border-color:#3A4140;"><div class="c">Projected return</div><div class="n" style="color:#fff;">~USD 3.2M</div></div>
+      </div>
+      <p class="lead" style="margin-top:18px;">Pilot-attributed: ~90K crew members → ~31.5K ticket holds + 15.3K bundles. At full scale: 400K tickets × USD 60 + USD 40M merch/hospitality = USD 64M vs a USD 30M budget.</p>
+      <div class="media"><div class="media-hint" style="max-width:420px;">Embed the campaign anthem here<small>Suno prompt in prompt-pack.html</small></div></div>
+      <div class="ask">Unlock USD 30M → enter the vendor list and run the 18-month SEA rollout.</div>
+    </section>
+
     <div class="nav">
       <div class="dots" id="dots"></div>
       <div class="pgnum" id="pgnum">1 / 7</div>
@@ -633,17 +484,14 @@
 <script>
 (function(){
   var STORYLINES = {
-    classic: ["title","context","problem","insight","audience","poster","strategy","plan","proof","ask"],
+    classic: ["title","context","problem","insight","audience","keyvisual","poster","strategy","offering","moments","experiment","plan","funnel","proof","ask"],
     hero:    ["title","context","problem","storyboard","insight","audience","poster","strategy","plan","proof","ask"],
-    reveal:  ["title","context","problem","poster","insight","audience","strategy","plan","proof","ask"],
-    demo:    ["title","context","problem","prototype","insight","audience","strategy","poster","plan","proof","ask"],
-    trailer: ["title","context","problem","lyric","insight","audience","strategy","poster","plan","proof","ask"]
+    reveal:  ["title","context","problem","keyvisual","poster","insight","audience","strategy","offering","moments","experiment","plan","funnel","proof","ask"],
+    demo:    ["title","context","problem","prototype","insight","audience","strategy","offering","moments","experiment","plan","funnel","proof","ask"],
+    trailer: ["title","context","problem","lyric","insight","audience","strategy","offering","moments","experiment","plan","funnel","proof","ask"]
   };
-  // Optional extra beats (add back only if the pitch runs long): context · keyvisual · moments · offering · experiment · funnel.
-  // Hard cap: keep the deck at <= 12 slides (5-minute pitch).
   var key = (document.body.getAttribute('data-storyline') || 'classic').trim().toLowerCase();
   var order = (STORYLINES[key] || STORYLINES.classic).slice();
-  // Optional poster: team chooses whether the campaign poster appears in the deck.
   var includePoster = (document.body.getAttribute('data-poster') || 'yes').trim().toLowerCase();
   if (includePoster === 'no') {
     order = order.filter(function(b){ return b !== 'poster'; });

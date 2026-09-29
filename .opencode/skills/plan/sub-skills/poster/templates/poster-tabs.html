@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Campaign poster · TAB PAGE (content-driven height → embeds & auto-fits cleanly).
+     The three posters are inlined below (one shown at a time); the standalone pages
+     poster-a.html / poster-b.html / poster-c.html are the croppable single files.
+     Built by scripts/build-posters.py. -->
+<title>Campaign Poster · {{HEADLINE}} · {{QUEST}}</title>
+{{PAGE_STYLE}}
+<style>
+  /* ---- tab shell (loaded after the poster style so these rules win) ---- */
+  html,body{background:#DEDAD4;}
+  body{display:block;padding:0;}
+  .bar{display:flex;align-items:center;gap:18px;padding:12px 20px;background:var(--ascentium-midnight);color:#fff;}
+  .bar .logo{font-size:18px;font-weight:800;} .bar .logo span{color:var(--accent);}
+  .bar .title{font-size:12px;color:#9AA5A2;font-weight:600;}
+  .bar .title b{color:#fff;font-weight:800;}
+  .bar .open{margin-left:auto;font-size:12px;font-weight:700;color:var(--accent);text-decoration:none;
+        border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:7px 14px;white-space:nowrap;}
+  .bar .open:hover{background:rgba(255,255,255,.08);}
+  .tabs{display:flex;gap:8px;padding:12px 20px;background:#fff;border-bottom:1px solid var(--line);overflow-x:auto;}
+  .tabs button{text-align:left;font:inherit;background:#fff;border:1.5px solid var(--line);border-radius:12px;
+        padding:10px 16px;cursor:pointer;flex:none;min-width:210px;}
+  .tabs button .t{font-size:13.5px;font-weight:800;color:var(--ascentium-midnight);}
+  .tabs button .d{font-size:11px;color:var(--mut);margin-top:2px;}
+  .tabs button .k{display:inline-block;font-size:10px;font-weight:800;color:var(--accent);letter-spacing:.1em;margin-right:6px;}
+  .tabs button:hover{border-color:var(--accent-tint);}
+  .tabs button.on{border-color:var(--accent);background:var(--accent-tint);}
+  .tabs button.on .t{color:var(--accent);}
+  .stack{padding:26px 12px 40px;display:flex;flex-direction:column;align-items:center;}
+  .stack .poster{display:none;}
+  .stack .poster.on{display:block;}
+  @media print{ .bar,.tabs{display:none;} .stack{padding:0;} }
+</style>
+</head>
+<body data-quest="{{QUEST}}">
+
+{{SYMBOLS}}
+
+<div class="bar">
+  <div class="logo">Ascentium<span>.</span></div>
+  <div class="title">Campaign Poster — <b>{{HEADLINE}}</b> · "{{TAGLINE}}" · {{CLIENT_NAME}}</div>
+  <a class="open" id="open" href="poster-{{POSTER_STYLE_DEFAULT}}.html" target="_blank">Open standalone ↗</a>
+</div>
+
+<div class="tabs" id="tabs">
+  <button data-style="a" class="on"><span class="k">STYLE A</span><span class="t">Matchday Roar</span><div class="d">Bold sports editorial — accent hero, wide crowd art</div></button>
+  <button data-style="b"><span class="k">STYLE B</span><span class="t">Supporter Passport</span><div class="d">Travel / ticket — cream paper, perforations, stamps</div></button>
+  <button data-style="c"><span class="k">STYLE C</span><span class="t">Midnight Minimal</span><div class="d">Swiss typographic — dark canvas, huge type</div></button>
+</div>
+
+<div class="stack" id="stack">
+{{POSTER_STACK}}
+</div>
+
+<script>
+(function(){
+  var stack = document.getElementById('stack');
+  var open  = document.getElementById('open');
+  var tabs  = Array.prototype.slice.call(document.querySelectorAll('#tabs button'));
+  var posters = Array.prototype.slice.call(stack.querySelectorAll('.poster'));
+
+  function keyFromLocation(){
+    var m = (location.hash || '').match(/style-([abc])/i);
+    if(m) return m[1].toLowerCase();
+    var q = (location.search || '').match(/[?&]style=([abc])/i);
+    return q ? q[1].toLowerCase() : null;
+  }
+  function apply(){
+    var key = keyFromLocation() || '{{POSTER_STYLE_DEFAULT}}';
+    tabs.forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-style') === key); });
+    posters.forEach(function(p){ p.classList.toggle('on', p.getAttribute('data-style') === key); });
+    open.setAttribute('href', 'poster-' + key + '.html');
+  }
+  tabs.forEach(function(b){
+    b.addEventListener('click', function(){ location.hash = 'style-' + b.getAttribute('data-style'); apply(); });
+  });
+  window.addEventListener('hashchange', apply);
+  apply();
+})();
+</script>
+</body>
+</html>

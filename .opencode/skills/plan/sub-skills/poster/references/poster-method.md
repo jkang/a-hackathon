@@ -42,6 +42,30 @@ A campaign poster is not a slogan on a colour block. It is the **single most-see
 
 - Portrait, 1080px wide (scales to A3/A2). Print-safe margins (~54px).
 - Single-file HTML, inline tokens + inline SVG illustrations — no external assets.
+- **Three standalone pages** — `poster-a.html` / `poster-b.html` / `poster-c.html` (one clean poster each, ideal for cropping/embedding) — plus `poster.html`, the **tab page** that switches between them. Built by `scripts/build-posters.py`.
+
+## Styles (art direction, not colourways)
+
+| # | Style | Reads as | Built for |
+|---|---|---|---|
+| A | **Matchday Roar** | sports editorial · accent hero · wide crowd art · dark stats band | mass fan energy |
+| B | **Supporter Passport** | cream paper · ticket perforations · stamp motifs · checklist | membership / bundle / belonging |
+| C | **Midnight Minimal** | dark Swiss type · hairline rules · one motif · negative space | premium / brand-led |
+
+All three carry the **same** 9 sections. Vary: colour balance, typographic scale, art motif, section chrome (rules vs filled bands), bullet style.
+
+## Hero-art aspect rule (fixes the crop bug)
+
+- The art band is `aspect-ratio: 1200 / 500`.
+- Every illustration `<symbol>` uses `viewBox="0 0 1200 500"`.
+- Equal ratios + `preserveAspectRatio="xMidYMid slice"` ⇒ **no crop, ever**.
+- Changing the band height means changing the `viewBox` to match (or switching to `meet`). Never mix a 4:3 art with a wide `slice` frame — that cropped the old stadium illustration top-and-bottom.
+
+## Choosing a style (HITL)
+
+- Present all three; do **not** decide.
+- Preview them in the **tab page** (`poster.html`) and/or the Showcase deck's poster beat; each style is also its own clean page (`poster-a|b|c.html`) for cropping/embedding.
+- Record `poster.style: a|b|c` in `plan.yaml`; the deck and proposal embed the matching page.
 
 ## Anti-patterns
 

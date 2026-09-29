@@ -1,0 +1,65 @@
+# Quest A · PLAN (runner autopilot — auto-run-live)
+quest: A
+selected_insights: [1, 3, 4]
+anchor: {segment: "SEA Gen-Z First-Timers", job: "belonging + awe", moment: "ticket-sale day", mechanic: "creator-led crew invite + Fly Together bundle", desire: "book as a crew"}
+scenario:
+  - {moment: "Ticket-sale day", time: "18 months out", place: "phone / creator feed", event: "creator film → crew invite"}
+  - {moment: "The journey", time: "travel window", place: "Qatar Airways stopover", event: "crew meet-up at the gate"}
+  - {moment: "Match day", time: "Games week", place: "the stands", event: "branded away-section roar"}
+hmw: "How might we help SEA fans feel they belong at Doha, at the moment a creator film drops?"
+ideas:
+  - {id: 1, name: "THE AWAY END", one_line: "creator-led away crews", insight: "creators > ads", mechanic: "creator squads recruit national crews"}
+  - {id: 2, name: "FLY TOGETHER", one_line: "airline bundle", insight: "visa-free hub", mechanic: "Qatar Airways bundle"}
+  - {id: 3, name: "#MyDohaMoment", one_line: "UGC hashtag", insight: "belonging", mechanic: "shareable moment"}
+  - {id: 4, name: "THE FAMILY STAND", one_line: "family travel bundles", insight: "Nov cool-season", mechanic: "family ticket+stay bundles"}
+  - {id: 5, name: "GOLDEN TICKET", one_line: "limited scarcity drops", insight: "manufacture demand", mechanic: "limited drops"}
+  - {id: 6, name: "AWAY SECTION", one_line: "branded visible stand", insight: "national pride", mechanic: "visible away section"}
+selected_ideas: [1, 2]
+combination: "THE AWAY END (idea 1) + FLY TOGETHER (idea 2) + AWAY SECTION (idea 6)"
+concept: {name: "THE AWAY END", slogan: "We don't visit. We arrive.", proposition: "Creator squads recruit national away crews; Qatar Airways 'Fly Together' bundles remove friction; a branded away section makes the crowd visible and loud.", offer: "crew bundle (ticket + flight + stay + away kit)"}
+opportunity:
+  e1: "For SEA fans, THE AWAY END turns scattered fandom into organised away crews that book together."
+  e2: "SEA Gen-Z First-Timers (+ family + diaspora crews), at ticket-sale day."
+  e3: "Demand doesn't appear by itself (Nagoya 22%) — it must be manufactured market by market."
+  e4: "Creator-led crews + airline bundles; guardrail = no oversell on inventory."
+  e5: "A 92%-full, ¥610M-grade Games; 400K SEA tickets."
+  value_breakdown: {scope: "SEA (6 markets)", frequency: "18-month window", per_instance: "ticket + bundle margin", cumulative: "400K tickets + $40M merch/hospitality"}
+variants:
+  A:
+    positioning: "For SEA sports fans who want a once-in-a-lifetime trip with their crew, Doha 2030 is the affordable, visa-free Games. Unlike Nagoya, we organise fans into visible, loud away crews."
+    offering: "campaign + crew bundle"
+    mix: {product: "crew bundle (ticket + flight + stay + away kit)", price: "tiered, transparent, crew discount", place: "Qatar Airways · TikTok/IG · diaspora clubs", promotion: "teaser → countdown → hero film; 20 creator squads across ID & TH"}
+    pilot:
+      markets: ["Indonesia", "Thailand"]
+      hypothesis: "Creator-led crews + Fly Together bundles raise ticket-intent ≥2.5% and group-booking ratio ≥35%."
+      treatment: "20 creator squads + Fly Together bundles + branded away-section tease (ID & TH)"
+      control: "Philippines (organic only — no paid creator squads)"
+      measurement_setup: "UTM + ticket-hold tracking weekly; creator dashboards; mid-point read at T-6 weeks."
+    budget:
+      total: "USD 1.5M"
+      allocation:
+        - {market: "Indonesia", channel: "Paid social", tactic: "Creator squads (10)", amount: "300K"}
+        - {market: "Thailand", channel: "Paid social", tactic: "Creator squads (10)", amount: "300K"}
+        - {market: "Regional", channel: "Content", tactic: "Hero film production", amount: "350K"}
+        - {market: "Regional", channel: "Partnership", tactic: "Qatar Airways Fly Together co-op", amount: "250K"}
+        - {market: "Regional", channel: "Ops", tactic: "Tracking + localisation (5 langs) + contingency", amount: "300K"}
+  B:
+    positioning: "For SEA families planning a year-end trip, Doha 2030 is the Asian Games that doubles as a family holiday — visa-free, cool-season, kid-friendly sessions."
+    offering: "family bundle"
+    mix: {product: "family bundle (tickets + stay + kids program)", price: "family-tier, kids-free-under-12", place: "OTAs · travel agencies · Qatar Airways", promotion: "holiday-window content; parent creators"}
+    pilot:
+      markets: ["Vietnam", "Malaysia"]
+      hypothesis: "Family bundles + holiday window raise group-family bookings ≥30% in Nov."
+      treatment: "family bundle + OTA placement + parent creators (VN & MY)"
+      control: "Indonesia (organic only)"
+      measurement_setup: "bundle attach + family-group ratio, weekly."
+    budget:
+      total: "USD 1.5M"
+      allocation:
+        - {market: "Vietnam", channel: "OTA", tactic: "Family bundles", amount: "350K"}
+        - {market: "Malaysia", channel: "OTA", tactic: "Family bundles", amount: "350K"}
+        - {market: "Regional", channel: "Content", tactic: "Kids program + parent creators", amount: "400K"}
+        - {market: "Regional", channel: "Partnership", tactic: "Airline family co-op", amount: "200K"}
+        - {market: "Regional", channel: "Ops", tactic: "Tracking + localisation + contingency", amount: "200K"}
+chosen_variant: A
+poster: {visual_direction: "Stadium roar", one_liner: "Make Southeast Asia the loudest away crowd in Asian Games history."}

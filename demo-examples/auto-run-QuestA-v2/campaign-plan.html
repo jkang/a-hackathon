@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campaign Plan · Quest A · OCA Doha 2030</title>
+<style>
+  :root{
+    --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
+    --orange-1:#FFF0E7; --orange-2:#FFD1B8;
+    --teal:#077069; --teal-1:#CDE2E1; --teal-3:#398D87;
+    --line:#E4E8E7; --bg:#F7F6F4; --card:#FFFFFF; --mut:#5A6663;
+    --accent: var(--ascentium-orange);
+    --accent-tint: var(--orange-1);
+    --accent-line: var(--orange-2);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"Poppins","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+       background:var(--bg);color:var(--ascentium-midnight);-webkit-font-smoothing:antialiased;}
+  .page{max-width:1100px;margin:0 auto;padding:40px 28px 56px;}
+  .brandbar{display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--accent);padding-bottom:14px;}
+  .brandbar .logo{font-weight:700;font-size:20px;letter-spacing:-.01em;}
+  .brandbar .logo span{color:var(--accent);}
+  .brandbar .tag{font-size:12px;font-weight:600;color:var(--mut);letter-spacing:.14em;text-transform:uppercase;}
+  h1{font-size:32px;font-weight:800;line-height:1.15;margin-top:22px;letter-spacing:-.01em;}
+  .sub{margin-top:8px;font-size:13px;color:var(--mut);font-weight:500;}
+  .seed{margin-top:20px;background:var(--accent-tint);border-left:6px solid var(--accent);border-radius:12px;padding:16px 20px;}
+  .seed .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
+  .seed p{font-size:16px;font-weight:600;line-height:1.5;margin-top:6px;}
+  .anchor{margin-top:12px;background:var(--ascentium-midnight);color:#fff;border-radius:12px;padding:16px 20px;}
+  .anchor .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-tint);}
+  .anchor p{font-size:14.5px;font-weight:600;line-height:1.5;margin-top:6px;color:#fff;}
+  .anchor p b{color:var(--accent-tint);}
+  .moments{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px;}
+  .moment{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--card);}
+  .moment .t{font-size:10.5px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;}
+  .moment .v{font-size:12.5px;margin-top:5px;line-height:1.5;color:#3B4442;}
+  .moment .v b{color:var(--ascentium-midnight);}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+  .card h2{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;}
+  .card p,.card li{font-size:13px;line-height:1.6;}
+  .card ul{list-style:none;}
+  .card li{padding:3px 0 3px 14px;position:relative;}
+  .card li::before{content:"▸";position:absolute;left:0;color:var(--accent);}
+  .wide{grid-column:1 / -1;}
+  .hero-idea{background:var(--ascentium-midnight);color:#fff;border-radius:14px;padding:20px 22px;}
+  .hero-idea h2{color:#B9C4C1;}
+  .hero-idea .name{font-size:24px;font-weight:800;letter-spacing:-.01em;color:#fff;}
+  .hero-idea .slogan{font-size:15px;color:var(--accent-tint);margin-top:6px;font-weight:600;}
+  .hero-idea .prop{font-size:13.5px;color:#D6DCDA;margin-top:12px;line-height:1.6;}
+  table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:4px;}
+  th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);}
+  th{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);}
+  td.amt{text-align:right;font-weight:700;color:var(--accent);}
+  .pill{display:inline-block;font-size:11.5px;font-weight:600;background:var(--accent-tint);
+        border:1px solid var(--accent-line);color:var(--accent);border-radius:999px;padding:4px 11px;margin:3px 5px 0 0;}
+  .variant{margin-top:26px;border:1.5px solid var(--line);border-radius:16px;padding:18px 20px 22px;background:#fff;}
+  .variant.chosen{border-color:var(--accent);border-width:2px;box-shadow:0 4px 18px rgba(255,102,17,.12);}
+  .vhead{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+  .vhead .vt{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ascentium-midnight);}
+  .vhead .badge{display:none;font-size:10px;font-weight:800;letter-spacing:.12em;color:#fff;background:var(--accent);
+                border-radius:999px;padding:4px 12px;}
+  .variant.chosen .vhead .badge{display:inline-block;}
+  .vhead .vsub{font-size:12px;color:var(--mut);font-weight:500;}
+  .why{margin-top:12px;font-size:12.5px;color:var(--mut);line-height:1.6;font-style:italic;}
+  footer{margin-top:30px;border-top:1px dashed var(--line);padding-top:12px;font-size:10.5px;color:#9AA5A2;line-height:1.6;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="brandbar">
+    <div class="logo">Ascentium<span>.</span></div>
+    <div class="tag">Campaign Plan · Quest A</div>
+  </div>
+
+  <h1>THE AWAY END — recruiter-led national away crews</h1>
+  <div class="sub">OCA — Doha 2030 Ticketing &amp; Fan Engagement Unit &nbsp;|&nbsp; MVP pilot · Indonesia + Thailand · 3 months &nbsp;|&nbsp; Budget USD 1.5M</div>
+
+  <div class="seed">
+    <div class="lbl">Seed Insight</div>
+    <p>"Doha's biggest away crowd won't be bought with ads — it will be recruited, crew by crew, by the creators SEA fans already trust."</p>
+  </div>
+
+  <div class="anchor">
+    <div class="lbl">Creative Brief · anchored to audience &amp; moment</div>
+    <p>For <b>The Away Crew</b> (SEA Gen-Z &amp; young Millennials, 18–32), whose <b>job is to travel with their crew and belong to a national moment</b>, at <b>the creator-film drop</b> — our campaign will <b>recruit them into national away crews with a Supporter Passport and a fly-stay bundle</b>, so they <b>book as a crew, early</b>.</p>
+  </div>
+
+  <div class="card wide" style="margin-top:22px;">
+    <h2>Scenario · Campaign Moments (time · place · event)</h2>
+    <div class="moments">
+      <div class="moment"><div class="t">Moment 1 · 18 months out</div><div class="v"><b>Phone — creator feed</b> — a creator films the away end and opens crew enrolment</div></div>
+      <div class="moment"><div class="t">Moment 2 · booking window</div><div class="v"><b>Group chat + Qatar Airways</b> — the crew books as one: ticket + flight + stay</div></div>
+      <div class="moment"><div class="t">Moment 3 · Games week</div><div class="v"><b>The away end, Khalifa Int'l</b> — a full, loud national away section</div></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px;">
+    <h2>Diverged Ideas · 6 → auto-selected 1+2+3</h2>
+    <ul>
+      <li><b>1 · THE AWAY END</b> — creator squads recruit national away crews. <i>(insight 3)</i></li>
+      <li><b>2 · THE SUPPORTER PASSPORT</b> — paid fan membership with priority tickets. <i>(insight 6)</i> <b>[SELECTED]</b></li>
+      <li><b>3 · FLY TOGETHER</b> — Qatar Airways fly-stay-ticket bundle. <i>(insight 4/5)</i> <b>[SELECTED]</b></li>
+      <li><b>4 · THE FAMILY STAND</b> — Nov cool-season family bundles. <i>(insight 4)</i></li>
+      <li><b>5 · GOLDEN TICKET DROPS</b> — limited national allocations in waves. <i>(insight 2)</i></li>
+      <li><b>6 · #MYDOHA2030</b> — UGC fan-film challenge. <i>(insight 3)</i></li>
+    </ul>
+    <p class="why">Combined: THE AWAY END (1) + THE SUPPORTER PASSPORT (2) + FLY TOGETHER (3).</p>
+  </div>
+
+  <section class="variant chosen">
+    <div class="vhead">
+      <span class="vt">Variant A</span><span class="badge">Chosen</span>
+      <span class="vsub">Creator-led crews + Supporter Passport (community-led)</span>
+    </div>
+    <div class="grid">
+      <div class="hero-idea">
+        <h2>The Big Idea</h2>
+        <div class="name">THE AWAY END</div>
+        <div class="slogan">"Book with your crew. Arrive as a nation."</div>
+        <div class="prop">Creator-led national supporter clubs turn scattered SEA fandom into organised away crews — a Supporter Passport unlocks priority tickets, and a Qatar Airways fly-stay bundle removes visa, cost and logistics friction.</div>
+      </div>
+      <div class="card">
+        <h2>Positioning</h2>
+        <p>For SEA Gen-Z fans who want a once-in-a-lifetime trip with their crew, Doha 2030 is the visa-free, close-haul Games — and unlike Nagoya, we recruit supporters into visible national away crews instead of waiting for demand.</p>
+        <h2 style="margin-top:14px;">Target Segments</h2>
+        <span class="pill">The Away Crew</span><span class="pill">The Gulf Crew</span><span class="pill">The Family Stand</span>
+      </div>
+      <div class="card">
+        <h2>Offering &amp; Mix (4Ps)</h2>
+        <ul>
+          <li><b>Product:</b> Supporter Passport + crew fly-stay-ticket bundle</li>
+          <li><b>Price:</b> free tier + paid passport; bundle at transparent, tiered pricing</li>
+          <li><b>Place:</b> TikTok/IG creator feeds · crew group chats · Qatar Airways + Discover Qatar · diaspora clubs</li>
+          <li><b>Promotion:</b> creator-led recruitment in 4 waves; hero film; countdown; crew referral</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Pilot Experiment</h2>
+        <ul>
+          <li><b>Hypothesis:</b> If creator-led crews + a Supporter Passport + fly-stay bundles run in ID &amp; TH for 3 months, then crew sign-up ≥3.0% and group-booking ratio ≥35% — enough to predict 400K tickets at scale.</li>
+          <li><b>Treatment:</b> 20–25 national creators + Supporter Passport + Fly Together bundles (ID &amp; TH)</li>
+          <li><b>Control:</b> Malaysia — matched, visa-free, organic reach only (no paid crew programme)</li>
+          <li><b>Measurement setup:</b> UTM + crew-signup + ticket-hold tracking, weekly; creator dashboards; mid-point review at T-6 weeks</li>
+        </ul>
+      </div>
+      <div class="card wide">
+        <h2>Budget Allocation · USD 1.5M</h2>
+        <table>
+          <thead><tr><th>Market</th><th>Channel</th><th>Tactic</th><th style="text-align:right;">Amount</th></tr></thead>
+          <tbody>
+            <tr><td>Indonesia</td><td>Paid social</td><td>Creator squads + crew recruitment</td><td class="amt">USD 420K</td></tr>
+            <tr><td>Thailand</td><td>Partnership</td><td>Creator squads + airline co-op</td><td class="amt">USD 360K</td></tr>
+            <tr><td>Regional</td><td>Content</td><td>Hero film + creator toolkit</td><td class="amt">USD 380K</td></tr>
+            <tr><td>Regional</td><td>CRM</td><td>Supporter Passport platform + referral</td><td class="amt">USD 200K</td></tr>
+            <tr><td>Regional</td><td>Measurement</td><td>Tracking, dashboards, control market</td><td class="amt">USD 140K</td></tr>
+            <tr><td colspan="3" style="text-align:right;font-weight:700;">Total</td><td class="amt">USD 1.5M</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="why">Chosen because it builds an owned, reusable fan pipeline (not a one-off discount), directly monetises belonging (insight 6), and is the most reach-efficient play under USD 1.5M given 460M SEA TikTok MAU (insight 3).</p>
+  </section>
+
+  <section class="variant">
+    <div class="vhead">
+      <span class="vt">Variant B</span><span class="badge">Chosen</span>
+      <span class="vsub">Bundle-led (price/OTA) — parked</span>
+    </div>
+    <div class="grid">
+      <div class="hero-idea">
+        <h2>The Big Idea</h2>
+        <div class="name">FLY TOGETHER</div>
+        <div class="slogan">"One bundle. The whole crew."</div>
+        <div class="prop">One bundle folds ticket, flight and hotel into a single, visa-light purchase — removing the cost friction that keeps price-sensitive SEA and China families from committing.</div>
+      </div>
+      <div class="card">
+        <h2>Positioning</h2>
+        <p>For price-sensitive SEA and China families, Doha 2030 is the affordable year-end holiday — one bundle folds ticket, flight and hotel into a single, visa-light purchase.</p>
+        <h2 style="margin-top:14px;">Target Segments</h2>
+        <span class="pill">The Family Stand</span><span class="pill">The Away Crew</span><span class="pill">Gulf Crew</span>
+      </div>
+      <div class="card">
+        <h2>Offering &amp; Mix (4Ps)</h2>
+        <ul>
+          <li><b>Product:</b> fly-stay-ticket family/crew bundle</li>
+          <li><b>Price:</b> discount-led, family-tier</li>
+          <li><b>Place:</b> OTAs · travel agencies · Qatar Airways · Discover Qatar</li>
+          <li><b>Promotion:</b> price-led OTA placement + parent creators</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Pilot Experiment</h2>
+        <ul>
+          <li><b>Hypothesis:</b> If discounted fly-stay-ticket bundles run through OTAs in ID &amp; China, then bundle attach and family-group bookings beat organic by ≥2x.</li>
+          <li><b>Treatment:</b> bundle + OTA placement + parent creators</li>
+          <li><b>Control:</b> Malaysia — organic only</li>
+          <li><b>Measurement setup:</b> bundle attach + family-group ratio, weekly</li>
+        </ul>
+      </div>
+      <div class="card wide">
+        <h2>Budget Allocation · USD 1.5M</h2>
+        <table>
+          <thead><tr><th>Market</th><th>Channel</th><th>Tactic</th><th style="text-align:right;">Amount</th></tr></thead>
+          <tbody>
+            <tr><td>Indonesia</td><td>OTA</td><td>Family bundles</td><td class="amt">USD 400K</td></tr>
+            <tr><td>China</td><td>OTA</td><td>Family bundles</td><td class="amt">USD 380K</td></tr>
+            <tr><td>Regional</td><td>Content</td><td>Kids programme + hero film</td><td class="amt">USD 320K</td></tr>
+            <tr><td>Regional</td><td>Paid social</td><td>Parent creators</td><td class="amt">USD 260K</td></tr>
+            <tr><td>Regional</td><td>Measurement</td><td>Tracking + control market</td><td class="amt">USD 140K</td></tr>
+            <tr><td colspan="3" style="text-align:right;font-weight:700;">Total</td><td class="amt">USD 1.5M</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="why">Parked: depends on partner-funded discounting and OTA inventory control, and buys reach rather than an owned audience — less defensible for the 18-month rollout.</p>
+  </section>
+
+  <footer>Human-led, AI-scaffolded · runner autopilot. Two plan variants — auto-picked A. Budget allocation is part of the solution. Data as of 2026-09-29.</footer>
+
+</div>
+</body>
+</html>

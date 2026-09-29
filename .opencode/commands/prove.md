@@ -10,6 +10,6 @@ Use the `prove` skill with `facilitation` (option menu). Requires `plan.yaml`.
 2. The team **picks 3–5** (`+1 own`) and confirms the thresholds (each cites a Scout Report benchmark).
 3. AI proposes sample weekly values; the team confirms/edits.
 4. Compute the cost-benefit via the derivation in `references/cost-benefit.md` → unlock verdict.
-5. Output `metrics.yaml` + `proof.html` + `kpi-dashboard.html`.
+5. Output `metrics.yaml` + `proof.html` (single page: victory conditions → sub-metrics → Go/No-Go → KPI dashboard MOCK → cost-benefit verdict).
 
 Choice-first, human-led. Do not decide for the team.

@@ -90,7 +90,7 @@ flowchart TD
     class H1,H2,H3,H4,H5,H6,H7,H8,H9 hitl;
 ```
 
-Legend — **teal diamonds = HITL (the team decides)** · orange boxes = the AI does. Artifacts land after each gate (`insight-brief` → `campaign-plan (A/B)` + `poster` → `proof` + `kpi-dashboard` → `proposal` + `pitch-deck`).
+Legend — **teal diamonds = HITL (the team decides)** · orange boxes = the AI does. Artifacts land after each gate (`insight-brief` → `campaign-plan (A/B)` + `poster` → `proof` (incl. KPI dashboard) → `proposal` + `pitch-deck`).
 
 | Time | Gate | You do | The team decides |
 |---|---|---|---|
@@ -127,7 +127,7 @@ The agenda is a **suggested happy path**. On any team signal, comply in one line
 | `insight-brief.html` | insight |
 | `campaign-plan.html` | plan |
 | `poster.html` | poster |
-| `proof.html` + `kpi-dashboard.html` | prove |
+| `proof.html` (incl. KPI dashboard MOCK) | prove |
 | **`proposal.html`** | showcase — **the umbrella**: one navigable document aggregating the whole case (executive summary, insight, plan, poster, proof, and an index linking every artifact) |
 | `pitch-deck.html` + `prompt-pack.html` | showcase |
 
