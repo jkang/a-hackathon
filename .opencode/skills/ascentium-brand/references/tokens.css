@@ -1,0 +1,48 @@
+:root {
+  /* ===== Core brand colors ===== */
+  --ascentium-orange: #FF6611;   /* Vibrant Orange — CTA, brand accent */
+  --ascentium-midnight: #0F1514; /* Midnight Green — dark bg, primary text */
+  --ascentium-white: #FFFFFF;
+  --ascentium-black: #000000;
+
+  /* ===== Orange scale (tints) ===== */
+  --orange-1: #FFF0E7;
+  --orange-2: #FFD1B8;
+  --orange-3: #FFA370;
+  --orange-4: #FF8541;
+
+  /* ===== Midnight green scale (tints) ===== */
+  --midnight-1: #B7B9B9;
+  --midnight-2: #878A8A;
+  --midnight-3: #575B5B;
+  --midnight-4: #272C2C;
+
+  /* ===== Secondary colors ===== */
+  --teal: #077069;               /* Teal Green — Quest B accent */
+  --teal-1: #CDE2E1;
+  --teal-2: #83B8B4;
+  --teal-3: #398D87;
+  --teal-4: #043835;
+  --sky: #1877F2;                /* Sky Blue — info only */
+  --sky-1: #BDD5EF;
+  --sky-2: #8CB8E8;
+  --sky-3: #5DA0F6;
+  --sky-4: #4692F5;
+
+  /* ===== Functional colors ===== */
+  --cta: #FF6611;                /* Primary button */
+  --error: #DC3545;              /* Error / warning */
+  --info: #1877F2;               /* Informational hint */
+
+  /* ===== Semantic aliases (use these in code) ===== */
+  --bg-page: #F7F6F4;
+  --bg-card: #FFFFFF;
+  --bg-tint-orange: #FFF0E7;
+  --bg-tint-teal: #CDE2E1;
+  --line: #E4E8E7;
+  --text-primary: #0F1514;
+  --text-muted: #5A6663;
+
+  /* ===== Typography ===== */
+  --font-stack: "Poppins", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+}

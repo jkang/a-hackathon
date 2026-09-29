@@ -1,0 +1,53 @@
+# Quest A · PROVE gate capture
+# Human-led, AI-scaffolded. Metrics and thresholds chosen by the team; benchmark-defended.
+quest: A
+victory_conditions:
+  - "400K tickets sold to SEA-based fans (~15% of inventory)"
+  - "≥85% avg attendance in SEA-team sessions"
+  - "250K SEA visitors in Qatar during Games week"
+  - "$40M merch + hospitality revenue from SEA fans"
+  - "500M social impressions across 6 SEA markets"
+metrics:
+  - name: "Ticket-intent rate"
+    formula: "ticket holds / qualified site visits"
+    benchmark_ref: "Nagoya only reached 22% sold at T-14"
+    target: "3.0%"
+    threshold_go: "≥2.5%"
+    threshold_no_go: "<1.5%"
+  - name: "CAC per ticket hold"
+    formula: "paid spend / ticket holds"
+    benchmark_ref: "Hangzhou ¥610M ticket revenue (yield sanity check)"
+    target: "≤$8"
+    threshold_go: "≤$10"
+    threshold_no_go: ">$15"
+  - name: "Creator reach (6 weeks)"
+    formula: "sum of creator-post impressions"
+    benchmark_ref: "Nagoya 500M impressions goal"
+    target: "120M"
+    threshold_go: "≥100M"
+    threshold_no_go: "<60M"
+  - name: "Group-booking ratio"
+    formula: "group bookings / total bookings"
+    benchmark_ref: "Team field insight: fans travel as crews"
+    target: "40%"
+    threshold_go: "≥35%"
+    threshold_no_go: "<20%"
+  - name: "Travel-bundle attach rate"
+    formula: "bundles sold / ticket holds"
+    benchmark_ref: "Hangzhou merch attach (mascot = 70%)"
+    target: "18%"
+    threshold_go: "≥15%"
+    threshold_no_go: "<8%"
+sample_data:
+  week1: {intent: "1.1%", cac: "$11.20", reach: "18M", group: "22%", bundle: "6%"}
+  week2: {intent: "1.8%", cac: "$9.80",  reach: "41M", group: "28%", bundle: "9%"}
+  week3: {intent: "2.4%", cac: "$8.90",  reach: "63M", group: "33%", bundle: "12%"}
+  week4: {intent: "2.9%", cac: "$8.10",  reach: "88M", group: "37%", bundle: "15%"}
+  week5: {intent: "3.1%", cac: "$7.60",  reach: "104M",group: "39%", bundle: "17%"}
+  week6: {intent: "3.2%", cac: "$7.40",  reach: "118M",group: "41%", bundle: "18%"}
+cost_benefit:
+  budget: 1500000
+  projected_return: "USD 4.6M (pilot-attributed ticket + merch + bundle margin)"
+  roi: "3.1x"
+  payback: "<9 months"
+  unlock_verdict: "GO — recommend unlocking the full USD 30M for the 18-month rollout"

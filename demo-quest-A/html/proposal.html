@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposal · THE AWAY END · A</title>
+<style>
+  :root{
+    --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
+    --orange-1:#FFF0E7; --orange-2:#FFD1B8;
+    --teal:#077069; --teal-1:#CDE2E1; --teal-2:#83B8B4;
+    --line:#E4E8E7; --mut:#5A6663; --bg:#F7F6F4; --card:#fff;
+    --accent: var(--ascentium-orange); --accent-tint: var(--orange-1); --accent-line: var(--orange-2);
+  }
+  body[data-quest="B"]{ --accent: var(--teal); --accent-tint: var(--teal-1); --accent-line: var(--teal-2); }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"Poppins","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+       background:var(--bg);color:var(--ascentium-midnight);-webkit-font-smoothing:antialiased;}
+  .wrap{display:grid;grid-template-columns:280px 1fr;min-height:100vh;}
+  /* sidebar */
+  .side{position:sticky;top:0;align-self:start;height:100vh;background:var(--ascentium-midnight);color:#fff;
+        padding:30px 24px;overflow:auto;}
+  .side .logo{font-size:22px;font-weight:800;} .side .logo span{color:var(--accent);}
+  .side .client{font-size:11px;color:#9AA5A2;margin-top:6px;line-height:1.4;}
+  .side nav{margin-top:26px;display:grid;gap:2px;}
+  .side a{display:flex;gap:10px;align-items:baseline;color:#C7CFCD;text-decoration:none;font-size:13px;
+          padding:9px 10px;border-radius:8px;border-left:2px solid transparent;}
+  .side a:hover{background:rgba(255,255,255,.06);color:#fff;}
+  .side a .n{font-size:10px;font-weight:800;color:var(--accent);width:16px;}
+  .side .meta{margin-top:auto;font-size:10px;color:#7C8A87;padding-top:24px;line-height:1.6;}
+  /* main */
+  main{padding:44px 52px 80px;max-width:1000px;}
+  section{margin-bottom:46px;scroll-margin-top:20px;}
+  .eyebrow{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);}
+  h1{font-size:44px;font-weight:800;line-height:1.05;letter-spacing:-.02em;margin-top:8px;}
+  h2{font-size:26px;font-weight:800;letter-spacing:-.01em;margin-top:6px;}
+  p.lead{font-size:16px;line-height:1.6;margin-top:12px;color:#2A3331;}
+  .cover{background:var(--accent);color:#fff;border-radius:18px;padding:36px 40px;}
+  .cover .kicker{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;opacity:.9;}
+  .cover h1{color:#fff;font-size:48px;}
+  .cover .slogan{font-size:20px;font-weight:700;margin-top:12px;}
+  .cover .prop{font-size:15px;line-height:1.6;margin-top:14px;max-width:680px;opacity:.96;}
+  .cover .ask{margin-top:20px;background:#fff;color:var(--accent);border-radius:12px;padding:14px 20px;font-weight:800;font-size:16px;}
+  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px;}
+  .tile{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;}
+  .tile .n{font-size:26px;font-weight:800;color:var(--accent);}
+  .tile .c{font-size:11px;color:var(--mut);margin-top:6px;line-height:1.4;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;}
+  .card .h{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);}
+  .card .t{font-size:14px;font-weight:800;margin-top:4px;}
+  .card .d{font-size:12.5px;line-height:1.55;color:#3B4442;margin-top:6px;}
+  ul.chk{list-style:none;margin-top:10px;}
+  ul.chk li{font-size:13px;line-height:1.6;padding:3px 0 3px 16px;position:relative;}
+  ul.chk li::before{content:"›";position:absolute;left:0;color:var(--accent);font-weight:800;}
+  .band{background:var(--accent-tint);border-left:5px solid var(--accent);border-radius:10px;padding:14px 18px;margin-top:14px;font-size:14px;font-weight:600;line-height:1.5;}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:14px;background:var(--card);border-radius:12px;overflow:hidden;}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);}
+  th{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);background:#FAFBFA;}
+  td.amt{text-align:right;font-weight:700;color:var(--accent);}
+  .files{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px;}
+  .file{display:flex;justify-content:space-between;gap:10px;background:var(--card);border:1px solid var(--line);
+        border-radius:10px;padding:12px 16px;font-size:13px;text-decoration:none;color:var(--ascentium-midnight);}
+  .file:hover{border-color:var(--accent);}
+  .file .go{color:var(--accent);font-weight:800;}
+  footer{font-size:10.5px;color:#9AA5A2;border-top:1px dashed var(--line);padding-top:12px;margin-top:10px;}
+</style>
+</head>
+<body data-quest="A">
+<div class="wrap">
+
+  <aside class="side">
+    <div class="logo">Ascentium<span>.</span></div>
+    <div class="client">OCA — Doha 2030 Ticketing &amp; Fan Engagement Unit</div>
+    <nav>
+      <a href="#cover"><span class="n">00</span> Cover</a>
+      <a href="#summary"><span class="n">01</span> Executive Summary</a>
+      <a href="#insight"><span class="n">02</span> Insight</a>
+      <a href="#plan"><span class="n">03</span> Plan &amp; Offering</a>
+      <a href="#poster"><span class="n">04</span> Campaign Poster</a>
+      <a href="#proof"><span class="n">05</span> Proof &amp; Metrics</a>
+      <a href="#artifacts"><span class="n">06</span> All Artifacts</a>
+    </nav>
+    <div class="meta">Quest A · 3-month MVP pilot · Indonesia + Thailand<br>Human-led, AI-scaffolded.</div>
+  </aside>
+
+  <main>
+
+    <!-- COVER -->
+    <section id="cover">
+      <div class="cover">
+        <div class="kicker">Proposal · Quest A</div>
+        <h1>THE AWAY END</h1>
+        <div class="slogan">"We don't visit. We arrive."</div>
+        <div class="prop">Creator squads recruit national away crews; Qatar Airways bundles remove friction; a branded away section makes the SEA crowd visible and loud.</div>
+        <div class="ask">Unlock USD 30M → make SEA the biggest away crowd in Asian Games history.</div>
+      </div>
+    </section>
+
+    <!-- SUMMARY -->
+    <section id="summary">
+      <div class="eyebrow">01 · Executive Summary</div>
+      <h2>The one-line case</h2>
+      <div class="band">"SEA Gen-Z already travel in crews and follow creators, yet no Asian Games host has ever activated them — so make SEA Doha's loudest away crowd, at the moment a creator film drops."</div>
+      <div class="tiles">
+        <div class="tile"><div class="n">400K</div><div class="c">SEA tickets targeted</div></div>
+        <div class="tile"><div class="n">680M</div><div class="c">SEA fans — the untapped away crowd</div></div>
+        <div class="tile"><div class="n">92%</div><div class="c">Hangzhou attendance benchmark</div></div>
+        <div class="tile"><div class="n">18 mo</div><div class="c">runway to Games week</div></div>
+      </div>
+    </section>
+
+    <!-- INSIGHT -->
+    <section id="insight">
+      <div class="eyebrow">02 · Insight</div>
+      <h2>What's shifting — and who we serve</h2>
+      <div class="grid3">
+        <div class="card"><div class="h">Trend</div><div class="d">Mobile-first short-video is where SEA decides</div></div>
+        <div class="card"><div class="h">Trend</div><div class="d">Creator trust beats official ads</div></div>
+        <div class="card"><div class="h">Trend</div><div class="d">Group / experience travel</div></div>
+      </div>
+      <div class="grid3">
+        <div class="card"><div class="h">Segment</div><div class="t">First-Timers</div><div class="d">SEA Gen-Z, 18–24, mobile-first · Job: belonging + awe</div></div>
+        <div class="card"><div class="h">Segment</div><div class="t">Diaspora Crews</div><div class="d">SEA workers across the Gulf · Job: national pride</div></div>
+        <div class="card"><div class="h">Segment</div><div class="t">Sport Super Fans</div><div class="d">badminton / sepak takraw followers · Job: thrill</div></div>
+      </div>
+    </section>
+
+    <!-- PLAN -->
+    <section id="plan">
+      <div class="eyebrow">03 · Plan &amp; Offering</div>
+      <h2>For SEA fans who travel as crews — Doha is the affordable, visa-free Games</h2>
+      <div class="band">For SEA sports fans who want a once-in-a-lifetime trip with their crew, Doha 2030 is the Asian Games that is affordable and visa-free. Unlike Nagoya, we organise fans into visible away crews 18 months ahead.</div>
+      <div class="grid2">
+        <div class="card"><div class="h">Product</div><div class="d">Campaign + crew bundles (ticket + flight + stay)</div></div>
+        <div class="card"><div class="h">Price</div><div class="d">Tiered tickets + transparent bundle pricing</div></div>
+        <div class="card"><div class="h">Place</div><div class="d">Qatar Airways · ticketing partners · TikTok/IG · diaspora clubs</div></div>
+        <div class="card"><div class="h">Promotion</div><div class="d">Teaser → countdown → hero film; 20 creator squads</div></div>
+      </div>
+      <h2 style="margin-top:22px;font-size:18px;">The Offer — what we're selling</h2>
+      <div class="grid3">
+        <div class="card"><div class="t">Crew bundle</div><div class="d">Ticket + flight + stay, priced transparently</div></div>
+        <div class="card"><div class="t">2 markets</div><div class="d">Indonesia &amp; Thailand — 3-month pilot</div></div>
+        <div class="card"><div class="t">Visa-free</div><div class="d">SEA passports enter Qatar visa-free</div></div>
+      </div>
+      <div class="band" style="background:var(--ascentium-midnight);color:#fff;border-color:var(--accent);">Crew bundles go on sale at ticket-sale day — book as a crew, 18 months before the Games.</div>
+    </section>
+
+    <!-- POSTER -->
+    <section id="poster">
+      <div class="eyebrow">04 · Campaign Poster</div>
+      <h2>The hero visual</h2>
+      <p class="lead">The full campaign poster is a standalone artifact — open it below.</p>
+      <a class="file" href="poster.html" target="_blank"><span>poster.html — hero visual / campaign poster</span><span class="go">Open →</span></a>
+    </section>
+
+    <!-- PROOF -->
+    <section id="proof">
+      <div class="eyebrow">05 · Proof &amp; Metrics</div>
+      <h2>What we measure — and the Go/No-Go</h2>
+      <table>
+        <thead><tr><th>#</th><th>Sub-metric</th><th style="text-align:right;">Progress vs Go</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Ticket-intent rate</td><td class="amt">94%</td></tr>
+          <tr><td>2</td><td>CAC per ticket hold</td><td class="amt">86%</td></tr>
+          <tr><td>3</td><td>Creator reach (6 wks)</td><td class="amt">98%</td></tr>
+          <tr><td>4</td><td>Group-booking ratio</td><td class="amt">85%</td></tr>
+          <tr><td>5</td><td>Travel-bundle attach</td><td class="amt">88%</td></tr>
+        </tbody>
+      </table>
+      <div class="band">Go/No-Go: Unlock if ≥3 of 5 metrics hit Go and none hit No-Go.</div>
+      <div class="tiles" style="grid-template-columns:repeat(3,1fr);">
+        <div class="tile"><div class="n">USD 1.5M</div><div class="c">Pilot cost</div></div>
+        <div class="tile"><div class="n">USD 4.6M</div><div class="c">Projected return</div></div>
+        <div class="tile"><div class="n">3.1x</div><div class="c">ROI → unlock USD 30M</div></div>
+      </div>
+    </section>
+
+    <!-- ARTIFACTS -->
+    <section id="artifacts">
+      <div class="eyebrow">06 · All Artifacts</div>
+      <h2>The complete package</h2>
+      <div class="files">
+        <a class="file" href="insight-brief.html" target="_blank"><span>Insight Brief</span><span class="go">Open →</span></a>
+        <a class="file" href="campaign-plan.html" target="_blank"><span>Campaign Plan</span><span class="go">Open →</span></a>
+        <a class="file" href="poster.html" target="_blank"><span>Campaign Poster</span><span class="go">Open →</span></a>
+        <a class="file" href="proof.html" target="_blank"><span>Proof of Trajectory</span><span class="go">Open →</span></a>
+        <a class="file" href="kpi-dashboard.html" target="_blank"><span>KPI Dashboard (mock)</span><span class="go">Open →</span></a>
+        <a class="file" href="pitch-deck.html" target="_blank"><span>Pitch Deck</span><span class="go">Open →</span></a>
+        <a class="file" href="prompt-pack.html" target="_blank"><span>Media Prompt Pack</span><span class="go">Open →</span></a>
+        <a class="file" href="insight.yaml" target="_blank"><span>insight.yaml · plan.yaml · metrics.yaml</span><span class="go">Data →</span></a>
+      </div>
+      <footer>Generated by the Ascentium Hackathon toolkit — human-led, AI-scaffolded. Data as of 2026-09.</footer>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>

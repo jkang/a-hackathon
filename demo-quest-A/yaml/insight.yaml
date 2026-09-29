@@ -1,0 +1,48 @@
+# Quest A · INSIGHT gate capture
+# Human-led, AI-scaffolded. Trends, segments and moment of truth supplied by the team.
+quest: A
+client: "OCA — Doha 2030 Ticketing & Fan Engagement Unit"
+mission: "Make Southeast Asia Doha's biggest 'away crowd' in Asian Games history."
+org_profile:
+  assets:
+    - "Visa-free entry for SEA passports"
+    - "Qatar Airways + Hamad Int'l — world-class stopover hub"
+    - "39 venues, 54 sports; National Vision 2030 tourism KPI"
+    - "18 months of runway (May 2029 – Oct 2030)"
+  constraints:
+    - "MVP budget USD 1.5M (5% of USD 30M)"
+    - "SEA market never activated by an Asian Games host"
+benchmark:
+  gold_standard: "Hangzhou 2023 — 3.05M tickets, ¥610M revenue, 92% attendance; mascot = 70% of merch."
+  cautionary_tale: "Nagoya 2026 — 2.75M planned, ~605K sold at T-14 (22%); demand never manufactured."
+  arena: "Doha 2030 — Nov 2030; SEA (680M, youngest, mobile-first) left unmined by Nagoya."
+market:
+  trends:
+    - {trend: "Mobile-first short-video is where SEA decides", why_it_matters: "TikTok/Reels is the discovery + trust layer for SEA fans."}
+    - {trend: "Creator trust beats official ads", why_it_matters: "KOL-led demand moves faster than brand campaigns."}
+    - {trend: "Group / experience travel", why_it_matters: "Fans travel as crews; bundles beat solo tickets."}
+  truths:
+    - {author: "Ayu (Indonesia)",   text: "Flight cost and visa confidence block people more than ticket price."}
+    - {author: "Somchai (Thailand)", text: "Fans don't travel solo — they travel as a crew with friends."}
+    - {author: "Minh (Vietnam)",     text: "Creators drive intent far more than official ads."}
+    - {author: "Rica (Philippines)", text: "People need a reason to believe the team can actually win something."}
+    - {author: "Farah (Malaysia)",   text: "Bundle price transparency matters — hidden costs kill conversion."}
+    - {author: "Wei (Singapore)",    text: "Nobody knows Doha is visa-free; awareness is near zero."}
+    - {author: "Dewa (Indonesia)",   text: "A shared hashtag makes fans feel like one crowd."}
+    - {author: "Pim (Thailand)",     text: "Countdown content in local language converts in the final 30 days."}
+    - {author: "Lan (Vietnam)",      text: "Group booking should be one tap — shared payment links."}
+    - {author: "Jose (Philippines)", text: "Being 'the biggest away crowd' is a proud, shareable identity."}
+segments:
+  - {name: "First-Timers",      who: "SEA Gen-Z, 18–24, mobile-first",           job_functional: "be at a historic event", job_social: "the friend who was there", job_emotional: "belonging + awe",    barrier: "cost & visa confidence", trigger: "creator film + crew invite"}
+  - {name: "Diaspora Crews",    who: "SEA workers across the Gulf",              job_functional: "cheer for home",         job_social: "represent the flag",        job_emotional: "national pride",      barrier: "time off / logistics",   trigger: "team-qualification news"}
+  - {name: "Sport Super Fans",  who: "badminton / sepak takraw followers",       job_functional: "see their sport live",   job_social: "expert status",             job_emotional: "thrill",              barrier: "ticket availability",    trigger: "session on-sale drop"}
+moment_of_truth:
+  when: "18 months out · ticket-sale day"
+  where: "phone · creator feed"
+  event: "creator film drops → crew invite goes out"
+clusters:
+  - {theme: "Travel friction", items: ["flight cost", "hidden bundle costs", "visa awareness"]}
+  - {theme: "Group belonging", items: ["travel as a crew", "one-tap group booking", "shared identity"]}
+  - {theme: "Creator-led demand", items: ["creators > ads", "local-language countdown"]}
+seed_insight: "SEA Gen-Z already travel in crews and follow creators, yet no Asian Games host has ever activated them — so make SEA Doha's loudest away crowd, starting at the moment a creator film drops."
+source_note: "Scout Report, Data as of 2026-09"

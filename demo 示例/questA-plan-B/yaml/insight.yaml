@@ -1,0 +1,46 @@
+# Quest A · Plan B "Creator-Led Demand" · INSIGHT gate capture
+# Human-led, AI-scaffolded. Trends, segments and moment of truth supplied by the team.
+quest: A
+client: "OCA — Doha 2030 Ticketing & Fan Engagement Unit"
+mission: "Manufacture demand for Doha 2030 in Southeast Asia — creators make fans want it before tickets ever go on sale."
+org_profile:
+  assets:
+    - "Visa-free entry for most SEA passports"
+    - "Qatar Airways + Hamad Int'l — world-class stopover hub"
+    - "39 venues, 54 sports; National Vision 2030 tourism KPI"
+    - "18 months of runway (May 2029 – Oct 2030)"
+  constraints:
+    - "MVP budget USD 1.5M (5% of USD 30M)"
+    - "Zero organic awareness of Doha 2030 in SEA — demand does not exist yet"
+benchmark:
+  gold_standard: "Hangzhou 2023 — 3.05M tickets, ¥610M revenue, 92% attendance; demand was built for years through local channels."
+  cautionary_tale: "Nagoya 2026 — 2.75M planned, ~605K sold at T-14 (22%). Not a pricing failure: demand was never manufactured."
+  arena: "Doha 2030 — Nov 2030; SEA's 680M mobile-first fans, left unmined by every previous host."
+market:
+  trends:
+    - {trend: "SEA fandom is creator-led", why_it_matters: "Fans discover and trust events through creators, not official channels; official ads alone cannot create want."}
+    - {trend: "Mother-tongue content converts", why_it_matters: "Local-language countdown content outperforms English brand films in the final 30 days before a decision."}
+    - {trend: "First-time eventgoers need financial on-ramps", why_it_matters: "SEA's young fans can pay over time but not upfront; layaway and transparent total pricing unlock a segment that never buys at full sticker."}
+  truths:
+    - {author: "Rica (Philippines)",  text: "Nobody in Manila is talking about Doha 2030 — the want does not exist yet."}
+    - {author: "Minh (Vietnam)",      text: "Fans believe a creator they follow, not an official ad."}
+    - {author: "Pim (Thailand)",      text: "Countdown content in local language converts hardest in the final 30 days."}
+    - {author: "Farah (Malaysia)",    text: "Hidden fees kill conversion — show the total price up front."}
+    - {author: "Ayu (Indonesia)",     text: "Young fans can pay monthly, not all at once."}
+    - {author: "Wei (Singapore)",     text: "Nobody knows Doha is visa-free for SEA passports."}
+    - {author: "Jose (Philippines)",  text: "Posting 'I was there' is half the reason to go."}
+    - {author: "Lan (Vietnam)",       text: "A first international sports trip feels risky without a guide."}
+segments:
+  - {name: "Feed-Native Fans",       who: "SEA Gen-Z, 18–24, mobile-first, PH & VN", job_functional: "discover an event worth wanting", job_social: "be early to what everyone will talk about", job_emotional: "fear of missing a once-in-a-decade moment", barrier: "zero awareness — nobody has made them care", trigger: "a local creator's countdown series in their own language"}
+  - {name: "First-Game Families",    who: "young parents & first-time international eventgoers", job_functional: "attend a major event with no financial surprises", job_social: "give the family a first Games memory", job_emotional: "pride without anxiety", barrier: "upfront price and hidden fees", trigger: "layaway plan with a transparent all-in total"}
+  - {name: "Sport Diehards",         who: "badminton / sepak takraw / basketball followers", job_functional: "watch their sport's biggest stage live", job_social: "expert status in their fan community", job_emotional: "vindication — their sport matters", barrier: "don't know Doha hosts their sport", trigger: "sport-specific creator content + session drop alerts"}
+moment_of_truth:
+  when: "the final 30 days before ticket on-sale closes"
+  where: "the phone, inside a local-language creator feed"
+  event: "a countdown video drops and the layaway link is one tap away"
+clusters:
+  - {theme: "Demand must be manufactured", items: ["zero awareness", "creators > official ads", "countdown converts"]}
+  - {theme: "Financial on-ramps", items: ["pay over time", "transparent total price", "no hidden fees"]}
+  - {theme: "Shareable identity", items: ["'I was there' is the point", "posting is half the reason to go"]}
+seed_insight: "Nagoya didn't have a price problem — it had a demand problem: nobody made SEA fans want the Games. SEA fandom is creator-led, trusts mother-tongue content, and converts hardest in the final 30-day countdown — so Doha must manufacture demand through creators, not wait for it."
+source_note: "Scout Report, Data as of 2026-09"

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ascentium AI Transformation Mini-hackathon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --org:#FF6611; --org1:#FFF0E7; --org2:#FFD1B8; --org3:#FFA370; --org4:#FF8541;
+  --ink:#0F1514; --mid1:#B7B9B9; --mid2:#878A8A; --mid3:#575B5B; --mid4:#272C2C;
+  --teal:#077069; --teal1:#CDE2E1;
+  --sky:#1877F2; --sky1:#BDD5EF;
+  --line:#E5E7E6; --txt:#3A4040; --mut:#6B7271;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Poppins","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#F6F7F5;color:var(--ink);line-height:1.55}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+/* hero */
+.hero{background:var(--ink);color:#fff;padding:0 0 0}
+.hero-img{position:relative;overflow:hidden}
+.hero-img img{width:100%;display:block}
+.hero-img .hero-txt{position:absolute;left:0;right:0;bottom:0;padding:34px 34px 26px;background:rgba(15,21,20,.55)}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--org3);margin-bottom:10px}
+.kicker::before{content:"";width:22px;height:3px;background:var(--org)}
+h1{font-size:clamp(26px,4.2vw,44px);font-weight:700;line-height:1.12;letter-spacing:-1%}
+h1 .hl{color:var(--org)}
+.hero-sub{font-size:15px;color:#D7DBDA;margin-top:8px;max-width:760px}
+.pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+.pill{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 15px;font-size:12.5px;font-weight:500}
+.pill b{color:var(--org3);font-weight:600}
+/* sections */
+.sec{margin-top:46px}
+.sec-h{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.lvl{flex:none;background:var(--org);color:var(--ink);font-weight:700;font-size:12px;letter-spacing:1.5px;border-radius:7px;padding:5px 11px}
+.sec-h h2{font-size:24px;font-weight:600;letter-spacing:-.5%}
+.sec-h .sub{font-size:12.5px;color:var(--mut)}
+.arrowup{flex:none;margin-left:auto}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.card-pad{padding:20px 22px}
+.card-dark{background:var(--ink);color:#fff;border:none}
+/* goal cards */
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.goal{background:var(--org1);border:1px solid var(--org2);border-radius:12px;padding:14px 16px}
+.goal .num{display:inline-block;background:var(--org);color:var(--ink);font-weight:700;font-size:12px;border-radius:6px;padding:2px 9px;margin-bottom:8px}
+.goal b{display:block;font-size:13.5px;margin-bottom:4px}
+.goal p{font-size:12.5px;color:var(--txt)}
+/* stat bars (selection criteria) */
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:11px;padding:12px 13px}
+.stat .sh2{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;margin-bottom:9px}
+.stat .sic{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex:none}
+.bar{height:8px;background:#EDEFEE;border-radius:99px;overflow:hidden;margin-bottom:7px}
+.bar i{display:block;height:100%;border-radius:99px;background:var(--org)}
+.stat p{font-size:11px;color:var(--mut);line-height:1.5}
+/* quest map flow */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.stage{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.stage .sh{background:var(--ink);color:#fff;padding:12px 15px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.stage .sh .lv{font-size:10.5px;font-weight:700;letter-spacing:1.5px;color:var(--ink);background:var(--org);border-radius:5px;padding:2px 8px}
+.stage .sh b{font-size:13.5px;font-weight:600}
+.stage .sh span{font-size:11.5px;color:var(--org3);font-weight:600;white-space:nowrap}
+.stage .sb{padding:12px 15px 14px;flex:1}
+.stage .sb ul{margin-left:16px;font-size:12.5px;color:var(--txt)}
+.stage .sb li{margin:4px 0}
+.stage .loot{border-top:1px dashed var(--line);margin:0 15px;padding:9px 0 12px;font-size:11.5px;color:var(--mut)}
+.stage .loot b{color:var(--org);font-weight:600}
+/* round table */
+.setup{display:grid;grid-template-columns:350px 1fr;gap:26px;align-items:center}
+.tblwrap{position:relative;width:330px;height:352px;margin:0 auto}
+.monitor{position:absolute;top:6px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;font-size:11px;font-weight:600;border-radius:7px;padding:6px 14px;white-space:nowrap}
+.monitor::after{content:"";position:absolute;left:50%;bottom:-5px;transform:translateX(-50%);border:5px solid transparent;border-top-color:var(--ink);border-bottom:none}
+.table{position:absolute;left:50%;top:53%;transform:translate(-50%,-50%);width:196px;height:196px;border-radius:50%;background:var(--org1);border:2px solid var(--org2)}
+.dev{position:absolute;left:50%;top:50%;width:34px;height:22px;border-radius:4px;background:#fff;border:1.5px solid var(--mid1);transform:translate(-50%,-50%)}
+.dev:nth-child(2){transform:translate(-135%,-50%)}
+.dev:nth-child(3){transform:translate(35%,-50%)}
+.seat{position:absolute;width:24px;height:24px;border-radius:50%;background:var(--mid1)}
+.seat.fac{background:var(--org);border:3px solid var(--org2)}
+.legend .li{display:flex;gap:10px;align-items:flex-start;margin:9px 0;font-size:12.5px;color:var(--txt)}
+.lic{flex:none;width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px}
+.kv{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.kv span{background:#F2F4F3;border:1px solid var(--line);border-radius:7px;padding:5px 12px;font-size:12px;font-weight:500}
+.kv span b{color:var(--org);font-weight:600}
+/* topic quest cards */
+.pool-h{display:flex;align-items:baseline;gap:10px;margin:6px 0 12px;flex-wrap:wrap}
+.pool-tag{font-size:11px;border-radius:6px;padding:3px 10px;font-weight:600}
+.pool-t{font-size:15px;font-weight:600}
+.pool-sub{font-size:12px;color:var(--mut)}
+.topic{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.topic .timg{position:relative;height:150px;overflow:hidden}
+.topic .timg img{width:100%;height:100%;object-fit:cover;display:block}
+.topic .timg .qtag{position:absolute;top:10px;left:10px;font-size:11px;font-weight:700;border-radius:6px;padding:3px 10px;letter-spacing:1px}
+.topic h4{font-size:14.5px;font-weight:600;padding:12px 16px 2px}
+.topic .altgoal{font-size:12px;font-weight:600;color:var(--org);padding:6px 16px 0}
+.topic ul{margin:8px 0 10px;padding:0 16px 0 32px;font-size:12.5px;color:var(--txt)}
+.topic li{margin:4px 0}
+.altbrief{background:var(--org1);border-radius:9px;padding:10px 13px;font-size:12.5px;margin:0 16px 12px}
+.topic .kv{margin:0 16px 15px}
+/* archived pool */
+details.alt summary{display:flex;align-items:baseline;gap:10px;cursor:pointer;list-style:none;background:#fff;border:1px dashed var(--org2);border-radius:12px;padding:12px 16px}
+details.alt summary::-webkit-details-marker{display:none}
+details.alt summary .chev{margin-left:auto;color:var(--org);transition:transform .2s}
+details.alt[open] summary .chev{transform:rotate(180deg)}
+.altgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;background:#fff;border:1px solid var(--line);border-top:none;border-radius:0 0 12px 12px;padding:14px 16px 16px}
+.altcard{background:var(--org1);border:1px solid var(--org2);border-radius:11px;padding:14px 16px}
+.altcard h4{font-size:13.5px;margin-bottom:3px}
+.altcard .altgoal{font-size:12px;font-weight:600;color:var(--org);margin-bottom:8px;padding:0}
+.altcard ul{margin:0 0 10px 16px;font-size:12.5px;color:var(--txt)}
+.altcard li{margin:4px 0}
+.altcard .altbrief{margin:0 0 4px}
+/* arsenal */
+.skstage{margin-bottom:12px}
+.skstage .lbl{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;margin-bottom:8px}
+.skstage .lbl .lv{font-size:10px;font-weight:700;letter-spacing:1px;color:#fff;background:var(--teal);border-radius:5px;padding:2px 8px}
+.skrow{display:flex;flex-wrap:wrap;gap:8px}
+.sk{background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 13px;font-size:12.5px}
+.sk b{font-weight:600}
+.sk i{font-style:normal;font-size:10.5px;font-weight:600;color:var(--teal);margin-left:4px}
+.sk.agent{background:var(--teal1);border-color:#B2D3D1}
+/* arena */
+.sub-t{font-size:14px;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.bracket{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.match{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px;text-align:center}
+.match .mid{display:inline-block;font-size:10.5px;font-weight:700;color:var(--ink);background:var(--org);border-radius:6px;padding:3px 10px;letter-spacing:1px}
+.match .vs{display:flex;align-items:center;justify-content:center;gap:8px;margin:9px 0 7px}
+.match .team{flex:1;border-radius:8px;padding:8px 0;font-weight:600;font-size:13px;background:var(--sky);color:#fff}
+.match .team.b{background:var(--org)}
+.match .vsbadge{font-size:11px;font-weight:700;color:var(--mut)}
+.match .info{font-size:11px;color:var(--mut)}
+.lucky{background:var(--org1);border:1px dashed var(--org3);border-radius:12px;padding:16px 18px;margin-bottom:14px}
+.lucky .lk{display:flex;gap:16px;align-items:flex-start}
+.lucky .lk .lki{flex:none;width:42px;height:42px;border-radius:11px;background:var(--org);display:flex;align-items:center;justify-content:center;font-size:20px}
+.lucky p{font-size:12.5px;color:var(--txt);margin-bottom:9px}
+.lucky .kv{margin:0}
+/* awards */
+.award{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 16px;text-align:center}
+.award .medal{width:52px;height:52px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:23px}
+.award h4{font-size:13.5px;font-weight:600;margin-bottom:4px}
+.award p{font-size:12px;color:var(--mut)}
+.hof{display:grid;grid-template-columns:300px 1fr;gap:18px;align-items:center}
+.hof img{width:100%;max-width:250px;display:block;margin:0 auto}
+footer{margin-top:52px;background:var(--ink);color:var(--mid1);text-align:center;padding:26px 20px;font-size:12px}
+footer b{color:var(--org3);font-weight:600}
+@media(max-width:900px){.grid4,.flow{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}.grid3{grid-template-columns:1fr}.setup{grid-template-columns:1fr}.hof{grid-template-columns:1fr}.bracket{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap" style="padding-top:26px;display:flex;align-items:center;gap:10px">
+    <svg width="30" height="30" viewBox="0 0 30 30"><rect width="30" height="30" rx="6" fill="#FF6611"/><path d="M8 21 L15 9 L22 21 L18 21 L15 15.5 L12 21 Z" fill="#0F1514"/></svg>
+    <span style="font-weight:600;font-size:16px;letter-spacing:.5px">Ascentium</span>
+    <span style="margin-left:auto;font-size:11.5px;font-weight:600;letter-spacing:2px;color:var(--org3)">INSPIRE · AI TRANSFORMATION</span>
+  </div>
+  <div class="hero-img" style="margin-top:18px">
+    <img src="assets/hero.png" alt="Quest map: scale greater heights">
+    <div class="hero-txt">
+      <div class="wrap">
+        <div class="kicker">Player One, Ready?</div>
+        <h1>Ascentium AI Transformation <span class="hl">Mini-hackathon</span></h1>
+        <p class="hero-sub">One afternoon. 112 players. 8 guilds. A full AI-powered business-quest run — from insight to showdown. Scale greater heights, together.</p>
+        <div class="pills">
+          <span class="pill">🗓️ <b>Oct 13</b> · 15:15–17:45 · Shenzhen</span>
+          <span class="pill">🌏 Participants from <b>SEA markets</b></span>
+          <span class="pill">🎮 <b>112 players</b> · 8 cross-BU guilds × 14</span>
+          <span class="pill">⛏️ <b>“Gold Rush”</b> Challenge · Arena duels</span>
+          <span class="pill">🗳️ Live voting · On-site awards</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ============ LEVEL 1: MISSION ============ -->
+<section class="sec">
+  <div class="sec-h"><span class="lvl">LEVEL 01</span><h2>Mission Briefing</h2><span class="sub">Why we play</span><svg class="arrowup" width="22" height="22" viewBox="0 0 22 22"><path d="M4 18 L11 5 L18 18 L14.5 18 L11 12 L7.5 18 Z" fill="#FF6611"/></svg></div>
+  <div class="card card-pad" style="margin-bottom:12px">
+    <p style="font-size:13.5px">Part of the <b>Ascentium AI Transformation — Inspire</b> program. No slides marathon, no theory: this is a <b>2.5-hour hands-on arena</b> where every BU leader experiences the full AI co-creation loop, masters our pre-loaded Skills &amp; Agents toolkit, and walks out thinking like a <b>builder, not just a user</b>.</p>
+  </div>
+  <div class="grid2">
+    <div class="goal"><span class="num">GOAL 01</span><b>Run the full AI loop</b><p>Insight → judgement → plan → showcase — experience end-to-end AI-powered solution building on a real business quest.</p></div>
+    <div class="goal"><span class="num">GOAL 02</span><b>Master the toolkit</b><p>Every player gets hands-on with the pre-configured Skills / Agents arsenal — no setup friction, pure play.</p></div>
+    <div class="goal"><span class="num">GOAL 03</span><b>Forge cross-BU alliances</b><p>8 guilds mixed across BUs and SEA markets. New teammates, new perspectives, one scoreboard.</p></div>
+    <div class="goal"><span class="num">GOAL 04</span><b>Unlock the opportunity mindset</b><p>Learn to “spot gold” with AI anywhere — from mega-events to beloved brands — and pitch it like a founder.</p></div>
+  </div>
+</section>
+
+<!-- ============ LEVEL 2: QUEST MAP ============ -->
+<section class="sec">
+  <div class="sec-h"><span class="lvl">LEVEL 02</span><h2>The Quest Map</h2><span class="sub">2.5 hours · 4 levels · one champion</span><svg class="arrowup" width="22" height="22" viewBox="0 0 22 22"><path d="M4 18 L11 5 L18 18 L14.5 18 L11 12 L7.5 18 Z" fill="#FF6611"/></svg></div>
+  <div class="flow">
+    <div class="stage">
+      <div class="sh"><span class="lv">LV.1</span><b>Bootcamp Briefing</b><span>15:15 · 20′</span></div>
+      <div class="sb"><ul>
+        <li>Icebreaker &amp; mission goals</li>
+        <li>Challenge &amp; arena rules reveal</li>
+        <li>Skills / Agents toolkit demo</li>
+      </ul></div>
+      <div class="loot">🎁 <b>Loot:</b> rules handbook + toolkit access</div>
+    </div>
+    <div class="stage">
+      <div class="sh"><span class="lv">LV.2</span><b>Gold Rush Challenge</b><span>15:35 · 60′</span></div>
+      <div class="sb"><ul>
+        <li>Pick quest &amp; split roles (10′)</li>
+        <li>Run Skills/Agents → build the plan (40′)</li>
+        <li>Converge &amp; submit (10′)</li>
+      </ul></div>
+      <div class="loot">⏳ <b>Hard deadline:</b> 16:35 — no late submissions</div>
+    </div>
+    <div class="stage">
+      <div class="sh"><span class="lv">LV.3</span><b>Arena Showcase</b><span>16:35 · 60′</span></div>
+      <div class="sb"><ul>
+        <li>Lucky Draw before each duel</li>
+        <li>4 head-to-head duels × 15′</li>
+        <li>5′ pitch + 2′ cross-Q + 1′ rally</li>
+        <li>Other 6 guilds + judges vote live</li>
+      </ul></div>
+      <div class="loot">⚔️ <b>Boss rule:</b> same-quest pairs only</div>
+    </div>
+    <div class="stage">
+      <div class="sh"><span class="lv">LV.4</span><b>Victory Ceremony</b><span>17:35 · 10′</span></div>
+      <div class="sb"><ul>
+        <li>Final scoreboard &amp; awards</li>
+        <li>Leadership debrief &amp; next steps</li>
+        <li>Group photo &amp; feedback quest</li>
+      </ul></div>
+      <div class="loot">🏆 <b>Loot drop:</b> medals + special awards</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEVEL 3: GUILD SETUP ============ -->
+<section class="sec">
+  <div class="sec-h"><span class="lvl">LEVEL 03</span><h2>Guild Setup &amp; Loadout</h2><span class="sub">8 guilds × 14 players · everything pre-configured</span><svg class="arrowup" width="22" height="22" viewBox="0 0 22 22"><path d="M4 18 L11 5 L18 18 L14.5 18 L11 12 L7.5 18 Z" fill="#FF6611"/></svg></div>
+  <div class="card card-pad">
+    <div class="setup">
+      <div class="tblwrap" id="tblwrap">
+        <div class="monitor">Shared Display ×1</div>
+        <div class="table"><div class="dev"></div><div class="dev"></div><div class="dev"></div></div>
+        <img src="assets/robot.png" alt="AI-Bot Facilitator" title="Your AI-Bot Facilitator" style="position:absolute;right:-4px;bottom:16px;width:96px">
+      </div>
+      <div class="legend">
+        <p style="margin-bottom:8px;font-size:13.5px"><b>One round-table island per guild — 8 guilds, 112 players:</b></p>
+        <div class="li"><div class="lic" style="background:var(--org1)">👥</div><div><b>14 players</b> per round table — mixed across BUs and SEA markets for maximum perspective clash.</div></div>
+        <div class="li"><div class="lic" style="background:var(--org2)">🤖</div><div><b>1 Facilitator = your in-game AI BOT</b> — toolkit expert on standby, unblocking stuck moments and pacing the run. <b>Full cosplay mode:</b> answers to a serial number (FACI-01 ~ FACI-08), speaks in cheerful robot one-liners, and keeps the human-AI co-creation vibe at 100%.</div></div>
+        <div class="li"><div class="lic" style="background:var(--sky1)">🖥️</div><div><b>Big display ×1</b> — one shared screen per guild; the whole table sees the same build, all the time.</div></div>
+        <div class="li"><div class="lic" style="background:var(--teal1)">💻</div><div><b>Pre-configured devices ×2–3</b> — tools installed, logins ready. Open the lid and play.</div></div>
+        <div class="kv">
+          <span>✅ One screen, zero distraction</span>
+          <span>✅ Multi-device, no queuing</span>
+          <span>✅ Expert on tap, no stuck states</span>
+          <span>🤖 Robot-Faci keeps the fun meter high</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEVEL 4: MAIN QUEST ============ -->
+<section class="sec">
+  <div class="sec-h"><span class="lvl">LEVEL 04</span><h2>Main Quest: “Gold Rush” <span style="font-size:14px;color:var(--mut);font-weight:400">(spot the opportunity)</span></h2><span class="sub">60 minutes · one winning plan per duel</span><svg class="arrowup" width="22" height="22" viewBox="0 0 22 22"><path d="M4 18 L11 5 L18 18 L14.5 18 L11 12 L7.5 18 Z" fill="#FF6611"/></svg></div>
+  <div class="card card-pad" style="margin-bottom:14px">
+    <p style="font-size:13.5px">Raid one official quest with the pre-loaded <b>Skills / Agents arsenal</b>: insight → judgement → plan → showcase, end to end. The official quests are locked in — <b>Quest A “2030 Doha Asian Games Ticketing”</b> and <b>Quest B “Chengdu Panda Base IP Ops”</b>. <b>8 guilds draw lots for pick order; each quest is capped at 4 guilds, first-come-first-served</b> (once Quest A fills up, the rest go to B). In the arena, <b>same-quest guilds duel head-to-head</b> — same boss, pure skill.</p>
+    <div class="kv">
+      <span>🎯 Deliverable: insight + business plan + 5′ showcase</span>
+      <span>🗳️ Win condition: live audience vote, no judges' scorecards</span>
+      <span>⚡ Pick rule: 4 guilds per quest · first come first served</span>
+      <span>⏳ Submit by 16:35</span>
+    </div>
+  </div>
+
+  <div style="font-size:13px;font-weight:600;margin-bottom:8px">📐 Quest Selection Criteria <span style="font-weight:400;color:var(--mut)">· both official quests clear all five stat checks</span></div>
+  <div class="stats" style="margin-bottom:14px">
+    <div class="stat"><div class="sh2"><span class="sic" style="background:var(--org1)">🙋</span>Familiar to all</div><div class="bar"><i style="width:96%"></i></div><p>Household names to a SEA audience — zero intro needed.</p></div>
+    <div class="stat"><div class="sh2"><span class="sic" style="background:#FDE8E8">🔥</span>Hot topic</div><div class="bar"><i style="width:92%"></i></div><p>Real events happening now, all over the news feed.</p></div>
+    <div class="stat"><div class="sh2"><span class="sic" style="background:#E3F3E5">🙌</span>Everyone plays</div><div class="bar"><i style="width:98%"></i></div><p>No expertise required — every seat can contribute.</p></div>
+    <div class="stat"><div class="sh2"><span class="sic" style="background:#FFF6DE">💛</span>Resonant</div><div class="bar"><i style="width:94%"></i></div><p>Connects to daily life, memories and shared values.</p></div>
+    <div class="stat"><div class="sh2"><span class="sic" style="background:#E9E4FA">🧗</span>Real challenge</div><div class="bar"><i style="width:88%"></i></div><p>Genuine tension worth digging into with AI tools.</p></div>
+  </div>
+
+  <div class="pool-h"><span class="pool-tag" style="background:var(--org);color:var(--ink)">OFFICIAL QUESTS</span><span class="pool-t">A / B — pick your battleground</span><span class="pool-sub">Work-adjacent fun · SEA-relevant · backed by real public data</span></div>
+  <div class="grid2">
+    <div class="topic">
+      <div class="timg"><img src="assets/topic-a.png" alt="Asian Games stadium"><span class="qtag" style="background:var(--sky);color:#fff">QUEST A</span></div>
+      <h4>2030 Doha Asian Games: Ticketing &amp; Merch Marketing</h4>
+      <p class="altgoal">Sell out the stadiums — and the merch booths</p>
+      <ul>
+        <li>Benchmark — Hangzhou 2023: 3.05M tickets sold, RMB 610M+ ticketing revenue, 92%+ average occupancy.</li>
+        <li>Licensing gold: 1,100+ merch SKUs (badges, fridge magnets, coins) hit RMB 760M sales; single-day peak 290K attendees.</li>
+        <li>2030 is the Asian Games' first-ever Middle East edition (Doha, Qatar) — Southeast Asia is its largest overseas source market.</li>
+      </ul>
+      <div class="altbrief"><b>Design Challenge:</b> build a Southeast-Asia-audience ticketing + licensed-merch marketing plan for Doha 2030 — segmentation, pricing &amp; channels, content marketing and campaign rhythm.</div>
+      <div class="kv"><span>Market Research</span><span>Audience Analysis</span><span>Creative Concept</span><span>Marketing Plan</span><span>Poster</span></div>
+    </div>
+    <div class="topic">
+      <div class="timg"><img src="assets/topic-b.png" alt="Panda and bamboo"><span class="qtag" style="background:var(--org);color:var(--ink)">QUEST B</span></div>
+      <h4>Chengdu Panda Base: IP Operations Gone Global</h4>
+      <p class="altgoal">Turn superstar traffic into a sustainable global IP business</p>
+      <ul>
+        <li>Superstar panda “Hua Hua” drew 269K visitors over May Day 2023 — fans joke about the “2-hour queue for a 3-minute panda”.</li>
+        <li>442K panda-related visits in CNY 2024 alone; May Day 2024 ticket revenue up 97.38% YoY.</li>
+        <li>Chengdu's cultural-creative industry added RMB 257.49B of value in 2023 — “panda economy” is city-scale business.</li>
+      </ul>
+      <div class="altbrief"><b>Design Challenge:</b> design an international IP operation for the Panda Base — merch lines, overseas marketing, membership &amp; repeat-visit systems — turning traffic into loyalty.</div>
+      <div class="kv"><span>Audience Analysis</span><span>Market Research</span><span>Creative Concept</span><span>Marketing Plan</span><span>Data Viz</span></div>
+    </div>
+  </div>
+
+  <!-- archived candidates -->
+  <details class="alt" style="margin-top:14px" id="altpool">
+    <summary><span class="pool-tag" style="background:var(--org2);color:var(--ink)">ARCHIVE</span><span class="pool-t">Candidate Quest Library</span><span class="pool-sub">Shortlisted before final pick · 4 SEA household names + 2 fun quests · kept for reference · click to expand</span><span class="chev">▾</span></summary>
+    <div class="altgrid">
+      <div class="altcard">
+        <h4>🛵 Grab · SEA super-app</h4>
+        <p class="altgoal">Hold the “business + social” double bottom line under regulatory, price-war and profit pressure</p>
+        <ul>
+          <li>Indonesia's proposed presidential decree would cap driver commissions at 8% (from 20%) and mandate social-security contributions — Grab's stock shed ~9% in a week.</li>
+          <li>Grab–GoTo merger talks continue; combined share could exceed 91%, drawing antitrust and driver-protection scrutiny.</li>
+          <li>The social mission is real: millions of driver-partners rely on the platform — “double bottom line” is the founding creed.</li>
+        </ul>
+        <div class="altbrief"><b>Design Challenge:</b> redesign Grab Indonesia's profit model for the regulation era — commission structures, driver-welfare products, diversified monetization — finding growth while giving drivers a bigger cut.</div>
+        <div class="kv"><span>Company Profiler</span><span>Market Research</span><span>SWOT</span><span>Cost-Benefit</span><span>Marketing Plan</span></div>
+      </div>
+      <div class="altcard">
+        <h4>✈️ AirAsia Capital A · “Now Everyone Can Fly”</h4>
+        <p class="altgoal">Tell the next chapter for an airline that just cheated death</p>
+        <ul>
+          <li>Six years of survival mode: negative equity post-COVID, PN17 (financial distress) listing in 2022, delisting risk; RM6.8B aviation sale + RM5.5B capital reduction.</li>
+          <li>PN17 lifted on May 20, 2026. CEO Tony Fernandes: “There were moments the world thought we wouldn't make it — but we saved the jobs.”</li>
+          <li>Reloaded: ADE, Teleport, AirAsia MOVE, Santan and AirAsia Next are all profitable for five straight quarters; dual US–HK listing in motion.</li>
+        </ul>
+        <div class="altbrief"><b>Design Challenge:</b> engineer growth for the reborn Capital A — synergy across five non-air lines, monetizing the AirAsia brand and membership as IP, from airline to travel-tech ecosystem.</div>
+        <div class="kv"><span>Company Profiler</span><span>Market Research</span><span>Creative Concept</span><span>Marketing Plan</span><span>Data Viz</span></div>
+      </div>
+      <div class="altcard">
+        <h4>📮 Pos Malaysia · the national post</h4>
+        <p class="altgoal">Turn a 31-quarter losing streak into a nationwide network asset</p>
+        <ul>
+          <li>Bleeding for years: ~RM200M net loss in FY2024, 26 straight losing quarters; Q1 FY2026 makes it 31.</li>
+          <li>Structural decline: traditional mail volumes shrinking ~9% as digital replaces paper.</li>
+          <li>Silver lining: ex-Amazon CEO Charles Brewer at the helm, parcel volume +13%; a nationwide last-mile network that legally must reach every village.</li>
+        </ul>
+        <div class="altbrief"><b>Design Challenge:</b> design the “from letters to everything” transformation — rural e-commerce logistics, community service points, government &amp; enterprise product lines — turning a cost center into a profit center.</div>
+        <div class="kv"><span>Market Research</span><span>Audience Analysis</span><span>Creative Concept</span><span>Marketing Plan</span><span>Cost-Benefit</span></div>
+      </div>
+      <div class="altcard">
+        <h4>🛒 Shopee · SEA e-commerce #1</h4>
+        <p class="altgoal">Defend the throne against TikTok Shop's blitz</p>
+        <ul>
+          <li>Throne wobbling: Vietnam share slid from 61% (2023) to 56% while TikTok Shop jumped 24% → 41%; TikTok Shop's SEA GMV doubled in 2025 to 65% of Shopee's.</li>
+          <li>Monetization squeeze: take-rate up to 13.5% still can't offset logistics &amp; marketing; stock plunged 16% in one day (–27% intraday) after the Q4 FY2025 report.</li>
+          <li>Seller strain: commission hikes of 1–5pp plus new platform fees across markets — yet millions of MSME sellers are Shopee's moat.</li>
+        </ul>
+        <div class="altbrief"><b>Design Challenge:</b> design Shopee's defense — hold share against content-commerce without losing MSME sellers: seller enablement, content-ification, and a logistics-moat narrative.</div>
+        <div class="kv"><span>SWOT</span><span>Audience Analysis</span><span>Market Research</span><span>Creative Concept</span><span>Marketing Plan</span><span>Poster</span></div>
+      </div>
+      <div class="altcard">
+        <h4>🏔️ Everest · sustainable business above 8,000m</h4>
+        <p class="altgoal">Make money on Everest without dirtying it</p>
+        <ul>
+          <li>Record permits: 478 in 2023, 468 in 2024 with ~US$5M in fees.</li>
+          <li>The “world's highest rubbish dump”: ~3 tons of trash + 3.3 tons of feces left in spring 2025; permit fees up US$11,000 → US$15,000 from Sept 2025, plus a new 7,000m-peak prerequisite.</li>
+          <li>Tighter rules + green pressure = supply-side shakeout — certification, gear, insurance and low-footprint eco-tourism get a window.</li>
+        </ul>
+        <div class="altbrief"><b>Design Challenge:</b> a sustainable commercialization plan for the Everest region — high-value, low-footprint products, brand partnerships, monetizing the conservation story into a business positive loop.</div>
+        <div class="kv"><span>Market Research</span><span>SWOT</span><span>Creative Concept</span><span>Marketing Plan</span><span>Cost-Benefit</span></div>
+      </div>
+      <div class="altcard">
+        <h4>💌 “A Letter to Grandma” · the 2026 sleeper hit film</h4>
+        <p class="altgoal">Grow a word-of-mouth phenomenon into a SEA-wide IP</p>
+        <ul>
+          <li>~RMB 14M production, amateur cast, Teochew dialect → RMB 2.1B+ global box office, Douban 9.1+.</li>
+          <li>A “Nanyang” story of Teochew diaspora letters —natural, built-in resonance with SEA Chinese communities; Malaysia box office past RM5.8M.</li>
+          <li>Overseas rollout from June 2026: HK/Macau, Singapore, Malaysia, Brunei first; Taiwan premiere sold out in minutes.</li>
+        </ul>
+        <div class="altbrief"><b>Design Challenge:</b> design SEA IP extension &amp; commercialization — spin-off content, merch &amp; cross-brand collabs, culture-tourism tie-ins, and overseas Chinese community building.</div>
+        <div class="kv"><span>Audience Analysis</span><span>Creative Concept</span><span>Marketing Plan</span><span>Poster</span><span>Cost-Benefit</span></div>
+      </div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ LEVEL 5: ARSENAL ============ -->
+<section class="sec">
+  <div class="sec-h"><span class="lvl">LEVEL 05</span><h2>The Arsenal: Skills / Agents</h2><span class="sub">pre-loaded · mix &amp; match · combo-friendly</span><svg class="arrowup" width="22" height="22" viewBox="0 0 22 22"><path d="M4 18 L11 5 L18 18 L14.5 18 L11 12 L7.5 18 Z" fill="#FF6611"/></svg></div>
+  <div class="card card-pad">
+    <p style="font-size:12.5px;color:var(--mut);margin-bottom:14px">Chained along the full quest loop — open the inventory, equip, and combine:</p>
+    <div class="skstage"><div class="lbl"><span class="lv">STAGE 1</span>🔍 Insight Loadout</div>
+      <div class="skrow">
+        <div class="sk"><b>Company Profiler</b> Skill</div>
+        <div class="sk"><b>Market Research</b> Skill</div>
+        <div class="sk"><b>Audience Analysis</b> Skill</div>
+        <div class="sk"><b>SWOT Analysis</b> Skill</div>
+      </div>
+    </div>
+    <div class="skstage"><div class="lbl"><span class="lv">STAGE 2</span>💡 Create Loadout</div>
+      <div class="skrow">
+        <div class="sk"><b>Creative Concept</b> Skill</div>
+        <div class="sk"><b>Marketing Plan</b> Skill</div>
+        <div class="sk"><b>Poster</b> Skill</div>
+      </div>
+    </div>
+    <div class="skstage" style="margin-bottom:0"><div class="lbl"><span class="lv">STAGE 3</span>📊 Prove &amp; Present Loadout</div>
+      <div class="skrow">
+        <div class="sk"><b>Data Analysis &amp; Viz</b> Skill</div>
+        <div class="sk"><b>Cost-Benefit</b> Skill</div>
+        <div class="sk agent"><b>Showcase Report</b> Agent<i>AUTO</i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEVEL 6: ARENA ============ -->
+<section class="sec">
+  <div class="sec-h"><span class="lvl">LEVEL 06</span><h2>The Arena: Showcase Duels</h2><span class="sub">same-quest pairs · everyone votes</span><svg class="arrowup" width="22" height="22" viewBox="0 0 22 22"><path d="M4 18 L11 5 L18 18 L14.5 18 L11 12 L7.5 18 Z" fill="#FF6611"/></svg></div>
+  <div class="card card-pad" style="margin-bottom:14px">
+    <div class="grid3">
+      <div><h3 class="sub-t"><span class="lic" style="background:var(--org1)">🎲</span>Draw Lots First</h3><p style="font-size:12.5px">8 guilds draw lots for pick order AND duel slots: pick Quest A/B in order (4 guilds per quest, first-come-first-served; once A is full, the rest take B), then same-quest guilds pair up (D1–D4). Brackets published in advance for targeted prep.</p></div>
+      <div><h3 class="sub-t"><span class="lic" style="background:var(--org2)">⏱️</span>15′ per Duel</h3><p style="font-size:12.5px">Each duel: 5′ pitch → 2′ cross-questioning → 1′ rally speech → the other 6 guilds + judges scan to vote (~2′).</p></div>
+      <div><h3 class="sub-t"><span class="lic" style="background:var(--teal1)">🏅</span>Winners &amp; Loot</h3><p style="font-size:12.5px">Each duel winner takes a special award (4 total); total votes across all duels crown the Champion, 1st and 2nd runners-up.</p></div>
+    </div>
+  </div>
+
+  <div class="lucky">
+    <div class="lk">
+      <div class="lki">🎰</div>
+      <div>
+        <p style="font-size:13.5px;color:var(--ink);margin-bottom:5px"><b>Lucky Draw · Random Element Challenge</b> <span style="font-weight:400;color:var(--mut)">— inject random creativity into every pitch</span></p>
+        <p>Before stepping up, each guild draws <b>1 random “lucky element”</b> — a keyword, gesture, prop or catchphrase — and must <b>weave it naturally into the 5′ pitch</b>. The host rules on the spot whether it landed. It doesn't move the duel score, but it heavily swings the <b>Crowd Favorite</b> race.</p>
+        <div class="kv"><span>🗝️ Keyword “durian”</span><span>🙌 Gesture “finger hearts”</span><span>🕶️ Prop “sunglasses”</span><span>🗣️ Catchphrase “that's so AI”</span><span>✋ Quest “one team high-five”</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bracket" id="bracket"></div>
+</section>
+
+<!-- ============ LEVEL 7: HALL OF FAME ============ -->
+<section class="sec">
+  <div class="sec-h"><span class="lvl">LEVEL 07</span><h2>Hall of Fame</h2><span class="sub">medals &amp; legendary loot drops</span><svg class="arrowup" width="22" height="22" viewBox="0 0 22 22"><path d="M4 18 L11 5 L18 18 L14.5 18 L11 12 L7.5 18 Z" fill="#FF6611"/></svg></div>
+  <div class="card card-pad hof">
+    <img src="assets/trophy.png" alt="Champion trophy">
+    <div class="grid2">
+      <div class="award"><div class="medal" style="background:var(--org1)">🥇</div><h4>Champion × 1</h4><p>Highest total votes, all duels</p></div>
+      <div class="award"><div class="medal" style="background:#EEF0EF">🥈</div><h4>1st Runner-up × 1</h4><p>2nd highest total votes</p></div>
+      <div class="award"><div class="medal" style="background:var(--org2)">🥉</div><h4>2nd Runner-up × 1</h4><p>3rd highest total votes</p></div>
+      <div class="award"><div class="medal" style="background:var(--teal1)">✨</div><h4>Special Awards × 4</h4><p>One per duel winner:<br>Best Commercial Value · Best Creativity · Best Delivery · Crowd Favorite</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <b>Ascentium AI Transformation Mini-hackathon</b> · Inspire Program · Scale Greater Heights<br>
+  Our people lead. Our technology enables. Our clients feel the difference.
+</footer>
+</div>
+
+<script>
+// round table: 14 seats (seat 0 = robot facilitator, top, facing the display)
+const w=document.getElementById('tblwrap');
+const cx=165, cy=182, r=116;
+for(let i=0;i<14;i++){
+  const a=-Math.PI/2 + i*Math.PI/7;
+  const s=document.createElement('div');
+  s.className='seat'+(i===0?' fac':'');
+  s.style.left=(cx+r*Math.cos(a)-12)+'px';
+  s.style.top =(cy+r*Math.sin(a)-12)+'px';
+  s.title = i===0?'🤖 FACI-0'+(Math.floor(Math.random()*8)+1)+' · your AI-Bot Facilitator':'Player';
+  w.appendChild(s);
+}
+// duel bracket: 4 matches
+const b=document.getElementById('bracket');
+const pairs=[[1,5],[2,6],[3,7],[4,8]];
+pairs.forEach((p,i)=>{
+  const t=995+i*15, hh=Math.floor(t/60), mm=String(t%60).padStart(2,'0');
+  b.innerHTML+=`<div class="match">
+    <div class="mid">DUEL D${i+1} · ${hh}:${mm}</div>
+    <div class="vs">
+      <div class="team">G${String(p[0]).padStart(2,'0')}</div>
+      <div class="vsbadge">VS</div>
+      <div class="team b">G${String(p[1]).padStart(2,'0')}</div>
+    </div>
+    <div class="info">5′ pitch + cross-Q · 6 guilds vote</div>
+  </div>`;
+});
+</script>
+</body>
+</html>

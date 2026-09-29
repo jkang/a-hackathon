@@ -1,0 +1,6 @@
+.env
+out/
+*.pptx
+!assets/*.pptx
+__pycache__/
+.DS_Store

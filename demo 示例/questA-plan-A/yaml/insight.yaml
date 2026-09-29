@@ -1,0 +1,47 @@
+# Quest A · Plan A · INSIGHT gate capture
+# Human-led, AI-scaffolded. Trends, segments and moment of truth supplied by the team.
+quest: A
+plan: "Plan A — THE AWAY CROWD"
+client: "OCA — Doha 2030 Ticketing & Fan Engagement Unit"
+mission: "Make Southeast Asia Doha's biggest 'away crowd' in Asian Games history."
+org_profile:
+  assets:
+    - "Visa-free entry for SEA passports — almost nobody in SEA knows it"
+    - "Qatar Airways + Hamad Int'l stopover hub — direct routes from every SEA capital"
+    - "39 venues, 54 sports; Qatar National Vision 2030 makes tourism a national KPI"
+    - "18 months of runway (May 2029 – Oct 2030)"
+  constraints:
+    - "MVP budget USD 1.5M (5% of USD 30M)"
+    - "No Asian Games host has ever run an organised SEA away-fan program"
+benchmark:
+  gold_standard: "Hangzhou 2023 — 3.05M tickets sold, ¥610M ticket revenue, 92% attendance; mascot = 70% of merch sales."
+  cautionary_tale: "Nagoya 2026 — 2.75M planned, ~605K sold at T-14 days (22%); structural mismatch left football/baseball empty while kabaddi & sepak takraw sold out."
+  arena: "Doha 2030 — Nov 2030; 680M mobile-first SEA fans, visa-free, one hub away — the market Nagoya never mined."
+market:
+  trends:
+    - {trend: "Concert tourism is already normalised", why_it_matters: "SEA fans already fly regionally for 3-day events (arena tours sell out Singapore/Bangkok in hours); a Games is a bigger reason to fly — the behaviour is proven, only the organiser is missing."}
+    - {trend: "Group payments are the social glue", why_it_matters: "GoPay / GCash / TrueMoney split links decide whether a group chat becomes a group booking; if splitting isn't one tap, the crew dissolves in the chat."}
+    - {trend: "Fandom follows athletes, not federations", why_it_matters: "Badminton, takraw and football stars outdraw the Games brand in SEA feeds; athlete- and creator-led content is the trust layer official ads can't buy."}
+  truths:
+    - {author: "Raka (Indonesia)",   text: "We charter buses across borders for AFF away games — nobody has ever chartered us to a Games."}
+    - {author: "Mika (Philippines)", text: "The first question in every travel thread is literally: 'is Qatar visa-free for us?'"}
+    - {author: "Nadia (Malaysia)",   text: "K-pop fans fly to Singapore for concerts; the #1 complaint in fan groups is hidden costs, not price."}
+    - {author: "Bim (Thailand)",     text: "No split-payment link, no group buy — the chat just dies."}
+    - {author: "Trang (Vietnam)",    text: "People follow the player, not the event; one badminton star post beats a month of federation ads."}
+    - {author: "Paolo (Philippines)",text: "OFWs in the Gulf want to wave the flag at home soil — they just need a payday and a crew."}
+    - {author: "Siti (Indonesia)",   text: "Sitting with strangers kills it; a block of our own people is the whole point."}
+    - {author: "Ken (Singapore)",    text: "A country-vs-country ranking would spread by itself — SEA cannot resist a leaderboard."}
+segments:
+  - {name: "The Chant Leaders", who: "Hardcore SEA club supporters, 20–40, already organising away days for AFF / club football & badminton", job_functional: "follow the team abroad", job_social: "capo status — lead the stand", job_emotional: "tribal pride", barrier: "no official away block; nobody organises the Games like a club does", trigger: "an official Away Section allocation + a captain's armband"}
+  - {name: "The First-Stampers", who: "Gen-Z experience collectors, 18–26, fly regionally for concerts", job_functional: "a bucket-list trip that fits a first salary", job_social: "the friend with the best story", job_emotional: "FOMO + wonder", barrier: "visa myth + opaque total cost", trigger: "the words 'visa-free' + one transparent bundle price"}
+  - {name: "The Flag Carriers", who: "SEA diaspora in the Gulf (largest: Filipinos in Qatar)", job_functional: "watch the national team live", job_social: "represent home in a foreign city", job_emotional: "homesickness turned into pride", barrier: "day-off coordination + no one to go with", trigger: "payday + a compatriot crew invite"}
+moment_of_truth:
+  when: "payday weekend, right after the draw & schedule drop"
+  where: "the fan group chat (WhatsApp / LINE / Messenger)"
+  event: "the captain posts one bundle link and asks: 'who's in?'"
+clusters:
+  - {theme: "Invisible friction, not price", items: ["visa myth", "hidden bundle costs", "no split-payment link"]}
+  - {theme: "The crew is the product", items: ["away-day charters exist", "sit together or don't go", "captain-led invites"]}
+  - {theme: "Organised pride goes viral", items: ["athlete-led trust", "country leaderboard", "flag-waving diaspora"]}
+seed_insight: "SEA fans don't need convincing that the Games matter — they need a crew, one transparent price, and seats together. Organise the group chat, and you organise the market."
+source_note: "Quest A Scout Report (Hangzhou 2023 OCA briefing; Xinhua/Caixin on Nagoya 2026; OCA Doha 2030 progress report), Data as of 2026-09"

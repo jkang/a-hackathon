@@ -1,0 +1,40 @@
+# Pilot Experiment Method (marketing)
+
+Adapted from the PoL-probe idea: run a **small, honest, time-boxed test** to prove the trajectory — not to launch the master plan.
+
+## 1. The pilot framing (from the card)
+
+- **A**: USD 1.5M · 3 months · 2 SEA markets. Prove the campaign can one day put 400K SEA fans in Doha's stands.
+- **B**: USD 1.1M · 3 months · 2 overseas markets. Prove panda fandom can become a paying global membership.
+
+## 2. The experiment plan
+
+Fill these five fields:
+
+1. **Hypothesis** — "If we [intervention] in [market] , then [leading indicator] will move by [X], which predicts [Victory Condition]."
+2. **Treatment** — what the 2 pilot markets actually get (channels, offer, assets).
+3. **Control / baseline** — what we compare against (a held-out market, prior period, or benchmark from the card).
+4. **Duration** — 3 months, with a mid-point check.
+5. **Measurement setup** — what is instrumented, where, and how often (this satisfies deliverable #2's "measurement setup").
+
+## 3. Choosing the 2 markets (team decision)
+
+- Pick on evidence: fan-base size, mobile/social intensity, ease of travel (A: visa-free + hub), diaspora/affinity links (B: markets that already showed panda love).
+- Consider language: A markets operate in Bahasa / Thai / Vietnamese / Tagalog / English.
+
+## 4. What the pilot must produce
+
+- A **trajectory signal** on the team's 3–5 sub-metrics (defined in `prove`) that is defensible against the Scout Report benchmarks.
+- A clear read for the Go/No-Go unlock decision.
+
+## 5. Honesty rules (from PoL)
+
+- Lightweight, disposable, narrow scope, brutally honest.
+- Avoid vanity metrics; avoid polishing a demo just to look good.
+- Match the test to the risk you most need to kill.
+
+## 6. Anti-patterns
+
+- Designing the full 18-month rollout (this is the MVP, not the master plan).
+- No control/baseline.
+- Metrics with "no fixed numbers" but also no rationale — always tie to a benchmark.

@@ -1,0 +1,74 @@
+{
+  "_comment": "预设配色方案库。所有颜色均通过色盲模拟测试（Deuteranopia / Protanopia），禁止在同一图表中将红色和绿色用作主对比色。",
+  "palettes": {
+    "business_blue": {
+      "_desc": "商务蓝 — 默认方案，适合高管汇报和正式场合",
+      "primary": "#1677FF",
+      "colors": ["#1677FF", "#4096FF", "#69B1FF", "#BAD4FF", "#F0F5FF", "#FA8C16", "#FFC53D"],
+      "background": "#F5F7FA",
+      "card_bg": "#FFFFFF",
+      "card_shadow": "0 2px 8px rgba(0,0,0,0.08)",
+      "text_primary": "#1D2129",
+      "text_secondary": "#86909C",
+      "echarts_theme": {
+        "color": ["#1677FF", "#FA8C16", "#52C41A", "#722ED1", "#13C2C2", "#EB2F96", "#FAAD14"],
+        "backgroundColor": "transparent",
+        "textStyle": { "color": "#1D2129" },
+        "title": { "textStyle": { "color": "#1D2129" } },
+        "legend": { "textStyle": { "color": "#86909C" } },
+        "categoryAxis": { "axisLine": { "lineStyle": { "color": "#E6E8EB" } }, "axisLabel": { "color": "#86909C" } },
+        "valueAxis": { "splitLine": { "lineStyle": { "color": "#E6E8EB", "type": "dashed" } } }
+      }
+    },
+
+    "dark_screen": {
+      "_desc": "暗色大屏 — 适合数据大屏展示，高对比度",
+      "primary": "#00D1FF",
+      "colors": ["#00D1FF", "#7B61FF", "#FFB84C", "#00E5A0", "#FF6B6B", "#FF9F45", "#4ECDC4"],
+      "background": "#0A0E1A",
+      "card_bg": "#131929",
+      "card_shadow": "0 0 20px rgba(0,209,255,0.15)",
+      "text_primary": "#E8EAED",
+      "text_secondary": "#8A9BB0",
+      "echarts_theme": {
+        "color": ["#00D1FF", "#7B61FF", "#FFB84C", "#00E5A0", "#FF6B6B", "#FF9F45", "#4ECDC4"],
+        "backgroundColor": "transparent",
+        "textStyle": { "color": "#E8EAED" },
+        "title": { "textStyle": { "color": "#E8EAED" } },
+        "legend": { "textStyle": { "color": "#8A9BB0" } },
+        "categoryAxis": { "axisLine": { "lineStyle": { "color": "#1E2D45" } }, "axisLabel": { "color": "#8A9BB0" } },
+        "valueAxis": { "splitLine": { "lineStyle": { "color": "#1E2D45", "type": "dashed" } } }
+      }
+    },
+
+    "fresh_green": {
+      "_desc": "清新明亮 — 适合产品运营报表，活泼亲切",
+      "primary": "#00B96B",
+      "colors": ["#00B96B", "#1677FF", "#FF7D00", "#9254DE", "#00AABB", "#F5222D", "#FAAD14"],
+      "background": "#F6FFED",
+      "card_bg": "#FFFFFF",
+      "card_shadow": "0 2px 12px rgba(0,185,107,0.10)",
+      "text_primary": "#1D2129",
+      "text_secondary": "#8B9467",
+      "echarts_theme": {
+        "color": ["#00B96B", "#1677FF", "#FF7D00", "#9254DE", "#00AABB", "#F5222D", "#FAAD14"],
+        "backgroundColor": "transparent",
+        "textStyle": { "color": "#1D2129" },
+        "title": { "textStyle": { "color": "#1D2129" } },
+        "legend": { "textStyle": { "color": "#8B9467" } },
+        "categoryAxis": { "axisLine": { "lineStyle": { "color": "#D9F7BE" } }, "axisLabel": { "color": "#8B9467" } },
+        "valueAxis": { "splitLine": { "lineStyle": { "color": "#D9F7BE", "type": "dashed" } } }
+      }
+    }
+  },
+
+  "semantic_colors": {
+    "_comment": "语义化颜色，用于 KPI 卡片的涨跌指示，色盲友好",
+    "positive": "#1677FF",
+    "negative": "#FA541C",
+    "neutral": "#86909C",
+    "warning": "#FAAD14"
+  },
+
+  "css_variables_template": "/* 将以下变量注入 HTML <style> 中 */\n:root {\n  --color-primary: {primary};\n  --color-bg: {background};\n  --color-card-bg: {card_bg};\n  --color-card-shadow: {card_shadow};\n  --color-text-primary: {text_primary};\n  --color-text-secondary: {text_secondary};\n}"
+}

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quest Cards · Ascentium AI Transformation Mini-hackathon</title>
+<style>
+  :root{
+    --org:#FF6611; --org1:#FFF0E7; --org2:#FFD1B8; --org3:#B24000;
+    --ink:#0F1514; --mut:#5A6663; --line:#E4E8E7; --bg:#F7F6F4; --card:#FFFFFF;
+    --teal:#077069; --teal1:#CDE2E1; --sky:#1877F2; --sky1:#BDD5EF;
+    --gold:#B98A1D; --gold1:#F7ECD2; --red:#C0392B; --red1:#FBE4E1;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Poppins','Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:980px;margin:0 auto;padding:32px 20px 56px;}
+
+  /* ---------- QUEST CARD ---------- */
+  .qcard{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:28px;}
+  .qhead{display:flex;align-items:stretch;padding:0;color:#fff;}
+  .qhead.a{background:var(--org);}
+  .qhead.b{background:var(--teal);}
+  .qhead .qtxt{flex:1;padding:26px 30px 22px;min-width:0;}
+  .qhead .qimg{flex:0 0 215px;position:relative;overflow:hidden;}
+  .qhead .qimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block;}
+  .qtag{display:inline-block;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.55);font-size:10.5px;font-weight:700;letter-spacing:.18em;padding:4px 12px;border-radius:999px;text-transform:uppercase;}
+  .qhead h2{font-size:23px;font-weight:800;margin-top:10px;max-width:78%;line-height:1.2;}
+  .qhead .client{display:inline-flex;gap:8px;align-items:center;margin-top:10px;font-size:11.5px;font-weight:600;background:rgba(0,0,0,.16);padding:5px 12px;border-radius:999px;}
+
+  .qbody{padding:24px 30px 28px;}
+  .sec{margin-top:20px;}
+  .sec:first-child{margin-top:0;}
+  .sec h3{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:12px;}
+  .sec h3 .dot{width:22px;height:22px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:11px;letter-spacing:0;}
+  .dot.a{background:var(--org);} .dot.b{background:var(--teal);} .dot.k{background:var(--ink);} .dot.g{background:var(--gold);} .dot.s{background:var(--sky);}
+
+  .rep{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .rep .col{border-radius:14px;padding:14px 14px 12px;border:1px solid var(--line);}
+  .col.gold{background:var(--gold1);border-color:#EAD9AC;}
+  .col.red{background:var(--red1);border-color:#F0C4BE;}
+  .col.sky{background:var(--sky1);border-color:#A9C6EA;}
+  .col .ct{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;}
+  .col.gold .ct{color:var(--gold);} .col.red .ct{color:var(--red);} .col.sky .ct{color:var(--sky);}
+  .col ul{list-style:none;}
+  .col li{font-size:11.5px;line-height:1.6;padding:3px 0 3px 12px;position:relative;color:#28302E;}
+  .col li::before{content:"▸";position:absolute;left:0;font-size:10px;}
+  .col.gold li::before{color:var(--gold);} .col.red li::before{color:var(--red);} .col.sky li::before{color:var(--sky);}
+  .insight{margin-top:12px;background:var(--org1);border-radius:12px;padding:12px 16px;font-size:12px;line-height:1.65;color:var(--org3);}
+  .insight b{color:var(--org);}
+
+  .chest{display:flex;gap:18px;align-items:stretch;}
+  .chest .big{flex:0 0 200px;background:var(--ink);color:#fff;border-radius:14px;padding:18px;display:flex;flex-direction:column;justify-content:center;}
+  .chest .big .amt{font-size:26px;font-weight:800;color:var(--org2);line-height:1.1;}
+  .chest .big .per{font-size:11px;color:#B9C4C1;margin-top:8px;line-height:1.55;}
+  .gate{flex:1;background:var(--org1);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;justify-content:center;}
+  .gate-h{font-size:14px;font-weight:800;color:var(--org3);margin-bottom:6px;}
+  .gate-p{font-size:11.5px;line-height:1.65;color:#6B4A38;}
+  .bar{display:grid;grid-template-columns:190px 1fr 44px;gap:10px;align-items:center;font-size:11.5px;}
+  .bar .lbl{color:var(--ink);font-weight:500;}
+  .bar .track{display:block;height:12px;background:#EEF1F0;border-radius:999px;overflow:hidden;}
+  .bar .fill{display:block;height:100%;border-radius:999px;}
+  .bar .pct{text-align:right;font-weight:700;color:var(--mut);}
+
+  .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
+  .kpi{border:1.5px solid var(--line);border-radius:12px;padding:12px 10px;text-align:center;background:#fff;}
+  .kpi .num{font-size:19px;font-weight:800;line-height:1.15;}
+  .qa .kpi .num{color:var(--org);} .qb .kpi .num{color:var(--teal);}
+  .kpi .cap{font-size:10px;color:var(--mut);margin-top:6px;line-height:1.45;}
+
+  .dc{border-radius:14px;padding:16px 18px;}
+  .qa .dc{background:var(--org1);} .qb .dc{background:var(--teal1);}
+  .dc .hwm{font-size:14.5px;font-weight:700;line-height:1.6;}
+  .dc .meta{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:12px;}
+  .dc .meta div{font-size:11px;line-height:1.6;color:#3B4442;}
+  .dc .meta b{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px;color:var(--mut);}
+  .vc-note{margin-top:10px;font-size:10.5px;color:var(--mut);font-style:italic;}
+  .glist{list-style:none;margin-top:4px;}
+  .glist li{font-size:11px;line-height:1.55;padding:2px 0 2px 12px;position:relative;color:#6B4A38;}
+  .glist li::before{content:"▸";position:absolute;left:0;}
+  .qb .glist li{color:#28514D;}
+  .drow{display:grid;grid-template-columns:1.15fr 1fr;gap:18px;margin-top:12px;}
+  .db-h{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:5px;}
+  .dlist{list-style:none;}
+  .dlist li{font-size:11px;line-height:1.55;padding:2px 0 2px 12px;position:relative;color:#3B4442;}
+  .dlist li::before{content:"▪";position:absolute;left:0;color:var(--org);}
+  .qb .dlist li::before{color:var(--teal);}
+  .chain{font-size:11px;line-height:1.8;}
+  .sk{font-size:10.5px;font-weight:600;background:#fff;border:1px solid var(--line);padding:4px 10px;border-radius:999px;}
+  .srcline{margin-top:14px;font-size:9.5px;color:#9AA5A2;line-height:1.6;border-top:1px dashed var(--line);padding-top:10px;}
+
+  @media print{
+    @page{size:A3;margin:10mm;}
+    body{background:#fff;}
+    .wrap{max-width:100%;padding:0;}
+    .qcard{border:1px solid #ccc;margin-top:0;page-break-after:always;break-inside:avoid;zoom:.95;}
+    .qcard:last-of-type{page-break-after:auto;}
+  }
+  @media screen and (max-width:860px){
+    .rep{grid-template-columns:1fr;}
+    .chest{flex-direction:column;}
+    .chest .big{flex:none;}
+    .kpis{grid-template-columns:repeat(2,1fr);}
+    .dc .meta{grid-template-columns:1fr;}
+    .qhead h2{max-width:100%;}
+    .qhead .qimg{display:none;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ================= QUEST A ================= -->
+  <div class="qcard qa">
+    <div class="qhead a">
+      <div class="qtxt">
+        <span class="qtag">Quest A · 5 Guilds · First Come First Served</span>
+        <h2>GOLDEN TICKET — Fill the Stands at Doha 2030</h2>
+        <span class="client">Client · OCA — Doha 2030 Ticketing &amp; Fan Engagement Unit</span>
+      </div>
+      <div class="qimg"><img src="assets/topic-a.png" alt=""></div>
+    </div>
+    <div class="qbody">
+
+      <div class="sec">
+        <h3><span class="dot a">01</span> Scout Report · As of 2026-09</h3>
+        <div class="rep">
+          <div class="col gold">
+            <div class="ct">Gold Standard · Hangzhou 2023</div>
+            <ul>
+              <li>3.05M tickets sold · ¥610M ticket revenue</li>
+              <li>92% attendance; hot sessions &gt;90%</li>
+              <li>Market development ¥5.32B total: sponsorship ¥4.42B + licensed merch ¥760M (17 categories, ~1,500 SKUs; mascot “江南忆” = 70% of merch sales)</li>
+            </ul>
+          </div>
+          <div class="col red">
+            <div class="ct">Cautionary Tale · Nagoya 2026</div>
+            <ul>
+              <li>Games ongoing: Sept 19 – Oct 4, 2026; 41 sports</li>
+              <li>Plan: 2.75M tickets → only ~605K sold at T-14 days (22%); &lt;30% by late Aug</li>
+              <li>Budget ballooned ¥85B → ¥240B; opening-ceremony tickets ¥7,500–60,000</li>
+              <li>China visa fee +~5× since Jul 2026; sponsors only Japanese (Toyota, Chubu Electric)</li>
+              <li>Structural mismatch: kabaddi / sepak takraw / badminton sold out — football &amp; baseball seats empty</li>
+            </ul>
+          </div>
+          <div class="col sky">
+            <div class="ct">Your Arena · Doha 2030</div>
+            <ul>
+              <li>21st Asian Games, Nov 2030 · 54 sports at 39 venues</li>
+              <li>Khalifa Int’l Stadium hosts the Opening; billiards returns after 20 yrs; equestrian archery newly added</li>
+              <li>Qatar National Vision 2030: tourism diversification is a national KPI</li>
+              <li>SEA is the youngest, most mobile-first fan base in Asia — and Nagoya just left that market unmined</li>
+            </ul>
+          </div>
+        </div>
+        <div class="insight"><b>Insight:</b> Nagoya’s lesson — demand does not appear by itself; it must be manufactured market by market. Hangzhou proved a 92%-full stadium is possible. Doha’s edge: visa-free entry, a world-class stopover hub (Qatar Airways / Hamad Int’l), and SEA’s 680M-strong fan base. <b>Mission: make Southeast Asia Doha’s biggest “away crowd” in Asian Games history.</b></div>
+      </div>
+
+      <div class="sec">
+        <h3><span class="dot k">02</span> War Chest &amp; Victory Conditions</h3>
+        <div class="chest">
+          <div class="big">
+            <div class="amt">USD 30M</div>
+            <div class="per">Total approved budget<br>SEA marketing campaign · 18 months (May 2029 – Oct 2030)</div>
+          </div>
+          <div class="gate">
+            <div class="gate-h">MVP Unlock · 5% = <b>USD 1.5M</b></div>
+            <ul class="glist">
+              <li><b>Phase 1</b> — request ≤5% for a 3-month pilot in 2 SEA markets</li>
+              <li><b>Phase 2</b> — hit your pilot sub-metrics → enter the approved vendor list, unlock the full USD 30M</li>
+              <li>Budget allocation is part of the solution</li>
+            </ul>
+          </div>
+        </div>
+        <div class="kpis" style="margin-top:12px;">
+          <div class="kpi"><div class="num">400K</div><div class="cap">tickets sold to SEA-based fans (~15% of total inventory)</div></div>
+          <div class="kpi"><div class="num">≥85%</div><div class="cap">avg attendance in sessions featuring SEA teams</div></div>
+          <div class="kpi"><div class="num">250K</div><div class="cap">SEA visitors arriving in Qatar during Games week</div></div>
+          <div class="kpi"><div class="num">$40M</div><div class="cap">merch + hospitality revenue from SEA fans</div></div>
+          <div class="kpi"><div class="num">500M</div><div class="cap">social impressions across 6 SEA markets</div></div>
+        </div>
+        <div class="vc-note">Full-scale targets — unlocked only after the MVP gate. Your pilot must prove the trajectory, not hit these numbers.</div>
+      </div>
+
+      <div class="sec">
+        <h3><span class="dot s">03</span> Design Challenge</h3>
+        <div class="dc">
+          <div class="hwm">“How might we use the 5% MVP budget — USD 1.5M, 3 months, 2 SEA pilot markets — to prove our campaign can one day put 400K Southeast Asian fans in Doha’s stands?”</div>
+          <div class="meta">
+            <div><b>Deliverables · the MVP, not the master plan</b>
+              <ul class="dlist" style="margin-top:4px;">
+                <li>Pilot campaign concept — 2 SEA markets, 3-month test</li>
+                <li>Experiment plan &amp; measurement setup</li>
+                <li>Hero visual / poster</li>
+                <li>KPI dashboard mock</li>
+                <li>Go / no-go criteria for scale-up</li>
+                <li><b>3–5 self-defined MVP sub-metrics</b> — pilot sales, acquisition cost, conversion, reach; no fixed numbers, defend with Scout Report benchmarks and show they predict the Victory Conditions above</li>
+              </ul>
+            </div>
+            <div><b>Skills chain · from The Arsenal</b>
+              <div class="chain" style="margin-top:4px;">
+                <div><span style="font-weight:700;color:var(--org3);">Insight:</span> Market Research · Audience Analysis · Benchmark Analysis (Hangzhou vs Nagoya)</div>
+                <div><span style="font-weight:700;color:var(--org3);">Create:</span> Creative Concept · MVP Pilot Design · Poster</div>
+                <div><span style="font-weight:700;color:var(--org3);">Prove:</span> Cost-Benefit · Data Analysis &amp; Viz</div>
+                <div style="margin-top:6px;background:#fff;border:1px solid var(--org2);border-radius:8px;padding:6px 9px;font-weight:700;color:var(--org3);">★ Proposal Showcase — Showcase Report Agent (AUTO)</div>
+              </div>
+            </div>
+            <div><b>Scale-up gate</b>
+              <ul class="dlist" style="margin-top:4px;">
+                <li>Hit your sub-metrics → enter the approved vendor list</li>
+                <li>Unlock the full USD 30M for the 18-month rollout</li>
+                <li>Miss → iterate once, or stop</li>
+                <li>Works in Bahasa, Thai, Vietnamese, Tagalog &amp; English</li>
+              </ul>
+            </div>
+          </div>
+          <div class="srcline">Sources: Hangzhou 2023 OCA closing press briefing (Oct 7, 2023); Xinhua / Caixin on Aichi–Nagoya 2026 budget &amp; ticket sales (Dec 2024 – Sep 2026); OCA Doha 2030 progress report. Data as of 2026-09-28.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= QUEST B ================= -->
+  <div class="qcard qb">
+    <div class="qhead b">
+      <div class="qtxt">
+        <span class="qtag">Quest B · 5 Guilds · First Come First Served</span>
+        <h2>PANDA GOES GLOBAL — From Zoo Visit to World Membership</h2>
+        <span class="client">Client · Chengdu Research Base of Giant Panda Breeding — Global Brand &amp; IP Division</span>
+      </div>
+      <div class="qimg"><img src="assets/topic-b.png" alt=""></div>
+    </div>
+    <div class="qbody">
+
+      <div class="sec">
+        <h3><span class="dot b">01</span> Scout Report · As of 2026-09</h3>
+        <div class="rep">
+          <div class="col gold">
+            <div class="ct">The Asset · Chengdu Panda Base</div>
+            <ul>
+              <li>200+ giant pandas — world’s largest conservation &amp; breeding population; ¥55 entry</li>
+              <li>Weekday 15–20K visitors/day; summer 30–42K; weekend peaks 45K (capacity ceiling)</li>
+              <li>2024 Spring Festival: 442K visitors in 7 days; May Day 2024: 264K in 3 days — tickets “gone in seconds”</li>
+              <li>Superstar pandas: “He Hua 花花” a national icon; “Fu Bao 福宝” returned from Korea Apr 2024, viral worldwide</li>
+            </ul>
+          </div>
+          <div class="col red">
+            <div class="ct">The Gap</div>
+            <ul>
+              <li>Fame is global, monetization is local: no membership program, no global store, no English-first content engine</li>
+              <li>International visitors ~5% of total footfall — fans in Jakarta / Riyadh / São Paulo can watch but can’t “belong”</li>
+              <li>Capacity ceiling: on-site growth is capped; the next frontier must be virtual + licensed</li>
+            </ul>
+          </div>
+          <div class="col sky">
+            <div class="ct">The Proof · Panda Economics</div>
+            <ul>
+              <li>487K international visitors in 2025 (Jan 1–Nov 13), +70.7% YoY — Xinhua</li>
+              <li>One visit to see 花花 ≈ ¥1,500 of city-wide spend (Qunar estimate)</li>
+              <li>Xiang Xiang (Japan): ~¥2.7B economic contribution in &lt;6 years; Fu Bao merch: 2.7M units in Korea, +60%</li>
+            </ul>
+          </div>
+        </div>
+        <div class="insight" style="background:var(--teal1);color:var(--teal);"><b>Insight:</b> The pandas are already Earth’s most beloved IP — but the Base captures almost none of that love beyond the ¥55 gate. Japan and Korea proved a single panda can mint billions in merch and tourism. <b>Mission: turn “the world’s most famous zoo” into a global membership brand.</b></div>
+      </div>
+
+      <div class="sec">
+        <h3><span class="dot k">02</span> War Chest &amp; Victory Conditions</h3>
+        <div class="chest">
+          <div class="big">
+            <div class="amt" style="color:var(--teal1);">USD 11M</div>
+            <div class="per">Total approved budget<br>Global IP &amp; membership program · 18 months (2027–2028)</div>
+          </div>
+          <div class="gate" style="background:var(--teal1);">
+            <div class="gate-h" style="color:var(--teal);">MVP Unlock · 10% = <b>USD 1.1M</b></div>
+            <ul class="glist">
+              <li><b>Phase 1</b> — request ≤10% for a 3-month pilot in 2 overseas markets</li>
+              <li><b>Phase 2</b> — hit your pilot sub-metrics → enter the approved vendor list, unlock the full USD 11M</li>
+              <li>Budget allocation is part of the solution</li>
+            </ul>
+          </div>
+        </div>
+        <div class="kpis" style="margin-top:12px;">
+          <div class="kpi"><div class="num">12%</div><div class="cap">international visitor share (from ~5%) → 1M+ overseas visitors/yr</div></div>
+          <div class="kpi"><div class="num">1M</div><div class="cap">members in 12 months, 20% overseas, 30% repeat-visit rate</div></div>
+          <div class="kpi"><div class="num">$28M</div><div class="cap">annual international licensing &amp; merch revenue</div></div>
+          <div class="kpi"><div class="num">10M</div><div class="cap">followers across TikTok / IG / YouTube</div></div>
+          <div class="kpi"><div class="num">$6→15</div><div class="cap">non-ticket on-site spend per visitor (F&amp;B, merch, experiences)</div></div>
+        </div>
+        <div class="vc-note">Full-scale targets — unlocked only after the MVP gate. Your pilot must prove the trajectory, not hit these numbers.</div>
+      </div>
+
+      <div class="sec">
+        <h3><span class="dot s">03</span> Design Challenge</h3>
+        <div class="dc">
+          <div class="hwm">“How might we use the 10% MVP budget — USD 1.1M, 3 months, 2 overseas pilot markets — to prove panda fandom can become a paying global membership?”</div>
+          <div class="meta">
+            <div><b>Deliverables · the MVP, not the master plan</b>
+              <ul class="dlist" style="margin-top:4px;">
+                <li>Pilot membership design — 2 overseas markets, 3-month test</li>
+                <li>Experiment plan &amp; measurement setup</li>
+                <li>Founding-member offer + hero visual</li>
+                <li>Go / no-go criteria for scale-up</li>
+                <li><b>3–5 self-defined MVP sub-metrics</b> — members, acquisition cost, merch sell-through, organic reach; no fixed numbers, defend with Scout Report benchmarks and show they predict the Victory Conditions above</li>
+              </ul>
+            </div>
+            <div><b>Skills chain · from The Arsenal</b>
+              <div class="chain" style="margin-top:4px;">
+                <div><span style="font-weight:700;color:var(--teal);">Insight:</span> Company Profiler (IP audit) · Audience Analysis · Market Research</div>
+                <div><span style="font-weight:700;color:var(--teal);">Create:</span> Creative Concept · MVP Pilot Design · Poster</div>
+                <div><span style="font-weight:700;color:var(--teal);">Prove:</span> Cost-Benefit · Data Analysis &amp; Viz</div>
+                <div style="margin-top:6px;background:#fff;border:1px solid #9CC4C1;border-radius:8px;padding:6px 9px;font-weight:700;color:var(--teal);">★ Proposal Showcase — Showcase Report Agent (AUTO)</div>
+              </div>
+            </div>
+            <div><b>Scale-up gate</b>
+              <ul class="dlist" style="margin-top:4px;">
+                <li>Hit your sub-metrics → enter the approved vendor list</li>
+                <li>Unlock the full USD 11M for the 18-month program</li>
+                <li>Miss → iterate once, or stop</li>
+                <li>Conservation-first brand values — no over-commercialization backlash</li>
+              </ul>
+            </div>
+          </div>
+          <div class="srcline">Sources: Xinhua (Nov 2025) on international visitors; Sichuan Dept. of Culture &amp; Tourism holiday bulletins (2024); Qunar / TravelDaily on panda-economy spend; public reports on Xiang Xiang &amp; Fu Bao. Data as of 2026-09-28.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+{
+  "layout": "two-sides",
+  "title_lead": "分侧：",
+  "title_accent": "需求侧为什么必须独立于开发侧",
+  "subtitle": "业务语义变化慢、实现细节变化快 —— 放进同一个变更目录，任何一次实现调整都会污染业务评审记录。",
+  "sides": [
+    {
+      "tone": "green",
+      "owner": "PM 主导",
+      "workspace": "openspec-requirements/",
+      "schema": "schema: req-sdd v5（独立）",
+      "rate_label": "变化速率 · 业务语义慢",
+      "spark": [
+        0.39,
+        0.41,
+        0.43,
+        0.42,
+        0.46,
+        0.47,
+        0.46,
+        0.5,
+        0.51,
+        0.5,
+        0.54,
+        0.55
+      ],
+      "chain_label": "需求漏斗",
+      "chain": [
+        "research",
+        "explore",
+        "prototype",
+        "storymap",
+        "story"
+      ],
+      "note": "业务面冻结交付物 story.md —— 交付侧不再重复需求侧阶段"
+    },
+    {
+      "tone": "blue",
+      "owner": "Engineer 主导",
+      "workspace": "openspec/",
+      "schema": "schema: spec-driven v2（独立）",
+      "rate_label": "变化速率 · 实现细节快",
+      "spark": [
+        0.29,
+        0.59,
+        0.32,
+        0.71,
+        0.36,
+        0.81,
+        0.42,
+        0.9,
+        0.48,
+        0.95,
+        0.52,
+        1.0
+      ],
+      "chain_label": "交付闭环",
+      "chain": [
+        "proposal",
+        "specs",
+        "design",
+        "tasks",
+        "verify"
+      ],
+      "note": "从 proposal 起步（handoff 合成 或 直走），可自由迭代，业务面不受扰动"
+    }
+  ],
+  "bridge": {
+    "label": "handoff",
+    "sub": "合成 proposal.md"
+  },
+  "routing": {
+    "label": "适用范围",
+    "rows": [
+      {
+        "tone": "green",
+        "text": "大块 Epic → 需求侧漏斗 → /req:handoff → 交付侧"
+      },
+      {
+        "tone": "slate",
+        "text": "Bug Fix / Tech Debt / 简单功能修改 → 直走交付侧（/opsx:propose 起），不进需求侧"
+      }
+    ]
+  },
+  "footer": "NiDD City Lab | 成都站 · AI+ 研发数字峰会",
+  "footer_right": "来源：ai4se-sdd-proposal.md · §3.1 / §3.5"
+}

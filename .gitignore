@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# deps
+node_modules/
+bun.lock
+package-lock.json
+
+# scratch
+*.log

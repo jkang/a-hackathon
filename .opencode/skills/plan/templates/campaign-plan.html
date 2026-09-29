@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- DOC_TYPE: "Campaign Plan" for Quest A · "Membership Design" for Quest B -->
+<title>{{DOC_TYPE}} · {{QUEST}} · {{CLIENT}}</title>
+<style>
+  :root{
+    --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
+    --orange-1:#FFF0E7; --orange-2:#FFD1B8;
+    --teal:#077069; --teal-1:#CDE2E1; --teal-3:#398D87;
+    --line:#E4E8E7; --bg:#F7F6F4; --card:#FFFFFF; --mut:#5A6663;
+    /* Quest A: orange accent. Quest B: swap --accent to var(--teal), --accent-tint to var(--teal-1) */
+    --accent: var(--ascentium-orange);
+    --accent-tint: var(--orange-1);
+    --accent-line: var(--orange-2);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"Poppins","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+       background:var(--bg);color:var(--ascentium-midnight);-webkit-font-smoothing:antialiased;}
+  .page{max-width:1100px;margin:0 auto;padding:40px 28px 56px;}
+  .brandbar{display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--accent);padding-bottom:14px;}
+  .brandbar .logo{font-weight:700;font-size:20px;letter-spacing:-.01em;}
+  .brandbar .logo span{color:var(--accent);}
+  .brandbar .tag{font-size:12px;font-weight:600;color:var(--mut);letter-spacing:.14em;text-transform:uppercase;}
+  h1{font-size:32px;font-weight:800;line-height:1.15;margin-top:22px;letter-spacing:-.01em;}
+  .sub{margin-top:8px;font-size:13px;color:var(--mut);font-weight:500;}
+  .seed{margin-top:20px;background:var(--accent-tint);border-left:6px solid var(--accent);border-radius:12px;padding:16px 20px;}
+  .seed .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
+  .seed p{font-size:16px;font-weight:600;line-height:1.5;margin-top:6px;}
+  .anchor{margin-top:12px;background:var(--ascentium-midnight);color:#fff;border-radius:12px;padding:16px 20px;}
+  .anchor .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-tint);}
+  .anchor p{font-size:14.5px;font-weight:600;line-height:1.5;margin-top:6px;color:#fff;}
+  .anchor p b{color:var(--accent-tint);}
+  .moments{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px;}
+  .moment{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--card);}
+  .moment .t{font-size:10.5px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;}
+  .moment .v{font-size:12.5px;margin-top:5px;line-height:1.5;color:#3B4442;}
+  .moment .v b{color:var(--ascentium-midnight);}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+  .card h2{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;}
+  .card p,.card li{font-size:13px;line-height:1.6;}
+  .card ul{list-style:none;}
+  .card li{padding:3px 0 3px 14px;position:relative;}
+  .card li::before{content:"▸";position:absolute;left:0;color:var(--accent);}
+  .wide{grid-column:1 / -1;}
+  .hero-idea{background:var(--ascentium-midnight);color:#fff;border-radius:14px;padding:20px 22px;}
+  .hero-idea h2{color:#B9C4C1;}
+  .hero-idea .name{font-size:24px;font-weight:800;letter-spacing:-.01em;color:#fff;}
+  .hero-idea .slogan{font-size:15px;color:var(--accent-tint);margin-top:6px;font-weight:600;}
+  .hero-idea .prop{font-size:13.5px;color:#D6DCDA;margin-top:12px;line-height:1.6;}
+  table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:4px;}
+  th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);}
+  th{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);}
+  td.amt{text-align:right;font-weight:700;color:var(--accent);}
+  .pill{display:inline-block;font-size:11.5px;font-weight:600;background:var(--accent-tint);
+        border:1px solid var(--accent-line);color:var(--accent);border-radius:999px;padding:4px 11px;margin:3px 5px 0 0;}
+  footer{margin-top:26px;border-top:1px dashed var(--line);padding-top:12px;font-size:10.5px;color:#9AA5A2;line-height:1.6;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="brandbar">
+    <div class="logo">Ascentium<span>.</span></div>
+    <div class="tag">{{DOC_TYPE}} · {{QUEST}}</div>
+  </div>
+
+  <h1>{{PLAN_HEADLINE}}</h1>
+  <div class="sub">{{CLIENT}} &nbsp;|&nbsp; MVP pilot · {{PILOT_MARKETS}} · 3 months &nbsp;|&nbsp; Budget {{BUDGET}}</div>
+
+  <div class="seed">
+    <div class="lbl">Seed Insight</div>
+    <p>"{{SEED_INSIGHT}}"</p>
+  </div>
+
+  <div class="anchor">
+    <div class="lbl">Creative Brief · anchored to audience &amp; moment</div>
+    <p>For <b>{{ANCHOR_SEGMENT}}</b>, whose <b>{{ANCHOR_JOB}}</b>, at <b>{{ANCHOR_MOMENT}}</b> — our campaign will {{ANCHOR_MECHANIC}}, so they {{ANCHOR_DESIRE}}.</p>
+  </div>
+
+  <div class="grid">
+    <div class="hero-idea">
+      <h2>The Big Idea</h2>
+      <div class="name">{{IDEA_NAME}}</div>
+      <div class="slogan">{{IDEA_SLOGAN}}</div>
+      <div class="prop">{{IDEA_PROPOSITION}}</div>
+    </div>
+
+    <div class="card">
+      <h2>Positioning</h2>
+      <p>{{POSITIONING_STATEMENT}}</p>
+      <h2 style="margin-top:16px;">Target Segments</h2>
+      <span class="pill">{{SEGMENT_1}}</span><span class="pill">{{SEGMENT_2}}</span><span class="pill">{{SEGMENT_3}}</span>
+    </div>
+
+    <div class="card">
+      <h2>Offering &amp; Mix (4Ps)</h2>
+      <ul>
+        <li><b>Product:</b> {{P_PRODUCT}}</li>
+        <li><b>Price:</b> {{P_PRICE}}</li>
+        <li><b>Place:</b> {{P_PLACE}}</li>
+        <li><b>Promotion:</b> {{P_PROMOTION}}</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Pilot Experiment</h2>
+      <ul>
+        <li><b>Hypothesis:</b> {{HYPOTHESIS}}</li>
+        <li><b>Treatment:</b> {{TREATMENT}}</li>
+        <li><b>Control:</b> {{CONTROL}}</li>
+        <li><b>Measurement setup:</b> {{MEASUREMENT_SETUP}}</li>
+      </ul>
+    </div>
+
+    <div class="card wide">
+      <h2>Scenario · Campaign Moments (time · place · event)</h2>
+      <div class="moments">
+        <div class="moment"><div class="t">Moment 1 · {{MOM1_TIME}}</div><div class="v"><b>{{MOM1_PLACE}}</b> — {{MOM1_EVENT}}</div></div>
+        <div class="moment"><div class="t">Moment 2 · {{MOM2_TIME}}</div><div class="v"><b>{{MOM2_PLACE}}</b> — {{MOM2_EVENT}}</div></div>
+        <div class="moment"><div class="t">Moment 3 · {{MOM3_TIME}}</div><div class="v"><b>{{MOM3_PLACE}}</b> — {{MOM3_EVENT}}</div></div>
+      </div>
+    </div>
+
+    <div class="card wide">
+      <h2>Budget Allocation · {{BUDGET}}</h2>
+      <table>
+        <thead><tr><th>Market</th><th>Channel</th><th>Tactic</th><th style="text-align:right;">Amount</th></tr></thead>
+        <tbody>
+          <tr><td>{{M1}}</td><td>{{CH1}}</td><td>{{TAC1}}</td><td class="amt">{{AMT1}}</td></tr>
+          <tr><td>{{M2}}</td><td>{{CH2}}</td><td>{{TAC2}}</td><td class="amt">{{AMT2}}</td></tr>
+          <tr><td>{{M3}}</td><td>{{CH3}}</td><td>{{TAC3}}</td><td class="amt">{{AMT3}}</td></tr>
+          <tr><td colspan="3" style="text-align:right;font-weight:700;">Total</td><td class="amt">{{BUDGET}}</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>Human-led, AI-scaffolded. Budget allocation is part of the solution. Data as of {{DATA_AS_OF}}.</footer>
+
+</div>
+</body>
+</html>

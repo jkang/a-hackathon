@@ -1,0 +1,41 @@
+{
+  "layout": "kpi-board",
+  "title_lead": "用产能指标管理需求管线",
+  "title_accent": "：像管开发一样管需求",
+  "subtitle": "四个指标从 STATUS.md 与 story-list.json 自动读取 —— 每次迭代结束，随 delivery board 一起刷新。",
+  "metrics": [
+    {
+      "tone": "blue",
+      "name": "漏斗 WIP（在制 Story 数）",
+      "desc": "限制同时在漏斗中的 Epic / Story 数量，超上限即显式过载。状态流：ready → handoff → dev-in-progress → done。",
+      "carrier": "载体：STATUS.md 的 Story 交付状态表"
+    },
+    {
+      "tone": "green",
+      "name": "Story Lead Time（想法 → handoff）",
+      "desc": "按周跟踪；持续变长说明漏斗某步堵了（通常是 HITL 等待）。",
+      "carrier": "载体：STATUS.md 阶段状态表"
+    },
+    {
+      "tone": "green",
+      "name": "HITL 一次通过率",
+      "desc": "被打回次数 / 提交次数 —— 衡量「操作性产出质量」；通过率低说明该步的完成定义不够清晰。",
+      "carrier": "载体：各阶段 skill 自动更新 STATUS.md"
+    },
+    {
+      "tone": "blue",
+      "name": "覆盖对账漏项数",
+      "desc": "每次 storymap 必须为 0（account-system 是 14 / 14）。",
+      "carrier": "载体：需求侧唯一可自动检查的硬指标"
+    }
+  ],
+  "aux": "辅助工具：story-list.json 跨 change 单轨队列（登记 / 更新 done / 孤儿对账），让 Epic 内所有 Story 状态对全员可见。",
+  "placeholder": {
+    "hint": "在此粘贴 delivery dashboard 截图",
+    "note": "建议尺寸 7.41″ × 4.88″（约 1.5 : 1，接近 1440 × 900 视口截图）",
+    "command": "生成命令：/opsx:governance:delivery-board"
+  },
+  "conclusion": "需求阻塞从来不是突然发生的，是没有指标让它显形 —— 能被测量的阻塞，才能被解决。",
+  "footer": "NiDD City Lab | 成都站 · AI+ 研发数字峰会",
+  "footer_right": "指标随每次迭代的 delivery board 刷新"
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Campaign poster · Quest A = orange, Quest B = teal (auto via data-quest) -->
+<title>Campaign Poster · A · THE AWAY END</title>
+<style>
+  :root{
+    --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
+    --orange-1:#FFF0E7; --orange-2:#FFD1B8;
+    --teal:#077069; --teal-1:#CDE2E1; --teal-2:#83B8B4;
+    --line:#E4E8E7; --mut:#5A6663; --cream:#FFF6EC;
+    --accent: var(--ascentium-orange); --accent-tint: var(--orange-1); --accent-line: var(--orange-2);
+  }
+  body[data-quest="B"]{ --accent: var(--teal); --accent-tint: var(--teal-1); --accent-line: var(--teal-2); }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#DEDAD4;}
+  body{font-family:"Poppins","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+       display:flex;justify-content:center;padding:28px 12px;color:var(--ascentium-midnight);}
+  .poster{width:1080px;background:#fff;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.25);}
+  .illo{display:none;} body[data-quest="A"] .illo-a{display:block;} body[data-quest="B"] .illo-b{display:block;}
+
+  /* ---- masthead + hero ---- */
+  .hero{background:var(--accent);color:#fff;padding:44px 54px 0;position:relative;overflow:hidden;}
+  .masthead{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:2;}
+  .masthead .logo{font-size:26px;font-weight:800;letter-spacing:-.01em;}
+  .masthead .client{font-size:14px;font-weight:700;letter-spacing:.02em;background:rgba(0,0,0,.16);
+                    border-radius:999px;padding:7px 16px;}
+  .kicker{font-size:15px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;opacity:.9;margin-top:34px;}
+  .name{font-size:92px;font-weight:800;line-height:.96;letter-spacing:-.02em;margin-top:12px;position:relative;z-index:2;}
+  .tagline{font-size:27px;font-weight:700;margin-top:16px;color:#fff;position:relative;z-index:2;}
+  .visual{margin-top:28px;height:450px;position:relative;z-index:2;
+          border-radius:18px 18px 0 0;overflow:hidden;}
+  .visual svg{width:100%;height:100%;display:block;}
+
+  /* ---- body ---- */
+  .body{padding:40px 54px 8px;}
+  .lead{font-size:21px;font-weight:600;line-height:1.5;max-width:900px;}
+  .sec-h{font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-top:34px;}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px;}
+  .card{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:#fff;}
+  .card .t{font-size:15px;font-weight:800;color:var(--accent);}
+  .card .d{font-size:13px;line-height:1.5;margin-top:6px;color:#3B4442;}
+  .bullets{list-style:none;margin-top:14px;}
+  .bullets li{font-size:14.5px;line-height:1.6;padding:5px 0 5px 20px;position:relative;}
+  .bullets li::before{content:"";position:absolute;left:0;top:12px;width:9px;height:9px;border-radius:3px;background:var(--accent);}
+
+  /* ---- stats band ---- */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--ascentium-midnight);color:#fff;margin-top:34px;}
+  .stat{padding:26px 16px;text-align:center;border-right:1px solid rgba(255,255,255,.12);}
+  .stat:last-child{border-right:none;}
+  .stat .n{font-size:40px;font-weight:800;color:var(--accent-tint);line-height:1;}
+  .stat .c{font-size:11.5px;margin-top:8px;opacity:.85;line-height:1.45;}
+
+  /* ---- CTA band ---- */
+  .cta{display:flex;align-items:center;gap:26px;padding:34px 54px;background:var(--accent);color:#fff;}
+  .cta .btn{background:#fff;color:var(--accent);font-size:21px;font-weight:800;padding:17px 38px;border-radius:999px;white-space:nowrap;}
+  .cta .meta{flex:1;}
+  .cta .hash{font-size:26px;font-weight:800;letter-spacing:-.01em;}
+  .cta .url{font-size:14px;opacity:.92;margin-top:5px;}
+  .qr{width:104px;height:104px;background:#fff;border-radius:10px;padding:7px;flex:none;}
+  .qr svg{width:100%;height:100%;display:block;}
+
+  /* ---- footer ---- */
+  .foot{padding:22px 54px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:24px;}
+  .foot .partners{font-size:12px;font-weight:700;color:var(--ascentium-midnight);}
+  .foot .src{font-size:10.5px;color:var(--mut);text-align:right;max-width:520px;line-height:1.5;}
+</style>
+</head>
+<body data-quest="A">
+
+<!-- inline flat illustrations (brand palette) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="illo-stadium" viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice">
+    <rect width="480" height="360" fill="#FFF6EC"/>
+    <circle cx="66" cy="74" r="11" fill="#FF6611"/><circle cx="416" cy="96" r="8" fill="#077069"/>
+    <path d="M120 44 l20 11 -20 11z" fill="#077069"/><path d="M356 44 l-20 11 20 11z" fill="#FF6611"/>
+    <rect x="98" y="132" width="9" height="122" fill="#0F5D57"/><rect x="70" y="104" width="64" height="36" rx="6" fill="#077069"/>
+    <g fill="#FFF6EC"><circle cx="85" cy="115" r="4"/><circle cx="102" cy="115" r="4"/><circle cx="119" cy="115" r="4"/><circle cx="85" cy="130" r="4"/><circle cx="102" cy="130" r="4"/><circle cx="119" cy="130" r="4"/></g>
+    <path d="M64 104 l-16 -18 7 -4 17 15z" fill="#FF6611"/><path d="M140 104 l16 -18 -7 -4 -17 15z" fill="#FF6611"/>
+    <rect x="373" y="132" width="9" height="122" fill="#0F5D57"/><rect x="346" y="104" width="64" height="36" rx="6" fill="#077069"/>
+    <g fill="#FFF6EC"><circle cx="361" cy="115" r="4"/><circle cx="378" cy="115" r="4"/><circle cx="395" cy="115" r="4"/><circle cx="361" cy="130" r="4"/><circle cx="378" cy="130" r="4"/><circle cx="395" cy="130" r="4"/></g>
+    <path d="M340 104 l-16 -18 7 -4 17 15z" fill="#FF6611"/><path d="M416 104 l16 -18 -7 -4 -17 15z" fill="#FF6611"/>
+    <path d="M112 176 Q240 104 368 176 Z" fill="#0F5D57"/>
+    <ellipse cx="240" cy="176" rx="128" ry="28" fill="#077069"/><ellipse cx="240" cy="176" rx="128" ry="28" fill="none" stroke="#FFF6EC" stroke-width="5"/>
+    <path d="M112 176 Q240 206 368 176 L354 268 Q240 298 126 268 Z" fill="#0F5D57"/>
+    <path d="M112 176 Q240 206 368 176" fill="none" stroke="#FFF6EC" stroke-width="6"/>
+    <g fill="#FF6611"><rect x="150" y="196" width="15" height="60" transform="skewY(5)"/><rect x="196" y="200" width="15" height="66" transform="skewY(4)"/><rect x="269" y="200" width="15" height="66" transform="skewY(-4)"/><rect x="315" y="196" width="15" height="60" transform="skewY(-5)"/></g>
+    <rect x="216" y="236" width="48" height="42" rx="4" fill="#FFF6EC"/>
+    <path d="M126 300 Q240 276 354 300 L400 360 L80 360 Z" fill="#CDE2E1"/><path d="M210 300 L270 300 L300 360 L180 360 Z" fill="#FFF6EC"/>
+    <ellipse cx="70" cy="250" rx="26" ry="20" fill="#077069"/><ellipse cx="410" cy="246" rx="24" ry="18" fill="#077069"/>
+    <g transform="rotate(-20 250 78)"><rect x="214" y="58" width="76" height="38" rx="7" fill="#FF6611"/><line x1="248" y1="64" x2="248" y2="90" stroke="#FFF6EC" stroke-width="3" stroke-dasharray="4 4"/></g>
+    <g transform="rotate(16 130 110)"><rect x="96" y="92" width="66" height="34" rx="7" fill="#FF6611"/><line x1="125" y1="97" x2="125" y2="121" stroke="#FFF6EC" stroke-width="3" stroke-dasharray="4 4"/></g>
+    <g transform="rotate(-12 366 120)"><rect x="332" y="102" width="66" height="34" rx="7" fill="#FF6611"/><line x1="361" y1="107" x2="361" y2="131" stroke="#FFF6EC" stroke-width="3" stroke-dasharray="4 4"/></g>
+  </symbol>
+  <symbol id="illo-panda" viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice">
+    <rect width="480" height="360" fill="#FFF6EC"/>
+    <g><rect x="70" y="60" width="20" height="260" rx="8" fill="#077069"/><rect x="70" y="140" width="20" height="6" fill="#FFF6EC"/><rect x="70" y="220" width="20" height="6" fill="#FFF6EC"/><path d="M90 120 q40 -18 62 6 q-40 14 -62 -6z" fill="#398D87"/><path d="M70 190 q-42 -16 -64 8 q42 12 64 -8z" fill="#398D87"/><rect x="390" y="80" width="20" height="240" rx="8" fill="#077069"/><rect x="390" y="160" width="20" height="6" fill="#FFF6EC"/><path d="M390 150 q-42 -18 -66 6 q42 14 66 -6z" fill="#398D87"/><path d="M410 220 q42 -16 66 8 q-42 12 -66 -8z" fill="#398D87"/></g>
+    <g fill="#FF6611"><path d="M300 70 c-10 -14 -32 -8 -32 8 c0 12 20 24 32 32 c12 -8 32 -20 32 -32 c0 -16 -22 -22 -32 -8z" transform="scale(0.55) translate(430 60)"/><path d="M300 70 c-10 -14 -32 -8 -32 8 c0 12 20 24 32 32 c12 -8 32 -20 32 -32 c0 -16 -22 -22 -32 -8z" transform="scale(0.42) translate(180 120)"/></g>
+    <ellipse cx="240" cy="250" rx="96" ry="80" fill="#0F1514"/><ellipse cx="240" cy="262" rx="70" ry="60" fill="#FFFFFF"/>
+    <ellipse cx="150" cy="238" rx="30" ry="42" fill="#0F1514" transform="rotate(18 150 238)"/><ellipse cx="330" cy="238" rx="30" ry="42" fill="#0F1514" transform="rotate(-18 330 238)"/>
+    <ellipse cx="196" cy="322" rx="34" ry="22" fill="#0F1514"/><ellipse cx="284" cy="322" rx="34" ry="22" fill="#0F1514"/>
+    <ellipse cx="196" cy="326" rx="14" ry="9" fill="#FFF6EC"/><ellipse cx="284" cy="326" rx="14" ry="9" fill="#FFF6EC"/>
+    <circle cx="240" cy="150" r="78" fill="#FFFFFF"/><circle cx="186" cy="92" r="26" fill="#0F1514"/><circle cx="294" cy="92" r="26" fill="#0F1514"/>
+    <ellipse cx="206" cy="146" rx="20" ry="26" fill="#0F1514" transform="rotate(18 206 146)"/><ellipse cx="274" cy="146" rx="20" ry="26" fill="#0F1514" transform="rotate(-18 274 146)"/>
+    <circle cx="206" cy="148" r="7" fill="#FFF6EC"/><circle cx="274" cy="148" r="7" fill="#FFF6EC"/>
+    <ellipse cx="240" cy="172" rx="9" ry="6" fill="#0F1514"/><path d="M228 188 q12 10 24 0" fill="none" stroke="#0F1514" stroke-width="4" stroke-linecap="round"/>
+    <path d="M168 200 q72 34 144 0 q-6 26 -24 30 l-96 0 q-18 -4 -24 -30z" fill="#FF6611"/><rect x="236" y="222" width="16" height="44" rx="6" fill="#FF6611"/>
+    <rect x="252" y="196" width="12" height="86" rx="5" fill="#398D87" transform="rotate(24 258 240)"/>
+  </symbol>
+</svg>
+
+<div class="poster">
+
+  <!-- HERO (masthead + name + tagline + key visual) -->
+  <div class="hero">
+    <div class="masthead">
+      <div class="logo">Ascentium<span>.</span></div>
+      <div class="client">OCA · Doha 2030</div>
+    </div>
+    <div class="kicker">Quest A · SEA away crowd · 2030 Asian Games</div>
+    <div class="name">THE AWAY END</div>
+    <div class="tagline">"We don't visit. We arrive."</div>
+    <div class="visual">
+      <div class="illo illo-a"><svg><use href="#illo-stadium"/></svg></div>
+      <div class="illo illo-b"><svg><use href="#illo-panda"/></svg></div>
+    </div>
+  </div>
+
+  <!-- BODY (lead + offer) -->
+  <div class="body">
+    <div class="lead">Creator squads recruit national away crews; Qatar Airways bundles remove travel friction; a branded away section makes Southeast Asia the loudest crowd in Doha.</div>
+    <div class="sec-h">The Offer</div>
+    <div class="cards">
+      <div class="card"><div class="t">Crew bundle</div><div class="d">Ticket + flight + stay, priced transparently</div></div>
+      <div class="card"><div class="t">2 markets</div><div class="d">Indonesia & Thailand — 3-month pilot</div></div>
+      <div class="card"><div class="t">Visa-free</div><div class="d">SEA passports enter Qatar visa-free</div></div>
+    </div>
+    <div class="sec-h">Why it works</div>
+    <ul class="bullets">
+      <li>Visa-free entry + Qatar Airways hub make the trip easy to say yes to.</li>
+      <li>Crews travel together — group booking in one tap.</li>
+      <li>Creator-led demand, local-language countdown, 18-month runway.</li>
+    </ul>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat"><div class="n">400K</div><div class="c">SEA tickets targeted</div></div>
+    <div class="stat"><div class="n">680M</div><div class="c">SEA fans — the untapped away crowd</div></div>
+    <div class="stat"><div class="n">92%</div><div class="c">Hangzhou attendance benchmark</div></div>
+    <div class="stat"><div class="n">18 mo</div><div class="c">runway to Games week</div></div>
+  </div>
+
+  <!-- CTA + hashtag + QR -->
+  <div class="cta">
+    <div class="btn">Join a crew</div>
+    <div class="meta">
+      <div class="hash">#TheAwayEnd</div>
+      <div class="url">doha2030.qa/away</div>
+    </div>
+    <div class="qr">
+      <svg viewBox="0 0 21 21" fill="#0F1514" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="#fff"/><rect x="2" y="2" width="3" height="3"/>
+        <rect x="14" y="0" width="7" height="7"/><rect x="15" y="1" width="5" height="5" fill="#fff"/><rect x="16" y="2" width="3" height="3"/>
+        <rect x="0" y="14" width="7" height="7"/><rect x="1" y="15" width="5" height="5" fill="#fff"/><rect x="2" y="16" width="3" height="3"/>
+        <rect x="9" y="9" width="3" height="3"/><rect x="14" y="9" width="3" height="3"/><rect x="18" y="9" width="3" height="3"/>
+        <rect x="9" y="14" width="3" height="3"/><rect x="14" y="14" width="3" height="3"/><rect x="18" y="14" width="3" height="3"/>
+        <rect x="9" y="18" width="3" height="3"/><rect x="14" y="18" width="3" height="3"/><rect x="18" y="18" width="3" height="3"/>
+        <rect x="9" y="0" width="3" height="3"/><rect x="9" y="4" width="3" height="3"/><rect x="0" y="9" width="3" height="3"/>
+        <rect x="4" y="9" width="3" height="3"/><rect x="18" y="0" width="3" height="3"/><rect x="18" y="4" width="3" height="3"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="foot">
+    <div class="partners">In partnership with Qatar Airways · OCA</div>
+    <div class="src">Hangzhou 2023 OCA briefing; Xinhua/Caixin on Nagoya 2026; OCA Doha 2030 · Data as of 2026-09</div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+{
+  "_comment": "ECharts 5 配置模板库。每个模板为最小可运行的 option 对象，省略了 series.data，由 SKILL.md Step 3 中的数据填充逻辑注入。",
+  "templates": {
+    "line_trend": {
+      "_desc": "折线图 — 适合时间序列趋势分析，支持多系列",
+      "tooltip": { "trigger": "axis" },
+      "legend": { "bottom": 0, "type": "scroll" },
+      "grid": { "left": "3%", "right": "4%", "bottom": "15%", "containLabel": true },
+      "xAxis": {
+        "type": "category",
+        "boundaryGap": false,
+        "data": "__INJECT_X__"
+      },
+      "yAxis": { "type": "value", "splitLine": { "lineStyle": { "type": "dashed" } } },
+      "dataZoom": [
+        { "type": "inside", "start": 0, "end": 100 },
+        { "type": "slider", "start": 0, "end": 100, "bottom": "5%" }
+      ],
+      "series": "__INJECT_SERIES__"
+    },
+
+    "area_stacked": {
+      "_desc": "堆叠面积图 — 适合展示各分类随时间变化的构成",
+      "tooltip": { "trigger": "axis" },
+      "legend": { "bottom": 0, "type": "scroll" },
+      "grid": { "left": "3%", "right": "4%", "bottom": "15%", "containLabel": true },
+      "xAxis": { "type": "category", "boundaryGap": false, "data": "__INJECT_X__" },
+      "yAxis": { "type": "value" },
+      "dataZoom": [
+        { "type": "inside" },
+        { "type": "slider", "bottom": "5%" }
+      ],
+      "series": "__INJECT_SERIES_WITH_AREA__"
+    },
+
+    "bar_horizontal": {
+      "_desc": "水平条形图 — 适合排名对比，标签清晰",
+      "tooltip": { "trigger": "axis", "axisPointer": { "type": "shadow" } },
+      "legend": { "bottom": 0 },
+      "grid": { "left": "20%", "right": "10%", "bottom": "10%", "containLabel": false },
+      "xAxis": { "type": "value", "splitLine": { "lineStyle": { "type": "dashed" } } },
+      "yAxis": {
+        "type": "category",
+        "data": "__INJECT_Y__",
+        "axisLabel": { "interval": 0 }
+      },
+      "series": [
+        {
+          "type": "bar",
+          "data": "__INJECT_DATA__",
+          "label": { "show": true, "position": "right" },
+          "barMaxWidth": 40
+        }
+      ]
+    },
+
+    "bar_grouped": {
+      "_desc": "分组柱状图 — 多维度对比",
+      "tooltip": { "trigger": "axis", "axisPointer": { "type": "shadow" } },
+      "legend": { "bottom": 0, "type": "scroll" },
+      "grid": { "left": "3%", "right": "4%", "bottom": "15%", "containLabel": true },
+      "xAxis": { "type": "category", "data": "__INJECT_X__" },
+      "yAxis": { "type": "value", "splitLine": { "lineStyle": { "type": "dashed" } } },
+      "series": "__INJECT_SERIES__"
+    },
+
+    "pie_donut": {
+      "_desc": "环形图 — 占比构成，中心显示总量",
+      "tooltip": { "trigger": "item", "formatter": "{b}: {c} ({d}%)" },
+      "legend": { "bottom": 0, "type": "scroll" },
+      "series": [
+        {
+          "type": "pie",
+          "radius": ["45%", "70%"],
+          "center": ["50%", "45%"],
+          "avoidLabelOverlap": true,
+          "label": { "show": false, "position": "center" },
+          "emphasis": {
+            "label": { "show": true, "fontSize": 20, "fontWeight": "bold" }
+          },
+          "labelLine": { "show": false },
+          "data": "__INJECT_DATA__"
+        }
+      ]
+    },
+
+    "treemap": {
+      "_desc": "矩形树图 — 类别超过7个时替代饼图",
+      "tooltip": { "formatter": "{b}: {c}" },
+      "series": [
+        {
+          "type": "treemap",
+          "width": "100%",
+          "height": "90%",
+          "label": { "show": true, "formatter": "{b}\n{c}" },
+          "upperLabel": { "show": true, "height": 30 },
+          "data": "__INJECT_DATA__"
+        }
+      ]
+    },
+
+    "scatter": {
+      "_desc": "散点图 — 两个度量之间的关联/分布",
+      "tooltip": {
+        "trigger": "item",
+        "formatter": "function(params){ return params.seriesName + '<br/>' + params.value[0] + ' / ' + params.value[1]; }"
+      },
+      "legend": { "bottom": 0 },
+      "xAxis": { "type": "value", "name": "__INJECT_X_NAME__", "splitLine": { "lineStyle": { "type": "dashed" } } },
+      "yAxis": { "type": "value", "name": "__INJECT_Y_NAME__", "splitLine": { "lineStyle": { "type": "dashed" } } },
+      "series": "__INJECT_SERIES__"
+    },
+
+    "heatmap": {
+      "_desc": "热力图 — 二维类别交叉的强度分布",
+      "tooltip": { "position": "top" },
+      "grid": { "height": "70%", "top": "10%" },
+      "xAxis": { "type": "category", "data": "__INJECT_X__", "splitArea": { "show": true } },
+      "yAxis": { "type": "category", "data": "__INJECT_Y__", "splitArea": { "show": true } },
+      "visualMap": {
+        "min": 0,
+        "max": "__INJECT_MAX__",
+        "calculable": true,
+        "orient": "horizontal",
+        "left": "center",
+        "bottom": "15%"
+      },
+      "series": [
+        {
+          "type": "heatmap",
+          "data": "__INJECT_DATA__",
+          "label": { "show": true },
+          "emphasis": { "itemStyle": { "shadowBlur": 10 } }
+        }
+      ]
+    },
+
+    "kpi_card_html": {
+      "_desc": "KPI 卡片 HTML 片段模板，用 JS 动态生成，不是 ECharts option",
+      "html_template": "<div class='kpi-card'><div class='kpi-label'>{label}</div><div class='kpi-value'>{value}</div><div class='kpi-delta {delta_class}'>{delta}</div></div>"
+    }
+  }
+}

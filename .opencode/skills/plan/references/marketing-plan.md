@@ -1,0 +1,44 @@
+# Marketing Plan Method
+
+The AI assembles these after the team locks the concept. Keep it to the MVP scope.
+
+## 1. Positioning statement (Geoffrey Moore)
+
+Template:
+
+> For **[target segment]** who **[unmet need]**, **[offering]** is a **[category]** that **[key benefit]**. Unlike **[alternative]**, we **[differentiation]**.
+
+Make each blank specific. If "unlike X" is hard to fill, differentiation is weak.
+
+## 2. STP
+
+- **Segmentation** — 2–4 fan segments (from insight).
+- **Targeting** — which 1–2 the pilot focuses on, and why.
+- **Positioning** — the statement above.
+
+## 3. The 4Ps
+
+| P | A — campaign | B — membership |
+|---|---|---|
+| Product / offering | campaign + ticket/experience bundle | membership tiers + founding offer |
+| Price | ticket tiers / bundle pricing | membership price points |
+| Place / channels | Qatar Airways, ticketing partners, social, diaspora communities | social, ecommerce, licensed retail, travel partners |
+| Promotion / content | content rhythm (teaser → hero → countdown), creator & community | always-on content engine, member referral, UGC |
+
+## 4. Membership design (Quest B only)
+
+- **Tiers**: e.g. Free / Founding Member / Patron. For each: price, benefits, symbol of belonging.
+- **Founding-member offer** (deliverable #3): a time-boxed, scarce, high-emotion offer that converts fandom into paid membership.
+- **Conservation-first**: no over-commercialization; frame spend as supporting the pandas.
+
+## 5. Content rhythm (3-month pilot)
+
+- Month 1 — **Ignite**: launch content, creator seeding, community activation.
+- Month 2 — **Convert**: offer push, retargeting, partnerships.
+- Month 3 — **Prove**: scale winners, measure, prepare the Go/No-Go dossier.
+
+## 6. Anti-patterns
+
+- Generic positioning ("for everyone who loves X").
+- A plan that ignores the MVP budget/timebox.
+- For B: a hard-sell tone that risks conservation backlash.
