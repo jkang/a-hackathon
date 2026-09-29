@@ -1,0 +1,20 @@
+# Quest A · PROVE (runner auto-run)
+quest: A
+victory_conditions:
+  - "400K tickets sold to SEA-based fans"
+  - "≥85% avg attendance in SEA-team sessions"
+  - "250K SEA visitors in Qatar during Games week"
+  - "$40M merch + hospitality revenue"
+  - "500M social impressions"
+metrics:
+  - {name: "Ticket-intent rate", formula: "holds / qualified visits", benchmark_ref: "Nagoya 22% sold at T-14", target: "3.0%", threshold_go: "≥2.5%", threshold_no_go: "<1.5%"}
+  - {name: "CAC per ticket hold", formula: "paid spend / holds", benchmark_ref: "Hangzhou ¥610M ticket revenue", target: "≤$8", threshold_go: "≤$10", threshold_no_go: ">$15"}
+  - {name: "Creator reach (6 wks)", formula: "sum of impressions", benchmark_ref: "500M impressions goal", target: "120M", threshold_go: "≥100M", threshold_no_go: "<60M"}
+  - {name: "Group-booking ratio", formula: "group / total bookings", benchmark_ref: "fans travel as crews", target: "40%", threshold_go: "≥35%", threshold_no_go: "<20%"}
+  - {name: "Bundle attach rate", formula: "bundles / holds", benchmark_ref: "Hangzhou merch attach", target: "18%", threshold_go: "≥15%", threshold_no_go: "<8%"}
+sample_data: {week1: {intent: "1.1%", cac: "$11.2", reach: "18M", group: "22%", bundle: "6%"}, week6: {intent: "3.2%", cac: "$7.4", reach: "118M", group: "41%", bundle: "18%"}}
+cost_benefit:
+  budget: 1500000
+  projected_return: "USD 74M full-scale (400K tickets × ~$85 + $40M merch)"
+  roi: "~1.5x over 18 months"
+  unlock_verdict: "GO — unlock the full USD 30M"

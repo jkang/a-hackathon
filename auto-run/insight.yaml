@@ -1,0 +1,41 @@
+# Quest A · INSIGHT (runner auto-run)
+quest: A
+client: "OCA — Doha 2030 Ticketing & Fan Engagement Unit"
+mission: "Make Southeast Asia + China Doha's biggest 'away crowd' in Asian Games history."
+org_profile:
+  assets:
+    - "Visa-free entry for SEA + China passports"
+    - "Qatar Airways + Hamad Int'l hub"
+    - "39 venues, 54 sports; National Vision 2030"
+    - "18-month runway (May 2029 – Oct 2030)"
+  constraints:
+    - "MVP budget USD 1.5M (5% of USD 30M)"
+    - "SEA + China market never activated by an Asian Games host"
+benchmark:
+  gold_standard: "Hangzhou 2022 — 3.05M tickets, ¥610M revenue, 92% attendance, $84M ticket revenue."
+  cautionary_tale: "Nagoya 2026 — 2.75M planned, ~22% sold at T-14; demand never manufactured."
+  arena: "Doha 2030 — Nov 2030; SEA (680M) + China outbound, visa-free, left unmined."
+market:
+  trends:
+    - {trend: "SEA outbound boom", why_it_matters: "Vietnam 17.5M (+39.5%), Thailand 35M+ — the demand engine exists."}
+    - {trend: "China outbound → Gulf", why_it_matters: "Chinese tourists 'flock to the Gulf again' (AGBI 2025); Golden Week growth."}
+    - {trend: "Creator trust > ads", why_it_matters: "Short-video is SEA's discovery + trust layer."}
+segments:
+  - {name: "First-Timers", who: "SEA Gen-Z, 18–24, mobile-first", job: "belonging + awe", barrier: "cost & visa confidence", trigger: "creator film + crew invite"}
+  - {name: "Family Travellers", who: "SEA + China families (school holidays)", job: "a memorable family trip", barrier: "Nov timing unknown", trigger: "cool-season + visa-free pitch"}
+  - {name: "Diaspora Crews", who: "SEA workers across the Gulf", job: "national pride", barrier: "time off / logistics", trigger: "team-qualification news"}
+moment_of_truth: "ticket-sale day · phone / creator feed · the creator film that turns a viewer into a crew member"
+swot:
+  strengths: ["Visa-free + Qatar Airways hub", "18-month runway", "proven SEA outbound demand"]
+  weaknesses: ["SEA/China never activated", "no existing fan pipeline", "MVP budget small"]
+  opportunities: ["China outbound surge", "SEA short-video creators", "Nov cool-season window"]
+  threats: ["Nagoya-style under-demand", "price competition from other destinations"]
+key_insights:
+  - {id: 1, text: "SEA outbound is booming (Vietnam +39.5%, Thailand 35M+) — demand exists but no host aimed it at Doha.", evidence: "US-ASEAN 2024 review", source: "usasean.org"}
+  - {id: 2, text: "China outbound to the Gulf is surging — visa-free + cool Nov makes Doha the natural group destination.", evidence: "AGBI/CNBC 2025", source: "agbi.com"}
+  - {id: 3, text: "Hangzhou proved a 92%-full, ¥610M Games is possible; Nagoya's 22% shows demand must be manufactured.", evidence: "CGTN / ezhejiang", source: "news.cgtn.com"}
+  - {id: 4, text: "Creator trust > ads in SEA; short-video is the discovery layer.", evidence: "TikTok SEA reports", source: "ads.tiktok.com"}
+  - {id: 5, text: "Visa-free + Qatar Airways hub removes the #1 booking barrier.", evidence: "quest card", source: "card"}
+  - {id: 6, text: "Fans travel as crews/families, not solo — bundles beat single tickets.", evidence: "field insight", source: "team"}
+selected_insights: [1, 2, 3]
+source_note: "Live research via agent-reach · Data as of 2026-09"

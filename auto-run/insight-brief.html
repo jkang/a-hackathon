@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insight Brief · A · OCA — Doha 2030 Ticketing &amp; Fan Engagement Unit</title>
+<style>
+  :root{
+    --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
+    --orange-1:#FFF0E7; --orange-2:#FFD1B8; --orange-3:#FFA370;
+    --teal:#077069; --teal-1:#CDE2E1; --teal-3:#398D87;
+    --sky:#1877F2; --sky-1:#BDD5EF;
+    --line:#E4E8E7; --bg:#F7F6F4; --card:#FFFFFF; --mut:#5A6663;
+    /* Quest A uses orange accent; swap to --teal for Quest B */
+    --accent: var(--ascentium-orange);
+    --accent-tint: var(--orange-1);
+    --accent-line: var(--orange-2);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"Poppins","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+       background:var(--bg);color:var(--ascentium-midnight);-webkit-font-smoothing:antialiased;}
+  .page{max-width:960px;margin:0 auto;padding:40px 28px 56px;}
+  .brandbar{display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--accent);padding-bottom:14px;}
+  .brandbar .logo{font-weight:700;font-size:20px;letter-spacing:-.01em;}
+  .brandbar .logo span{color:var(--accent);}
+  .brandbar .tag{font-size:12px;font-weight:600;color:var(--mut);letter-spacing:.14em;text-transform:uppercase;}
+  h1{font-size:34px;font-weight:800;line-height:1.15;margin-top:22px;letter-spacing:-.01em;}
+  .client{margin-top:8px;font-size:13px;color:var(--mut);font-weight:500;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+  .card h2{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;}
+  .card ul{list-style:none;}
+  .card li{font-size:13.5px;line-height:1.6;padding:4px 0 4px 14px;position:relative;}
+  .card li::before{content:"▸";position:absolute;left:0;color:var(--accent);}
+  .wide{grid-column:1 / -1;}
+  .bench{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:4px;}
+  .bench .b{border-radius:10px;padding:12px 14px;border:1px solid var(--line);}
+  .bench .gold{background:#F7ECD2;border-color:#EAD9AC;}
+  .bench .red{background:#FBE4E1;border-color:#F0C4BE;}
+  .bench .sky{background:var(--sky-1);border-color:#A9C6EA;}
+  .bench .bt{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;}
+  .bench .gold .bt{color:#B98A1D;} .bench .red .bt{color:#C0392B;} .bench .sky .bt{color:var(--sky);}
+  .bench p{font-size:12px;line-height:1.55;}
+
+  .trends{display:grid;gap:10px;}
+  .trend{border-radius:10px;background:var(--bg);border:1px solid var(--line);padding:11px 14px;}
+  .trend .t{font-size:13px;font-weight:700;color:var(--ascentium-midnight);}
+  .trend .w{font-size:12px;color:var(--mut);margin-top:3px;line-height:1.5;}
+
+  .segments{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .seg{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card);}
+  .seg .name{font-size:15px;font-weight:700;color:var(--accent);}
+  .seg .who{font-size:11px;color:var(--mut);margin-top:2px;line-height:1.5;}
+  .seg .job{font-size:12.5px;margin-top:9px;line-height:1.5;color:var(--ascentium-midnight);}
+  .seg .job b{color:var(--accent);}
+  .seg .row{font-size:11.5px;margin-top:7px;line-height:1.5;color:#3B4442;}
+  .seg .row b{color:var(--ascentium-midnight);}
+
+  .moment{background:var(--accent);color:#fff;border-radius:12px;padding:16px 20px;margin-top:16px;}
+  .moment .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.85;}
+  .moment .txt{font-size:15px;font-weight:700;margin-top:6px;line-height:1.5;}
+
+  .truths{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
+  .chip{font-size:12px;line-height:1.4;background:var(--accent-tint);color:var(--accent);
+        border:1px solid var(--accent-line);border-radius:999px;padding:6px 12px;}
+  .clusters{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+  .cluster{font-size:11.5px;font-weight:700;background:var(--ascentium-midnight);color:#fff;border-radius:8px;padding:6px 12px;}
+  .seed{margin-top:26px;background:var(--accent-tint);border-left:6px solid var(--accent);border-radius:12px;padding:20px 24px;}
+  .seed .lbl{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
+    .seed p{font-size:19px;font-weight:600;line-height:1.5;margin-top:8px;}
+  .kinsights{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
+  .kin{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card);position:relative;}
+  .kin .id{font-size:10px;font-weight:800;letter-spacing:.08em;color:var(--accent);}
+  .kin .t{font-size:13.5px;font-weight:600;line-height:1.5;margin-top:5px;padding-right:60px;}
+  .kin .ev{font-size:11px;color:var(--mut);margin-top:7px;line-height:1.45;}
+  .kin.sel{border:2px solid var(--accent);background:var(--accent-tint);}
+  .kin.sel::after{content:"SELECTED";position:absolute;top:12px;right:14px;font-size:9px;font-weight:800;letter-spacing:.1em;color:var(--accent);}
+  footer{margin-top:26px;border-top:1px dashed var(--line);padding-top:12px;font-size:10.5px;color:#9AA5A2;line-height:1.6;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="brandbar">
+    <div class="logo">Ascentium<span>.</span></div>
+    <div class="tag">Insight Brief · A</div>
+  </div>
+
+  <h1>Make SEA + China Doha's Biggest Away Crowd in Asian Games History</h1>
+  <div class="client">Client · OCA — Doha 2030 Ticketing &amp; Fan Engagement Unit &nbsp;|&nbsp; A &nbsp;|&nbsp; Data as of 2026-09</div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Scout Summary</h2>
+      <ul>
+        <li>Hangzhou 2022 — 3.05M tickets, ¥610M revenue, 92% attendance, $84M ticket revenue</li>
+        <li>Nagoya 2026 — 2.75M planned, ~22% sold at T-14; demand never manufactured</li>
+        <li>SEA outbound booming (Vietnam +39.5%, Thailand 35M+) + China outbound → Gulf surging</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>Org / IP Profile</h2>
+      <ul>
+        <li><b>Assets:</b> Visa-free (SEA + China) · Qatar Airways hub · 39 venues · National Vision 2030</li>
+        <li><b>Constraints:</b> 18-month window · MVP USD 1.5M · market never activated</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Market Trends</h2>
+      <div class="trends">
+        <!-- one .trend per shift -->
+        <div class="trend"><div class="t">SEA outbound boom</div><div class="w">Vietnam 17.5M (+39.5%), Thailand 35M+ — the demand engine exists.</div></div>
+        <div class="trend"><div class="t">China outbound → Gulf</div><div class="w">Chinese tourists 'flock to the Gulf again' (AGBI 2025); Golden Week growth.</div></div>
+        <div class="trend"><div class="t">Creator trust > ads</div><div class="w">Short-video is SEA's discovery + trust layer.</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Benchmark</h2>
+      <div class="bench" style="grid-template-columns:1fr;gap:8px;">
+        <div class="b gold"><div class="bt">Gold Standard</div><p>Hangzhou 2022 — 92% attendance, ¥610M revenue, $84M tickets</p></div>
+        <div class="b red"><div class="bt">Cautionary Tale</div><p>Nagoya 2026 — ~22% sold at T-14</p></div>
+        <div class="b sky"><div class="bt">Your Arena</div><p>Doha 2030 — Nov 2030 · SEA (680M) + China outbound, visa-free</p></div>
+      </div>
+    </div>
+
+    <div class="card wide">
+      <h2>Audience Segments — who they are &amp; the job they hire</h2>
+      <div class="segments">
+        <!-- persona cards -->
+        <div class="seg">
+          <div class="name">First-Timers</div>
+          <div class="who">SEA Gen-Z, 18–24, mobile-first</div>
+          <div class="job"><b>Job:</b> belonging + awe</div>
+          <div class="row"><b>Barrier:</b> cost & visa confidence</div>
+          <div class="row"><b>Trigger:</b> creator film + crew invite</div>
+        </div>
+        <div class="seg">
+          <div class="name">Family Travellers</div>
+          <div class="who">SEA + China families (school holidays)</div>
+          <div class="job"><b>Job:</b> a memorable family trip</div>
+          <div class="row"><b>Barrier:</b> Nov timing unknown</div>
+          <div class="row"><b>Trigger:</b> cool-season + visa-free pitch</div>
+        </div>
+        <div class="seg">
+          <div class="name">Diaspora Crews</div>
+          <div class="who">SEA workers across the Gulf</div>
+          <div class="job"><b>Job:</b> national pride</div>
+          <div class="row"><b>Barrier:</b> time off / logistics</div>
+          <div class="row"><b>Trigger:</b> team-qualification news</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card wide">
+      <h2>Market Truths — from the team</h2>
+      <div class="truths">
+        <span class="chip">Flight cost & visa block more than ticket price</span>
+        <span class="chip">Fans travel as a crew, not solo</span>
+        <span class="chip">Creators drive intent more than ads</span>
+        <span class="chip">Nobody knows Doha is visa-free</span>
+        <span class="chip">Hidden bundle costs kill conversion</span>
+        <span class="chip">Local-language countdown converts</span>
+        <span class="chip">China families plan year-end trips</span>
+        <span class="chip">Group booking must be one tap</span>
+      </div>
+      <div class="clusters">
+        <!-- AI affinity clusters -->
+        <span class="cluster">Travel friction</span>
+        <span class="cluster">Group belonging</span>
+        <span class="cluster">Creator-led demand</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="moment">
+    <div class="lbl">Moment of Truth</div>
+    <div class="txt">ticket-sale day · phone / creator feed · the creator film that turns a viewer into a crew member</div>
+  </div>
+
+  <div class="seed">
+    <div class="lbl">Key Insights · AI-drafted from org + trends + audience + SWOT</div>
+    <p>Pick <b>2–3</b> to deep-dive in the plan. "SEA outbound is booming and China is flocking to the Gulf, yet no Games host has aimed either at Doha — make the demand, market by market."</p>
+  </div>
+
+  <div class="kinsights">
+    <div class="kin sel"><div class="id">INSIGHT 01</div><div class="t">SEA outbound is booming (Vietnam +39.5%, Thailand 35M+) — demand exists but no host aimed it at Doha.</div><div class="ev">US-ASEAN 2024 review</div></div>
+    <div class="kin sel"><div class="id">INSIGHT 02</div><div class="t">China outbound to the Gulf is surging — visa-free + cool Nov makes Doha the natural group destination.</div><div class="ev">AGBI / CNBC 2025</div></div>
+    <div class="kin sel"><div class="id">INSIGHT 03</div><div class="t">Hangzhou proved a 92%-full, ¥610M Games is possible; Nagoya's 22% shows demand must be manufactured.</div><div class="ev">CGTN / ezhejiang</div></div>
+    <div class="kin "><div class="id">INSIGHT 04</div><div class="t">Creator trust > ads in SEA; short-video is the discovery layer.</div><div class="ev">TikTok SEA</div></div>
+    <div class="kin "><div class="id">INSIGHT 05</div><div class="t">Visa-free + Qatar Airways hub removes the #1 booking barrier.</div><div class="ev">quest card</div></div>
+    <div class="kin "><div class="id">INSIGHT 06</div><div class="t">Fans travel as crews/families, not solo — bundles beat single tickets.</div><div class="ev">field insight</div></div>
+  </div>
+
+  <footer>
+    Sources: US-ASEAN 2024 review · AGBI/CNBC 2025 · CGTN/ezhejiang Hangzhou. Data as of 2026-09. Generated by the Ascentium Hackathon toolkit — human-led, AI-scaffolded.
+  </footer>
+
+</div>
+</body>
+</html>
