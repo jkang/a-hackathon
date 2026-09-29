@@ -1,18 +1,30 @@
-# Insight Method — audience, trend & demand first
+# Insight Method — research chain → ~6 key insights → pick 2–3
 
-Distilled for the hackathon. **The AI does the research; the team does the judgment.** Use `agent-reach` to gather real facts / reports / data, then distill them into **valuable, data-backed insight options** — a research marathon by the team is out, but the menus must be grounded. *Analysis* must be rich: audience, trend, demand, and the moment of truth. A thin insight produces a thin plan.
+The AI does the research; the team does the judgment. The insight gate runs a **research chain** and ends with **~6 key insights**, of which the team **picks 2–3** to deep-dive in the plan.
 
-> Every option the AI offers (trend, segment, moment, truth) should carry a **fact, number, or named behavior** — not a generic label. See `facilitation/references/option-menu.md`.
+## Research chain (sub-skills)
 
-## The insight brief = 4 building blocks + 1 seed insight
+`agent-reach` → `business-research` → `audience-analysis` → `swot-analysis`
 
-| Block | Question it answers | Human/AI |
+- `agent-reach` = the shared data engine (feeds the two research skills).
+- `business-research` = organization profile (internal).
+- `audience-analysis` = audience & segments (external).
+- `swot-analysis` = synthesis (internal × external).
+
+## The insight brief — building blocks → ~6 key insights → selection
+
+| Block | Question it answers | Source |
 |---|---|---|
-| 1 · Market & Trends | what's the market, and what's *shifting*? | card (AI) + team |
-| 2 · Audience | who are the 2–4 segments, and what job do they hire? | team |
-| 3 · Moment of Truth | when/where does the decision actually happen? | team |
-| 4 · Truths | what's the raw field reality? | team |
-| Seed insight | the tension that connects all four | team confirms |
+| 1 · Organization profile | who is the client, what do they own & offer? | `business-research` |
+| 2 · Market & Trends | what's the market, and what's *shifting*? | card + `agent-reach` |
+| 3 · Audience | who are the segments, and what job do they hire? | `audience-analysis` |
+| 4 · Moment of Truth | when / where does the decision happen? | team |
+| 5 · Truths | the raw field reality | team |
+| 6 · SWOT | internal × external synthesis | `swot-analysis` |
+| → **Key insights** | **~6 data-backed insights** | AI drafts, team confirms |
+| → **Selected** | **2–3 chosen to deep-dive in the plan** | team |
+
+> Every option and insight carries a **fact, number, or named behavior + a source** — not a generic label. See `facilitation/references/option-menu.md`.
 
 ---
 

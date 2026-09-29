@@ -35,7 +35,7 @@ Make each blank specific. If "unlike X" is hard to fill, differentiation is weak
 
 - Month 1 — **Ignite**: launch content, creator seeding, community activation.
 - Month 2 — **Convert**: offer push, retargeting, partnerships.
-- Month 3 — **Prove**: scale winners, measure, prepare the Go/No-Go dossier.
+- Month 3 — **Measure**: scale the winners and capture the evidence.
 
 ## 6. Anti-patterns
 

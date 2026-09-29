@@ -1,103 +1,91 @@
 ---
 name: swot-analysis
-description: "Structured SWOT analysis and cross-strategy matrix generation for specific business units or models. Use when Claude needs to analyze competitive advantages for: (1) Producing evidence-based Strengths/Weaknesses/Opportunities/Threats evaluations, (2) Generating SO/WO/ST/WT cross-strategy recommendations, (3) Diagnosing business health. Triggers on requests like '做 SWOT 分析', '分析优劣势', '竞争分析', or '业务诊断'. Can be used independently or as Phase 2 of the nsm-analysis macro skill."
-author: KK
+description: Structured SWOT synthesis for a marketing campaign — combine the organization profile (internal Strengths/Weaknesses) with the audience + market context (external Opportunities/Threats), and produce an evidence-backed SO/WO/ST/WT cross-strategy matrix. The synthesis step of the insight gate. Triggers: "SWOT", "strengths weaknesses", "competitive analysis", "business diagnosis", "cross-strategy".
 ---
 
-# SWOT Analysis Skill
+# SWOT Analysis — campaign synthesis
 
-针对用户指定的企业和业务类型，进行结构化的 SWOT 分析，输出有证据支撑的分析报告和交叉策略矩阵。
+Turn the insight research into a strategic read. **Internal** factors come from the organization profile; **external** factors come from the audience map + market. Output = an evidence-backed SWOT + a cross-strategy matrix that points to where to play.
 
-## 输入
+## Inputs
 
-| 参数 | 必填 | 说明 |
-|------|------|------|
-| 企业名称 | 是 | 分析目标 |
-| 业务类型/模式 | 是 | 具体分析的业务方向 |
-| 业务现状报告 | 推荐 | business-research 的输出，作为 SWOT 的事实基础 |
-| 竞品列表 | 否 | 用于对标分析 |
+| Input | Required | Notes |
+|---|---|---|
+| Organization profile | recommended | from `business-research` — the **internal** base (assets, offer, constraints) |
+| Audience map | recommended | from `audience-analysis` — the **external** base (segments, needs) |
+| Market context | recommended | the quest card + research (size, trends, benchmarks) |
+| Comparables / competitors | no | for benchmarking |
 
-## 执行预检与降级方案
+If inputs are missing, gather the essentials via `agent-reach`; if tools are unavailable, proceed from the quest card + team knowledge and label it.
 
-如果用户未提供业务现状报告，在试图自行搜索补充信息前：
-1. **评估工具可用性**：判断你当前的运行环境是否能够正常调用互联网搜索和网页读取能力。
-2. **降级执行分支（无工具时）**：如果你明确知道自己**无法连接网络或搜索工具不可用**，请停止执行，并向用户发送以下明确的请求话术：
-   > "我当前的环境无法直接搜索互联网，且您未提供前置的业务现状报告。请您直接提供该企业或产品的相关背景介绍资料、竞争对手情况，以便我为您执行准确的 SWOT 分析。"
+## Steps
 
-## 执行步骤
+1. **Confirm the facts** — pull from `business-research` (internal) + `audience-analysis` + market (external).
+2. **Analyse S/W/O/T** — for the specific business/market in the quest, not a generic company read.
+3. **Attach evidence** — every point gets a fact/number + an impact rating + a source.
+4. **Build the cross-strategy matrix** — SO / WO / ST / WT → concrete moves.
+5. **Self-check** — verify against the checklist before output.
 
-1. **确认事实基础** — 检查是否有业务现状报告，若无则快速补充关键信息
-2. **逐维度分析 SWOT** — 围绕指定业务类型，分别分析 S/W/O/T
-3. **标注证据** — 每个要点给出具体数据或事实支撑
-4. **构建交叉策略** — 做 SO/WO/ST/WT 交叉分析，导出策略建议
-5. **执行出口自检** — 对照自检清单核验输出质量
+## Framework
 
-## 分析框架
+### Strengths (internal — from the org profile)
+| Dimension | Look for |
+|---|---|
+| Assets | venues, IP, mascots, superstars, content, data |
+| Capabilities | brand recognition, operations, reach |
+| Ecosystem | partners, sponsors, distribution, platform effects |
+| Scale | audience base, share, cost position |
 
-### Strengths（优势）
+### Weaknesses (internal)
+| Dimension | Look for |
+|---|---|
+| Capability gaps | missing channels, skills, tools |
+| Structural | slow decisions, org limits, capacity |
+| Financial | budget pressure, ROI constraints |
+| Market limits | narrow segment, weak awareness, regulation |
 
-围绕以下维度识别内部优势：
+### Opportunities (external — audience + market)
+| Dimension | Look for |
+|---|---|
+| Market trends | growth, rising demand, new behaviours |
+| Audience | under-served segments, unmet needs, triggers |
+| Technology / channels | new platforms, content formats |
+| White space | competitor blind spots, unclaimed positions |
 
-| 维度 | 评估要点 |
-|------|----------|
-| 资源优势 | 资金、人才、数据、技术等核心资源 |
-| 能力优势 | 产品研发、运营效率、品牌认知 |
-| 生态优势 | 平台效应、合作伙伴网络、供应链 |
-| 规模优势 | 用户基数、市场份额、成本结构 |
+### Threats (external)
+| Dimension | Look for |
+|---|---|
+| Competition | new entrants, substitutes, price pressure |
+| Regulation | policy, compliance, visa/entry rules |
+| Reputation / ethics | backlash risk (e.g., conservation-first) |
+| Macro | economy, geopolitics, seasonality |
 
-### Weaknesses（劣势）
+### Evidence requirement
+Every S/W/O/T point: **claim** (one line) · **evidence** (fact/number) · **impact** (high/med/low) · **source**.
 
-| 维度 | 评估要点 |
-|------|----------|
-| 能力短板 | 缺失的关键技术、人才缺口 |
-| 结构性问题 | 组织效率、决策节奏、创新文化 |
-| 财务约束 | 盈利压力、投入限制 |
-| 市场局限 | 地域限制、客群狭窄、品牌认知 |
-
-### Opportunities（机会）
-
-| 维度 | 评估要点 |
-|------|----------|
-| 市场趋势 | 行业增长、消费升级、新兴需求 |
-| 技术变革 | AI/大模型、云原生、新平台 |
-| 政策利好 | 产业政策、监管松绑、补贴 |
-| 竞争空白 | 未被满足的市场需求、竞品盲区 |
-
-### Threats（威胁）
-
-| 维度 | 评估要点 |
-|------|----------|
-| 竞争威胁 | 新进入者、替代品、价格战 |
-| 监管风险 | 数据合规、反垄断、行业法规 |
-| 技术风险 | 技术迭代被替代、安全漏洞 |
-| 宏观风险 | 经济放缓、地缘政治、消费降级 |
-
-### 证据要求
-
-每个 SWOT 要点必须包含：
-- **观点** — 一句话概括
-- **证据** — 支撑该观点的事实或数据
-- **影响程度** — 高/中/低
-- **来源** — 标注出处
-
-### 交叉策略矩阵
+### Cross-strategy matrix
 
 | | Opportunities | Threats |
 |---|---|---|
-| **Strengths** | **SO 策略**：利用优势抓住机会 | **ST 策略**：利用优势应对威胁 |
-| **Weaknesses** | **WO 策略**：克服劣势利用机会 | **WT 策略**：规避劣势和威胁 |
+| **Strengths** | **SO** — use strengths to seize opportunities | **ST** — use strengths to counter threats |
+| **Weaknesses** | **WO** — fix weaknesses to unlock opportunities | **WT** — avoid weaknesses and threats |
 
-每个象限产出 1-2 条具体策略建议。
+Produce 1–2 concrete, adoptable moves per quadrant.
 
-## 输出格式
+## Output
 
-输出 Markdown 格式的 SWOT 分析报告，模板见 [analysis_framework.md](references/analysis_framework.md) "报告模板"部分。
+A Markdown SWOT + cross-strategy report; template in [`references/analysis_framework.md`](references/analysis_framework.md).
 
-## 出口质量自检
+## Self-check
 
-- [ ] **证据覆盖**：每个 S/W/O/T 要点都有具体证据或数据支撑，非凭感觉
-- [ ] **业务聚焦**：所有分析围绕指定业务类型，非公司全局泛泛分析
-- [ ] **维度均衡**：S/W/O/T 每个维度 3-5 个要点，不偏废
-- [ ] **交叉策略具体**：交叉矩阵的策略建议可直接采纳，非空泛口号
-- [ ] **影响程度合理**：高/中/低的标注有判断依据
-- [ ] **来源可追溯**：信息来源已标注
+- [ ] Each S/W/O/T point has **evidence** (not a feeling).
+- [ ] **Campaign/business-focused**, not a generic company analysis.
+- [ ] **3–5 points** per quadrant; balanced.
+- [ ] Cross-strategy moves are **concrete and adoptable**.
+- [ ] Impact ratings justified; **sources** traceable.
+
+## Where it fits (insight research chain)
+
+- **Upstream**: `business-research` (**internal S/W**) + `audience-analysis` + market context (**external O/T**).
+- **Downstream**: the **key insights** → the `plan` gate (strategic move).
+- **Note**: SWOT is the **synthesis** layer — it comes *after* both the org profile and the audience map, because O/T need the external view.

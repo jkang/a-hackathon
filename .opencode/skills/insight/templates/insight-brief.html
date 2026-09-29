@@ -67,7 +67,14 @@
   .cluster{font-size:11.5px;font-weight:700;background:var(--ascentium-midnight);color:#fff;border-radius:8px;padding:6px 12px;}
   .seed{margin-top:26px;background:var(--accent-tint);border-left:6px solid var(--accent);border-radius:12px;padding:20px 24px;}
   .seed .lbl{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
-  .seed p{font-size:19px;font-weight:600;line-height:1.5;margin-top:8px;}
+    .seed p{font-size:19px;font-weight:600;line-height:1.5;margin-top:8px;}
+  .kinsights{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
+  .kin{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card);position:relative;}
+  .kin .id{font-size:10px;font-weight:800;letter-spacing:.08em;color:var(--accent);}
+  .kin .t{font-size:13.5px;font-weight:600;line-height:1.5;margin-top:5px;padding-right:60px;}
+  .kin .ev{font-size:11px;color:var(--mut);margin-top:7px;line-height:1.45;}
+  .kin.sel{border:2px solid var(--accent);background:var(--accent-tint);}
+  .kin.sel::after{content:"SELECTED";position:absolute;top:12px;right:14px;font-size:9px;font-weight:800;letter-spacing:.1em;color:var(--accent);}
   footer{margin-top:26px;border-top:1px dashed var(--line);padding-top:12px;font-size:10.5px;color:#9AA5A2;line-height:1.6;}
 </style>
 </head>
@@ -169,8 +176,17 @@
   </div>
 
   <div class="seed">
-    <div class="lbl">Seed Insight · confirmed by the team</div>
-    <p>"{{SEED_INSIGHT}}"</p>
+    <div class="lbl">Key Insights · AI-drafted from org + trends + audience + SWOT</div>
+    <p>Pick <b>2–3</b> to deep-dive in the plan. "{{SEED_INSIGHT}}"</p>
+  </div>
+
+  <div class="kinsights">
+    <div class="kin {{KI_1_SEL}}"><div class="id">INSIGHT 01</div><div class="t">{{KI_1}}</div><div class="ev">{{KI_1_EV}}</div></div>
+    <div class="kin {{KI_2_SEL}}"><div class="id">INSIGHT 02</div><div class="t">{{KI_2}}</div><div class="ev">{{KI_2_EV}}</div></div>
+    <div class="kin {{KI_3_SEL}}"><div class="id">INSIGHT 03</div><div class="t">{{KI_3}}</div><div class="ev">{{KI_3_EV}}</div></div>
+    <div class="kin {{KI_4_SEL}}"><div class="id">INSIGHT 04</div><div class="t">{{KI_4}}</div><div class="ev">{{KI_4_EV}}</div></div>
+    <div class="kin {{KI_5_SEL}}"><div class="id">INSIGHT 05</div><div class="t">{{KI_5}}</div><div class="ev">{{KI_5_EV}}</div></div>
+    <div class="kin {{KI_6_SEL}}"><div class="id">INSIGHT 06</div><div class="t">{{KI_6}}</div><div class="ev">{{KI_6_EV}}</div></div>
   </div>
 
   <footer>

@@ -17,8 +17,8 @@ The **most-seen asset** of a campaign. It must be **self-contained**: a stranger
 
 ## Inputs
 
-- `plan.yaml` (campaign name, slogan, proposition, offering/tiers, pilot markets, budget).
-- `insight.yaml` (audience, moment) + `metrics.yaml` (stats).
+- `plan.yaml` — the chosen variant: campaign name, slogan, proposition, offering/tiers, pilot markets, budget.
+- `insight.yaml` — audience + moment (for the anchor).
 - Team choices: visual direction + the one-liner/CTA.
 
 ## Anatomy (top → bottom)

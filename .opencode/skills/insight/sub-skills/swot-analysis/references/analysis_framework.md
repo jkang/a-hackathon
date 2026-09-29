@@ -1,131 +1,89 @@
-# SWOT 分析框架
+# SWOT Framework (marketing)
 
-## 分析维度详表
+## Analysis prompts
 
-### 内部因素评估
+### Internal factors
 
-**优势（S）评估清单**：
-1. 该业务的核心竞争壁垒是什么？（技术、数据、品牌、规模）
-2. 与主要竞品相比，有哪些不可复制的差异化能力？
-3. 现有资源（用户、数据、资金）如何支撑该业务？
-4. 组织能力或人才优势体现在哪里？
+**Strengths (S)** — what we can build on:
+1. What is the core asset / moat for this business? (IP, venues, brand, reach, data)
+2. What can we do that competitors cannot easily copy?
+3. Which owned resources support the campaign? (audience, partners, budget)
+4. What organisational / talent strengths apply?
 
-**劣势（W）评估清单**：
-1. 该业务发展的最大内部瓶颈是什么？
-2. 与竞品相比，在哪些维度明显落后？
-3. 资源投入是否充足？有哪些资源约束？
-4. 组织架构或文化上有哪些制约？
+**Weaknesses (W)** — what holds us back:
+1. What is the biggest internal bottleneck?
+2. Where are we clearly behind alternatives?
+3. Are resources (budget, capacity) sufficient? What constrains them?
+4. Which structural / regulatory limits apply?
 
-### 外部因素评估
+### External factors
 
-**机会（O）评估清单**：
-1. 行业未来 1-2 年的增长动力在哪里？
-2. 有哪些技术变革（如 AI）可以利用？
-3. 政策或监管变化是否带来新空间？
-4. 竞争对手有哪些没覆盖的需求缺口？
+**Opportunities (O)** — what the market offers:
+1. Where is the 1–2 year growth coming from?
+2. Which trends / channels / behaviours can we ride?
+3. Do policy or entry changes open new space? (e.g. visa-free, travel rebound)
+4. Which audience needs are under-served?
 
-**威胁（T）评估清单**：
-1. 最强竞争对手的下一步可能是什么？
-2. 有哪些新进入者或替代品正在崛起？
-3. 监管趋势是否对该业务不利？
-4. 宏观经济或行业周期性风险有多大？
+**Threats (T)** — what could hurt us:
+1. What might the strongest competitor / comparable do next?
+2. Which new entrants or substitutes are rising?
+3. Is regulation / perception trending against us?
+4. How big are macro / seasonality / reputational risks?
 
 ---
 
-## 报告模板
+## Report template
 
 ```markdown
-# {企业名称} — {业务类型} SWOT 分析
+# {Organization} — SWOT for {campaign / business}
+> Date: {date} · Focus: {the business/market in the quest}
 
-> 分析日期：{日期}
-> 分析对象：{具体业务方向}
-
-## SWOT 总览
-
-| | 有利 | 不利 |
+## Overview
+| | Favourable | Unfavourable |
 |---|---|---|
-| **内部** | S：优势 | W：劣势 |
-| **外部** | O：机会 | T：威胁 |
+| **Internal** | S — Strengths | W — Weaknesses |
+| **External** | O — Opportunities | T — Threats |
 
-## Strengths（优势）
+## Strengths
+### S1 — {name}
+- **Claim**: {one line}
+- **Evidence**: {fact / number}
+- **Impact**: High / Med / Low
+- **Source**: {…}
+### S2–S5 (same structure)
 
-### S1：{优势名称}
+## Weaknesses
+### W1 — {name}
+- **Claim** · **Evidence** · **Impact** · **Source**
+### W2–W5
 
-- **描述**：{一句话概括}
-- **证据**：{数据或事实}
-- **影响程度**：高/中/低
-- **来源**：{信息出处}
+## Opportunities
+### O1 — {name}
+- **Claim** · **Evidence** · **Window** (short / mid / long) · **Source**
+### O2–O5
 
-### S2 - S5
+## Threats
+### T1 — {name}
+- **Claim** · **Evidence** · **Urgency** (High / Med / Low) · **Source**
+### T2–T5
 
-{同上结构}
+## Cross-strategy matrix
 
-## Weaknesses（劣势）
+### SO (use strengths × seize opportunities)
+1. **{move}** — {description} · links S{n} × O{n}
 
-### W1：{劣势名称}
+### WO (fix weaknesses × unlock opportunities)
+1. **{move}** — {description} · links W{n} × O{n}
 
-- **描述**：{一句话概括}
-- **证据**：{数据或事实}
-- **影响程度**：高/中/低
-- **来源**：{信息出处}
+### ST (use strengths × counter threats)
+1. **{move}** — {description} · links S{n} × T{n}
 
-### W2 - W5
+### WT (avoid weaknesses × avoid threats)
+1. **{move}** — {description} · links W{n} × T{n}
 
-{同上结构}
-
-## Opportunities（机会）
-
-### O1：{机会名称}
-
-- **描述**：{一句话概括}
-- **证据**：{数据或趋势}
-- **时间窗口**：短期/中期/长期
-- **来源**：{信息出处}
-
-### O2 - O5
-
-{同上结构}
-
-## Threats（威胁）
-
-### T1：{威胁名称}
-
-- **描述**：{一句话概括}
-- **证据**：{数据或信号}
-- **紧迫程度**：高/中/低
-- **来源**：{信息出处}
-
-### T2 - T5
-
-{同上结构}
-
-## 交叉策略矩阵
-
-### SO 策略（利用优势 × 抓住机会）
-
-1. **{策略名称}**：{具体描述}
-   - 关联：S{n} × O{n}
-
-### WO 策略（克服劣势 × 利用机会）
-
-1. **{策略名称}**：{具体描述}
-   - 关联：W{n} × O{n}
-
-### ST 策略（利用优势 × 应对威胁）
-
-1. **{策略名称}**：{具体描述}
-   - 关联：S{n} × T{n}
-
-### WT 策略（规避劣势 × 应对威胁）
-
-1. **{策略名称}**：{具体描述}
-   - 关联：W{n} × T{n}
-
-## 核心结论
-
-{3-5 句话总结最关键的战略启示}
+## Key takeaways
+{3–5 lines: the most important strategic implications}
 
 ---
-> 信息来源汇总：
-> - {来源 + URL}
+Sources: {source + URL}
 ```

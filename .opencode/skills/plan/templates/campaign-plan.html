@@ -11,7 +11,6 @@
     --orange-1:#FFF0E7; --orange-2:#FFD1B8;
     --teal:#077069; --teal-1:#CDE2E1; --teal-3:#398D87;
     --line:#E4E8E7; --bg:#F7F6F4; --card:#FFFFFF; --mut:#5A6663;
-    /* Quest A: orange accent. Quest B: swap --accent to var(--teal), --accent-tint to var(--teal-1) */
     --accent: var(--ascentium-orange);
     --accent-tint: var(--orange-1);
     --accent-line: var(--orange-2);
@@ -38,7 +37,7 @@
   .moment .t{font-size:10.5px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;}
   .moment .v{font-size:12.5px;margin-top:5px;line-height:1.5;color:#3B4442;}
   .moment .v b{color:var(--ascentium-midnight);}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
   .card h2{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;}
   .card p,.card li{font-size:13px;line-height:1.6;}
@@ -57,7 +56,16 @@
   td.amt{text-align:right;font-weight:700;color:var(--accent);}
   .pill{display:inline-block;font-size:11.5px;font-weight:600;background:var(--accent-tint);
         border:1px solid var(--accent-line);color:var(--accent);border-radius:999px;padding:4px 11px;margin:3px 5px 0 0;}
-  footer{margin-top:26px;border-top:1px dashed var(--line);padding-top:12px;font-size:10.5px;color:#9AA5A2;line-height:1.6;}
+  /* A/B variants */
+  .variant{margin-top:26px;border:1.5px solid var(--line);border-radius:16px;padding:18px 20px 22px;background:#fff;}
+  .variant.chosen{border-color:var(--accent);border-width:2px;box-shadow:0 4px 18px rgba(255,102,17,.12);}
+  .vhead{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+  .vhead .vt{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ascentium-midnight);}
+  .vhead .badge{display:none;font-size:10px;font-weight:800;letter-spacing:.12em;color:#fff;background:var(--accent);
+                border-radius:999px;padding:4px 12px;}
+  .variant.chosen .vhead .badge{display:inline-block;}
+  .vhead .vsub{font-size:12px;color:var(--mut);font-weight:500;}
+  footer{margin-top:30px;border-top:1px dashed var(--line);padding-top:12px;font-size:10.5px;color:#9AA5A2;line-height:1.6;}
 </style>
 </head>
 <body>
@@ -81,65 +89,120 @@
     <p>For <b>{{ANCHOR_SEGMENT}}</b>, whose <b>{{ANCHOR_JOB}}</b>, at <b>{{ANCHOR_MOMENT}}</b> — our campaign will {{ANCHOR_MECHANIC}}, so they {{ANCHOR_DESIRE}}.</p>
   </div>
 
-  <div class="grid">
-    <div class="hero-idea">
-      <h2>The Big Idea</h2>
-      <div class="name">{{IDEA_NAME}}</div>
-      <div class="slogan">{{IDEA_SLOGAN}}</div>
-      <div class="prop">{{IDEA_PROPOSITION}}</div>
-    </div>
-
-    <div class="card">
-      <h2>Positioning</h2>
-      <p>{{POSITIONING_STATEMENT}}</p>
-      <h2 style="margin-top:16px;">Target Segments</h2>
-      <span class="pill">{{SEGMENT_1}}</span><span class="pill">{{SEGMENT_2}}</span><span class="pill">{{SEGMENT_3}}</span>
-    </div>
-
-    <div class="card">
-      <h2>Offering &amp; Mix (4Ps)</h2>
-      <ul>
-        <li><b>Product:</b> {{P_PRODUCT}}</li>
-        <li><b>Price:</b> {{P_PRICE}}</li>
-        <li><b>Place:</b> {{P_PLACE}}</li>
-        <li><b>Promotion:</b> {{P_PROMOTION}}</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>Pilot Experiment</h2>
-      <ul>
-        <li><b>Hypothesis:</b> {{HYPOTHESIS}}</li>
-        <li><b>Treatment:</b> {{TREATMENT}}</li>
-        <li><b>Control:</b> {{CONTROL}}</li>
-        <li><b>Measurement setup:</b> {{MEASUREMENT_SETUP}}</li>
-      </ul>
-    </div>
-
-    <div class="card wide">
-      <h2>Scenario · Campaign Moments (time · place · event)</h2>
-      <div class="moments">
-        <div class="moment"><div class="t">Moment 1 · {{MOM1_TIME}}</div><div class="v"><b>{{MOM1_PLACE}}</b> — {{MOM1_EVENT}}</div></div>
-        <div class="moment"><div class="t">Moment 2 · {{MOM2_TIME}}</div><div class="v"><b>{{MOM2_PLACE}}</b> — {{MOM2_EVENT}}</div></div>
-        <div class="moment"><div class="t">Moment 3 · {{MOM3_TIME}}</div><div class="v"><b>{{MOM3_PLACE}}</b> — {{MOM3_EVENT}}</div></div>
-      </div>
-    </div>
-
-    <div class="card wide">
-      <h2>Budget Allocation · {{BUDGET}}</h2>
-      <table>
-        <thead><tr><th>Market</th><th>Channel</th><th>Tactic</th><th style="text-align:right;">Amount</th></tr></thead>
-        <tbody>
-          <tr><td>{{M1}}</td><td>{{CH1}}</td><td>{{TAC1}}</td><td class="amt">{{AMT1}}</td></tr>
-          <tr><td>{{M2}}</td><td>{{CH2}}</td><td>{{TAC2}}</td><td class="amt">{{AMT2}}</td></tr>
-          <tr><td>{{M3}}</td><td>{{CH3}}</td><td>{{TAC3}}</td><td class="amt">{{AMT3}}</td></tr>
-          <tr><td colspan="3" style="text-align:right;font-weight:700;">Total</td><td class="amt">{{BUDGET}}</td></tr>
-        </tbody>
-      </table>
+  <div class="card wide" style="margin-top:22px;">
+    <h2>Scenario · Campaign Moments (time · place · event)</h2>
+    <div class="moments">
+      <div class="moment"><div class="t">Moment 1 · {{MOM1_TIME}}</div><div class="v"><b>{{MOM1_PLACE}}</b> — {{MOM1_EVENT}}</div></div>
+      <div class="moment"><div class="t">Moment 2 · {{MOM2_TIME}}</div><div class="v"><b>{{MOM2_PLACE}}</b> — {{MOM2_EVENT}}</div></div>
+      <div class="moment"><div class="t">Moment 3 · {{MOM3_TIME}}</div><div class="v"><b>{{MOM3_PLACE}}</b> — {{MOM3_EVENT}}</div></div>
     </div>
   </div>
 
-  <footer>Human-led, AI-scaffolded. Budget allocation is part of the solution. Data as of {{DATA_AS_OF}}.</footer>
+  <!-- ===== VARIANT A ===== -->
+  <section class="variant {{A_CHOSEN}}">
+    <div class="vhead">
+      <span class="vt">Variant A</span><span class="badge">Chosen</span>
+      <span class="vsub">{{A_SUB}}</span>
+    </div>
+    <div class="grid">
+      <div class="hero-idea">
+        <h2>The Big Idea</h2>
+        <div class="name">{{A_NAME}}</div>
+        <div class="slogan">{{A_SLOGAN}}</div>
+        <div class="prop">{{A_PROPOSITION}}</div>
+      </div>
+      <div class="card">
+        <h2>Positioning</h2>
+        <p>{{A_POSITIONING}}</p>
+        <h2 style="margin-top:14px;">Target Segments</h2>
+        <span class="pill">{{A_SEG1}}</span><span class="pill">{{A_SEG2}}</span><span class="pill">{{A_SEG3}}</span>
+      </div>
+      <div class="card">
+        <h2>Offering &amp; Mix (4Ps)</h2>
+        <ul>
+          <li><b>Product:</b> {{A_PRODUCT}}</li>
+          <li><b>Price:</b> {{A_PRICE}}</li>
+          <li><b>Place:</b> {{A_PLACE}}</li>
+          <li><b>Promotion:</b> {{A_PROMOTION}}</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Pilot Experiment</h2>
+        <ul>
+          <li><b>Hypothesis:</b> {{A_HYPOTHESIS}}</li>
+          <li><b>Treatment:</b> {{A_TREATMENT}}</li>
+          <li><b>Control:</b> {{A_CONTROL}}</li>
+          <li><b>Measurement setup:</b> {{A_MEASUREMENT}}</li>
+        </ul>
+      </div>
+      <div class="card wide">
+        <h2>Budget Allocation · {{BUDGET}}</h2>
+        <table>
+          <thead><tr><th>Market</th><th>Channel</th><th>Tactic</th><th style="text-align:right;">Amount</th></tr></thead>
+          <tbody>
+            <tr><td>{{A_M1}}</td><td>{{A_CH1}}</td><td>{{A_TAC1}}</td><td class="amt">{{A_AMT1}}</td></tr>
+            <tr><td>{{A_M2}}</td><td>{{A_CH2}}</td><td>{{A_TAC2}}</td><td class="amt">{{A_AMT2}}</td></tr>
+            <tr><td>{{A_M3}}</td><td>{{A_CH3}}</td><td>{{A_TAC3}}</td><td class="amt">{{A_AMT3}}</td></tr>
+            <tr><td colspan="3" style="text-align:right;font-weight:700;">Total</td><td class="amt">{{BUDGET}}</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VARIANT B ===== -->
+  <section class="variant {{B_CHOSEN}}">
+    <div class="vhead">
+      <span class="vt">Variant B</span><span class="badge">Chosen</span>
+      <span class="vsub">{{B_SUB}}</span>
+    </div>
+    <div class="grid">
+      <div class="hero-idea">
+        <h2>The Big Idea</h2>
+        <div class="name">{{B_NAME}}</div>
+        <div class="slogan">{{B_SLOGAN}}</div>
+        <div class="prop">{{B_PROPOSITION}}</div>
+      </div>
+      <div class="card">
+        <h2>Positioning</h2>
+        <p>{{B_POSITIONING}}</p>
+        <h2 style="margin-top:14px;">Target Segments</h2>
+        <span class="pill">{{B_SEG1}}</span><span class="pill">{{B_SEG2}}</span><span class="pill">{{B_SEG3}}</span>
+      </div>
+      <div class="card">
+        <h2>Offering &amp; Mix (4Ps)</h2>
+        <ul>
+          <li><b>Product:</b> {{B_PRODUCT}}</li>
+          <li><b>Price:</b> {{B_PRICE}}</li>
+          <li><b>Place:</b> {{B_PLACE}}</li>
+          <li><b>Promotion:</b> {{B_PROMOTION}}</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Pilot Experiment</h2>
+        <ul>
+          <li><b>Hypothesis:</b> {{B_HYPOTHESIS}}</li>
+          <li><b>Treatment:</b> {{B_TREATMENT}}</li>
+          <li><b>Control:</b> {{B_CONTROL}}</li>
+          <li><b>Measurement setup:</b> {{B_MEASUREMENT}}</li>
+        </ul>
+      </div>
+      <div class="card wide">
+        <h2>Budget Allocation · {{BUDGET}}</h2>
+        <table>
+          <thead><tr><th>Market</th><th>Channel</th><th>Tactic</th><th style="text-align:right;">Amount</th></tr></thead>
+          <tbody>
+            <tr><td>{{B_M1}}</td><td>{{B_CH1}}</td><td>{{B_TAC1}}</td><td class="amt">{{B_AMT1}}</td></tr>
+            <tr><td>{{B_M2}}</td><td>{{B_CH2}}</td><td>{{B_TAC2}}</td><td class="amt">{{B_AMT2}}</td></tr>
+            <tr><td>{{B_M3}}</td><td>{{B_CH3}}</td><td>{{B_TAC3}}</td><td class="amt">{{B_AMT3}}</td></tr>
+            <tr><td colspan="3" style="text-align:right;font-weight:700;">Total</td><td class="amt">{{BUDGET}}</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <footer>Human-led, AI-scaffolded. Two plan variants — the team picks A or B. Budget allocation is part of the solution. Data as of {{DATA_AS_OF}}.</footer>
 
 </div>
 </body>

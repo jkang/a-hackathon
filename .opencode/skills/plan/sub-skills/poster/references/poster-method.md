@@ -13,7 +13,7 @@ A campaign poster is not a slogan on a colour block. It is the **single most-see
 | 3 | **Key visual** | the brand illustration (stadium / panda) | template |
 | 4 | **Lead** | the proposition in one sentence | plan.yaml / insight |
 | 5 | **Offer panel** | 3 cards: the offer / markets / access. For membership: the **tiers** | plan.yaml |
-| 6 | **Bullets** | 3 concrete benefits / proof points | plan.yaml / metrics |
+| 6 | **Bullets** | 3 concrete benefits / proof points | plan.yaml |
 | 7 | **Stats band** | 4 hard numbers (target, market, benchmark, window) | card / proof |
 | 8 | **CTA band** | action button + **hashtag** + **URL** + **QR** | team |
 | 9 | **Footer** | partners + sources + data-as-of | card |

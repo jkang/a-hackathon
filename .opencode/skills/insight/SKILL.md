@@ -23,18 +23,27 @@ Produce a one-page **Insight Brief** that seeds the creative gate. The AI scaffo
 
 > **Choice-first**: every input step below opens with an **AI-drafted menu of 6–8 grounded options** (`facilitation` → `option-menu.md`); the team **selects** (pick N) and may add `+1 of our own`. Never ask a blank question.
 
-1. **Kick-off + research (AI, ~2 min).** Read the card; deliver a 30-second scout summary + org profile/benchmark scaffold. Then **actively use `agent-reach`** to gather real facts — market/consumer-trend reports, benchmarks, and data relevant to the quest — and turn them into **data-backed insight options** (not generic labels). This grounds every menu below.
-2. **Market & trends (team).** AI presents a **menu of ~8 shifts** → the team picks 2–3 (or +1 own), each `{trend, why_it_matters}`.
-3. **Audience (team).** AI presents a **menu of ~8 fan segments** → the team picks 2–4, each with `who / job (functional, social, emotional) / barrier / trigger`.
-4. **Moment of truth (team).** AI presents a **menu of ~8 candidate moments** → the team picks 1–2 (time / place / event).
-5. **Truths (team).** AI presents a **menu of ~8 candidate field truths** → the team picks the ones that resonate (or +1 own); capture verbatim.
-6. **Cluster & converge.** Affinity-cluster the picks → the team confirms **one seed insight** (a one-line tension).
-7. **Capture.** Write `insight.yaml` (record the menu + the team's selection).
+**Research chain (sub-skills):** `agent-reach` → `business-research` → `audience-analysis` → `swot-analysis` → seed insight.
+- `agent-reach` is the **shared data engine**; `business-research` and `audience-analysis` both call it.
+- `business-research` (internal) feeds `audience-analysis` (fit) and `swot-analysis` (S/W).
+- `audience-analysis` (external) feeds `swot-analysis` (O/T).
+- Use the `researcher` subagent to run `agent-reach` and return **data-backed menus**.
+
+1. **Kick-off + org research (AI, ~2 min).** Read the card; deliver a 30-second scout summary. Then run **`business-research`** (via `agent-reach`): build the **organization profile** (identity, offer, assets, routes, constraints) and the benchmark baseline.
+2. **Audience research (AI).** Run **`audience-analysis`** (via `agent-reach`, using the org profile for fit): find audience data + trend reports, then draft the **segment menu** (3–5 segments with who / JTBD / needs / barriers / triggers / size / potential).
+3. **Market & trends (team).** AI presents a **menu of ~8 shifts** → the team picks 2–3 (or +1 own), each `{trend, why_it_matters}`.
+4. **Audience (team).** Present the **segment menu** → the team picks 2–4 and confirms/edits the profiles.
+5. **Moment of truth (team).** AI presents a **menu of ~8 candidate moments** → the team picks 1–2 (time / place / event).
+6. **Truths (team).** AI presents a **menu of ~8 candidate field truths** → the team picks the ones that resonate (or +1 own); capture verbatim.
+7. **SWOT synthesis (AI drafts → team confirms).** Run **`swot-analysis`**: internal S/W (from `business-research`) × external O/T (from `audience-analysis` + market) → the strategic read.
+8. **Key insights (AI drafts → team confirms).** Distil **~6 key insights** from the org profile + trends + audience + SWOT. Each insight = a **data-backed tension** (a fact/trend + its "so what"), with a source.
+9. **Pick 2–3 to deep-dive.** The team **selects 2–3 of the ~6** to carry into the `plan` gate (the rest are parked). This is the gate's destination.
+10. **Capture.** Write `insight.yaml` (record the menus, the ~6 insights, and the team's selection).
 
 ## HITL gates (mandatory)
 
 - The AI presents the menus; the team **selects** the audience segments, trends, and the moment of truth.
-- The team confirms the seed insight.
+- The team reviews the **~6 key insights** and **picks 2–3** to deep-dive into the plan.
 The AI must **not** choose any of these — it only drafts the menu. Always keep the `+1 of our own` channel open.
 
 ## Output
@@ -57,7 +66,11 @@ segments:                                      # 2–4 audience segments
   - {name, who, job_functional, job_social, job_emotional, barrier, trigger}
 moment_of_truth: {when, where, event}          # the decision scenario
 clusters: [{theme, items}]                     # AI affinity clustering
-seed_insight: "the one-line tension the team confirmed"
+swot: {strengths: [...], weaknesses: [...], opportunities: [...], threats: [...]}  # from swot-analysis
+key_insights:                                   # ~6 AI-drafted, data-backed insights
+  - {id: 1, text: "fact/trend + so-what", evidence: "...", source: "..."}
+selected_insights: [1, 4]                       # 2–3 the team chose to deep-dive in the plan
+seed_insight: "the one-line overarching tension (optional, ties the 6 together)"
 source_note: "Scout Report, Data as of 2026-09"
 ```
 
@@ -77,5 +90,5 @@ source_note: "Scout Report, Data as of 2026-09"
 
 ## Design notes
 
-- Sub-skills: `agent-reach` (live research), `business-research`, `swot-analysis` — used by this stage.
+- **Invoke these sub-skills** (do not hand-roll their output): `agent-reach` (live research → data-backed options), `business-research` (organization profile), `audience-analysis` (segment the audience — profiles, needs, market potential), `swot-analysis`.
 - Keep the brief to ONE page. It is a seed for creativity, not a research report.

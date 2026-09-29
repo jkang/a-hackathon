@@ -1,96 +1,80 @@
 ---
 name: plan
-description: Run the PLAN/CREATIVE gate of the Ascentium mini-hackathon quest — anchor the idea to an audience and a moment (scenario canvas), the team diverges on a big idea, dot-votes a winner, then the AI assembles it into a full pilot plan (positioning, offering, marketing mix, 3-month 2-market pilot, experiment + measurement setup, and budget allocation). Covers Quest A campaign concept and Quest B membership design + founding-member offer. Triggers: "creative concept", "big idea", "scenario canvas", "moment of truth", "pilot design", "campaign plan", "membership design", "marketing plan", "budget allocation", "quest plan".
+description: Run the PLAN/CREATIVE gate of the Ascentium mini-hackathon quest — diverge to ~6 campaign ideas (How Might We + creative-thinking methods), the team picks 2–3 (or combines several), then the AI scopes the opportunity and builds a full campaign plan (positioning, offering, 4Ps, pilot, budget), produces ≥2 A/B plan versions, and the team picks A or B to design the poster. Triggers: "creative concept", "brainstorm", "big idea", "pilot design", "campaign plan", "membership design", "marketing plan", "budget allocation".
 ---
 
-# Quest Plan — the PLAN/CREATIVE gate
+# Plan — the PLAN/CREATIVE gate
 
-The heaviest gate. The **team creates the idea**; the AI **fills the framework**. Human-first: **anchor (audience + moment) → diverge → vote → deepen → decide**, then AI assembles the plan.
-
-> A thin idea is an unanchored idea. Anchor the concept to a **specific audience** and a **specific moment** (time / place / event) before diverging — see `references/creative-concept.md`.
+The creative heart. Flow: **diverge → pick → define + plan → A/B → poster**. The **team creates and chooses**; the AI scaffolds and formats.
 
 ## When to use
 
-- After `insight` (needs `insight.yaml`, which now carries segments + moment of truth).
-- When the team wants only the creative step (call the `facilitation` protocols directly and stop).
+- After `insight` (needs `insight.yaml`: key insights + selected insights + audience/moment).
+- When the team wants only the brainstorm, or only the poster — call the relevant sub-skill directly.
 
 ## Inputs
 
-- `insight.yaml` (seed insight, **audience segments, moment of truth**, trends).
-- Quest card: War Chest budget (A: USD 1.5M / 5%; B: USD 1.1M / 10%), Victory Conditions, scale-up gate.
+- `insight.yaml` — especially `key_insights` + `selected_insights` (the 2–3 chosen).
+- Quest card — the **How Might We**, War Chest budget (A: 1.5M / B: 1.1M), Victory Conditions, scale-up gate.
 
 ## Flow (uses the `facilitation` engine)
 
-> **Choice-first**: every team step opens with an **AI-drafted menu of 6–8 grounded options** (`facilitation` → `option-menu.md`); the team **selects** and may add `+1 of our own`. The creative idea step gives the team **starters**, not a blank page.
+> **Choice-first**: every team step opens with an **AI-drafted menu**; the team **selects** (and may `+1 of their own`).
 
-1. **Anchor (team).** AI presents a **menu of ~4 candidate anchors** (segment × job × moment) → the team picks/remixes one, and fills the line *for [segment], whose [job], at [moment], we will [mechanic] — so they [desire]*.
-2. **Scenario canvas (team).** AI presents a **menu of ~8 candidate moments** → the team picks 3–5 (time / place / event), then the 1–2 as the creative spine.
-3. **HMW** — derive it from the anchor.
-4. **Idea starters (team).** AI presents a **menu of ~8 idea starters** → the team picks 2–3 to build on, remixes, or adds `+1 own`. Then silent brainstorm 2′ → round-robin 6′ → affinity cluster.
-5. **Converge** — dot-vote 2′ (2 votes each) → top 2–3.
-6. **Deepen** — 1-2-4-All 5′ on the winner → *one-line proposition + name + slogan + the moment it owns*.
-7. **Decide pilot** — AI presents a **menu of markets** → the team picks **2** + success criteria (3′).
-8. **Allocate budget** — AI presents **allocation slices/scenarios** → the team adjusts and confirms the split. *The card states: "Budget allocation is part of the solution."*
-9. **Capture** — write `plan.yaml` (record the menus + the team's selection).
+1. **Diverge (AI + team).** Run the **`creative-concept`** sub-skill: anchor (audience × moment) + reframe into **one HMW**, then run creative-thinking methods (SCAMPER · analogies · reverse · mash-ups · Crazy 8 · brainwriting) to generate **~6 candidate ideas** (each = name · one-line · insight it answers · mechanic).
+2. **Pick (team).** The team **selects 2–3** of the ~6 — and may **combine several into a hybrid** ("the mechanic of 2 with the audience of 4").
+3. **Define + plan (AI + team).** Run **`opportunity-definition`** (5 elements) on the chosen idea(s), then build the **campaign plan**: anchor (segment × job × moment), positioning (see `references/marketing-plan.md`), offering, 4Ps, 2 pilot markets (see `references/pilot-experiment.md`), and budget (see `references/budget-model.md`).
+4. **A/B versions (AI → team).** Produce **≥2 distinct plan versions** (e.g. A = bold/experiential vs B = creator-led/community; or different audiences/angles), each with its own positioning + mix + pilot + budget. The team **picks A or B** (or mixes).
+5. **Poster (poster skill).** For the chosen plan, design the hero visual via the **`poster`** sub-skill (team picks the visual direction + one-liner).
 
 ## HITL gates (mandatory)
 
-- The AI presents the menus; the team picks the creative brief anchor (segment + job + moment).
-- The team chooses/remixes the winning idea (from the starters).
-- The team picks the 2 pilot markets.
-- The team allocates the budget.
-The AI may propose the menus/starters but never decides these. Always keep the `+1 of our own` channel open.
+- The team **selects 2–3 ideas** (and / or combines several).
+- The team **picks A or B** from the plan versions.
+- The team picks the 2 pilot markets, the budget split, and the poster visual direction.
+The AI drafts the menus/versions but **never decides** for the team.
 
 ## Output
 
-- `campaign-plan.html` — Ascentium-branded one/two-pager (use `templates/campaign-plan.html`; set `{{DOC_TYPE}}` = "Campaign Plan" for Quest A, "Membership Design" for Quest B).
-- `plan.yaml` — structured capture (includes the **experiment + measurement setup** required by deliverable #2).
+- `campaign-plan.html` — the chosen plan (DOC_TYPE: "Campaign Plan" / "Membership Design").
+- `plan.yaml` — structured capture (ideas, selection, opportunity, the A/B variants + the chosen one, pilot, budget, poster direction).
 
 ### plan.yaml schema
 
 ```yaml
 quest: A | B
-seed_insight: "..."
-audience: {primary_segment: "...", job_to_be_done: "..."}   # the anchor
-scenario: [{moment: "...", time: "...", place: "...", event: "..."}]  # 3–5 campaign moments
-creative_brief: "for [segment] whose [job] at [moment], we will [mechanic] — so they [desire]"
+selected_insights: [1, 4]                     # from insight.yaml
+anchor:                                       # from creative-concept (the brief)
+  {segment: "...", job: "...", moment: "...", mechanic: "...", desire: "..."}
+scenario:                                     # 3–5 campaign moments (time · place · event)
+  - {moment: "...", time: "...", place: "...", event: "..."}
 hmw: "How might we ..."
-ideas: [{author: "...", concept: "..."}]      # RAW human divergence
-votes: {idea_id: count}
-winner: {concept: "...", proposition: "...", name: "...", slogan: "...", moment: "..."}
-offering:                                      # A = campaign concept; B = membership design
-  type: campaign | membership
-  tiers: ["{name, price, benefits}", "..."]    # B only
-  founding_offer: "..."                        # B only — deliverable #3
-pilot:
-  markets: ["...", "..."]                       # exactly 2
-  duration: "3 months"
-  success_criteria: "..."
-experiment:
-  hypothesis: "If ... then ..."
-  treatment: "..."
-  control: "..."
-  measurement_setup: "what is instrumented, where, and how often"
-budget:
-  total: 1.5M | 1.1M
-  allocation: [{market: "...", channel: "...", tactic: "...", amount: "..."}]
+ideas:                                        # ~6 diverged (name, one-line, insight, mechanic)
+  - {id: 1, name: "...", one_line: "...", insight: "...", mechanic: "..."}
+selected_ideas: [2, 5]                        # 2–3 chosen (or a combination note)
+combination: "mechanic of 2 + audience of 5"  # optional, if the team combined
+concept:                                      # the chosen concept
+  {name: "...", slogan: "...", proposition: "...", offer: "..."}
+opportunity:                                  # from opportunity-definition (5 elements)
+  e1: "one-line opportunity"
+  e2: "segment & scenario"
+  e3: "pain / tension"
+  e4: "solution hypothesis + guardrail"
+  e5: "value / return"
+  value_breakdown: [scope, frequency, per_instance, cumulative]
+variants:                                     # ≥2 A/B plan versions
+  A: {positioning: "...", offering: "...", mix: "...", pilot: "...", budget: "..."}
+  B: {positioning: "...", offering: "...", mix: "...", pilot: "...", budget: "..."}
+chosen_variant: A
+poster: {visual_direction: "...", one_liner: "..."}
 ```
 
-## Assemble (AI fills the framework; the team can override fast)
+## Assemble (AI fills the framework; the team overrides fast)
 
-- **Creative brief + scenario** — the anchor and the campaign moments (see `references/creative-concept.md`).
-- **Positioning** — Geoffrey Moore statement (see `references/marketing-plan.md`).
-- **Offering** — A: campaign concept (name, slogan, hero idea); B: membership design (tiers/pricing/benefits) + founding-member offer.
-- **Marketing mix (4Ps)** — product/offering, price, place/channels, promotion/content rhythm.
-- **Pilot experiment** — PoL-style marketing pilot: hypothesis, treatment vs control, 2 markets × 3 months, measurement setup (see `references/pilot-experiment.md`).
-- **Budget allocation** — the team's split of the 1.5M / 1.1M (see `references/budget-model.md`).
-- (Cost-benefit / ROI **proof** is produced in `prove`, not here.)
+- **Positioning** — Geoffrey Moore (see `references/marketing-plan.md`).
+- **Offering** — A: campaign concept; B: membership design + founding offer.
+- **4Ps** (see `references/marketing-plan.md`) · **Pilot experiment** — hypothesis / treatment / control / measurement (see `references/pilot-experiment.md`) · **Budget** — the team's split (see `references/budget-model.md`).
 
-## Research restraint
+## Sub-skills to invoke (do not hand-roll)
 
-Use card data + team knowledge. `agent-reach` only if a specific fact is missing.
-
-## Design notes
-
-- Output shape differs by quest: **A = campaign concept**; **B = membership design + founding offer**.
-- Sub-skills: `brainstorming`, `opportunity-definition`, `pol-probe-advisor`, `poster`. (Cost-benefit / `creating-financial-models` now lives under `prove`.)
+`creative-concept` (anchor + HMW + creative methods → ~6 ideas) · `opportunity-definition` (5 elements) · `poster` (hero visual).

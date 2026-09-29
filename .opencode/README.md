@@ -114,7 +114,7 @@ The agenda is a **suggested happy path**. On any team signal, comply in one line
 │   ├── facilitation/                           # the co-creation engine (protocols + option menu)
 │   ├── ascentium-brand/                        # brand executor (+ brand-guideline.md)
 │   ├── agent-reach/                            # live research
-│   └── brainstorming/ using-superpowers/ verification-before-completion/ writing-plans/
+│   └── sub-skills/                 (per stage — e.g. insight/sub-skills/: agent-reach · business-research · swot-analysis)
 ├── agents/                     # facilitator.md · researcher.md
 ├── commands/                   # start · insight · plan · poster · prove · showcase · evaluate
 ├── evaluation-rubric.md        # 7-dimension pitch scorecard

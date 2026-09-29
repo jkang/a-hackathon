@@ -65,13 +65,13 @@ showcase:
 
 | # | Storyline | Signature | Beats |
 |---|---|---|---|
-| S1 | Classic | poster | title → problem → insight → keyvisual → poster → strategy → moments → experiment → budget → funnel → proof → ask |
-| S2 | Hero's Journey | storyboard | title → problem → storyboard → keyvisual → insight → moments → budget → proof → ask |
-| S3 | Big Reveal | poster | title → problem → keyvisual → poster → strategy → proof → ask |
-| S4 | Demo | prototype | title → problem → prototype → experiment → budget → proof → ask |
-| S5 | Trailer | lyric | title → problem → lyric → funnel → proof → ask |
+| S1 | Classic | poster | title → context → problem → insight → audience → keyvisual → poster → strategy → offering → moments → experiment → plan → funnel → proof → ask |
+| S2 | Hero's Journey | storyboard | title → context → problem → storyboard → keyvisual → insight → audience → strategy → offering → moments → experiment → plan → funnel → proof → ask |
+| S3 | Big Reveal | poster | title → context → problem → keyvisual → poster → insight → audience → strategy → offering → moments → experiment → plan → funnel → proof → ask |
+| S4 | Demo | prototype | title → context → problem → prototype → insight → audience → strategy → offering → moments → experiment → plan → funnel → proof → ask |
+| S5 | Trailer | lyric | title → context → problem → lyric → insight → audience → strategy → offering → moments → experiment → plan → funnel → proof → ask |
 
-Beat library: title · problem · insight · keyvisual · poster · storyboard · prototype · lyric · strategy (positioning + 4Ps) · moments (timeline) · experiment (treatment vs control) · budget (bars) · funnel · proof (KPIs + bars + Go/No-Go) · ask. Brand flat illustrations (inline SVG) render on `title` + `keyvisual`.
+Beat library: title · context · problem · insight · audience · keyvisual · poster · storyboard · prototype · lyric · strategy (positioning + 4Ps) · offering · moments (timeline) · experiment (treatment vs control) · plan (budget bars) · funnel · proof (KPIs + bars + Go/No-Go) · ask. Brand flat illustrations (inline SVG) render on `title` + `keyvisual`.
 
 ## Bonus media (prompt pack)
 
@@ -86,5 +86,4 @@ All visual output uses `ascentium-brand`. Quest A accent = orange; Quest B accen
 ## Design notes
 
 - Single-file, double-click openable, no build step.
-- Sub-skills: `ref-palette-slide`, `html-ppt-generator`.
-- The deck is **configurable** (`data-storyline`), so 10 groups can present the same content in 5 different shapes.
+- **No sub-skills** — the deck + proposal are built directly from `templates/pitch-deck.html` / `templates/proposal.html` / `templates/prompt-pack.html` (see `references/pitch-narrative.md` + `references/media-prompts.md`).

@@ -1,6 +1,6 @@
 # Budget Model
 
-The card says: **"Budget allocation is part of the solution."** The team allocates the MVP budget; the AI turns it into a clean table and a first-pass return estimate. (The formal cost-benefit / ROI **proof** is produced in `prove`.)
+The card says: **"Budget allocation is part of the solution."** The team allocates the MVP budget; the AI turns it into a clean table and a first-pass return estimate.
 
 ## 1. The envelope
 
@@ -43,7 +43,7 @@ Rules:
 
 - For each major line, state the projected leading outcome (e.g. reach, sign-ups, ticket holds).
 - Compare media cost to a benchmark cost-per-outcome from the card if available.
-- This is a **sanity check**, not the final proof — `prove` builds the defensible ROI.
+- This is a **sanity check**, not the final cost-benefit case.
 
 ## 5. Pricing anchor (membership / tiers)
 

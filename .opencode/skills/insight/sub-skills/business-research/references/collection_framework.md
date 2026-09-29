@@ -1,144 +1,126 @@
-# 业务现状收集框架
+# Organization Profile — Collection Framework (marketing purpose)
 
-## 收集维度详表
-
-### 1. 财务概况
-
-| 指标 | 说明 | 数据来源 |
-|------|------|----------|
-| 总营收 | 含同比增长率 | 年报/财报 |
-| 净利润 / 经营利润 | 含利润率 | 年报/财报 |
-| 毛利率 | 趋势变化 | 年报/财报 |
-| 各业务线营收占比 | 识别核心业务 | 年报分部报告 |
-| 研发投入 | 金额及占比 | 年报/财报 |
-| 现金流 | 经营性现金流 | 年报/财报 |
-
-找不到精确数字时，记录量级估算和来源。
-
-### 2. 核心业务
-
-- **产品/服务清单** — 主要产品线或服务类型，标注市场定位
-- **市场份额** — 目标业务领域的市场占有率及趋势
-- **用户规模** — MAU/DAU、付费用户数、客户数（B2B），增长趋势
-- **商业模式** — 主要盈利模式（订阅、交易佣金、广告、许可等）
-- **竞争格局** — 主要竞争对手及各自份额
-
-### 3. 组织与人才
-
-- **总员工数** — 及近 2 年变化趋势
-- **组织架构** — 关键事业部/BU 划分
-- **关键高管** — CEO、CTO、业务负责人及背景
-- **人才策略** — 重点招聘方向（如有）
-
-### 4. 技术能力
-
-- **技术栈** — 核心技术平台、基础设施
-- **AI/数据能力** — 已部署的 AI 应用、数据平台成熟度
-- **研发体系** — 研发团队规模、研发效能指标
-- **技术资产** — 专利数量、开源项目、技术品牌影响力
-
-### 5. 市场与客户
-
-- **目标市场** — 地域分布、行业分布
-- **客户画像** — B2C 用户画像 / B2B 客户行业分布
-- **获客渠道** — 主要获客方式和 CAC 趋势（如有）
-- **客户满意度** — NPS、复购率、留存率（如有）
-
-### 6. 战略动态
-
-- **近期战略举措** — 近 12 个月的重大业务决策
-- **收并购** — 近 2 年的并购/投资事件
-- **新业务布局** — 新进入的市场或业务线
-- **对外合作** — 重要的生态合作伙伴关系
+What to collect about the **organization** (client / brand / IP holder) so a campaign can be grounded in facts. Seven dimensions. Always attach a **source + date** to each key point; separate facts from `[inference]`; never fabricate numbers.
 
 ---
 
-## 报告模板
+## Search strategy (use `agent-reach`)
+
+1. **Official first** — the org's own site, newsroom/press, partner & investor pages.
+2. **Offer & pricing** — ticketing / membership / booking pages, packages, tiers.
+3. **Audience & community** — social following, fan communities, apps, reviews.
+4. **Market context** — market/tourism/sports-body reports; comparable events as benchmarks.
+5. **Recent news** — last ~24 months; open and read the full article, not just the snippet.
+
+Record every source URL + its "as of" date. Prefer primary sources.
+
+---
+
+## The 7 dimensions
+
+### 1. Identity & Mission
+| Field | Notes |
+|---|---|
+| Legal / brand name | plus short name |
+| Type | public body, association, company, base/park, IP holder |
+| Founded / HQ | |
+| Mission / brand promise | the line they live by |
+| Positioning | how they are known / differentiated |
+| Key people | leaders relevant to marketing |
+
+### 2. Offer & Pricing
+- **Products / services** — tickets, memberships, experiences, licensed merch, media.
+- **Tiers & price points** — ranges, entry price, premium.
+- **Packaging / bundles** — what is sold together.
+- Mark the **core revenue offer** the campaign will push.
+
+### 3. Audience & Community
+- **Existing segments** — who already engages (by market, age, motivation).
+- **Community / fandom size** — followers, members, footfall, subscribers.
+- **Where they gather** — platforms & communities.
+
+### 4. Assets & IP
+- **Owned assets** — venues, IP, mascots, superstar personalities, archives, archives.
+- **Media & data** — content library, first-party data, live cams, channels.
+- Flag what is **marketable / ownable** (the campaign's raw material).
+
+### 5. Routes to Market & Partners
+- **Channels** — direct, platforms, retail, travel.
+- **Partners** — airlines, tourism boards, sponsors, retailers, telcos, creators.
+
+### 6. Market & Competitive Context
+- **Market size / reach** — audience universe, demand indicators.
+- **Share / standing** — current penetration, growth.
+- **Competitors / comparables** — who else competes for the same attention/spend.
+- **Benchmark events** — a **gold standard** (proven win) and a **cautionary tale** (proven miss), with numbers.
+
+### 7. Recent Activity, Proof & Watch-outs
+- **Recent activity** — campaigns, sponsorships, launches (last ~12 months).
+- **Proof points** — hard numbers from the org or comparables.
+- **Watch-outs** — budget, capacity, regulation, reputation/ethics (e.g., conservation-first).
+
+---
+
+## Report template
 
 ```markdown
-# {企业名称} 业务现状报告
+# {Organization} — Organization Profile (marketing research)
+> Objective: {what the campaign is trying to achieve}
+> Region: {market} · Data window: {year-1}–{year} · As of: {date}
 
-> 调研日期：{日期}
-> 分析范围：{业务类型/模式}
-> 数据时间窗口：{起始年份}-{结束年份}
+## 1. Identity & Mission
+| Field | Value |
+|---|---|
+| Legal / brand name | |
+| Type | |
+| HQ | |
+| Mission / promise | |
+| Positioning | |
 
-## 1. 企业概览
+## 2. Offer & Pricing
+- {offer 1}: {tier / price / note}
+- {offer 2}: …
 
-| 项目 | 内容 |
-|------|------|
-| 公司全称 | |
-| 成立时间 | |
-| 上市状态 | |
-| 总部/主要运营地 | |
-| 员工规模 | |
-| 主营业务 | |
+## 3. Audience & Community
+- Segments: {…}
+- Community size: {followers / members / footfall} (source, date)
+- Where they gather: {platforms}
 
-## 2. 财务概况
+## 4. Assets & IP
+- {asset}: {why marketable}
 
-| 指标 | {年份-1} | {年份} | 同比变化 |
-|------|----------|--------|----------|
-| 总营收 | | | |
-| 净利润 | | | |
-| 毛利率 | | | |
-| 研发投入 | | | |
+## 5. Routes to Market & Partners
+- Channels: …
+- Partners: …
 
-> 数据来源：{标注来源}
+## 6. Market & Competitive Context
+- Market / reach: … (source)
+- Share / standing: …
+- Gold standard: {org/event, number, source}
+- Cautionary tale: {org/event, number, source}
 
-### 各业务线营收
+## 7. Recent Activity, Proof & Watch-outs
+| Date | Activity | Number / impact | Source |
+|---|---|---|---|
+| | | | |
 
-| 业务线 | 营收 | 占比 | 同比 |
-|--------|------|------|------|
-| {业务线1} | | | |
-| {业务线2} | | | |
+**Watch-outs:** {budget · capacity · regulation · reputation}
 
-## 3. 核心业务分析
-
-### 3.1 产品与服务
-
-- **{产品/服务1}**：{描述，市场定位，用户规模}
-- **{产品/服务2}**：{描述，市场定位，用户规模}
-
-### 3.2 市场份额与竞争格局
-
-| 企业 | 市场份额 | 定位 |
-|------|----------|------|
-| {目标企业} | | |
-| {竞品1} | | |
-
-> 数据来源：{标注来源}
-
-### 3.3 商业模式
-
-{盈利模式、收入结构、主要成本构成}
-
-## 4. 技术与研发
-
-- **技术平台**：{核心技术栈}
-- **AI/数据能力**：{AI 应用部署情况}
-- **研发投入**：{研发费用、人员占比}
-
-## 5. 组织与人才
-
-{组织架构、关键高管、团队规模}
-
-## 6. 市场与客户
-
-{目标市场、客户画像、获客渠道}
-
-## 7. 近期战略动态
-
-| 时间 | 事件 | 影响 |
-|------|------|------|
-| {日期} | {事件} | {影响分析} |
-
-## 8. 关键发现总结
-
-1. {发现1}
-2. {发现2}
-3. {发现3}
+## Key takeaways (for the campaign)
+1. Leverage: {what we can use}
+2. Gap: {what's missing / the opportunity}
+3. Constraint: {what limits us}
 
 ---
-> 信息来源汇总：
-> - {来源1 + URL}
-> - {来源2 + URL}
+Sources: {URL + date}
 ```
+
+---
+
+## Self-check
+
+- [ ] Every key number has a **source + date**.
+- [ ] Data within the **last ~24 months**.
+- [ ] All **7 dimensions** present ("no public data" where missing).
+- [ ] **Marketing-focused** (offer, audience, assets, routes), not a generic intro.
+- [ ] Facts vs `[inference]` separated; **no invented numbers/rankings**.

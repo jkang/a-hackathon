@@ -75,5 +75,5 @@ cost_benefit:
 
 ## Design notes
 
-- Sub-skills: `mvp-metrics-generator`, `data-visualizer-pro`, `creating-financial-models`.
+- **Invoke these sub-skills**: `campaign-metrics` (sub-metrics + Go/No-Go), `data-visualizer-pro` (KPI dashboard). (Cost-benefit / ROI uses `references/cost-benefit.md`.)
 - Sub-metrics have "no fixed numbers" — but must be **defended with benchmarks** and shown to **predict** the Victory Conditions.

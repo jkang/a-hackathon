@@ -66,7 +66,7 @@ AI 给脚手架/问题  →  团队发散(人人出点子)  →  团队收敛(�
 | 6 | `facilitator`（Agent） | 编排 | 全部 | 40 分钟一键串场 |
 | 7 | `README.md` | 说明 | — | Quest Playbook（交付物↔技能↔模板） |
 
-复用项（不新建，直接可用）：`agent-reach`（**insight 环节主动研究，为菜单提供数据依据**）、`superpowers`（发散/计划/校验元技能，facilitation 与之互补）。
+复用项（不新建，直接可用）：`agent-reach`（**insight 环节主动研究，为菜单提供数据依据**）、`creative-concept`（plan 阶段创意发散子技能，置于 `plan/sub-skills/`）。
 
 ---
 
@@ -246,7 +246,7 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
   - 营销组合 4Ps（分层/定价渠道/内容节奏）
   - 试点实验设计（PoL probe：假设/测量/对照）+ **测量设置（instrumentation）**
   - 预算分配（1.5M/1.1M 切分表）
-- **吸收/改造**：`opportunity-definition`（去 AI 口径→营销机会点）；`pol-probe-advisor`（→营销试点 + 测量设置）；`creating-financial-models`（→预算切分模型）；`creative-concept`/`marketing-plan`（见 `references/creative-concept.md`：**人群+场景锚定的创意 brief**）。
+- **吸收/改造**：`opportunity-definition`（去 AI 口径→营销机会点）；`creative-concept`（人群+场景锚定 + HMW + 创意方法 → ~6 ideas，吸收自原 brainstorming + creative-concept.md）；`marketing-plan`（定位/4Ps）。
 
 ### 7.3 `prove`（论证门 · 8 分钟）
 - **目标**：3–5 子指标 + Go/No-Go 阈值 + KPI 看板 mock + **成本收益（Cost-Benefit）**。
@@ -266,7 +266,7 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
   ```
 - **assemble**：proof.html + KPI 看板 mock（用 `data-visualizer-pro`，补手工录入数值路径）+ 成本收益小结。
   - Quest A：KPI 看板 mock 为**必交付物**；Quest B 题卡未单列看板，但「measurement setup + Data Analysis & Viz」隐含，仍出（可精简）。
-- **吸收/改造**：`mvp-metrics-generator`（→营销漏斗子指标 + Go/No-Go，保留其「MVP 解锁/门禁」框架）；`creating-financial-models`（→成本收益/ROI 论证）。
+- **吸收/改造**：`campaign-metrics`（→营销漏斗子指标 + Go/No-Go，保留其「解锁/门禁」框架）；`cost-benefit.md`（→成本收益/ROI 论证，reference）。
 
 ### 7.4 `showcase`（呈现门 · 8 分钟 · AUTO）＝题卡「Showcase Report Agent (AUTO)」
 - **目标**：**多形态**呈现——5 种 storyline + signature element 承载核心创意 + 可选加分媒体（歌曲/视频/图片）。避免十组同一模板。
@@ -286,7 +286,7 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
   - prompt-pack.html（**提示词脚本包**）：歌曲/视频/图片三类，从 plan.yaml 自动填好，复制即用；媒体占位符预置在 deck（图→poster、视频→storyboard、歌→lyric、加分→ask）。
 - **signature element（创意载体）**：poster（整屏海报）/ storyboard（6 帧旅程）/ prototype（手机 mock）/ lyric（anthem 歌词）——对应 5 storylines。
 - **加分媒体工具**：歌曲 **Suno**、视频 **Runway Gen-3**、图片 **GPT**（每类 1 主 1 备）。
-- **吸收/改造**：`html-ppt-generator`（→富视觉 deck）；`references/pitch-narrative.md`（5 storylines）、`references/media-prompts.md`（工具指南）。海报本体见 `poster`。
+- **吸收/改造**：`pitch-narrative.md`（5 storylines + beat 库）、`media-prompts.md`（工具指南）。deck 直接由 `templates/pitch-deck.html` 产出；海报本体见 `poster`。无子技能。
 
 ---
 
@@ -340,7 +340,7 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 │   ├── agent-reach/                 # 实时研究（insight 使用）
 │   ├── facilitation/                # 共创引擎（含 option-menu）
 │   ├── ascentium-brand/             # 品牌执行器（tokens + 规则 + brand-guideline.md）
-│   └── brainstorming/ using-superpowers/ verification-before-completion/ writing-plans/
+│   └── sub-skills/                 (per stage — e.g. insight/sub-skills/: agent-reach · business-research · swot-analysis)
 ├── agents/                          # facilitator.md · researcher.md
 ├── commands/                        # start · insight · plan · poster · prove · showcase · evaluate
 └── evaluation-rubric.md             # 方案评分卡

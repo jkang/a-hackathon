@@ -24,7 +24,7 @@ Fill these five fields:
 
 ## 4. What the pilot must produce
 
-- A **trajectory signal** on the team's 3–5 sub-metrics (defined in `prove`) that is defensible against the Scout Report benchmarks.
+- A **trajectory signal** on the success metrics that is defensible against the Scout Report benchmarks.
 - A clear read for the Go/No-Go unlock decision.
 
 ## 5. Honesty rules (from PoL)

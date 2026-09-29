@@ -8,17 +8,19 @@ The deck is the **Showcase Report Agent (AUTO)** output. To avoid "every group s
 
 | # | Storyline | Signature element | Beat order | Best for |
 |---|---|---|---|---|
-| S1 | **Classic** | poster + full plan | title → problem → insight → keyvisual → **poster** → strategy → moments → experiment → budget → funnel → proof → ask | data-driven, rational (full detail) |
-| S2 | **Hero's Journey** | **storyboard (6-frame fan journey)** | title → problem → **storyboard** → keyvisual → insight → moments → budget → proof → ask | emotional, consumer (Quest A) |
-| S3 | **Big Reveal** | poster + manifesto | title → problem → keyvisual → **poster (reveal)** → strategy → proof → ask | bold, iconic |
-| S4 | **Demo** | **prototype mock screens** | title → problem → **prototype** → experiment → budget → proof → ask | product / membership (Quest B) |
-| S5 | **Trailer** | **lyric / anthem** | title → problem → **lyric** → funnel → proof → ask | entertainment, experiential |
+| S1 | **Classic** | poster + full plan | title → context → problem → insight → audience → keyvisual → **poster** → strategy → offering → moments → experiment → plan → funnel → proof → ask | data-driven, rational (full detail) |
+| S2 | **Hero's Journey** | **storyboard (6-frame fan journey)** | title → context → problem → **storyboard** → keyvisual → insight → audience → strategy → offering → moments → experiment → plan → funnel → proof → ask | emotional, consumer (Quest A) |
+| S3 | **Big Reveal** | poster | title → context → problem → keyvisual → **poster** → insight → audience → strategy → offering → moments → experiment → plan → funnel → proof → ask | bold, iconic |
+| S4 | **Demo** | **prototype mock screens** | title → context → problem → **prototype** → insight → audience → strategy → offering → moments → experiment → plan → funnel → proof → ask | product / membership (Quest B) |
+| S5 | **Trailer** | **lyric / anthem** | title → context → problem → **lyric** → insight → audience → strategy → offering → moments → experiment → plan → funnel → proof → ask | entertainment, experiential |
+
+> The `plan` beat = the **budget bar chart** (it is the "plan" slide). All five storylines share the full detail set; they differ only in the **signature element** and the opening order.
 
 > **Poster is optional.** The team chooses whether the campaign poster appears in the deck (`data-poster="yes|no"`). If **yes** and the storyline doesn't already include it, the `poster` beat is inserted after the key visual; if **no**, it is omitted entirely. (The poster itself is built by the `poster` skill in the Plan stage — the showcase only decides whether to show it.)
 
 ## Beat library (visual-first)
 
-`title` · `problem` (contrast stats) · `insight` (segment/job/moment) · `keyvisual` (full-bleed illustration) · `poster` · `storyboard` · `prototype` · `lyric` · `strategy` (positioning + 4Ps quadrant) · `moments` (scenario timeline) · `experiment` (treatment vs control) · `budget` (bar chart) · `funnel` (reach→outcome) · `proof` (KPI tiles + sub-metric bars + Go/No-Go) · `ask` (big ROI).
+`title` · `context` (client + evidence) · `problem` (contrast stats) · `insight` (seed + trends) · `audience` (segments + moment) · `keyvisual` (full-bleed illustration) · `poster` · `storyboard` · `prototype` · `lyric` · `strategy` (positioning + 4Ps) · `offering` (the offer / tiers) · `moments` (scenario timeline) · `experiment` (treatment vs control) · `plan` (budget bar chart) · `funnel` (reach→outcome) · `proof` (KPI tiles + sub-metric bars + Go/No-Go) · `ask` (big ROI).
 
 ## Illustrations
 
