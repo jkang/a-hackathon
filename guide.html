@@ -160,31 +160,72 @@
 
     <div class="note"><b>每门都是三步</b>：AI 出菜单 → 团队选 → AI 落地。</div>
 
-    <h2 style="margin-top:26px;">产出示例（Quest A · 直接可读）</h2>
+    <h2 style="margin-top:26px;">产出示例（Quest A · 全链路 · 直接可读）</h2>
 
     <div class="demo">
-      <div class="cap"><span>提案</span><span class="file">demo-examples/auto-run-QuestA-v2/proposal.html</span><a href="demo-examples/auto-run-QuestA-v2/proposal.html" target="_blank">打开 ↗</a></div>
+      <div class="cap"><span>① 洞察简报</span><span class="file">insight-brief.html</span><a href="demo-examples/auto-run-QuestA-v2/insight-brief.html" target="_blank">打开 ↗</a></div>
+      <iframe data-auto src="demo-examples/auto-run-QuestA-v2/insight-brief.html" height="640" title="Insight Brief"></iframe>
+    </div>
+
+    <div class="demo">
+      <div class="cap"><span>② 策划方案 · A/B 两套</span><span class="file">campaign-plan.html</span><a href="demo-examples/auto-run-QuestA-v2/campaign-plan.html" target="_blank">打开 ↗</a></div>
+      <iframe data-auto src="demo-examples/auto-run-QuestA-v2/campaign-plan.html" height="720" title="Campaign Plan"></iframe>
+    </div>
+
+    <div class="demo">
+      <div class="cap"><span>③ 海报 · 3 风格可切换</span><span class="file">poster.html（含 poster-a/b/c.html）</span><a href="demo-examples/auto-run-QuestA-v2/poster.html" target="_blank">打开 ↗</a></div>
+      <iframe data-auto src="demo-examples/auto-run-QuestA-v2/poster.html" height="640" title="Poster"></iframe>
+    </div>
+
+    <div class="demo">
+      <div class="cap"><span>④ 论证 · 指标 + Go/No-Go</span><span class="file">proof.html</span><a href="demo-examples/auto-run-QuestA-v2/proof.html" target="_blank">打开 ↗</a></div>
+      <iframe data-auto src="demo-examples/auto-run-QuestA-v2/proof.html" height="640" title="Proof"></iframe>
+    </div>
+
+    <div class="demo">
+      <div class="cap"><span>⑤ 统一提案</span><span class="file">proposal.html</span><a href="demo-examples/auto-run-QuestA-v2/proposal.html" target="_blank">打开 ↗</a></div>
       <iframe data-auto src="demo-examples/auto-run-QuestA-v2/proposal.html" height="560" title="Proposal"></iframe>
     </div>
 
     <div class="demo">
-      <div class="cap"><span>PPT</span><span class="file">demo-examples/auto-run-QuestA-v2/pitch-deck.html · 11 页 / 5 分钟</span><a href="demo-examples/auto-run-QuestA-v2/pitch-deck.html" target="_blank">打开 ↗</a></div>
+      <div class="cap"><span>⑥ 路演 PPT · 5 分钟</span><span class="file">pitch-deck.html</span><a href="demo-examples/auto-run-QuestA-v2/pitch-deck.html" target="_blank">打开 ↗</a></div>
       <iframe data-fixed src="demo-examples/auto-run-QuestA-v2/pitch-deck.html" height="460" title="Pitch Deck"></iframe>
-    </div>
-
-    <div class="demo">
-      <div class="cap"><span>海报</span><span class="file">demo-examples/auto-run-QuestA-v2/poster.html · 3 风格可切换</span><a href="demo-examples/auto-run-QuestA-v2/poster.html" target="_blank">打开 ↗</a></div>
-      <iframe data-auto src="demo-examples/auto-run-QuestA-v2/poster.html" height="640" title="Poster"></iframe>
     </div>
   </section>
 
   <section id="install">
-    <h2>4 · 安装配置（一次性）</h2>
+    <h2>4 · 安装配置（一次性 · 4 步）</h2>
     <div class="card">
       <ol class="steps">
-        <li>装好 opencode；按 <code>install.md</code> 装 <code>agent-reach</code>（实时研究 / 搜数据用）。</li>
-        <li>首次跑 <code>/start</code> 自检环境。</li>
+        <li><b>安装 opencode，并配置 DeepSeek API KEY</b>
+          <pre><code># 1) 安装 opencode
+curl -fsSL https://opencode.ai/install | bash
+
+# 2) 配置 DeepSeek API KEY（按提示选择 DeepSeek，粘贴 Key）
+opencode auth login
+
+# 3) 确认可用（应看到 deepseek/*）
+opencode models | grep deepseek</code></pre>
+        </li>
+        <li><b>安装 agent-reach</b>（实时研究 / 搜数据用）
+          <pre><code>pipx install https://github.com/Panniantong/agent-reach/archive/main.zip
+# 若没有 pipx：python3 -m venv ~/.agent-reach-venv && ~/.agent-reach-venv/bin/pip install \
+#   "https://github.com/Panniantong/agent-reach/archive/main.zip"
+
+agent-reach install --env=auto --system
+agent-reach doctor      # 检查渠道是否就绪</code></pre>
+        </li>
+        <li><b>checkout 这个最新的 repo 到本地目录</b>
+          <pre><code>git clone https://github.com/jkang/a-hackathon.git
+cd a-hackathon</code></pre>
+        </li>
+        <li><b>在 opencode 中打开这个本地目录，作为工作目录</b>
+          <pre><code>cd a-hackathon
+opencode</code></pre>
+          <div class="note" style="margin-top:10px;">opencode 会加载该目录下的 <code>.opencode/</code>（skills / agents / commands）。</div>
+        </li>
       </ol>
+      <div class="note">✅ 4 步做完，即可按「用法总览」用 <code>/start</code> 开始使用。</div>
     </div>
   </section>
 
