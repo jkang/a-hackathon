@@ -30,7 +30,7 @@ opportunities:
     e3: "The specific pain / tension this answers (traces to the selected insight)."
     e4: "Solution hypothesis — what we do + the main risk/guardrail (what could go wrong, how we contain it)."
     e5: "Value / return — directional but quantifiable."
-    valueBreakdown:
+    value_breakdown:
       - dimension: "Scope"
         aligns: "which markets / segments / channels"
         metric: "{…}"

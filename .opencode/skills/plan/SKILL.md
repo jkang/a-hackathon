@@ -62,9 +62,24 @@ opportunity:                                  # from opportunity-definition (5 e
   e4: "solution hypothesis + guardrail"
   e5: "value / return"
   value_breakdown: [scope, frequency, per_instance, cumulative]
-variants:                                     # ≥2 A/B plan versions
-  A: {positioning: "...", offering: "...", mix: "...", pilot: "...", budget: "..."}
-  B: {positioning: "...", offering: "...", mix: "...", pilot: "...", budget: "..."}
+variants:                                     # ≥2 A/B plan versions (each fully specified)
+  A:
+    positioning: "..."
+    offering: "..."
+    mix: {product: "...", price: "...", place: "...", promotion: "..."}
+    pilot:                                     # the experiment + measurement (deliverable #2)
+      markets: ["...", "..."]
+      hypothesis: "If ... then ..."
+      treatment: "..."
+      control: "..."
+      measurement_setup: "..."
+    budget: {total: "...", allocation: [{market, channel, tactic, amount}]}
+  B:
+    positioning: "..."
+    offering: "..."
+    mix: {product: "...", price: "...", place: "...", promotion: "..."}
+    pilot: {markets: [...], hypothesis: "...", treatment: "...", control: "...", measurement_setup: "..."}
+    budget: {total: "...", allocation: [...]}
 chosen_variant: A
 poster: {visual_direction: "...", one_liner: "..."}
 ```

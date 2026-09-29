@@ -1,6 +1,6 @@
 ---
 name: prove
-description: Run the PROVE gate of the Ascentium mini-hackathon quest — turn the plan into a falsifiable proof package: 3–5 self-defined MVP sub-metrics (defended with Scout Report benchmarks), a KPI dashboard mock, Go/No-Go criteria, and a cost-benefit / ROI verdict on unlocking the full budget. Human-decided metrics and thresholds; AI builds the board and the math. Triggers: "prove gate", "MVP sub-metrics", "go no-go", "KPI dashboard", "cost-benefit", "measurement", "quest prove".
+description: Run the PROVE gate of the Ascentium mini-hackathon quest — turn the plan into a falsifiable proof package: 3–5 self-defined campaign sub-metrics (defended with Scout Report benchmarks), a KPI dashboard mock, Go/No-Go criteria, and a cost-benefit / ROI verdict on unlocking the full budget. Human-decided metrics and thresholds; AI builds the board and the math. Triggers: "prove gate", "campaign sub-metrics", "go no-go", "KPI dashboard", "cost-benefit", "measurement", "prove".
 ---
 
 # Quest Prove — the PROVE gate
@@ -14,7 +14,7 @@ Prove the pilot predicts the Victory Conditions. The **team picks the metrics an
 
 ## Inputs
 
-- `plan.yaml` (esp. `budget`, `pilot`, `experiment`).
+- `plan.yaml` — the **chosen variant** (`chosen_variant`), esp. its `budget` and `pilot` (markets · hypothesis · treatment · control · measurement_setup).
 - Quest card **Victory Conditions** and **War Chest / MVP Unlock**.
 
 ## Flow (uses the `facilitation` engine)

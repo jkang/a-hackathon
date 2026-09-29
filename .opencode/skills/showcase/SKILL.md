@@ -1,6 +1,6 @@
 ---
 name: showcase
-description: Run the SHOWCASE gate of the Ascentium mini-hackathon quest — the team picks a storyline (Classic / Hero's Journey / Big Reveal / Demo / Trailer) and a signature element (poster / storyboard / prototype / lyric), the AI assembles a full-screen, storyline-driven Ascentium-branded pitch deck, and optionally writes media prompt scripts (song / video / image) for the team to generate in external tools and embed back. To create the poster itself, use the `poster` skill. Triggers: "showcase", "pitch deck", "storyline", "storyboard", "proposal showcase", "presentation", "prompt pack", "quest showcase".
+description: Run the SHOWCASE gate of the Ascentium mini-hackathon quest — the team picks a storyline (Classic / Hero's Journey / Big Reveal / Demo / Trailer) and a signature element (poster / storyboard / prototype / lyric), the AI assembles a full-screen, storyline-driven Ascentium-branded pitch deck, and optionally writes media prompt scripts (song / video / image) for the team to generate in external tools and embed back. To create the poster itself, use the `poster` skill. Triggers: "showcase", "pitch deck", "storyline", "storyboard", "proposal showcase", "presentation", "prompt pack", "showcase".
 ---
 
 # Quest Showcase — the SHOWCASE gate (AUTO)
@@ -44,7 +44,7 @@ The AI must not choose these.
 - `pitch-deck.html` — full-screen, storyline-driven deck; poster included or not per the team's choice (`data-poster`) (see `references/pitch-narrative.md`).
 - `prompt-pack.html` — bonus media prompt scripts (optional).
 
-> The **poster** is produced by the separate `poster` skill ((Create stage)), since Poster is a Create-stage deliverable. The showcase **optionally embeds** it as the `poster` beat — the team decides whether it appears.
+> The **poster** is produced by the separate `poster` skill (Create stage), since Poster is a Create-stage deliverable. The showcase **optionally embeds** it as the `poster` beat — the team decides whether it appears.
 > **`proposal.html` is the umbrella**: the deck is one view; the proposal binds all HTML into one proposal package (unified-report style).
 
 ### capture

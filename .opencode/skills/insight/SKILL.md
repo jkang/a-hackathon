@@ -1,6 +1,6 @@
 ---
 name: insight
-description: Run the INSIGHT gate of the Ascentium mini-hackathon quest — turn the quest-card Scout Report plus the team's own knowledge into a rich, defensible Insight Brief: market & trends, audience segments (who + jobs-to-be-done + barrier + trigger), the moment of truth, raw market truths, and a single seed insight. Human-led, AI-scaffolded. Use at the start of Quest A (Doha 2030 ticketing) or Quest B (Chengdu Panda global IP). Triggers: "insight gate", "seed insight", "audience analysis", "audience segments", "market trend", "trend analysis", "moment of truth", "market truth", "scout report", "quest insight".
+description: Run the INSIGHT gate of the Ascentium mini-hackathon quest — turn the quest-card Scout Report plus the team's own knowledge into a rich, defensible Insight Brief: market & trends, audience segments (who + jobs-to-be-done + barrier + trigger), the moment of truth, raw market truths, and a single seed insight. Human-led, AI-scaffolded. Use at the start of Quest A (Doha 2030 ticketing) or Quest B (Chengdu Panda global IP). Triggers: "insight gate", "seed insight", "audience analysis", "audience segments", "market trend", "trend analysis", "moment of truth", "market truth", "scout report", "insight".
 ---
 
 # Quest Insight — the INSIGHT gate

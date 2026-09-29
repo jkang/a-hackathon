@@ -5,13 +5,13 @@ description: Turn any AI into a Robot Facilitator for a 10-person, 40-minute co-
 
 # Facilitation — Robot Facilitator Engine
 
-This is the **reusable co-creation engine** behind every quest skill. It does **not** produce content; it provides **protocols + pacing + scripts + a capture contract** so a group of ~10 people generates ideas together and the AI runs the room.
+This is the **reusable co-creation engine** behind every stage skill. It does **not** produce content; it provides **protocols + pacing + scripts + a capture contract** so a group of ~10 people generates ideas together and the AI runs the room.
 
 > Core belief: **the human team is the creative core; the AI is the facilitator.** The AI must never replace the team's creativity or judgment.
 
 ## When to use
 
-- A quest stage needs the team to generate, choose, or decide something.
+- A stage needs the team to generate, choose, or decide something.
 - The room needs momentum: everyone should contribute, not just the loudest few.
 - The team asks to re-run a protocol (re-vote, re-brainstorm), skip ahead, or compress for time.
 
