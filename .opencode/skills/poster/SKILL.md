@@ -27,7 +27,7 @@ The **most-seen asset** of a campaign. It must be **self-contained**: a stranger
 |---|---|---|
 | 1 | Masthead | Ascentium logo + client logo + edition |
 | 2 | Hero lockup | kicker + **campaign name** + **tagline** |
-| 3 | Key visual | brand illustration (stadium / panda) |
+| 3 | Key visual | brand illustration (the quest's key-visual motif, from the card) |
 | 4 | Lead | the proposition in one sentence |
 | 5 | Offer panel | 3 cards (offer / markets / access) — or **membership tiers** |
 | 6 | Bullets | 3 concrete benefits / proof points |
@@ -49,11 +49,13 @@ Offer **3 genuinely different designs**, each matched to a campaign tone. Keep o
 
 | # | Style | Art direction | Fits |
 |---|---|---|---|
-| A | **Matchday Roar** | bold sports editorial — full-bleed accent hero, wide crowd/stadium illustration, dark stats band, big name | loud, mass-reach, fan/energy campaigns (Quest A) |
-| B | **Supporter Passport** | travel / ticket — cream paper, dashed "perforation", ticket & stamp motifs, checklist bullets, passport-card offer | membership, bundles, "belong/passport" offers (Quest A); conservation/cute IP (Quest B) |
+| A | **Full-Bleed Hero** | bold editorial — full-bleed accent hero, wide key art, dark stats band, big name | loud, mass-reach, high-energy campaigns |
+| B | **Belonging Passport** | cream paper — dashed "perforation", ticket/stamp motifs, checklist bullets, card offer | membership, bundles, belonging / loyalty offers |
 | C | **Midnight Minimal** | Swiss typographic — dark canvas, huge type, hairline rules, one small art motif, lots of negative space | premium, brand-led, image-light or sensitive-topic campaigns |
 
-- Set the accent with `data-quest="A|B"` (orange / teal); the art symbol follows the style token.
+> The style names are **tone archetypes, not quest labels** — a quest card may rename them via `poster_styles` (see `quest-card.md`).
+
+- Set the accent from the quest card's `accent` (injected as `--accent` / `--accent-tint` / `--accent-line` / `--accent-deep` on `<body>`); the key visual comes from the card's `key_visual_svg`, re-art-ed per style.
 - Each style is a full, self-contained poster (all 9 anatomy sections) — never a partial.
 - **The team picks one**; record it as `poster.style` in `plan.yaml` and in the showcase capture.
 - In the **Showcase deck** the `poster` beat carries a 3-way picker that previews `poster-a|b|c.html` live, so the choice is made there.
@@ -61,7 +63,7 @@ Offer **3 genuinely different designs**, each matched to a campaign tone. Keep o
 ## Workflow
 
 1. Pull name / slogan / proposition / offer from `plan.yaml`.
-2. Fill the shared content pack once into `templates/poster-page.html` (leave the `{{POSTER_STYLE}}` tokens) and the few fields in `templates/poster-tabs.html`; set `data-quest="A|B"`.
+2. Fill the shared content pack once into `templates/poster-page.html` (leave the `{{POSTER_STYLE}}` tokens) and the few fields in `templates/poster-tabs.html`; set `data-quest`, the accent vars, the key-visual motif, and the `{{STYLE_*}}` names from the quest card.
 3. Build the deliverable: `python3 scripts/build-posters.py --dir <out> [--default a]` → `poster-a.html` · `poster-b.html` · `poster-c.html` · `poster.html`.
 4. **Team previews the 3 styles and picks one** (HITL — the AI does not choose), via the tab page and/or the Showcase deck.
 5. Record the choice in `plan.yaml` (`poster.style`) so the deck/proposal embed the right page.
@@ -69,7 +71,7 @@ Offer **3 genuinely different designs**, each matched to a campaign tone. Keep o
 
 ## Brand
 
-Uses `ascentium-brand`. Quest A = orange accent; Quest B = teal accent. Body text Midnight Green; Poppins. Every style stays inside the token set — different *design*, same brand.
+Uses `ascentium-brand`. The accent comes from the quest card's `accent` token (orange is the brand default; teal for quests that declare it) — never a self-invented colour. Body text Midnight Green; Poppins. Every style stays inside the token set — different *design*, same brand.
 
 ## Hero-art rule (the crop bug — do not regress)
 

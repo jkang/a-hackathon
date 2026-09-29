@@ -18,18 +18,18 @@ Make each blank specific. If "unlike X" is hard to fill, differentiation is weak
 
 ## 3. The 4Ps
 
-| P | A — campaign | B — membership |
+| P | Campaign | Membership |
 |---|---|---|
 | Product / offering | campaign + ticket/experience bundle | membership tiers + founding offer |
 | Price | ticket tiers / bundle pricing | membership price points |
-| Place / channels | Qatar Airways, ticketing partners, social, diaspora communities | social, ecommerce, licensed retail, travel partners |
+| Place / channels | the card's routes to market (airlines/partners, ticketing, retail, social, communities) | social, ecommerce, licensed retail, travel partners |
 | Promotion / content | content rhythm (teaser → hero → countdown), creator & community | always-on content engine, member referral, UGC |
 
-## 4. Membership design (Quest B only)
+## 4. Membership design (when the offering is a membership)
 
 - **Tiers**: e.g. Free / Founding Member / Patron. For each: price, benefits, symbol of belonging.
-- **Founding-member offer** (deliverable #3): a time-boxed, scarce, high-emotion offer that converts fandom into paid membership.
-- **Conservation-first**: no over-commercialization; frame spend as supporting the pandas.
+- **Founding-member offer**: a time-boxed, scarce, high-emotion offer that converts fandom into paid membership.
+- **Cause-first**: for IP / conservation offerings, no over-commercialization; frame spend as supporting the cause.
 
 ## 5. Content rhythm (3-month pilot)
 
@@ -41,4 +41,4 @@ Make each blank specific. If "unlike X" is hard to fill, differentiation is weak
 
 - Generic positioning ("for everyone who loves X").
 - A plan that ignores the MVP budget/timebox.
-- For B: a hard-sell tone that risks conservation backlash.
+- For IP / conservation offerings: a hard-sell tone that risks backlash.

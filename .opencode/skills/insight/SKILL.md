@@ -1,6 +1,6 @@
 ---
 name: insight
-description: Run the INSIGHT gate of the Ascentium mini-hackathon quest — turn the quest-card Scout Report plus the team's own knowledge into a rich, defensible Insight Brief: market & trends, audience segments (who + jobs-to-be-done + barrier + trigger), the moment of truth, raw market truths, and a single seed insight. Human-led, AI-scaffolded. Use at the start of Quest A (Doha 2030 ticketing) or Quest B (Chengdu Panda global IP). Triggers: "insight gate", "seed insight", "audience analysis", "audience segments", "market trend", "trend analysis", "moment of truth", "market truth", "scout report", "insight".
+description: Run the INSIGHT gate of the Ascentium mini-hackathon quest — turn the quest-card Scout Report plus the team's own knowledge into a rich, defensible Insight Brief: market & trends, audience segments (who + jobs-to-be-done + barrier + trigger), the moment of truth, raw market truths, and a single seed insight. Human-led, AI-scaffolded. Use at the start of any quest (reads the quest card). Triggers: "insight gate", "seed insight", "audience analysis", "audience segments", "market trend", "trend analysis", "moment of truth", "market truth", "scout report", "insight".
 ---
 
 # Quest Insight — the INSIGHT gate
@@ -16,8 +16,8 @@ Produce a one-page **Insight Brief** that seeds the creative gate. The AI scaffo
 
 ## Inputs
 
-- The quest card (Quest A or B) — already contains the Scout Report, War Chest, and Victory Conditions. **Treat it as the primary data pack.**
-- The team's own knowledge — the primary *human* source (they are the SEA business leaders / IP operators).
+- The quest card (the challenge brief) — already contains the Scout Report, War Chest, and Victory Conditions. **Treat it as the primary data pack.**
+- The team's own knowledge — the primary *human* source (the market / business experts in the room).
 
 ## Flow (uses the `facilitation` engine)
 

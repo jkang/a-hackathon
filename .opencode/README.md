@@ -24,9 +24,7 @@ Three non-negotiables:
 ## 2. Quick start
 
 ```
-/start A        # run the full 40-minute session for Quest A
-/start B        # …or Quest B
-/start          # ask the team which quest
+/start          # run the full 40-minute session (reads the quest card — see quest-card.md)
 ```
 
 You can also run a single gate, or evaluate a finished proposal:
@@ -41,14 +39,14 @@ You can also run a single gate, or evaluate a finished proposal:
 
 | Command | What it does | Runs as |
 |---|---|---|
-| `/start [A\|B]` | Full 40-minute facilitated run (all gates) | `facilitator` |
+| `/start [quest]` | Full 40-minute facilitated run (all gates) | `facilitator` |
 | `/insight` | Insight gate only | `facilitator` |
 | `/plan` | Plan / creative gate only | `facilitator` |
 | `/poster` | Campaign poster only | `facilitator` |
 | `/prove` | Prove gate only | `facilitator` |
 | `/showcase` | Showcase stage only (unified proposal + deck + prompt-pack) | `facilitator` |
 | `/evaluate` | Score a proposal with the rubric | current agent |
-| `/run [A\|B]` | **Autopilot** — run the whole quest end-to-end, AI decides every choice | `runner` |
+| `/run [quest]` | **Autopilot** — run the whole quest end-to-end, AI decides every choice | `runner` |
 
 ## 4. Agents
 

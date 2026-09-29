@@ -16,9 +16,9 @@
 
 A menu is only as good as its options. **Generic labels are worthless.** Before drafting the menu — especially in the **insight gate** — the AI **gathers real facts** via `agent-reach` (web / social / reports) plus the quest card, and turns them into **data-backed mini-insights**.
 
-- ❌ "Group travel" → ✅ "Asia crew/group travel is rising — ~X% of Asian travellers now book in groups (source)".
-- ❌ "Fans like creators" → ✅ "Creator-led content out-converts brand ads in Asia (TikTok Asia benchmark)".
-- ❌ "Visa is easier" → ✅ "Qatar visa-free for many Asian passports since YYYY → removes the #1 booking barrier".
+- ❌ "Group travel" → ✅ "Crew/group travel is rising — ~X% of travellers now book in groups (source)".
+- ❌ "Fans like creators" → ✅ "Creator-led content out-converts brand ads in the target market (platform benchmark)".
+- ❌ "Entry is hard" → ✅ "Visa-free / low-friction entry for the target market since YYYY → removes the #1 booking barrier".
 
 Each option should carry a **fact, number, or named behavior**; cite the source in the option (or keep it in the capture) so it is defensible.
 
@@ -36,6 +36,8 @@ MENU · <gate> — pick <N> (30s), or +1 of your own
 ```
 
 ## Menu examples (per gate)
+
+> These are **format examples only** — replace each list with options grounded in the current quest card (+ `agent-reach` findings).
 
 **Insight · trends** — "Which 3 shifts matter most?"
 1 Mobile-first short-video is where fans decide · 2 Creator trust beats ads · 3 Group/experience travel · 4 Visa liberalization · 5 The fan-membership economy · 6 Diaspora return-travel · 7 Post-event tourism rebound · 8 AI-personalized content

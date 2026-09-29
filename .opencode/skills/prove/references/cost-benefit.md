@@ -4,15 +4,13 @@ Prove the pilot is worth unlocking the full budget. Keep the math simple and gro
 
 ## 1. Inputs
 
-- `budget.total` from `plan.yaml` (A: 1.5M, B: 1.1M).
+- `budget.total` from `plan.yaml` (the MVP unlock, from the card).
 - The team's sub-metrics (leading indicators).
-- Card economics for the payoff path:
-  - A: 400K tickets, $40M merch+hospitality, 500M impressions (full scale); Hangzhou ticket revenue ¥610M.
-  - B: $28M licensing/merch, 1M members, non-ticket spend $6→15; Fu Bao 2.7M merch units; Xiang Xiang ≈ ¥2.7B.
+- Card economics for the payoff path — the Victory Conditions plus any unit-economics anchors the card gives (a price anchor, a benchmark event's revenue).
 
 ## 2. Derivation — de-risk the big bet (never assert a number)
 
-A 3-month pilot's real value is **de-risking the full unlock** (USD 30M / 11M), not its own revenue. Build the case in two layers so every number has a visible chain:
+A 3-month pilot's real value is **de-risking the full unlock** (the card's full budget), not its own revenue. Build the case in two layers so every number has a visible chain:
 
 **Layer 1 — the pilot validates the rates** (do NOT claim big pilot revenue):
 - reach → intent → conversion, CAC, attach — all measured in the 3-month pilot.
@@ -23,14 +21,14 @@ full_return = full_target_units × unit_value + merch
 roi         = (full_return − full_budget) / full_budget
 ```
 
-Worked example (Quest A):
+Worked example (shape only — fill from the card):
 ```
-pilot validates: intent 3.2%, CAC $7.40, group ratio 41%
-full scale (18 mo, 6 priority Asian markets, USD 30M):
-  tickets = 400K (Victory Condition) × ~$85 avg bundle value = $34M
-  merch   = $40M (Victory Condition)
-  return  = $34M + $40M = $74M
-  roi     = ($74M − $30M) / $30M ≈ 1.5x over 18 months
+pilot validates: intent 3.2%, CAC $7.40, group ratio 41%     (the pilot-validated rates)
+full scale (18 mo, N priority markets, full budget):
+  units  = {Victory Condition} × {avg bundle value} = $X
+  merch  = {Victory Condition}
+  return = $X + $Y
+  roi    = (return − full_budget) / full_budget
 verdict: GO — pilot rates imply the full-scale ROI clears the bar; unlock.
 ```
 
@@ -51,7 +49,7 @@ State the verdict in one line, with the number that drives it.
 ## 4. Presentation
 
 - One small table: cost / projected return / ROI / verdict.
-- One sentence tying the ROI to the specific unlock (USD 30M / USD 11M).
+- One sentence tying the ROI to the specific unlock (the card's full budget).
 
 ## 5. Anti-patterns
 

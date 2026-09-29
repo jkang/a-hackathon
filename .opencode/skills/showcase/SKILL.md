@@ -22,7 +22,7 @@ The final gate. The **team picks the storyline + signature element**; the AI **b
 > **Choice-first**: storyline, poster on/off, and visual direction are all presented as **menus** — the team selects (see `facilitation` → `option-menu.md`).
 
 1. **Storyline pick (team, 1′).** AI presents the **menu of 5 storylines** (see `references/pitch-narrative.md`): Classic / Hero's Journey / Big Reveal / Demo / Trailer — pick 1. This sets the deck's shape and signature element.
-2. **Poster choice (team, 1′).** Decide whether the **campaign poster** appears in the deck. If yes, the `poster` beat is included (inserted after the key visual for storylines that don't already have it); if no, it is omitted. When it appears, the `poster` beat carries a **3-style picker** (A · Matchday Roar / B · Supporter Passport / C · Midnight Minimal) and a live `<iframe src="poster-a.html">` preview that swaps to `poster-b.html` / `poster-c.html` — **the team picks the style here**, and the choice is recorded. (The poster pages themselves are produced by the separate `poster` skill in the Plan stage.)
+2. **Poster choice (team, 1′).** Decide whether the **campaign poster** appears in the deck. If yes, the `poster` beat is included (inserted after the key visual for storylines that don't already have it); if no, it is omitted. When it appears, the `poster` beat carries a **3-style picker** (the card's `poster_styles` — A / B / C) and a live `<iframe src="poster-a.html">` preview that swaps to `poster-b.html` / `poster-c.html` — **the team picks the style here**, and the choice is recorded. (The poster pages themselves are produced by the separate `poster` skill in the Plan stage.)
 3. **Direction + one-liner (team, 1′).** Visual direction (AI offers 2–3) + the single ask line.
 4. **Build (AI, AUTO, 5′).** Assemble the signature element + the deck (`pitch-deck.html` with `data-storyline` and `data-poster`).
 5. **Bonus media (team, optional).** If the team wants a song / video / image, the AI writes `prompt-pack.html` (copy-paste prompts for Suno / Runway / GPT); the team generates externally and brings files back.
@@ -105,7 +105,7 @@ showcase:
 
 ## Brand
 
-All visual output uses `ascentium-brand`. Quest A accent = orange; Quest B accent = teal.
+All visual output uses `ascentium-brand`. The accent comes from the quest card's `accent` token (injected on each artifact's `<body>`), and the key visual from the card's `key_visual_svg` (see `quest-card.md`).
 
 ## Design notes
 

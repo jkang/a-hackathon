@@ -2,26 +2,24 @@
 
 ## 1. Victory Conditions (from the card)
 
-**Quest A** — 400K tickets to Asia fans (~15%); ≥85% attendance in Asian-team sessions; 250K Asian visitors in Qatar during Games week; $40M merch + hospitality from Asia; 500M social impressions across 6 priority Asian markets.
-
-**Quest B** — international visitor share 12% (from ~5%) → 1M+/yr; 1M members in 12 months (20% overseas, 30% repeat); $28M annual international licensing & merch; 10M followers (TikTok/IG/YouTube); non-ticket spend $6 → $15 per visitor.
+Copy the **Victory Conditions** verbatim from the quest card (see `quest-card.md`). They are the full-scale targets every sub-metric must predict. Never invent them — the card is the only source.
 
 ## 2. Build the sub-metric set (3–5)
 
 Each sub-metric must:
 1. Trace to **one** Victory Condition (North Star alignment).
 2. Sit on the funnel: reach → engagement → conversion → outcome.
-3. Cite a **Scout Report benchmark** (e.g. Hangzhou 92% attendance; Nagoya 22% at T-14; Fu Bao 2.7M merch units).
+3. Cite a **Scout Report benchmark** from the card (a named event, a % change, a unit count — with its source).
 4. Have a **target**, a **Go threshold**, and a **No-Go threshold** — set **before** the data.
 
 Suggested candidates (team chooses/edits):
 
-| Funnel stage | Quest A example | Quest B example |
+| Funnel stage | Campaign example | Membership example |
 |---|---|---|
 | Reach | social impressions per market | organic follower growth |
 | Engagement | content saves/shares; waitlist sign-ups | content engagement; community joins |
-| Conversion | ticket hold → purchase rate | visitor → member conversion |
-| Outcome | Asia tickets sold / CAC | members acquired / merch sell-through |
+| Conversion | intent hold → purchase rate | visitor → member conversion |
+| Outcome | units sold / CAC | members acquired / merch sell-through |
 | Economics | CAC vs LTV | acquisition cost vs member value |
 
 ## 3. Defending "no fixed numbers"

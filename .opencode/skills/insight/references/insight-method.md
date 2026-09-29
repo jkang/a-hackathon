@@ -57,8 +57,7 @@ For each of **2–4 segments**, fill one line each:
 
 Name the specific **time / place / event** where the audience decides. Demand is manufactured at moments, not in general.
 
-Examples (Quest A): the team-qualification announcement · ticket-sale day · the Qatar Airways stopover · Ramadan/school-holiday travel window · match-day medal moments.
-Examples (Quest B): a panda's birthday livestream · World Panda Day · holiday gifting · the 2 a.m. viral baby-panda clip.
+Examples: a qualification announcement · a sale / drop day · a journey / stopover · a seasonal travel window · a match / event moment · a birthday livestream · a holiday gifting window · a viral clip.
 
 ## 4. Truths (raw field reality)
 
@@ -70,9 +69,8 @@ A **tension**, not a summary. It connects audience's job ↔ market gap ↔ tren
 
 > "[Audience] already [feels/does X], yet [barrier/gap] — so [mission] at [moment]."
 
-Examples:
-- A: *"Asia's Gen-Z already travel in crews and follow creators, yet no Asian Games host has ever activated them — so make Asia Doha's loudest away crowd, starting at the moment they see a creator film."*
-- B: *"Millions already love pandas like their own, yet there's no way to belong from afar — so turn that love into a global membership, at the moment a panda clip goes viral."*
+Examples (fill each blank from the card + the team's truths):
+- *"[Audience] already [feels/does X], yet [barrier/gap] — so [mission] at [moment]."*
 
 ## Anti-patterns
 

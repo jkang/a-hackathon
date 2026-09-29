@@ -10,7 +10,7 @@ A campaign poster is not a slogan on a colour block. It is the **single most-see
 |---|---|---|---|
 | 1 | **Masthead** | creator logo (Ascentium) + **client logo** + edition | card / client |
 | 2 | **Hero lockup** | kicker (edition) + **campaign name** (dominant) + **tagline** | plan.yaml |
-| 3 | **Key visual** | the brand illustration (stadium / panda) | template |
+| 3 | **Key visual** | the brand illustration (the quest's key-visual motif) | template |
 | 4 | **Lead** | the proposition in one sentence | plan.yaml / insight |
 | 5 | **Offer panel** | 3 cards: the offer / markets / access. For membership: the **tiers** | plan.yaml |
 | 6 | **Bullets** | 3 concrete benefits / proof points | plan.yaml |
@@ -24,7 +24,7 @@ A campaign poster is not a slogan on a colour block. It is the **single most-see
 2. **Read at 3 distances**: name (10 m) → tagline + visual (3 m) → offer/details (1 m).
 3. **Numbers sell**: at least 4 distinct proof numbers (or facts) must appear.
 4. **Always show the next step**: CTA + channel (hashtag / URL / QR).
-5. **Brand-locked**: accent colour = orange (Quest A) / teal (Quest B); body text Midnight Green; Poppins.
+5. **Brand-locked**: accent colour comes from the quest card's `accent` token (orange default / teal where declared); body text Midnight Green; Poppins. Never a self-invented colour.
 
 ## Content checklist (a poster is incomplete without these)
 
@@ -48,9 +48,11 @@ A campaign poster is not a slogan on a colour block. It is the **single most-see
 
 | # | Style | Reads as | Built for |
 |---|---|---|---|
-| A | **Matchday Roar** | sports editorial · accent hero · wide crowd art · dark stats band | mass fan energy |
-| B | **Supporter Passport** | cream paper · ticket perforations · stamp motifs · checklist | membership / bundle / belonging |
+| A | **Full-Bleed Hero** | editorial · accent hero · wide key art · dark stats band | mass energy |
+| B | **Belonging Passport** | cream paper · perforations · stamp motifs · checklist | membership / bundle / belonging |
 | C | **Midnight Minimal** | dark Swiss type · hairline rules · one motif · negative space | premium / brand-led |
+
+> Style names are tone archetypes, not quest labels — a card may rename them via `poster_styles` (see `quest-card.md`).
 
 All three carry the **same** 9 sections. Vary: colour balance, typographic scale, art motif, section chrome (rules vs filled bands), bullet style.
 

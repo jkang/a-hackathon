@@ -25,12 +25,11 @@ Develop the campaign's big idea. **Anchor first** (audience + moment), then **di
 
 | Moment | Time | Place | Event |
 |---|---|---|---|
-| ticket-sale day | 18 months out | phone / creator feed | creator film drop |
-| the journey | travel window | airport stopover | crew meet-up |
-| match day | Games week | the stands | away-section roar |
+| sale / drop day | 18 months out | phone / creator feed | creator film drop |
+| the journey | travel window | a stopover | crew meet-up |
+| event day | the event window | the venue | the shared moment |
 
-- Quest A: team-qualification news · ticket-sale day · the Qatar Airways stopover · school-holiday window · medal moments.
-- Quest B: a panda's birthday livestream · World Panda Day · holiday gifting · the 2 a.m. viral clip.
+- Draw the moments from the card: a qualification/launch news · a sale/drop day · a journey/stopover · a seasonal window · an event moment · a birthday livestream · a holiday gifting window · a viral clip.
 
 ## Phase 2 — Diverge (HMW + creative-thinking methods)
 
@@ -48,7 +47,7 @@ Develop the campaign's big idea. **Anchor first** (audience + moment), then **di
 
 ## What a finished concept contains
 
-| Element | A — campaign | B — membership |
+| Element | Campaign | Membership |
 |---|---|---|
 | Name | campaign name | program name |
 | Slogan | rallying line | member promise line |
@@ -63,7 +62,7 @@ Develop the campaign's big idea. **Anchor first** (audience + moment), then **di
 - **Specific & ownable** — a rival couldn't run it unchanged.
 - **Human** — speaks to a real emotional job.
 - **Feasible under the MVP budget** — runnable in 3 months in 2 markets.
-- **On-brand** — conservation-first for the panda.
+- **On-brand** — cause-first where the card's subject is an IP / conservation asset.
 
 ## Rules & anti-patterns
 

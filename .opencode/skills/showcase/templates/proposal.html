@@ -13,7 +13,7 @@
     --accent: var(--ascentium-orange); --accent-tint: var(--orange-1); --accent-line: var(--orange-2);
     --nav-w: 284px;
   }
-  body[data-quest="B"]{ --accent: var(--teal); --accent-tint: var(--teal-1); --accent-line: var(--teal-2); }
+  /* Quest accent is injected from the quest card as inline vars on <body> (see quest-card.md). */
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{font-family:"Poppins","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
@@ -81,7 +81,7 @@
   }
 </style>
 </head>
-<body data-quest="{{QUEST}}">
+<body data-quest="{{QUEST}}" style="--accent:{{ACCENT}};--accent-tint:{{ACCENT_TINT}};--accent-line:{{ACCENT_LINE}};--accent-deep:{{ACCENT_DEEP}};">
 
 <button class="opener" id="opener" aria-label="Open navigation">☰</button>
 

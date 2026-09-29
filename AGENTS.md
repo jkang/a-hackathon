@@ -36,6 +36,7 @@
 ```
 .opencode/
 ├── README.md · DESIGN.md              # 文档（Facilitator 手册 · 设计说明）
+├── quest-card.md                      # Quest 配置契约（client/mission/War Chest/Victory Conditions/Scout Report + accent/key_visual/poster_styles）
 ├── evaluation-rubric.md               # 方案评分卡（7 维度）
 ├── skills/                            # 技能：一技能一目录；opencode 递归发现 **/SKILL.md
 │   ├── insight/                       # 洞察门 → insight-brief.html
@@ -153,3 +154,4 @@
 - 2026-09-29：**新增 §5.6 文案措辞规范**（business 口径，拒绝油腔滑调：`局里`/`干重活`/`死胡同`/`兜底`/`拍板` 等黑名单 + 正例 + 判断标准）；据此清理 `facilitator_guide.html` 全篇措辞。
 - 2026-09-29：**目录结构对齐** —— `poster`（原 `plan/sub-skills/poster`）与 `agent-reach`（原 `insight/sub-skills/agent-reach`）**平铺为顶层技能** `skills/poster/` · `skills/agent-reach/`，与 AGENTS/DESIGN/README 的设计意图（「平铺，逻辑归 plan/insight」）一致；同步 AGENTS.md / README.md / DESIGN.md / facilitator_guide 四处目录树（并移除已废弃的 `sources/` 说法）。
 - 2026-09-29：**Quest A 市场口径 SEA → Asia-wide**；明确「参与者来自 SEA ≠ Quest 受众限于 SEA」；Quest B 保持全球定位。quest-cards / index / standalone(en+zh) / `.opencode` Quest A 示例全部同步。
+- 2026-09-29：**Quest 解耦（toolkit 复用化）**：新增 **`quest-card.md`**（Quest 配置契约：client/mission/War Chest/Victory Conditions/Scout Report + 视觉参数 `accent`/`key_visual_svg`/`poster_styles`），确立「技能=引擎 · 题卡=数据」分层。落点：① 7 个 HTML 模板的 accent 从 `data-quest="A|B"` 硬编码改为「题卡注入 `--accent/--accent-tint/--accent-line/--accent-deep` 内联变量」（并修正 pitch-deck 缺 teal 覆盖的 bug）；② pitch-deck 插画从硬编码 stadium/panda 改为单一 `{{KEY_VISUAL_SVG}}` 槽位，旧插画迁至 `showcase/references/motifs-examples.md`；③ poster 三风格名（Matchday Roar/Supporter Passport/Midnight Minimal）改为「tone 原型 + `{{STYLE_*}}` 占位」，题卡可重命名；④ SKILL/command/README 触发词与 references 里的 Doha/熊猫/SEA 具体数据清空为「from the card」指针。冒烟验证：合成 Quest C（teal）poster 构建 + pitch-deck/proposal 构建均通过。

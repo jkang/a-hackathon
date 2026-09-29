@@ -11,7 +11,7 @@ Reframe a tension into a single, solvable, opportunity-framed question.
 - One sentence, starts "How might we…", positive frame, not too broad ("make money") or too narrow ("add a red button").
 - Derived from the selected insight(s).
 
-Example: *"How might we help Asia's Gen-Z fans feel they belong at Doha, at the moment a creator film drops?"*
+Example: *"How might we help [audience] feel [emotion / belonging] at [moment of truth], at the moment [trigger]?"*
 
 ## 2. SCAMPER
 

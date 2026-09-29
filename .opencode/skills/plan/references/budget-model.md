@@ -4,10 +4,14 @@ The card says: **"Budget allocation is part of the solution."** The team allocat
 
 ## 1. The envelope
 
-| Quest | Total approved | MVP unlock | Pilot window | Scope |
-|---|---|---|---|---|
-| A | USD 30M | 5% = **USD 1.5M** | 3 months | 2 Asian markets |
-| B | USD 11M | 10% = **USD 1.1M** | 3 months | 2 overseas markets |
+The card states the **total approved budget** and the **MVP unlock** (a % of total for the 3-month pilot). Fill these from the card — the table below is the shape, not the numbers:
+
+| Field | Value (from the card) |
+|---|---|
+| Total approved | {USD full budget} |
+| MVP unlock | {X% = USD pilot envelope} |
+| Pilot window | 3 months |
+| Scope | {2 markets — the card's target markets} |
 
 ## 2. Allocation categories (starter menu)
 
@@ -17,9 +21,9 @@ Split the budget across some/all of these — the mix is the team's call:
 |---|---|
 | Paid media | social ads, search, programmatic |
 | Content & creators | hero film, KOL/creator seeding, UGC |
-| Partnerships | airline (Qatar Airways), ticketing, retail, tourism boards |
+| Partnerships | airlines, ticketing, retail, tourism boards, media platforms |
 | Activation / events | pop-ups, fan zones, roadshows |
-| Localization | language, cultural adaptation (A: Bahasa/Thai/Vietnamese/Tagalog/English) |
+| Localization | language + cultural adaptation for the card's target markets |
 | Measurement & tools | analytics, attribution, dashboarding |
 | Contingency | buffer for what the pilot teaches |
 
@@ -27,10 +31,10 @@ Split the budget across some/all of these — the mix is the team's call:
 
 ```yaml
 budget:
-  total: 1.5M
+  total: {MVP unlock from the card}
   allocation:
-    - {market: "Indonesia", channel: "paid social", tactic: "creator-led countdown", amount: 300000}
-    - {market: "Thailand",  channel: "partnership",  tactic: "airline co-promo",       amount: 250000}
+    - {market: "{market 1}", channel: "paid social", tactic: "creator-led countdown", amount: 300000}
+    - {market: "{market 2}", channel: "partnership",  tactic: "co-promo",             amount: 250000}
     # ...
 ```
 
@@ -52,15 +56,15 @@ Never invent a price. Anchor it to a comparable the audience already accepts:
 - **Fan / idol memberships** (K-pop fan clubs, Weverse) — $25–50/yr for content + belonging.
 - **Creator memberships** (Patreon, YouTube) — $5–15/mo tiers.
 - **Zoo / museum memberships** — $50–120/yr for access + perks.
-- **NGO / conservation** (WWF, panda adoption) — $25–60/yr to "fund the animal".
+- **NGO / conservation** — $25–60/yr to "fund the cause".
 
-State it out loud: *"we price Founding at $30/yr because idol fan clubs charge ~$40 for belonging and WWF adoption is ~$50 — we sit under both."*
+State it out loud: *"we price Founding at $30/yr because idol fan clubs charge ~$40 for belonging and a conservation 'adopt an animal' is ~$50 — we sit under both."*
 
 ## 6. Scale path (2 markets → N markets)
 
 The pilot must answer "why these 2, and where next." Give the replication logic:
 
-1. **Why these 2** — one *proven* (Japan / Indonesia) + one *scale* (Indonesia / Brazil).
+1. **Why these 2** — one *proven* market + one *scale* market (from the card's pilot-market hints).
 2. **The replication lever** — the portable thing that made the pilot work (a creator-squad playbook, a localized content engine, an airline bundle).
 3. **The next 3–4 markets** + ordering (by fan density, travel ease, affinity).
 4. **The compounding** — how the pilot's assets (crew network, membership cohort, content engine) compound into the 18-month rollout.

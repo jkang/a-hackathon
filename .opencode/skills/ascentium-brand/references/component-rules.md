@@ -12,7 +12,7 @@ Apply together with `tokens.css` and `typography.md`.
 ## 2. Cards & surfaces
 
 - Page background: `#F7F6F4` (`--bg-page`). Card background: `#FFFFFF` (`--bg-card`).
-- Brand tint surfaces: light orange `#FFF0E7` / `#FFD1B8`; Quest B may use teal tint `#CDE2E1`.
+- Brand tint surfaces: light orange `#FFF0E7` / `#FFD1B8`; a teal-accent quest may use the teal tint `#CDE2E1`.
 - Border/divider: `#E4E8E7` (`--line`). Body text: `#0F1514`; muted text: `#5A6663`.
 - Rounded corners: cards ~12–18px (digital), consistent across an artifact.
 
@@ -33,14 +33,14 @@ Apply together with `tokens.css` and `typography.md`.
 
 - Canvas: A3-ish portrait or 1080×1080 square; keep **54px margin** on 1080×1080, **48px** on 1200×628.
 - Structure: brand bar (logo) → big headline → hero line / offer → 1 supporting stat → CTA → footer.
-- Dominant color = Vibrant Orange (Quest A) or Teal (Quest B); text Midnight Green or white.
+- Dominant color = the quest card's accent token (Vibrant Orange by default, Teal where declared); text Midnight Green or white.
 - One clear focal point; do not crowd.
 
 ## 6. Pitch deck / HTML slides
 
 - 16:9. Slide rhythm: title slide → problem → insight → big idea → plan → proof → ask.
 - Every slide: consistent margin, logo in a fixed corner, one idea per slide.
-- Use orange for emphasis in Quest A decks; teal for Quest B.
+- Use the quest card's accent for emphasis in decks.
 - Body ≥16px equivalent; headline via `.headline` scale.
 
 ## 7. KPI dashboard / board

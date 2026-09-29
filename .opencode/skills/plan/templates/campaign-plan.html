@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- DOC_TYPE: "Campaign Plan" for Quest A · "Membership Design" for Quest B -->
+<!-- DOC_TYPE: "Campaign Plan" or "Membership Design" — set from the quest card (see quest-card.md). -->
 <title>{{DOC_TYPE}} · {{QUEST}} · {{CLIENT}}</title>
 <style>
   :root{
@@ -15,6 +15,7 @@
     --accent-tint: var(--orange-1);
     --accent-line: var(--orange-2);
   }
+  /* Quest accent is injected from the quest card as inline vars on <body> (see quest-card.md). */
   *{margin:0;padding:0;box-sizing:border-box;}
   body{font-family:"Poppins","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
        background:var(--bg);color:var(--ascentium-midnight);-webkit-font-smoothing:antialiased;}
@@ -68,7 +69,7 @@
   footer{margin-top:30px;border-top:1px dashed var(--line);padding-top:12px;font-size:10.5px;color:#9AA5A2;line-height:1.6;}
 </style>
 </head>
-<body>
+<body data-quest="{{QUEST}}" style="--accent:{{ACCENT}};--accent-tint:{{ACCENT_TINT}};--accent-line:{{ACCENT_LINE}};--accent-deep:{{ACCENT_DEEP}};">
 <div class="page">
 
   <div class="brandbar">

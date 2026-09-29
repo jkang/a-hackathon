@@ -9,9 +9,9 @@ The deck is the **Showcase Report Agent (AUTO)** output. To avoid "every group s
 | # | Storyline | Signature element | Beat order | Best for |
 |---|---|---|---|---|
 | S1 | **Classic** | poster + full plan | title → context → problem → insight → audience → keyvisual → **poster** → strategy → offering → moments → experiment → plan → funnel → proof → ask | data-driven, rational (full detail) |
-| S2 | **Hero's Journey** | **storyboard (6-frame fan journey)** | title → context → problem → **storyboard** → keyvisual → insight → audience → strategy → offering → moments → experiment → plan → funnel → proof → ask | emotional, consumer (Quest A) |
+| S2 | **Hero's Journey** | **storyboard (6-frame fan journey)** | title → context → problem → **storyboard** → keyvisual → insight → audience → strategy → offering → moments → experiment → plan → funnel → proof → ask | emotional, consumer campaigns |
 | S3 | **Big Reveal** | poster | title → context → problem → keyvisual → **poster** → insight → audience → strategy → offering → moments → experiment → plan → funnel → proof → ask | bold, iconic |
-| S4 | **Demo** | **prototype mock screens** | title → context → problem → **prototype** → insight → audience → strategy → offering → moments → experiment → plan → funnel → proof → ask | product / membership (Quest B) |
+| S4 | **Demo** | **prototype mock screens** | title → context → problem → **prototype** → insight → audience → strategy → offering → moments → experiment → plan → funnel → proof → ask | product / membership campaigns |
 | S5 | **Trailer** | **lyric / anthem** | title → context → problem → **lyric** → insight → audience → strategy → offering → moments → experiment → plan → funnel → proof → ask | entertainment, experiential |
 
 > The `plan` beat = the **budget bar chart** (it is the "plan" slide). All five storylines share the full detail set; they differ only in the **signature element** and the opening order.
@@ -24,7 +24,7 @@ The deck is the **Showcase Report Agent (AUTO)** output. To avoid "every group s
 
 ## Illustrations
 
-Brand flat illustrations (inline SVG, no external assets) render on the **title** and **keyvisual** beats — stadium + flying tickets for Quest A, panda + bamboo for Quest B. Accent icons on the moments timeline.
+Brand flat illustrations (inline SVG, no external assets) render on the **title** and **keyvisual** beats — the quest's key-visual motif, supplied by the card's `key_visual_svg`. Accent icons on the moments timeline.
 
 ## Signature elements (the idea's carrier)
 

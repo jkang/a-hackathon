@@ -11,7 +11,7 @@
     --teal:#077069; --teal-1:#CDE2E1; --teal-3:#398D87;
     --sky:#1877F2; --sky-1:#BDD5EF;
     --line:#E4E8E7; --bg:#F7F6F4; --card:#FFFFFF; --mut:#5A6663;
-    /* Quest A uses orange accent; swap to --teal for Quest B */
+    /* Quest accent is injected from the quest card as inline vars on <body> (see quest-card.md). */
     --accent: var(--ascentium-orange);
     --accent-tint: var(--orange-1);
     --accent-line: var(--orange-2);
@@ -78,7 +78,7 @@
   footer{margin-top:26px;border-top:1px dashed var(--line);padding-top:12px;font-size:10.5px;color:#9AA5A2;line-height:1.6;}
 </style>
 </head>
-<body>
+<body data-quest="{{QUEST}}" style="--accent:{{ACCENT}};--accent-tint:{{ACCENT_TINT}};--accent-line:{{ACCENT_LINE}};--accent-deep:{{ACCENT_DEEP}};">
 <div class="page">
 
   <div class="brandbar">

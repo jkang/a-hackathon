@@ -4,7 +4,7 @@ agent: runner
 ---
 Run the whole quest end-to-end **automatically** — no questions, no human input. At every decision node, decide yourself (per the `runner` agent).
 
-**Quest: $ARGUMENTS** (if empty, default to A = Doha 2030 ticketing).
+**Quest: $ARGUMENTS** (if empty, read the quest card / `quest-card.md` for the challenge).
 
 1. **Insight** — research via `agent-reach` → org + audience + trends + SWOT → ~6 key insights → pick 2–3.
 2. **Plan** — `creative-concept` (anchor + HMW + methods → ~6 ideas) → pick 2–3/combine → opportunity + campaign plan → ≥2 A/B versions → pick A or B → `poster`.

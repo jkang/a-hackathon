@@ -52,10 +52,9 @@ One natural-language scene prompt. Structure:
 
 Example:
 ```
-Cinematic 5-second shot: a 22-year-old fan in a jersey scrolls TikTok at midnight
-in a dim Jakarta bedroom, the phone glows vivid orange with the words "THE AWAY END",
-he looks up with rising excitement, camera whip-pans to a packed stadium roaring under
-floodlights — warm orange grade, handheld energy, 16:9
+Cinematic 5-second shot: a 22-year-old fan scrolls TikTok at midnight in a dim bedroom,
+the phone glows the brand accent with the campaign's words, they look up with rising
+excitement, camera whip-pans to the campaign's hero moment — warm brand grade, handheld energy, 16:9
 ```
 
 **Rules:**
@@ -71,10 +70,10 @@ floodlights — warm orange grade, handheld energy, 16:9
 One natural-language prompt (no Midjourney params). Describe the layout **and write out every word you want rendered**:
 
 ```
-Generate a bold event poster. Giant white text "THE AWAY END" centered at the top,
-subtitle "We don't visit. We arrive." right below it. Background is vivid orange (#FF6611).
-At the bottom, silhouettes of a cheering crowd with raised arms. Clean modern sports
-typography, high contrast, no watermark, no logo. 16:9.
+Generate a bold event poster. Giant white text "{{CAMPAIGN NAME}}" centered at the top,
+subtitle "{{TAGLINE}}" right below it. Background is the brand accent hex (#FF6611).
+At the bottom, a silhouetted hero motif. Clean modern typography, high contrast,
+no watermark, no logo. 16:9.
 ```
 
 **Rules:**
@@ -105,4 +104,4 @@ Rules:
 
 - Bonus is **optional** — never block the 6 required deliverables on a tool.
 - Human curates: the AI writes prompts, the human picks which generation to use.
-- Keep it on-brand (Ascentium colors, conservation-first for Quest B).
+- Keep it on-brand (Ascentium colors, cause-first where the card's subject is an IP / conservation asset).

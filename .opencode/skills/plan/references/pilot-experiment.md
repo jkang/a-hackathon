@@ -4,8 +4,7 @@ Adapted from the PoL-probe idea: run a **small, honest, time-boxed test** to pro
 
 ## 1. The pilot framing (from the card)
 
-- **A**: USD 1.5M · 3 months · 2 Asian markets. Prove the campaign can one day put 400K Asian fans in Doha's stands.
-- **B**: USD 1.1M · 3 months · 2 overseas markets. Prove panda fandom can become a paying global membership.
+The card sets the **MVP unlock budget**, the **pilot window** (3 months), the **2 pilot markets**, and the one-line **"prove X"** statement (the trajectory the pilot must de-risk against the Victory Condition). Copy it from the card.
 
 ## 2. The experiment plan
 
@@ -19,8 +18,8 @@ Fill these five fields:
 
 ## 3. Choosing the 2 markets (team decision)
 
-- Pick on evidence: fan-base size, mobile/social intensity, ease of travel (A: visa-free + hub), diaspora/affinity links (B: markets that already showed panda love).
-- Consider language: A markets operate in Bahasa / Thai / Vietnamese / Tagalog / English.
+- Pick on evidence from the card: audience size, channel intensity, ease of access / travel, affinity links.
+- Consider language: localize for the card's target-market languages.
 
 ## 4. What the pilot must produce
 

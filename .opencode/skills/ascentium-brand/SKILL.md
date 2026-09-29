@@ -24,7 +24,7 @@ The canonical brand document is `brand-guideline.md` (Chinese; replicated from t
 
 - Primary orange: `#FF6611` (CTA, brand accent)
 - Midnight green: `#0F1514` (dark backgrounds, primary text — **NOT** pure black)
-- Teal: `#077069` (Quest B accent)
+- Teal: `#077069` (secondary accent token)
 - Sky: `#1877F2` (info only)
 - Error: `#DC3545` (errors only)
 - Font stack: `"Poppins", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif`

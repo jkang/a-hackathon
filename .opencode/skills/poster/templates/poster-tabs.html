@@ -35,7 +35,7 @@
   @media print{ .bar,.tabs{display:none;} .stack{padding:0;} }
 </style>
 </head>
-<body data-quest="{{QUEST}}">
+<body data-quest="{{QUEST}}" style="--accent:{{ACCENT}};--accent-tint:{{ACCENT_TINT}};--accent-line:{{ACCENT_LINE}};--accent-deep:{{ACCENT_DEEP}};">
 
 {{SYMBOLS}}
 
@@ -46,9 +46,9 @@
 </div>
 
 <div class="tabs" id="tabs">
-  <button data-style="a" class="on"><span class="k">STYLE A</span><span class="t">Matchday Roar</span><div class="d">Bold sports editorial — accent hero, wide crowd art</div></button>
-  <button data-style="b"><span class="k">STYLE B</span><span class="t">Supporter Passport</span><div class="d">Travel / ticket — cream paper, perforations, stamps</div></button>
-  <button data-style="c"><span class="k">STYLE C</span><span class="t">Midnight Minimal</span><div class="d">Swiss typographic — dark canvas, huge type</div></button>
+  <button data-style="a" class="on"><span class="k">STYLE A</span><span class="t">{{STYLE_A}}</span><div class="d">{{STYLE_A_DESC}}</div></button>
+  <button data-style="b"><span class="k">STYLE B</span><span class="t">{{STYLE_B}}</span><div class="d">{{STYLE_B_DESC}}</div></button>
+  <button data-style="c"><span class="k">STYLE C</span><span class="t">{{STYLE_C}}</span><div class="d">{{STYLE_C_DESC}}</div></button>
 </div>
 
 <div class="stack" id="stack">

@@ -50,11 +50,11 @@ The AI must not pick them. Always keep the `+1 of our own` channel open.
 ```yaml
 quest: A | B
 victory_conditions:
-  - "400K tickets sold to Asia fans"          # from the card
+  - "{one full-scale target from the card}"       # from the card
 metrics:
-  - name: "Pilot ticket conversion rate"
-    formula: "tickets / qualified site visits"
-    benchmark_ref: "Hangzhou 92% attendance"  # Scout Report anchor
+  - name: "Pilot conversion rate"
+    formula: "{outcome} / {qualified reach}"
+    benchmark_ref: "{a Scout Report benchmark}"    # Scout Report anchor
     target: "3.0%"
     threshold_go: ">=2.5%"
     threshold_no_go: "<1.5%"

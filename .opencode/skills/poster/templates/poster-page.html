@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Campaign poster · ONE style per file ({{POSTER_STYLE}} = a|b|c) · Quest A = orange, B = teal.
+<!-- Campaign poster · ONE style per file ({{POSTER_STYLE}} = a|b|c).
+     Accent + key visual are injected from the quest card (see quest-card.md) — no per-quest hard-coding.
      Build the three pages with scripts/build-posters.py. Each page is a clean, croppable single poster. -->
 <title>Campaign Poster · {{QUEST}} · {{HEADLINE}} · Style {{POSTER_STYLE_UPPER}}</title>
 <style>
@@ -17,7 +18,8 @@
     --accent-line: var(--orange-2);
     --accent-deep:#B24000;
   }
-  body[data-quest="B"]{ --accent: var(--teal); --accent-tint: var(--teal-1); --accent-line: var(--teal-2); --accent-deep: var(--teal-4); }
+  /* Quest accent is injected from the quest card as inline vars on <body> (see quest-card.md).
+     :root keeps the brand default (orange); never hard-code a per-quest colour here. */
   *{margin:0;padding:0;box-sizing:border-box;}
   html,body{background:#DEDAD4;}
   body{font-family:"Poppins","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
@@ -169,9 +171,13 @@
   }
 </style>
 </head>
-<body data-quest="{{QUEST}}">
+<body data-quest="{{QUEST}}" style="--accent:{{ACCENT}};--accent-tint:{{ACCENT_TINT}};--accent-line:{{ACCENT_LINE}};--accent-deep:{{ACCENT_DEEP}};">
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <!-- Key-visual art per style (1200x500). These are EXAMPLE placeholder motifs (sports/travel).
+       Replace each <symbol> with the quest's own key visual (see quest-card.md → key_visual_svg),
+       rendered in each style's palette. Keep viewBox "0 0 1200 500" to match the .art frame.
+  -->
   <!-- STYLE A · wide stadium + away crowd (1200x500) -->
   <symbol id="art-a" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice">
     <rect width="1200" height="500" fill="#FFF6EC"/>

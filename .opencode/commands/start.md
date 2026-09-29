@@ -1,10 +1,10 @@
 ---
-description: Start the full 40-minute facilitated session (Quest A or B).
+description: Start the full 40-minute facilitated session (reads the quest card).
 agent: facilitator
 ---
 Start the full facilitated session.
 
-**Quest: $ARGUMENTS** (if empty, ask the team — A = Doha 2030 ticketing, B = Chengdu Panda global IP).
+**Quest: $ARGUMENTS** (if empty, ask the team — read the quest card / `quest-card.md` for the challenge).
 
 Run the 40-minute happy path:
 1. **Kick-off** — 30-second scout summary + the first menu.
