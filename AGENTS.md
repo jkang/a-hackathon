@@ -44,8 +44,8 @@
 │   ├── plan/                          # 策划门 → campaign-plan.html
 │   │   └── sub-skills/  creative-concept · opportunity-definition
 │   ├── poster/                        # Poster（Create 阶段，独立）→ poster-a/b/c.html + poster.html
-│   ├── prove/                         # 论证门 → proof.html（含 KPI 看板）
-│   │   └── sub-skills/  campaign-metrics · data-visualizer-pro
+│   ├── prove/                         # 论证门 → proof.html（单屏 pilot 指标）
+│   │   └── sub-skills/  campaign-metrics · data-visualizer-pro（保留·休眠）
 │   ├── showcase/                      # 呈现门（AUTO）→ proposal / pitch-deck / prompt-pack（内嵌 poster）
 │   ├── agent-reach/                   # 实时研究（insight 调用；CLI 需预装）
 │   ├── facilitation/                  # 共创引擎（协议库/节奏/话术/选项菜单/采集契约）
@@ -71,7 +71,7 @@
 | `insight` | Market Research · Audience Analysis · Benchmark Analysis · Company Profiler (IP audit) | `business-research`、`swot-analysis` |
 | `plan` | Opportunity Definition · Creative Concept · MVP Pilot Design · Marketing Plan · Budget | `opportunity-definition`、`pol-probe-advisor`、`creating-financial-models` |
 | `poster`（Create 阶段，独立） | Poster（Create 阶段） | `ref-palette-slide` |
-| `prove` | Campaign Metrics · Go/No-Go · Cost-Benefit · Data Analysis & Viz | `mvp-metrics-generator`、`data-visualizer-pro` |
+| `prove` | Pilot Metrics（pilot 预期指标 + 推演逻辑；单屏） | `mvp-metrics-generator`→campaign-metrics、`data-visualizer-pro`（保留·休眠） |
 | `showcase` | Showcase Report Agent (AUTO) | `html-ppt-generator` |
 
 支撑技能：`ascentium-brand`（品牌执行器）、`facilitation`（共创引擎）、`agent-reach`（实时研究）、`brainstorming`（plan 阶段发散子技能）。
@@ -97,7 +97,7 @@
 - 活动命题卡中的数据为公开报道口径，引用时保留来源与 `Data as of` 标注。
 
 ### 5.4 输出与命名
-- **产物默认英文（English-only）**：技能正文、触发词、YAML 字段、输出 HTML、README/Playbook、Facilitator 话术一律英文；受众为英文使用者。仅 `brand-guideline.md` 源文件与本 AGENTS.md / DESIGN.md 内部文档保留中文。代码 / 命令 / 路径 / 色值保持原样。
+- **产物默认英文（English-only）**：技能正文、触发词、capture JSON 字段、输出 HTML、README/Playbook、Facilitator 话术一律英文；受众为英文使用者。仅 `brand-guideline.md` 源文件与本 AGENTS.md / DESIGN.md 内部文档保留中文。代码 / 命令 / 路径 / 色值保持原样。
 - 阶段产物落在对应 `quest-*/` 下；报告类文件名体现「任务-产物类型」，如 `quest-A-insight-brief.html`。
 - HTML 产物优先单文件、可双击打开、无构建依赖。
 
@@ -158,3 +158,5 @@
 - 2026-09-29：**Quest A 市场口径 SEA → Asia-wide**；明确「参与者来自 SEA ≠ Quest 受众限于 SEA」；Quest B 保持全球定位。quest-cards / index / standalone(en+zh) / `.opencode` Quest A 示例全部同步。
 - 2026-09-29：**Quest 解耦（toolkit 复用化）**：新增 **`quest-card.md`**（Quest 配置契约：client/mission/War Chest/Victory Conditions/Scout Report + 视觉参数 `accent`/`key_visual_svg`/`poster_styles`），确立「技能=引擎 · 题卡=数据」分层。落点：① 7 个 HTML 模板的 accent 从 `data-quest="A|B"` 硬编码改为「题卡注入 `--accent/--accent-tint/--accent-line/--accent-deep` 内联变量」（并修正 pitch-deck 缺 teal 覆盖的 bug）；② pitch-deck 插画从硬编码 stadium/panda 改为单一 `{{KEY_VISUAL_SVG}}` 槽位，旧插画迁至 `showcase/references/motifs-examples.md`；③ poster 三风格名（Matchday Roar/Supporter Passport/Midnight Minimal）改为「tone 原型 + `{{STYLE_*}}` 占位」，题卡可重命名；④ SKILL/command/README 触发词与 references 里的 Doha/熊猫/SEA 具体数据清空为「from the card」指针。冒烟验证：合成 Quest C（teal）poster 构建 + pitch-deck/proposal 构建均通过。
 - 2026-09-29：**统一运行输出位置**：Facilitator 与 runner 均写入 **`artifacts/Quest<ID>-<NN>/`**（每题一轮一子目录；`/start`、`/run` 新建轮次，单闸命令并入最新轮次，不覆盖旧轮次）；两种模式均产出 `RUN-LOG.md`。同步 `agents/facilitator.md` · `runner.md`、7 个 command、README、quest-card.md、poster/showcase SKILL、DESIGN.md；`.gitignore` 加 `/artifacts/`；删除空目录 `runs/quest-b`。
+- 2026-09-30：**Prove 环节简化**：只保留 **pilot 预期指标 + 每个指标数值的推演逻辑**（benchmark → assumption → formula → target），输出**一屏** `proof.html`；**移除** Go/No-Go、Cost-Benefit/ROI、scale-up、KPI 看板 mock。`prove` 单技能不再调用 `campaign-metrics` / `data-visualizer-pro` / `cost-benefit.md`（三者**保留但休眠**）。同步：prove SKILL/template/references · facilitator/runner · commands（prove/run/start）· facilitation refs · showcase（deck 的 proof+ask beat、proposal、pitch-narrative）· evaluation-rubric/evaluate · README/DESIGN/quest-card · participant 物料（quest-cards / index / standalone）· `demo-examples/QuestA-v2`（proof / metrics / deck / proposal / RUN-LOG）。
+- 2026-09-30：**环节输出只留 HTML**：各阶段产物不再有 `.yaml` / `.md`——每个阶段的 decisions 以**内嵌 JSON**（`<script type="application/json" id="capture">`）写进该阶段 HTML；下游关卡读取上游 HTML 的 `id="capture"` 块。移除 `insight.yaml` / `plan.yaml` / `metrics.yaml` / `RUN-LOG.md`。同步：4 个阶段 SKILL + 模板 · `facilitation/references/capture-contract.md`（重写）· facilitator/runner/researcher · 8 个 command · README/DESIGN/quest-card · `facilitator_guide.html`（+ standalone）· `demo-examples/QuestA-v2`。

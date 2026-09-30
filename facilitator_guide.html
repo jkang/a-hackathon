@@ -20,13 +20,13 @@
   /* top bar */
   .topbar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);
           border-bottom:1px solid var(--line);}
-  .topbar .in{width:85%;margin:0 auto;padding:12px 0;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .topbar .in{width:100%;padding:12px 32px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
   .topbar .logo{font-weight:800;font-size:18px;} .topbar .logo span{color:var(--accent);}
   .topbar nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto;}
   .topbar nav a{font-size:12px;font-weight:600;color:var(--mut);text-decoration:none;padding:5px 10px;border-radius:999px;}
   .topbar nav a:hover{background:var(--accent-tint);color:var(--accent);}
 
-  .page{width:85%;margin:0 auto;padding:34px 0 70px;}
+  .page{width:100%;padding:34px 32px 70px;}
 
   header.hero{border-bottom:3px solid var(--accent);padding-bottom:18px;}
   header.hero .tag{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);}
@@ -47,16 +47,33 @@
        color:#B24000;border-radius:5px;padding:1px 6px;}
   pre code{background:none;color:inherit;padding:0;}
 
-  /* flow */
-  .flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;margin-top:14px;}
-  .flow .node{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;min-width:140px;flex:1;}
-  .flow .node.start{background:var(--ascentium-midnight);color:#fff;border-color:var(--ascentium-midnight);flex:0 0 auto;}
-  .flow .node.start .n{color:var(--accent);}
-  .flow .node .n{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);}
-  .flow .node .t{font-size:14px;font-weight:800;margin-top:4px;}
-  .flow .node .d{font-size:11.5px;color:var(--mut);margin-top:3px;}
-  .flow .node.start .d{color:#9AA5A2;}
-  .flow .arrow{align-self:center;color:var(--accent);font-weight:800;font-size:16px;}
+  /* journey map — lanes × activities (one unified grid, thin rules) */
+  .journey{margin-top:14px;overflow-x:auto;padding-bottom:6px;}
+  .jr{display:grid;grid-template-columns:repeat(13,120px);gap:1px;
+      background:var(--line);border:1px solid var(--line);min-width:max-content;}
+  .r1{grid-row:1;} .r2{grid-row:2;} .r3{grid-row:3;} .r4{grid-row:4;} .r5{grid-row:5;}
+  .jr-stage{background:#FFF7F2;padding:8px 10px;display:flex;flex-direction:column;gap:2px;}
+  .st-top{display:flex;align-items:baseline;gap:4px;}
+  .st-n{font-size:10.5px;font-weight:800;color:var(--accent);}
+  .st-name{font-size:11.5px;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--ascentium-midnight);}
+  .st-cmd{font-size:10px;background:var(--accent-tint);color:#B24000;border-radius:5px;padding:1px 5px;
+          align-self:flex-start;white-space:normal;word-break:break-word;}
+  .st-goal{font-size:10px;color:var(--mut);line-height:1.4;}
+  .jr-cell{padding:8px 9px;font-size:11px;line-height:1.45;background:#fff;}
+  .jr-act{font-weight:700;}
+  .jr-skill{background:#FBF9F6;}
+  .jr-skill code,.jr-out code{font-size:10px;background:none;padding:0;display:inline;}
+  .jr-skill code{color:#6E5A4B;}
+  .jr-out code{color:#B24000;}
+  .jr-hitl{background:#EAF3F2;}
+  .jr-hitl .h{color:var(--teal);font-weight:800;}
+  .jr-hitl .none{color:#9AA5A2;}
+  .jr-legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;font-size:11.5px;color:var(--mut);}
+  .jr-legend .lg{display:inline-flex;align-items:center;gap:6px;}
+  .jr-legend .dot{width:10px;height:10px;border-radius:3px;display:inline-block;}
+  .lg.ai .dot{background:var(--accent);}
+  .lg.hitl .dot{background:var(--teal);}
+  .lg.cmd .dot{background:var(--ascentium-midnight);}
 
   table{width:100%;border-collapse:collapse;font-size:13px;margin-top:12px;background:#fff;border-radius:12px;overflow:hidden;}
   th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
@@ -118,7 +135,7 @@
         <tr><td><b>① 守节奏，按时交付</b></td><td>把握 50 分钟（40′ 产出 + 10′ Showcase 准备）；剩余 20′ / 10′ 口头提醒，时间到即推进，确保团队按时完成、按时交付。</td></tr>
         <tr><td><b>② 带团队用起 Toolkit</b></td><td>带领团队顺利使用 Toolkit：每个环节先给出有依据的候选「菜单」并推动团队决策；不让团队因工具问题受阻；确认三台设备（笔记本）均可正常工作；随时解答团队关于 Toolkit 使用的问题。</td></tr>
         <tr><td><b>③ 人人参与</b></td><td>确保 14 人都有具体任务：按小组分工（研究 / 创意 / 测算 / 视觉 / 讲稿），请发言较少的人认领一项。</td></tr>
-        <tr><td><b>④ 记录与交付</b></td><td>把每个决定写进 <code>insight.yaml / plan.yaml / metrics.yaml</code> + <code>RUN-LOG.md</code>；最后拼装 HTML 产物、协助提交。</td></tr>
+        <tr><td><b>④ 记录与交付</b></td><td>把每个决定写进对应 HTML 产物的内嵌 <code>id="capture"</code> 块（无 YAML/Markdown）；最后拼装 HTML 产物、协助提交。</td></tr>
       </tbody>
     </table>
     <div class="card" style="margin-top:14px;">
@@ -172,32 +189,107 @@
 
   <section id="usage">
     <h2>4 · 用法总览</h2>
-    <div class="flow">
-      <div class="node start"><div class="n">/start</div><div class="t">开场</div></div>
-      <div class="arrow">→</div>
-      <div class="node"><div class="n">① insight</div><div class="t">研究 → 洞察</div><div class="d">数据 → 选 2–3 条</div></div>
-      <div class="arrow">→</div>
-      <div class="node"><div class="n">② plan</div><div class="t">创意 → A/B 方案</div><div class="d">选组合 + 选 A/B</div></div>
-      <div class="arrow">→</div>
-      <div class="node"><div class="n">③ poster</div><div class="t">3 种风格</div><div class="d">选 1 种</div></div>
-      <div class="arrow">→</div>
-      <div class="node"><div class="n">④ prove</div><div class="t">指标 → 推演</div><div class="d">Pilot Metrics</div></div>
-      <div class="arrow">→</div>
-      <div class="node"><div class="n">⑤ showcase</div><div class="t">提案 + PPT</div><div class="d">+ 提示词</div></div>
+    <p style="color:var(--mut);margin-top:6px;">一条旅程看懂每个阶段<b>解决什么</b>、<b>AI 做什么</b>、<b>人做什么</b>。每列自上而下：活动 · Skill · 产出 · HITL。</p>
+
+    <div class="journey">
+      <div class="jr">
+        <div class="jr-stage r1" style="grid-column:span 1">
+          <div class="st-top"><span class="st-name">开场</span></div>
+          <code class="st-cmd">/start</code>
+          <div class="st-goal">读题卡 · 讲规则 · 确认环境</div>
+        </div>
+        <div class="jr-stage r1" style="grid-column:span 5">
+          <div class="st-top"><span class="st-n">①</span><span class="st-name">INSIGHT</span></div>
+          <code class="st-cmd">/insight</code>
+          <div class="st-goal">题库 + 真实数据 → 有依据的洞察</div>
+        </div>
+        <div class="jr-stage r1" style="grid-column:span 3">
+          <div class="st-top"><span class="st-n">②</span><span class="st-name">PLAN</span></div>
+          <code class="st-cmd">/plan</code>
+          <div class="st-goal">发散创意 → 收敛 A/B 方案</div>
+        </div>
+        <div class="jr-stage r1" style="grid-column:span 1">
+          <div class="st-top"><span class="st-n">③</span><span class="st-name">POSTER</span></div>
+          <code class="st-cmd">/poster</code>
+          <div class="st-goal">3 种海报风格供选择</div>
+        </div>
+        <div class="jr-stage r1" style="grid-column:span 1">
+          <div class="st-top"><span class="st-n">④</span><span class="st-name">PROVE</span></div>
+          <code class="st-cmd">/prove</code>
+          <div class="st-goal">pilot 指标 + 推演逻辑</div>
+        </div>
+        <div class="jr-stage r1" style="grid-column:span 2">
+          <div class="st-top"><span class="st-n">⑤</span><span class="st-name">SHOWCASE</span></div>
+          <code class="st-cmd">/showcase</code>
+          <div class="st-goal">组装提案 / PPT / 提示词</div>
+        </div>
+
+        <div class="jr-cell jr-act r2">题卡导读 · 规则说明 · 设备自检</div>
+        <div class="jr-cell jr-act r2">真实数据研究</div>
+        <div class="jr-cell jr-act r2">组织 / IP 画像</div>
+        <div class="jr-cell jr-act r2">受众分群</div>
+        <div class="jr-cell jr-act r2">SWOT 综合</div>
+        <div class="jr-cell jr-act r2">洞察综合 + 种子洞察</div>
+        <div class="jr-cell jr-act r2">创意发散</div>
+        <div class="jr-cell jr-act r2">机会定义</div>
+        <div class="jr-cell jr-act r2">营销方案（A/B）</div>
+        <div class="jr-cell jr-act r2">海报设计（9 段 × 3 风格）</div>
+        <div class="jr-cell jr-act r2">指标菜单 → 推演链 → 单屏可视化</div>
+        <div class="jr-cell jr-act r2">选 storyline</div>
+        <div class="jr-cell jr-act r2">组装 deck + 媒体</div>
+
+        <div class="jr-cell jr-skill r3"><code>facilitator</code> · <code>facilitation</code></div>
+        <div class="jr-cell jr-skill r3"><code>agent-reach</code></div>
+        <div class="jr-cell jr-skill r3"><code>business-research</code></div>
+        <div class="jr-cell jr-skill r3"><code>audience-analysis</code></div>
+        <div class="jr-cell jr-skill r3"><code>swot-analysis</code></div>
+        <div class="jr-cell jr-skill r3"><code>insight</code></div>
+        <div class="jr-cell jr-skill r3"><code>creative-concept</code></div>
+        <div class="jr-cell jr-skill r3"><code>opportunity-definition</code></div>
+        <div class="jr-cell jr-skill r3"><code>plan</code></div>
+        <div class="jr-cell jr-skill r3"><code>poster</code></div>
+        <div class="jr-cell jr-skill r3"><code>prove</code></div>
+        <div class="jr-cell jr-skill r3"><code>showcase</code></div>
+        <div class="jr-cell jr-skill r3"><code>showcase</code></div>
+
+        <div class="jr-cell jr-out r4"><code>artifacts/QuestA-01/</code></div>
+        <div class="jr-cell jr-out r4">并入 <code>insight-brief.html</code></div>
+        <div class="jr-cell jr-out r4">并入 <code>insight-brief.html</code></div>
+        <div class="jr-cell jr-out r4">并入 <code>insight-brief.html</code></div>
+        <div class="jr-cell jr-out r4">并入 <code>insight-brief.html</code></div>
+        <div class="jr-cell jr-out r4"><code>insight-brief.html</code>（capture 内嵌）</div>
+        <div class="jr-cell jr-out r4">并入 <code>campaign-plan.html</code></div>
+        <div class="jr-cell jr-out r4">并入 <code>campaign-plan.html</code></div>
+        <div class="jr-cell jr-out r4"><code>campaign-plan.html</code>（capture 内嵌）</div>
+        <div class="jr-cell jr-out r4"><code>poster-a/b/c.html</code> · <code>poster.html</code></div>
+        <div class="jr-cell jr-out r4"><code>proof.html</code>（单屏，capture 内嵌）</div>
+        <div class="jr-cell jr-out r4">并入 <code>proposal.html</code></div>
+        <div class="jr-cell jr-out r4"><code>proposal.html</code> · <code>pitch-deck.html</code> · <code>prompt-pack.html</code></div>
+
+        <div class="jr-cell jr-hitl r5"><span class="none">—</span></div>
+        <div class="jr-cell jr-hitl r5"><span class="none">—</span></div>
+        <div class="jr-cell jr-hitl r5"><span class="none">—</span></div>
+        <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 2–4 类人群</div>
+        <div class="jr-cell jr-hitl r5"><span class="none">—</span></div>
+        <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 2–3 条洞察 · 确认种子洞察</div>
+        <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 / 组合 2–3 创意</div>
+        <div class="jr-cell jr-hitl r5"><span class="none">—</span></div>
+        <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 A/B · 定 2 市场 + 预算切分</div>
+        <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 1 种风格 + 方向 + 一句话</div>
+        <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 3–5 个指标 + 阈值</div>
+        <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 storyline · poster on/off · 一句话</div>
+        <div class="jr-cell jr-hitl r5"><span class="h">👤</span>（可选）加分媒体</div>
+      </div>
     </div>
 
-    <table>
-      <thead><tr><th>阶段</th><th>目标</th><th>产出</th></tr></thead>
-      <tbody>
-        <tr><td><b>insight</b></td><td>把题库与真实数据转化为洞察</td><td><code>insight.yaml</code> + <code>insight-brief.html</code></td></tr>
-        <tr><td><b>plan</b></td><td>发散创意 → 确定 A/B 方案</td><td><code>plan.yaml</code> + <code>campaign-plan.html</code></td></tr>
-        <tr><td><b>poster</b></td><td>产出 3 种海报风格供选择</td><td><code>poster-a/b/c.html</code> + <code>poster.html</code></td></tr>
-        <tr><td><b>prove</b></td><td>确定 pilot 预期指标 → 写出推演逻辑</td><td><code>metrics.yaml</code> + <code>proof.html</code>（单屏）</td></tr>
-        <tr><td><b>showcase</b></td><td>组装提案 / PPT / 提示词</td><td><code>proposal.html</code> + <code>pitch-deck.html</code> + <code>prompt-pack.html</code></td></tr>
-      </tbody>
-    </table>
+    <div class="jr-legend">
+      <span class="lg ai"><span class="dot"></span>AI 执行</span>
+      <span class="lg hitl"><span class="dot"></span>人决策 · HITL</span>
+      <span class="lg cmd"><span class="dot"></span>命令</span>
+    </div>
 
-    <div class="note"><b>每个环节都是三步</b>：AI 出菜单 → 团队选择 → AI 执行。</div>
+    <div class="note"><b>支撑（全程）</b>：<code>facilitation</code> 共创引擎 · <code>ascentium-brand</code> 品牌 · <code>agent-reach</code> 实时研究。</div>
+    <div class="note"><b>每个环节三步</b>：AI 出菜单 → 团队选择 → AI 执行。产出位置：<code>artifacts/QuestA-NN/</code>（每题一轮一子目录，不覆盖旧轮）。</div>
 
     <h2 style="margin-top:26px;">产出示例（Quest A · 全链路 · 直接可读）</h2>
 
@@ -280,7 +372,7 @@ opencode</code></pre>
         <li><b><code>/prove</code> 论证</b>：团队确定 3–5 个 pilot 预期指标（AI 出建议）→ AI 写出每个指标的推演逻辑。</li>
         <li><b><code>/showcase</code> 呈现</b>：团队选 storyline → AI 生成提案 + PPT + 提示词。</li>
       </ol>
-      <div class="note">所有决策写进 <code>insight.yaml / plan.yaml / metrics.yaml</code> + <code>RUN-LOG.md</code>，可回溯。</div>
+      <div class="note">所有决策写进对应 HTML 产物的内嵌 <code>id="capture"</code> 块，可回溯（无 YAML/Markdown）。</div>
       <div class="note">产出位置：每组每轮一个子目录 <code>artifacts/QuestA-01/</code>（再跑一轮为 <code>artifacts/QuestA-02/</code>，不覆盖旧轮；B 题同理 <code>artifacts/QuestB-01/</code>）。</div>
     </div>
 
@@ -329,7 +421,7 @@ opencode</code></pre>
       <ul>
         <li><b>鼓励成员亲自与 AI 对话。</b>提问、挑选菜单、让 AI 修改 —— 他们要掌握的是这项能力，而不只是拿到一份现成文件。</li>
         <li><b>先确认工具可用。</b>每个环节开始前确认三台设备、命令 / 阶段均能正常运行；因工具问题停摆，比创意讨论耗时更不划算。</li>
-        <li><b>随手记录。</b>每个决定当场写入 YAML + RUN-LOG，活动结束时就是一份可回溯的方案；数据宁可用公开口径 + 标注 <code>Data as of</code>，也不要编造。</li>
+        <li><b>随手记录。</b>每个决定当场写入对应 HTML 产物的内嵌 capture 块，活动结束时就是一份可回溯的方案；数据宁可用公开口径 + 标注 <code>Data as of</code>，也不要编造。</li>
         <li><b>弹性调度。</b>必要时可跳过环节 / 重新投票 / 更换市场 / 合并创意 —— 流程服务于产出，而不是反过来。</li>
       </ul>
     </div>

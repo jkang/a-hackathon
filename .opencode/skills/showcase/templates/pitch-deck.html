@@ -128,11 +128,7 @@
   .gng-h{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:800;}
   .gng-v{font-size:13px;line-height:1.5;margin-top:6px;color:#DDE3E1;}
   .rule{margin-top:14px;font-size:13px;font-weight:600;color:#28302E;}
-  .bigroi{font-size:92px;font-weight:800;line-height:1;color:var(--accent);letter-spacing:-.02em;}
-  .cbgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px;}
-  .cbbox{border:1px solid var(--line);border-radius:12px;padding:16px 18px;}
-  .cbbox .c{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);}
-  .cbbox .n{font-size:28px;font-weight:800;margin-top:6px;color:var(--accent);}
+  /* (legacy cost-benefit styles removed — Prove is now a one-screen pilot-metrics board) */
   .ask{margin-top:auto;background:var(--accent);color:#fff;border-radius:12px;padding:18px 22px;font-size:21px;font-weight:800;line-height:1.3;}
   .moment-band{background:var(--accent);color:#fff;border-radius:12px;padding:16px 20px;margin-top:16px;}
   .moment-band .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.85;}
@@ -409,8 +405,8 @@
     <!-- PROOF -->
     <section class="slide" data-beat="proof">
       <div class="logo">Ascentium<span>.</span></div>
-      <div class="beats-head"><span class="beat">05 · The Proof — condensed</span><span class="beat-note">full 5 metrics &amp; dashboard live in proof.html</span></div>
-      <h2 class="sm">3 numbers that predict the Victory Conditions</h2>
+      <div class="beats-head"><span class="beat">05 · The Proof — condensed</span><span class="beat-note">full metrics &amp; derivation live in proof.html</span></div>
+      <h2 class="sm">The pilot metrics we expect to hit</h2>
       <div class="kpis">
         <div class="kpi"><div class="k">{{K1_NAME}}</div><div class="v">{{K1_VALUE}}</div><div class="d">{{K1_DELTA}}</div></div>
         <div class="kpi"><div class="k">{{K2_NAME}}</div><div class="v">{{K2_VALUE}}</div><div class="d">{{K2_DELTA}}</div></div>
@@ -424,8 +420,8 @@
           <div class="mbar"><span>{{M3}}</span><span class="mtrack"><span class="mfill" style="width:{{M3_PCT}}%"></span></span><span class="mpct">{{M3_PCT}}%</span></div>
         </div>
         <div class="gng">
-          <div class="gng-h">Go / No-Go</div>
-          <div class="gng-v">{{GO_NO_GO_RULE}}</div>
+          <div class="gng-h">How we derive them</div>
+          <div class="gng-v">{{DERIVATION_NOTE}}</div>
         </div>
       </div>
     </section>
@@ -433,18 +429,10 @@
     <!-- ASK -->
     <section class="slide dark" data-beat="ask">
       <div class="logo" style="color:#fff;">Ascentium<span>.</span></div>
-      <div class="beat">06 · Cost-Benefit &amp; The Ask</div>
-      <div style="margin-top:30px;">
-        <div class="bigroi">{{ROI}}</div>
-        <div style="font-size:14px;color:#B9C4C1;margin-top:6px;">projected pilot return</div>
-      </div>
-      <div class="cbgrid">
-        <div class="cbbox" style="border-color:#3A4140;"><div class="c">Pilot cost</div><div class="n" style="color:#fff;">{{BUDGET}}</div></div>
-        <div class="cbbox" style="border-color:#3A4140;"><div class="c">Projected return</div><div class="n" style="color:#fff;">{{PROJECTED_RETURN}}</div></div>
-      </div>
-      <p class="lead" style="margin-top:18px;">{{COST_BENEFIT_LINE}}</p>
+      <div class="beat">06 · The Ask</div>
+      <h2 class="sm" style="color:#fff;margin-top:16px;">{{ASK_HEADLINE}}</h2>
+      <div class="ask" style="margin-top:22px;">{{ASK_LINE}}</div>
       <div class="media">{{MEDIA_ASK}}</div>
-      <div class="ask">Unlock {{FULL_BUDGET}} → {{ASK_LINE}}</div>
     </section>
 
     <!-- STRATEGY (anchor + positioning + 4Ps) -->

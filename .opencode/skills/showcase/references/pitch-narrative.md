@@ -20,7 +20,7 @@ The deck is the **Showcase Report Agent (AUTO)** output. To avoid "every group s
 
 ## Beat library (visual-first)
 
-`title` · `context` (client + evidence) · `problem` (contrast stats) · `insight` (seed + trends) · `audience` (segments + moment) · `keyvisual` (full-bleed illustration) · `poster` · `storyboard` · `prototype` · `lyric` · `strategy` (positioning + 4Ps) · `offering` (the offer / tiers) · `moments` (scenario timeline) · `experiment` (treatment vs control) · `plan` (budget bar chart) · `funnel` (reach→outcome) · `proof` (KPI tiles + sub-metric bars + Go/No-Go) · `ask` (big ROI).
+`title` · `context` (client + evidence) · `problem` (contrast stats) · `insight` (seed + trends) · `audience` (segments + moment) · `keyvisual` (full-bleed illustration) · `poster` · `storyboard` · `prototype` · `lyric` · `strategy` (positioning + 4Ps) · `offering` (the offer / tiers) · `moments` (scenario timeline) · `experiment` (treatment vs control) · `plan` (budget bar chart) · `funnel` (reach→outcome) · `proof` (pilot metric tiles + derivation logic) · `ask` (the ask).
 
 ## Illustrations
 

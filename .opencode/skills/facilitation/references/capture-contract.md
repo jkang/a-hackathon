@@ -16,6 +16,20 @@ Template:
 
 > **FACI-0X >>** MENU · [gate] — **pick [N]** (30s), or `+1` your own. `1)` … `2)` … `3)` … `4)` … `5)` … `6)`
 
+## Where the capture lives — inside the HTML
+
+There are **no separate data files** (no `.yaml`, no `.md`). Each stage records its decisions in the **stage's HTML artifact**, as a single embedded JSON block placed just before `</body>`:
+
+```html
+<script type="application/json" id="capture">
+{ "gate": "insight", "quest": "A", "decision": "…" }
+</script>
+```
+
+- The block is **invisible** in the rendered page (browsers do not display `application/json` scripts).
+- The next gate reads the upstream artifact's `id="capture"` block (grep `id="capture"`, parse the JSON) instead of a YAML file.
+- Never write `.yaml` / `.md` sidecars — the HTML is the single source of truth.
+
 ## Input types
 
 | Type            | Used for                         | Captured as            |
@@ -24,21 +38,22 @@ Template:
 | Idea list       | brainstorm output                | `[{author, text}]`     |
 | Vote tally      | dot-vote result                  | `{idea_id: count}`     |
 | Single choice   | winner / markets / direction     | one value              |
-| Threshold       | Go/No-Go numbers                 | `{metric: value}`      |
+| Target          | expected pilot value             | `{metric: value}`      |
 | One-liner       | proposition / slogan             | string                 |
 
-## Shared capture card (YAML)
+## Capture block shape
 
-Every gate writes into the stage's YAML file. Minimum shape:
-
-```yaml
-gate: insight | creative | proof | showcase
-menu: ["1) ...", "2) ...", "..."]         # the AI-drafted options presented
-inputs:
-  - {type: selection, chosen: [1,4,6], own: ["+1 custom"]}   # team's pick, verbatim
-votes: {idea_id: count}                     # if a vote happened
-decision: "the team's explicit choice"
-timestamp_min: 12                           # minute on the 40-min clock
+```json
+{
+  "gate": "insight | plan | prove | showcase",
+  "quest": "A",
+  "menu": ["1) …", "2) …", "…"],
+  "inputs": [{"type": "selection", "chosen": [1, 4, 6], "own": ["+1 custom"]}],
+  "votes": {"idea_id": 3},
+  "decision": "the team's explicit choice",
+  "timestamp_min": 12,
+  "reasons": ["chosen X because Y"]
+}
 ```
 
 ## Rules
@@ -48,4 +63,4 @@ timestamp_min: 12                           # minute on the 40-min clock
 - Keep the `+1 of our own` channel open and record those additions too.
 - If the team overrides an AI draft, record both: `ai_draft` and `team_override`.
 - Attach every decision to a `timestamp_min` so the run can be replayed.
-- Output goes to the stage YAML (e.g. `insight.yaml`, `plan.yaml`, `metrics.yaml`); never overwrite the `sources/` materials.
+- Output goes into the stage HTML (`insight-brief.html`, `campaign-plan.html`, `proof.html`, `proposal.html`); never overwrite the `sources/` materials.

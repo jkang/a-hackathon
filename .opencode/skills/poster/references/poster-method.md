@@ -9,11 +9,11 @@ A campaign poster is not a slogan on a colour block. It is the **single most-see
 | # | Section | What it carries | Filled from |
 |---|---|---|---|
 | 1 | **Masthead** | creator logo (Ascentium) + **client logo** + edition | card / client |
-| 2 | **Hero lockup** | kicker (edition) + **campaign name** (dominant) + **tagline** | plan.yaml |
+| 2 | **Hero lockup** | kicker (edition) + **campaign name** (dominant) + **tagline** | plan capture |
 | 3 | **Key visual** | the brand illustration (the quest's key-visual motif) | template |
-| 4 | **Lead** | the proposition in one sentence | plan.yaml / insight |
-| 5 | **Offer panel** | 3 cards: the offer / markets / access. For membership: the **tiers** | plan.yaml |
-| 6 | **Bullets** | 3 concrete benefits / proof points | plan.yaml |
+| 4 | **Lead** | the proposition in one sentence | plan / insight captures |
+| 5 | **Offer panel** | 3 cards: the offer / markets / access. For membership: the **tiers** | plan capture |
+| 6 | **Bullets** | 3 concrete benefits / proof points | plan capture |
 | 7 | **Stats band** | 4 hard numbers (target, market, benchmark, window) | card / proof |
 | 8 | **CTA band** | action button + **hashtag** + **URL** + **QR** | team |
 | 9 | **Footer** | partners + sources + data-as-of | card |
@@ -67,7 +67,7 @@ All three carry the **same** 9 sections. Vary: colour balance, typographic scale
 
 - Present all three; do **not** decide.
 - Preview them in the **tab page** (`poster.html`) and/or the Showcase deck's poster beat; each style is also its own clean page (`poster-a|b|c.html`) for cropping/embedding.
-- Record `poster.style: a|b|c` in `plan.yaml`; the deck and proposal embed the matching page.
+- Record `poster.style: a|b|c` in the plan capture; the deck and proposal embed the matching page.
 
 ## Anti-patterns
 

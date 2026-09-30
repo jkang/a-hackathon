@@ -96,7 +96,7 @@
     <a data-pane="insight"><span class="n">02</span> Insight Brief</a>
     <a data-pane="plan"><span class="n">03</span> Plan &amp; Offering</a>
     <a data-pane="poster"><span class="n">04</span> Campaign Poster</a>
-    <a data-pane="proof"><span class="n">05</span> Proof &amp; Metrics</a>
+    <a data-pane="proof"><span class="n">05</span> Pilot Metrics</a>
     <a data-pane="deck"><span class="n">06</span> Pitch Deck</a>
     <a data-pane="prompt"><span class="n">07</span> Media Prompt Pack</a>
   </nav>
@@ -112,7 +112,7 @@
       <h1>{{DECK_TITLE}}</h1>
       <div class="slogan">"{{IDEA_SLOGAN}}"</div>
       <div class="prop">{{IDEA_PROPOSITION}}</div>
-      <div class="ask">Unlock {{FULL_BUDGET}} → {{ASK_LINE}}</div>
+      <div class="ask">{{ASK_LINE}}</div>
     </div>
     <div class="band">"{{SEED_INSIGHT}}"</div>
     <div class="tiles">
@@ -140,7 +140,7 @@
 
   <!-- 05 · PROOF & METRICS (full artifact) -->
   <section class="pane" id="pane-proof">
-    <div class="viewer"><iframe data-auto title="Proof of Trajectory" srcdoc="{{SRCDOC_PROOF}}"></iframe></div>
+    <div class="viewer"><iframe data-auto title="Pilot Metrics" srcdoc="{{SRCDOC_PROOF}}"></iframe></div>
   </section>
 
   <!-- 06 · PITCH DECK (full artifact · fixed viewport height) -->
@@ -212,5 +212,8 @@
   fitActive();
 })();
 </script>
+
+<!-- structured capture — invisible in the page (see facilitation/capture-contract.md) -->
+<script type="application/json" id="capture">{{CAPTURE_JSON}}</script>
 </body>
 </html>

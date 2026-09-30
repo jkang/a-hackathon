@@ -38,7 +38,7 @@ Produce a one-page **Insight Brief** that seeds the creative gate. The AI scaffo
 7. **SWOT synthesis (AI drafts → team confirms).** Run **`swot-analysis`**: internal S/W (from `business-research`) × external O/T (from `audience-analysis` + market) → the strategic read.
 8. **Key insights (AI drafts → team confirms).** Distil **~6 key insights** from the org profile + trends + audience + SWOT. Each insight = a **data-backed tension** (a fact/trend + its "so what"), with a source.
 9. **Pick 2–3 to deep-dive.** The team **selects 2–3 of the ~6** to carry into the `plan` gate (the rest are parked). This is the gate's destination.
-10. **Capture.** Write `insight.yaml` (record the menus, the ~6 insights, and the team's selection).
+10. **Capture.** Record the menus, the ~6 insights, and the team's selection in the artifact's embedded `id="capture"` block (see Output). No separate data file.
 
 ## HITL gates (mandatory)
 
@@ -48,30 +48,30 @@ The AI must **not** choose any of these — it only drafts the menu. Always keep
 
 ## Output
 
-- `insight-brief.html` — Ascentium-branded one-pager (use `templates/insight-brief.html` + `ascentium-brand`).
-- `insight.yaml` — structured capture for downstream gates.
+- `insight-brief.html` — Ascentium-branded one-pager (use `templates/insight-brief.html` + `ascentium-brand`). **The only artifact** — no separate data file.
+- The structured capture is embedded in that artifact: an invisible `<script type="application/json" id="capture">` block just before `</body>`. The `plan` gate reads it.
 
-### insight.yaml schema
+### capture block (embedded in `insight-brief.html`)
 
-```yaml
-quest: A | B
-client: "..."
-mission: "one line from the card"
-org_profile: {assets: [...], constraints: [...]}
-benchmark: {gold_standard, cautionary_tale, arena}
-market:
-  trends: [{trend, why_it_matters}]          # 2–3 shifts
-  truths: [{author, text}]                    # raw field truths, verbatim
-segments:                                      # 2–4 audience segments
-  - {name, who, job_functional, job_social, job_emotional, barrier, trigger}
-moment_of_truth: {when, where, event}          # the decision scenario
-clusters: [{theme, items}]                     # AI affinity clustering
-swot: {strengths: [...], weaknesses: [...], opportunities: [...], threats: [...]}  # from swot-analysis
-key_insights:                                   # ~6 AI-drafted, data-backed insights
-  - {id: 1, text: "fact/trend + so-what", evidence: "...", source: "..."}
-selected_insights: [1, 4]                       # 2–3 the team chose to deep-dive in the plan
-seed_insight: "the one-line overarching tension (optional, ties the 6 together)"
-source_note: "Scout Report, Data as of 2026-09"
+```html
+<script type="application/json" id="capture">
+{
+  "gate": "insight",
+  "quest": "A",
+  "client": "…",
+  "mission": "one line from the card",
+  "org_profile": {"assets": ["…"], "constraints": ["…"]},
+  "benchmark": {"gold_standard": "…", "cautionary_tale": "…", "arena": "…"},
+  "market": {"trends": [{"trend": "…", "why_it_matters": "…"}], "truths": ["…"]},
+  "segments": [{"name": "…", "who": "…", "job_functional": "…", "job_social": "…", "job_emotional": "…", "barrier": "…", "trigger": "…"}],
+  "moment_of_truth": {"when": "…", "where": "…", "event": "…"},
+  "swot": {"strengths": ["…"], "weaknesses": ["…"], "opportunities": ["…"], "threats": ["…"]},
+  "key_insights": [{"id": 1, "text": "fact/trend + so-what", "evidence": "…", "source": "…"}],
+  "selected_insights": [1, 4],
+  "seed_insight": "the one-line overarching tension",
+  "source_note": "Scout Report, Data as of 2026-09"
+}
+</script>
 ```
 
 ## Methodology anchors

@@ -20,7 +20,7 @@ A reusable rubric to assess the **quality of a final pitch deck / proposal** (bo
 | 2 | **Strategy** | 15% | focused target segment, positioning/differentiation, where-to-play & how-to-win, market opportunity | one sharp segment + a clear positioning + a differentiated "how we win" | "for everyone", no differentiation, no how-to-win |
 | 3 | **Creative** | 20% | memorable & ownable big idea; anchored to the insight; name + slogan; distinctiveness | an idea you remember, rivals can't copy, tied to the insight | a generic slogan, unrelated to the insight, works for any brand |
 | 4 | **Pilot** | 15% | 2 markets × 3 months × MVP budget holds; hypothesis / control / measurement; sensible budget split | rigorous experiment (control, falsifiable), justified budget | "we do marketing", no hypothesis/control/measurement |
-| 5 | **Proof** | 15% | sub-metrics predict Victory Conditions; benchmark-defended; Go/No-Go set up front; ROI derivable | metrics map 1:1 to VCs + benchmark + pre-set threshold + derivable ROI | metrics invented, no source, ROI pulled from the air |
+| 5 | **Proof** | 15% | the pilot's expected metrics; each benchmark-anchored with a clear derivation chain (benchmark → assumption → formula) | 3–5 pilot metrics on the funnel, each with a target + a visible derivation | metrics invented, no source, no derivation |
 | 6 | **Storytelling** | 10% | narrative arc; the idea is *shown* not described; clear ask; emotional pull | build → climax → close, idea dramatized, one-line ask | flat report, idea is just text, no explicit ask |
 | 7 | **Presentation** | 5% | visual density, brand consistency, plan detail fully surfaced | one strong visual per slide, brand-locked, details included | text walls, templated, missing detail |
 
@@ -45,9 +45,9 @@ Pct   = Total × 20                # out of 100
 
 ## The most common gap (watch for it)
 
-**"Number defensibility."** Ideas and insights are usually strong; the *numbers* (ROI, price anchors, scale path) are where pitches collapse under questioning. Fix with the derivation templates:
+**"Number defensibility."** Ideas and insights are usually strong; the *numbers* (pilot targets) are where pitches collapse under questioning. Fix with the derivation templates:
 
-- ROI: `prove/references/cost-benefit.md` — a repeatable unit-economics formula.
-- Price anchor & scale path: `plan/references/budget-model.md`.
+- Pilot metrics & derivation chain: `prove/references/metrics-method.md`.
+- Price anchor & budget split: `plan/references/budget-model.md`.
 
-A number you can't show a derivation for is a claim, not a case.
+A number you can't show a derivation for (benchmark → assumption → formula) is a claim, not a case.

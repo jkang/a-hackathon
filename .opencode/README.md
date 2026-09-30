@@ -73,10 +73,10 @@ flowchart TD
     H2 --> O["opportunity + campaign plan → A/B"]
     O --> H3{"👤 pick A or B"}
     H3 --> H4{"👤 poster: direction + one-liner"}
-    H4 --> V["3 · PROVE — draft ~8 metrics"]
-    V --> H5{"👤 pick 3–5 metrics + thresholds"}
-    H5 --> C["sample → cost-benefit (ROI)"]
-    C --> H6{"👤 confirm numbers"}
+    H4 --> V["3 · PROVE — draft ~8 pilot metrics"]
+    V --> H5{"👤 pick 3–5 metrics"}
+    H5 --> C["write derivation logic → one-screen board"]
+    C --> H6{"👤 confirm targets"}
     H6 --> S["4 · SHOWCASE — 5 storylines"]
     S --> H7{"👤 pick storyline"}
     H7 --> H8{"👤 poster on/off · deck direction"}
@@ -90,14 +90,14 @@ flowchart TD
     class H1,H2,H3,H4,H5,H6,H7,H8,H9 hitl;
 ```
 
-Legend — **teal diamonds = HITL (the team decides)** · orange boxes = the AI does. Artifacts land after each gate (`insight-brief` → `campaign-plan (A/B)` + `poster` → `proof` (incl. KPI dashboard) → `proposal` + `pitch-deck`).
+Legend — **teal diamonds = HITL (the team decides)** · orange boxes = the AI does. Artifacts land after each gate (`insight-brief` → `campaign-plan (A/B)` + `poster` → `proof` (one-screen pilot metrics) → `proposal` + `pitch-deck`).
 
 | Time | Gate | You do | The team decides |
 |---|---|---|---|
 | 0–2′ | **Kick-off** | Read the card; 30-second scout summary; open the first menu | — |
 | 2–10′ | **Insight** | Research → trends / audience / moment / truths menus | trends · segments · moment · seed insight |
 | 10–22′ | **Plan** (+ poster) | Anchor + scenario + idea menus → markets → budget → build the poster | anchor · idea · 2 markets · budget · visual |
-| 22–30′ | **Prove** | Metrics menu + ROI derivation | 3–5 metrics · Go/No-Go |
+| 22–30′ | **Prove** | Pilot-metrics menu + write the derivation logic | 3–5 expected metrics |
 | 30–38′ | **Showcase** | Storyline + poster on/off menus → build the proposal + deck (+ prompt-pack) | storyline · poster · one-liner · bonus media |
 | 38–40′ | **Converge** | Package and confirm | confirm |
 
@@ -111,26 +111,26 @@ The agenda is a **suggested happy path**. On any team signal, comply in one line
 - **"Only 8 minutes"** → fast mode: compress, assemble in parallel.
 - **"Redo the vote"** → re-run only the dot-vote protocol.
 - **"Just a poster"** → run the `poster` skill alone.
-- **"Switch a market"** → edit `plan.yaml`; regenerate proof.
+- **"Switch a market"** → edit the `campaign-plan.html` capture; regenerate proof.
 - **"Skip to slogan"** → run only the idea menu.
 
 ---
 
 ## 6. What you produce
 
-Everything lands in **one round folder**: `artifacts/Quest<ID>-<NN>/` (e.g. `artifacts/QuestA-01/`; the next run → `QuestA-02`). Never overwrite a previous round. **`RUN-LOG.md`** records the decisions (the team's in facilitate mode, the AI's in autopilot).
+Everything lands in **one round folder**: `artifacts/Quest<ID>-<NN>/` (e.g. `artifacts/QuestA-01/`; the next run → `QuestA-02`). Never overwrite a previous round.
 
-**Data (hand-off between gates):** `insight.yaml` · `plan.yaml` · `metrics.yaml`
+**Outputs are HTML only** — no YAML, no Markdown. Each stage records the decisions (the team's in facilitate mode, the AI's in autopilot) in its own HTML, in an invisible `<script type="application/json" id="capture">` block. **Hand-off between gates:** each gate reads the previous stage's `id="capture"` block.
 
 **HTML artifacts (all double-click openable, English, Ascentium-branded):**
 
 | Artifact | From |
 |---|---|
-| `insight-brief.html` | insight |
-| `campaign-plan.html` | plan |
-| `poster.html` | poster |
-| `proof.html` (incl. KPI dashboard MOCK) | prove |
-| **`proposal.html`** | showcase — **the umbrella**: one navigable document aggregating the whole case (executive summary, insight, plan, poster, proof, and an index linking every artifact) |
+| `insight-brief.html` (capture embedded) | insight |
+| `campaign-plan.html` (capture embedded) | plan |
+| `poster.html` (+ `poster-a|b|c.html`) | poster |
+| `proof.html` (one-screen pilot metrics; capture embedded) | prove |
+| **`proposal.html`** | showcase — **the umbrella**: one navigable document embedding the whole case (executive summary + insight, plan, poster, pilot metrics, deck and prompt-pack as full artifacts) |
 | `pitch-deck.html` + `prompt-pack.html` | showcase |
 
 > **`proposal.html` is the package** a judge reads start-to-finish; the deck is one of its views. Always generate the proposal.

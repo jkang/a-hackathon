@@ -9,12 +9,12 @@ The creative heart. Flow: **diverge → pick → define + plan → A/B → poste
 
 ## When to use
 
-- After `insight` (needs `insight.yaml`: key insights + selected insights + audience/moment).
+- After `insight` (reads the `insight-brief.html` capture: key insights + selected insights + audience/moment).
 - When the team wants only the brainstorm, or only the poster — call the relevant sub-skill directly.
 
 ## Inputs
 
-- `insight.yaml` — especially `key_insights` + `selected_insights` (the 2–3 chosen).
+- The `insight-brief.html` capture — especially `key_insights` + `selected_insights` (the 2–3 chosen).
 - Quest card — the **How Might We**, War Chest budget (MVP unlock + full, from the card), Victory Conditions, scale-up gate.
 
 ## Flow (uses the `facilitation` engine)
@@ -36,52 +36,37 @@ The AI drafts the menus/versions but **never decides** for the team.
 
 ## Output
 
-- `campaign-plan.html` — the chosen plan (DOC_TYPE: "Campaign Plan" / "Membership Design").
-- `plan.yaml` — structured capture (ideas, selection, opportunity, the A/B variants + the chosen one, pilot, budget, poster direction).
+- `campaign-plan.html` — the chosen plan (DOC_TYPE: "Campaign Plan" / "Membership Design"). **The only data artifact** — no separate file.
+- The structured capture is embedded in that artifact: an invisible `<script type="application/json" id="capture">` block just before `</body>`. The `prove` and `showcase` gates read it.
 
-### plan.yaml schema
+### capture block (embedded in `campaign-plan.html`)
 
-```yaml
-quest: A | B
-selected_insights: [1, 4]                     # from insight.yaml
-anchor:                                       # from creative-concept (the brief)
-  {segment: "...", job: "...", moment: "...", mechanic: "...", desire: "..."}
-scenario:                                     # 3–5 campaign moments (time · place · event)
-  - {moment: "...", time: "...", place: "...", event: "..."}
-hmw: "How might we ..."
-ideas:                                        # ~6 diverged (name, one-line, insight, mechanic)
-  - {id: 1, name: "...", one_line: "...", insight: "...", mechanic: "..."}
-selected_ideas: [2, 5]                        # 2–3 chosen (or a combination note)
-combination: "mechanic of 2 + audience of 5"  # optional, if the team combined
-concept:                                      # the chosen concept
-  {name: "...", slogan: "...", proposition: "...", offer: "..."}
-opportunity:                                  # from opportunity-definition (5 elements)
-  e1: "one-line opportunity"
-  e2: "segment & scenario"
-  e3: "pain / tension"
-  e4: "solution hypothesis + guardrail"
-  e5: "value / return"
-  value_breakdown: [scope, frequency, per_instance, cumulative]
-variants:                                     # ≥2 A/B plan versions (each fully specified)
-  A:
-    positioning: "..."
-    offering: "..."
-    mix: {product: "...", price: "...", place: "...", promotion: "..."}
-    pilot:                                     # the experiment + measurement (deliverable #2)
-      markets: ["...", "..."]
-      hypothesis: "If ... then ..."
-      treatment: "..."
-      control: "..."
-      measurement_setup: "..."
-    budget: {total: "...", allocation: [{market, channel, tactic, amount}]}
-  B:
-    positioning: "..."
-    offering: "..."
-    mix: {product: "...", price: "...", place: "...", promotion: "..."}
-    pilot: {markets: [...], hypothesis: "...", treatment: "...", control: "...", measurement_setup: "..."}
-    budget: {total: "...", allocation: [...]}
-chosen_variant: A
-poster: {visual_direction: "...", one_liner: "..."}
+```html
+<script type="application/json" id="capture">
+{
+  "gate": "plan",
+  "quest": "A",
+  "selected_insights": [1, 4],
+  "anchor": {"segment": "…", "job": "…", "moment": "…", "mechanic": "…", "desire": "…"},
+  "scenario": [{"moment": "…", "time": "…", "place": "…", "event": "…"}],
+  "hmw": "How might we …",
+  "ideas": [{"id": 1, "name": "…", "one_line": "…", "insight": "…", "mechanic": "…"}],
+  "selected_ideas": [2, 5],
+  "combination": "mechanic of 2 + audience of 5",
+  "concept": {"name": "…", "slogan": "…", "proposition": "…", "offer": "…"},
+  "opportunity": {"e1": "…", "e2": "…", "e3": "…", "e4": "…", "e5": "…"},
+  "variants": {
+    "A": {"positioning": "…", "offering": "…", "mix": {"product": "…", "price": "…", "place": "…", "promotion": "…"},
+          "pilot": {"markets": ["…", "…"], "hypothesis": "…", "treatment": "…", "control": "…", "measurement_setup": "…"},
+          "budget": {"total": "…", "allocation": [{"market": "…", "channel": "…", "tactic": "…", "amount": "…"}]}},
+    "B": {"positioning": "…", "offering": "…", "mix": {"product": "…", "price": "…", "place": "…", "promotion": "…"},
+          "pilot": {"markets": ["…", "…"], "hypothesis": "…", "treatment": "…", "control": "…", "measurement_setup": "…"},
+          "budget": {"total": "…", "allocation": []}}
+  },
+  "chosen_variant": "A",
+  "poster": {"visual_direction": "…", "one_liner": "…"}
+}
+</script>
 ```
 
 ## Assemble (AI fills the framework; the team overrides fast)

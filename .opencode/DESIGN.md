@@ -17,12 +17,12 @@ Toolkit 目标：让**每组 14 个人的创意与判断**在 50 分钟内被充
 ## 2. 核心定位（锁定）
 
 1. **AI = Robot Facilitator（机器人主持人）**，对应 run-sheet 的 FACI-01~08 设定：串场、出题、计时、记录、排版。
-2. **人 = 创意与判断核心**：出大创意、选市场、定指标、定 Go/No-Go、选视觉方向。
+2. **人 = 创意与判断核心**：出大创意、选市场、定 pilot 指标、选视觉方向。
 3. **AI 做研究，团队做判断**：题卡已含核心数据；**insight 环节 AI 主动用 `agent-reach` 搜真实数据/报告/标杆**，把事实蒸馏成「带数字的洞察选项」供团队选择。研究工作量落在 AI，判断落在人。要避免的是**团队**做研究马拉松，不是 AI 做研究。
 4. **6 个交付物 = 6 个「人的决定」**，AI 一次都不替团队拍板。
 5. **品牌唯一来源**：`skills/ascentium-brand/brand-guideline.md`（Ascentium R1.10，含 Design Tokens §11）。
 6. **流程弹性 > 流程纪律**：40 分钟节奏只是「建议 happy path」，不是硬脚本。现场有动态变化、时间吃紧、团队要跳关/换向/重来时，**人可自由调度任何元技能/阶段技能**，AI 必须顺应，不执拗于原定流程。
-7. **全英文交付（English-only）**：受众语言为英文。所有技能正文（SKILL.md）、触发词、YAML 字段、输出 HTML、README/Playbook、Robot Facilitator 话术、HMW 提问**一律英文**。题卡本身即英文，保持一致。（仅 `brand-guideline.md` 为 Ascentium 官方中文源文件，作为唯一品牌依据保留中文，`ascentium-brand` 技能从中抽英文 token 与规则。）
+7. **全英文交付（English-only）**：受众语言为英文。所有技能正文（SKILL.md）、触发词、capture JSON 字段、输出 HTML、README/Playbook、Robot Facilitator 话术、HMW 提问**一律英文**。题卡本身即英文，保持一致。（仅 `brand-guideline.md` 为 Ascentium 官方中文源文件，作为唯一品牌依据保留中文，`ascentium-brand` 技能从中抽英文 token 与规则。）
 
 ---
 
@@ -37,7 +37,7 @@ AI 给脚手架/问题  →  团队发散(人人出点子)  →  团队收敛(�
 4 个关卡（对应 4 个 quest 技能）：
 - **洞察门**（insight）：团队注入「市场真相」→ 收敛出「种子洞察」
 - **创意门**（plan）：团队发散大创意 → 投票选赢家 → AI 搭成完整方案
-- **论证门**（prove）：团队挑指标 + 定阈值 → AI 建 KPI 看板
+- **论证门**（prove）：团队挑 pilot 预期指标 → AI 写推演逻辑 + 出单屏看板
 - **呈现门**（showcase）：团队选视觉/主张 → AI 生成海报 + 路演稿
 
 ### 3.1 灵活调度模型（关键）
@@ -58,10 +58,10 @@ AI 给脚手架/问题  →  团队发散(人人出点子)  →  团队收敛(�
 |---|---|---|---|---|
 | 0 | `ascentium-brand` | 地基 | 无 | tokens.css / 组件规则 / 三类模板 |
 | 1 | `facilitation` | 元技能 | 无 | 协作协议库 + 节奏模板 + 串场话术 |
-| 2 | `insight` | 阶段技能 | brand + facilitation | insight-brief.html + insight.yaml |
-| 3 | `plan` | 阶段技能 | insight | campaign-plan.html + plan.yaml |
+| 2 | `insight` | 阶段技能 | brand + facilitation | insight-brief.html |
+| 3 | `plan` | 阶段技能 | insight | campaign-plan.html |
 | 3b | `poster` | 阶段技能（Create） | plan | poster.html |
-| 4 | `prove` | 阶段技能 | plan | proof.html + metrics.yaml |
+| 4 | `prove` | 阶段技能 | plan | proof.html |
 | 5 | `showcase` | 阶段技能 | 前三者 + poster | pitch-deck.html + prompt-pack.html（内嵌 poster） |
 | 6 | `facilitator`（Agent） | 编排 | 全部 | 40 分钟一键串场 |
 | 7 | `README.md` | 说明 | — | Quest Playbook（交付物↔技能↔模板） |
@@ -79,9 +79,7 @@ AI 给脚手架/问题  →  团队发散(人人出点子)  →  团队收敛(�
 | 1 | Pilot **campaign** concept（2 Asian markets, 3mo）／Pilot **membership** design（2 overseas markets, 3mo） | `plan`（creative-concept → `offering`） | 大创意 + 会员设计 |
 | 2 | Experiment plan & **measurement setup** | `plan`（`experiment.measurement_setup`）+ `prove` | 选市场 / 成功口径 |
 | 3 | Hero visual / poster ／ **Founding-member offer** + hero visual | `plan`（`offering.founding_offer`）+ **`poster`**（hero visual） | 视觉方向 |
-| 4 | **KPI dashboard mock**（仅 A 明列；B 由 measurement setup 隐含） | `prove`（dashboard） | 样例数字 |
-| 5 | Go / no-go criteria for scale-up | `prove`（threshold_go/no_go） | 阈值 |
-| 6 | **3–5 self-defined MVP sub-metrics**（no fixed numbers，用 Scout Report 标杆佐证，证明预测 Victory Conditions） | `prove`（metrics.benchmark_ref） | 挑指标 |
+| 4 | **Pilot expected metrics + derivation logic**（3–5 个 pilot 预期指标；每条用 Scout Report 标杆佐证并写出推演链 benchmark → assumption → formula） | `prove`（单屏 `proof.html`，capture 内嵌） | 挑指标 |
 
 **题卡 Arsenal 技能链 ↔ 本设计映射**：
 
@@ -89,15 +87,15 @@ AI 给脚手架/问题  →  团队发散(人人出点子)  →  团队收敛(�
 |---|---|---|
 | Insight: Market Research · Audience Analysis · Benchmark Analysis（A）／Company Profiler (IP audit) · Audience Analysis · Market Research（B） | `insight` | AI 脚手架（组织画像/标杆对照）+ 团队「市场真相」 |
 | Create: Creative Concept · MVP Pilot Design · Poster | `plan`（创意/试点）+ **`poster`**（海报） | 人发散投票 + AI 拼装 |
-| Prove: Cost-Benefit · Data Analysis & Viz | `prove` | 子指标 + 看板 + 成本收益 |
+| Prove: Cost-Benefit · Data Analysis & Viz | `prove` | Pilot 预期指标 + 推演逻辑（单屏看板）；Go/No-Go、成本收益、scale-up 已移除 |
 | ★ Showcase Report Agent (AUTO) | `showcase`（AUTO） | 一键聚合 |
 
 **本轮对照修正点（已回写 §7）**：
-1. 交付物 #2「experiment + measurement setup」显式落到 `plan.yaml` 的 `experiment.measurement_setup` 字段（原设计漏了测量口径）。
-2. 交付物 #3 B 的「Founding-member offer」落到 `plan.yaml` 的 `offering.founding_offer`，并由 showcase 打上海报（原设计只做了「海报」，漏了「offer」本体）。
-3. 题卡明示「Budget allocation is part of the solution」→ `plan.yaml` 新增 `budget.allocation` 且为**人的决定**（原设计未显式）。
-4. 题卡把「Cost-Benefit」归在 **Prove** → 成本收益/ROI 论证从 plan 移到 `prove`（原设计放在 plan 的「回本测算」）。
-5. 指标必须「用 Scout Report 标杆佐证」→ `metrics` 增加 `benchmark_ref` 字段（原设计未要求对标）。
+1. 交付物 #2「experiment + measurement setup」显式落到 `campaign-plan.html` capture 的 `experiment.measurement_setup` 字段（原设计漏了测量口径）。
+2. 交付物 #3 B 的「Founding-member offer」落到 `campaign-plan.html` capture 的 `offering.founding_offer`，并由 showcase 打上海报（原设计只做了「海报」，漏了「offer」本体）。
+3. 题卡明示「Budget allocation is part of the solution」→ capture 新增 `budget.allocation` 且为**人的决定**（原设计未显式）。
+4. **Prove 简化（本轮）**：只保留 pilot 预期指标 + 推演逻辑；移除 Go/No-Go、Cost-Benefit/ROI、scale-up、KPI 看板 mock。
+5. 指标必须「用 Scout Report 标杆佐证」并写出推演链 → `metrics` 用 `benchmark_ref` + `derivation`（benchmark → assumption → formula）。
 
 
 
@@ -141,7 +139,7 @@ AI 给脚手架/问题  →  团队发散(人人出点子)  →  团队收敛(�
 
 ### 5.6 采集契约（Capture Contract）
 - **HITL 门**：AI 在每关发散/收敛后**必须停下**，显式请求团队输入，不得跳过。
-- **采集卡（YAML）**：统一记录格式（见各 quest 技能的 capture schema）。
+- **采集卡（内嵌 JSON in HTML）**：统一记录格式（见各 quest 技能的 capture schema）。
 - **输入类型**：点子列表 / 票数 / 单选 / 阈值数字 / 一句话主张。
 
 ### 5.7 反模式（Anti-patterns）
@@ -183,7 +181,7 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 ### 7.1 `insight`（洞察门 · 8 分钟）
 - **目标**：产出一份**厚洞察**：市场趋势 + 人群分层（含 JTBD）+ 关键时刻 + 市场真相 → 种子洞察。**光有真相不够，必须有人群与需求分析**，否则下游创意无根。
 - **输入**：Quest 题卡（含 Scout Report）。
-- **输出**：`insight-brief.html` + `insight.yaml`。
+- **输出**：`insight-brief.html`（decisions 内嵌于 `id="capture"` 块）。
 - **facilitate（串场）**：
   1. **研究（AI）**：读题卡 → **用 `agent-reach` 搜真实数据/报告/标杆**（市场、消费者趋势、出行、创作者经济等）→ 蒸馏成数据化洞察选项。这是所有菜单的数据底座。
   2. **市场趋势**：AI 出 **6–8 个带数据的趋势选项** → 团队**选 2–3**（可 +1 自选）`{trend, why_it_matters}`。
@@ -192,8 +190,8 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
   5. **市场真相**：AI 出 **6–8 条候选洞察** → 团队勾选共鸣的（可 +1 自选），逐条 verbatim 采集。
   6. 聚类 + 团队确认**一句话种子洞察**。
   > 每步均为**选择题**（见 §5.3 Option Menu）；AI 不替团队选。
-- **capture（insight.yaml）**：
-  ```yaml
+- **capture（内嵌于 `insight-brief.html` 的 `id="capture"` JSON 块）**：
+  ```json
   quest: A|B
   org_profile: {assets, constraints}
   benchmark: {gold_standard, cautionary_tale, arena}
@@ -210,8 +208,8 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 
 ### 7.2 `plan`（创意门 · 14 分钟 · 最重）
 - **目标**：**先锚定（人群 + 时刻）再发散**，让创意有根；再由 AI 拼成完整方案。
-- **输入**：`insight.yaml`（含 segments + moment）。
-- **输出**：`campaign-plan.html` + `plan.yaml`（含**实验计划与测量口径**）。
+- **输入**：`insight-brief.html` capture（含 segments + moment）。
+- **输出**：`campaign-plan.html`（含**实验计划与测量口径**，capture 内嵌）。
 - **facilitate**：
   1. **锚定**：填创意 brief——「为【哪类人群】、其【情绪 job】、在【哪个时刻】、我们要【做什么机制】」。
   2. **场景画布**：列 3–5 个 campaign 时刻（时间/地点/事件），选 1–2 个作为创意主线。
@@ -220,8 +218,8 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
   5. 1-2-4-All 5′ 深挖赢家 → 「一句话主张 + 命名 + slogan + 它占领的时刻」。
   6. 团队选 2 个试点市场 + 成功口径（3′）。
   7. **团队做预算切分**（1.5M/1.1M 按市场/渠道/战术分配）——题卡明示「Budget allocation is part of the solution」。
-- **capture（plan.yaml）**：
-  ```yaml
+- **capture（内嵌于 `campaign-plan.html` 的 `id="capture"` JSON 块）**：
+  ```json
   quest: A|B
   seed_insight: "..."
   audience: {primary_segment, job_to_be_done}          # 锚点
@@ -249,28 +247,25 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 - **吸收/改造**：`opportunity-definition`（去 AI 口径→营销机会点）；`creative-concept`（人群+场景锚定 + HMW + 创意方法 → ~6 ideas，吸收自原 brainstorming + creative-concept.md）；`marketing-plan`（定位/4Ps）。
 
 ### 7.3 `prove`（论证门 · 8 分钟）
-- **目标**：3–5 子指标 + Go/No-Go 阈值 + KPI 看板 mock + **成本收益（Cost-Benefit）**。
-- **输入**：`plan.yaml`（含 budget）+ 题卡 Victory Conditions。
-- **输出**：`proof.html` + `metrics.yaml`。
+- **目标**：pilot 预期要达成的指标（3–5 个）+ 每个指标数值的**推演逻辑**；输出一屏 `proof.html`。**不含** Go/No-Go、成本收益/ROI、scale-up。
+- **输入**：`campaign-plan.html` capture（含 pilot 市场/窗口/budget）+ 题卡 Scout Report 标杆。
+- **输出**：`proof.html`（单屏，capture 内嵌）。
 - **facilitate**：
-  1. AI 展示「胜利条件 → 可证伪子指标」草稿（reach→engagement→conversion→售票/会员/特许）。
-  2. 团队挑 3–5 个指标 + 定 Go/No-Go 阈值（辩论，4′）——**用 Scout Report 标杆佐证**。
-  3. 团队给 1–2 个「样例数字」让看板有真实感。
-  4. AI 用 budget + 指标算出**成本收益**：试点 ROI 是否支撑「解锁全额 30M/11M」。
-- **capture（metrics.yaml）**：
-  ```yaml
-  victory_conditions: [...]
-  metrics: [ {name, formula, benchmark_ref, target, threshold_go, threshold_no_go}, ... ]  # benchmark_ref 引用题卡标杆
-  sample_data: {...}
-  cost_benefit: {budget, projected_return, roi, unlock_verdict}
+  1. AI 展示 pilot 漏斗（reach→engagement→conversion→outcome）的候选指标菜单（~6–8 个，各带建议目标 + 一句推演草稿）。
+  2. 团队挑 3–5 个（+1 自选）——**用 Scout Report 标杆佐证**。
+  3. AI 为每个指标写推演链：`benchmark → assumption → formula → target`。
+  4. AI 出单屏可视化（漏斗 + 指标卡 + 推演行）。
+- **capture（内嵌于 `proof.html` 的 `id="capture"` JSON 块）**：
+  ```json
+  pilot: {window, markets, budget}
+  metrics: [ {name, dimension, target, derivation: {benchmark_ref, formula, assumptions, logic}}, ... ]
   ```
-- **assemble**：proof.html + KPI 看板 mock（用 `data-visualizer-pro`，补手工录入数值路径）+ 成本收益小结。
-  - Quest A：KPI 看板 mock 为**必交付物**；Quest B 题卡未单列看板，但「measurement setup + Data Analysis & Viz」隐含，仍出（可精简）。
-- **吸收/改造**：`campaign-metrics`（→营销漏斗子指标 + Go/No-Go，保留其「解锁/门禁」框架）；`cost-benefit.md`（→成本收益/ROI 论证，reference）。
+- **assemble**：`proof.html` 单屏（pilot 漏斗 + 指标卡 + 推演行），品牌随题卡 accent。
+- **保留但不再调用**：`sub-skills/campaign-metrics`、`sub-skills/data-visualizer-pro`、`references/cost-benefit.md` 留在库中（休眠），本门不调用。
 
 ### 7.4 `showcase`（呈现门 · 8 分钟 · AUTO）＝题卡「Showcase Report Agent (AUTO)」
 - **目标**：**多形态**呈现——5 种 storyline + signature element 承载核心创意 + 可选加分媒体（歌曲/视频/图片）。避免十组同一模板。
-- **输入**：`insight.yaml + plan.yaml + metrics.yaml`。
+- **输入**：上游三个 HTML 的内嵌 capture（`insight-brief.html` / `campaign-plan.html` / `proof.html`）。
 - **输出**：`pitch-deck.html`（可配置 storyline）+ `prompt-pack.html`（可选）；**内嵌** `poster`（由 `poster` 技能产出）。
 - **facilitate**：
   1. **团队选 storyline**（S1 Classic / S2 Hero's Journey / S3 Big Reveal / S4 Demo / S5 Trailer）——决定 deck 形状与 signature element。
@@ -283,7 +278,7 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 - **assemble**：
   - **内嵌** `poster.html`（由独立 `poster` 技能产出，作为 Classic / Big Reveal 的 `poster` beat + poster signature）。
   - pitch-deck.html（**可配置 5 storylines**）：title / problem / insight / **poster** / **storyboard** / **prototype** / **lyric** / strategy / moments / experiment / budget / funnel / proof / ask，按 storyline 选取顺序；全屏自适应 + ←/→ + F 全屏；**核心创意由 signature element 承载**（不靠文字描述）。
-  - prompt-pack.html（**提示词脚本包**）：歌曲/视频/图片三类，从 plan.yaml 自动填好，复制即用；媒体占位符预置在 deck（图→poster、视频→storyboard、歌→lyric、加分→ask）。
+  - prompt-pack.html（**提示词脚本包**）：歌曲/视频/图片三类，从 campaign-plan capture 自动填好，复制即用；媒体占位符预置在 deck（图→poster、视频→storyboard、歌→lyric、加分→ask）。
 - **signature element（创意载体）**：poster（整屏海报）/ storyboard（6 帧旅程）/ prototype（手机 mock）/ lyric（anthem 歌词）——对应 5 storylines。
 - **加分媒体工具**：歌曲 **Suno**、视频 **Runway Gen-3**、图片 **GPT**（每类 1 主 1 备）。
 - **吸收/改造**：`pitch-narrative.md`（5 storylines + beat 库）、`media-prompts.md`（工具指南）。deck 直接由 `templates/pitch-deck.html` 产出；海报本体见 `poster`。无子技能。
@@ -293,7 +288,7 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 ## 8. 编排层：`facilitator`（Agent）
 
 - **定位**：Robot Facilitator 的人格化 manifest + **建议路径**（非硬状态机）。
-- **职责（happy path）**：按 §9 节奏依次调 `facilitation` 协议 + 4 个 quest 技能；维护 YAML 产物链；到点推进；打包提交。
+- **职责（happy path）**：按 §9 节奏依次调 `facilitation` 协议 + 4 个 quest 技能；维护 HTML 产物链（decisions 内嵌于各自 `id="capture"` 块）；到点推进；打包提交。
 - **职责（弹性）**：监听团队指令，支持「跳关 / 回退 / 重跑 / 单技能直调 / 快模式压缩」；见 §5.8。
 - **人格**：FACI-0X 机械腔 + cheerful one-liner。
 - **动态场景应对表（示例）**：
@@ -303,8 +298,8 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 | 「研究够了，直接出创意」 | 跳过洞察发散，直接用题卡数据兜底种子洞察，进 `plan` |
 | 「我们只剩 8 分钟」 | 切快模式：压缩发散/收敛，AI 后台并行拼装海报+看板 |
 | 「这个投票结果不对，重来」 | 重跑 `facilitation` 点投票协议，不重跑整关 |
-| 「只要一张海报」 | 只调 `poster`，用 plan.yaml 拼装 |
-| 「换个试点市场」 | 只改 `plan.yaml` 的 pilot 字段，重出论证 |
+| 「只要一张海报」 | 只调 `poster`，用 campaign-plan capture 拼装 |
+| 「换个试点市场」 | 只改 `campaign-plan.html` capture 的 pilot 字段，重出论证 |
 | 「跳过 SWAT/研究，直接搞 slogan」 | 只调 `facilitation` 的 HMW + 静默发散出 slogan |
 
 
@@ -318,7 +313,7 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 | 0–2′ | 开题 | AI | 30″ 战报速览 + 抛第一问 | — |
 | 2–10′ | 洞察门 | 人 | 聚类趋势/人群/时刻/真相 | 趋势 + 人群 + 时刻 + 种子洞察 |
 | 10–22′ | 创意门 | 人 | 把赢家搭成方案框架 | 锚点 + 大创意 + 2 市场 + 预算 |
-| 22–30′ | 论证门 | 人 | 建 KPI 看板 | 指标 + Go/No-Go 阈值 |
+| 22–30′ | 论证门 | 人 | 写推演逻辑 + 出单屏看板 | 3–5 个 pilot 预期指标 |
 | 30–38′ | 呈现门 | 人 | 生成海报 + 路演稿 | 视觉方向 + 主张 |
 | 38–40′ | 收敛提交 | AI | 一键打包 | 确认 |
 
@@ -339,8 +334,8 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 │   ├── plan/                        # 策划门
 │   │   └── sub-skills/  creative-concept · opportunity-definition
 │   ├── poster/                      # 海报（Create 阶段，独立）
-│   ├── prove/                       # 论证门
-│   │   └── sub-skills/  campaign-metrics · data-visualizer-pro
+│   ├── prove/                       # 论证门（单屏 pilot metrics）
+│   │   └── sub-skills/  campaign-metrics · data-visualizer-pro（保留·休眠，不调用）
 │   ├── showcase/                    # 呈现门（AUTO）
 │   ├── agent-reach/                 # 实时研究（insight 调用）
 │   ├── facilitation/                # 共创引擎（含 option-menu）
@@ -349,13 +344,13 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 └── commands/                        # start · insight · plan · poster · prove · showcase · evaluate · run
 ```
 
-**输出位置（运行约定）**：Facilitator 与 runner 两种模式都把本轮全部产物写入仓库根的 **`artifacts/Quest<ID>-<NN>/`**（每题一轮一子目录：`QuestA-01` → `QuestA-02` ……）。`/start`、`/run` 新建轮次目录；单闸命令并入该题最新轮次目录（无则建 `-01`）；**不覆盖旧轮次**。每轮含 `insight.yaml`/`plan.yaml`/`metrics.yaml` + 各 HTML + `RUN-LOG.md`；构建脚本以 `--dir artifacts/Quest<ID>-<NN>/` 运行。`artifacts/` 已 gitignore；签入示例在 `demo-examples/`。详见 `quest-card.md` → *Output layout*。
+**输出位置（运行约定）**：Facilitator 与 runner 两种模式都把本轮全部产物写入仓库根的 **`artifacts/Quest<ID>-<NN>/`**（每题一轮一子目录：`QuestA-01` → `QuestA-02` ……）。`/start`、`/run` 新建轮次目录；单闸命令并入该题最新轮次目录（无则建 `-01`）；**不覆盖旧轮次**。每轮含各阶段 HTML 产物（decisions 内嵌于各自 `id="capture"` 块，**无 YAML/Markdown**）；构建脚本以 `--dir artifacts/Quest<ID>-<NN>/` 运行。`artifacts/` 已 gitignore；签入示例在 `demo-examples/`。详见 `quest-card.md` → *Output layout*。
 
 > **opencode 发现约定 = 递归 `**/SKILL.md`**。四阶段技能 `insight` / `plan` / `prove` / `showcase` 各自带 `sub-skills/`；`poster`、`agent-reach` **平铺为顶层技能**（逻辑上归 `plan` / `insight`，被它们引用）。
 > 命名约定：**技能/Agent/Command 名一律不带 `quest`**（skill: `insight`/`plan`/`poster`/`prove`/`showcase`；agent: `facilitator`/`runner`/`researcher`；command: `/start`、`/run` 等）。
 
 每个技能目录：`SKILL.md`（frontmatter `name` + `description`，**触发词全英文**）+ `references/` +（可选）`templates/`、`scripts/`、`sub-skills/`。
-**语言约定（English-only）**：所有 SKILL.md 正文、references、templates、scripts 注释、YAML schema 字段、输出 HTML 文本，一律英文；中文字样仅在 `brand-guideline.md` 源文件与本 DESIGN.md / AGENTS.md 内部文档出现。
+**语言约定（English-only）**：所有 SKILL.md 正文、references、templates、scripts 注释、capture JSON 字段、输出 HTML 文本，一律英文；中文字样仅在 `brand-guideline.md` 源文件与本 DESIGN.md / AGENTS.md 内部文档出现。
 
 ---
 
@@ -365,10 +360,10 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 |---|---|---|
 | 1 | `ascentium-brand` | 能输出 tokens.css + 三类模板；抽查色值=手册一致 |
 | 2 | `facilitation` | 协议/节奏/话术/采集契约齐全；4 个 quest 技能可调用 |
-| 3 | `insight` | Quest A/B 各跑一遍：14 人洞察 → 种子洞察落 YAML + HTML |
+| 3 | `insight` | Quest A/B 各跑一遍：14 人洞察 → 种子洞察落 `insight-brief.html`（capture 内嵌） |
 | 4 | `plan` | 投票选赢家 → 完整方案框架（定位/4Ps/试点/预算） |
 | 5 | `poster` | 专业 campaign poster（9 段式：客户 logo/主视觉/offer/数据带/CTA+QR） |
-| 6 | `prove` | 3–5 指标 + Go/No-Go + 看板 mock |
+| 6 | `prove` | 3–5 个 pilot 预期指标 + 推演逻辑（单屏） |
 | 7 | `showcase` | 5 storylines 路演稿 + 媒体占位符（内嵌 poster） |
 | 8 | `facilitator` + `README` | 一键串全场 40 分钟，冒烟通过 |
 
@@ -377,7 +372,7 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 ## 12. 待确认点
 
 1. `facilitation` 元技能的 5.2–5.8 设计是否 OK（尤其「主持人铁律」「协议库」「动态调度与降级」）。
-2. 各 quest 技能的 capture（YAML schema）与 assemble 边界是否合理。
+2. 各 quest 技能的 capture（内嵌 JSON）与 assemble 边界是否合理。
 3. 40 分钟节奏时间盒是否需要微调。
 4. 实现顺序是否按 §11。
 5. 弹性调度（§3.1 / §5.8 / §8）是否到位：还有没有其他「现场动态」场景需要覆盖？

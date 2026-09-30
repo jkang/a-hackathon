@@ -26,7 +26,7 @@ MENU · <gate> — pick <N>
 
 ## How to work
 
-1. Read the quest card + any `insight.yaml` / `plan.yaml` already produced (for context).
+1. Read the quest card + the `id="capture"` block of any `insight-brief.html` / `campaign-plan.html` already produced (for context).
 2. Use the `agent-reach` skill (web search, social, reports, news) to gather **real, current** facts relevant to the quest (market, consumer behaviour, travel, creator economy, benchmarks).
 3. **Distill, don't dump.** Each option = one crisp, defensible line + source. No raw data walls.
 4. Prefer facts that are **specific and non-obvious** (a % change, a named behaviour, a benchmark) over truisms.

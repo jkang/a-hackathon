@@ -1,16 +1,17 @@
-# Metrics & Go/No-Go Method
+# Pilot Metrics & Derivation Method
 
-## 1. Victory Conditions (from the card)
+## 1. What this gate produces
 
-Copy the **Victory Conditions** verbatim from the quest card (see `quest-card.md`). They are the full-scale targets every sub-metric must predict. Never invent them — the card is the only source.
+A one-screen board of the **pilot's expected target metrics** and, for each, the **derivation logic** behind the number. Nothing else: no Go/No-Go, no cost-benefit, no scale-up.
 
-## 2. Build the sub-metric set (3–5)
+## 2. Pick the metric set (3–5)
 
-Each sub-metric must:
-1. Trace to **one** Victory Condition (North Star alignment).
-2. Sit on the funnel: reach → engagement → conversion → outcome.
+Each metric must:
+
+1. Sit on the funnel: reach → engagement → conversion → outcome.
+2. Be an **expected pilot value** over the 3-month window (not a full-scale target).
 3. Cite a **Scout Report benchmark** from the card (a named event, a % change, a unit count — with its source).
-4. Have a **target**, a **Go threshold**, and a **No-Go threshold** — set **before** the data.
+4. Carry a **target** and a **derivation chain** (benchmark → assumption → formula).
 
 Suggested candidates (team chooses/edits):
 
@@ -20,23 +21,23 @@ Suggested candidates (team chooses/edits):
 | Engagement | content saves/shares; waitlist sign-ups | content engagement; community joins |
 | Conversion | intent hold → purchase rate | visitor → member conversion |
 | Outcome | units sold / CAC | members acquired / merch sell-through |
-| Economics | CAC vs LTV | acquisition cost vs member value |
 
-## 3. Defending "no fixed numbers"
+## 3. The derivation chain (mandatory)
 
-The card says sub-metrics have no fixed numbers — that does not mean vague. Defend each with:
-- a **benchmark** from the card, and
-- a **logic line**: "if this moves, the Victory Condition follows because ___."
+Every target must show how it was reached:
 
-## 4. Go/No-Go rule
+> **benchmark → assumption → formula → target**
 
-State the rule as a sentence before showing data, e.g.:
+- **benchmark** — the anchor fact from the card (with source).
+- **assumption** — the explicit bridge from the benchmark to our pilot (e.g. "our 2 pilot markets behave like ~8% of the benchmark base").
+- **formula** — how the target is computed.
+- **target** — the resulting pilot number.
 
-> Unlock if **≥3 of 5** sub-metrics hit Go **and** none hit No-Go; otherwise iterate once; if any hits No-Go at mid-point, stop.
+Never assert a number without the chain. If you can't show the chain, drop the number.
 
-## 5. Anti-patterns
+## 4. Anti-patterns
 
 - More than 5 metrics (focus is lost).
-- A metric with no benchmark reference.
-- Thresholds invented after seeing the numbers.
-- Vanity metrics that don't predict a Victory Condition.
+- A metric with no benchmark reference or no derivation chain.
+- Full-scale projections dressed up as pilot targets.
+- Vanity metrics that say nothing about the pilot's outcome.

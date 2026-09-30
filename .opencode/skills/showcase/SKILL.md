@@ -9,12 +9,12 @@ The final gate. The **team picks the storyline + signature element**; the AI **b
 
 ## When to use
 
-- After `prove` (needs `insight.yaml` + `plan.yaml` + `metrics.yaml`).
-- Standalone: "we just want a deck" — call this skill with whatever YAML exists.
+- After `prove` (reads the captures embedded in `insight-brief.html` + `campaign-plan.html` + `proof.html`).
+- Standalone: "we just want a deck" — call this skill with whatever stage HTML exists.
 
 ## Inputs
 
-- `insight.yaml`, `plan.yaml`, `metrics.yaml`.
+- The captures embedded in `insight-brief.html`, `campaign-plan.html`, `proof.html`.
 - Team choices: **storyline** (S1–S5), **include the poster?** (yes/no), **signature element**, **visual direction**, and **one-liner**.
 
 ## Flow (uses the `facilitation` engine)
@@ -45,7 +45,7 @@ The AI must not choose these.
 - `prompt-pack.html` — bonus media prompt scripts (optional).
 
 > The **poster** is produced by the separate `poster` skill (Create stage), since Poster is a Create-stage deliverable. The showcase **optionally embeds** it as the `poster` beat — the team decides whether it appears.
-> **`proposal.html` is the umbrella viewer**: the Executive Summary is the one inline section; the Insight Brief, Campaign Plan, Poster, Proof, KPI Dashboard, Pitch Deck and Prompt Pack are embedded as **full artifacts** (not links, not summaries).
+> **`proposal.html` is the umbrella viewer**: the Executive Summary is the one inline section; the Insight Brief, Campaign Plan, Poster, Pilot Metrics, Pitch Deck and Prompt Pack are embedded as **full artifacts** (not links, not summaries).
 
 ### Building the proposal viewer
 
@@ -65,19 +65,23 @@ The builder escapes each artifact for an `srcdoc` attribute. Because `srcdoc` if
 - Nav click → the artifact's complete HTML renders in the content pane (vertical height auto-fits the artifact; horizontal scrollbar appears only when needed).
 - The sidebar is **collapsible**.
 
-### capture
+### capture (embedded in `proposal.html`)
 
-```yaml
-showcase:
-  quest: A | B
-  storyline: classic | hero | reveal | demo | trailer
-  include_poster: true | false
-  poster_style: a | b | c
-  signature: poster | storyboard | prototype | lyric
-  visual_direction: "..."
-  one_liner: "..."
-  bonus_media: {song: bool, video: bool, image: bool}
-  tweaks: [...]
+```html
+<script type="application/json" id="capture">
+{
+  "gate": "showcase",
+  "quest": "A",
+  "storyline": "classic | hero | reveal | demo | trailer",
+  "include_poster": true,
+  "poster_style": "a | b | c",
+  "signature": "poster | storyboard | prototype | lyric",
+  "visual_direction": "…",
+  "one_liner": "…",
+  "bonus_media": {"song": false, "video": false, "image": false},
+  "tweaks": []
+}
+</script>
 ```
 
 ## Storylines (the deck shapes)
@@ -94,7 +98,7 @@ showcase:
 
 - **Core beats**: title · context · problem · (signature) · insight · audience · poster · strategy · plan · proof · ask.
 - **Optional extra beats** (only if time allows): `keyvisual` · `moments` · `offering` · `experiment` · `funnel`.
-- **Condensed beats**: `plan` = pilot + budget (experiment folded in); `proof` = top **3** sub-metrics + Go/No-Go (the full 5 metrics, funnel and KPI dashboard all live in `proof.html`); `strategy` merges positioning + 4Ps + offering.
+- **Condensed beats**: `plan` = pilot + budget (experiment folded in); `proof` = the pilot's expected metrics + how they're derived (the full metric set + derivation logic lives in `proof.html`); `strategy` merges positioning + 4Ps + offering.
 - Beat library still available: title · context · problem · insight · audience · keyvisual · poster · storyboard · prototype · lyric · strategy · offering · moments · experiment · plan · funnel · proof · ask. Brand flat illustrations (inline SVG) render on `title` + `keyvisual`.
 
 ## Bonus media (prompt pack)

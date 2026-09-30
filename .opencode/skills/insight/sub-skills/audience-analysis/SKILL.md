@@ -55,8 +55,8 @@ The insight gate's counterpart to `business-research`: research the **audience**
 
 ## Output
 
-- A **Segment Map** (Markdown; template + sizing/prioritisation in [`references/segmentation-framework.md`](references/segmentation-framework.md)).
-- Optional structured `segments:` YAML for downstream gates.
+- A **Segment Map** (the segment cards, rendered into the insight brief; template + sizing/prioritisation in [`references/segmentation-framework.md`](references/segmentation-framework.md)).
+- The structured `segments` object is embedded in the `insight-brief.html` capture (no separate file).
 
 ## Self-check
 

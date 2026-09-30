@@ -1,84 +1,78 @@
 ---
 name: prove
-description: Run the PROVE gate of the Ascentium mini-hackathon quest — turn the plan into a falsifiable proof package: 3–5 self-defined campaign sub-metrics (defended with Scout Report benchmarks), a KPI dashboard mock, Go/No-Go criteria, and a cost-benefit / ROI verdict on unlocking the full budget. Human-decided metrics and thresholds; AI builds the board and the math. Triggers: "prove gate", "campaign sub-metrics", "go no-go", "KPI dashboard", "cost-benefit", "measurement", "prove".
+description: Run the PROVE gate of the Ascentium mini-hackathon quest — turn the plan into a one-screen PILOT METRICS board: the 3–5 metrics the pilot expects to hit (across the marketing funnel), each with the derivation logic behind its number (benchmark → assumption → formula → target). No Go/No-Go, no cost-benefit, no scale-up. Human-decided metrics; AI builds the board and writes the math. Triggers: "prove gate", "pilot metrics", "expected metrics", "metric derivation", "measurement", "prove".
 ---
 
-# Quest Prove — the PROVE gate
+# Quest Prove — the PROVE gate (pilot metrics)
 
-Prove the pilot predicts the Victory Conditions. The **team picks the metrics and thresholds**; the AI builds the dashboard and runs the cost-benefit math.
+Show **what the pilot must hit, and how each number is derived**. The **team picks the metrics**; the AI writes the derivation chain and builds a single one-screen board.
 
 ## When to use
 
-- After `plan` (needs `plan.yaml`).
-- When the team only wants the metrics/dashboard refreshed after a plan change.
+- After `plan` (reads the `campaign-plan.html` capture).
+- When the team only wants the pilot-metrics board refreshed after a plan change.
 
 ## Inputs
 
-- `plan.yaml` — the **chosen variant** (`chosen_variant`), esp. its `budget` and `pilot` (markets · hypothesis · treatment · control · measurement_setup).
-- Quest card **Victory Conditions** and **War Chest / MVP Unlock**.
+- The `campaign-plan.html` capture — the **chosen variant** (`chosen_variant`), esp. its `pilot` (markets · hypothesis · treatment · control · measurement_setup) and `budget`.
+- Quest card **pilot window / pilot markets / MVP budget** and **Scout Report benchmarks** (the anchors for every derivation).
 
 ## Flow (uses the `facilitation` engine)
 
-> **Choice-first**: the AI **drafts the menu** (candidate metrics + suggested threshold ranges); the team **selects** and may add `+1 own`.
+> **Choice-first**: the AI **drafts the menu** (candidate pilot metrics + a suggested target each); the team **selects** and may add `+1 own`.
 
-1. **Draft (AI, 2′).** Map Victory Conditions → a marketing funnel, then present a **menu of ~8 candidate sub-metrics** (reach → engagement → conversion → outcome) with a **suggested Go/No-Go range** for each.
-2. **Choose (team, 4′).** The team **picks 3–5** from the menu (or +1 own) and confirms/sets the **Go/No-Go thresholds**. Each metric must cite a **benchmark from the Scout Report**.
-3. **Sample numbers (team, 2′).** AI proposes plausible weekly values; the team confirms or edits, so the dashboard feels real.
-4. **Cost-benefit (AI).** Using the budget + metrics, compute the ROI (see `references/cost-benefit.md` derivation) and the unlock verdict.
-5. **Capture** — write `metrics.yaml` (record the menu + the team's selection).
+1. **Frame (AI, 1′).** Read the pilot (2 markets · 3 months · MVP budget) and the card benchmarks.
+2. **Menu (AI, 2′).** Map the pilot's funnel (reach → engagement → conversion → outcome) and present a **menu of ~6–8 candidate pilot metrics**, each with a **suggested target** and a one-line derivation sketch.
+3. **Choose (team, 3′).** The team **picks 3–5** (or `+1 own`). There are no thresholds to set.
+4. **Derive (AI, 2′).** For each pick, write the **derivation chain**: `benchmark → assumption(s) → formula → target`, plus a one-line logic ("why hitting this predicts the outcome").
+5. **Capture** — record the metrics in the artifact's embedded `id="capture"` block (see Output). No separate data file.
 
 ## HITL gates (mandatory)
 
-- The AI presents the menu; the team **selects** the 3–5 sub-metrics.
-- The team confirms the Go/No-Go thresholds (AI may suggest ranges, never fix them alone).
-The AI must not pick them. Always keep the `+1 of our own` channel open.
+- The AI presents the menu; the team **selects** the 3–5 pilot metrics.
+- The team may edit any target; the AI never fixes a number alone.
+Always keep the `+1 of our own` channel open.
 
 ## Output
 
-- `proof.html` — **one proof page** that binds the whole gate, in this order:
-  1. Victory Conditions
-  2. Sub-Metrics &amp; thresholds (definition table, benchmark-defended)
-  3. Go/No-Go rule
-  4. **KPI Dashboard (MOCK)** — the board as it will look in-flight (tiles + progress vs Go + weekly trajectory + read)
-  5. Cost-Benefit &amp; verdict
-- `metrics.yaml` — structured capture.
+- `proof.html` — **one screen** (single viewport), in this order:
+  1. pilot framing (client · markets · window · MVP budget)
+  2. **pilot funnel** strip (reach → engagement → conversion → outcome) with each target placed on it
+  3. **metric tiles** — metric name + target value + funnel tag
+  4. **derivation logic** — one row per metric: `target ◀ benchmark · assumption(s) · formula`
+  **The only artifact** — no separate data file.
+- The structured capture is embedded in that artifact: an invisible `<script type="application/json" id="capture">` block just before `</body>`. The `showcase` gate reads it.
 
-> The KPI dashboard is **not** a separate artifact anymore — it is a `MOCK` section inside `proof.html` (the definition table shows the rules; the dashboard shows the same metrics running with sample data; the cost-benefit lands the verdict last).
+### capture block (embedded in `proof.html`)
 
-### metrics.yaml schema
-
-```yaml
-quest: A | B
-victory_conditions:
-  - "{one full-scale target from the card}"       # from the card
-metrics:
-  - name: "Pilot conversion rate"
-    formula: "{outcome} / {qualified reach}"
-    benchmark_ref: "{a Scout Report benchmark}"    # Scout Report anchor
-    target: "3.0%"
-    threshold_go: ">=2.5%"
-    threshold_no_go: "<1.5%"
-sample_data: {week1: "...", week2: "..."}
-cost_benefit:
-  budget: 1500000
-  projected_return: "..."     # from metrics + card economics
-  roi: "..."
-  unlock_verdict: "go | iterate | stop"
+```html
+<script type="application/json" id="capture">
+{
+  "gate": "prove",
+  "quest": "A",
+  "pilot": {"window": "3 months", "markets": ["…", "…"], "budget": "{mvp_unlock}"},
+  "metrics": [
+    {"name": "…", "dimension": "reach | engagement | conversion | outcome", "target": "…",
+     "derivation": {"benchmark_ref": "…", "formula": "…", "assumptions": ["…"], "logic": "…"}}
+  ]
+}
+</script>
 ```
 
 ## Assemble
 
-- **proof.html** — a single page in this order: victory conditions → the 3–5 metrics table (with benchmark refs and thresholds) → Go/No-Go rule → the **mock KPI dashboard** (tiles + progress bars vs Go + weekly trajectory, labelled `MOCK`) → the cost-benefit verdict. The dashboard section is built with `data-visualizer-pro` (manual-entry path — the team types numbers; no CSV needed).
+- **proof.html** — a one-screen page built directly from `templates/proof.html`: pilot framing → funnel with targets → metric tiles → derivation rows. Keep it to a single viewport (no scrolling at desktop width).
 - Use `ascentium-brand`.
 
 ## Methodology anchors
 
-- **North Star alignment**: every sub-metric must trace to a Victory Condition.
-- **Marketing funnel**: reach → engagement → conversion → outcome.
-- **Go/No-Go gate**: define the rule before the data (hit → unlock; miss → iterate once or stop).
-- See `references/metrics-method.md` and `references/cost-benefit.md`.
+- **Pilot-first**: the numbers are the pilot's expected values over the 3-month window — not full-scale projections.
+- **Funnel**: reach → engagement → conversion → outcome.
+- **Benchmark-anchored**: every target cites a Scout Report benchmark and shows its derivation chain.
+- See `references/metrics-method.md`.
 
 ## Design notes
 
-- **Invoke these sub-skills**: `campaign-metrics` (sub-metrics + Go/No-Go), `data-visualizer-pro` (KPI dashboard). (Cost-benefit / ROI uses `references/cost-benefit.md`.)
-- Sub-metrics have "no fixed numbers" — but must be **defended with benchmarks** and shown to **predict** the Victory Conditions.
+- **No sub-skills.** Build the page directly from `templates/proof.html` (the retained `sub-skills/` are not invoked here).
+- **No Go/No-Go, no cost-benefit, no scale-up** — out of scope for this gate.
+- Every target must be **defensible**: a visible chain (benchmark → assumption → formula), never a bare assertion.

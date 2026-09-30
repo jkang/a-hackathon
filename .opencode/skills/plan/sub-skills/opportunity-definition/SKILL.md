@@ -28,14 +28,14 @@ After the insight gate has produced **~6 key insights**, scope the opportunity t
 
 ## Output
 
-**Dual output**: structured **YAML** + an interactive **HTML** card (light mode, Ascentium brand): card head (name · type · the insight it answers) → elements ①–⑤ → value-breakdown table.
+**Output**: an interactive **HTML** card (light mode, Ascentium brand): card head (name · type · the insight it answers) → elements ①–⑤ → value-breakdown table. Its data is embedded in the `campaign-plan.html` capture (no separate YAML file).
 
 ## Workflow
 
 1. **Parse input** — the selected insight(s) + the opportunity; if only natural language is given, infer the tension.
-2. **Derive the YAML** (5 elements + value breakdown).
+2. **Derive the 5 elements + value breakdown** (the capture fields).
 3. **Compile the HTML** (single file).
-4. **Deliver** — note the opportunity card structure; include a "copy YAML" affordance.
+4. **Deliver** — note the opportunity card structure; the fields go into the plan capture.
 
 ## Where it fits
 
@@ -44,7 +44,7 @@ After the insight gate has produced **~6 key insights**, scope the opportunity t
 
 ## QA
 
-- [ ] YAML parses; 5 elements present, in order.
+- [ ] 5 elements present, in order.
 - [ ] ① is self-explanatory (for whom · what · outcome).
 - [ ] ⑤ is quantifiable; value breakdown has all 4 rows.
 - [ ] Forecast/return cites a basis (benchmark, assumption, or pilot rate) — no invented numbers.

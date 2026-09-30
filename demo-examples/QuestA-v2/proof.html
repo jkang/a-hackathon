@@ -97,5 +97,89 @@
   <footer>Human-led, AI-scaffolded. Benchmarks cited from the Quest Scout Report + live research. These are pilot targets, not full-scale projections. Data as of 2026-09-29.</footer>
 
 </div>
+<!-- structured capture — invisible; read by the next gate (see facilitation/capture-contract.md) -->
+<script type="application/json" id="capture">
+{
+  "gate": "prove",
+  "quest": "A",
+  "pilot": {
+    "window": "3 months",
+    "markets": [
+      "Indonesia",
+      "Thailand"
+    ],
+    "budget": "USD 1.5M (5% MVP unlock)"
+  },
+  "metrics": [
+    {
+      "name": "Creator reach (6 weeks)",
+      "dimension": "reach",
+      "target": "150M",
+      "derivation": {
+        "benchmark_ref": "TikTok MAU 460M across our first Asian markets (TikTok 2025); Hangzhou 2023 delivered 500M+ impressions for the Games brand",
+        "formula": "sum of campaign impressions (organic + paid creator content)",
+        "assumptions": [
+          "A 6-week creator push reaches ~33% of in-market MAU",
+          "Two pilot markets carry the bulk of impressions"
+        ],
+        "logic": "If reach builds the addressable crowd, qualified visits — and therefore sign-ups — follow."
+      }
+    },
+    {
+      "name": "Crew sign-up rate",
+      "dimension": "engagement",
+      "target": "4.0%",
+      "derivation": {
+        "benchmark_ref": "Meta all-industry lead conversion 7.72%; arts & events Facebook 9.34% (WordStream / Venuera 2025–26)",
+        "formula": "crew sign-ups / qualified visits",
+        "assumptions": [
+          "Landing page + crew offer converts at about half the meta-vertical benchmark"
+        ],
+        "logic": "If the crew offer converts visits into sign-ups, the ticket-intent pool forms; group bookings follow."
+      }
+    },
+    {
+      "name": "Group-booking ratio",
+      "dimension": "conversion",
+      "target": "45%",
+      "derivation": {
+        "benchmark_ref": "Asian fans travel as crews; ~4 in 5 group trips are booked via an agent (worldmetrics 2026)",
+        "formula": "orders with >=2 tickets / total orders",
+        "assumptions": [
+          "Crew travel is the norm for Asia-based away fans"
+        ],
+        "logic": "If bookings skew to groups, the away-end atmosphere — and attendance — rises."
+      }
+    },
+    {
+      "name": "Cost per crew member (CAC)",
+      "dimension": "outcome",
+      "target": "<= USD 10",
+      "derivation": {
+        "benchmark_ref": "Facebook arts/entertainment CPL USD 18.17; Google Events cost/conversion USD 26.84 (Venuera 2026-07)",
+        "formula": "paid media spend / crew sign-ups",
+        "assumptions": [
+          "Creator-led organic content plus a referral loop lowers paid dependency"
+        ],
+        "logic": "If CAC stays under USD 10, the full-scale budget can buy the 400K-ticket goal efficiently."
+      }
+    },
+    {
+      "name": "Fly-stay bundle attach rate",
+      "dimension": "conversion",
+      "target": "20%",
+      "derivation": {
+        "benchmark_ref": "Discover Qatar stopover from USD 14/night; Qatar Airways serves 170+ destinations (2026)",
+        "formula": "fly-stay bundles / crew sign-ups",
+        "assumptions": [
+          "1 in 5 crew members adds a fly-stay bundle"
+        ],
+        "logic": "If bundles attach, travel friction drops and conversions-per-traveller rise."
+      }
+    }
+  ],
+  "source_note": "Benchmarks: Quest Scout Report + live agent-reach research · Data as of 2026-09-29"
+}
+</script>
 </body>
 </html>

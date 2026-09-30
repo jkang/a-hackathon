@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Proof · {{QUEST}} · {{CLIENT}}</title>
+<title>Pilot Metrics · {{QUEST}} · {{CLIENT}}</title>
 <style>
   :root{
     --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
@@ -11,65 +11,48 @@
     --teal:#077069; --teal-1:#CDE2E1;
     --line:#E4E8E7; --bg:#F7F6F4; --card:#FFFFFF; --mut:#5A6663;
     --accent: var(--ascentium-orange); --accent-tint: var(--orange-1); --accent-line: var(--orange-2);
-    --go:#077069; --nogo:#DC3545;
   }
   /* Quest accent is injected from the quest card as inline vars on <body> (see quest-card.md). */
   *{margin:0;padding:0;box-sizing:border-box;}
   body{font-family:"Poppins","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
        background:var(--bg);color:var(--ascentium-midnight);-webkit-font-smoothing:antialiased;}
-  .page{max-width:1060px;margin:0 auto;padding:40px 28px 56px;}
-  .brandbar{display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--accent);padding-bottom:14px;}
-  .brandbar .logo{font-weight:700;font-size:20px;}
+  .page{max-width:1080px;margin:0 auto;padding:18px 24px 20px;min-height:100vh;display:flex;flex-direction:column;}
+  .brandbar{display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--accent);padding-bottom:11px;}
+  .brandbar .logo{font-weight:700;font-size:19px;}
   .brandbar .logo span{color:var(--accent);}
-  .brandbar .tag{font-size:12px;font-weight:600;color:var(--mut);letter-spacing:.14em;text-transform:uppercase;}
-  h1{font-size:30px;font-weight:800;margin-top:22px;letter-spacing:-.01em;}
-  .sub{margin-top:6px;font-size:13px;color:var(--mut);}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:18px;}
-  .card h2{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:12px;}
-  .mockflag{display:inline-block;font-size:9px;font-weight:800;letter-spacing:.1em;color:#fff;background:var(--nogo);
-        border-radius:999px;padding:3px 10px;vertical-align:middle;margin-left:8px;}
-  .vc{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
-  .vc .k{border:1.5px solid var(--line);border-radius:12px;padding:12px 10px;text-align:center;}
-  .vc .num{font-size:18px;font-weight:800;color:var(--accent);}
-  .vc .cap{font-size:10px;color:var(--mut);margin-top:6px;line-height:1.45;}
-  table{width:100%;border-collapse:collapse;font-size:12.5px;}
-  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
-  th{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);}
-  .go{color:var(--go);font-weight:700;} .nogo{color:var(--nogo);font-weight:700;}
-  .bench{font-size:11px;color:var(--mut);}
-  .rule{margin-top:14px;background:var(--accent-tint);border-left:6px solid var(--accent);border-radius:10px;padding:14px 18px;font-size:13.5px;font-weight:600;line-height:1.55;}
+  .brandbar .tag{font-size:11px;font-weight:600;color:var(--mut);letter-spacing:.14em;text-transform:uppercase;}
+  h1{font-size:25px;font-weight:800;margin-top:10px;letter-spacing:-.01em;}
+  .sub{margin-top:5px;font-size:12.5px;color:var(--mut);}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin-top:10px;}
+  .card h2{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:9px;}
 
-  /* ---- mock dashboard ---- */
-  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
-  .tile{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px;}
-  .tile .k{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);}
-  .tile .v{font-size:26px;font-weight:800;margin-top:8px;color:var(--accent);}
-  .tile .d{font-size:11.5px;margin-top:6px;font-weight:600;}
-  .up{color:var(--go);} .down{color:var(--nogo);}
-  .tile .status{display:inline-block;font-size:10px;font-weight:700;border-radius:999px;padding:3px 10px;margin-top:8px;}
-  .on-track{background:var(--teal-1);color:var(--teal);}
-  .off-track{background:#FBE4E1;color:var(--nogo);}
-  .bars{display:grid;gap:12px;margin-top:16px;}
-  .bar{display:grid;grid-template-columns:190px 1fr 60px;align-items:center;gap:12px;font-size:12px;}
-  .track{display:block;height:12px;background:#EEF1F0;border-radius:999px;overflow:hidden;}
-  .fill{display:block;height:100%;border-radius:999px;background:var(--accent);}
-  .fill.go{background:var(--go);} .fill.warn{background:var(--accent);} .fill.bad{background:var(--nogo);}
-  .pct{text-align:right;font-weight:700;color:var(--mut);}
-  .trend{display:flex;align-items:flex-end;gap:10px;height:120px;padding-top:8px;margin-top:16px;}
-  .col{flex:1;background:var(--accent);border-radius:6px 6px 0 0;opacity:.85;}
-  .xlab{display:flex;gap:10px;margin-top:6px;font-size:10px;color:var(--mut);}
-  .xlab span{flex:1;text-align:center;}
-  .read{margin-top:14px;font-size:12.5px;line-height:1.6;color:#3B4442;}
-  .read b{color:var(--ascentium-midnight);}
+  /* ---- pilot funnel ---- */
+  .funnel{display:grid;grid-template-columns:repeat(4,1fr);}
+  .fstep{padding:8px 12px 8px 18px;background:var(--accent-tint);border:1px solid var(--accent-line);}
+  .fstep:first-child{padding-left:15px;border-radius:11px 0 0 11px;}
+  .fstep:last-child{border-radius:0 11px 11px 0;}
+  .fstep:not(:first-child){border-left:none;}
+  .fstep .fl{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);}
+  .fstep .fv{font-size:18px;font-weight:800;margin-top:4px;line-height:1.05;}
+  .fstep .fn{font-size:10px;color:var(--mut);margin-top:3px;line-height:1.35;}
 
-  /* ---- cost-benefit ---- */
-  .cb{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:6px;}
-  .cb .b{border-radius:12px;padding:14px;background:var(--card);border:1px solid var(--line);}
-  .cb .b .n{font-size:20px;font-weight:800;}
-  .cb .b .c{font-size:10.5px;color:var(--mut);margin-top:6px;letter-spacing:.08em;text-transform:uppercase;}
-  .verdict{margin-top:14px;border-radius:12px;padding:16px 20px;color:#fff;font-weight:700;font-size:16px;background:var(--go);}
-  .note{margin-top:10px;font-size:11.5px;color:var(--mut);line-height:1.6;}
-  footer{margin-top:26px;border-top:1px dashed var(--line);padding-top:12px;font-size:10.5px;color:#9AA5A2;}
+  /* ---- metric tiles ---- */
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px;}
+  .tile{background:var(--bg);border:1px solid var(--line);border-radius:11px;padding:10px 12px;}
+  .tile .dm{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);}
+  .tile .v{font-size:24px;font-weight:800;margin-top:5px;line-height:1;}
+  .tile .n{font-size:11px;color:var(--mut);margin-top:6px;line-height:1.35;}
+
+  /* ---- derivation ---- */
+  .deriv{display:grid;gap:8px;}
+  .drow{display:grid;grid-template-columns:180px 88px 1fr;gap:12px;align-items:center;
+        background:var(--card);border:1px solid var(--line);border-radius:10px;padding:7px 12px;}
+  .drow .m{font-size:12px;font-weight:600;}
+  .drow .t{font-size:14px;font-weight:800;color:var(--accent);text-align:right;}
+  .drow .chain{font-size:11px;color:#3B4442;line-height:1.5;}
+  .drow .chain b{color:var(--ascentium-midnight);}
+  .drow .chain .arr{color:var(--accent);font-weight:700;}
+  footer{margin-top:auto;border-top:1px dashed var(--line);padding-top:10px;font-size:10px;color:#9AA5A2;}
 </style>
 </head>
 <body data-quest="{{QUEST}}" style="--accent:{{ACCENT}};--accent-tint:{{ACCENT_TINT}};--accent-line:{{ACCENT_LINE}};--accent-deep:{{ACCENT_DEEP}};">
@@ -77,86 +60,52 @@
 
   <div class="brandbar">
     <div class="logo">Ascentium<span>.</span></div>
-    <div class="tag">Proof of Trajectory · {{QUEST}}</div>
+    <div class="tag">Pilot Metrics · {{QUEST}}</div>
   </div>
 
-  <h1>Will the pilot predict the Victory Conditions?</h1>
-  <div class="sub">{{CLIENT}} &nbsp;|&nbsp; Pilot budget {{BUDGET}} &nbsp;|&nbsp; unlocks {{FULL_BUDGET}}</div>
+  <h1>What the pilot must hit — and how we get there</h1>
+  <div class="sub">{{CLIENT}} &nbsp;|&nbsp; {{PILOT_MARKETS}} &nbsp;|&nbsp; {{PILOT_WINDOW}} &nbsp;|&nbsp; MVP budget {{BUDGET}}</div>
 
-  <!-- 1 · Victory Conditions -->
+  <!-- 1 · Pilot funnel (expected targets) -->
   <div class="card">
-    <h2>1 · Victory Conditions (full scale, post-unlock)</h2>
-    <div class="vc">
-      <div class="k"><div class="num">{{VC1_VAL}}</div><div class="cap">{{VC1_CAP}}</div></div>
-      <div class="k"><div class="num">{{VC2_VAL}}</div><div class="cap">{{VC2_CAP}}</div></div>
-      <div class="k"><div class="num">{{VC3_VAL}}</div><div class="cap">{{VC3_CAP}}</div></div>
-      <div class="k"><div class="num">{{VC4_VAL}}</div><div class="cap">{{VC4_CAP}}</div></div>
-      <div class="k"><div class="num">{{VC5_VAL}}</div><div class="cap">{{VC5_CAP}}</div></div>
+    <h2>1 · Pilot funnel — expected targets</h2>
+    <div class="funnel">
+      <div class="fstep"><div class="fl">Reach</div><div class="fv">{{F1_VALUE}}</div><div class="fn">{{F1_NAME}}</div></div>
+      <div class="fstep"><div class="fl">Engagement</div><div class="fv">{{F2_VALUE}}</div><div class="fn">{{F2_NAME}}</div></div>
+      <div class="fstep"><div class="fl">Conversion</div><div class="fv">{{F3_VALUE}}</div><div class="fn">{{F3_NAME}}</div></div>
+      <div class="fstep"><div class="fl">Outcome</div><div class="fv">{{F4_VALUE}}</div><div class="fn">{{F4_NAME}}</div></div>
     </div>
   </div>
 
-  <!-- 2 · Sub-metrics & thresholds -->
+  <!-- 2 · The metrics we expect to hit -->
   <div class="card">
-    <h2>2 · Sub-Metrics &amp; Thresholds (benchmark-defended)</h2>
-    <table>
-      <thead><tr><th>#</th><th>Sub-metric</th><th>Formula</th><th>Benchmark ref</th><th>Target</th><th>Go</th><th>No-Go</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td>{{M1}}</td><td>{{F1}}</td><td class="bench">{{B1}}</td><td>{{T1}}</td><td class="go">{{G1}}</td><td class="nogo">{{N1}}</td></tr>
-        <tr><td>2</td><td>{{M2}}</td><td>{{F2}}</td><td class="bench">{{B2}}</td><td>{{T2}}</td><td class="go">{{G2}}</td><td class="nogo">{{N2}}</td></tr>
-        <tr><td>3</td><td>{{M3}}</td><td>{{F3}}</td><td class="bench">{{B3}}</td><td>{{T3}}</td><td class="go">{{G3}}</td><td class="nogo">{{N3}}</td></tr>
-        <tr><td>4</td><td>{{M4}}</td><td>{{F4}}</td><td class="bench">{{B4}}</td><td>{{T4}}</td><td class="go">{{G4}}</td><td class="nogo">{{N4}}</td></tr>
-        <tr><td>5</td><td>{{M5}}</td><td>{{F5}}</td><td class="bench">{{B5}}</td><td>{{T5}}</td><td class="go">{{G5}}</td><td class="nogo">{{N5}}</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- 3 · Go/No-Go rule -->
-  <div class="rule">Go/No-Go rule: {{GO_NO_GO_RULE}}</div>
-
-  <!-- 4 · Mock KPI dashboard -->
-  <div class="card">
-    <h2>4 · KPI Dashboard<span class="mockflag">MOCK</span></h2>
-    <div style="font-size:12px;color:var(--mut);margin-bottom:12px;">How the board will look in-flight — sample data for demonstration ({{PILOT_MARKETS}} · 3-month pilot).</div>
+    <h2>2 · The metrics we expect the pilot to hit</h2>
     <div class="tiles">
-      <div class="tile"><div class="k">{{K1_NAME}}</div><div class="v">{{K1_VALUE}}</div><div class="d up">{{K1_DELTA}}</div><span class="status {{K1_STATUS_CLASS}}">{{K1_STATUS}}</span></div>
-      <div class="tile"><div class="k">{{K2_NAME}}</div><div class="v">{{K2_VALUE}}</div><div class="d up">{{K2_DELTA}}</div><span class="status {{K2_STATUS_CLASS}}">{{K2_STATUS}}</span></div>
-      <div class="tile"><div class="k">{{K3_NAME}}</div><div class="v">{{K3_VALUE}}</div><div class="d up">{{K3_DELTA}}</div><span class="status {{K3_STATUS_CLASS}}">{{K3_STATUS}}</span></div>
-      <div class="tile"><div class="k">{{K4_NAME}}</div><div class="v">{{K4_VALUE}}</div><div class="d {{K4_DELTA_CLASS}}">{{K4_DELTA}}</div><span class="status {{K4_STATUS_CLASS}}">{{K4_STATUS}}</span></div>
+      <div class="tile"><div class="dm">{{K1_DIM}}</div><div class="v">{{K1_VALUE}}</div><div class="n">{{K1_NAME}}</div></div>
+      <div class="tile"><div class="dm">{{K2_DIM}}</div><div class="v">{{K2_VALUE}}</div><div class="n">{{K2_NAME}}</div></div>
+      <div class="tile"><div class="dm">{{K3_DIM}}</div><div class="v">{{K3_VALUE}}</div><div class="n">{{K3_NAME}}</div></div>
+      <div class="tile"><div class="dm">{{K4_DIM}}</div><div class="v">{{K4_VALUE}}</div><div class="n">{{K4_NAME}}</div></div>
+      <div class="tile"><div class="dm">{{K5_DIM}}</div><div class="v">{{K5_VALUE}}</div><div class="n">{{K5_NAME}}</div></div>
     </div>
-    <div class="bars">
-      <div class="bar"><span>{{M1}}</span><span class="track"><span class="fill go" style="width:{{M1_PCT}}%"></span></span><span class="pct">{{M1_PCT}}%</span></div>
-      <div class="bar"><span>{{M2}}</span><span class="track"><span class="fill go" style="width:{{M2_PCT}}%"></span></span><span class="pct">{{M2_PCT}}%</span></div>
-      <div class="bar"><span>{{M3}}</span><span class="track"><span class="fill warn" style="width:{{M3_PCT}}%"></span></span><span class="pct">{{M3_PCT}}%</span></div>
-      <div class="bar"><span>{{M4}}</span><span class="track"><span class="fill warn" style="width:{{M4_PCT}}%"></span></span><span class="pct">{{M4_PCT}}%</span></div>
-      <div class="bar"><span>{{M5}}</span><span class="track"><span class="fill bad" style="width:{{M5_PCT}}%"></span></span><span class="pct">{{M5_PCT}}%</span></div>
-    </div>
-    <div class="trend">
-      <div class="col" style="height:29%"></div>
-      <div class="col" style="height:42%"></div>
-      <div class="col" style="height:55%"></div>
-      <div class="col" style="height:66%"></div>
-      <div class="col" style="height:80%"></div>
-      <div class="col" style="height:95%"></div>
-    </div>
-    <div class="xlab"><span>W1</span><span>W2</span><span>W3</span><span>W4</span><span>W5</span><span>W6</span></div>
-    <div class="read">{{DASH_READ}}</div>
   </div>
 
-  <!-- 5 · Cost-Benefit & verdict -->
+  <!-- 3 · Derivation logic -->
   <div class="card">
-    <h2>5 · Cost-Benefit &amp; Verdict</h2>
-    <div class="cb">
-      <div class="b"><div class="n">{{BUDGET}}</div><div class="c">Pilot cost</div></div>
-      <div class="b"><div class="n">{{PROJECTED_RETURN}}</div><div class="c">Projected return</div></div>
-      <div class="b"><div class="n">{{ROI}}</div><div class="c">ROI</div></div>
-      <div class="b"><div class="n">{{PAYBACK}}</div><div class="c">Payback / scale read</div></div>
+    <h2>3 · How each number is derived</h2>
+    <div class="deriv">
+      <div class="drow"><div class="m">{{M1}}</div><div class="t">{{T1}}</div><div class="chain"><b>{{B1}}</b> <span class="arr">&rarr;</span> {{A1}} <span class="arr">&rarr;</span> {{FORMULA1}}</div></div>
+      <div class="drow"><div class="m">{{M2}}</div><div class="t">{{T2}}</div><div class="chain"><b>{{B2}}</b> <span class="arr">&rarr;</span> {{A2}} <span class="arr">&rarr;</span> {{FORMULA2}}</div></div>
+      <div class="drow"><div class="m">{{M3}}</div><div class="t">{{T3}}</div><div class="chain"><b>{{B3}}</b> <span class="arr">&rarr;</span> {{A3}} <span class="arr">&rarr;</span> {{FORMULA3}}</div></div>
+      <div class="drow"><div class="m">{{M4}}</div><div class="t">{{T4}}</div><div class="chain"><b>{{B4}}</b> <span class="arr">&rarr;</span> {{A4}} <span class="arr">&rarr;</span> {{FORMULA4}}</div></div>
+      <div class="drow"><div class="m">{{M5}}</div><div class="t">{{T5}}</div><div class="chain"><b>{{B5}}</b> <span class="arr">&rarr;</span> {{A5}} <span class="arr">&rarr;</span> {{FORMULA5}}</div></div>
     </div>
-    <div class="verdict">Verdict: {{UNLOCK_VERDICT}}</div>
-    <div class="note">{{CB_NOTE}}</div>
   </div>
 
-  <footer>Human-led, AI-scaffolded. Benchmarks cited from the Quest Scout Report + live research. Data as of {{DATA_AS_OF}}.</footer>
+  <footer>Human-led, AI-scaffolded. Benchmarks cited from the Quest Scout Report + live research. These are pilot targets, not full-scale projections. Data as of {{DATA_AS_OF}}.</footer>
 
 </div>
+
+<!-- structured capture — invisible in the page; the next gate reads this block (see facilitation/capture-contract.md) -->
+<script type="application/json" id="capture">{{CAPTURE_JSON}}</script>
 </body>
 </html>

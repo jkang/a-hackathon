@@ -1,6 +1,6 @@
 # Media Prompt Guide — bonus song / video / image
 
-Bonus (optional) layer. Each group **optionally** generates a song, a video, or a hero image using external tools, then embeds the result in the Showcase report. The AI writes the prompts (from `plan.yaml`); the human generates and curates.
+Bonus (optional) layer. Each group **optionally** generates a song, a video, or a hero image using external tools, then embeds the result in the Showcase report. The AI writes the prompts (from the `campaign-plan.html` capture); the human generates and curates.
 
 ## Tool list (1 primary + 1 backup each)
 

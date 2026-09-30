@@ -17,8 +17,8 @@ The **most-seen asset** of a campaign. It must be **self-contained**: a stranger
 
 ## Inputs
 
-- `plan.yaml` — the chosen variant: campaign name, slogan, proposition, offering/tiers, pilot markets, budget.
-- `insight.yaml` — audience + moment (for the anchor).
+- The `campaign-plan.html` capture — the chosen variant: campaign name, slogan, proposition, offering/tiers, pilot markets, budget.
+- The `insight-brief.html` capture — audience + moment (for the anchor).
 - Team choices: visual direction + the one-liner/CTA.
 
 ## Anatomy (top → bottom)
@@ -57,16 +57,16 @@ Offer **3 genuinely different designs**, each matched to a campaign tone. Keep o
 
 - Set the accent from the quest card's `accent` (injected as `--accent` / `--accent-tint` / `--accent-line` / `--accent-deep` on `<body>`); the key visual comes from the card's `key_visual_svg`, re-art-ed per style.
 - Each style is a full, self-contained poster (all 9 anatomy sections) — never a partial.
-- **The team picks one**; record it as `poster.style` in `plan.yaml` and in the showcase capture.
+- **The team picks one**; record it as `poster.style` in the `campaign-plan.html` capture (and in the showcase capture).
 - In the **Showcase deck** the `poster` beat carries a 3-way picker that previews `poster-a|b|c.html` live, so the choice is made there.
 
 ## Workflow
 
-1. Pull name / slogan / proposition / offer from `plan.yaml`.
+1. Pull name / slogan / proposition / offer from the `campaign-plan.html` capture.
 2. Fill the shared content pack once into `templates/poster-page.html` (leave the `{{POSTER_STYLE}}` tokens) and the few fields in `templates/poster-tabs.html`; set `data-quest`, the accent vars, the key-visual motif, and the `{{STYLE_*}}` names from the quest card.
 3. Build the deliverable: `python3 scripts/build-posters.py --dir artifacts/Quest<ID>-<NN>/ [--default a]` → `poster-a.html` · `poster-b.html` · `poster-c.html` · `poster.html`. (Write into the current round folder — see `quest-card.md` → *Output layout*.)
 4. **Team previews the 3 styles and picks one** (HITL — the AI does not choose), via the tab page and/or the Showcase deck.
-5. Record the choice in `plan.yaml` (`poster.style`) so the deck/proposal embed the right page.
+5. Record the choice in the `campaign-plan.html` capture (`poster.style`) so the deck/proposal embed the right page.
 6. Self-check against `references/poster-method.md`.
 
 ## Brand

@@ -12,7 +12,7 @@ Run the 40-minute happy path:
 1. **Kick-off** — 30-second scout summary + the first menu.
 2. **Insight** — research first (`agent-reach` / `researcher`), then trends / audience / moment-of-truth menus → seed insight.
 3. **Plan (+ poster)** — anchor, scenario and idea menus → 2 markets → budget → `poster`.
-4. **Prove** — metrics menu + ROI derivation → Go/No-Go.
+4. **Prove** — pilot-metrics menu → 3–5 expected metrics + derivation logic.
 5. **Showcase** — storyline + poster on/off menus → `pitch-deck` + `prompt-pack`.
 6. **Converge** — package the deliverables.
 

@@ -8,7 +8,7 @@ Run the whole quest end-to-end **automatically** — no questions, no human inpu
 
 1. **Insight** — research via `agent-reach` → org + audience + trends + SWOT → ~6 key insights → pick 2–3.
 2. **Plan** — `creative-concept` (anchor + HMW + methods → ~6 ideas) → pick 2–3/combine → opportunity + campaign plan → ≥2 A/B versions → pick A or B → `poster`.
-3. **Prove** — `campaign-metrics` (pick 3–5 metrics + thresholds) → KPI dashboard → cost-benefit (ROI + verdict).
+3. **Prove** — `prove` (pick 3–5 expected pilot metrics) → write the derivation logic → one-screen `proof.html`.
 4. **Showcase** — pick a storyline → build `proposal.html` (unified report) + `pitch-deck.html` + `prompt-pack.html`.
 
-**Output: `artifacts/Quest<ID>-<NN>/`** — create the new round folder for this run and write all artifacts there; log every decision + its reason in `RUN-LOG.md`. Grounded, no fabricated numbers; English; Ascentium-branded.
+**Output: `artifacts/Quest<ID>-<NN>/`** — create the new round folder for this run and write all artifacts there; record every decision + its reason in each artifact's embedded `id="capture"` block (no YAML/Markdown files). Grounded, no fabricated numbers; English; Ascentium-branded.

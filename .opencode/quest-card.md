@@ -64,7 +64,7 @@ quest:
 | `/start`, `/run` | `quest.id`, `client`, `mission`, `market_scope` |
 | `insight` gate | `scout_report` + `client` + `market_scope` (the research chain) |
 | `plan` gate | `how_might_we`, `war_chest.mvp_unlock`, `victory_conditions`, `pilot_market_hints` |
-| `prove` gate | `victory_conditions`, `scout_report.benchmarks`, `war_chest` |
+| `prove` gate | `scout_report.benchmarks`, `war_chest.mvp_unlock`, `war_chest.pilot_window`, `war_chest.pilot_markets_hint` |
 | `showcase` gate | `accent`, `key_visual_motif`, `key_visual_svg`, `poster_styles` |
 | **every HTML template** | `accent` + `accent_values` (injected as `--accent` / `--accent-tint` / `--accent-line` / `--accent-deep`) and `key_visual_svg` |
 
@@ -88,7 +88,7 @@ artifacts/Quest<ID>-<NN>/
 - `<NN>` = a 2-digit round number. Pick the **next free** one by scanning `artifacts/Quest<ID>-*` (none → `01`; existing `01`,`02` → `03`).
 - **`/start` and `/run`** create a new round folder and write every artifact into it. A **single-gate command** (`/insight` … `/showcase`) writes into the **latest** round for that quest — create `-01` if none exists.
 - **Never overwrite a previous round.** A repeat run always increments `<NN>`.
-- Round contents: `insight.yaml` · `plan.yaml` · `metrics.yaml` · `insight-brief.html` · `campaign-plan.html` · `poster.html` (+ `poster-a|b|c.html`) · `proof.html` · `pitch-deck.html` · `prompt-pack.html` · `proposal.html` · `RUN-LOG.md`.
+- Round contents (**HTML only** — no YAML/Markdown): `insight-brief.html` · `campaign-plan.html` · `poster.html` (+ `poster-a|b|c.html`) · `proof.html` · `pitch-deck.html` · `prompt-pack.html` · `proposal.html`. Each stage HTML carries its decisions in an embedded `<script type="application/json" id="capture">` block.
 - Builder steps run with `--dir artifacts/Quest<ID>-<NN>/` (`build-posters.py`, `build-proposal.py`).
 
 `artifacts/` is gitignored (live run output); checked-in examples live under `demo-examples/`.
