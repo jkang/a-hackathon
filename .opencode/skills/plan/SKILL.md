@@ -15,7 +15,7 @@ The creative heart. Flow: **diverge → pick → define + plan → A/B → poste
 ## Inputs
 
 - The `insight-brief.html` capture — especially `key_insights` + `selected_insights` (the 2–3 chosen).
-- Quest card — the **How Might We**, War Chest budget (MVP unlock + full, from the card), Victory Conditions, scale-up gate.
+- Quest card — the **How Might We**, War Chest budget (MVP unlock + full, from the card), Victory Conditions.
 
 ## Flow (uses the `facilitation` engine)
 

@@ -112,6 +112,9 @@
   - 比喻化口语：`干重活`、`甩手掌柜`、`死胡同`、`拉进局里`、`手里都有活`、`够好`
   - 语气过硬的口语指令：`别问`、`别等`、`绝不甩`、`卡住就降级`、`用嘴说出来`、`拍板`
 - **改用**（正例）：`参与其中` · `承担主要执行工作` · `推进` · `降低选择难度` · `帮助团队走出僵局` · `口头提醒` · `由团队决定` · `达到可用水平`。
+- **禁止「否定式对比补白」**（`X, not Y` / `NOT the …` / `不是…而是…`）：把「不是什么」当强调是多余的废话，直接给结论。
+  - 反例：`THE MVP, NOT THE MASTER PLAN` → 正例：`THE MVP PLAN`
+  - 同义清理：`not the master plan` → 直接写 `the MVP` / `the pilot plan`，不写否定半句。
 - **判断标准**：这句话能否原样放进一份交给客户或管理层的商业方案？不能就重写。
 - **例外**：机制 / 产品专有名词（如「菜单 Option Menu」「洞察 Insight」）与英文术语保持原样。
 
@@ -160,3 +163,6 @@
 - 2026-09-29：**统一运行输出位置**：Facilitator 与 runner 均写入 **`artifacts/Quest<ID>-<NN>/`**（每题一轮一子目录；`/start`、`/run` 新建轮次，单闸命令并入最新轮次，不覆盖旧轮次）；两种模式均产出 `RUN-LOG.md`。同步 `agents/facilitator.md` · `runner.md`、7 个 command、README、quest-card.md、poster/showcase SKILL、DESIGN.md；`.gitignore` 加 `/artifacts/`；删除空目录 `runs/quest-b`。
 - 2026-09-30：**Prove 环节简化**：只保留 **pilot 预期指标 + 每个指标数值的推演逻辑**（benchmark → assumption → formula → target），输出**一屏** `proof.html`；**移除** Go/No-Go、Cost-Benefit/ROI、scale-up、KPI 看板 mock。`prove` 单技能不再调用 `campaign-metrics` / `data-visualizer-pro` / `cost-benefit.md`（三者**保留但休眠**）。同步：prove SKILL/template/references · facilitator/runner · commands（prove/run/start）· facilitation refs · showcase（deck 的 proof+ask beat、proposal、pitch-narrative）· evaluation-rubric/evaluate · README/DESIGN/quest-card · participant 物料（quest-cards / index / standalone）· `demo-examples/QuestA-v2`（proof / metrics / deck / proposal / RUN-LOG）。
 - 2026-09-30：**环节输出只留 HTML**：各阶段产物不再有 `.yaml` / `.md`——每个阶段的 decisions 以**内嵌 JSON**（`<script type="application/json" id="capture">`）写进该阶段 HTML；下游关卡读取上游 HTML 的 `id="capture"` 块。移除 `insight.yaml` / `plan.yaml` / `metrics.yaml` / `RUN-LOG.md`。同步：4 个阶段 SKILL + 模板 · `facilitation/references/capture-contract.md`（重写）· facilitator/runner/researcher · 8 个 command · README/DESIGN/quest-card · `facilitator_guide.html`（+ standalone）· `demo-examples/QuestA-v2`。
+- 2026-09-30：**题卡 §03 修订**：① 标题 `the MVP, not the master plan` → **`The MVP Plan`**（否定式对比补白，见 §5.6 新规则）；② **移除 `Scale-up gate` 栏**——toolkit 已不做 scale-up，门禁机制已由 §02 War Chest 的 Phase 2（hit sub-metrics → vendor list → unlock full budget）承载；其中「语言覆盖 / conservation-first」保留为题卡 `vc-note` 约束行，`.dc .meta` 由 3 栏改 2 栏。同步 `quest-cards.html` · `.opencode/skills/plan/SKILL.md` · `plan/references/pilot-experiment.md` · `.opencode/DESIGN.md`。
+- 2026-09-30：**新增 §5.6 规则「禁止否定式对比补白」**（`X, not Y` / `NOT the …` / `不是…而是…`）：直接给结论，例 `THE MVP, NOT THE MASTER PLAN` → `THE MVP PLAN`。
+- 2026-09-30：**participant 物料修订（index / standalone）**：① 章节标签 `LEVEL 01–07` → **`SECTION 01–07`**（本页是流程说明，无进阶关系）；② Guild Setup 的 Facilitator 描述去掉「AI BOT / cosplay / robot one-liners」，改为「每桌 1 名 Facilitator（FACI-01~08）协助团队」，与 `facilitator_guide` 对齐；③ 每组设备 `×2–3` → **`×2`**（桌面示意图由 3 台改 2 台）。连带在 `facilitator_guide.html` 把 `Robot Facilitator` → `Facilitator`、`三台设备` → `两台设备`。重建 `ascentium-hackathon-standalone.html` 与 `facilitator_guide_standalone.html`。

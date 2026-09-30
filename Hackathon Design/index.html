@@ -76,8 +76,8 @@ h1 .hl{color:var(--org)}
 .monitor::after{content:"";position:absolute;left:50%;bottom:-5px;transform:translateX(-50%);border:5px solid transparent;border-top-color:var(--ink);border-bottom:none}
 .table{position:absolute;left:50%;top:53%;transform:translate(-50%,-50%);width:196px;height:196px;border-radius:50%;background:var(--org1);border:2px solid var(--org2)}
 .dev{position:absolute;left:50%;top:50%;width:34px;height:22px;border-radius:4px;background:#fff;border:1.5px solid var(--mid1);transform:translate(-50%,-50%)}
-.dev:nth-child(2){transform:translate(-135%,-50%)}
-.dev:nth-child(3){transform:translate(35%,-50%)}
+.dev:nth-child(1){transform:translate(-108%,-50%)}
+.dev:nth-child(2){transform:translate(8%,-50%)}
 .seat{position:absolute;width:24px;height:24px;border-radius:50%;background:var(--mid1)}
 .seat.fac{background:var(--org);border:3px solid var(--org2)}
 .legend .li{display:flex;gap:10px;align-items:flex-start;margin:9px 0;font-size:12.5px;color:var(--txt)}
@@ -127,7 +127,8 @@ h1 .hl{color:var(--org)}
 .qkpi .c{font-size:9.5px;color:var(--mut);margin-top:4px;line-height:1.4}
 .qhwm{margin-top:12px;background:var(--org1);border-radius:11px;padding:12px 15px;font-size:12.5px;font-weight:600;line-height:1.55;color:var(--org3)}
 .qb .qhwm{background:var(--teal1);color:var(--teal)}
-.qpitch{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.qpitch-h{font-size:11px;font-weight:700;letter-spacing:.02em;color:var(--ink);margin-top:14px;margin-bottom:7px}
+.qpitch{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .qpitch .p{background:#F6F8F7;border:1px solid var(--line);border-radius:10px;padding:10px 12px}
 .qpitch .p b{display:block;font-size:11px;margin-bottom:3px;color:var(--ink)}
 .qpitch .p span{font-size:11px;color:var(--txt);line-height:1.5}
@@ -205,9 +206,9 @@ footer b{color:var(--org3);font-weight:600}
 
 <div class="wrap">
 
-<!-- ============ LEVEL 1: MISSION ============ -->
+<!-- ============ SECTION 1: MISSION ============ -->
 <section class="sec">
-  <div class="sec-h"><span class="lvl">LEVEL 01</span><h2>Mission Briefing</h2><span class="sub">Why we play</span><svg class="arrowup" width="22" height="22" viewBox="0 0 22 22"><path d="M4 18 L11 5 L18 18 L14.5 18 L11 12 L7.5 18 Z" fill="#FF6611"/></svg></div>
+  <div class="sec-h"><span class="lvl">SECTION 01</span><h2>Mission Briefing</h2><span class="sub">Why we play</span><svg class="arrowup" width="22" height="22" viewBox="0 0 22 22"><path d="M4 18 L11 5 L18 18 L14.5 18 L11 12 L7.5 18 Z" fill="#FF6611"/></svg></div>
   <div class="card card-pad" style="margin-bottom:12px">
     <p style="font-size:13.5px">Part of the <b>Ascentium AI Transformation — Inspire</b> program. No slides marathon, no theory: this is a <b>3-hour hands-on arena</b> where every BU leader experiences the full AI co-creation loop, masters our pre-loaded Skills &amp; Agents toolkit, and walks out thinking like a <b>builder, not just a user</b>.</p>
   </div>
@@ -219,9 +220,9 @@ footer b{color:var(--org3);font-weight:600}
   </div>
 </section>
 
-<!-- ============ LEVEL 2: QUEST MAP ============ -->
+<!-- ============ SECTION 2: QUEST MAP ============ -->
 <section class="sec">
-  <div class="sec-h"><span class="lvl">LEVEL 02</span><h2>The Quest Map</h2><span class="sub">3 hours · 4 sessions · one champion</span><svg class="arrowup" width="22" height="22" viewBox="0 0 22 22"><path d="M4 18 L11 5 L18 18 L14.5 18 L11 12 L7.5 18 Z" fill="#FF6611"/></svg></div>
+  <div class="sec-h"><span class="lvl">SECTION 02</span><h2>The Quest Map</h2><span class="sub">3 hours · 4 sessions · one champion</span><svg class="arrowup" width="22" height="22" viewBox="0 0 22 22"><path d="M4 18 L11 5 L18 18 L14.5 18 L11 12 L7.5 18 Z" fill="#FF6611"/></svg></div>
   <div class="flow">
     <div class="stage">
       <div class="sh">
@@ -277,36 +278,36 @@ footer b{color:var(--org3);font-weight:600}
   </div>
 </section>
 
-<!-- ============ LEVEL 3: GUILD SETUP ============ -->
+<!-- ============ SECTION 3: GUILD SETUP ============ -->
 <section class="sec">
-  <div class="sec-h"><span class="lvl">LEVEL 03</span><h2>Guild Setup &amp; Loadout</h2><span class="sub">8 guilds × 14 players · everything pre-configured</span><svg class="arrowup" width="22" height="22" viewBox="0 0 22 22"><path d="M4 18 L11 5 L18 18 L14.5 18 L11 12 L7.5 18 Z" fill="#FF6611"/></svg></div>
+  <div class="sec-h"><span class="lvl">SECTION 03</span><h2>Guild Setup &amp; Loadout</h2><span class="sub">8 guilds × 14 players · everything pre-configured</span><svg class="arrowup" width="22" height="22" viewBox="0 0 22 22"><path d="M4 18 L11 5 L18 18 L14.5 18 L11 12 L7.5 18 Z" fill="#FF6611"/></svg></div>
   <div class="card card-pad">
     <div class="setup">
       <div class="tblwrap" id="tblwrap">
         <div class="monitor">Shared Display ×1</div>
-        <div class="table"><div class="dev"></div><div class="dev"></div><div class="dev"></div></div>
-        <img src="assets/robot.png" alt="AI-Bot Facilitator" title="Your AI-Bot Facilitator" style="position:absolute;right:-4px;bottom:16px;width:96px">
+        <div class="table"><div class="dev"></div><div class="dev"></div></div>
+        <img src="assets/robot.png" alt="Facilitator" title="Facilitator on standby" style="position:absolute;right:-4px;bottom:16px;width:96px">
       </div>
       <div class="legend">
         <p style="margin-bottom:8px;font-size:13.5px"><b>One round-table island per guild — 8 guilds, 112 players:</b></p>
         <div class="li"><div class="lic" style="background:var(--org1)">👥</div><div><b>14 players</b> per round table — mixed across BUs and SEA markets for maximum perspective clash.</div></div>
-        <div class="li"><div class="lic" style="background:var(--org2)">🤖</div><div><b>1 Facilitator = your AI BOT</b> — toolkit expert on standby, unblocking stuck moments and pacing the run. Answers to a serial number (FACI-01 ~ FACI-08), speaks in cheerful robot one-liners, and keeps the human-AI co-creation vibe at 100%.</div></div>
+        <div class="li"><div class="lic" style="background:var(--org2)">🤝</div><div><b>1 Facilitator (FACI-01 ~ FACI-08)</b> — a toolkit expert seated at each table to help the team: unblocks stuck moments, keeps the pace, and makes sure all 14 players take part.</div></div>
         <div class="li"><div class="lic" style="background:var(--sky1)">🖥️</div><div><b>Big display ×1</b> — one shared screen per guild; the whole table sees the same build, all the time.</div></div>
-        <div class="li"><div class="lic" style="background:var(--teal1)">💻</div><div><b>Pre-configured devices ×2–3</b> — tools installed, logins ready. Open the lid and play.</div></div>
+        <div class="li"><div class="lic" style="background:var(--teal1)">💻</div><div><b>Pre-configured devices ×2</b> — tools installed, logins ready. Open the lid and play.</div></div>
         <div class="kv">
           <span>✅ One screen, zero distraction</span>
           <span>✅ Multi-device, no queuing</span>
           <span>✅ Expert on tap, no stuck states</span>
-          <span>🤖 Robot-Faci keeps the energy high</span>
+          <span>🧑💼 Facilitator keeps the pace</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ LEVEL 4: MAIN QUEST ============ -->
+<!-- ============ SECTION 4: MAIN QUEST ============ -->
 <section class="sec">
-  <div class="sec-h"><span class="lvl">LEVEL 04</span><h2>Main Quest: “Gold Rush” <span style="font-size:14px;color:var(--mut);font-weight:400">(spot the opportunity)</span></h2><span class="sub">60 minutes · one winning plan per duel</span><svg class="arrowup" width="22" height="22" viewBox="0 0 22 22"><path d="M4 18 L11 5 L18 18 L14.5 18 L11 12 L7.5 18 Z" fill="#FF6611"/></svg></div>
+  <div class="sec-h"><span class="lvl">SECTION 04</span><h2>Main Quest: “Gold Rush” <span style="font-size:14px;color:var(--mut);font-weight:400">(spot the opportunity)</span></h2><span class="sub">60 minutes · one winning plan per duel</span><svg class="arrowup" width="22" height="22" viewBox="0 0 22 22"><path d="M4 18 L11 5 L18 18 L14.5 18 L11 12 L7.5 18 Z" fill="#FF6611"/></svg></div>
   <div class="card card-pad" style="margin-bottom:14px">
     <p style="font-size:13.5px">Raid one official quest with the pre-loaded <b>Skills / Agents arsenal</b>: insight → judgement → plan → showcase, end to end. The official quests are locked in — <b>Quest A “Golden Ticket — Fill the Stands at Doha 2030”</b> and <b>Quest B “Panda Goes Global — From Zoo Visit to World Membership”</b>. <b>8 guilds draw lots for pick order; each quest is capped at 4 guilds, first-come-first-served</b> (once Quest A fills up, the rest go to B). In the arena, <b>same-quest guilds duel head-to-head</b> — same boss, pure skill.</p>
     <div class="kv">
@@ -373,7 +374,7 @@ footer b{color:var(--org3);font-weight:600}
             <span class="unlock">MVP Unlock · 5% = USD 1.5M<br>3-month pilot in 2 Asian markets</span>
           </div>
           <div class="qkpis">
-            <div class="qkpi"><div class="n">400K</div><div class="c">tickets sold to Asia-based fans (excl. host Qatar)</div></div>
+            <div class="qkpi"><div class="n">400K</div><div class="c">tickets sold to Asia-based fans (~15% of total inventory)</div></div>
             <div class="qkpi"><div class="n">≥85%</div><div class="c">attendance in Asian-team sessions</div></div>
             <div class="qkpi"><div class="n">250K</div><div class="c">Asian visitors in Qatar, Games week</div></div>
             <div class="qkpi"><div class="n">$40M</div><div class="c">merch + hospitality from Asian fans</div></div>
@@ -381,6 +382,7 @@ footer b{color:var(--org3);font-weight:600}
           </div>
         </div>
         <div class="qhwm">“How might we use the 5% MVP budget — USD 1.5M, 3 months, 2 Asian pilot markets — to prove our campaign can one day put 400K Asian fans in Doha’s stands?”</div>
+        <div class="qpitch-h">Your 5-minute pitch — The MVP Plan</div>
         <div class="qpitch">
           <div class="p"><b>1 · The Insight</b><span>the market &amp; audience truth that seeds everything (one line, benchmark-backed).</span></div>
           <div class="p"><b>2 · The Idea &amp; Plan</b><span>the pilot concept: 2 Asian markets, 3 months, USD 1.5M — and how you run &amp; measure it.</span></div>
@@ -444,6 +446,7 @@ footer b{color:var(--org3);font-weight:600}
           </div>
         </div>
         <div class="qhwm">“How might we use the 10% MVP budget — USD 1.1M, 3 months, 2 overseas pilot markets — to prove panda fandom can become a paying global membership?”</div>
+        <div class="qpitch-h">Your 5-minute pitch — The MVP Plan</div>
         <div class="qpitch">
           <div class="p"><b>1 · The Insight</b><span>the market &amp; audience truth that seeds everything (one line, benchmark-backed).</span></div>
           <div class="p"><b>2 · The Idea &amp; Plan</b><span>the pilot membership design: 2 overseas markets, 3 months, USD 1.1M — and how you run &amp; measure it.</span></div>
@@ -457,9 +460,9 @@ footer b{color:var(--org3);font-weight:600}
   </div>
 </section>
 
-<!-- ============ LEVEL 5: ARSENAL ============ -->
+<!-- ============ SECTION 5: ARSENAL ============ -->
 <section class="sec">
-  <div class="sec-h"><span class="lvl">LEVEL 05</span><h2>The Arsenal: Skills / Agents</h2><span class="sub">pre-loaded · mix &amp; match · combo-friendly</span><svg class="arrowup" width="22" height="22" viewBox="0 0 22 22"><path d="M4 18 L11 5 L18 18 L14.5 18 L11 12 L7.5 18 Z" fill="#FF6611"/></svg></div>
+  <div class="sec-h"><span class="lvl">SECTION 05</span><h2>The Arsenal: Skills / Agents</h2><span class="sub">pre-loaded · mix &amp; match · combo-friendly</span><svg class="arrowup" width="22" height="22" viewBox="0 0 22 22"><path d="M4 18 L11 5 L18 18 L14.5 18 L11 12 L7.5 18 Z" fill="#FF6611"/></svg></div>
   <div class="card card-pad">
     <p style="font-size:12.5px;color:var(--mut);margin-bottom:14px">Chained along the full quest loop — open the inventory, equip, and combine:</p>
     <div class="skstage"><div class="lbl"><span class="lv">STAGE 1</span>🔍 Insight Loadout</div>
@@ -474,6 +477,7 @@ footer b{color:var(--org3);font-weight:600}
     <div class="skstage"><div class="lbl"><span class="lv">STAGE 2</span>💡 Create Loadout</div>
       <div class="skrow">
         <div class="sk"><b>Creative Concept</b> Skill</div>
+        <div class="sk"><b>Opportunity Definition</b> Skill</div>
         <div class="sk"><b>MVP Pilot Design</b> Skill</div>
         <div class="sk"><b>Marketing Plan</b> Skill</div>
         <div class="sk"><b>Poster</b> Skill</div>
@@ -481,17 +485,17 @@ footer b{color:var(--org3);font-weight:600}
     </div>
     <div class="skstage" style="margin-bottom:0"><div class="lbl"><span class="lv">STAGE 3</span>📊 Prove &amp; Present Loadout</div>
       <div class="skrow">
-        <div class="sk"><b>Data Analysis &amp; Viz</b> Skill</div>
         <div class="sk"><b>Pilot Metrics</b> Skill</div>
+        <div class="sk"><b>Data Analysis &amp; Viz</b> Skill</div>
         <div class="sk agent"><b>Showcase Report</b> Agent<i>AUTO</i></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ LEVEL 6: ARENA ============ -->
+<!-- ============ SECTION 6: ARENA ============ -->
 <section class="sec">
-  <div class="sec-h"><span class="lvl">LEVEL 06</span><h2>The Arena: Showcase Duels</h2><span class="sub">same-quest pairs · everyone votes</span><svg class="arrowup" width="22" height="22" viewBox="0 0 22 22"><path d="M4 18 L11 5 L18 18 L14.5 18 L11 12 L7.5 18 Z" fill="#FF6611"/></svg></div>
+  <div class="sec-h"><span class="lvl">SECTION 06</span><h2>The Arena: Showcase Duels</h2><span class="sub">same-quest pairs · everyone votes</span><svg class="arrowup" width="22" height="22" viewBox="0 0 22 22"><path d="M4 18 L11 5 L18 18 L14.5 18 L11 12 L7.5 18 Z" fill="#FF6611"/></svg></div>
   <div class="card card-pad" style="margin-bottom:14px">
     <div class="grid3">
       <div><h3 class="sub-t"><span class="lic" style="background:var(--org1)">🎲</span>Draw Lots First</h3><p style="font-size:12.5px">8 guilds draw lots for pick order AND duel slots: pick Quest A/B in order (4 guilds per quest, first-come-first-served; once A is full, the rest take B), then same-quest guilds pair up (D1–D4). Brackets published in advance for targeted prep.</p></div>
@@ -514,9 +518,9 @@ footer b{color:var(--org3);font-weight:600}
   <div class="bracket" id="bracket"></div>
 </section>
 
-<!-- ============ LEVEL 7: HALL OF FAME ============ -->
+<!-- ============ SECTION 7: HALL OF FAME ============ -->
 <section class="sec">
-  <div class="sec-h"><span class="lvl">LEVEL 07</span><h2>Hall of Fame</h2><span class="sub">medals, gifts &amp; playful honors</span><svg class="arrowup" width="22" height="22" viewBox="0 0 22 22"><path d="M4 18 L11 5 L18 18 L14.5 18 L11 12 L7.5 18 Z" fill="#FF6611"/></svg></div>
+  <div class="sec-h"><span class="lvl">SECTION 07</span><h2>Hall of Fame</h2><span class="sub">medals, gifts &amp; playful honors</span><svg class="arrowup" width="22" height="22" viewBox="0 0 22 22"><path d="M4 18 L11 5 L18 18 L14.5 18 L11 12 L7.5 18 Z" fill="#FF6611"/></svg></div>
   <div class="card card-pad hof">
     <img src="assets/trophy.png" alt="Champion trophy">
     <div class="grid2">
@@ -544,7 +548,7 @@ footer b{color:var(--org3);font-weight:600}
 </div>
 
 <script>
-// round table: 14 seats (seat 0 = robot facilitator, top, facing the display)
+// round table: 14 seats (seat 0 = facilitator, top, facing the display)
 const w=document.getElementById('tblwrap');
 const cx=165, cy=182, r=116;
 for(let i=0;i<14;i++){
@@ -553,7 +557,7 @@ for(let i=0;i<14;i++){
   s.className='seat'+(i===0?' fac':'');
   s.style.left=(cx+r*Math.cos(a)-12)+'px';
   s.style.top =(cy+r*Math.sin(a)-12)+'px';
-  s.title = i===0?'🤖 FACI-0'+(Math.floor(Math.random()*8)+1)+' · your AI-Bot Facilitator':'Player';
+  s.title = i===0?'FACI-0'+(Math.floor(Math.random()*8)+1)+' · team facilitator':'Player';
   w.appendChild(s);
 }
 // duel bracket: 4 matches

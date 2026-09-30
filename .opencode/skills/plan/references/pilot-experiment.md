@@ -1,6 +1,6 @@
 # Pilot Experiment Method (marketing)
 
-Adapted from the PoL-probe idea: run a **small, honest, time-boxed test** to prove the trajectory — not to launch the master plan.
+Adapted from the PoL-probe idea: run a **small, honest, time-boxed test** to prove the trajectory of the pilot.
 
 ## 1. The pilot framing (from the card)
 
@@ -14,7 +14,7 @@ Fill these five fields:
 2. **Treatment** — what the 2 pilot markets actually get (channels, offer, assets).
 3. **Control / baseline** — what we compare against (a held-out market, prior period, or benchmark from the card).
 4. **Duration** — 3 months, with a mid-point check.
-5. **Measurement setup** — what is instrumented, where, and how often (this satisfies deliverable #2's "measurement setup").
+5. **Measurement setup** — what is instrumented, where, and how often (this satisfies the pitch's "The Idea & Plan" run-and-measure).
 
 ## 3. Choosing the 2 markets (team decision)
 
@@ -34,6 +34,6 @@ Fill these five fields:
 
 ## 6. Anti-patterns
 
-- Designing the full 18-month rollout (this is the MVP, not the master plan).
+- Designing the full 18-month rollout (the MVP Plan covers only the 3-month pilot).
 - No control/baseline.
 - Metrics with "no fixed numbers" but also no rationale — always tie to a benchmark.
