@@ -96,7 +96,7 @@
     <div class="logo">Ascentium<span>.</span></div>
     <nav>
       <a href="#duty">职责</a><a href="#what">是什么</a><a href="#tree">目录</a><a href="#usage">用法</a>
-      <a href="#install">安装</a><a href="#facilitator">现场</a><a href="#tips">tips</a>
+      <a href="#install">安装</a><a href="#facilitator">现场</a><a href="#tips">tips</a><a href="#prep">行前准备</a>
     </nav>
   </div>
 </div>
@@ -4418,12 +4418,13 @@ opencode</code></pre>
         <li><b><code>/showcase</code> 呈现</b>：团队选 storyline → AI 生成提案 + PPT + 提示词。</li>
       </ol>
       <div class="note">所有决策写进 <code>insight.yaml / plan.yaml / metrics.yaml</code> + <code>RUN-LOG.md</code>，可回溯。</div>
+      <div class="note">产出位置：每组每轮一个子目录 <code>artifacts/QuestA-01/</code>（再跑一轮为 <code>artifacts/QuestA-02/</code>，不覆盖旧轮；B 题同理 <code>artifacts/QuestB-01/</code>）。</div>
     </div>
 
     <div class="card">
       <div class="eyebrow">机动 · auto-run（现场需要的备用方式）</div>
       <ul>
-        <li>触发：<code>/run</code>（runner agent），Quest 默认 A —— 现场需要时可用它一次性完成整条链路。</li>
+        <li>触发：<code>/run</code>（runner agent），Quest 默认 A —— 现场需要时可用它一次性完成整条链路。产出同样落在 <code>artifacts/QuestA-NN/</code>。</li>
         <li>产出同上；<b>默认决策需人工复核后再对外</b>。</li>
       </ul>
     </div>
@@ -4492,6 +4493,47 @@ opencode</code></pre>
         <div class="c"><b>海报</b>打开 <code>poster-a/b/c.html</code>，A3 打印</div>
         <div class="c"><b>提案</b>左侧栏可收缩，点击导航查看产物</div>
       </div>
+    </div>
+  </section>
+
+  <section id="prep">
+    <h2>8 · 行前准备 Checklist</h2>
+    <div class="note" style="margin-bottom:14px;">现场只有 50 分钟，准备必须提前完成。以下四项请在 <b>10 月 13 日早上前</b>逐项确认。</div>
+
+    <div class="card">
+      <div class="eyebrow">① 设备环境 Check · 10/13 早上</div>
+      <ul>
+        <li><b>每组 2 台笔记本</b>：开机、联网、投屏测试；确认工具链（opencode + skills）可用。</li>
+        <li><b>大屏 / 显示器</b>：分辨率与投屏正常，画面能同步给整桌。</li>
+        <li><b>跑一次冒烟</b>：用 <code>/start</code> 走通命令与阶段，确认没有账号 / 权限卡点。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">② 试 Run Quest A / B（各 2 遍）</div>
+      <ul>
+        <li>按 facilitator 方式，把 <b>Quest A</b> 与 <b>Quest B</b> 各完整跑 2 遍。</li>
+        <li>确认能产出预期结果：<code>proposal.html</code>（方案）+ <code>pitch-deck.html</code>（路演稿）。</li>
+        <li>记录卡点与耗时，沉淀成话术与降级方案，供现场直接使用。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">③ 设计 Facilitate 流程</div>
+      <ul>
+        <li>预演全流程节奏，明确设备分工：谁操作电脑、谁投大屏、谁记录决策。</li>
+        <li>设计全员参与机制：任务分路 + 点名认领，避免少数人操作、多数人旁观。</li>
+        <li>保证 Showcase 成功：提前定故事线与讲稿分工，预留一次彩排。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">④ 准备小素材与小道具（英文）</div>
+      <ul>
+        <li><b>英文提示卡 / 话术卡</b>：各关菜单、投票与计时提示 —— 面向参与者的材料一律英文。</li>
+        <li><b>小道具</b>：便签、白板笔、计时牌；如需抽签，准备抽签箱与签条。</li>
+        <li><b>提交准备</b>：共享文件夹 / 提交通道二维码提前就绪。</li>
+      </ul>
     </div>
   </section>
 

@@ -11,6 +11,6 @@ Use the `showcase` skill with `facilitation` (option menu). Requires `insight.ya
 3. **Direction + one-liner** — present 2–3 visual directions; the team picks.
 4. Build the deck (`data-storyline` + `data-poster`).
 5. Optional **bonus media** — write `prompt-pack.html` (Suno / Runway / GPT prompts); embed returned files.
-6. Output `proposal.html` (the complete unified proposal — cover + summary + insight + plan + poster + proof + artifact index) + `pitch-deck.html` + `prompt-pack.html`.
+6. Write into the current round folder `artifacts/Quest<ID>-<NN>/`: `proposal.html` (the complete unified proposal — cover + summary + insight + plan + poster + proof + artifact index) + `pitch-deck.html` + `prompt-pack.html`.
 
 Choice-first, human-led. Do not decide for the team.

@@ -58,6 +58,8 @@
 每个技能含 `SKILL.md` + `references/` +（可选）`templates/` `scripts/`；子技能嵌在所属阶段的 `sub-skills/`。
 `poster` 与 `agent-reach` **平铺为顶层技能**（逻辑上归 `plan` / `insight`，被它们引用）。命名**一律不带 `quest`**。
 
+**输出位置（运行约定）**：Facilitator 与 runner 两种模式都把产物写入仓库根的 **`artifacts/Quest<ID>-<NN>/`**（每题一轮一子目录，如 `QuestA-01`、`QuestA-02`）。`/start`、`/run` 新建轮次目录；单闸命令写入该题最新轮次目录（无则建 `-01`）；**不覆盖旧轮次**。`artifacts/` 已 gitignore；签入示例保留在 `demo-examples/`。详见 `.opencode/quest-card.md` → *Output layout*。
+
 ---
 
 ## 4. 技能处置清单（锁定）
@@ -155,3 +157,4 @@
 - 2026-09-29：**目录结构对齐** —— `poster`（原 `plan/sub-skills/poster`）与 `agent-reach`（原 `insight/sub-skills/agent-reach`）**平铺为顶层技能** `skills/poster/` · `skills/agent-reach/`，与 AGENTS/DESIGN/README 的设计意图（「平铺，逻辑归 plan/insight」）一致；同步 AGENTS.md / README.md / DESIGN.md / facilitator_guide 四处目录树（并移除已废弃的 `sources/` 说法）。
 - 2026-09-29：**Quest A 市场口径 SEA → Asia-wide**；明确「参与者来自 SEA ≠ Quest 受众限于 SEA」；Quest B 保持全球定位。quest-cards / index / standalone(en+zh) / `.opencode` Quest A 示例全部同步。
 - 2026-09-29：**Quest 解耦（toolkit 复用化）**：新增 **`quest-card.md`**（Quest 配置契约：client/mission/War Chest/Victory Conditions/Scout Report + 视觉参数 `accent`/`key_visual_svg`/`poster_styles`），确立「技能=引擎 · 题卡=数据」分层。落点：① 7 个 HTML 模板的 accent 从 `data-quest="A|B"` 硬编码改为「题卡注入 `--accent/--accent-tint/--accent-line/--accent-deep` 内联变量」（并修正 pitch-deck 缺 teal 覆盖的 bug）；② pitch-deck 插画从硬编码 stadium/panda 改为单一 `{{KEY_VISUAL_SVG}}` 槽位，旧插画迁至 `showcase/references/motifs-examples.md`；③ poster 三风格名（Matchday Roar/Supporter Passport/Midnight Minimal）改为「tone 原型 + `{{STYLE_*}}` 占位」，题卡可重命名；④ SKILL/command/README 触发词与 references 里的 Doha/熊猫/SEA 具体数据清空为「from the card」指针。冒烟验证：合成 Quest C（teal）poster 构建 + pitch-deck/proposal 构建均通过。
+- 2026-09-29：**统一运行输出位置**：Facilitator 与 runner 均写入 **`artifacts/Quest<ID>-<NN>/`**（每题一轮一子目录；`/start`、`/run` 新建轮次，单闸命令并入最新轮次，不覆盖旧轮次）；两种模式均产出 `RUN-LOG.md`。同步 `agents/facilitator.md` · `runner.md`、7 个 command、README、quest-card.md、poster/showcase SKILL、DESIGN.md；`.gitignore` 加 `/artifacts/`；删除空目录 `runs/quest-b`。

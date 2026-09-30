@@ -54,7 +54,7 @@ The AI must not choose these.
 3. Run the builder to inline each artifact's **full HTML** into the matching iframe:
 
 ```bash
-python3 scripts/build-proposal.py --dir <output-folder>   # reads proposal.html + sibling artifacts, writes proposal.html in place
+python3 scripts/build-proposal.py --dir artifacts/Quest<ID>-<NN>/   # reads proposal.html + sibling artifacts, writes proposal.html in place
 ```
 
 The builder escapes each artifact for an `srcdoc` attribute. Because `srcdoc` iframes inherit the parent origin, the viewer can auto-size each embedded artifact even from `file://` (double-click). The shell ships the auto-fit + collapse behavior; no further wiring is needed.

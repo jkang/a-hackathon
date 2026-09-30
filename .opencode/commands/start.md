@@ -6,6 +6,8 @@ Start the full facilitated session.
 
 **Quest: $ARGUMENTS** (if empty, ask the team — read the quest card / `quest-card.md` for the challenge).
 
+**Output: `artifacts/Quest<ID>-<NN>/`** — create a **new round folder** at the start (next free `<NN>`; first run → `01`); every gate writes into it. See `quest-card.md` → *Output layout*.
+
 Run the 40-minute happy path:
 1. **Kick-off** — 30-second scout summary + the first menu.
 2. **Insight** — research first (`agent-reach` / `researcher`), then trends / audience / moment-of-truth menus → seed insight.

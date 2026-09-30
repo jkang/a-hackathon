@@ -11,4 +11,4 @@ Run the whole quest end-to-end **automatically** — no questions, no human inpu
 3. **Prove** — `campaign-metrics` (pick 3–5 metrics + thresholds) → KPI dashboard → cost-benefit (ROI + verdict).
 4. **Showcase** — pick a storyline → build `proposal.html` (unified report) + `pitch-deck.html` + `prompt-pack.html`.
 
-Write all artifacts to an `auto-run/` folder, and log every decision + its reason in `RUN-LOG.md`. Grounded, no fabricated numbers; English; Ascentium-branded.
+**Output: `artifacts/Quest<ID>-<NN>/`** — create the new round folder for this run and write all artifacts there; log every decision + its reason in `RUN-LOG.md`. Grounded, no fabricated numbers; English; Ascentium-branded.

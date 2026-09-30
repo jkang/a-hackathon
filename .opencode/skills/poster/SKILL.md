@@ -64,7 +64,7 @@ Offer **3 genuinely different designs**, each matched to a campaign tone. Keep o
 
 1. Pull name / slogan / proposition / offer from `plan.yaml`.
 2. Fill the shared content pack once into `templates/poster-page.html` (leave the `{{POSTER_STYLE}}` tokens) and the few fields in `templates/poster-tabs.html`; set `data-quest`, the accent vars, the key-visual motif, and the `{{STYLE_*}}` names from the quest card.
-3. Build the deliverable: `python3 scripts/build-posters.py --dir <out> [--default a]` → `poster-a.html` · `poster-b.html` · `poster-c.html` · `poster.html`.
+3. Build the deliverable: `python3 scripts/build-posters.py --dir artifacts/Quest<ID>-<NN>/ [--default a]` → `poster-a.html` · `poster-b.html` · `poster-c.html` · `poster.html`. (Write into the current round folder — see `quest-card.md` → *Output layout*.)
 4. **Team previews the 3 styles and picks one** (HITL — the AI does not choose), via the tab page and/or the Showcase deck.
 5. Record the choice in `plan.yaml` (`poster.style`) so the deck/proposal embed the right page.
 6. Self-check against `references/poster-method.md`.

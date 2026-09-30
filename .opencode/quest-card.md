@@ -76,6 +76,23 @@ quest:
 3. **Key visual is a quest property.** The card ships `key_visual_svg` (one inline `<symbol id="illo" viewBox="0 0 1200 500">`). The templates have a single `{{KEY_VISUAL_SVG}}` slot; the agent fills it. The built-in stadium / panda illustrations are **example motifs only**, not part of the engine.
 4. **Poster styles are tone descriptors, not quest labels.** The three styles (A/B/C) are art directions the team maps to the current quest; a card may rename them via `poster_styles`.
 
+## Output layout (where a run writes)
+
+Every run writes into **one round folder** at the repo root:
+
+```
+artifacts/Quest<ID>-<NN>/
+```
+
+- `<ID>` = the card's `id`, normalized: strip any leading "Quest" and spaces, then prefix `Quest` (e.g. id `A` → `QuestA`, id `C` → `QuestC`).
+- `<NN>` = a 2-digit round number. Pick the **next free** one by scanning `artifacts/Quest<ID>-*` (none → `01`; existing `01`,`02` → `03`).
+- **`/start` and `/run`** create a new round folder and write every artifact into it. A **single-gate command** (`/insight` … `/showcase`) writes into the **latest** round for that quest — create `-01` if none exists.
+- **Never overwrite a previous round.** A repeat run always increments `<NN>`.
+- Round contents: `insight.yaml` · `plan.yaml` · `metrics.yaml` · `insight-brief.html` · `campaign-plan.html` · `poster.html` (+ `poster-a|b|c.html`) · `proof.html` · `pitch-deck.html` · `prompt-pack.html` · `proposal.html` · `RUN-LOG.md`.
+- Builder steps run with `--dir artifacts/Quest<ID>-<NN>/` (`build-posters.py`, `build-proposal.py`).
+
+`artifacts/` is gitignored (live run output); checked-in examples live under `demo-examples/`.
+
 ## When adding a new quest
 
 1. Write a new card (a challenge brief) that fills every field above.

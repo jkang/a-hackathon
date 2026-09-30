@@ -3,7 +3,7 @@
 Build a single-file, shareable version of the Facilitator Guide.
 
 Inlines every file facilitator_guide.html references (the Quest A demo outputs
-under demo-examples/auto-run-QuestA-v2/) so the result can be emailed / dropped
+under demo-examples/QuestA-v2/) so the result can be emailed / dropped
 into a chat and opened with a double-click — no repo, no server, no sibling files.
 
 Usage:  python3 build-facilitator-standalone.py
@@ -13,7 +13,7 @@ import io, json, os, re
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 GUIDE = os.path.join(ROOT, "facilitator_guide.html")
-V2 = os.path.join(ROOT, "demo-examples", "auto-run-QuestA-v2")
+V2 = os.path.join(ROOT, "demo-examples", "QuestA-v2")
 OUT = os.path.join(ROOT, "facilitator_guide_standalone.html")
 
 # the six panels embedded in the guide (title -> file)
@@ -84,7 +84,7 @@ def repl(m):
     return '<iframe%ssrcdoc="%s"%s></iframe>' % (pre, esc(prep(fn)), post)
 
 guide, n_if = re.subn(
-    r'<iframe([^>]*?)src="demo-examples/auto-run-QuestA-v2/([^"]+)"([^>]*?)></iframe>',
+    r'<iframe([^>]*?)src="demo-examples/QuestA-v2/([^"]+)"([^>]*?)></iframe>',
     repl, guide)
 
 # 2) drop the "open ↗" links (their target files are gone)

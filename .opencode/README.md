@@ -33,6 +33,8 @@ You can also run a single gate, or evaluate a finished proposal:
 /insight     /plan     /poster     /prove     /showcase     /evaluate
 ```
 
+**Output location.** Every run writes into a **round folder**: `artifacts/Quest<ID>-<NN>/` — e.g. `artifacts/QuestA-01/`, then `QuestA-02` for the next run. `/start` and `/run` create a new round; a single-gate command writes into the latest round for that quest. See `quest-card.md` → *Output layout*.
+
 ---
 
 ## 3. Commands
@@ -116,6 +118,8 @@ The agenda is a **suggested happy path**. On any team signal, comply in one line
 
 ## 6. What you produce
 
+Everything lands in **one round folder**: `artifacts/Quest<ID>-<NN>/` (e.g. `artifacts/QuestA-01/`; the next run → `QuestA-02`). Never overwrite a previous round. **`RUN-LOG.md`** records the decisions (the team's in facilitate mode, the AI's in autopilot).
+
 **Data (hand-off between gates):** `insight.yaml` · `plan.yaml` · `metrics.yaml`
 
 **HTML artifacts (all double-click openable, English, Ascentium-branded):**
@@ -151,10 +155,13 @@ The agenda is a **suggested happy path**. On any team signal, comply in one line
 │   └── ascentium-brand/        # brand executor (+ brand-guideline.md)
 ├── agents/                     # facilitator.md · runner.md · researcher.md
 ├── commands/                   # start · insight · plan · poster · prove · showcase · evaluate · run
+├── quest-card.md               # quest config contract (data + visual params) + output layout
 ├── evaluation-rubric.md        # 7-dimension pitch scorecard
 ├── README.md                   # this manual
 └── DESIGN.md                   # full design spec
 ```
+
+Run outputs (gitignored): **`artifacts/Quest<ID>-<NN>/`** at the repo root — one folder per round.
 
 opencode discovers skills by scanning **`**/SKILL.md`** inside `skills/` (nested sub-skills are fine). Naming is **always without `quest`** (skills `insight`/`plan`/`poster`/`prove`/`showcase`; agents `facilitator`/`researcher`; commands `/start` …).
 

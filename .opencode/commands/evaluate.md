@@ -1,7 +1,7 @@
 ---
 description: Score a proposal / pitch deck against the evaluation rubric.
 ---
-Evaluate the proposal at **$ARGUMENTS** (default: the most recent run folder) using `evaluation-rubric.md`.
+Evaluate the proposal at **$ARGUMENTS** (default: the latest round folder under `artifacts/` — `artifacts/Quest<ID>-<NN>/`) using `evaluation-rubric.md`.
 
 1. Read the target deck + YAMLs (and the poster / proof / dashboard artifacts).
 2. Score the **7 dimensions** (1–5): Insight · Strategy · Creative · Pilot · Proof · Storytelling · Presentation.

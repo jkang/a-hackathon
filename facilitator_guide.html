@@ -202,33 +202,33 @@
     <h2 style="margin-top:26px;">产出示例（Quest A · 全链路 · 直接可读）</h2>
 
     <div class="demo">
-      <div class="cap"><span>① 洞察简报</span><span class="file">insight-brief.html</span><a href="demo-examples/auto-run-QuestA-v2/insight-brief.html" target="_blank">打开 ↗</a></div>
-      <iframe data-auto src="demo-examples/auto-run-QuestA-v2/insight-brief.html" height="640" title="Insight Brief"></iframe>
+      <div class="cap"><span>① 洞察简报</span><span class="file">insight-brief.html</span><a href="demo-examples/QuestA-v2/insight-brief.html" target="_blank">打开 ↗</a></div>
+      <iframe data-auto src="demo-examples/QuestA-v2/insight-brief.html" height="640" title="Insight Brief"></iframe>
     </div>
 
     <div class="demo">
-      <div class="cap"><span>② 策划方案 · A/B 两套</span><span class="file">campaign-plan.html</span><a href="demo-examples/auto-run-QuestA-v2/campaign-plan.html" target="_blank">打开 ↗</a></div>
-      <iframe data-auto src="demo-examples/auto-run-QuestA-v2/campaign-plan.html" height="720" title="Campaign Plan"></iframe>
+      <div class="cap"><span>② 策划方案 · A/B 两套</span><span class="file">campaign-plan.html</span><a href="demo-examples/QuestA-v2/campaign-plan.html" target="_blank">打开 ↗</a></div>
+      <iframe data-auto src="demo-examples/QuestA-v2/campaign-plan.html" height="720" title="Campaign Plan"></iframe>
     </div>
 
     <div class="demo">
-      <div class="cap"><span>③ 海报 · 3 风格可切换</span><span class="file">poster.html（含 poster-a/b/c.html）</span><a href="demo-examples/auto-run-QuestA-v2/poster.html" target="_blank">打开 ↗</a></div>
-      <iframe data-auto src="demo-examples/auto-run-QuestA-v2/poster.html" height="640" title="Poster"></iframe>
+      <div class="cap"><span>③ 海报 · 3 风格可切换</span><span class="file">poster.html（含 poster-a/b/c.html）</span><a href="demo-examples/QuestA-v2/poster.html" target="_blank">打开 ↗</a></div>
+      <iframe data-auto src="demo-examples/QuestA-v2/poster.html" height="640" title="Poster"></iframe>
     </div>
 
     <div class="demo">
-      <div class="cap"><span>④ 论证 · 指标 + Go/No-Go</span><span class="file">proof.html</span><a href="demo-examples/auto-run-QuestA-v2/proof.html" target="_blank">打开 ↗</a></div>
-      <iframe data-auto src="demo-examples/auto-run-QuestA-v2/proof.html" height="640" title="Proof"></iframe>
+      <div class="cap"><span>④ 论证 · 指标 + Go/No-Go</span><span class="file">proof.html</span><a href="demo-examples/QuestA-v2/proof.html" target="_blank">打开 ↗</a></div>
+      <iframe data-auto src="demo-examples/QuestA-v2/proof.html" height="640" title="Proof"></iframe>
     </div>
 
     <div class="demo">
-      <div class="cap"><span>⑤ 统一提案</span><span class="file">proposal.html</span><a href="demo-examples/auto-run-QuestA-v2/proposal.html" target="_blank">打开 ↗</a></div>
-      <iframe data-auto src="demo-examples/auto-run-QuestA-v2/proposal.html" height="560" title="Proposal"></iframe>
+      <div class="cap"><span>⑤ 统一提案</span><span class="file">proposal.html</span><a href="demo-examples/QuestA-v2/proposal.html" target="_blank">打开 ↗</a></div>
+      <iframe data-auto src="demo-examples/QuestA-v2/proposal.html" height="560" title="Proposal"></iframe>
     </div>
 
     <div class="demo">
-      <div class="cap"><span>⑥ 路演 PPT · 5 分钟</span><span class="file">pitch-deck.html</span><a href="demo-examples/auto-run-QuestA-v2/pitch-deck.html" target="_blank">打开 ↗</a></div>
-      <iframe data-fixed src="demo-examples/auto-run-QuestA-v2/pitch-deck.html" height="460" title="Pitch Deck"></iframe>
+      <div class="cap"><span>⑥ 路演 PPT · 5 分钟</span><span class="file">pitch-deck.html</span><a href="demo-examples/QuestA-v2/pitch-deck.html" target="_blank">打开 ↗</a></div>
+      <iframe data-fixed src="demo-examples/QuestA-v2/pitch-deck.html" height="460" title="Pitch Deck"></iframe>
     </div>
   </section>
 
@@ -281,12 +281,13 @@ opencode</code></pre>
         <li><b><code>/showcase</code> 呈现</b>：团队选 storyline → AI 生成提案 + PPT + 提示词。</li>
       </ol>
       <div class="note">所有决策写进 <code>insight.yaml / plan.yaml / metrics.yaml</code> + <code>RUN-LOG.md</code>，可回溯。</div>
+      <div class="note">产出位置：每组每轮一个子目录 <code>artifacts/QuestA-01/</code>（再跑一轮为 <code>artifacts/QuestA-02/</code>，不覆盖旧轮；B 题同理 <code>artifacts/QuestB-01/</code>）。</div>
     </div>
 
     <div class="card">
       <div class="eyebrow">机动 · auto-run（现场需要的备用方式）</div>
       <ul>
-        <li>触发：<code>/run</code>（runner agent），Quest 默认 A —— 现场需要时可用它一次性完成整条链路。</li>
+        <li>触发：<code>/run</code>（runner agent），Quest 默认 A —— 现场需要时可用它一次性完成整条链路。产出同样落在 <code>artifacts/QuestA-NN/</code>。</li>
         <li>产出同上；<b>默认决策需人工复核后再对外</b>。</li>
       </ul>
     </div>

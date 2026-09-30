@@ -45,8 +45,10 @@ At each menu, pick the option that best **fits the Victory Conditions** and is *
 
 ## Output
 
-Write to the workspace (e.g. an `auto-run/` folder):
+**Create one round folder for the run and write everything into it: `artifacts/Quest<ID>-<NN>/`** (see `quest-card.md` → *Output layout*).
 
-`insight.yaml` · `plan.yaml` · `metrics.yaml` · `insight-brief.html` · `campaign-plan.html` (A/B) · `poster.html` (+ `poster-a|b|c.html`) · `proof.html` (with KPI dashboard section) · `pitch-deck.html` · `prompt-pack.html` · **`proposal.html`** (unified report) · **`RUN-LOG.md`**.
+- `<ID>` = the quest card's `id` (e.g. `A` → `QuestA`). `<NN>` = 2-digit round, next free number (first run → `01`, next → `02`). **Never overwrite a previous round.**
+- Artifacts: `insight.yaml` · `plan.yaml` · `metrics.yaml` · `insight-brief.html` · `campaign-plan.html` (A/B) · `poster.html` (+ `poster-a|b|c.html`) · `proof.html` (with KPI dashboard section) · `pitch-deck.html` · `prompt-pack.html` · **`proposal.html`** (unified report) · **`RUN-LOG.md`**.
+- Builders run with `--dir artifacts/Quest<ID>-<NN>/`.
 
 All English, Ascentium-branded, single-file HTML. Every auto-decision is logged in `RUN-LOG.md` with a one-line reason.

@@ -12,3 +12,5 @@ Run **only the PLAN gate** (the creative heart). Use the `plan` skill + `facilit
 5. **Poster** — design the hero visual via the `poster` skill.
 
 Choice-first, human-led. Do not decide for the team.
+
+Write into the current round folder `artifacts/Quest<ID>-<NN>/` (reuse the latest round for this quest; create `-01` if none): `plan.yaml` + `campaign-plan.html` + `poster-a|b|c.html` + `poster.html`.

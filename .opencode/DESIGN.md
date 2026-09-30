@@ -331,6 +331,7 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 ```
 .opencode/
 ├── DESIGN.md · README.md            # 文档
+├── quest-card.md                    # Quest 配置契约（数据 + 视觉参数 + Output layout）
 ├── evaluation-rubric.md             # 方案评分卡
 ├── skills/                          # 技能：一技能一目录；opencode 递归发现 **/SKILL.md
 │   ├── insight/                     # 洞察门
@@ -347,6 +348,8 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 ├── agents/                          # facilitator.md · runner.md · researcher.md
 └── commands/                        # start · insight · plan · poster · prove · showcase · evaluate · run
 ```
+
+**输出位置（运行约定）**：Facilitator 与 runner 两种模式都把本轮全部产物写入仓库根的 **`artifacts/Quest<ID>-<NN>/`**（每题一轮一子目录：`QuestA-01` → `QuestA-02` ……）。`/start`、`/run` 新建轮次目录；单闸命令并入该题最新轮次目录（无则建 `-01`）；**不覆盖旧轮次**。每轮含 `insight.yaml`/`plan.yaml`/`metrics.yaml` + 各 HTML + `RUN-LOG.md`；构建脚本以 `--dir artifacts/Quest<ID>-<NN>/` 运行。`artifacts/` 已 gitignore；签入示例在 `demo-examples/`。详见 `quest-card.md` → *Output layout*。
 
 > **opencode 发现约定 = 递归 `**/SKILL.md`**。四阶段技能 `insight` / `plan` / `prove` / `showcase` 各自带 `sub-skills/`；`poster`、`agent-reach` **平铺为顶层技能**（逻辑上归 `plan` / `insight`，被它们引用）。
 > 命名约定：**技能/Agent/Command 名一律不带 `quest`**（skill: `insight`/`plan`/`poster`/`prove`/`showcase`；agent: `facilitator`/`runner`/`researcher`；command: `/start`、`/run` 等）。

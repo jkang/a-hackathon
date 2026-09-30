@@ -9,6 +9,8 @@ package-lock.json
 # scratch
 *.log
 
+# run outputs (live scratch; per-round dirs live in /artifacts/Quest<ID>-NN/)
+/artifacts/
 # old scratch demo dirs (root-anchored so they don't match demo-examples/*)
 /demo examples/
 /auto-run/
