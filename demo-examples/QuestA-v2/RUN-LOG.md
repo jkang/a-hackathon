@@ -3,7 +3,7 @@
 **Mode**: `runner` — fully automated; every choice made by the AI (no human input, no HITL stops).
 **Quest**: A — Doha 2030 ticketing. **Client**: OCA — Doha 2030 Ticketing & Fan Engagement Unit.
 **Data as of**: 2026-09-29 (live research via `agent-reach` → Exa search + Jina Reader).
-**Output**: `auto-run/` — `insight.yaml` · `plan.yaml` · `metrics.yaml` · `insight-brief.html` · `campaign-plan.html` · `poster.html` · `proof.html` · `kpi-dashboard.html` · `pitch-deck.html` · `prompt-pack.html` · `proposal.html`.
+**Output**: `QuestA-v2/` — `insight.yaml` · `plan.yaml` · `metrics.yaml` · `insight-brief.html` · `campaign-plan.html` · `poster.html` · `proof.html` · `pitch-deck.html` · `prompt-pack.html` · `proposal.html`.
 
 ---
 
@@ -65,20 +65,18 @@
 
 ---
 
-## GATE 3 · PROVE — metrics → auto-pick → cost-benefit
+## GATE 3 · PROVE — pilot metrics → auto-pick → derivation logic
 
-**Sub-metrics menu (auto-picked 5, each benchmark-defended):**
-1. **Crew sign-up rate** — target 4.0% · Go ≥3.0% · No-Go <1.5% *(benchmark: Meta lead conv. 7.72%; arts & events FB 9.34%)*
-2. **Cost per crew member (CAC)** — target ≤$10 · Go ≤$12 · No-Go >$18 *(benchmark: FB arts CPL $18.17; Google Events $26.84)*
-3. **Creator reach (6 wks)** — target 150M · Go ≥120M · No-Go <60M *(benchmark: VC = 500M impressions; 460M Asia TikTok MAU)*
-4. **Group-booking ratio** — target 45% · Go ≥35% · No-Go <20% *(benchmark: Asian fans travel as crews; ~4 in 5 group trips via agent)*
-5. **Fly-stay bundle attach rate** — target 20% · Go ≥15% · No-Go <8% *(benchmark: Discover Qatar stopover from $14/night; QR 170+ destinations)*
+**Pilot-metrics menu (auto-picked 5, each benchmark-defended):**
+1. **Creator reach (6 wks)** — target 150M *(benchmark: TikTok 460M Asia MAU; VC = 500M impressions)*
+2. **Crew sign-up rate** — target 4.0% *(benchmark: Meta lead conv. 7.72%; arts & events FB 9.34%)*
+3. **Group-booking ratio** — target 45% *(benchmark: Asian fans travel as crews; ~4 in 5 group trips via agent)*
+4. **Cost per crew member (CAC)** — target ≤$10 *(benchmark: FB arts CPL $18.17; Google Events $26.84)*
+5. **Fly-stay bundle attach rate** — target 20% *(benchmark: Discover Qatar stopover from $14/night; QR 170+ destinations)*
 
-**Go/No-Go rule:** unlock if ≥4 of 5 hit Go; iterate once if 3 hit; stop if ≤2 hit.
+**Derivation logic:** each target shows its chain — **benchmark → assumption → formula → target** (see `proof.html` and `metrics.yaml`).
 
-**Cost-benefit:** pilot USD 1.5M → ~USD 3.2M pilot-attributed (~90K crew → 31.5K ticket holds + 15.3K bundles) → **ROI ≈2.1x**; full scale 400K tickets × $60 + $40M merch/hospitality = USD 64M vs USD 30M → **≈2.1x**. **Verdict: GO** (unlock USD 30M).
-
-`chosen these 5 because` each traces to a Victory Condition (reach → conversion → outcome), has a credible external benchmark, and can be measured weekly in a 3-month pilot. `verdict GO because` even conservative assumptions clear the risk bar.
+`chosen these 5 because` each is a pilot target measurable weekly over 3 months, each cites a credible external benchmark, and each carries a visible derivation chain. Output is a single one-screen board; no Go/No-Go, cost-benefit or scale-up.
 
 ---
 
@@ -112,7 +110,7 @@
 | 9 | Metric 3 | Creator reach | Feeds the 500M-impression VC |
 | 10 | Metric 4 | Group-booking ratio | Proves the crew behaviour |
 | 11 | Metric 5 | Bundle attach rate | Proves monetisation, not just intent |
-| 12 | Cost-benefit | GO, ~2.1x | Conservative assumptions still clear the bar |
+| 12 | Derivation logic | benchmark → assumption → formula → target | Every number shows its chain; no bare claims |
 | 13 | Storyline | Hero's Journey | Belonging is an arc, not a discount |
 
 ---
@@ -123,4 +121,4 @@
 - **Date risk (flagged, not resolved):** the OCA proposes moving the Asian Games to the year before the Olympics — **Doha 2030 → 2031** (Xinhua, 2026-04-27). The pilot budget should stay phased and the campaign clock kept flexible.
 - **Unverifiable:** Doha 2030 ticket prices are not public → the USD 60 blended ticket value is a stated assumption (between Hangzhou ~USD 22 and Qatar 2022 ~USD 215).
 - **Scope:** the card is Asia-wide; the MVP pilot runs in 2 priority Asian markets (ID + TH), with China as the phase-2 beachhead. PH/VN are excluded from paid push because they are not visa-free.
-- **Benchmark honesty:** sub-metric targets are set *below* raw channel benchmarks (cold audience discount) so the Go line is defensible.
+- **Benchmark honesty:** each pilot target is set *below* raw channel benchmarks (cold audience discount) and shows its derivation chain, so the number is defensible.

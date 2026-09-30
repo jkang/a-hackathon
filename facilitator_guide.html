@@ -157,7 +157,7 @@
 │   │   ├── references/ · templates/
 │   │   └── sub-skills/          # creative-concept · opportunity-definition
 │   ├── poster/                  # 海报（Create 阶段，独立）→ poster-a/b/c.html + poster.html
-│   ├── prove/                   # 论证门 → proof.html（含 KPI 看板）
+│   ├── prove/                   # 论证门 → proof.html（单屏 pilot 指标）
 │   │   ├── references/ · templates/
 │   │   └── sub-skills/          # campaign-metrics · data-visualizer-pro
 │   ├── showcase/                # 呈现门（AUTO）→ proposal / pitch-deck / prompt-pack
@@ -181,7 +181,7 @@
       <div class="arrow">→</div>
       <div class="node"><div class="n">③ poster</div><div class="t">3 种风格</div><div class="d">选 1 种</div></div>
       <div class="arrow">→</div>
-      <div class="node"><div class="n">④ prove</div><div class="t">指标 → 裁决</div><div class="d">Go/No-Go</div></div>
+      <div class="node"><div class="n">④ prove</div><div class="t">指标 → 推演</div><div class="d">Pilot Metrics</div></div>
       <div class="arrow">→</div>
       <div class="node"><div class="n">⑤ showcase</div><div class="t">提案 + PPT</div><div class="d">+ 提示词</div></div>
     </div>
@@ -192,7 +192,7 @@
         <tr><td><b>insight</b></td><td>把题库与真实数据转化为洞察</td><td><code>insight.yaml</code> + <code>insight-brief.html</code></td></tr>
         <tr><td><b>plan</b></td><td>发散创意 → 确定 A/B 方案</td><td><code>plan.yaml</code> + <code>campaign-plan.html</code></td></tr>
         <tr><td><b>poster</b></td><td>产出 3 种海报风格供选择</td><td><code>poster-a/b/c.html</code> + <code>poster.html</code></td></tr>
-        <tr><td><b>prove</b></td><td>确定指标 → 测算 ROI、给出 Go/No-Go</td><td><code>metrics.yaml</code> + <code>proof.html</code>（含 KPI 看板）</td></tr>
+        <tr><td><b>prove</b></td><td>确定 pilot 预期指标 → 写出推演逻辑</td><td><code>metrics.yaml</code> + <code>proof.html</code>（单屏）</td></tr>
         <tr><td><b>showcase</b></td><td>组装提案 / PPT / 提示词</td><td><code>proposal.html</code> + <code>pitch-deck.html</code> + <code>prompt-pack.html</code></td></tr>
       </tbody>
     </table>
@@ -217,7 +217,7 @@
     </div>
 
     <div class="demo">
-      <div class="cap"><span>④ 论证 · 指标 + Go/No-Go</span><span class="file">proof.html</span><a href="demo-examples/QuestA-v2/proof.html" target="_blank">打开 ↗</a></div>
+      <div class="cap"><span>④ 论证 · pilot 指标 + 推演</span><span class="file">proof.html</span><a href="demo-examples/QuestA-v2/proof.html" target="_blank">打开 ↗</a></div>
       <iframe data-auto src="demo-examples/QuestA-v2/proof.html" height="640" title="Proof"></iframe>
     </div>
 
@@ -277,7 +277,7 @@ opencode</code></pre>
         <li><b><code>/insight</code> 洞察</b>：AI 使用 <code>agent-reach</code> 检索真实数据 → 产出 ~6 条带数字的洞察 → <b>团队选 2–3 条</b>。</li>
         <li><b><code>/plan</code> 策划</b>：AI 产出 ~6 个创意 → 团队选择 / 综合 → 产出 <b>A/B 两套方案</b> → <b>团队选 A 或 B</b>。</li>
         <li><b><code>/poster</code> 海报</b>：AI 出 <b>3 种风格</b> → 团队选 1 种。</li>
-        <li><b><code>/prove</code> 论证</b>：团队确定 3–5 个指标 + 阈值（AI 出建议）→ AI 测算 ROI、给出 Go/No-Go。</li>
+        <li><b><code>/prove</code> 论证</b>：团队确定 3–5 个 pilot 预期指标（AI 出建议）→ AI 写出每个指标的推演逻辑。</li>
         <li><b><code>/showcase</code> 呈现</b>：团队选 storyline → AI 生成提案 + PPT + 提示词。</li>
       </ol>
       <div class="note">所有决策写进 <code>insight.yaml / plan.yaml / metrics.yaml</code> + <code>RUN-LOG.md</code>，可回溯。</div>
@@ -320,7 +320,7 @@ opencode</code></pre>
         <li><b>把 14 人分成几组并行推进。</b>研究取证 / 创意发散 / 测算指标 / 视觉排版 / 撰写讲稿 —— 让每人认领一项，而不是集体旁观 AI 操作。</li>
         <li><b>主动邀请发言较少的人承担任务。</b>「这项交给你，可以吗？」一句话就能让他加入。</li>
         <li><b>Showcase 准备要并行推进。</b>不必等所有产出定稿：一边安排 2–3 人搭建故事线、演练讲稿，另一边继续优化海报、试做音频 / 视频等加分内容 —— 活动结束前每人都有明确任务。</li>
-        <li><b>决策始终留给团队。</b>市场、创意、指标、阈值、视觉 —— AI 只提供建议和默认值，最终由团队决定。</li>
+        <li><b>决策始终留给团队。</b>市场、创意、指标、视觉 —— AI 只提供建议和默认值，最终由团队决定。</li>
       </ul>
     </div>
 
@@ -345,7 +345,7 @@ opencode</code></pre>
 图（GPT）     flat poster, orange #FF6611 + midnight, a packed away section, no text…</code></pre>
       <ul>
         <li>生成后将文件放回本地目录，AI 会嵌入 deck 对应位置。</li>
-        <li><b>结束前确认交付物</b>：<code>proposal.html</code>（含 poster + KPI + Go/No-Go）已生成 —— 这就是要提交的方案。</li>
+        <li><b>结束前确认交付物</b>：<code>proposal.html</code>（含 poster + pilot 指标）已生成 —— 这就是要提交的方案。</li>
       </ul>
     </div>
 

@@ -1,55 +1,54 @@
 # Quest A · PROVE — runner auto-run (autopilot)
 quest: A
-victory_conditions:
-  - "400K tickets sold to Asia-based fans (~15% of inventory)"
-  - ">=85% avg attendance in sessions featuring Asian teams"
-  - "250K Asian visitors arriving in Qatar during Games week"
-  - "USD 40M merch + hospitality revenue from Asian fans"
-  - "500M social impressions across 6 Asian markets"
+pilot:
+  window: "3 months"
+  markets: ["Indonesia", "Thailand"]
+  budget: "USD 1.5M (5% MVP unlock)"
 metrics:
-  - name: "Crew sign-up rate"
-    formula: "crew / Supporter Passport sign-ups / qualified visits"
-    benchmark_ref: "Meta all-industry lead conversion 7.72%; arts & events Facebook 9.34% (WordStream/Venuera 2025-26)"
-    target: "4.0%"
-    threshold_go: ">=3.0%"
-    threshold_no_go: "<1.5%"
-  - name: "Cost per crew member (CAC)"
-    formula: "paid media spend / crew sign-ups"
-    benchmark_ref: "Facebook arts/entertainment CPL USD 18.17; Google Events cost/conversion USD 26.84 (Venuera 2026-07)"
-    target: "<=USD 10"
-    threshold_go: "<=USD 12"
-    threshold_no_go: ">USD 18"
   - name: "Creator reach (6 weeks)"
-    formula: "sum of campaign impressions"
-    benchmark_ref: "VC = 500M impressions; TikTok MAU 460M in our first Asian markets (TikTok 2025)"
+    dimension: reach
     target: "150M"
-    threshold_go: ">=120M"
-    threshold_no_go: "<60M"
+    derivation:
+      benchmark_ref: "TikTok MAU 460M across our first Asian markets (TikTok 2025); Hangzhou 2023 delivered 500M+ impressions for the Games brand"
+      formula: "sum of campaign impressions (organic + paid creator content)"
+      assumptions:
+        - "A 6-week creator push reaches ~33% of in-market MAU"
+        - "Two pilot markets carry the bulk of impressions"
+      logic: "If reach builds the addressable crowd, qualified visits — and therefore sign-ups — follow."
+  - name: "Crew sign-up rate"
+    dimension: engagement
+    target: "4.0%"
+    derivation:
+      benchmark_ref: "Meta all-industry lead conversion 7.72%; arts & events Facebook 9.34% (WordStream / Venuera 2025–26)"
+      formula: "crew sign-ups / qualified visits"
+      assumptions:
+        - "Landing page + crew offer converts at about half the meta-vertical benchmark"
+      logic: "If the crew offer converts visits into sign-ups, the ticket-intent pool forms; group bookings follow."
   - name: "Group-booking ratio"
-    formula: "orders with >=2 tickets / total orders"
-    benchmark_ref: "Asian fans travel as crews; ~4 in 5 group trips booked via an agent (worldmetrics 2026)"
+    dimension: conversion
     target: "45%"
-    threshold_go: ">=35%"
-    threshold_no_go: "<20%"
+    derivation:
+      benchmark_ref: "Asian fans travel as crews; ~4 in 5 group trips are booked via an agent (worldmetrics 2026)"
+      formula: "orders with >=2 tickets / total orders"
+      assumptions:
+        - "Crew travel is the norm for Asia-based away fans"
+      logic: "If bookings skew to groups, the away-end atmosphere — and attendance — rises."
+  - name: "Cost per crew member (CAC)"
+    dimension: outcome
+    target: "<= USD 10"
+    derivation:
+      benchmark_ref: "Facebook arts/entertainment CPL USD 18.17; Google Events cost/conversion USD 26.84 (Venuera 2026-07)"
+      formula: "paid media spend / crew sign-ups"
+      assumptions:
+        - "Creator-led organic content plus a referral loop lowers paid dependency"
+      logic: "If CAC stays under USD 10, the full-scale budget can buy the 400K-ticket goal efficiently."
   - name: "Fly-stay bundle attach rate"
-    formula: "fly-stay bundles / crew sign-ups"
-    benchmark_ref: "Discover Qatar stopover from USD 14/night; Qatar Airways 170+ destinations (2026)"
+    dimension: conversion
     target: "20%"
-    threshold_go: ">=15%"
-    threshold_no_go: "<8%"
-sample_data:
-  week1: {signup: "1.0%", cac: "USD 16.4", reach: "22M", group: "21%", bundle: "6%"}
-  week3: {signup: "2.2%", cac: "USD 12.1", reach: "74M", group: "33%", bundle: "11%"}
-  week6: {signup: "3.4%", cac: "USD 9.1", reach: "148M", group: "42%", bundle: "17%"}
-cost_benefit:
-  budget: 1500000
-  projected_return: "~USD 3.2M pilot-attributed (≈90K crew members -> ≈31.5K ticket holds + 15.3K bundles + passport/merch); ladders to USD 64M at full scale (400K tickets x USD 60 + USD 40M merch/hospitality)"
-  roi: "≈2.1x pilot; ≈2.1x on revenue at full scale"
-  payback: "within the pilot window for engagement; full payback across the 18-month rollout"
-  unlock_verdict: "GO — unlock the full USD 30M (subject to confirming the Doha 2030 vs 2031 date)"
-go_no_go_rule: "Unlock if >=4 of 5 sub-metrics hit Go; iterate once if 3 hit; stop if <=2 hit."
-assumptions:
-  - "Avg blended ticket value USD 60 (between Hangzhou ~USD 22 avg and Qatar 2022 ~USD 215 avg; Doha 2030 pricing is not public)."
-  - "Crew size ~2.5 travellers; ~35% of crew members convert to a ticket hold during the pilot."
-  - "Pilot ticket 'holds' are intent registrations — actual sales occur later in the 18-month runway."
+    derivation:
+      benchmark_ref: "Discover Qatar stopover from USD 14/night; Qatar Airways serves 170+ destinations (2026)"
+      formula: "fly-stay bundles / crew sign-ups"
+      assumptions:
+        - "1 in 5 crew members adds a fly-stay bundle"
+      logic: "If bundles attach, travel friction drops and conversions-per-traveller rise."
 source_note: "Benchmarks: Quest Scout Report + live agent-reach research · Data as of 2026-09-29"
