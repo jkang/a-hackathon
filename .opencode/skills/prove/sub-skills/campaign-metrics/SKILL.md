@@ -5,9 +5,9 @@ description: Design the campaign pilot's success-metric system and Go/No-Go gate
 
 # Campaign Metrics — pilot validation
 
-Design a compact, quantifiable validation system so a pilot can prove (or kill) the trajectory. From "can it work" to "is it proven".
+> **Dormant.** Retained for reference only. The `prove` gate no longer calls this sub-skill — it outputs a single one-screen `proof.html` (pilot metrics + derivation logic) with decisions in its embedded `id="capture"` block. If revived, write **HTML only** — no YAML sidecars.
 
-> **Dual output**: always produce both (1) structured **YAML** (for downstream automation / archive) and (2) an interactive **HTML** report (for review / presentation, Ascentium-branded).
+Design a compact, quantifiable validation system so a pilot can prove (or kill) the trajectory. From "can it work" to "is it proven".
 
 ## Output — three parts
 

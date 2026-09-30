@@ -1,4 +1,4 @@
-# Pacing Template — 10 people × 40 minutes
+# Pacing Template — 14 people × 40 minutes
 
 The default **happy path**. It is a suggestion, not a script (see Prime Directive 6). Each gate = one co-creation loop (see `protocols.md`).
 

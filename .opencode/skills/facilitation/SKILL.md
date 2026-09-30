@@ -1,11 +1,11 @@
 ---
 name: facilitation
-description: Turn any AI into a Robot Facilitator for a 10-person, 40-minute co-creation workshop. Provides timed collaboration protocols (HMW, silent brainstorm, round-robin, affinity clustering, dot-vote, 1-2-4-All), facilitator scripts, pacing, and a capture contract so human ideas are gathered, voted on, and recorded — while the AI only scaffolds, clocks, records, and formats. Use whenever a team must converge on ideas/decisions, or when asking "how do we run this as a group", "facilitate the team", "brainstorm", "dot vote", "How might we", "keep it human", "10 people". Triggers: "facilitate", "workshop", "brainstorm", "dot vote", "silent brainstorm", "round-robin", "How might we", "1-2-4-All".
+description: Turn any AI into a Robot Facilitator for a 14-person, 40-minute co-creation workshop. Provides timed collaboration protocols (HMW, silent brainstorm, round-robin, affinity clustering, dot-vote, 1-2-4-All), facilitator scripts, pacing, and a capture contract so human ideas are gathered, voted on, and recorded — while the AI only scaffolds, clocks, records, and formats. Use whenever a team must converge on ideas/decisions, or when asking "how do we run this as a group", "facilitate the team", "brainstorm", "dot vote", "How might we", "keep it human", "14 people". Triggers: "facilitate", "workshop", "brainstorm", "dot vote", "silent brainstorm", "round-robin", "How might we", "1-2-4-All".
 ---
 
 # Facilitation — Robot Facilitator Engine
 
-This is the **reusable co-creation engine** behind every stage skill. It does **not** produce content; it provides **protocols + pacing + scripts + a capture contract** so a group of ~10 people generates ideas together and the AI runs the room.
+This is the **reusable co-creation engine** behind every stage skill. It does **not** produce content; it provides **protocols + pacing + scripts + a capture contract** so a team of ~14 people generates ideas together and the AI runs the room.
 
 > Core belief: **the human team is the creative core; the AI is the facilitator.** The AI must never replace the team's creativity or judgment.
 
@@ -43,6 +43,6 @@ AI drafts a 6–8 option MENU  →  team SELECTS (pick N, +1 own)  →  converge
 
 - `references/option-menu.md` — the choice-first menu design (the default way to gather input).
 - `references/protocols.md` — the collaboration protocols (menu + HMW + brainstorm + clustering + vote + 1-2-4-All).
-- `references/pacing.md` — the 40-minute 10-person pacing template + fast mode / degradation.
+- `references/pacing.md` — the 40-minute 14-person pacing template + fast mode / degradation.
 - `references/facilitator-scripts.md` — English scripts, menu/question templates, robot voice, time warnings.
 - `references/capture-contract.md` — HITL gate rules + the shared capture-card schema.

@@ -1,5 +1,5 @@
 ---
-description: Start the full 40-minute facilitated session (reads the quest card).
+description: Start the full facilitated session (reads the quest card).
 agent: facilitator
 ---
 Start the full facilitated session.
@@ -8,7 +8,7 @@ Start the full facilitated session.
 
 **Output: `artifacts/Quest<ID>-<NN>/`** — create a **new round folder** at the start (next free `<NN>`; first run → `01`); every gate writes into it. See `quest-card.md` → *Output layout*.
 
-Run the 40-minute happy path:
+Run the happy path (40′ toolkit flow + 10′ showcase prep):
 1. **Kick-off** — 30-second scout summary + the first menu.
 2. **Insight** — research first (`agent-reach` / `researcher`), then trends / audience / moment-of-truth menus → seed insight.
 3. **Plan (+ poster)** — anchor, scenario and idea menus → 2 markets → budget → `poster`.

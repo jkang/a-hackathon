@@ -4,7 +4,7 @@ Prove the pilot is worth unlocking the full budget. Keep the math simple and gro
 
 ## 1. Inputs
 
-- `budget.total` from `plan.yaml` (the MVP unlock, from the card).
+- `budget.total` from the `campaign-plan.html` capture (the MVP unlock, from the card).
 - The team's sub-metrics (leading indicators).
 - Card economics for the payoff path — the Victory Conditions plus any unit-economics anchors the card gives (a price anchor, a benchmark event's revenue).
 

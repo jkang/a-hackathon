@@ -90,6 +90,10 @@
 
   .note{background:var(--accent-tint);border-left:5px solid var(--accent);border-radius:10px;
         padding:12px 16px;font-size:13px;margin-top:14px;}
+  .say{background:#EEF4F3;border-left:3px solid var(--teal);border-radius:0 9px 9px 0;
+       padding:9px 13px;font-size:12.5px;color:#2B3A38;margin-top:8px;line-height:1.55;}
+  .say .k{display:block;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:3px;}
+  .say code{background:#fff;color:#0B5A54;}
   .steps{counter-reset:s;list-style:none;padding-left:0;margin-top:10px;}
   .steps li{counter-increment:s;position:relative;padding:6px 0 6px 34px;font-size:14px;}
   .steps li::before{content:counter(s);position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:999px;
@@ -154,7 +158,7 @@
     <div class="card">
       <ul>
         <li><b>Workshop</b>：50 分钟商业方案共创（40′ 产出 + 10′ Showcase 准备），112 人 / 8 组 × 14 人，产出方案并 Showcase PK。</li>
-        <li><b>两道题</b>：Quest A —— Doha 2030 门票营销（把东南亚变成最大"客队"）；Quest B —— 成都熊猫基地全球化 IP。</li>
+        <li><b>两道题</b>：Quest A —— Doha 2030 门票营销（把亚洲变成最大「客队」）；Quest B —— 成都熊猫基地全球化 IP。</li>
         <li><b>Toolkit 的作用</b>：Facilitator 控场 + 小组做决策 + AI 承担主要执行工作（研究 / 起草 / 测算 / 制图）。营销口径，开箱即用。</li>
       </ul>
     </div>
@@ -165,6 +169,7 @@
     <pre>.opencode/                        # opencode 项目级配置（打开该目录即自动加载）
 ├── README.md                    # Facilitator 手册（人机契约 + 编排）
 ├── DESIGN.md                    # 设计说明
+├── quest-card.md                # Quest 配置契约（数据 + 视觉参数 + 输出布局）
 ├── evaluation-rubric.md         # 方案评分卡（7 维度）
 ├── skills/                      # 技能：一技能一目录；opencode 递归发现 **/SKILL.md
 │   ├── insight/                 # 洞察门 → insight-brief.html
@@ -176,7 +181,7 @@
 │   ├── poster/                  # 海报（Create 阶段，独立）→ poster-a/b/c.html + poster.html
 │   ├── prove/                   # 论证门 → proof.html（单屏 pilot 指标）
 │   │   ├── references/ · templates/
-│   │   └── sub-skills/          # campaign-metrics · data-visualizer-pro
+│   │   └── sub-skills/          # campaign-metrics · data-visualizer-pro（保留 · 休眠，不调用）
 │   ├── showcase/                # 呈现门（AUTO）→ proposal / pitch-deck / prompt-pack
 │   │   └── references/ · scripts/ · templates/
 │   ├── agent-reach/             # 实时研究（insight 调用；CLI 需预装）
@@ -257,12 +262,12 @@
         <div class="jr-cell jr-out r4">并入 <code>insight-brief.html</code></div>
         <div class="jr-cell jr-out r4">并入 <code>insight-brief.html</code></div>
         <div class="jr-cell jr-out r4">并入 <code>insight-brief.html</code></div>
-        <div class="jr-cell jr-out r4"><code>insight-brief.html</code>（capture 内嵌）</div>
+        <div class="jr-cell jr-out r4"><code>insight-brief.html</code></div>
         <div class="jr-cell jr-out r4">并入 <code>campaign-plan.html</code></div>
         <div class="jr-cell jr-out r4">并入 <code>campaign-plan.html</code></div>
-        <div class="jr-cell jr-out r4"><code>campaign-plan.html</code>（capture 内嵌）</div>
+        <div class="jr-cell jr-out r4"><code>campaign-plan.html</code></div>
         <div class="jr-cell jr-out r4"><code>poster-a/b/c.html</code> · <code>poster.html</code></div>
-        <div class="jr-cell jr-out r4"><code>proof.html</code>（单屏，capture 内嵌）</div>
+        <div class="jr-cell jr-out r4"><code>proof.html</code>（单屏）</div>
         <div class="jr-cell jr-out r4">并入 <code>proposal.html</code></div>
         <div class="jr-cell jr-out r4"><code>proposal.html</code> · <code>pitch-deck.html</code> · <code>prompt-pack.html</code></div>
 
@@ -362,18 +367,65 @@ opencode</code></pre>
 
   <section id="facilitator">
     <h2>6 · 现场 facilitator 模式（以 Quest A 为例）</h2>
-    <div class="note" style="margin-bottom:14px;">⏱ <b>50 分钟如何分配</b>：<b>40′</b> 使用 Toolkit 完成全部产出（洞察 → 策划 → 海报 → 论证 → 呈现）；<b>10′</b> 整理 Showcase 输出、准备 Showcase 形式，并提交。</div>
+    <div class="note" style="margin-bottom:14px;">⏱ <b>50 分钟如何分配</b>：<b>40′</b> 用 Toolkit 完成全部产出（洞察 → 策划 → 海报 → 论证 → 呈现）；<b>10′</b> 整理 Showcase 输出、准备 Showcase 形式并提交。每个环节都是三步：<b>AI 出菜单 → 团队选择 → AI 执行</b>。</div>
+
     <div class="card">
+      <div class="eyebrow">命令流程（以 Quest A 为例）</div>
       <ol class="steps">
-        <li><b><code>/start</code> 开场</b>：阅读 Quest A 卡、讲清规则。</li>
-        <li><b><code>/insight</code> 洞察</b>：AI 使用 <code>agent-reach</code> 检索真实数据 → 产出 ~6 条带数字的洞察 → <b>团队选 2–3 条</b>。</li>
-        <li><b><code>/plan</code> 策划</b>：AI 产出 ~6 个创意 → 团队选择 / 综合 → 产出 <b>A/B 两套方案</b> → <b>团队选 A 或 B</b>。</li>
-        <li><b><code>/poster</code> 海报</b>：AI 出 <b>3 种风格</b> → 团队选 1 种。</li>
-        <li><b><code>/prove</code> 论证</b>：团队确定 3–5 个 pilot 预期指标（AI 出建议）→ AI 写出每个指标的推演逻辑。</li>
-        <li><b><code>/showcase</code> 呈现</b>：团队选 storyline → AI 生成提案 + PPT + 提示词。</li>
+        <li><b><code>/start A</code> 开场</b>：读 Quest A 卡、讲清规则与分工。</li>
+        <li><b><code>/insight</code> 洞察</b> → <code>insight-brief.html</code></li>
+        <li><b><code>/plan</code> 策划</b> → <code>campaign-plan.html</code>（含 <code>poster</code>）</li>
+        <li><b><code>/poster</code> 海报</b> → <code>poster-a/b/c.html</code> + <code>poster.html</code></li>
+        <li><b><code>/prove</code> 论证</b> → <code>proof.html</code>（单屏 pilot 指标 + 推演）</li>
+        <li><b><code>/showcase</code> 呈现</b> → <code>proposal.html</code> + <code>pitch-deck.html</code> + <code>prompt-pack.html</code></li>
       </ol>
-      <div class="note">所有决策写进对应 HTML 产物的内嵌 <code>id="capture"</code> 块，可回溯（无 YAML/Markdown）。</div>
-      <div class="note">产出位置：每组每轮一个子目录 <code>artifacts/QuestA-01/</code>（再跑一轮为 <code>artifacts/QuestA-02/</code>，不覆盖旧轮；B 题同理 <code>artifacts/QuestB-01/</code>）。</div>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">Facilitator 现场六件事</div>
+      <ol class="steps">
+        <li><b>开场先讲清全景与分工。</b>用「用法总览」的旅程图带团队过一遍：4 个阶段 + 海报；每个环节都是「AI 出菜单 → 团队选择 → AI 执行」；<b>团队做判断，AI 做执行</b>。
+          <div class="say"><span class="k">Say to the team</span>Here's the whole flow: Insight → Plan → Poster → Prove → Showcase. At every step the AI drafts a grounded menu, you choose, then the AI executes. <b>You make the calls; the AI does the work.</b> 40 minutes to produce, 10 to package and submit.</div>
+        </li>
+        <li><b>示范如何用 <code>/start</code> 开始与 AI 协作。</b>当场输入 <code>/start A</code>，让团队看到命令触发 Agent、读取题卡，并给出第一份带数据的「菜单」。
+          <div class="say"><span class="k">Say to the team</span>I'll kick us off now — watch the screen. <i>(type <code>/start A</code>)</i> The AI has read Quest A and is giving us the first menu of insights. Every gate starts exactly like this.</div>
+        </li>
+        <li><b>AI 执行时，讲清背后用了哪些 Skills。</b>说明这个环节实际调用了哪些 skill、各自做什么；<b>视团队兴趣</b>，可打开 <code>.opencode/skills/&lt;name&gt;/SKILL.md</code> 现场展示它们如何工作。
+          <div class="say"><span class="k">Say to the team</span>While it runs — this step is powered by three skills: <code>agent-reach</code> pulls the real data, <code>audience-analysis</code> builds the segments, <code>swot-analysis</code> synthesizes them. Curious how they work? I can open the skill files and show you live.</div>
+        </li>
+        <li><b>每环节结束：review → 讨论决策 → 示范提交 → 下一环节。</b>AI 产出后先停（HITL）：带团队一起读产出、逐条理解，讨论后做选择；示范怎么把选择结果交给 AI（从菜单选 N，或 <code>+1</code> 自选），随后进入下一环节。
+          <div class="say"><span class="k">Say to the team</span>Stop here — six insights are on the board. Read them together, then tell me which 2–3 to build on. Give your pick like this: <i>"We take 1, 4 and 6, plus one of our own — …"</i>. The AI records exactly what you say, then we move to Plan.</div>
+        </li>
+        <li><b>结果不满意：示范用 feedback 让 AI 重跑该环节。</b>用具体反馈让 AI 重跑这一环节，而不是推翻整个流程。
+          <div class="say"><span class="k">Say to the team</span>Not happy with these? Just tell the AI what to change: <i>"Redo the insight menu — focus on Gen-Z travellers and visa constraints."</i> It re-runs only this gate. Short on time? <i>"Only 8 minutes left — compress and give me 3 options."</i></div>
+        </li>
+        <li><b>控节奏：先出一轮 Showcase，再优化。</b>盯时间、及时提醒决策，先保证一轮完整产出，再打磨细节。
+          <div class="say"><span class="k">Say to the team</span>20 minutes left — let's lock this and move on; we can refine later. One rule: get a complete first pass of the Showcase first, then improve. A finished draft beats a perfect half.</div>
+        </li>
+      </ol>
+      <div class="note"><b>两台设备怎么用（辅助）</b>：<b>主设备</b>接主显示器、作为最终 Showcase 的产出机，Facilitator 的示范也在这台；<b>备用设备</b>先跟着流程走，中间产出更好时 <b>AirDrop</b> 给主设备，让主设备据此执行下一步；后期可并行做 Poster 优化 / 某环节 rerun，完成后再 AirDrop 回主设备整合。Facilitator 负责两台的沟通、分享与同步 —— 最终只输出 <b>一份</b>团队 Showcase。</div>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">每环节讲解要点（结合 Quest A 示例产出）</div>
+      <table>
+        <thead><tr><th>环节</th><th>命令</th><th>背后 Skill</th><th>Quest A 示例产出</th></tr></thead>
+        <tbody>
+          <tr><td>洞察</td><td><code>/insight</code></td><td><code>agent-reach</code> · <code>business-research</code> · <code>audience-analysis</code> · <code>swot-analysis</code> · <code>insight</code></td><td><a href="demo-examples/QuestA-v2/insight-brief.html" target="_blank">insight-brief.html ↗</a></td></tr>
+          <tr><td>策划</td><td><code>/plan</code></td><td><code>creative-concept</code> · <code>opportunity-definition</code> · <code>plan</code></td><td><a href="demo-examples/QuestA-v2/campaign-plan.html" target="_blank">campaign-plan.html ↗</a></td></tr>
+          <tr><td>海报</td><td><code>/poster</code></td><td><code>poster</code></td><td><a href="demo-examples/QuestA-v2/poster.html" target="_blank">poster.html ↗</a></td></tr>
+          <tr><td>论证</td><td><code>/prove</code></td><td><code>prove</code></td><td><a href="demo-examples/QuestA-v2/proof.html" target="_blank">proof.html ↗</a></td></tr>
+          <tr><td>呈现</td><td><code>/showcase</code></td><td><code>showcase</code></td><td><a href="demo-examples/QuestA-v2/proposal.html" target="_blank">proposal.html ↗</a> · <a href="demo-examples/QuestA-v2/pitch-deck.html" target="_blank">pitch-deck.html ↗</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">产出与记录</div>
+      <ul>
+        <li><b>每个环节只产出一个 HTML 产物</b>；决策写进该产物内嵌的 <code>id="capture"</code> 块（<b>无 YAML / Markdown</b>），下一环节读取上一环节的 capture。</li>
+        <li>产出位置：<code>artifacts/QuestA-01/</code>（再跑一轮为 <code>artifacts/QuestA-02/</code>，不覆盖旧轮；B 题同理 <code>artifacts/QuestB-01/</code>）。</li>
+      </ul>
     </div>
 
     <div class="card">
@@ -429,7 +481,7 @@ opencode</code></pre>
     <div class="card">
       <div class="eyebrow">⑤ 结束前 · 锦上添花</div>
       <ul>
-        <li><b>海报 3 种风格可选</b>：A · Matchday Roar（运动海报）· B · Supporter Passport（机票 / 护照风）· C · Midnight Minimal（极简黑）。在 pitch-deck 的海报页点按钮即可切换。</li>
+        <li><b>海报 3 种风格可选</b>（默认名）：A · Full-Bleed Hero（满版主视觉）· B · Belonging Passport（护照 / 会员卡风）· C · Midnight Minimal（极简）；风格名可由题卡改写（Quest A 示例中为 Matchday Roar / Supporter Passport / Midnight Minimal）。在 pitch-deck 的海报页点按钮即可切换。</li>
         <li><b>音频 / 视频 / 图片</b>：<code>prompt-pack.html</code> 提供了现成 prompt，复制到对应工具即可 ——</li>
       </ul>
       <pre><code>歌（Suno）   Anthemic stadium football chant … "THE AWAY END — hear the nation sing!"
@@ -465,11 +517,11 @@ opencode</code></pre>
     </div>
 
     <div class="card">
-      <div class="eyebrow">② 试 Run Quest A / B（各 2 遍）</div>
+      <div class="eyebrow">② 选一道题试跑（Quest A 或 Quest B · 2 遍）</div>
       <ul>
-        <li>按 facilitator 方式，把 <b>Quest A</b> 与 <b>Quest B</b> 各完整跑 2 遍。</li>
+        <li>每位 Facilitator <b>只需认领并熟悉一道题</b>（Quest A 或 Quest B），把它完整跑 2 遍 —— 不用两个 case 都演练。</li>
         <li>确认能产出预期结果：<code>proposal.html</code>（方案）+ <code>pitch-deck.html</code>（路演稿）。</li>
-        <li>记录卡点与耗时，沉淀成话术与降级方案，供现场直接使用。</li>
+        <li>记录卡点与耗时，沉淀成话术与降级方案，现场直接照用。</li>
       </ul>
     </div>
 

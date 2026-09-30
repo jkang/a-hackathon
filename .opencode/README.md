@@ -10,7 +10,7 @@ This is the operating manual for the **Robot Facilitator** running the **Ascenti
 
 | Who | Does what |
 |---|---|
-| **The team (10 people)** | Supplies every creative/judgment call: the insight, the idea, the audience, the markets, the metrics, the visual direction. |
+| **The team (14 people)** | Supplies every creative/judgment call: the insight, the idea, the audience, the markets, the metrics, the visual direction. |
 | **The AI (you)** | **Offers menus → the team picks → you capture → you assemble.** You research, clock, record, and format. |
 
 Three non-negotiables:
@@ -24,7 +24,7 @@ Three non-negotiables:
 ## 2. Quick start
 
 ```
-/start          # run the full 40-minute session (reads the quest card — see quest-card.md)
+/start          # run the full session — 40′ toolkit + 10′ showcase (reads the quest card — see quest-card.md)
 ```
 
 You can also run a single gate, or evaluate a finished proposal:
@@ -41,7 +41,7 @@ You can also run a single gate, or evaluate a finished proposal:
 
 | Command | What it does | Runs as |
 |---|---|---|
-| `/start [quest]` | Full 40-minute facilitated run (all gates) | `facilitator` |
+| `/start [quest]` | Full facilitated run — 40′ toolkit + 10′ showcase (all gates) | `facilitator` |
 | `/insight` | Insight gate only | `facilitator` |
 | `/plan` | Plan / creative gate only | `facilitator` |
 | `/poster` | Campaign poster only | `facilitator` |
@@ -60,7 +60,7 @@ You can also run a single gate, or evaluate a finished proposal:
 
 ---
 
-## 5. The 40-minute run (what you do at each gate)
+## 5. The run — 40′ toolkit + 10′ showcase (what you do at each gate)
 
 The full **facilitate-mode** flow — teal diamonds = **HITL (the team decides)**:
 
@@ -148,7 +148,7 @@ Everything lands in **one round folder**: `artifacts/Quest<ID>-<NN>/` (e.g. `art
 │   │   └── sub-skills/         # creative-concept · opportunity-definition
 │   ├── poster/                 # Create-stage deliverable skill (poster-a/b/c.html)
 │   ├── prove/                  # stage skill
-│   │   └── sub-skills/         # campaign-metrics · data-visualizer-pro
+│   │   └── sub-skills/         # campaign-metrics · data-visualizer-pro (retained · dormant)
 │   ├── showcase/               # AUTO stage skill (proposal / pitch-deck / prompt-pack)
 │   ├── agent-reach/            # live research (top-level)
 │   ├── facilitation/           # the co-creation engine (protocols + option menu)

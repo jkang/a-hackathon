@@ -29,14 +29,13 @@ Split the budget across some/all of these — the mix is the team's call:
 
 ## 3. Allocation worksheet
 
-```yaml
-budget:
-  total: {MVP unlock from the card}
-  allocation:
-    - {market: "{market 1}", channel: "paid social", tactic: "creator-led countdown", amount: 300000}
-    - {market: "{market 2}", channel: "partnership",  tactic: "co-promo",             amount: 250000}
-    # ...
-```
+Record the allocation in `campaign-plan.html` (the plan capture). Shape:
+
+| Market | Channel | Tactic | Amount |
+|---|---|---|---|
+| {market 1} | paid social | creator-led countdown | 300,000 |
+| {market 2} | partnership | co-promo | 250,000 |
+| … | | | |
 
 Rules:
 - Every line ties to a market, a channel, and a tactic.

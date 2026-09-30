@@ -1,6 +1,6 @@
 # Collaboration Protocols
 
-Seven lightweight protocols. **Run the Option Menu first at every gate**, then pick by intent. All timings assume **10 people**.
+Seven lightweight protocols. **Run the Option Menu first at every gate**, then pick by intent. All timings assume **14 people**.
 
 ---
 
