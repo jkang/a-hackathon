@@ -91,6 +91,7 @@
 ### 5.2 品牌与视觉
 - 一切视觉产出的色值 / 字体 / 间距，必须来自 `.opencode/skills/ascentium-brand/brand-guideline.md` 第 11 节 Design Tokens，禁止自造样式。
 - 关键 token：`--ascentium-orange #FF6611`、`--ascentium-midnight #0F1514`、字体栈 `"Poppins","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif`。
+- **禁用「侧边装饰栏」**：不得使用 `border-left` 色条、左侧竖条等纯装饰性竖栏。强调信息一律用「色块底色 + 圆角卡片 + 加粗文字」表达（如 `.ruleband` 改为整块 tint 背景 + 细边框，不带左侧色条）。
 
 ### 5.3 数据与安全
 - 禁止把私有凭证、token、内部 ID 写入仓库文件；需要时只写「红acted 摘要 + 稳定指针」。
@@ -166,3 +167,5 @@
 - 2026-09-30：**题卡 §03 修订**：① 标题 `the MVP, not the master plan` → **`The MVP Plan`**（否定式对比补白，见 §5.6 新规则）；② **移除 `Scale-up gate` 栏**——toolkit 已不做 scale-up，门禁机制已由 §02 War Chest 的 Phase 2（hit sub-metrics → vendor list → unlock full budget）承载；其中「语言覆盖 / conservation-first」保留为题卡 `vc-note` 约束行，`.dc .meta` 由 3 栏改 2 栏。同步 `quest-cards.html` · `.opencode/skills/plan/SKILL.md` · `plan/references/pilot-experiment.md` · `.opencode/DESIGN.md`。
 - 2026-09-30：**新增 §5.6 规则「禁止否定式对比补白」**（`X, not Y` / `NOT the …` / `不是…而是…`）：直接给结论，例 `THE MVP, NOT THE MASTER PLAN` → `THE MVP PLAN`。
 - 2026-09-30：**participant 物料修订（index / standalone）**：① 章节标签 `LEVEL 01–07` → **`SECTION 01–07`**（本页是流程说明，无进阶关系）；② Guild Setup 的 Facilitator 描述去掉「AI BOT / cosplay / robot one-liners」，改为「每桌 1 名 Facilitator（FACI-01~08）协助团队」，与 `facilitator_guide` 对齐；③ 每组设备 `×2–3` → **`×2`**（桌面示意图由 3 台改 2 台）。连带在 `facilitator_guide.html` 把 `Robot Facilitator` → `Facilitator`、`三台设备` → `两台设备`。重建 `ascentium-hackathon-standalone.html` 与 `facilitator_guide_standalone.html`。
+- 2026-09-30：**新增 §5.2 规则「禁用侧边装饰栏」**：视觉产出不得使用 `border-left` 色条 / 左侧竖条等纯装饰性竖栏，强调信息改用「色块底色 + 圆角卡片 + 加粗文字」。
+- 2026-09-30：**新增 Host 大屏引导 Deck**：仓库根新增 `host-deck.html`（单文件、无构建、无外部依赖），Host 投屏用；与 Showcase `pitch-deck` 同一表达引擎（1000×562 舞台 + ←/→/0–7/F 导航 + 底部 rail/进度条），但**版式有意区分**——封面 / 标题 / 分节页**居中展示**，并采用 standalone Hackathon（`index.html`）的设计元素（`hero.png` 全屏视觉封面、橘色 kicker、`SECTION` 胶囊分节页、`goal` / `flow` / 圆桌示意 / 题卡配图 / 积分榜 / 奖杯 / honors chips）。含 8 段 32 屏：Standby（封面 · 预演时钟 · 议程）→ Opening Brief（Welcome / Why / Map / Quests / Rules / Process / Rhythm / Toolkit 视频占位）→ Pick & Roles → Gold Rush Build（含 20′ / 10′ 提醒屏）→ Converge & Submit → Showcase Rules & Voting Demo → Arena（对阵表 · 单场控场 · 实时计分）→ Victory（榜单 · Hall of Fame · 闭幕）。每张控场屏带**可交互倒计时**（预设 20/10/5/2/1′、Start/Pause、Reset、±30s，≤60s 变红）、墙钟、选手/Duel 选择由顶部 `CONFIG` 驱动。品牌 logo 统一用 `ascentium_global_logo.jpeg`（原「white」logo 实为浅底，深色页会露出白块，已弃用）。
