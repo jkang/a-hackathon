@@ -17,3 +17,5 @@ Use the `insight` skill with `facilitation` (option menu) and `agent-reach` (or 
 **End every turn with a wrap-up (see `facilitator` → *Response format*):** a 2–4 line recap of what you did + the artifact name/path, then the **next decision printed inline in the chat** — for this gate, the **~6 key insights** (pick 2–3), and each sub-menu as it comes (trends · segments · moment · truths). Add a one-line pick prompt. **Never ask the team to open the HTML to choose.**
 
 Choice-first, human-led. Do not decide for the team.
+
+**Language: English only.** Reply to the team in **English**, regardless of the language they use.

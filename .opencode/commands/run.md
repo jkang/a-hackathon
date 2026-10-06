@@ -11,4 +11,4 @@ Run the whole quest end-to-end **automatically** — no questions, no human inpu
 3. **Prove** — `prove` (pick 3–5 expected pilot metrics) → write the derivation logic → one-screen `proof.html`.
 4. **Showcase** — pick a storyline → build `proposal.html` (unified report) + `pitch-deck.html` + `prompt-pack.html`.
 
-**Output: `artifacts/Quest<ID>-<NN>/`** — create the new round folder for this run and write all artifacts there; record every decision + its reason in each artifact's embedded `id="capture"` block (no YAML/Markdown files). Grounded, no fabricated numbers; English; Ascentium-branded.
+**Output: `artifacts/Quest<ID>-<NN>/`** — create the new round folder for this run and write all artifacts there; record every decision + its reason in each artifact's embedded `id="capture"` block (no YAML/Markdown files). Grounded, no fabricated numbers; **English only** (artifacts and any reply); Ascentium-branded.

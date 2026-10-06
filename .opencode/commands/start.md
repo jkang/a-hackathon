@@ -23,3 +23,5 @@ Open a **facilitated (human-led)** session for this quest. This command does **t
 **Then end your turn and wait for the team's reply.** Do **not** start research, do **not** build anything, do **not** run ahead to the next gate. The team's answer drives the next turn.
 
 > This is the *explanation* of the plan — not a to-do list. Walk the happy path **one decision per turn** (see `facilitator` → *Turn discipline*). To run the whole quest automatically instead, use `/run`.
+
+**Language: English only.** Reply to the team in **English**, regardless of the language they use.

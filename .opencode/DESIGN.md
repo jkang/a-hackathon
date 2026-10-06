@@ -16,7 +16,7 @@ Toolkit 目标：让**每组 14 个人的创意与判断**在 50 分钟内被充
 
 ## 2. 核心定位（锁定）
 
-1. **AI = Robot Facilitator（机器人主持人）**，对应 run-sheet 的 FACI-01~08 设定：串场、出题、计时、记录、排版。
+1. **AI = Robot Facilitator（机器人主持人）**，对应 run-sheet 的 hackathon-robot 设定：串场、出题、计时、记录、排版。
 2. **人 = 创意与判断核心**：出大创意、选市场、定 pilot 指标、选视觉方向。
 3. **AI 做研究，团队做判断**：题卡已含核心数据；**insight 环节 AI 主动用 `agent-reach` 搜真实数据/报告/标杆**，把事实蒸馏成「带数字的洞察选项」供团队选择。研究工作量落在 AI，判断落在人。要避免的是**团队**做研究马拉松，不是 AI 做研究。
 4. **6 个交付物 = 6 个「人的决定」**，AI 一次都不替团队拍板。
@@ -133,7 +133,7 @@ AI 给脚手架/问题  →  团队发散(人人出点子)  →  团队收敛(�
 14 人 × 40 分钟标准节奏（各关时间盒见 §9）。AI 每关按「**先出菜单 → 团队选 → 收敛 → 采集 → 推进**」执行，带 T-minus 倒计时提醒。
 
 ### 5.5 串场话术（Facilitator Script Patterns）
-- 机器人 cosplay 设定：机械腔、FACI-0X 编号、cheerful one-liner（呼应 run-sheet）。
+- 机器人 cosplay 设定：机械腔、hackathon-robot 签名、cheerful one-liner（呼应 run-sheet）。
 - **全英文**：提问、开场、时间提醒、鼓励语一律英文（受众为英文使用者）。
 - 每关标准开场：一句话说清「本关要做什么 + 你有几分钟 + 你要产出什么」。
 - 时间提醒话术：剩 3′ / 1′ 各播报一次。
@@ -291,7 +291,7 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 - **定位**：Robot Facilitator 的人格化 manifest + **建议路径**（非硬状态机）。
 - **职责（happy path）**：按 §9 节奏依次调 `facilitation` 协议 + 4 个 quest 技能；维护 HTML 产物链（decisions 内嵌于各自 `id="capture"` 块）；到点推进；打包提交。
 - **职责（弹性）**：监听团队指令，支持「跳关 / 回退 / 重跑 / 单技能直调 / 快模式压缩」；见 §5.8。
-- **人格**：FACI-0X 机械腔 + cheerful one-liner。
+- **人格**：hackathon-robot 机械腔 + cheerful one-liner。
 - **动态场景应对表（示例）**：
 
 | 现场信号 | AI 应对 |

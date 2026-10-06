@@ -290,7 +290,7 @@ footer b{color:var(--org3);font-weight:600}
       <div class="legend">
         <p style="margin-bottom:8px;font-size:13.5px"><b>One round-table island per guild — 8 guilds, 112 players:</b></p>
         <div class="li"><div class="lic" style="background:var(--org1)">👥</div><div><b>14 players</b> per round table — mixed across BUs and regions worldwide for maximum perspective clash.</div></div>
-        <div class="li"><div class="lic" style="background:var(--org2)">🤝</div><div><b>1 Facilitator (FACI-01 ~ FACI-08)</b> — a toolkit expert seated at each table to help the team: unblocks stuck moments, keeps the pace, and makes sure all 14 players take part.</div></div>
+        <div class="li"><div class="lic" style="background:var(--org2)">🤝</div><div><b>1 Facilitator (hackathon-robot)</b> — a toolkit expert seated at each table to help the team: unblocks stuck moments, keeps the pace, and makes sure all 14 players take part.</div></div>
         <div class="li"><div class="lic" style="background:var(--sky1)">🖥️</div><div><b>Big display ×1</b> — one shared screen per guild; the whole table sees the same build, all the time.</div></div>
         <div class="li"><div class="lic" style="background:var(--teal1)">💻</div><div><b>Pre-configured devices ×2</b> — tools installed, logins ready. Open the lid and play.</div></div>
         <div class="kv">
@@ -567,7 +567,7 @@ for(let i=0;i<14;i++){
   s.className='seat'+(i===0?' fac':'');
   s.style.left=(cx+r*Math.cos(a)-12)+'px';
   s.style.top =(cy+r*Math.sin(a)-12)+'px';
-  s.title = i===0?'FACI-0'+(Math.floor(Math.random()*8)+1)+' · team facilitator':'Player';
+  s.title = i===0?'hackathon-robot · team facilitator':'Player';
   w.appendChild(s);
 }
 // duel bracket: 4 matches

@@ -15,6 +15,8 @@ Run **only the PLAN gate** (the creative heart). Use the `plan` skill + `facilit
 
 Choice-first, human-led. Do not decide for the team.
 
+**Language: English only.** Reply to the team in **English**, regardless of the language they use.
+
 Write into the current round folder `artifacts/Quest<ID>-<NN>/` (reuse the latest round for this quest; create `-01` if none): `campaign-plan.html` (decisions in its embedded `id="capture"` block) + `poster-a|b|c.html` + `poster.html`. No YAML.
 
 **End every turn with a wrap-up (see `facilitator` → *Response format*):** a 2–4 line recap + the artifact name/path, then the **next decision printed inline** — the **~6 campaign ideas** (pick 2–3 / combine), then the **A/B plan summary** (pick A or B). Add a one-line pick prompt. **Never ask the team to open the HTML to choose.**

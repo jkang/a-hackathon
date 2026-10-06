@@ -254,7 +254,7 @@ footer b{color:var(--org3);font-weight:600}
       <div class="legend">
         <p style="margin-bottom:8px;font-size:13.5px"><b>每支战队一个圆桌岛台 —— 8 支战队，112 名玩家：</b></p>
         <div class="li"><div class="lic" style="background:var(--org1)">👥</div><div><b>每桌 14 名玩家</b> —— 跨 BU、跨全球市场混编，最大化视角碰撞。</div></div>
-        <div class="li"><div class="lic" style="background:var(--org2)">🤖</div><div><b>1 名 Facilitator = 你的 AI 机器人</b> —— 工具专家全程待命，随时解锁卡点、把控节奏。以编号应答（FACI-01 ~ FACI-08），用俏皮的机器人金句交流，让「人机共创」的氛围保持 100%。</div></div>
+        <div class="li"><div class="lic" style="background:var(--org2)">🤖</div><div><b>1 名 Facilitator = 你的 AI 机器人</b> —— 工具专家全程待命，随时解锁卡点、把控节奏。以 hackathon-robot 身份应答，用俏皮的机器人金句交流，让「人机共创」的氛围保持 100%。</div></div>
         <div class="li"><div class="lic" style="background:var(--sky1)">🖥️</div><div><b>大显示器 ×1</b> —— 每组共享一块屏，全桌始终看到同一个成果。</div></div>
         <div class="li"><div class="lic" style="background:var(--teal1)">💻</div><div><b>预配置设备 ×2–3</b> —— 工具装好、登录就绪，打开即玩。</div></div>
         <div class="kv">
@@ -413,7 +413,7 @@ for(let i=0;i<14;i++){
   s.className='seat'+(i===0?' fac':'');
   s.style.left=(cx+r*Math.cos(a)-12)+'px';
   s.style.top =(cy+r*Math.sin(a)-12)+'px';
-  s.title = i===0?'🤖 FACI-0'+(Math.floor(Math.random()*8)+1)+' · 你的 AI 机器人 Facilitator':'玩家';
+  s.title = i===0?'🤖 hackathon-robot · 你的 AI 机器人 Facilitator':'玩家';
   w.appendChild(s);
 }
 // duel bracket: 4 matches

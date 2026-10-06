@@ -17,3 +17,5 @@ Use the `prove` skill with `facilitation` (option menu). Requires the `campaign-
 **End every turn with a wrap-up (see `facilitator` → *Response format*):** a 2–4 line recap + the artifact name/path, then the **next decision printed inline** — the **candidate pilot metrics with suggested targets** (pick 3–5). Add a one-line pick prompt. **Never ask the team to open the HTML to choose.**
 
 Choice-first, human-led. Do not decide for the team. No Go/No-Go, no cost-benefit, no scale-up.
+
+**Language: English only.** Reply to the team in **English**, regardless of the language they use.
