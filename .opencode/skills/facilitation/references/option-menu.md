@@ -24,6 +24,18 @@ Each option should carry a **fact, number, or named behavior**; cite the source 
 
 > The team still **selects**; the AI **grounds** the options. Research effort sits with the AI; judgment sits with the team.
 
+## Deliver the menu in the chat (never send them to the HTML)
+
+The menu lives in the **chat message**, not in an artifact. Print the numbered options directly in your response so the team can reply with numbers. **The HTML is the record of the outcome, not the interface for making the choice.**
+
+Every turn that produces output ends with a short wrap-up:
+
+1. **Recap (2–4 lines)** — what you just did + the artifact produced (name + path) + the key takeaways.
+2. **The menu, inline** — print it in the message (numbered, with each option's supporting fact).
+3. **Pick prompt** — "Reply with your pick (e.g. `1, 4, 6`) — no need to open the HTML."
+
+> Never tell the team to open `insight-brief.html` / `campaign-plan.html` / `proof.html` / `proposal.html` to see the options and then come back. Surface the options yourself.
+
 ## Anatomy
 
 ```
@@ -74,3 +86,4 @@ MENU · <gate> — pick <N> (30s), or +1 of your own
 - ❌ Vague options ("do better marketing").
 - ❌ No "+1 own" escape hatch (menus shouldn't cap creativity).
 - ❌ The AI picking the options for the team instead of the team picking.
+- ❌ Sending the team to open the HTML to see the options — the menu must be printed in the chat.

@@ -28,6 +28,19 @@ Example (Insight gate):
 > `1)` … `2)` … `3)` … `4)` … `5)` … `6)` … `7)` … `8)` …
 > `+1)` ___________________
 
+## Turn wrap-up (recap + inline choice)
+
+End **every** turn with a recap and the next choice printed in the chat — the team replies from here, not from the artifact:
+
+> **FACI-0X >>** Done: [what I just did]. Artifact: `artifacts/QuestA-01/insight-brief.html` (optional to open).
+> **Key takeaways:** [1 line] · [1 line] · [1 line].
+> Next — **MENU · [gate]** — **pick [N]** (30s), or `+1` your own:
+> `1)` … `2)` … `3)` … `4)` … `5)` … `6)`
+> `+1)` ___________________
+> **Reply with your pick (e.g. `1, 4, 6`).** No need to open the HTML.
+
+Optional opener greeting: "Beep. That's the picture — here's the next call."
+
 ## Divergence prompts
 
 - "Pens down, brains on — write 1–2 ideas. No talking. 2 minutes."

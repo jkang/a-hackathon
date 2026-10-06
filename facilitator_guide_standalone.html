@@ -201,7 +201,7 @@
         <div class="jr-stage r1" style="grid-column:span 1">
           <div class="st-top"><span class="st-name">开场</span></div>
           <code class="st-cmd">/start</code>
-          <div class="st-goal">读题卡 · 讲规则 · 确认环境</div>
+          <div class="st-goal">读题卡 · 讲任务 · 等确认</div>
         </div>
         <div class="jr-stage r1" style="grid-column:span 5">
           <div class="st-top"><span class="st-n">①</span><span class="st-name">INSIGHT</span></div>
@@ -5390,7 +5390,7 @@ opencode</code></pre>
     <div class="card">
       <div class="eyebrow">命令流程（以 Quest A 为例）</div>
       <ol class="steps">
-        <li><b><code>/start A</code> 开场</b>：读 Quest A 卡、讲清规则与分工。</li>
+        <li><b><code>/start A</code> 开场</b>：读 Quest A 卡、讲清任务与四阶段、预告 research，<b>等团队确认</b>后再开始。</li>
         <li><b><code>/insight</code> 洞察</b> → <code>insight-brief.html</code></li>
         <li><b><code>/plan</code> 策划</b> → <code>campaign-plan.html</code>（含 <code>poster</code>）</li>
         <li><b><code>/poster</code> 海报</b> → <code>poster-a/b/c.html</code> + <code>poster.html</code></li>
@@ -5405,8 +5405,8 @@ opencode</code></pre>
         <li><b>开场先讲清全景与分工。</b>用「用法总览」的旅程图带团队过一遍：4 个阶段 + 海报；每个环节都是「AI 出菜单 → 团队选择 → AI 执行」；<b>团队做判断，AI 做执行</b>。
           <div class="say"><span class="k">Say to the team</span>Here's the whole flow: Insight → Plan → Poster → Prove → Showcase. At every step the AI drafts a grounded menu, you choose, then the AI executes. <b>You make the calls; the AI does the work.</b> 40 minutes to produce, 10 to package and submit.</div>
         </li>
-        <li><b>示范如何用 <code>/start</code> 开始与 AI 协作。</b>当场输入 <code>/start A</code>，让团队看到命令触发 Agent、读取题卡，并给出第一份带数据的「菜单」。
-          <div class="say"><span class="k">Say to the team</span>I'll kick us off now — watch the screen. <i>(type <code>/start A</code>)</i> The AI has read Quest A and is giving us the first menu of insights. Every gate starts exactly like this.</div>
+        <li><b>示范如何用 <code>/start</code> 开始与 AI 协作。</b>当场输入 <code>/start A</code>，让团队看到命令触发 Agent、读取题卡、讲清任务与四阶段，并<b>等待确认</b>；确认后再 research（约数分钟），并给出第一份带数据的「菜单」。
+          <div class="say"><span class="k">Say to the team</span>I'll kick us off now — watch the screen. <i>(type <code>/start A</code>)</i> The AI reads Quest A, explains the plan, and waits for our go-ahead before it starts. Once we say go, it researches for a few minutes, then hands us the first data-backed menu. Every gate starts like this.</div>
         </li>
         <li><b>AI 执行时，讲清背后用了哪些 Skills。</b>说明这个环节实际调用了哪些 skill、各自做什么；<b>视团队兴趣</b>，可打开 <code>.opencode/skills/&lt;name&gt;/SKILL.md</code> 现场展示它们如何工作。
           <div class="say"><span class="k">Say to the team</span>While it runs — this step is powered by three skills: <code>agent-reach</code> pulls the real data, <code>audience-analysis</code> builds the segments, <code>swot-analysis</code> synthesizes them. Curious how they work? I can open the skill files and show you live.</div>

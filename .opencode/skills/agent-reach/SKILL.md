@@ -154,6 +154,7 @@ for e in feedparser.parse('FEED_URL').entries[:5]:
 
 ## Troubleshooting
 
+- **Retry cap (important).** If a source fails, retry **at most 2–3 times**, then stop. Mark it **unreachable**, move to another channel/source, and don't loop on one dead link.
 - **Channel not working?** Run `agent-reach doctor` — shows status and fix instructions.
 - **Twitter fetch failed?** Ensure `undici` is installed: `npm install -g undici`. Configure proxy: `agent-reach configure proxy URL`.
 

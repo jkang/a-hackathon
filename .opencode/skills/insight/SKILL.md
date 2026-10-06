@@ -29,7 +29,9 @@ Produce a one-page **Insight Brief** that seeds the creative gate. The AI scaffo
 - `audience-analysis` (external) feeds `swot-analysis` (O/T).
 - Use the `researcher` subagent to run `agent-reach` and return **data-backed menus**.
 
-1. **Kick-off + org research (AI, ~2 min).** Read the card; deliver a 30-second scout summary. Then run **`business-research`** (via `agent-reach`): build the **organization profile** (identity, offer, assets, routes, constraints) and the benchmark baseline.
+**Before any research (only if the session hasn't been briefed yet): brief & confirm (HITL).** If the team already confirmed the brief via `/start`, skip this and go straight to research. Otherwise, read the card, then tell the team in a few plain lines: (1) what this quest is — client, mission, market; (2) the four gates — Insight → Plan (+ poster) → Prove → Showcase; (3) what happens next — you will research this quest and turn it into **~6 data-backed insights** for the team to choose from; (4) that the research **may take a few minutes**. Then **wait for the team's go-ahead** before running any research. If they want to skip research, reuse the card's Scout Report as the seed.
+
+1. **Kick-off + org research (AI, ~2 min).** After the confirmed brief, deliver a 30-second scout summary. Then run **`business-research`** (via `agent-reach`): build the **organization profile** (identity, offer, assets, routes, constraints) and the benchmark baseline.
 2. **Audience research (AI).** Run **`audience-analysis`** (via `agent-reach`, using the org profile for fit): find audience data + trend reports, then draft the **segment menu** (3–5 segments with who / JTBD / needs / barriers / triggers / size / potential).
 3. **Market & trends (team).** AI presents a **menu of ~8 shifts** → the team picks 2–3 (or +1 own), each `{trend, why_it_matters}`.
 4. **Audience (team).** Present the **segment menu** → the team picks 2–4 and confirms/edits the profiles.
@@ -42,6 +44,7 @@ Produce a one-page **Insight Brief** that seeds the creative gate. The AI scaffo
 
 ## HITL gates (mandatory)
 
+- **Before research begins**, the team confirms the brief (mission + four gates + that research may take a few minutes).
 - The AI presents the menus; the team **selects** the audience segments, trends, and the moment of truth.
 - The team reviews the **~6 key insights** and **picks 2–3** to deep-dive into the plan.
 The AI must **not** choose any of these — it only drafts the menu. Always keep the `+1 of our own` channel open.
@@ -86,6 +89,7 @@ The AI must **not** choose any of these — it only drafts the menu. Always keep
 
 - **The AI researches; the team doesn't.** In this gate, actively call `agent-reach` to gather facts, reports and data, then distill them into **valuable, data-backed insight options**. The team's effort goes into *selecting*, not researching.
 - Restraint means: don't turn the room into a research marathon, and don't dump raw data — **distill each fact into a crisp, defensible option** (a number, a trend, a named behavior). Richer *analysis*, not more data.
+- **Cap retries at 2–3 attempts per source.** If a site / report keeps failing, mark it **unreachable**, move on, and use another source — never loop on one dead link. If the web is largely unreachable, fall back to the card's Scout Report and say what could not be verified.
 - Ground every menu in the card + `agent-reach` findings; cite the source in the option.
 
 ## Design notes

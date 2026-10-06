@@ -38,4 +38,6 @@ MENU · <gate> — pick <N>
 - **6–8 options** — fewer feels thin, more overwhelms.
 - **Data-backed only.** No generic filler ("do better marketing").
 - If a fact can't be found, say so — do not fabricate. Mark uncertain items clearly.
+- **Cap retries at 2–3 attempts per source.** If a site / report / API keeps timing out or failing, retry **at most 2–3 times**, then mark it **"unreachable"** and move on to another source. Never keep looping on one dead link or channel.
+- **Stay within a few minutes.** Prioritise the highest-value sources. If the web is largely unreachable, fall back to the quest card's Scout Report and any dates/benchmarks you already have, and say clearly what could not be verified.
 - English only.

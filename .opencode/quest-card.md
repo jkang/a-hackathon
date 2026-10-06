@@ -73,7 +73,7 @@ quest:
 1. **Accent is a quest property, not a fixed A/B enum.** A card declares `accent` (one of the brand's accent tokens in `ascentium-brand/references/tokens.css`). The agent injects `accent_values` as inline CSS variables on each artifact's `<body>`:
    `--accent` · `--accent-tint` · `--accent-line` · `--accent-deep`.
 2. **No self-invented colours.** `accent_values` must trace to `tokens.css`. If a quest genuinely needs a new accent, add the token to `tokens.css` first, then reference it.
-3. **Key visual is a quest property.** The card ships `key_visual_svg` (one inline `<symbol id="illo" viewBox="0 0 1200 500">`). The templates have a single `{{KEY_VISUAL_SVG}}` slot; the agent fills it. The built-in stadium / panda illustrations are **example motifs only**, not part of the engine.
+3. **Key visual is a quest property.** The card ships `key_visual_svg` (one inline `<symbol id="illo">`; the deck frame uses `viewBox="0 0 480 360"`, the poster style arts use `viewBox="0 0 1200 500"` — match each frame). The templates have a single `{{KEY_VISUAL_SVG}}` slot; the agent fills it. The built-in stadium / panda illustrations are **example motifs only**, not part of the engine.
 4. **Poster styles are tone descriptors, not quest labels.** The three styles (A/B/C) are art directions the team maps to the current quest; a card may rename them via `poster_styles`.
 
 ## Output layout (where a run writes)
@@ -86,7 +86,7 @@ artifacts/Quest<ID>-<NN>/
 
 - `<ID>` = the card's `id`, normalized: strip any leading "Quest" and spaces, then prefix `Quest` (e.g. id `A` → `QuestA`, id `C` → `QuestC`).
 - `<NN>` = a 2-digit round number. Pick the **next free** one by scanning `artifacts/Quest<ID>-*` (none → `01`; existing `01`,`02` → `03`).
-- **`/start` and `/run`** create a new round folder and write every artifact into it. A **single-gate command** (`/insight` … `/showcase`) writes into the **latest** round for that quest — create `-01` if none exists.
+- **`/run`** creates a new round folder at the start and writes every artifact into it. **`/start`** is a briefing only — it creates **no** folder and **no** artifact; the **first gate that writes** creates the round folder. A **single-gate command** (`/insight` … `/showcase`) writes into the **latest** round for that quest — create `-01` if none exists.
 - **Never overwrite a previous round.** A repeat run always increments `<NN>`.
 - Round contents (**HTML only** — no YAML/Markdown): `insight-brief.html` · `campaign-plan.html` · `poster.html` (+ `poster-a|b|c.html`) · `proof.html` · `pitch-deck.html` · `prompt-pack.html` · `proposal.html`. Each stage HTML carries its decisions in an embedded `<script type="application/json" id="capture">` block.
 - Builder steps run with `--dir artifacts/Quest<ID>-<NN>/` (`build-posters.py`, `build-proposal.py`).

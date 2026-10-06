@@ -4,6 +4,8 @@ agent: facilitator
 ---
 Run **only the PROVE gate**.
 
+> **One decision per turn.** Present one menu, then **STOP and wait** for the team's reply. **Never answer your own menu; never run another gate.** (See `facilitator` → *Turn discipline*.)
+
 Use the `prove` skill with `facilitation` (option menu). Requires the `campaign-plan.html` capture.
 
 1. Frame the pilot (2 markets · 3 months · MVP budget) and read the card benchmarks.
@@ -11,5 +13,7 @@ Use the `prove` skill with `facilitation` (option menu). Requires the `campaign-
 3. The team **picks 3–5** (`+1 own`). No thresholds.
 4. AI writes each metric's **derivation chain**: benchmark → assumption(s) → formula → target.
 5. Output **`proof.html` only** (**one screen**: pilot framing → funnel with targets → metric tiles → derivation rows); the capture is embedded in its `id="capture"` block — no YAML.
+
+**End every turn with a wrap-up (see `facilitator` → *Response format*):** a 2–4 line recap + the artifact name/path, then the **next decision printed inline** — the **candidate pilot metrics with suggested targets** (pick 3–5). Add a one-line pick prompt. **Never ask the team to open the HTML to choose.**
 
 Choice-first, human-led. Do not decide for the team. No Go/No-Go, no cost-benefit, no scale-up.

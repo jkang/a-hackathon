@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Campaign poster · ONE style per file (b = a|b|c).
+     Accent + key visual are injected from the quest card (see quest-card.md) — no per-quest hard-coding.
+     Build the three pages with scripts/build-posters.py. Each page is a clean, croppable single poster. -->
+<title>Campaign Poster · Quest B · Panda Guardians · Style B</title>
+<style>
+  :root{
+    --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
+    --orange-1:#FFF0E7; --orange-2:#FFD1B8; --orange-3:#FFA370;
+    --teal:#077069; --teal-1:#CDE2E1; --teal-2:#83B8B4; --teal-4:#043835;
+    --line:#E4E8E7; --mut:#5A6663; --cream:#FFF6EC;
+    --accent: var(--ascentium-orange);
+    --accent-tint: var(--orange-1);
+    --accent-line: var(--orange-2);
+    --accent-deep:#B24000;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#DEDAD4;}
+  body{font-family:"Poppins","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+       color:var(--ascentium-midnight);padding:28px 12px;display:flex;justify-content:center;}
+
+  .poster{width:1080px;max-width:100%;background:#fff;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.25);}
+
+  .mast{display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative;z-index:3;}
+  .mast .logo{font-weight:800;letter-spacing:-.01em;}
+  .mast .client{font-weight:700;border-radius:999px;white-space:nowrap;}
+  .kicker{font-weight:800;letter-spacing:.2em;text-transform:uppercase;}
+  .name{font-weight:800;line-height:.94;letter-spacing:-.02em;}
+  .tagline{font-weight:700;}
+  .art{position:relative;overflow:hidden;aspect-ratio:1200/500;}
+  .art svg{display:block;width:100%;height:100%;}
+  .lead{font-weight:600;line-height:1.5;}
+  .sec-h{font-weight:800;letter-spacing:.2em;text-transform:uppercase;}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .card{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:#fff;}
+  .card .t{font-weight:800;}
+  .card .d{line-height:1.5;color:#3B4442;}
+  .bullets{list-style:none;}
+  .bullets li{position:relative;line-height:1.55;}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);}
+  .stat{text-align:center;}
+  .stat .n{font-weight:800;line-height:1;}
+  .stat .c{line-height:1.4;}
+  .cta{display:flex;align-items:center;gap:26px;}
+  .cta .btn{font-weight:800;border-radius:999px;white-space:nowrap;}
+  .cta .meta{flex:1;}
+  .cta .hash{font-weight:800;letter-spacing:-.01em;}
+  .cta .url{line-height:1.4;}
+  .qr{background:#fff;border-radius:10px;flex:none;}
+  .qr svg{display:block;width:100%;height:100%;}
+  .foot{display:flex;justify-content:space-between;gap:24px;}
+  .foot .partners{font-weight:700;}
+  .foot .src{text-align:right;}
+
+  /* ===== STYLE A — FULL-BLEED HERO (bold editorial) ===== */
+  .p-a{background:#fff;}
+  .p-a .hero{background:var(--accent);color:#fff;padding:42px 54px 0;}
+  .p-a .mast .logo{font-size:26px;}
+  .p-a .mast .client{font-size:14px;background:rgba(0,0,0,.16);padding:7px 16px;}
+  .p-a .kicker{font-size:15px;opacity:.92;margin-top:32px;}
+  .p-a .name{font-size:98px;margin-top:10px;}
+  .p-a .tagline{font-size:27px;margin-top:14px;}
+  .p-a .art{margin-top:26px;border-radius:18px 18px 0 0;}
+  .p-a .body{padding:38px 54px 6px;}
+  .p-a .lead{font-size:21px;max-width:920px;}
+  .p-a .sec-h{font-size:12px;color:var(--accent);margin-top:32px;}
+  .p-a .cards{margin-top:14px;}
+  .p-a .card .t{font-size:15px;color:var(--accent);}
+  .p-a .card .d{font-size:13px;margin-top:6px;}
+  .p-a .bullets{margin-top:14px;}
+  .p-a .bullets li{font-size:14.5px;padding:5px 0 5px 20px;}
+  .p-a .bullets li::before{content:"";position:absolute;left:0;top:11px;width:9px;height:9px;border-radius:3px;background:var(--accent);}
+  .p-a .stats{background:var(--ascentium-midnight);color:#fff;margin-top:30px;}
+  .p-a .stat{padding:26px 16px;border-right:1px solid rgba(255,255,255,.12);}
+  .p-a .stat:last-child{border-right:none;}
+  .p-a .stat .n{font-size:40px;color:var(--accent-tint);}
+  .p-a .stat .c{font-size:11.5px;margin-top:8px;opacity:.85;}
+  .p-a .cta{background:var(--accent);color:#fff;padding:32px 54px;}
+  .p-a .cta .btn{background:#fff;color:var(--accent);font-size:21px;padding:16px 36px;}
+  .p-a .cta .hash{font-size:26px;}
+  .p-a .cta .url{font-size:14px;opacity:.92;margin-top:5px;}
+  .p-a .qr{width:104px;height:104px;padding:7px;}
+  .p-a .foot{padding:20px 54px;border-top:1px solid var(--line);}
+  .p-a .foot .partners{font-size:12px;}
+  .p-a .foot .src{font-size:10.5px;color:var(--mut);max-width:540px;}
+
+  /* ===== STYLE B — BELONGING PASSPORT (membership · cream) ===== */
+  .toprule{display:none;}
+  .p-b{background:var(--cream);}
+  .p-b .toprule{display:block;height:12px;background:var(--accent);}
+  .p-b .hero{padding:34px 54px 0;color:var(--ascentium-midnight);}
+  .p-b .mast .logo{font-size:25px;color:var(--ascentium-midnight);}
+  .p-b .mast .logo span{color:var(--accent);}
+  .p-b .mast .client{font-size:13px;color:var(--accent-deep);border:1.5px solid var(--accent-line);padding:6px 15px;background:#fff;}
+  .p-b .kicker{font-size:13px;color:var(--accent);margin-top:30px;letter-spacing:.24em;}
+  .p-b .name{font-size:88px;margin-top:8px;letter-spacing:-.03em;}
+  .p-b .tagline{font-size:25px;margin-top:12px;color:var(--accent-deep);font-style:italic;}
+  .p-b .art{margin-top:24px;border-radius:14px;border:1.5px dashed var(--accent-line);}
+  .p-b .body{padding:34px 54px 6px;}
+  .p-b .lead{font-size:20px;max-width:920px;}
+  .p-b .sec-h{font-size:12px;color:var(--accent-deep);margin-top:30px;padding-bottom:8px;border-bottom:2px dashed var(--accent-line);}
+  .p-b .cards{margin-top:16px;}
+  .p-b .card{background:#fff;border:1.5px dashed var(--accent-line);border-radius:12px;position:relative;}
+  .p-b .card::before,.p-b .card::after{content:"";position:absolute;top:50%;width:12px;height:12px;border-radius:999px;background:var(--cream);border:1.5px dashed var(--accent-line);}
+  .p-b .card::before{left:-7px;transform:translateY(-50%);}
+  .p-b .card::after{right:-7px;transform:translateY(-50%);}
+  .p-b .card .t{font-size:15px;color:var(--accent-deep);}
+  .p-b .card .d{font-size:13px;margin-top:6px;}
+  .p-b .bullets{margin-top:16px;}
+  .p-b .bullets li{font-size:14.5px;padding:6px 0 6px 24px;}
+  .p-b .bullets li::before{content:"✓";position:absolute;left:0;top:6px;color:var(--accent);font-weight:800;font-size:13px;}
+  .p-b .stats{background:#fff;border:1.5px dashed var(--accent-line);border-radius:14px;margin:28px 54px 0;}
+  .p-b .stat{padding:22px 14px;border-right:1px dashed var(--accent-line);}
+  .p-b .stat:last-child{border-right:none;}
+  .p-b .stat .n{font-size:36px;color:var(--accent-deep);}
+  .p-b .stat .c{font-size:11px;margin-top:8px;color:var(--mut);}
+  .p-b .cta{background:var(--accent);color:#fff;padding:30px 54px;margin-top:28px;}
+  .p-b .cta .btn{background:#fff;color:var(--accent-deep);font-size:20px;padding:15px 34px;}
+  .p-b .cta .hash{font-size:25px;}
+  .p-b .cta .url{font-size:13.5px;opacity:.94;margin-top:5px;}
+  .p-b .qr{width:100px;height:100px;padding:7px;}
+  .p-b .foot{padding:20px 54px;border-top:2px dashed var(--accent-line);}
+  .p-b .foot .partners{font-size:12px;}
+  .p-b .foot .src{font-size:10.5px;color:var(--mut);max-width:540px;}
+
+  /* ===== STYLE C — MIDNIGHT MINIMAL (Swiss typographic) ===== */
+  .p-c{background:var(--ascentium-midnight);color:#fff;}
+  .p-c .hero{padding:46px 54px 0;}
+  .p-c .mast .logo{font-size:25px;color:#fff;}
+  .p-c .mast .client{font-size:13px;color:#fff;border:1px solid rgba(255,255,255,.32);padding:6px 15px;}
+  .p-c .kicker{font-size:13px;color:var(--accent);margin-top:38px;}
+  .p-c .name{font-size:104px;margin-top:12px;}
+  .p-c .tagline{font-size:26px;margin-top:16px;color:var(--accent);font-weight:600;}
+  .p-c .art{margin-top:30px;}
+  .p-c .body{padding:36px 54px 6px;}
+  .p-c .lead{font-size:20px;max-width:880px;color:#CDD4D2;}
+  .p-c .sec-h{font-size:12px;color:var(--accent);margin-top:34px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.14);}
+  .p-c .cards{margin-top:18px;gap:0;}
+  .p-c .card{background:transparent;border:none;border-right:1px solid rgba(255,255,255,.14);border-radius:0;padding:6px 22px 6px 0;}
+  .p-c .card:last-child{border-right:none;}
+  .p-c .card .t{font-size:15px;color:#fff;}
+  .p-c .card .d{font-size:13px;margin-top:8px;color:#B9C4C1;}
+  .p-c .bullets{margin-top:16px;}
+  .p-c .bullets li{font-size:14.5px;padding:6px 0 6px 20px;color:#DDE3E1;}
+  .p-c .bullets li::before{content:"—";position:absolute;left:0;color:var(--accent);font-weight:800;}
+  .p-c .stats{margin-top:30px;border-top:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14);}
+  .p-c .stat{padding:26px 16px;border-right:1px solid rgba(255,255,255,.12);text-align:left;}
+  .p-c .stat:last-child{border-right:none;}
+  .p-c .stat .n{font-size:40px;color:var(--accent);}
+  .p-c .stat .c{font-size:11px;margin-top:8px;color:#9AA5A2;}
+  .p-c .cta{background:var(--accent);color:#fff;padding:30px 54px;}
+  .p-c .cta .btn{background:var(--ascentium-midnight);color:#fff;font-size:20px;padding:15px 34px;}
+  .p-c .cta .hash{font-size:25px;}
+  .p-c .cta .url{font-size:13.5px;opacity:.94;margin-top:5px;}
+  .p-c .qr{width:100px;height:100px;padding:7px;}
+  .p-c .foot{padding:20px 54px 26px;}
+  .p-c .foot .partners{font-size:12px;color:#fff;}
+  .p-c .foot .src{font-size:10.5px;color:#8A9492;max-width:540px;}
+
+  @media print{
+    @page{size:A3;margin:8mm;}
+    html,body{background:#fff;padding:0;display:block;}
+    .poster{box-shadow:none;margin:0 auto;width:100%;}
+  }
+</style>
+</head>
+<body data-quest="B" style="--accent:#077069;--accent-tint:#CDE2E1;--accent-line:#83B8B4;--accent-deep:#043835;">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <!-- Key-visual art per style (1200x500) — the quest's panda motif, re-art-ed per style. -->
+  <!-- STYLE A · full-bleed panda + bamboo (1200x500) -->
+  <symbol id="art-a" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice">
+    <rect width="1200" height="500" fill="#077069"/>
+    <g stroke="#83B8B4" stroke-width="11" stroke-linecap="round">
+      <line x1="112" y1="500" x2="112" y2="70"/>
+      <line x1="170" y1="500" x2="170" y2="180"/>
+      <line x1="1035" y1="500" x2="1035" y2="110"/>
+      <line x1="1092" y1="500" x2="1092" y2="200"/>
+    </g>
+    <g fill="#CDE2E1" opacity=".85">
+      <ellipse cx="150" cy="150" rx="34" ry="12" transform="rotate(-28 150 150)"/>
+      <ellipse cx="78" cy="230" rx="34" ry="12" transform="rotate(24 78 230)"/>
+      <ellipse cx="1050" cy="185" rx="34" ry="12" transform="rotate(28 1050 185)"/>
+      <ellipse cx="1130" cy="270" rx="34" ry="12" transform="rotate(-22 1130 270)"/>
+    </g>
+    <circle cx="150" cy="70" r="9" fill="#CDE2E1"/><circle cx="1058" cy="58" r="7" fill="#CDE2E1"/><circle cx="960" cy="92" r="5" fill="#CDE2E1"/>
+    <!-- panda -->
+    <circle cx="452" cy="152" r="74" fill="#0F1514"/>
+    <circle cx="748" cy="152" r="74" fill="#0F1514"/>
+    <ellipse cx="600" cy="290" rx="198" ry="172" fill="#FFF6EC"/>
+    <ellipse cx="519" cy="278" rx="55" ry="67" fill="#0F1514" transform="rotate(-18 519 278)"/>
+    <ellipse cx="681" cy="278" rx="55" ry="67" fill="#0F1514" transform="rotate(18 681 278)"/>
+    <circle cx="521" cy="281" r="18" fill="#fff"/>
+    <circle cx="679" cy="281" r="18" fill="#fff"/>
+    <circle cx="524" cy="284" r="9" fill="#0F1514"/>
+    <circle cx="676" cy="284" r="9" fill="#0F1514"/>
+    <ellipse cx="600" cy="352" rx="27" ry="18" fill="#0F1514"/>
+    <path d="M574 382 q26 22 52 0" fill="none" stroke="#0F1514" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="466" cy="332" r="17" fill="#CDE2E1" opacity=".7"/>
+    <circle cx="734" cy="332" r="17" fill="#CDE2E1" opacity=".7"/>
+  </symbol>
+
+  <!-- STYLE B · membership passport / boarding pass with panda stamp (1200x500) -->
+  <symbol id="art-b" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice">
+    <rect width="1200" height="500" fill="#FFF6EC"/>
+    <path d="M40 430 C 330 300, 870 290, 1160 110" fill="none" stroke="#077069" stroke-width="3" stroke-dasharray="2 13"/>
+    <g transform="translate(1120,116) rotate(24)"><path d="M0 0 l46 16 -46 16 10 -16z" fill="#077069"/></g>
+    <g transform="rotate(-4 600 250)">
+      <rect x="230" y="112" width="740" height="278" rx="18" fill="#FFFFFF" stroke="#CDE2E1" stroke-width="2"/>
+      <line x1="770" y1="112" x2="770" y2="390" stroke="#83B8B4" stroke-width="3" stroke-dasharray="8 8"/>
+      <circle cx="770" cy="112" r="10" fill="#FFF6EC"/><circle cx="770" cy="390" r="10" fill="#FFF6EC"/>
+      <rect x="262" y="142" width="150" height="14" rx="7" fill="#077069"/>
+      <rect x="262" y="170" width="300" height="10" rx="5" fill="#E4E8E7"/>
+      <rect x="262" y="190" width="250" height="10" rx="5" fill="#E4E8E7"/>
+      <g fill="#0F1514"><rect x="262" y="240" width="70" height="12" rx="6"/><rect x="360" y="240" width="70" height="12" rx="6"/><rect x="458" y="240" width="70" height="12" rx="6"/></g>
+      <g fill="#E4E8E7"><rect x="262" y="292" width="40" height="46"/><rect x="308" y="292" width="40" height="46"/><rect x="354" y="292" width="40" height="46"/><rect x="400" y="292" width="40" height="46"/><rect x="446" y="292" width="40" height="46"/><rect x="492" y="292" width="40" height="46"/></g>
+      <!-- panda stamp -->
+      <g transform="translate(905,250)">
+        <circle r="86" fill="none" stroke="#077069" stroke-width="4" stroke-dasharray="7 7"/>
+        <circle cx="-30" cy="-40" r="20" fill="#0F1514"/>
+        <circle cx="30" cy="-40" r="20" fill="#0F1514"/>
+        <ellipse cy="0" rx="52" ry="46" fill="#fff" stroke="#0F1514" stroke-width="3"/>
+        <ellipse cx="-20" cy="-2" rx="14" ry="18" fill="#0F1514" transform="rotate(-18 -20 -2)"/>
+        <ellipse cx="20" cy="-2" rx="14" ry="18" fill="#0F1514" transform="rotate(18 20 -2)"/>
+        <circle cx="-19" cy="0" r="5" fill="#fff"/><circle cx="19" cy="0" r="5" fill="#fff"/>
+        <ellipse cy="22" rx="8" ry="6" fill="#0F1514"/>
+      </g>
+    </g>
+    <g transform="translate(150,90)" fill="#077069" opacity=".9">
+      <rect width="120" height="14" rx="7"/><rect y="24" width="86" height="10" rx="5" opacity=".6"/>
+    </g>
+  </symbol>
+
+  <!-- STYLE C · minimal panda (1200x500) -->
+  <symbol id="art-c" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice">
+    <rect width="1200" height="500" fill="#0F1514"/>
+    <line x1="0" y1="404" x2="1200" y2="404" stroke="#272C2C" stroke-width="2"/>
+    <line x1="0" y1="96" x2="1200" y2="96" stroke="#272C2C" stroke-width="2"/>
+    <g stroke="#077069" stroke-width="9" stroke-linecap="round">
+      <line x1="985" y1="130" x2="985" y2="384"/>
+      <line x1="1045" y1="170" x2="1045" y2="384"/>
+    </g>
+    <g fill="#077069" opacity=".9">
+      <ellipse cx="1015" cy="180" rx="34" ry="12" transform="rotate(-26 1015 180)"/>
+      <ellipse cx="1010" cy="250" rx="34" ry="12" transform="rotate(24 1010 250)"/>
+    </g>
+    <circle cx="520" cy="168" r="58" fill="#077069"/>
+    <circle cx="680" cy="168" r="58" fill="#077069"/>
+    <ellipse cx="600" cy="286" rx="172" ry="150" fill="none" stroke="#CDE2E1" stroke-width="6"/>
+    <ellipse cx="536" cy="276" rx="44" ry="54" fill="#077069" transform="rotate(-18 536 276)"/>
+    <ellipse cx="664" cy="276" rx="44" ry="54" fill="#077069" transform="rotate(18 664 276)"/>
+    <circle cx="538" cy="278" r="12" fill="#0F1514"/>
+    <circle cx="662" cy="278" r="12" fill="#0F1514"/>
+    <ellipse cx="600" cy="346" rx="22" ry="15" fill="#CDE2E1"/>
+    <path d="M580 372 q20 18 40 0" fill="none" stroke="#CDE2E1" stroke-width="6" stroke-linecap="round"/>
+    <g stroke="#077069" stroke-width="4"><line x1="120" y1="150" x2="330" y2="150"/></g>
+    <text x="120" y="130" fill="#83B8B4" font-family="Poppins,Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="4">CHENGDU · 2026</text>
+  </symbol>
+</svg>
+
+<article class="poster p-b" data-style="b">
+  <div class="toprule"></div>
+  <div class="hero">
+    <div class="mast">
+      <div class="logo">Ascentium<span>.</span></div>
+      <div class="client">Chengdu Panda Base · Global IP</div>
+    </div>
+    <div class="kicker">Global Membership · Conservation-First</div>
+    <div class="name">Panda Guardians</div>
+    <div class="tagline">"Belong to the pandas. From anywhere."</div>
+    <div class="art"><svg><use href="#art-b"/></svg></div>
+  </div>
+  <div class="body">
+    <div class="lead">Adopt a named Chengdu panda. Follow it live. Fund its care. Every membership turns global panda love into real conservation — and earns you a pilgrimage to meet your panda.</div>
+    <div class="sec-h">Choose your Guardian tier</div>
+    <div class="cards">
+      <div class="card"><div class="t">Keeper — Free</div><div class="d">Follow the panda-cam and one named panda, in your language.</div></div>
+      <div class="card"><div class="t">Guardian — $9 / month</div><div class="d">Adopt a named panda, monthly impact report, member-only drops.</div></div>
+      <div class="card"><div class="t">Patron — $25 / month</div><div class="d">Everything in Guardian, plus priority drops and a Chengdu pilgrimage perk.</div></div>
+    </div>
+    <div class="sec-h">Why join</div>
+    <ul class="bullets"><li>Conservation-first — a published share of every tier funds the pandas' care.</li><li>The pandas' own home, live — official panda-cam and stories you can't get elsewhere.</li><li>Belong for real — member drops, naming votes and a pilgrimage to Chengdu.</li></ul>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="n">260</div><div class="c">giant pandas — the world's largest population</div></div>
+    <div class="stat"><div class="n">487K</div><div class="c">international visitors in 2025, +70.7% YoY</div></div>
+    <div class="stat"><div class="n">2.7M</div><div class="c">Fu Bao goods sold in Korea alone</div></div>
+    <div class="stat"><div class="n">30-day</div><div class="c">visa-free access for ~47 countries</div></div>
+  </div>
+  <div class="cta">
+    <div class="btn">Become a Guardian</div>
+    <div class="meta"><div class="hash">#PandaGuardians</div><div class="url">pandaguardians.chengdu</div></div>
+    <div class="qr"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="100" fill="#fff"/>
+      <g fill="#0F1514">
+        <rect x="6" y="6" width="26" height="26"/><rect x="68" y="6" width="26" height="26"/><rect x="6" y="68" width="26" height="26"/>
+        <rect x="11" y="11" width="16" height="16" fill="#fff"/><rect x="73" y="11" width="16" height="16" fill="#fff"/><rect x="11" y="73" width="16" height="16" fill="#fff"/>
+        <rect x="15" y="15" width="8" height="8"/><rect x="77" y="15" width="8" height="8"/><rect x="15" y="77" width="8" height="8"/>
+        <rect x="40" y="8" width="6" height="6"/><rect x="52" y="14" width="6" height="6"/><rect x="40" y="22" width="6" height="6"/><rect x="58" y="8" width="6" height="6"/>
+        <rect x="8" y="42" width="6" height="6"/><rect x="20" y="40" width="6" height="6"/><rect x="14" y="52" width="6" height="6"/><rect x="30" y="46" width="6" height="6"/>
+        <rect x="40" y="40" width="8" height="8"/><rect x="54" y="44" width="6" height="6"/><rect x="66" y="40" width="6" height="6"/><rect x="78" y="46" width="6" height="6"/><rect x="88" y="40" width="6" height="6"/>
+        <rect x="44" y="56" width="6" height="6"/><rect x="58" y="60" width="8" height="8"/><rect x="72" y="56" width="6" height="6"/><rect x="84" y="60" width="6" height="6"/>
+        <rect x="40" y="72" width="6" height="6"/><rect x="52" y="78" width="6" height="6"/><rect x="66" y="74" width="8" height="8"/><rect x="80" y="78" width="6" height="6"/><rect x="90" y="72" width="4" height="4"/>
+        <rect x="40" y="88" width="6" height="6"/><rect x="56" y="88" width="6" height="6"/><rect x="72" y="88" width="6" height="6"/><rect x="86" y="88" width="8" height="8"/>
+      </g>
+    </svg></div>
+  </div>
+  <div class="foot">
+    <div class="partners">Chengdu Research Base of Giant Panda Breeding · Global Brand &amp; IP Division</div>
+    <div class="src">Sources: Xinhua; NHK; Hankook Ilbo; NBS/NIA; Quest Scout Report · Data as of 2026-10-06</div>
+  </div>
+</article>
+
+</body>
+</html>

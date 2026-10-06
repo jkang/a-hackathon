@@ -1,0 +1,2327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposal · Panda Guardians · Quest B</title>
+<style>
+  :root{
+    --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
+    --orange-1:#FFF0E7; --orange-2:#FFD1B8;
+    --teal:#077069; --teal-1:#CDE2E1; --teal-2:#83B8B4;
+    --line:#E4E8E7; --mut:#5A6663; --bg:#F7F6F4; --card:#fff;
+    --accent: var(--ascentium-orange); --accent-tint: var(--orange-1); --accent-line: var(--orange-2);
+    --nav-w: 284px;
+  }
+  /* Quest accent is injected from the quest card as inline vars on <body> (see quest-card.md). */
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:"Poppins","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+       background:var(--bg);color:var(--ascentium-midnight);-webkit-font-smoothing:antialiased;}
+
+  /* ---------- sidebar ---------- */
+  .side{position:fixed;top:0;left:0;width:var(--nav-w);height:100vh;z-index:30;
+        background:var(--ascentium-midnight);color:#fff;padding:24px 20px;overflow:auto;
+        display:flex;flex-direction:column;transition:transform .28s ease;}
+  body.collapsed .side{transform:translateX(-100%);}
+  .side .brandrow{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  .side .logo{font-size:22px;font-weight:800;} .side .logo span{color:var(--accent);}
+  .side .collapser{background:rgba(255,255,255,.08);color:#fff;border:none;border-radius:8px;
+        width:30px;height:30px;font-size:14px;cursor:pointer;line-height:1;flex:none;}
+  .side .collapser:hover{background:rgba(255,255,255,.18);}
+  .side .client{font-size:11px;color:#9AA5A2;margin-top:8px;line-height:1.4;}
+  .side nav{margin-top:22px;display:grid;gap:2px;}
+  .side a{display:flex;gap:10px;align-items:baseline;color:#C7CFCD;text-decoration:none;font-size:13px;
+          padding:9px 10px;border-radius:8px;border-left:2px solid transparent;cursor:pointer;}
+  .side a:hover{background:rgba(255,255,255,.06);color:#fff;}
+  .side a.on{background:rgba(255,255,255,.09);color:#fff;border-left-color:var(--accent);}
+  .side a .n{font-size:10px;font-weight:800;color:var(--accent);width:16px;}
+  .side .meta{margin-top:auto;font-size:10px;color:#7C8A87;padding-top:24px;line-height:1.6;}
+
+  /* floating open button (visible only when collapsed) */
+  .opener{position:fixed;top:14px;left:14px;z-index:40;display:none;
+          background:var(--ascentium-midnight);color:#fff;border:none;border-radius:10px;
+          width:42px;height:42px;font-size:18px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.28);}
+  body.collapsed .opener{display:block;}
+
+  /* ---------- main ---------- */
+  .main{margin-left:var(--nav-w);transition:margin .28s ease;padding:30px 40px 70px;max-width:1400px;}
+  body.collapsed .main{margin-left:0;}
+
+  .pane{display:none;}
+  .pane.on{display:block;}
+
+  .eyebrow{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);}
+  h2{font-size:26px;font-weight:800;letter-spacing:-.01em;margin-top:6px;}
+  p.lead{font-size:16px;line-height:1.6;margin-top:12px;color:#2A3331;}
+
+  /* executive summary (cover merged in) */
+  .cover{background:var(--accent);color:#fff;border-radius:18px;padding:36px 40px;}
+  .cover .kicker{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;opacity:.9;}
+  .cover h1{color:#fff;font-size:46px;font-weight:800;line-height:1.05;letter-spacing:-.02em;margin-top:8px;}
+  .cover .slogan{font-size:20px;font-weight:700;margin-top:12px;}
+  .cover .prop{font-size:15px;line-height:1.6;margin-top:14px;max-width:720px;opacity:.96;}
+  .cover .ask{margin-top:20px;background:#fff;color:var(--accent);border-radius:12px;padding:14px 20px;font-weight:800;font-size:16px;display:inline-block;}
+  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px;}
+  .tile{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;}
+  .tile .n{font-size:26px;font-weight:800;color:var(--accent);}
+  .tile .c{font-size:11px;color:var(--mut);margin-top:6px;line-height:1.4;}
+  .band{background:var(--accent-tint);border-left:5px solid var(--accent);border-radius:10px;padding:14px 18px;margin-top:16px;font-size:15px;font-weight:600;line-height:1.5;}
+
+  /* artifact viewer */
+  .viewer{margin-top:14px;border:1px solid var(--line);border-radius:14px;background:var(--card);
+          overflow-x:auto;overflow-y:hidden;}
+  .viewer iframe{display:block;width:100%;border:0;background:#fff;min-width:var(--minw,1080px);}
+  .viewer.narrow iframe{min-width:0;}
+  .vhint{font-size:11px;color:var(--mut);margin-top:8px;}
+
+  @media (max-width:920px){
+    .main{padding:26px 18px 64px;}
+    .tiles{grid-template-columns:repeat(2,1fr);}
+  }
+</style>
+</head>
+<body data-quest="B" style="--accent:#077069;--accent-tint:#CDE2E1;--accent-line:#83B8B4;--accent-deep:#043835;">
+
+<button class="opener" id="opener" aria-label="Open navigation">☰</button>
+
+<aside class="side" id="side">
+  <div class="brandrow">
+    <div class="logo">Ascentium<span>.</span></div>
+    <button class="collapser" id="collapser" aria-label="Collapse navigation">«</button>
+  </div>
+  <div class="client">Chengdu Research Base of Giant Panda Breeding — Global Brand &amp; IP Division</div>
+  <nav id="nav">
+    <a data-pane="summary" class="on"><span class="n">01</span> Executive Summary</a>
+    <a data-pane="insight"><span class="n">02</span> Insight Brief</a>
+    <a data-pane="plan"><span class="n">03</span> Plan &amp; Offering</a>
+    <a data-pane="poster"><span class="n">04</span> Campaign Poster</a>
+    <a data-pane="proof"><span class="n">05</span> Pilot Metrics</a>
+    <a data-pane="deck"><span class="n">06</span> Pitch Deck</a>
+    <a data-pane="prompt"><span class="n">07</span> Media Prompt Pack</a>
+  </nav>
+  <div class="meta">Quest B · 3-month MVP pilot · Japan + South Korea<br>Human-led, AI-scaffolded · Data as of 2026-10-06</div>
+</aside>
+
+<main class="main">
+
+  <!-- 01 · EXECUTIVE SUMMARY (cover merged in) -->
+  <section class="pane on" id="pane-summary">
+    <div class="cover">
+      <div class="kicker">Proposal · Quest B</div>
+      <h1>Panda Guardians</h1>
+      <div class="slogan">"Belong to the pandas. From anywhere."</div>
+      <div class="prop">A global conservation membership: adopt a named Chengdu panda, follow it live, get member-only drops, and earn a Chengdu pilgrimage — every dollar funds conservation and is published back to members.</div>
+      <div class="ask">Fund USD 1.1M for a 3-month, 2-market pilot.</div>
+    </div>
+    <div class="band">"Panda love is global and free; panda belonging is neither — Japan just lost its pandas and Chengdu is now 30-day visa-free, so the fandom is ready to be recruited, Guardian by Guardian."</div>
+    <div class="tiles">
+      <div class="tile"><div class="n">50M</div><div class="c">creator reach — 6 weeks, Japan + South Korea</div></div>
+      <div class="tile"><div class="n">2.2%</div><div class="c">free Keeper → paid Guardian conversion (Patreon-avg)</div></div>
+      <div class="tile"><div class="n">25,000</div><div class="c">paying Guardians targeted in the 3-month pilot</div></div>
+      <div class="tile"><div class="n">≤ $13</div><div class="c">blended CAC per Guardian, vs an $18 CPL benchmark</div></div>
+    </div>
+  </section>
+
+  <!-- 02 · INSIGHT BRIEF (full artifact) -->
+  <section class="pane" id="pane-insight">
+    <div class="viewer"><iframe data-auto title="Insight Brief" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;title&gt;Insight Brief · Quest B · Chengdu Panda Base&lt;/title&gt;
+&lt;style&gt;
+  :root{
+    --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
+    --orange-1:#FFF0E7; --orange-2:#FFD1B8; --orange-3:#FFA370;
+    --teal:#077069; --teal-1:#CDE2E1; --teal-3:#398D87;
+    --sky:#1877F2; --sky-1:#BDD5EF;
+    --line:#E4E8E7; --bg:#F7F6F4; --card:#FFFFFF; --mut:#5A6663;
+    /* Quest accent is injected from the quest card as inline vars on &lt;body&gt; (see quest-card.md). */
+    --accent: var(--ascentium-orange);
+    --accent-tint: var(--orange-1);
+    --accent-line: var(--orange-2);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:&quot;Poppins&quot;,&quot;Noto Sans SC&quot;,&quot;PingFang SC&quot;,&quot;Microsoft YaHei&quot;,Arial,sans-serif;
+       background:var(--bg);color:var(--ascentium-midnight);-webkit-font-smoothing:antialiased;}
+  .page{max-width:960px;margin:0 auto;padding:40px 28px 56px;}
+  .brandbar{display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--accent);padding-bottom:14px;}
+  .brandbar .logo{font-weight:700;font-size:20px;letter-spacing:-.01em;}
+  .brandbar .logo span{color:var(--accent);}
+  .brandbar .tag{font-size:12px;font-weight:600;color:var(--mut);letter-spacing:.14em;text-transform:uppercase;}
+  h1{font-size:34px;font-weight:800;line-height:1.15;margin-top:22px;letter-spacing:-.01em;}
+  .client{margin-top:8px;font-size:13px;color:var(--mut);font-weight:500;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+  .card h2{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;}
+  .card ul{list-style:none;}
+  .card li{font-size:13.5px;line-height:1.6;padding:4px 0 4px 14px;position:relative;}
+  .card li::before{content:&quot;▸&quot;;position:absolute;left:0;color:var(--accent);}
+  .wide{grid-column:1 / -1;}
+  .bench{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:4px;}
+  .bench .b{border-radius:10px;padding:12px 14px;border:1px solid var(--line);}
+  .bench .gold{background:#F7ECD2;border-color:#EAD9AC;}
+  .bench .red{background:#FBE4E1;border-color:#F0C4BE;}
+  .bench .sky{background:var(--sky-1);border-color:#A9C6EA;}
+  .bench .bt{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;}
+  .bench .gold .bt{color:#B98A1D;} .bench .red .bt{color:#C0392B;} .bench .sky .bt{color:var(--sky);}
+  .bench p{font-size:12px;line-height:1.55;}
+
+  .trends{display:grid;gap:10px;}
+  .trend{border-radius:10px;background:var(--bg);border:1px solid var(--line);padding:11px 14px;}
+  .trend .t{font-size:13px;font-weight:700;color:var(--ascentium-midnight);}
+  .trend .w{font-size:12px;color:var(--mut);margin-top:3px;line-height:1.5;}
+
+  .segments{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .seg{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card);}
+  .seg .name{font-size:15px;font-weight:700;color:var(--accent);}
+  .seg .who{font-size:11px;color:var(--mut);margin-top:2px;line-height:1.5;}
+  .seg .job{font-size:12.5px;margin-top:9px;line-height:1.5;color:var(--ascentium-midnight);}
+  .seg .job b{color:var(--accent);}
+  .seg .row{font-size:11.5px;margin-top:7px;line-height:1.5;color:#3B4442;}
+  .seg .row b{color:var(--ascentium-midnight);}
+
+  .moment{background:var(--accent);color:#fff;border-radius:12px;padding:16px 20px;margin-top:16px;}
+  .moment .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.85;}
+  .moment .txt{font-size:15px;font-weight:700;margin-top:6px;line-height:1.5;}
+
+  .truths{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
+  .chip{font-size:12px;line-height:1.4;background:var(--accent-tint);color:var(--accent);
+        border:1px solid var(--accent-line);border-radius:999px;padding:6px 12px;}
+  .clusters{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+  .cluster{font-size:11.5px;font-weight:700;background:var(--ascentium-midnight);color:#fff;border-radius:8px;padding:6px 12px;}
+  .seed{margin-top:26px;background:var(--accent-tint);border-left:6px solid var(--accent);border-radius:12px;padding:20px 24px;}
+  .seed .lbl{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
+    .seed p{font-size:19px;font-weight:600;line-height:1.5;margin-top:8px;}
+  .kinsights{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
+  .kin{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card);position:relative;}
+  .kin .id{font-size:10px;font-weight:800;letter-spacing:.08em;color:var(--accent);}
+  .kin .t{font-size:13.5px;font-weight:600;line-height:1.5;margin-top:5px;padding-right:60px;}
+  .kin .ev{font-size:11px;color:var(--mut);margin-top:7px;line-height:1.45;}
+  .kin.sel{border:2px solid var(--accent);background:var(--accent-tint);}
+  .kin.sel::after{content:&quot;SELECTED&quot;;position:absolute;top:12px;right:14px;font-size:9px;font-weight:800;letter-spacing:.1em;color:var(--accent);}
+  footer{margin-top:26px;border-top:1px dashed var(--line);padding-top:12px;font-size:10.5px;color:#9AA5A2;line-height:1.6;}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body data-quest=&quot;B&quot; style=&quot;--accent:#077069;--accent-tint:#CDE2E1;--accent-line:#83B8B4;--accent-deep:#043835;&quot;&gt;
+&lt;div class=&quot;page&quot;&gt;
+
+  &lt;div class=&quot;brandbar&quot;&gt;
+    &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;tag&quot;&gt;Insight Brief · Quest B&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;h1&gt;Turn the world&#x27;s most-loved animal into a paying global conservation membership.&lt;/h1&gt;
+  &lt;div class=&quot;client&quot;&gt;Client · Chengdu Research Base of Giant Panda Breeding — Global Brand &amp;amp; IP Division &amp;nbsp;|&amp;nbsp; Quest B &amp;nbsp;|&amp;nbsp; Data as of 2026-10-06&lt;/div&gt;
+
+  &lt;div class=&quot;grid&quot;&gt;
+    &lt;div class=&quot;card&quot;&gt;
+      &lt;h2&gt;Scout Summary&lt;/h2&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;b&gt;The asset:&lt;/b&gt; ~260 captive giant pandas (world&#x27;s largest breeding population), ¥55 entry; 6.23M visitors YTD 2025 / &amp;gt;12M in 2024; 45K/day weekend ceiling — on-site growth is capped.&lt;/li&gt;
+        &lt;li&gt;&lt;b&gt;The gap:&lt;/b&gt; fame is global, revenue is local — no membership, no global store, no English-first channel; the Base&#x27;s owned Weibo following is only ~760K.&lt;/li&gt;
+        &lt;li&gt;&lt;b&gt;The proof:&lt;/b&gt; 487K international visitors 2025 (+70.7% YoY, Xinhua); He Hua drove a 9× ticket jump in Mar 2023; Fu Bao sold 2.7M goods in Korea; one visit ≈ ¥1,500 city-wide spend (Qunar).&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;card&quot;&gt;
+      &lt;h2&gt;Org / IP Profile&lt;/h2&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;b&gt;Assets:&lt;/b&gt; ~260 pandas incl. global stars He Hua &amp;amp; Fu Bao; world-class conservation &amp;amp; breeding science; Chengdu = #2 national attraction; 30-day visa-free access for ~47 countries; Chengdu Tianfu hub (~56.7M pax 2024).&lt;/li&gt;
+        &lt;li&gt;&lt;b&gt;Constraints:&lt;/b&gt; conservation-first brand values — no over-commercialization; USD 1.1M MVP (10% of USD 11M), 3 months, 2 overseas markets; panda leases/access are politically sensitive; IUCN &quot;Vulnerable&quot;.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;card&quot;&gt;
+      &lt;h2&gt;Market Trends&lt;/h2&gt;
+      &lt;div class=&quot;trends&quot;&gt;
+        &lt;div class=&quot;trend&quot;&gt;&lt;div class=&quot;t&quot;&gt;Panda-monium is global; monetization is local&lt;/div&gt;&lt;div class=&quot;w&quot;&gt;Celebrity pandas earn billions of views, yet the Base owns only ~760K Weibo followers and captures almost nothing beyond the ¥55 gate.&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;trend&quot;&gt;&lt;div class=&quot;t&quot;&gt;Visa-free inbound is the acquisition unlock&lt;/div&gt;&lt;div class=&quot;w&quot;&gt;30.08M visa-free foreign entries in 2025 (+49.5%); 73% of inbound entered visa-free; 30-day access for ~47 countries incl. Japan &amp;amp; Korea (NBS/NIA via Xinhua 2026).&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;trend&quot;&gt;&lt;div class=&quot;t&quot;&gt;The panda-diplomacy vacuum&lt;/div&gt;&lt;div class=&quot;w&quot;&gt;Ueno returned its last pandas in Jan 2026 — Japan has no pandas for the first time since 1972 — leaving the deepest fanbase with no local outlet (NHK 2025-12-15).&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;card&quot;&gt;
+      &lt;h2&gt;Benchmark&lt;/h2&gt;
+      &lt;div class=&quot;bench&quot; style=&quot;grid-template-columns:1fr;gap:8px;&quot;&gt;
+        &lt;div class=&quot;b gold&quot;&gt;&lt;div class=&quot;bt&quot;&gt;Gold Standard&lt;/div&gt;&lt;p&gt;Sanrio — ¥72.6B (~US$480M) FY2023 revenue from character IP; proves cute-animal IP monetizes globally when licensed &amp;amp; merchandised. WWF&#x27;s adopt-a-panda tiers ($25–100) show conservation itself sells.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;b red&quot;&gt;&lt;div class=&quot;bt&quot;&gt;Cautionary Tale&lt;/div&gt;&lt;p&gt;Ya Ya (Memphis) 2023 welfare controversy + Finland returning its pandas over €1.5M/yr upkeep — commercial missteps and opaque care erode credibility fast and travel politically.&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;b sky&quot;&gt;&lt;div class=&quot;bt&quot;&gt;Your Arena&lt;/div&gt;&lt;p&gt;Panda fandom is hyper-global but unstructured: 487K international visitors (+70.7%), He Hua 9× ticket lift, Fu Bao 2.7M merch units — with no global membership, owned channel or store to receive it.&lt;/p&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;card wide&quot;&gt;
+      &lt;h2&gt;Audience Segments — who they are &amp;amp; the job they hire&lt;/h2&gt;
+      &lt;div class=&quot;segments&quot;&gt;
+        &lt;div class=&quot;seg&quot;&gt;
+          &lt;div class=&quot;name&quot;&gt;Japan Panda Orphans&lt;/div&gt;
+          &lt;div class=&quot;who&quot;&gt;Ueno superfans after the Jan 2026 return; multi-generational panda love, no local pandas left&lt;/div&gt;
+          &lt;div class=&quot;job&quot;&gt;&lt;b&gt;Job:&lt;/b&gt; keep a lifelong bond alive and pass it on&lt;/div&gt;
+          &lt;div class=&quot;row&quot;&gt;&lt;b&gt;Barrier:&lt;/b&gt; no local panda, no ongoing channel&lt;/div&gt;
+          &lt;div class=&quot;row&quot;&gt;&lt;b&gt;Trigger:&lt;/b&gt; the first panda-less Lunar New Year&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;seg&quot;&gt;
+          &lt;div class=&quot;name&quot;&gt;Fu Bao Diaspora&lt;/div&gt;
+          &lt;div class=&quot;who&quot;&gt;Korean superfans who &quot;lost&quot; Fu Bao to Sichuan (5.5M visitors, 2.7M goods)&lt;/div&gt;
+          &lt;div class=&quot;job&quot;&gt;&lt;b&gt;Job:&lt;/b&gt; stay connected to a panda I feel responsible for&lt;/div&gt;
+          &lt;div class=&quot;row&quot;&gt;&lt;b&gt;Barrier:&lt;/b&gt; no continuous membership or drops&lt;/div&gt;
+          &lt;div class=&quot;row&quot;&gt;&lt;b&gt;Trigger:&lt;/b&gt; return anniversary (Apr 3) / birthday (Jul 20)&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;seg&quot;&gt;
+          &lt;div class=&quot;name&quot;&gt;Kawaii Collectors&lt;/div&gt;
+          &lt;div class=&quot;who&quot;&gt;Sanrio / Chiikawa crossover fans in SEA, US &amp;amp; EU who collect and trade&lt;/div&gt;
+          &lt;div class=&quot;job&quot;&gt;&lt;b&gt;Job:&lt;/b&gt; own something rare and belong to a culture&lt;/div&gt;
+          &lt;div class=&quot;row&quot;&gt;&lt;b&gt;Barrier:&lt;/b&gt; panda merch is not globally shoppable&lt;/div&gt;
+          &lt;div class=&quot;row&quot;&gt;&lt;b&gt;Trigger:&lt;/b&gt; limited-edition drop culture&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;seg&quot;&gt;
+          &lt;div class=&quot;name&quot;&gt;Panda-Pilgrim Travelers&lt;/div&gt;
+          &lt;div class=&quot;who&quot;&gt;Inbound travellers for whom Chengdu &amp;amp; the Base is the #1 China stop&lt;/div&gt;
+          &lt;div class=&quot;job&quot;&gt;&lt;b&gt;Job:&lt;/b&gt; a once-in-a-lifetime encounter, and take more home&lt;/div&gt;
+          &lt;div class=&quot;row&quot;&gt;&lt;b&gt;Barrier:&lt;/b&gt; only a ¥55 ticket offered at the gate&lt;/div&gt;
+          &lt;div class=&quot;row&quot;&gt;&lt;b&gt;Trigger:&lt;/b&gt; visa-free trip planning + at-gate upsell&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;card wide&quot;&gt;
+      &lt;h2&gt;Market Truths — from the team&lt;/h2&gt;
+      &lt;div class=&quot;truths&quot;&gt;
+        &lt;span class=&quot;chip&quot;&gt;Fame is global; revenue is local — the Base captures almost nothing beyond the ¥55 gate&lt;/span&gt;
+        &lt;span class=&quot;chip&quot;&gt;Fans can watch but can&#x27;t belong — ~95% of footfall is domestic and the owned channel is tiny&lt;/span&gt;
+        &lt;span class=&quot;chip&quot;&gt;Zoo-gate membership is a weak model (2.5–4.9% of admissions) — this must be a creator-style digital membership&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;clusters&quot;&gt;
+        &lt;span class=&quot;cluster&quot;&gt;Love ≫ Gate&lt;/span&gt;
+        &lt;span class=&quot;cluster&quot;&gt;Friction just fell&lt;/span&gt;
+        &lt;span class=&quot;cluster&quot;&gt;Conservation = permission&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;moment&quot;&gt;
+    &lt;div class=&quot;lbl&quot;&gt;Moment of Truth&lt;/div&gt;
+    &lt;div class=&quot;txt&quot;&gt;The first panda-less Lunar New Year (Jan–Feb 2026) &amp;amp; Fu Bao&#x27;s return anniversary (Apr 3) · phone — TikTok / IG / YouTube panda-fan feeds &amp;amp; fan Discords · the void goes viral and a trusted creator invites the fandom to belong to the Base, globally&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;seed&quot;&gt;
+    &lt;div class=&quot;lbl&quot;&gt;Key Insights · AI-drafted from org + trends + audience + SWOT&lt;/div&gt;
+    &lt;p&gt;Pick &lt;b&gt;2–3&lt;/b&gt; to deep-dive in the plan. &quot;Panda love is global and free; panda belonging is neither — Japan just lost its pandas and Chengdu is now 30-day visa-free, so the fandom is ready to be recruited, Guardian by Guardian.&quot;&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;kinsights&quot;&gt;
+    &lt;div class=&quot;kin sel&quot;&gt;&lt;div class=&quot;id&quot;&gt;INSIGHT 01&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;The love is far bigger than the gate: He Hua lifted Base ticket sales 9× in one month and Fu Bao sold 2.7M goods — yet there is no paid global membership to receive that fandom.&lt;/div&gt;&lt;div class=&quot;ev&quot;&gt;Tencent/成都文旅 2024-07; Hankook Ilbo/MK 2024-03&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;kin sel&quot;&gt;&lt;div class=&quot;id&quot;&gt;INSIGHT 02&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;Japan just lost its pandas — Ueno returned its last two in Jan 2026, ending 50+ years of presence — so the world&#x27;s deepest panda fanbase now has no local panda to visit and no outlet.&lt;/div&gt;&lt;div class=&quot;ev&quot;&gt;NHK 2025-12-15&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;kin sel&quot;&gt;&lt;div class=&quot;id&quot;&gt;INSIGHT 03&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;The barrier to Chengdu just fell: 30.08M visa-free entries (+49.5%) and 30-day access for ~47 countries make a &quot;belong online, visit in person&quot; loop newly actionable.&lt;/div&gt;&lt;div class=&quot;ev&quot;&gt;NBS/NIA via Xinhua, 2026&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;kin&quot;&gt;&lt;div class=&quot;id&quot;&gt;INSIGHT 04&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;Conservation is the price tag, not a tax: WWF adopt tiers ($25–100) and zoo memberships ($78–95/yr) sell — but &quot;white-elephant&quot; upkeep and the Ya Ya backlash show credibility is fragile.&lt;/div&gt;&lt;div class=&quot;ev&quot;&gt;WWF; RZSS; SDZWA; Wikipedia 2023–26&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;kin&quot;&gt;&lt;div class=&quot;id&quot;&gt;INSIGHT 05&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;Cute-IP monetization is proven while the panda is the under-licensed giant: Sanrio earns ¥72.6B/yr, yet panda&#x27;s global fame outsizes Hello Kitty and its licensed revenue does not.&lt;/div&gt;&lt;div class=&quot;ev&quot;&gt;Sanrio FY2023; quest card ($28M target)&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;kin&quot;&gt;&lt;div class=&quot;id&quot;&gt;INSIGHT 06&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;Creator economics set realistic targets: free→paid community conversion averages ~2% (best ~10%), and strong live sessions convert 1.5–3% — so model membership as a creator community, not a zoo gate.&lt;/div&gt;&lt;div class=&quot;ev&quot;&gt;Patreon/Okoa 2024; Dataslayer 2025&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;footer&gt;
+    Sources: Quest Card Scout Report (Xinhua 2025; Sichuan Dept. of Culture &amp;amp; Tourism 2024; Qunar / TravelDaily; public reports on Xiang Xiang &amp;amp; Fu Bao) + live research via agent-reach (NHK 2025-12-15; NBS/NIA via Xinhua 2026; Hankook Ilbo/MK 2024; Tencent 2024; Sanrio FY2023; WWF; RZSS; SDZWA; AMS 2019; Dataslayer 2025). Data as of 2026-10-06. Generated by the Ascentium Hackathon toolkit — human-led, AI-scaffolded.
+  &lt;/footer&gt;
+
+&lt;/div&gt;
+
+&lt;!-- structured capture — invisible in the page; the next gate reads this block (see facilitation/capture-contract.md) --&gt;
+&lt;script type=&quot;application/json&quot; id=&quot;capture&quot;&gt;
+{
+  &quot;gate&quot;: &quot;insight&quot;,
+  &quot;quest&quot;: &quot;B&quot;,
+  &quot;client&quot;: &quot;Chengdu Research Base of Giant Panda Breeding — Global Brand &amp; IP Division&quot;,
+  &quot;mission&quot;: &quot;Turn the world&#x27;s most-loved animal into a paying global conservation membership.&quot;,
+  &quot;scope_note&quot;: &quot;Card = global. The MVP pilot runs in 2 priority overseas markets (Japan + South Korea); a global digital membership engine wraps both.&quot;,
+  &quot;org_profile&quot;: {
+    &quot;assets&quot;: [
+      &quot;~260 captive giant pandas — the world&#x27;s largest conservation &amp; breeding population (HKong/Bastille Post 2025-09-30)&quot;,
+      &quot;Global superstar pandas: He Hua (花花) and Fu Bao (福宝, returned from Korea Apr 2024)&quot;,
+      &quot;World-class conservation &amp; breeding science; Chengdu is China&#x27;s #2 attraction (Tencent 2024)&quot;,
+      &quot;30-day visa-free access for ~47 countries incl. Japan &amp; South Korea; Chengdu Tianfu hub ~56.7M pax (2024)&quot;,
+      &quot;18-month runway (2027–2028) + USD 11M approved budget&quot;
+    ],
+    &quot;constraints&quot;: [
+      &quot;Conservation-first brand values — no over-commercialization backlash (card)&quot;,
+      &quot;MVP budget USD 1.1M (10% of USD 11M); 3-month, 2-market pilot&quot;,
+      &quot;Panda access &amp; leases are politically sensitive (panda diplomacy); Iceland/Finland/Calgary returned pandas&quot;,
+      &quot;IUCN status Vulnerable; ~1,900 wild / 757 captive (Nov 2024)&quot;
+    ]
+  },
+  &quot;benchmark&quot;: {
+    &quot;gold_standard&quot;: &quot;Sanrio — ¥72.6B (~US$480M) FY2023 revenue from character IP, 450+ characters; WWF adopt-a-panda tiers USD 25–100 prove conservation itself sells at retail price points.&quot;,
+    &quot;cautionary_tale&quot;: &quot;Ya Ya (Memphis) 2023 welfare controversy + Finland returning its pandas over EUR 1.5M/yr upkeep — commercial missteps and opaque care erode credibility and travel politically.&quot;,
+    &quot;arena&quot;: &quot;Panda fandom is hyper-global but unstructured: 487K international visitors 2025 (+70.7% YoY), He Hua 9x Base ticket lift (Mar 2023), Fu Bao 2.7M merch units — with no global membership, owned channel or store to receive it.&quot;
+  },
+  &quot;market&quot;: {
+    &quot;trends&quot;: [
+      {
+        &quot;trend&quot;: &quot;Panda-monium is global; monetization is local&quot;,
+        &quot;why_it_matters&quot;: &quot;Celebrity pandas earn billions of views, yet the Base owns only ~760K Weibo followers and captures almost nothing beyond the ¥55 gate.&quot;
+      },
+      {
+        &quot;trend&quot;: &quot;Visa-free inbound is the acquisition unlock&quot;,
+        &quot;why_it_matters&quot;: &quot;30.08M visa-free foreign entries in 2025 (+49.5%); 73% of inbound entered visa-free; 30-day access for ~47 countries incl. Japan &amp; Korea (NBS/NIA via Xinhua 2026).&quot;
+      },
+      {
+        &quot;trend&quot;: &quot;The panda-diplomacy vacuum&quot;,
+        &quot;why_it_matters&quot;: &quot;Ueno returned its last pandas in Jan 2026 — Japan has no pandas for the first time since 1972 — leaving the deepest fanbase with no local outlet (NHK 2025-12-15).&quot;
+      }
+    ],
+    &quot;truths&quot;: [
+      { &quot;author&quot;: &quot;Auto-run (agent-reach)&quot;, &quot;text&quot;: &quot;Fame is global; revenue is local — the Base captures almost nothing beyond the ¥55 gate.&quot; },
+      { &quot;author&quot;: &quot;Auto-run (agent-reach)&quot;, &quot;text&quot;: &quot;Fans can watch but can&#x27;t belong — ~95% of footfall is domestic and the owned channel is tiny.&quot; },
+      { &quot;author&quot;: &quot;Auto-run (agent-reach)&quot;, &quot;text&quot;: &quot;Zoo-gate membership is a weak model (2.5–4.9% of admissions) — this must be a creator-style digital membership.&quot; }
+    ]
+  },
+  &quot;segments&quot;: [
+    {
+      &quot;name&quot;: &quot;Japan Panda Orphans&quot;,
+      &quot;who&quot;: &quot;Ueno superfans after the Jan 2026 return; multi-generational panda love, no local pandas left&quot;,
+      &quot;job_functional&quot;: &quot;keep following the pandas&quot;,
+      &quot;job_social&quot;: &quot;belong to a community that outlives the zoo exhibit&quot;,
+      &quot;job_emotional&quot;: &quot;keep a lifelong bond alive and pass it on&quot;,
+      &quot;barrier&quot;: &quot;no local panda, no ongoing channel&quot;,
+      &quot;trigger&quot;: &quot;the first panda-less Lunar New Year&quot;
+    },
+    {
+      &quot;name&quot;: &quot;Fu Bao Diaspora&quot;,
+      &quot;who&quot;: &quot;Korean superfans who lost Fu Bao to Sichuan (5.5M visitors, 2.7M goods sold)&quot;,
+      &quot;job_functional&quot;: &quot;stay connected to Fu Bao&quot;,
+      &quot;job_social&quot;: &quot;share the fandom with other keepers&quot;,
+      &quot;job_emotional&quot;: &quot;stay responsible for a panda I love&quot;,
+      &quot;barrier&quot;: &quot;no continuous membership or member drops&quot;,
+      &quot;trigger&quot;: &quot;return anniversary (Apr 3) / birthday (Jul 20)&quot;
+    },
+    {
+      &quot;name&quot;: &quot;Kawaii Collectors&quot;,
+      &quot;who&quot;: &quot;Sanrio / Chiikawa crossover fans in SEA, US &amp; EU who collect and trade&quot;,
+      &quot;job_functional&quot;: &quot;collect rare, high-quality panda goods&quot;,
+      &quot;job_social&quot;: &quot;belong to a global collector culture&quot;,
+      &quot;job_emotional&quot;: &quot;own a piece of the world&#x27;s most-loved animal&quot;,
+      &quot;barrier&quot;: &quot;panda merch is not globally shoppable&quot;,
+      &quot;trigger&quot;: &quot;limited-edition drop culture&quot;
+    },
+    {
+      &quot;name&quot;: &quot;Panda-Pilgrim Travelers&quot;,
+      &quot;who&quot;: &quot;Inbound travellers for whom Chengdu &amp; the Base is the #1 China stop&quot;,
+      &quot;job_functional&quot;: &quot;see the pandas in person&quot;,
+      &quot;job_social&quot;: &quot;show and tell the trip of a lifetime&quot;,
+      &quot;job_emotional&quot;: &quot;a once-in-a-lifetime encounter, taken home&quot;,
+      &quot;barrier&quot;: &quot;only a ¥55 ticket offered at the gate&quot;,
+      &quot;trigger&quot;: &quot;visa-free trip planning + at-gate upsell&quot;
+    }
+  ],
+  &quot;moment_of_truth&quot;: {
+    &quot;when&quot;: &quot;the first panda-less Lunar New Year (Jan–Feb 2026) &amp; Fu Bao&#x27;s return anniversary (Apr 3)&quot;,
+    &quot;where&quot;: &quot;phone — TikTok / IG / YouTube panda-fan feeds &amp; fan Discords&quot;,
+    &quot;event&quot;: &quot;the void goes viral and a trusted creator invites the fandom to belong to the Base, globally&quot;
+  },
+  &quot;clusters&quot;: [
+    { &quot;theme&quot;: &quot;Love ≫ Gate&quot;, &quot;items&quot;: [&quot;billions of views&quot;, &quot;9x ticket lift&quot;, &quot;2.7M goods&quot;, &quot;760K owned followers&quot;] },
+    { &quot;theme&quot;: &quot;Friction just fell&quot;, &quot;items&quot;: [&quot;30.08M visa-free entries&quot;, &quot;30-day access x47 countries&quot;, &quot;TFU 56.7M pax&quot;, &quot;Apr 3 / Jul 20 moments&quot;] },
+    { &quot;theme&quot;: &quot;Conservation = permission&quot;, &quot;items&quot;: [&quot;IUCN Vulnerable&quot;, &quot;WWF adopt $25–100&quot;, &quot;Ya Ya backlash&quot;, &quot;no over-commercialization&quot;] }
+  ],
+  &quot;swot&quot;: {
+    &quot;strengths&quot;: [
+      &quot;~260 pandas incl. global stars He Hua &amp; Fu Bao&quot;,
+      &quot;World-class conservation credibility + breeding science&quot;,
+      &quot;Chengdu scale &amp; 30-day visa-free access for ~47 countries&quot;
+    ],
+    &quot;weaknesses&quot;: [
+      &quot;No membership, global store or English-first channel&quot;,
+      &quot;~760K owned followers vs billions of impressions&quot;,
+      &quot;On-site capped at 45K/day + Monday closures&quot;
+    ],
+    &quot;opportunities&quot;: [
+      &quot;Japan panda-less from Jan 2026 — an unserved superfan base&quot;,
+      &quot;Visa-free inbound surge (+49.5%) removes travel friction&quot;,
+      &quot;Under-licensed cute-IP economy (Sanrio ¥72.6B benchmark)&quot;
+    ],
+    &quot;threats&quot;: [
+      &quot;Over-commercialization / welfare backlash (Ya Ya precedent)&quot;,
+      &quot;Panda-diplomacy politicization (leases, access)&quot;,
+      &quot;Zoo-gate membership model under-converts (2.5–4.9%)&quot;
+    ]
+  },
+  &quot;key_insights&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;text&quot;: &quot;The love is far bigger than the gate: He Hua lifted Base ticket sales 9x in one month and Fu Bao sold 2.7M goods — yet there is no paid global membership to receive that fandom.&quot;,
+      &quot;evidence&quot;: &quot;He Hua drove a 9x YoY ticket jump in Mar 2023 and a &gt;100,000-copy photobook; Fu Bao sold ~2.7M panda goods across 400+ SKUs.&quot;,
+      &quot;source&quot;: &quot;Tencent/成都文旅 2024-07; Hankook Ilbo/MK 2024-03&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;text&quot;: &quot;Japan just lost its pandas — Ueno returned its last two in Jan 2026, ending 50+ years of presence — so the world&#x27;s deepest panda fanbase now has no local panda and no outlet.&quot;,
+      &quot;evidence&quot;: &quot;Xiao Xiao &amp; Lei Lei returned to China in Jan 2026; Japan without pandas for the first time since 1972.&quot;,
+      &quot;source&quot;: &quot;NHK 2025-12-15&quot;
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;text&quot;: &quot;The barrier to Chengdu just fell: 30.08M visa-free entries (+49.5%) and 30-day access for ~47 countries make a &#x27;belong online, visit in person&#x27; loop newly actionable.&quot;,
+      &quot;evidence&quot;: &quot;30.08M visa-free foreign entries in 2025; 73% of inbound used visa-free; 30-day visa-free for ~47 countries incl. Japan/Korea.&quot;,
+      &quot;source&quot;: &quot;NBS/NIA via Xinhua, 2026&quot;
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;text&quot;: &quot;Conservation is the price tag, not a tax: WWF adopt tiers ($25–100) and zoo memberships ($78–95/yr) sell — but white-elephant upkeep and the Ya Ya backlash show credibility is fragile.&quot;,
+      &quot;evidence&quot;: &quot;WWF Adopt-a-Panda USD 25/50/75/100; Edinburgh Zoo £85.50/yr; Finland returned pandas over EUR 1.5M/yr upkeep; Ya Ya 2023 welfare controversy.&quot;,
+      &quot;source&quot;: &quot;WWF; RZSS; SDZWA; Wikipedia 2023-26&quot;
+    },
+    {
+      &quot;id&quot;: 5,
+      &quot;text&quot;: &quot;Cute-IP monetization is proven while the panda is the under-licensed giant: Sanrio earns ¥72.6B/yr, yet panda&#x27;s global fame outsizes Hello Kitty and its licensed revenue does not.&quot;,
+      &quot;evidence&quot;: &quot;Sanrio FY2023 revenue ¥72.6B, net income ¥8.2B; Chiikawa Park opened Tokyo 2025; quest card targets USD 28M international licensing.&quot;,
+      &quot;source&quot;: &quot;Sanrio FY2023 (Wikipedia); Quest Card&quot;
+    },
+    {
+      &quot;id&quot;: 6,
+      &quot;text&quot;: &quot;Creator economics set realistic targets: free-to-paid community conversion averages ~2% (best ~10%) and strong live sessions convert 1.5–3% — so model membership as a creator community, not a zoo gate.&quot;,
+      &quot;evidence&quot;: &quot;Patreon free-to-paid ~2% average / ~10% best-in-class; TikTok live session conversion 1.5–3%.&quot;,
+      &quot;source&quot;: &quot;Okoa 2024; Dataslayer 2025&quot;
+    }
+  ],
+  &quot;selected_insights&quot;: [1, 2, 3],
+  &quot;seed_insight&quot;: &quot;Panda love is global and free; panda belonging is neither — Japan just lost its pandas and Chengdu is now 30-day visa-free, so the fandom is ready to be recruited, Guardian by Guardian.&quot;,
+  &quot;source_note&quot;: &quot;Scout Report (card, 2026-09) + live research via agent-reach · Data as of 2026-10-06&quot;
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe></div>
+  </section>
+
+  <!-- 03 · CAMPAIGN PLAN (full artifact · A/B) -->
+  <section class="pane" id="pane-plan">
+    <div class="viewer"><iframe data-auto title="Campaign Plan" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;!-- DOC_TYPE: &quot;Campaign Plan&quot; or &quot;Membership Design&quot; — set from the quest card (see quest-card.md). --&gt;
+&lt;title&gt;Membership Design · Quest B · Chengdu Panda Base&lt;/title&gt;
+&lt;style&gt;
+  :root{
+    --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
+    --orange-1:#FFF0E7; --orange-2:#FFD1B8;
+    --teal:#077069; --teal-1:#CDE2E1; --teal-3:#398D87;
+    --line:#E4E8E7; --bg:#F7F6F4; --card:#FFFFFF; --mut:#5A6663;
+    --accent: var(--ascentium-orange);
+    --accent-tint: var(--orange-1);
+    --accent-line: var(--orange-2);
+  }
+  /* Quest accent is injected from the quest card as inline vars on &lt;body&gt; (see quest-card.md). */
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:&quot;Poppins&quot;,&quot;Noto Sans SC&quot;,&quot;PingFang SC&quot;,&quot;Microsoft YaHei&quot;,Arial,sans-serif;
+       background:var(--bg);color:var(--ascentium-midnight);-webkit-font-smoothing:antialiased;}
+  .page{max-width:1100px;margin:0 auto;padding:40px 28px 56px;}
+  .brandbar{display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--accent);padding-bottom:14px;}
+  .brandbar .logo{font-weight:700;font-size:20px;letter-spacing:-.01em;}
+  .brandbar .logo span{color:var(--accent);}
+  .brandbar .tag{font-size:12px;font-weight:600;color:var(--mut);letter-spacing:.14em;text-transform:uppercase;}
+  h1{font-size:32px;font-weight:800;line-height:1.15;margin-top:22px;letter-spacing:-.01em;}
+  .sub{margin-top:8px;font-size:13px;color:var(--mut);font-weight:500;}
+  .seed{margin-top:20px;background:var(--accent-tint);border-left:6px solid var(--accent);border-radius:12px;padding:16px 20px;}
+  .seed .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
+  .seed p{font-size:16px;font-weight:600;line-height:1.5;margin-top:6px;}
+  .anchor{margin-top:12px;background:var(--ascentium-midnight);color:#fff;border-radius:12px;padding:16px 20px;}
+  .anchor .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-tint);}
+  .anchor p{font-size:14.5px;font-weight:600;line-height:1.5;margin-top:6px;color:#fff;}
+  .anchor p b{color:var(--accent-tint);}
+  .moments{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px;}
+  .moment{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--card);}
+  .moment .t{font-size:10.5px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;}
+  .moment .v{font-size:12.5px;margin-top:5px;line-height:1.5;color:#3B4442;}
+  .moment .v b{color:var(--ascentium-midnight);}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+  .card h2{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;}
+  .card p,.card li{font-size:13px;line-height:1.6;}
+  .card ul{list-style:none;}
+  .card li{padding:3px 0 3px 14px;position:relative;}
+  .card li::before{content:&quot;▸&quot;;position:absolute;left:0;color:var(--accent);}
+  .wide{grid-column:1 / -1;}
+  .hero-idea{background:var(--ascentium-midnight);color:#fff;border-radius:14px;padding:20px 22px;}
+  .hero-idea h2{color:#B9C4C1;}
+  .hero-idea .name{font-size:24px;font-weight:800;letter-spacing:-.01em;color:#fff;}
+  .hero-idea .slogan{font-size:15px;color:var(--accent-tint);margin-top:6px;font-weight:600;}
+  .hero-idea .prop{font-size:13.5px;color:#D6DCDA;margin-top:12px;line-height:1.6;}
+  table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:4px;}
+  th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);}
+  th{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);}
+  td.amt{text-align:right;font-weight:700;color:var(--accent);}
+  .pill{display:inline-block;font-size:11.5px;font-weight:600;background:var(--accent-tint);
+        border:1px solid var(--accent-line);color:var(--accent);border-radius:999px;padding:4px 11px;margin:3px 5px 0 0;}
+  /* A/B variants */
+  .variant{margin-top:26px;border:1.5px solid var(--line);border-radius:16px;padding:18px 20px 22px;background:#fff;}
+  .variant.chosen{border-color:var(--accent);border-width:2px;box-shadow:0 4px 18px rgba(7,112,105,.12);}
+  .vhead{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+  .vhead .vt{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ascentium-midnight);}
+  .vhead .badge{display:none;font-size:10px;font-weight:800;letter-spacing:.12em;color:#fff;background:var(--accent);
+                border-radius:999px;padding:4px 12px;}
+  .variant.chosen .vhead .badge{display:inline-block;}
+  .vhead .vsub{font-size:12px;color:var(--mut);font-weight:500;}
+  footer{margin-top:30px;border-top:1px dashed var(--line);padding-top:12px;font-size:10.5px;color:#9AA5A2;line-height:1.6;}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body data-quest=&quot;B&quot; style=&quot;--accent:#077069;--accent-tint:#CDE2E1;--accent-line:#83B8B4;--accent-deep:#043835;&quot;&gt;
+&lt;div class=&quot;page&quot;&gt;
+
+  &lt;div class=&quot;brandbar&quot;&gt;
+    &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;tag&quot;&gt;Membership Design · Quest B&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;h1&gt;PANDA GUARDIANS — a global conservation membership that lets the world belong, not just watch.&lt;/h1&gt;
+  &lt;div class=&quot;sub&quot;&gt;Chengdu Research Base of Giant Panda Breeding — Global Brand &amp;amp; IP Division &amp;nbsp;|&amp;nbsp; MVP pilot · Japan + South Korea · 3 months &amp;nbsp;|&amp;nbsp; Budget USD 1.1M&lt;/div&gt;
+
+  &lt;div class=&quot;seed&quot;&gt;
+    &lt;div class=&quot;lbl&quot;&gt;Seed Insight&lt;/div&gt;
+    &lt;p&gt;&quot;Panda love is global and free; panda belonging is neither — Japan just lost its pandas and Chengdu is now 30-day visa-free, so the fandom is ready to be recruited, Guardian by Guardian.&quot;&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;anchor&quot;&gt;
+    &lt;div class=&quot;lbl&quot;&gt;Creative Brief · anchored to audience &amp;amp; moment&lt;/div&gt;
+    &lt;p&gt;For &lt;b&gt;Japan Panda Orphans &amp;amp; the Fu Bao Diaspora&lt;/b&gt;, whose &lt;b&gt;lifelong bond to the pandas now has no local outlet&lt;/b&gt;, at &lt;b&gt;the first panda-less Lunar New Year and Fu Bao&#x27;s return anniversary&lt;/b&gt; — our campaign will &lt;b&gt;launch a paid global conservation membership that adopts them a named panda, streams it live and funds its care&lt;/b&gt;, so they &lt;b&gt;become a Guardian who belongs from anywhere&lt;/b&gt;.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;card wide&quot; style=&quot;margin-top:22px;&quot;&gt;
+    &lt;h2&gt;Scenario · Campaign Moments (time · place · event)&lt;/h2&gt;
+    &lt;div class=&quot;moments&quot;&gt;
+      &lt;div class=&quot;moment&quot;&gt;&lt;div class=&quot;t&quot;&gt;Moment 1 · Jan–Feb 2026&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;&lt;b&gt;Tokyo / Seoul, online&lt;/b&gt; — the first panda-less Lunar New Year; the void goes viral and creators invite fans to &quot;meet your panda&quot; on the Guardian panda-cam.&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;moment&quot;&gt;&lt;div class=&quot;t&quot;&gt;Moment 2 · Apr 3 2026&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;&lt;b&gt;Seoul + global, online &amp;amp; pop-up&lt;/b&gt; — Fu Bao&#x27;s return anniversary: a global live stream + limited drop becomes the membership drive.&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;moment&quot;&gt;&lt;div class=&quot;t&quot;&gt;Moment 3 · Jul 2026&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;&lt;b&gt;Chengdu &amp;amp; global&lt;/b&gt; — He Hua&#x27;s birthday week: at-gate and online pilgrimage bundles convert visiting fans into Guardians.&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- ===== VARIANT A ===== --&gt;
+  &lt;section class=&quot;variant chosen&quot;&gt;
+    &lt;div class=&quot;vhead&quot;&gt;
+      &lt;span class=&quot;vt&quot;&gt;Variant A&lt;/span&gt;&lt;span class=&quot;badge&quot;&gt;Chosen&lt;/span&gt;
+      &lt;span class=&quot;vsub&quot;&gt;Digital-first creator membership — scale &amp;amp; recurring revenue&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;grid&quot;&gt;
+      &lt;div class=&quot;hero-idea&quot;&gt;
+        &lt;h2&gt;The Big Idea&lt;/h2&gt;
+        &lt;div class=&quot;name&quot;&gt;Panda Guardians&lt;/div&gt;
+        &lt;div class=&quot;slogan&quot;&gt;&quot;Belong to the pandas. From anywhere.&quot;&lt;/div&gt;
+        &lt;div class=&quot;prop&quot;&gt;A global conservation membership: adopt a named Chengdu panda, follow it live on an always-on panda-cam, receive member-only drops, and earn a Chengdu pilgrimage — every dollar funds conservation and is published back to members.&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;card&quot;&gt;
+        &lt;h2&gt;Positioning&lt;/h2&gt;
+        &lt;p&gt;For overseas panda fans who have lost their local panda and have no way to belong, &lt;b&gt;Panda Guardians&lt;/b&gt; is the official Chengdu Base membership that turns global fandom into conservation funding — unlike a zoo ticket or unlicensed merch, it is the pandas&#x27; own home, live and accountable.&lt;/p&gt;
+        &lt;h2 style=&quot;margin-top:14px;&quot;&gt;Target Segments&lt;/h2&gt;
+        &lt;span class=&quot;pill&quot;&gt;Japan Panda Orphans&lt;/span&gt;&lt;span class=&quot;pill&quot;&gt;Fu Bao Diaspora&lt;/span&gt;&lt;span class=&quot;pill&quot;&gt;Kawaii Collectors&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;card&quot;&gt;
+        &lt;h2&gt;Offering &amp;amp; Mix (4Ps)&lt;/h2&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;b&gt;Product:&lt;/b&gt; 3-tier digital membership — Keeper (free) / Guardian USD 9·mo / Patron USD 25·mo — with panda-cam, named-panda adoption, monthly impact report, member drops, pilgrimage perk.&lt;/li&gt;
+          &lt;li&gt;&lt;b&gt;Price:&lt;/b&gt; freemium; USD 9/mo core, USD 25/mo patron, annual discount; a published conservation share per tier.&lt;/li&gt;
+          &lt;li&gt;&lt;b&gt;Place:&lt;/b&gt; owned PWA/app + TikTok / IG / YouTube + local creator squads + Tokyo &amp;amp; Seoul pop-ups.&lt;/li&gt;
+          &lt;li&gt;&lt;b&gt;Promotion:&lt;/b&gt; creator-led content, serialized panda-cam story arcs, Fu Bao Day (Apr 3), limited-edition drops.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;card&quot;&gt;
+        &lt;h2&gt;Pilot Experiment&lt;/h2&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;b&gt;Hypothesis:&lt;/b&gt; overseas panda fans will pay a recurring membership to belong to a named panda and fund its conservation.&lt;/li&gt;
+          &lt;li&gt;&lt;b&gt;Treatment:&lt;/b&gt; JP+KR creator squads + Guardian panda-cam + paid membership (2 paid tiers) + the Apr 3 Fu Bao drop.&lt;/li&gt;
+          &lt;li&gt;&lt;b&gt;Control:&lt;/b&gt; matched JP/KR fan cohorts shown Base content without the membership offer (organic baseline).&lt;/li&gt;
+          &lt;li&gt;&lt;b&gt;Measurement setup:&lt;/b&gt; one global member ID across web &amp;amp; social; cohort conversion, CAC, 90-day renewal intent, merch attach.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;card wide&quot;&gt;
+        &lt;h2&gt;Budget Allocation · USD 1.1M&lt;/h2&gt;
+        &lt;table&gt;
+          &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Market&lt;/th&gt;&lt;th&gt;Channel&lt;/th&gt;&lt;th&gt;Tactic&lt;/th&gt;&lt;th style=&quot;text-align:right;&quot;&gt;Amount&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+          &lt;tbody&gt;
+            &lt;tr&gt;&lt;td&gt;Japan + South Korea&lt;/td&gt;&lt;td&gt;Creator &amp;amp; content&lt;/td&gt;&lt;td&gt;Local creator squads + panda-cam story arcs&lt;/td&gt;&lt;td class=&quot;amt&quot;&gt;$520,000&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;Global&lt;/td&gt;&lt;td&gt;Paid + community&lt;/td&gt;&lt;td&gt;Acquisition, community ops, member drops&lt;/td&gt;&lt;td class=&quot;amt&quot;&gt;$360,000&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;Platform&lt;/td&gt;&lt;td&gt;Tech + impact&lt;/td&gt;&lt;td&gt;Membership app/PWA, payments &amp;amp; conservation reporting&lt;/td&gt;&lt;td class=&quot;amt&quot;&gt;$220,000&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td colspan=&quot;3&quot; style=&quot;text-align:right;font-weight:700;&quot;&gt;Total&lt;/td&gt;&lt;td class=&quot;amt&quot;&gt;$1,100,000&lt;/td&gt;&lt;/tr&gt;
+          &lt;/tbody&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;!-- ===== VARIANT B ===== --&gt;
+  &lt;section class=&quot;variant&quot;&gt;
+    &lt;div class=&quot;vhead&quot;&gt;
+      &lt;span class=&quot;vt&quot;&gt;Variant B&lt;/span&gt;&lt;span class=&quot;badge&quot;&gt;Chosen&lt;/span&gt;
+      &lt;span class=&quot;vsub&quot;&gt;Travel-membership bundle — premium experience &amp;amp; pilgrimage&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;grid&quot;&gt;
+      &lt;div class=&quot;hero-idea&quot;&gt;
+        &lt;h2&gt;The Big Idea&lt;/h2&gt;
+        &lt;div class=&quot;name&quot;&gt;Chengdu Pilgrim Pass&lt;/div&gt;
+        &lt;div class=&quot;slogan&quot;&gt;&quot;Go to the source. Become a Guardian.&quot;&lt;/div&gt;
+        &lt;div class=&quot;prop&quot;&gt;A premium travel-membership bundle — flights + hotel + VIP Base access + a founding Guardian year — sold to high-intent travellers who want the once-in-a-lifetime panda pilgrimage, with membership embedded in the trip.&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;card&quot;&gt;
+        &lt;h2&gt;Positioning&lt;/h2&gt;
+        &lt;p&gt;For high-intent inbound travellers and collectors who want the definitive panda trip, &lt;b&gt;Chengdu Pilgrim Pass&lt;/b&gt; is the official Base pilgrimage bundle + founding membership — unlike a DIY tour, it guarantees VIP access and lifelong membership status.&lt;/p&gt;
+        &lt;h2 style=&quot;margin-top:14px;&quot;&gt;Target Segments&lt;/h2&gt;
+        &lt;span class=&quot;pill&quot;&gt;Panda-Pilgrim Travelers&lt;/span&gt;&lt;span class=&quot;pill&quot;&gt;Kawaii Collectors&lt;/span&gt;&lt;span class=&quot;pill&quot;&gt;Global Zoo Members&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;card&quot;&gt;
+        &lt;h2&gt;Offering &amp;amp; Mix (4Ps)&lt;/h2&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;b&gt;Product:&lt;/b&gt; pilgrimage package (air + hotel + VIP Base access + keeper-for-a-day + 1-yr Guardian) and a founding-members club with a numbered passport.&lt;/li&gt;
+          &lt;li&gt;&lt;b&gt;Price:&lt;/b&gt; premium package from USD 1,800 pp; founding tier USD 199 with limited seats.&lt;/li&gt;
+          &lt;li&gt;&lt;b&gt;Place:&lt;/b&gt; travel partners, airline co-marketing, concierge desk, airport/at-gate.&lt;/li&gt;
+          &lt;li&gt;&lt;b&gt;Promotion:&lt;/b&gt; scarcity (limited founding seats), documentary content, alumni referral.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;card&quot;&gt;
+        &lt;h2&gt;Pilot Experiment&lt;/h2&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;b&gt;Hypothesis:&lt;/b&gt; a premium pilgrimage bundle converts high-intent travellers into paying, high-retention Guardians.&lt;/li&gt;
+          &lt;li&gt;&lt;b&gt;Treatment:&lt;/b&gt; bundled package live in JP/KR with founding memberships; control = same travellers offered ticket-only.&lt;/li&gt;
+          &lt;li&gt;&lt;b&gt;Control:&lt;/b&gt; ticket-only booking baseline without the bundle or membership.&lt;/li&gt;
+          &lt;li&gt;&lt;b&gt;Measurement setup:&lt;/b&gt; booked bundles, attach rate, revenue per traveller, membership activation &amp;amp; renewal.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;card wide&quot;&gt;
+        &lt;h2&gt;Budget Allocation · USD 1.1M&lt;/h2&gt;
+        &lt;table&gt;
+          &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Market&lt;/th&gt;&lt;th&gt;Channel&lt;/th&gt;&lt;th&gt;Tactic&lt;/th&gt;&lt;th style=&quot;text-align:right;&quot;&gt;Amount&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+          &lt;tbody&gt;
+            &lt;tr&gt;&lt;td&gt;Japan + South Korea&lt;/td&gt;&lt;td&gt;Travel partners&lt;/td&gt;&lt;td&gt;Air + hotel bundle subsidy &amp;amp; co-marketing&lt;/td&gt;&lt;td class=&quot;amt&quot;&gt;$480,000&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;Chengdu&lt;/td&gt;&lt;td&gt;Experience&lt;/td&gt;&lt;td&gt;VIP Base experience, keeper-for-a-day, concierge&lt;/td&gt;&lt;td class=&quot;amt&quot;&gt;$340,000&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;Global&lt;/td&gt;&lt;td&gt;Membership + content&lt;/td&gt;&lt;td&gt;Founding club, content engine, measurement&lt;/td&gt;&lt;td class=&quot;amt&quot;&gt;$280,000&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td colspan=&quot;3&quot; style=&quot;text-align:right;font-weight:700;&quot;&gt;Total&lt;/td&gt;&lt;td class=&quot;amt&quot;&gt;$1,100,000&lt;/td&gt;&lt;/tr&gt;
+          &lt;/tbody&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;footer&gt;Human-led, AI-scaffolded. Two plan variants — the team picks A or B. Budget allocation is part of the solution. Conservation-first: every tier publishes its conservation share. Data as of 2026-10-06.&lt;/footer&gt;
+
+&lt;/div&gt;
+
+&lt;!-- structured capture — invisible in the page; the next gate reads this block (see facilitation/capture-contract.md) --&gt;
+&lt;script type=&quot;application/json&quot; id=&quot;capture&quot;&gt;
+{
+  &quot;gate&quot;: &quot;plan&quot;,
+  &quot;quest&quot;: &quot;B&quot;,
+  &quot;doc_type&quot;: &quot;Membership Design&quot;,
+  &quot;selected_insights&quot;: [1, 2, 3],
+  &quot;anchor&quot;: {
+    &quot;segment&quot;: &quot;Japan Panda Orphans &amp; the Fu Bao Diaspora&quot;,
+    &quot;job&quot;: &quot;keep a lifelong bond to the pandas alive and belong to it&quot;,
+    &quot;moment&quot;: &quot;the first panda-less Lunar New Year &amp; Fu Bao&#x27;s return anniversary (Apr 3)&quot;,
+    &quot;mechanic&quot;: &quot;launch a paid global conservation membership that adopts them a named panda, streams it live and funds its care&quot;,
+    &quot;desire&quot;: &quot;become a Guardian who belongs from anywhere&quot;
+  },
+  &quot;scenario&quot;: [
+    { &quot;moment&quot;: &quot;The panda-less Lunar New Year&quot;, &quot;time&quot;: &quot;Jan–Feb 2026&quot;, &quot;place&quot;: &quot;Tokyo / Seoul, online&quot;, &quot;event&quot;: &quot;the void goes viral and creators invite fans to meet their panda on the Guardian panda-cam&quot; },
+    { &quot;moment&quot;: &quot;Fu Bao Day&quot;, &quot;time&quot;: &quot;Apr 3 2026&quot;, &quot;place&quot;: &quot;Seoul + global, online &amp; pop-up&quot;, &quot;event&quot;: &quot;global live stream + limited drop becomes the membership drive&quot; },
+    { &quot;moment&quot;: &quot;He Hua&#x27;s birthday week&quot;, &quot;time&quot;: &quot;Jul 2026&quot;, &quot;place&quot;: &quot;Chengdu &amp; global&quot;, &quot;event&quot;: &quot;at-gate and online pilgrimage bundles convert visiting fans into Guardians&quot; }
+  ],
+  &quot;hmw&quot;: &quot;How might we use the 10% MVP budget — USD 1.1M, 3 months, 2 overseas pilot markets — to prove panda fandom can become a paying global membership?&quot;,
+  &quot;ideas&quot;: [
+    { &quot;id&quot;: 1, &quot;name&quot;: &quot;Panda Guardians&quot;, &quot;one_line&quot;: &quot;A paid global membership: adopt a named panda, live panda-cam, impact reports, drops and a Chengdu pilgrimage perk.&quot;, &quot;insight&quot;: &quot;1 · love ≫ gate&quot;, &quot;mechanic&quot;: &quot;conservation adopt-an-animal + creator community&quot; },
+    { &quot;id&quot;: 2, &quot;name&quot;: &quot;Panda-cam Studio&quot;, &quot;one_line&quot;: &quot;An always-on, serialized global panda livestream with named story arcs, tipping and superfan tiers.&quot;, &quot;insight&quot;: &quot;5 · under-licensed IP&quot;, &quot;mechanic&quot;: &quot;idol/K-pop fandom analogy&quot; },
+    { &quot;id&quot;: 3, &quot;name&quot;: &quot;The Void Tour&quot;, &quot;one_line&quot;: &quot;A panda-less pop-up tour through Tokyo &amp; Seoul that &#x27;lends&#x27; Chengdu pandas via AR and live feeds.&quot;, &quot;insight&quot;: &quot;2 · Japan&#x27;s void&quot;, &quot;mechanic&quot;: &quot;reverse — bring Chengdu to the fans&quot; },
+    { &quot;id&quot;: 4, &quot;name&quot;: &quot;Fu Bao Homecoming&quot;, &quot;one_line&quot;: &quot;Anniversary campaign + limited merch capsule anchored to Fu Bao&#x27;s Apr 3 return.&quot;, &quot;insight&quot;: &quot;2 · Japan/Korea loss&quot;, &quot;mechanic&quot;: &quot;anniversary moment marketing&quot; },
+    { &quot;id&quot;: 5, &quot;name&quot;: &quot;Cub Naming Rights&quot;, &quot;one_line&quot;: &quot;Fans vote and name a new cub; membership grants voting + adoption rights.&quot;, &quot;insight&quot;: &quot;1 · love ≫ gate&quot;, &quot;mechanic&quot;: &quot;participation / ownership&quot; },
+    { &quot;id&quot;: 6, &quot;name&quot;: &quot;Kawaii Panda Drop&quot;, &quot;one_line&quot;: &quot;Monthly limited-edition collector drops with Sanrio-style panda characters; membership = early access.&quot;, &quot;insight&quot;: &quot;5 · cute-IP economy&quot;, &quot;mechanic&quot;: &quot;drop culture / scarcity&quot; }
+  ],
+  &quot;selected_ideas&quot;: [1, 5, 6],
+  &quot;combination&quot;: &quot;Panda Guardians as the membership core, with Cub Naming Rights (5) and Kawaii Panda Drops (6) as its member engagement &amp; merch mechanics.&quot;,
+  &quot;concept&quot;: {
+    &quot;name&quot;: &quot;Panda Guardians&quot;,
+    &quot;slogan&quot;: &quot;Belong to the pandas. From anywhere.&quot;,
+    &quot;proposition&quot;: &quot;A global conservation membership: adopt a named Chengdu panda, follow it live, get member-only drops, and earn a Chengdu pilgrimage — every dollar funds conservation.&quot;,
+    &quot;offer&quot;: &quot;3-tier digital membership (Keeper free / Guardian USD 9·mo / Patron USD 25·mo) with panda-cam, named-panda adoption, impact reports, member drops and a pilgrimage perk.&quot;
+  },
+  &quot;opportunity&quot;: {
+    &quot;e1&quot;: &quot;The world&#x27;s most-loved animal has no way for overseas fans to belong — fame is global, revenue is local.&quot;,
+    &quot;e2&quot;: &quot;Overseas panda fans (Japan Panda Orphans, Fu Bao Diaspora, Kawaii Collectors) who lost a local panda and want an ongoing connection.&quot;,
+    &quot;e3&quot;: &quot;Their bond has no outlet: no membership, no owned channel, no globally shoppable merch — and Japan has had no panda since Jan 2026.&quot;,
+    &quot;e4&quot;: &quot;A conservation-first global membership (adopt + live panda-cam + drops + pilgrimage) turns fandom into recurring funding.&quot;,
+    &quot;e5&quot;: &quot;Recurring member revenue at ~2% creator conversion + merch attach, funding conservation and de-risking the USD 11M scale-up.&quot;
+  },
+  &quot;variants&quot;: {
+    &quot;A&quot;: {
+      &quot;positioning&quot;: &quot;For overseas panda fans who have lost their local panda and have no way to belong, Panda Guardians is the official Chengdu Base membership that turns global fandom into conservation funding — unlike a zoo ticket or unlicensed merch, it is the pandas&#x27; own home, live and accountable.&quot;,
+      &quot;offering&quot;: &quot;3-tier digital membership (Keeper free / Guardian USD 9·mo / Patron USD 25·mo); panda-cam, named-panda adoption, monthly impact report, member drops, pilgrimage perk.&quot;,
+      &quot;mix&quot;: {
+        &quot;product&quot;: &quot;Freemium global membership app/PWA with live panda-cam, named-panda adoption, impact dashboards, member drops.&quot;,
+        &quot;price&quot;: &quot;USD 9/mo core, USD 25/mo patron, annual discount; published conservation share per tier.&quot;,
+        &quot;place&quot;: &quot;Owned PWA/app + TikTok/IG/YouTube + local creator squads + Tokyo &amp; Seoul pop-ups.&quot;,
+        &quot;promotion&quot;: &quot;Creator-led content, serialized panda-cam arcs, Fu Bao Day (Apr 3), limited drops.&quot;
+      },
+      &quot;pilot&quot;: {
+        &quot;markets&quot;: [&quot;Japan&quot;, &quot;South Korea&quot;],
+        &quot;hypothesis&quot;: &quot;Overseas panda fans will pay a recurring membership to belong to a named panda and fund its conservation.&quot;,
+        &quot;treatment&quot;: &quot;JP+KR creator squads + Guardian panda-cam + paid membership (2 paid tiers) + the Apr 3 Fu Bao drop.&quot;,
+        &quot;control&quot;: &quot;Matched JP/KR fan cohorts shown Base content without the membership offer (organic baseline).&quot;,
+        &quot;measurement_setup&quot;: &quot;One global member ID across web &amp; social; cohort conversion, CAC, 90-day renewal intent, merch attach.&quot;
+      },
+      &quot;budget&quot;: {
+        &quot;total&quot;: &quot;USD 1,100,000&quot;,
+        &quot;allocation&quot;: [
+          { &quot;market&quot;: &quot;Japan + South Korea&quot;, &quot;channel&quot;: &quot;Creator &amp; content&quot;, &quot;tactic&quot;: &quot;Local creator squads + panda-cam story arcs&quot;, &quot;amount&quot;: &quot;$520,000&quot; },
+          { &quot;market&quot;: &quot;Global&quot;, &quot;channel&quot;: &quot;Paid + community&quot;, &quot;tactic&quot;: &quot;Acquisition, community ops, member drops&quot;, &quot;amount&quot;: &quot;$360,000&quot; },
+          { &quot;market&quot;: &quot;Platform&quot;, &quot;channel&quot;: &quot;Tech + impact&quot;, &quot;tactic&quot;: &quot;Membership app/PWA, payments &amp; conservation reporting&quot;, &quot;amount&quot;: &quot;$220,000&quot; }
+        ]
+      }
+    },
+    &quot;B&quot;: {
+      &quot;positioning&quot;: &quot;For high-intent inbound travellers and collectors who want the definitive panda trip, Chengdu Pilgrim Pass is the official Base pilgrimage bundle + founding membership — unlike a DIY tour, it guarantees VIP access and lifelong membership status.&quot;,
+      &quot;offering&quot;: &quot;Pilgrimage package (air + hotel + VIP Base access + keeper-for-a-day + 1-yr Guardian) and a founding-members club with a numbered passport.&quot;,
+      &quot;mix&quot;: {
+        &quot;product&quot;: &quot;Premium pilgrimage bundle; founding-members club.&quot;,
+        &quot;price&quot;: &quot;Package from USD 1,800 pp; founding tier USD 199 (limited seats).&quot;,
+        &quot;place&quot;: &quot;Travel partners, airline co-marketing, concierge desk, airport/at-gate.&quot;,
+        &quot;promotion&quot;: &quot;Scarcity (limited founding seats), documentary content, alumni referral.&quot;
+      },
+      &quot;pilot&quot;: {
+        &quot;markets&quot;: [&quot;Japan&quot;, &quot;South Korea&quot;],
+        &quot;hypothesis&quot;: &quot;A premium pilgrimage bundle converts high-intent travellers into paying, high-retention Guardians.&quot;,
+        &quot;treatment&quot;: &quot;Bundled package live in JP/KR with founding memberships + concierge.&quot;,
+        &quot;control&quot;: &quot;Ticket-only booking baseline without the bundle or membership.&quot;,
+        &quot;measurement_setup&quot;: &quot;Booked bundles, attach rate, revenue per traveller, membership activation &amp; renewal.&quot;
+      },
+      &quot;budget&quot;: {
+        &quot;total&quot;: &quot;USD 1,100,000&quot;,
+        &quot;allocation&quot;: [
+          { &quot;market&quot;: &quot;Japan + South Korea&quot;, &quot;channel&quot;: &quot;Travel partners&quot;, &quot;tactic&quot;: &quot;Air + hotel bundle subsidy &amp; co-marketing&quot;, &quot;amount&quot;: &quot;$480,000&quot; },
+          { &quot;market&quot;: &quot;Chengdu&quot;, &quot;channel&quot;: &quot;Experience&quot;, &quot;tactic&quot;: &quot;VIP Base experience, keeper-for-a-day, concierge&quot;, &quot;amount&quot;: &quot;$340,000&quot; },
+          { &quot;market&quot;: &quot;Global&quot;, &quot;channel&quot;: &quot;Membership + content&quot;, &quot;tactic&quot;: &quot;Founding club, content engine, measurement&quot;, &quot;amount&quot;: &quot;$280,000&quot; }
+        ]
+      }
+    }
+  },
+  &quot;chosen_variant&quot;: &quot;A&quot;,
+  &quot;choice_reason&quot;: &quot;Variant A directly tests the mission — &#x27;can panda fandom become a paying global membership?&#x27; — is scalable and recurring, fits the USD 1.1M / 3-month / 2-market envelope, and uses proven creator free-to-paid conversion (~2%) rather than a capital-heavy travel bundle.&quot;,
+  &quot;poster&quot;: {
+    &quot;visual_direction&quot;: &quot;Belonging Passport — cream paper, stamp/ticket motifs, warm conservation-first tone&quot;,
+    &quot;one_liner&quot;: &quot;Become a Guardian — belong to the pandas, from anywhere.&quot;
+  }
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe></div>
+  </section>
+
+  <!-- 04 · CAMPAIGN POSTER (full artifact) -->
+  <section class="pane" id="pane-poster">
+    <div class="viewer narrow"><iframe data-auto title="Campaign Poster" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;!-- Campaign poster · TAB PAGE (content-driven height → embeds &amp; auto-fits cleanly).
+     The three posters are inlined below (one shown at a time); the standalone pages
+     poster-a.html / poster-b.html / poster-c.html are the croppable single files.
+     Built by scripts/build-posters.py. --&gt;
+&lt;title&gt;Campaign Poster · Panda Guardians · Quest B&lt;/title&gt;
+&lt;style&gt;
+  :root{
+    --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
+    --orange-1:#FFF0E7; --orange-2:#FFD1B8; --orange-3:#FFA370;
+    --teal:#077069; --teal-1:#CDE2E1; --teal-2:#83B8B4; --teal-4:#043835;
+    --line:#E4E8E7; --mut:#5A6663; --cream:#FFF6EC;
+    --accent: var(--ascentium-orange);
+    --accent-tint: var(--orange-1);
+    --accent-line: var(--orange-2);
+    --accent-deep:#B24000;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#DEDAD4;}
+  body{font-family:&quot;Poppins&quot;,&quot;Noto Sans SC&quot;,&quot;PingFang SC&quot;,&quot;Microsoft YaHei&quot;,Arial,sans-serif;
+       color:var(--ascentium-midnight);padding:28px 12px;display:flex;justify-content:center;}
+
+  .poster{width:1080px;max-width:100%;background:#fff;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.25);}
+
+  .mast{display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative;z-index:3;}
+  .mast .logo{font-weight:800;letter-spacing:-.01em;}
+  .mast .client{font-weight:700;border-radius:999px;white-space:nowrap;}
+  .kicker{font-weight:800;letter-spacing:.2em;text-transform:uppercase;}
+  .name{font-weight:800;line-height:.94;letter-spacing:-.02em;}
+  .tagline{font-weight:700;}
+  .art{position:relative;overflow:hidden;aspect-ratio:1200/500;}
+  .art svg{display:block;width:100%;height:100%;}
+  .lead{font-weight:600;line-height:1.5;}
+  .sec-h{font-weight:800;letter-spacing:.2em;text-transform:uppercase;}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .card{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:#fff;}
+  .card .t{font-weight:800;}
+  .card .d{line-height:1.5;color:#3B4442;}
+  .bullets{list-style:none;}
+  .bullets li{position:relative;line-height:1.55;}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);}
+  .stat{text-align:center;}
+  .stat .n{font-weight:800;line-height:1;}
+  .stat .c{line-height:1.4;}
+  .cta{display:flex;align-items:center;gap:26px;}
+  .cta .btn{font-weight:800;border-radius:999px;white-space:nowrap;}
+  .cta .meta{flex:1;}
+  .cta .hash{font-weight:800;letter-spacing:-.01em;}
+  .cta .url{line-height:1.4;}
+  .qr{background:#fff;border-radius:10px;flex:none;}
+  .qr svg{display:block;width:100%;height:100%;}
+  .foot{display:flex;justify-content:space-between;gap:24px;}
+  .foot .partners{font-weight:700;}
+  .foot .src{text-align:right;}
+
+  /* ===== STYLE A — FULL-BLEED HERO (bold editorial) ===== */
+  .p-a{background:#fff;}
+  .p-a .hero{background:var(--accent);color:#fff;padding:42px 54px 0;}
+  .p-a .mast .logo{font-size:26px;}
+  .p-a .mast .client{font-size:14px;background:rgba(0,0,0,.16);padding:7px 16px;}
+  .p-a .kicker{font-size:15px;opacity:.92;margin-top:32px;}
+  .p-a .name{font-size:98px;margin-top:10px;}
+  .p-a .tagline{font-size:27px;margin-top:14px;}
+  .p-a .art{margin-top:26px;border-radius:18px 18px 0 0;}
+  .p-a .body{padding:38px 54px 6px;}
+  .p-a .lead{font-size:21px;max-width:920px;}
+  .p-a .sec-h{font-size:12px;color:var(--accent);margin-top:32px;}
+  .p-a .cards{margin-top:14px;}
+  .p-a .card .t{font-size:15px;color:var(--accent);}
+  .p-a .card .d{font-size:13px;margin-top:6px;}
+  .p-a .bullets{margin-top:14px;}
+  .p-a .bullets li{font-size:14.5px;padding:5px 0 5px 20px;}
+  .p-a .bullets li::before{content:&quot;&quot;;position:absolute;left:0;top:11px;width:9px;height:9px;border-radius:3px;background:var(--accent);}
+  .p-a .stats{background:var(--ascentium-midnight);color:#fff;margin-top:30px;}
+  .p-a .stat{padding:26px 16px;border-right:1px solid rgba(255,255,255,.12);}
+  .p-a .stat:last-child{border-right:none;}
+  .p-a .stat .n{font-size:40px;color:var(--accent-tint);}
+  .p-a .stat .c{font-size:11.5px;margin-top:8px;opacity:.85;}
+  .p-a .cta{background:var(--accent);color:#fff;padding:32px 54px;}
+  .p-a .cta .btn{background:#fff;color:var(--accent);font-size:21px;padding:16px 36px;}
+  .p-a .cta .hash{font-size:26px;}
+  .p-a .cta .url{font-size:14px;opacity:.92;margin-top:5px;}
+  .p-a .qr{width:104px;height:104px;padding:7px;}
+  .p-a .foot{padding:20px 54px;border-top:1px solid var(--line);}
+  .p-a .foot .partners{font-size:12px;}
+  .p-a .foot .src{font-size:10.5px;color:var(--mut);max-width:540px;}
+
+  /* ===== STYLE B — BELONGING PASSPORT (membership · cream) ===== */
+  .toprule{display:none;}
+  .p-b{background:var(--cream);}
+  .p-b .toprule{display:block;height:12px;background:var(--accent);}
+  .p-b .hero{padding:34px 54px 0;color:var(--ascentium-midnight);}
+  .p-b .mast .logo{font-size:25px;color:var(--ascentium-midnight);}
+  .p-b .mast .logo span{color:var(--accent);}
+  .p-b .mast .client{font-size:13px;color:var(--accent-deep);border:1.5px solid var(--accent-line);padding:6px 15px;background:#fff;}
+  .p-b .kicker{font-size:13px;color:var(--accent);margin-top:30px;letter-spacing:.24em;}
+  .p-b .name{font-size:88px;margin-top:8px;letter-spacing:-.03em;}
+  .p-b .tagline{font-size:25px;margin-top:12px;color:var(--accent-deep);font-style:italic;}
+  .p-b .art{margin-top:24px;border-radius:14px;border:1.5px dashed var(--accent-line);}
+  .p-b .body{padding:34px 54px 6px;}
+  .p-b .lead{font-size:20px;max-width:920px;}
+  .p-b .sec-h{font-size:12px;color:var(--accent-deep);margin-top:30px;padding-bottom:8px;border-bottom:2px dashed var(--accent-line);}
+  .p-b .cards{margin-top:16px;}
+  .p-b .card{background:#fff;border:1.5px dashed var(--accent-line);border-radius:12px;position:relative;}
+  .p-b .card::before,.p-b .card::after{content:&quot;&quot;;position:absolute;top:50%;width:12px;height:12px;border-radius:999px;background:var(--cream);border:1.5px dashed var(--accent-line);}
+  .p-b .card::before{left:-7px;transform:translateY(-50%);}
+  .p-b .card::after{right:-7px;transform:translateY(-50%);}
+  .p-b .card .t{font-size:15px;color:var(--accent-deep);}
+  .p-b .card .d{font-size:13px;margin-top:6px;}
+  .p-b .bullets{margin-top:16px;}
+  .p-b .bullets li{font-size:14.5px;padding:6px 0 6px 24px;}
+  .p-b .bullets li::before{content:&quot;✓&quot;;position:absolute;left:0;top:6px;color:var(--accent);font-weight:800;font-size:13px;}
+  .p-b .stats{background:#fff;border:1.5px dashed var(--accent-line);border-radius:14px;margin:28px 54px 0;}
+  .p-b .stat{padding:22px 14px;border-right:1px dashed var(--accent-line);}
+  .p-b .stat:last-child{border-right:none;}
+  .p-b .stat .n{font-size:36px;color:var(--accent-deep);}
+  .p-b .stat .c{font-size:11px;margin-top:8px;color:var(--mut);}
+  .p-b .cta{background:var(--accent);color:#fff;padding:30px 54px;margin-top:28px;}
+  .p-b .cta .btn{background:#fff;color:var(--accent-deep);font-size:20px;padding:15px 34px;}
+  .p-b .cta .hash{font-size:25px;}
+  .p-b .cta .url{font-size:13.5px;opacity:.94;margin-top:5px;}
+  .p-b .qr{width:100px;height:100px;padding:7px;}
+  .p-b .foot{padding:20px 54px;border-top:2px dashed var(--accent-line);}
+  .p-b .foot .partners{font-size:12px;}
+  .p-b .foot .src{font-size:10.5px;color:var(--mut);max-width:540px;}
+
+  /* ===== STYLE C — MIDNIGHT MINIMAL (Swiss typographic) ===== */
+  .p-c{background:var(--ascentium-midnight);color:#fff;}
+  .p-c .hero{padding:46px 54px 0;}
+  .p-c .mast .logo{font-size:25px;color:#fff;}
+  .p-c .mast .client{font-size:13px;color:#fff;border:1px solid rgba(255,255,255,.32);padding:6px 15px;}
+  .p-c .kicker{font-size:13px;color:var(--accent);margin-top:38px;}
+  .p-c .name{font-size:104px;margin-top:12px;}
+  .p-c .tagline{font-size:26px;margin-top:16px;color:var(--accent);font-weight:600;}
+  .p-c .art{margin-top:30px;}
+  .p-c .body{padding:36px 54px 6px;}
+  .p-c .lead{font-size:20px;max-width:880px;color:#CDD4D2;}
+  .p-c .sec-h{font-size:12px;color:var(--accent);margin-top:34px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.14);}
+  .p-c .cards{margin-top:18px;gap:0;}
+  .p-c .card{background:transparent;border:none;border-right:1px solid rgba(255,255,255,.14);border-radius:0;padding:6px 22px 6px 0;}
+  .p-c .card:last-child{border-right:none;}
+  .p-c .card .t{font-size:15px;color:#fff;}
+  .p-c .card .d{font-size:13px;margin-top:8px;color:#B9C4C1;}
+  .p-c .bullets{margin-top:16px;}
+  .p-c .bullets li{font-size:14.5px;padding:6px 0 6px 20px;color:#DDE3E1;}
+  .p-c .bullets li::before{content:&quot;—&quot;;position:absolute;left:0;color:var(--accent);font-weight:800;}
+  .p-c .stats{margin-top:30px;border-top:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14);}
+  .p-c .stat{padding:26px 16px;border-right:1px solid rgba(255,255,255,.12);text-align:left;}
+  .p-c .stat:last-child{border-right:none;}
+  .p-c .stat .n{font-size:40px;color:var(--accent);}
+  .p-c .stat .c{font-size:11px;margin-top:8px;color:#9AA5A2;}
+  .p-c .cta{background:var(--accent);color:#fff;padding:30px 54px;}
+  .p-c .cta .btn{background:var(--ascentium-midnight);color:#fff;font-size:20px;padding:15px 34px;}
+  .p-c .cta .hash{font-size:25px;}
+  .p-c .cta .url{font-size:13.5px;opacity:.94;margin-top:5px;}
+  .p-c .qr{width:100px;height:100px;padding:7px;}
+  .p-c .foot{padding:20px 54px 26px;}
+  .p-c .foot .partners{font-size:12px;color:#fff;}
+  .p-c .foot .src{font-size:10.5px;color:#8A9492;max-width:540px;}
+
+  @media print{
+    @page{size:A3;margin:8mm;}
+    html,body{background:#fff;padding:0;display:block;}
+    .poster{box-shadow:none;margin:0 auto;width:100%;}
+  }
+&lt;/style&gt;
+&lt;style&gt;
+  /* ---- tab shell (loaded after the poster style so these rules win) ---- */
+  html,body{background:#DEDAD4;}
+  body{display:block;padding:0;}
+  .bar{display:flex;align-items:center;gap:18px;padding:12px 20px;background:var(--ascentium-midnight);color:#fff;}
+  .bar .logo{font-size:18px;font-weight:800;} .bar .logo span{color:var(--accent);}
+  .bar .title{font-size:12px;color:#9AA5A2;font-weight:600;}
+  .bar .title b{color:#fff;font-weight:800;}
+  .bar .open{margin-left:auto;font-size:12px;font-weight:700;color:var(--accent);text-decoration:none;
+        border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:7px 14px;white-space:nowrap;}
+  .bar .open:hover{background:rgba(255,255,255,.08);}
+  .tabs{display:flex;gap:8px;padding:12px 20px;background:#fff;border-bottom:1px solid var(--line);overflow-x:auto;}
+  .tabs button{text-align:left;font:inherit;background:#fff;border:1.5px solid var(--line);border-radius:12px;
+        padding:10px 16px;cursor:pointer;flex:none;min-width:210px;}
+  .tabs button .t{font-size:13.5px;font-weight:800;color:var(--ascentium-midnight);}
+  .tabs button .d{font-size:11px;color:var(--mut);margin-top:2px;}
+  .tabs button .k{display:inline-block;font-size:10px;font-weight:800;color:var(--accent);letter-spacing:.1em;margin-right:6px;}
+  .tabs button:hover{border-color:var(--accent-tint);}
+  .tabs button.on{border-color:var(--accent);background:var(--accent-tint);}
+  .tabs button.on .t{color:var(--accent);}
+  .stack{padding:26px 12px 40px;display:flex;flex-direction:column;align-items:center;}
+  .stack .poster{display:none;}
+  .stack .poster.on{display:block;}
+  @media print{ .bar,.tabs{display:none;} .stack{padding:0;} }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body data-quest=&quot;B&quot; style=&quot;--accent:#077069;--accent-tint:#CDE2E1;--accent-line:#83B8B4;--accent-deep:#043835;&quot;&gt;
+
+&lt;svg width=&quot;0&quot; height=&quot;0&quot; style=&quot;position:absolute&quot; aria-hidden=&quot;true&quot;&gt;
+  &lt;!-- Key-visual art per style (1200x500) — the quest&#x27;s panda motif, re-art-ed per style. --&gt;
+  &lt;!-- STYLE A · full-bleed panda + bamboo (1200x500) --&gt;
+  &lt;symbol id=&quot;art-a&quot; viewBox=&quot;0 0 1200 500&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;
+    &lt;rect width=&quot;1200&quot; height=&quot;500&quot; fill=&quot;#077069&quot;/&gt;
+    &lt;g stroke=&quot;#83B8B4&quot; stroke-width=&quot;11&quot; stroke-linecap=&quot;round&quot;&gt;
+      &lt;line x1=&quot;112&quot; y1=&quot;500&quot; x2=&quot;112&quot; y2=&quot;70&quot;/&gt;
+      &lt;line x1=&quot;170&quot; y1=&quot;500&quot; x2=&quot;170&quot; y2=&quot;180&quot;/&gt;
+      &lt;line x1=&quot;1035&quot; y1=&quot;500&quot; x2=&quot;1035&quot; y2=&quot;110&quot;/&gt;
+      &lt;line x1=&quot;1092&quot; y1=&quot;500&quot; x2=&quot;1092&quot; y2=&quot;200&quot;/&gt;
+    &lt;/g&gt;
+    &lt;g fill=&quot;#CDE2E1&quot; opacity=&quot;.85&quot;&gt;
+      &lt;ellipse cx=&quot;150&quot; cy=&quot;150&quot; rx=&quot;34&quot; ry=&quot;12&quot; transform=&quot;rotate(-28 150 150)&quot;/&gt;
+      &lt;ellipse cx=&quot;78&quot; cy=&quot;230&quot; rx=&quot;34&quot; ry=&quot;12&quot; transform=&quot;rotate(24 78 230)&quot;/&gt;
+      &lt;ellipse cx=&quot;1050&quot; cy=&quot;185&quot; rx=&quot;34&quot; ry=&quot;12&quot; transform=&quot;rotate(28 1050 185)&quot;/&gt;
+      &lt;ellipse cx=&quot;1130&quot; cy=&quot;270&quot; rx=&quot;34&quot; ry=&quot;12&quot; transform=&quot;rotate(-22 1130 270)&quot;/&gt;
+    &lt;/g&gt;
+    &lt;circle cx=&quot;150&quot; cy=&quot;70&quot; r=&quot;9&quot; fill=&quot;#CDE2E1&quot;/&gt;&lt;circle cx=&quot;1058&quot; cy=&quot;58&quot; r=&quot;7&quot; fill=&quot;#CDE2E1&quot;/&gt;&lt;circle cx=&quot;960&quot; cy=&quot;92&quot; r=&quot;5&quot; fill=&quot;#CDE2E1&quot;/&gt;
+    &lt;!-- panda --&gt;
+    &lt;circle cx=&quot;452&quot; cy=&quot;152&quot; r=&quot;74&quot; fill=&quot;#0F1514&quot;/&gt;
+    &lt;circle cx=&quot;748&quot; cy=&quot;152&quot; r=&quot;74&quot; fill=&quot;#0F1514&quot;/&gt;
+    &lt;ellipse cx=&quot;600&quot; cy=&quot;290&quot; rx=&quot;198&quot; ry=&quot;172&quot; fill=&quot;#FFF6EC&quot;/&gt;
+    &lt;ellipse cx=&quot;519&quot; cy=&quot;278&quot; rx=&quot;55&quot; ry=&quot;67&quot; fill=&quot;#0F1514&quot; transform=&quot;rotate(-18 519 278)&quot;/&gt;
+    &lt;ellipse cx=&quot;681&quot; cy=&quot;278&quot; rx=&quot;55&quot; ry=&quot;67&quot; fill=&quot;#0F1514&quot; transform=&quot;rotate(18 681 278)&quot;/&gt;
+    &lt;circle cx=&quot;521&quot; cy=&quot;281&quot; r=&quot;18&quot; fill=&quot;#fff&quot;/&gt;
+    &lt;circle cx=&quot;679&quot; cy=&quot;281&quot; r=&quot;18&quot; fill=&quot;#fff&quot;/&gt;
+    &lt;circle cx=&quot;524&quot; cy=&quot;284&quot; r=&quot;9&quot; fill=&quot;#0F1514&quot;/&gt;
+    &lt;circle cx=&quot;676&quot; cy=&quot;284&quot; r=&quot;9&quot; fill=&quot;#0F1514&quot;/&gt;
+    &lt;ellipse cx=&quot;600&quot; cy=&quot;352&quot; rx=&quot;27&quot; ry=&quot;18&quot; fill=&quot;#0F1514&quot;/&gt;
+    &lt;path d=&quot;M574 382 q26 22 52 0&quot; fill=&quot;none&quot; stroke=&quot;#0F1514&quot; stroke-width=&quot;7&quot; stroke-linecap=&quot;round&quot;/&gt;
+    &lt;circle cx=&quot;466&quot; cy=&quot;332&quot; r=&quot;17&quot; fill=&quot;#CDE2E1&quot; opacity=&quot;.7&quot;/&gt;
+    &lt;circle cx=&quot;734&quot; cy=&quot;332&quot; r=&quot;17&quot; fill=&quot;#CDE2E1&quot; opacity=&quot;.7&quot;/&gt;
+  &lt;/symbol&gt;
+
+  &lt;!-- STYLE B · membership passport / boarding pass with panda stamp (1200x500) --&gt;
+  &lt;symbol id=&quot;art-b&quot; viewBox=&quot;0 0 1200 500&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;
+    &lt;rect width=&quot;1200&quot; height=&quot;500&quot; fill=&quot;#FFF6EC&quot;/&gt;
+    &lt;path d=&quot;M40 430 C 330 300, 870 290, 1160 110&quot; fill=&quot;none&quot; stroke=&quot;#077069&quot; stroke-width=&quot;3&quot; stroke-dasharray=&quot;2 13&quot;/&gt;
+    &lt;g transform=&quot;translate(1120,116) rotate(24)&quot;&gt;&lt;path d=&quot;M0 0 l46 16 -46 16 10 -16z&quot; fill=&quot;#077069&quot;/&gt;&lt;/g&gt;
+    &lt;g transform=&quot;rotate(-4 600 250)&quot;&gt;
+      &lt;rect x=&quot;230&quot; y=&quot;112&quot; width=&quot;740&quot; height=&quot;278&quot; rx=&quot;18&quot; fill=&quot;#FFFFFF&quot; stroke=&quot;#CDE2E1&quot; stroke-width=&quot;2&quot;/&gt;
+      &lt;line x1=&quot;770&quot; y1=&quot;112&quot; x2=&quot;770&quot; y2=&quot;390&quot; stroke=&quot;#83B8B4&quot; stroke-width=&quot;3&quot; stroke-dasharray=&quot;8 8&quot;/&gt;
+      &lt;circle cx=&quot;770&quot; cy=&quot;112&quot; r=&quot;10&quot; fill=&quot;#FFF6EC&quot;/&gt;&lt;circle cx=&quot;770&quot; cy=&quot;390&quot; r=&quot;10&quot; fill=&quot;#FFF6EC&quot;/&gt;
+      &lt;rect x=&quot;262&quot; y=&quot;142&quot; width=&quot;150&quot; height=&quot;14&quot; rx=&quot;7&quot; fill=&quot;#077069&quot;/&gt;
+      &lt;rect x=&quot;262&quot; y=&quot;170&quot; width=&quot;300&quot; height=&quot;10&quot; rx=&quot;5&quot; fill=&quot;#E4E8E7&quot;/&gt;
+      &lt;rect x=&quot;262&quot; y=&quot;190&quot; width=&quot;250&quot; height=&quot;10&quot; rx=&quot;5&quot; fill=&quot;#E4E8E7&quot;/&gt;
+      &lt;g fill=&quot;#0F1514&quot;&gt;&lt;rect x=&quot;262&quot; y=&quot;240&quot; width=&quot;70&quot; height=&quot;12&quot; rx=&quot;6&quot;/&gt;&lt;rect x=&quot;360&quot; y=&quot;240&quot; width=&quot;70&quot; height=&quot;12&quot; rx=&quot;6&quot;/&gt;&lt;rect x=&quot;458&quot; y=&quot;240&quot; width=&quot;70&quot; height=&quot;12&quot; rx=&quot;6&quot;/&gt;&lt;/g&gt;
+      &lt;g fill=&quot;#E4E8E7&quot;&gt;&lt;rect x=&quot;262&quot; y=&quot;292&quot; width=&quot;40&quot; height=&quot;46&quot;/&gt;&lt;rect x=&quot;308&quot; y=&quot;292&quot; width=&quot;40&quot; height=&quot;46&quot;/&gt;&lt;rect x=&quot;354&quot; y=&quot;292&quot; width=&quot;40&quot; height=&quot;46&quot;/&gt;&lt;rect x=&quot;400&quot; y=&quot;292&quot; width=&quot;40&quot; height=&quot;46&quot;/&gt;&lt;rect x=&quot;446&quot; y=&quot;292&quot; width=&quot;40&quot; height=&quot;46&quot;/&gt;&lt;rect x=&quot;492&quot; y=&quot;292&quot; width=&quot;40&quot; height=&quot;46&quot;/&gt;&lt;/g&gt;
+      &lt;!-- panda stamp --&gt;
+      &lt;g transform=&quot;translate(905,250)&quot;&gt;
+        &lt;circle r=&quot;86&quot; fill=&quot;none&quot; stroke=&quot;#077069&quot; stroke-width=&quot;4&quot; stroke-dasharray=&quot;7 7&quot;/&gt;
+        &lt;circle cx=&quot;-30&quot; cy=&quot;-40&quot; r=&quot;20&quot; fill=&quot;#0F1514&quot;/&gt;
+        &lt;circle cx=&quot;30&quot; cy=&quot;-40&quot; r=&quot;20&quot; fill=&quot;#0F1514&quot;/&gt;
+        &lt;ellipse cy=&quot;0&quot; rx=&quot;52&quot; ry=&quot;46&quot; fill=&quot;#fff&quot; stroke=&quot;#0F1514&quot; stroke-width=&quot;3&quot;/&gt;
+        &lt;ellipse cx=&quot;-20&quot; cy=&quot;-2&quot; rx=&quot;14&quot; ry=&quot;18&quot; fill=&quot;#0F1514&quot; transform=&quot;rotate(-18 -20 -2)&quot;/&gt;
+        &lt;ellipse cx=&quot;20&quot; cy=&quot;-2&quot; rx=&quot;14&quot; ry=&quot;18&quot; fill=&quot;#0F1514&quot; transform=&quot;rotate(18 20 -2)&quot;/&gt;
+        &lt;circle cx=&quot;-19&quot; cy=&quot;0&quot; r=&quot;5&quot; fill=&quot;#fff&quot;/&gt;&lt;circle cx=&quot;19&quot; cy=&quot;0&quot; r=&quot;5&quot; fill=&quot;#fff&quot;/&gt;
+        &lt;ellipse cy=&quot;22&quot; rx=&quot;8&quot; ry=&quot;6&quot; fill=&quot;#0F1514&quot;/&gt;
+      &lt;/g&gt;
+    &lt;/g&gt;
+    &lt;g transform=&quot;translate(150,90)&quot; fill=&quot;#077069&quot; opacity=&quot;.9&quot;&gt;
+      &lt;rect width=&quot;120&quot; height=&quot;14&quot; rx=&quot;7&quot;/&gt;&lt;rect y=&quot;24&quot; width=&quot;86&quot; height=&quot;10&quot; rx=&quot;5&quot; opacity=&quot;.6&quot;/&gt;
+    &lt;/g&gt;
+  &lt;/symbol&gt;
+
+  &lt;!-- STYLE C · minimal panda (1200x500) --&gt;
+  &lt;symbol id=&quot;art-c&quot; viewBox=&quot;0 0 1200 500&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;
+    &lt;rect width=&quot;1200&quot; height=&quot;500&quot; fill=&quot;#0F1514&quot;/&gt;
+    &lt;line x1=&quot;0&quot; y1=&quot;404&quot; x2=&quot;1200&quot; y2=&quot;404&quot; stroke=&quot;#272C2C&quot; stroke-width=&quot;2&quot;/&gt;
+    &lt;line x1=&quot;0&quot; y1=&quot;96&quot; x2=&quot;1200&quot; y2=&quot;96&quot; stroke=&quot;#272C2C&quot; stroke-width=&quot;2&quot;/&gt;
+    &lt;g stroke=&quot;#077069&quot; stroke-width=&quot;9&quot; stroke-linecap=&quot;round&quot;&gt;
+      &lt;line x1=&quot;985&quot; y1=&quot;130&quot; x2=&quot;985&quot; y2=&quot;384&quot;/&gt;
+      &lt;line x1=&quot;1045&quot; y1=&quot;170&quot; x2=&quot;1045&quot; y2=&quot;384&quot;/&gt;
+    &lt;/g&gt;
+    &lt;g fill=&quot;#077069&quot; opacity=&quot;.9&quot;&gt;
+      &lt;ellipse cx=&quot;1015&quot; cy=&quot;180&quot; rx=&quot;34&quot; ry=&quot;12&quot; transform=&quot;rotate(-26 1015 180)&quot;/&gt;
+      &lt;ellipse cx=&quot;1010&quot; cy=&quot;250&quot; rx=&quot;34&quot; ry=&quot;12&quot; transform=&quot;rotate(24 1010 250)&quot;/&gt;
+    &lt;/g&gt;
+    &lt;circle cx=&quot;520&quot; cy=&quot;168&quot; r=&quot;58&quot; fill=&quot;#077069&quot;/&gt;
+    &lt;circle cx=&quot;680&quot; cy=&quot;168&quot; r=&quot;58&quot; fill=&quot;#077069&quot;/&gt;
+    &lt;ellipse cx=&quot;600&quot; cy=&quot;286&quot; rx=&quot;172&quot; ry=&quot;150&quot; fill=&quot;none&quot; stroke=&quot;#CDE2E1&quot; stroke-width=&quot;6&quot;/&gt;
+    &lt;ellipse cx=&quot;536&quot; cy=&quot;276&quot; rx=&quot;44&quot; ry=&quot;54&quot; fill=&quot;#077069&quot; transform=&quot;rotate(-18 536 276)&quot;/&gt;
+    &lt;ellipse cx=&quot;664&quot; cy=&quot;276&quot; rx=&quot;44&quot; ry=&quot;54&quot; fill=&quot;#077069&quot; transform=&quot;rotate(18 664 276)&quot;/&gt;
+    &lt;circle cx=&quot;538&quot; cy=&quot;278&quot; r=&quot;12&quot; fill=&quot;#0F1514&quot;/&gt;
+    &lt;circle cx=&quot;662&quot; cy=&quot;278&quot; r=&quot;12&quot; fill=&quot;#0F1514&quot;/&gt;
+    &lt;ellipse cx=&quot;600&quot; cy=&quot;346&quot; rx=&quot;22&quot; ry=&quot;15&quot; fill=&quot;#CDE2E1&quot;/&gt;
+    &lt;path d=&quot;M580 372 q20 18 40 0&quot; fill=&quot;none&quot; stroke=&quot;#CDE2E1&quot; stroke-width=&quot;6&quot; stroke-linecap=&quot;round&quot;/&gt;
+    &lt;g stroke=&quot;#077069&quot; stroke-width=&quot;4&quot;&gt;&lt;line x1=&quot;120&quot; y1=&quot;150&quot; x2=&quot;330&quot; y2=&quot;150&quot;/&gt;&lt;/g&gt;
+    &lt;text x=&quot;120&quot; y=&quot;130&quot; fill=&quot;#83B8B4&quot; font-family=&quot;Poppins,Arial,sans-serif&quot; font-size=&quot;20&quot; font-weight=&quot;700&quot; letter-spacing=&quot;4&quot;&gt;CHENGDU · 2026&lt;/text&gt;
+  &lt;/symbol&gt;
+&lt;/svg&gt;
+
+&lt;div class=&quot;bar&quot;&gt;
+  &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;title&quot;&gt;Campaign Poster — &lt;b&gt;Panda Guardians&lt;/b&gt; · &quot;Belong to the pandas. From anywhere.&quot; · Chengdu Panda Base&lt;/div&gt;
+  &lt;a class=&quot;open&quot; id=&quot;open&quot; href=&quot;poster-b.html&quot; target=&quot;_blank&quot;&gt;Open standalone ↗&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;tabs&quot; id=&quot;tabs&quot;&gt;
+  &lt;button data-style=&quot;a&quot; class=&quot;on&quot;&gt;&lt;span class=&quot;k&quot;&gt;STYLE A&lt;/span&gt;&lt;span class=&quot;t&quot;&gt;Full-Bleed Hero&lt;/span&gt;&lt;div class=&quot;d&quot;&gt;Bold editorial — mass reach&lt;/div&gt;&lt;/button&gt;
+  &lt;button data-style=&quot;b&quot;&gt;&lt;span class=&quot;k&quot;&gt;STYLE B&lt;/span&gt;&lt;span class=&quot;t&quot;&gt;Belonging Passport&lt;/span&gt;&lt;div class=&quot;d&quot;&gt;Cream ticket — membership warmth&lt;/div&gt;&lt;/button&gt;
+  &lt;button data-style=&quot;c&quot;&gt;&lt;span class=&quot;k&quot;&gt;STYLE C&lt;/span&gt;&lt;span class=&quot;t&quot;&gt;Midnight Minimal&lt;/span&gt;&lt;div class=&quot;d&quot;&gt;Swiss dark — premium, brand-led&lt;/div&gt;&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;stack&quot; id=&quot;stack&quot;&gt;
+&lt;article class=&quot;poster p-a&quot; data-style=&quot;a&quot;&gt;
+  &lt;div class=&quot;toprule&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;hero&quot;&gt;
+    &lt;div class=&quot;mast&quot;&gt;
+      &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;client&quot;&gt;Chengdu Panda Base · Global IP&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;kicker&quot;&gt;Global Membership · Conservation-First&lt;/div&gt;
+    &lt;div class=&quot;name&quot;&gt;Panda Guardians&lt;/div&gt;
+    &lt;div class=&quot;tagline&quot;&gt;&quot;Belong to the pandas. From anywhere.&quot;&lt;/div&gt;
+    &lt;div class=&quot;art&quot;&gt;&lt;svg&gt;&lt;use href=&quot;#art-a&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;body&quot;&gt;
+    &lt;div class=&quot;lead&quot;&gt;Adopt a named Chengdu panda. Follow it live. Fund its care. Every membership turns global panda love into real conservation — and earns you a pilgrimage to meet your panda.&lt;/div&gt;
+    &lt;div class=&quot;sec-h&quot;&gt;Choose your Guardian tier&lt;/div&gt;
+    &lt;div class=&quot;cards&quot;&gt;
+      &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;t&quot;&gt;Keeper — Free&lt;/div&gt;&lt;div class=&quot;d&quot;&gt;Follow the panda-cam and one named panda, in your language.&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;t&quot;&gt;Guardian — $9 / month&lt;/div&gt;&lt;div class=&quot;d&quot;&gt;Adopt a named panda, monthly impact report, member-only drops.&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;t&quot;&gt;Patron — $25 / month&lt;/div&gt;&lt;div class=&quot;d&quot;&gt;Everything in Guardian, plus priority drops and a Chengdu pilgrimage perk.&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;sec-h&quot;&gt;Why join&lt;/div&gt;
+    &lt;ul class=&quot;bullets&quot;&gt;&lt;li&gt;Conservation-first — a published share of every tier funds the pandas&#x27; care.&lt;/li&gt;&lt;li&gt;The pandas&#x27; own home, live — official panda-cam and stories you can&#x27;t get elsewhere.&lt;/li&gt;&lt;li&gt;Belong for real — member drops, naming votes and a pilgrimage to Chengdu.&lt;/li&gt;&lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;stats&quot;&gt;
+    &lt;div class=&quot;stat&quot;&gt;&lt;div class=&quot;n&quot;&gt;260&lt;/div&gt;&lt;div class=&quot;c&quot;&gt;giant pandas — the world&#x27;s largest population&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;stat&quot;&gt;&lt;div class=&quot;n&quot;&gt;487K&lt;/div&gt;&lt;div class=&quot;c&quot;&gt;international visitors in 2025, +70.7% YoY&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;stat&quot;&gt;&lt;div class=&quot;n&quot;&gt;2.7M&lt;/div&gt;&lt;div class=&quot;c&quot;&gt;Fu Bao goods sold in Korea alone&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;stat&quot;&gt;&lt;div class=&quot;n&quot;&gt;30-day&lt;/div&gt;&lt;div class=&quot;c&quot;&gt;visa-free access for ~47 countries&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cta&quot;&gt;
+    &lt;div class=&quot;btn&quot;&gt;Become a Guardian&lt;/div&gt;
+    &lt;div class=&quot;meta&quot;&gt;&lt;div class=&quot;hash&quot;&gt;#PandaGuardians&lt;/div&gt;&lt;div class=&quot;url&quot;&gt;pandaguardians.chengdu&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;qr&quot;&gt;&lt;svg viewBox=&quot;0 0 100 100&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+      &lt;rect width=&quot;100&quot; height=&quot;100&quot; fill=&quot;#fff&quot;/&gt;
+      &lt;g fill=&quot;#0F1514&quot;&gt;
+        &lt;rect x=&quot;6&quot; y=&quot;6&quot; width=&quot;26&quot; height=&quot;26&quot;/&gt;&lt;rect x=&quot;68&quot; y=&quot;6&quot; width=&quot;26&quot; height=&quot;26&quot;/&gt;&lt;rect x=&quot;6&quot; y=&quot;68&quot; width=&quot;26&quot; height=&quot;26&quot;/&gt;
+        &lt;rect x=&quot;11&quot; y=&quot;11&quot; width=&quot;16&quot; height=&quot;16&quot; fill=&quot;#fff&quot;/&gt;&lt;rect x=&quot;73&quot; y=&quot;11&quot; width=&quot;16&quot; height=&quot;16&quot; fill=&quot;#fff&quot;/&gt;&lt;rect x=&quot;11&quot; y=&quot;73&quot; width=&quot;16&quot; height=&quot;16&quot; fill=&quot;#fff&quot;/&gt;
+        &lt;rect x=&quot;15&quot; y=&quot;15&quot; width=&quot;8&quot; height=&quot;8&quot;/&gt;&lt;rect x=&quot;77&quot; y=&quot;15&quot; width=&quot;8&quot; height=&quot;8&quot;/&gt;&lt;rect x=&quot;15&quot; y=&quot;77&quot; width=&quot;8&quot; height=&quot;8&quot;/&gt;
+        &lt;rect x=&quot;40&quot; y=&quot;8&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;52&quot; y=&quot;14&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;40&quot; y=&quot;22&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;58&quot; y=&quot;8&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;
+        &lt;rect x=&quot;8&quot; y=&quot;42&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;20&quot; y=&quot;40&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;14&quot; y=&quot;52&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;30&quot; y=&quot;46&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;
+        &lt;rect x=&quot;40&quot; y=&quot;40&quot; width=&quot;8&quot; height=&quot;8&quot;/&gt;&lt;rect x=&quot;54&quot; y=&quot;44&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;66&quot; y=&quot;40&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;78&quot; y=&quot;46&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;88&quot; y=&quot;40&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;
+        &lt;rect x=&quot;44&quot; y=&quot;56&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;58&quot; y=&quot;60&quot; width=&quot;8&quot; height=&quot;8&quot;/&gt;&lt;rect x=&quot;72&quot; y=&quot;56&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;84&quot; y=&quot;60&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;
+        &lt;rect x=&quot;40&quot; y=&quot;72&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;52&quot; y=&quot;78&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;66&quot; y=&quot;74&quot; width=&quot;8&quot; height=&quot;8&quot;/&gt;&lt;rect x=&quot;80&quot; y=&quot;78&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;90&quot; y=&quot;72&quot; width=&quot;4&quot; height=&quot;4&quot;/&gt;
+        &lt;rect x=&quot;40&quot; y=&quot;88&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;56&quot; y=&quot;88&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;72&quot; y=&quot;88&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;86&quot; y=&quot;88&quot; width=&quot;8&quot; height=&quot;8&quot;/&gt;
+      &lt;/g&gt;
+    &lt;/svg&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;foot&quot;&gt;
+    &lt;div class=&quot;partners&quot;&gt;Chengdu Research Base of Giant Panda Breeding · Global Brand &amp;amp; IP Division&lt;/div&gt;
+    &lt;div class=&quot;src&quot;&gt;Sources: Xinhua; NHK; Hankook Ilbo; NBS/NIA; Quest Scout Report · Data as of 2026-10-06&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/article&gt;
+&lt;article class=&quot;poster p-b&quot; data-style=&quot;b&quot;&gt;
+  &lt;div class=&quot;toprule&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;hero&quot;&gt;
+    &lt;div class=&quot;mast&quot;&gt;
+      &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;client&quot;&gt;Chengdu Panda Base · Global IP&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;kicker&quot;&gt;Global Membership · Conservation-First&lt;/div&gt;
+    &lt;div class=&quot;name&quot;&gt;Panda Guardians&lt;/div&gt;
+    &lt;div class=&quot;tagline&quot;&gt;&quot;Belong to the pandas. From anywhere.&quot;&lt;/div&gt;
+    &lt;div class=&quot;art&quot;&gt;&lt;svg&gt;&lt;use href=&quot;#art-b&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;body&quot;&gt;
+    &lt;div class=&quot;lead&quot;&gt;Adopt a named Chengdu panda. Follow it live. Fund its care. Every membership turns global panda love into real conservation — and earns you a pilgrimage to meet your panda.&lt;/div&gt;
+    &lt;div class=&quot;sec-h&quot;&gt;Choose your Guardian tier&lt;/div&gt;
+    &lt;div class=&quot;cards&quot;&gt;
+      &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;t&quot;&gt;Keeper — Free&lt;/div&gt;&lt;div class=&quot;d&quot;&gt;Follow the panda-cam and one named panda, in your language.&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;t&quot;&gt;Guardian — $9 / month&lt;/div&gt;&lt;div class=&quot;d&quot;&gt;Adopt a named panda, monthly impact report, member-only drops.&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;t&quot;&gt;Patron — $25 / month&lt;/div&gt;&lt;div class=&quot;d&quot;&gt;Everything in Guardian, plus priority drops and a Chengdu pilgrimage perk.&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;sec-h&quot;&gt;Why join&lt;/div&gt;
+    &lt;ul class=&quot;bullets&quot;&gt;&lt;li&gt;Conservation-first — a published share of every tier funds the pandas&#x27; care.&lt;/li&gt;&lt;li&gt;The pandas&#x27; own home, live — official panda-cam and stories you can&#x27;t get elsewhere.&lt;/li&gt;&lt;li&gt;Belong for real — member drops, naming votes and a pilgrimage to Chengdu.&lt;/li&gt;&lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;stats&quot;&gt;
+    &lt;div class=&quot;stat&quot;&gt;&lt;div class=&quot;n&quot;&gt;260&lt;/div&gt;&lt;div class=&quot;c&quot;&gt;giant pandas — the world&#x27;s largest population&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;stat&quot;&gt;&lt;div class=&quot;n&quot;&gt;487K&lt;/div&gt;&lt;div class=&quot;c&quot;&gt;international visitors in 2025, +70.7% YoY&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;stat&quot;&gt;&lt;div class=&quot;n&quot;&gt;2.7M&lt;/div&gt;&lt;div class=&quot;c&quot;&gt;Fu Bao goods sold in Korea alone&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;stat&quot;&gt;&lt;div class=&quot;n&quot;&gt;30-day&lt;/div&gt;&lt;div class=&quot;c&quot;&gt;visa-free access for ~47 countries&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cta&quot;&gt;
+    &lt;div class=&quot;btn&quot;&gt;Become a Guardian&lt;/div&gt;
+    &lt;div class=&quot;meta&quot;&gt;&lt;div class=&quot;hash&quot;&gt;#PandaGuardians&lt;/div&gt;&lt;div class=&quot;url&quot;&gt;pandaguardians.chengdu&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;qr&quot;&gt;&lt;svg viewBox=&quot;0 0 100 100&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+      &lt;rect width=&quot;100&quot; height=&quot;100&quot; fill=&quot;#fff&quot;/&gt;
+      &lt;g fill=&quot;#0F1514&quot;&gt;
+        &lt;rect x=&quot;6&quot; y=&quot;6&quot; width=&quot;26&quot; height=&quot;26&quot;/&gt;&lt;rect x=&quot;68&quot; y=&quot;6&quot; width=&quot;26&quot; height=&quot;26&quot;/&gt;&lt;rect x=&quot;6&quot; y=&quot;68&quot; width=&quot;26&quot; height=&quot;26&quot;/&gt;
+        &lt;rect x=&quot;11&quot; y=&quot;11&quot; width=&quot;16&quot; height=&quot;16&quot; fill=&quot;#fff&quot;/&gt;&lt;rect x=&quot;73&quot; y=&quot;11&quot; width=&quot;16&quot; height=&quot;16&quot; fill=&quot;#fff&quot;/&gt;&lt;rect x=&quot;11&quot; y=&quot;73&quot; width=&quot;16&quot; height=&quot;16&quot; fill=&quot;#fff&quot;/&gt;
+        &lt;rect x=&quot;15&quot; y=&quot;15&quot; width=&quot;8&quot; height=&quot;8&quot;/&gt;&lt;rect x=&quot;77&quot; y=&quot;15&quot; width=&quot;8&quot; height=&quot;8&quot;/&gt;&lt;rect x=&quot;15&quot; y=&quot;77&quot; width=&quot;8&quot; height=&quot;8&quot;/&gt;
+        &lt;rect x=&quot;40&quot; y=&quot;8&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;52&quot; y=&quot;14&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;40&quot; y=&quot;22&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;58&quot; y=&quot;8&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;
+        &lt;rect x=&quot;8&quot; y=&quot;42&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;20&quot; y=&quot;40&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;14&quot; y=&quot;52&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;30&quot; y=&quot;46&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;
+        &lt;rect x=&quot;40&quot; y=&quot;40&quot; width=&quot;8&quot; height=&quot;8&quot;/&gt;&lt;rect x=&quot;54&quot; y=&quot;44&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;66&quot; y=&quot;40&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;78&quot; y=&quot;46&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;88&quot; y=&quot;40&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;
+        &lt;rect x=&quot;44&quot; y=&quot;56&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;58&quot; y=&quot;60&quot; width=&quot;8&quot; height=&quot;8&quot;/&gt;&lt;rect x=&quot;72&quot; y=&quot;56&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;84&quot; y=&quot;60&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;
+        &lt;rect x=&quot;40&quot; y=&quot;72&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;52&quot; y=&quot;78&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;66&quot; y=&quot;74&quot; width=&quot;8&quot; height=&quot;8&quot;/&gt;&lt;rect x=&quot;80&quot; y=&quot;78&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;90&quot; y=&quot;72&quot; width=&quot;4&quot; height=&quot;4&quot;/&gt;
+        &lt;rect x=&quot;40&quot; y=&quot;88&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;56&quot; y=&quot;88&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;72&quot; y=&quot;88&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;86&quot; y=&quot;88&quot; width=&quot;8&quot; height=&quot;8&quot;/&gt;
+      &lt;/g&gt;
+    &lt;/svg&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;foot&quot;&gt;
+    &lt;div class=&quot;partners&quot;&gt;Chengdu Research Base of Giant Panda Breeding · Global Brand &amp;amp; IP Division&lt;/div&gt;
+    &lt;div class=&quot;src&quot;&gt;Sources: Xinhua; NHK; Hankook Ilbo; NBS/NIA; Quest Scout Report · Data as of 2026-10-06&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/article&gt;
+&lt;article class=&quot;poster p-c&quot; data-style=&quot;c&quot;&gt;
+  &lt;div class=&quot;toprule&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;hero&quot;&gt;
+    &lt;div class=&quot;mast&quot;&gt;
+      &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;client&quot;&gt;Chengdu Panda Base · Global IP&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;kicker&quot;&gt;Global Membership · Conservation-First&lt;/div&gt;
+    &lt;div class=&quot;name&quot;&gt;Panda Guardians&lt;/div&gt;
+    &lt;div class=&quot;tagline&quot;&gt;&quot;Belong to the pandas. From anywhere.&quot;&lt;/div&gt;
+    &lt;div class=&quot;art&quot;&gt;&lt;svg&gt;&lt;use href=&quot;#art-c&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;body&quot;&gt;
+    &lt;div class=&quot;lead&quot;&gt;Adopt a named Chengdu panda. Follow it live. Fund its care. Every membership turns global panda love into real conservation — and earns you a pilgrimage to meet your panda.&lt;/div&gt;
+    &lt;div class=&quot;sec-h&quot;&gt;Choose your Guardian tier&lt;/div&gt;
+    &lt;div class=&quot;cards&quot;&gt;
+      &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;t&quot;&gt;Keeper — Free&lt;/div&gt;&lt;div class=&quot;d&quot;&gt;Follow the panda-cam and one named panda, in your language.&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;t&quot;&gt;Guardian — $9 / month&lt;/div&gt;&lt;div class=&quot;d&quot;&gt;Adopt a named panda, monthly impact report, member-only drops.&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;t&quot;&gt;Patron — $25 / month&lt;/div&gt;&lt;div class=&quot;d&quot;&gt;Everything in Guardian, plus priority drops and a Chengdu pilgrimage perk.&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;sec-h&quot;&gt;Why join&lt;/div&gt;
+    &lt;ul class=&quot;bullets&quot;&gt;&lt;li&gt;Conservation-first — a published share of every tier funds the pandas&#x27; care.&lt;/li&gt;&lt;li&gt;The pandas&#x27; own home, live — official panda-cam and stories you can&#x27;t get elsewhere.&lt;/li&gt;&lt;li&gt;Belong for real — member drops, naming votes and a pilgrimage to Chengdu.&lt;/li&gt;&lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;stats&quot;&gt;
+    &lt;div class=&quot;stat&quot;&gt;&lt;div class=&quot;n&quot;&gt;260&lt;/div&gt;&lt;div class=&quot;c&quot;&gt;giant pandas — the world&#x27;s largest population&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;stat&quot;&gt;&lt;div class=&quot;n&quot;&gt;487K&lt;/div&gt;&lt;div class=&quot;c&quot;&gt;international visitors in 2025, +70.7% YoY&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;stat&quot;&gt;&lt;div class=&quot;n&quot;&gt;2.7M&lt;/div&gt;&lt;div class=&quot;c&quot;&gt;Fu Bao goods sold in Korea alone&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;stat&quot;&gt;&lt;div class=&quot;n&quot;&gt;30-day&lt;/div&gt;&lt;div class=&quot;c&quot;&gt;visa-free access for ~47 countries&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cta&quot;&gt;
+    &lt;div class=&quot;btn&quot;&gt;Become a Guardian&lt;/div&gt;
+    &lt;div class=&quot;meta&quot;&gt;&lt;div class=&quot;hash&quot;&gt;#PandaGuardians&lt;/div&gt;&lt;div class=&quot;url&quot;&gt;pandaguardians.chengdu&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;qr&quot;&gt;&lt;svg viewBox=&quot;0 0 100 100&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+      &lt;rect width=&quot;100&quot; height=&quot;100&quot; fill=&quot;#fff&quot;/&gt;
+      &lt;g fill=&quot;#0F1514&quot;&gt;
+        &lt;rect x=&quot;6&quot; y=&quot;6&quot; width=&quot;26&quot; height=&quot;26&quot;/&gt;&lt;rect x=&quot;68&quot; y=&quot;6&quot; width=&quot;26&quot; height=&quot;26&quot;/&gt;&lt;rect x=&quot;6&quot; y=&quot;68&quot; width=&quot;26&quot; height=&quot;26&quot;/&gt;
+        &lt;rect x=&quot;11&quot; y=&quot;11&quot; width=&quot;16&quot; height=&quot;16&quot; fill=&quot;#fff&quot;/&gt;&lt;rect x=&quot;73&quot; y=&quot;11&quot; width=&quot;16&quot; height=&quot;16&quot; fill=&quot;#fff&quot;/&gt;&lt;rect x=&quot;11&quot; y=&quot;73&quot; width=&quot;16&quot; height=&quot;16&quot; fill=&quot;#fff&quot;/&gt;
+        &lt;rect x=&quot;15&quot; y=&quot;15&quot; width=&quot;8&quot; height=&quot;8&quot;/&gt;&lt;rect x=&quot;77&quot; y=&quot;15&quot; width=&quot;8&quot; height=&quot;8&quot;/&gt;&lt;rect x=&quot;15&quot; y=&quot;77&quot; width=&quot;8&quot; height=&quot;8&quot;/&gt;
+        &lt;rect x=&quot;40&quot; y=&quot;8&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;52&quot; y=&quot;14&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;40&quot; y=&quot;22&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;58&quot; y=&quot;8&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;
+        &lt;rect x=&quot;8&quot; y=&quot;42&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;20&quot; y=&quot;40&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;14&quot; y=&quot;52&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;30&quot; y=&quot;46&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;
+        &lt;rect x=&quot;40&quot; y=&quot;40&quot; width=&quot;8&quot; height=&quot;8&quot;/&gt;&lt;rect x=&quot;54&quot; y=&quot;44&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;66&quot; y=&quot;40&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;78&quot; y=&quot;46&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;88&quot; y=&quot;40&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;
+        &lt;rect x=&quot;44&quot; y=&quot;56&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;58&quot; y=&quot;60&quot; width=&quot;8&quot; height=&quot;8&quot;/&gt;&lt;rect x=&quot;72&quot; y=&quot;56&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;84&quot; y=&quot;60&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;
+        &lt;rect x=&quot;40&quot; y=&quot;72&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;52&quot; y=&quot;78&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;66&quot; y=&quot;74&quot; width=&quot;8&quot; height=&quot;8&quot;/&gt;&lt;rect x=&quot;80&quot; y=&quot;78&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;90&quot; y=&quot;72&quot; width=&quot;4&quot; height=&quot;4&quot;/&gt;
+        &lt;rect x=&quot;40&quot; y=&quot;88&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;56&quot; y=&quot;88&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;72&quot; y=&quot;88&quot; width=&quot;6&quot; height=&quot;6&quot;/&gt;&lt;rect x=&quot;86&quot; y=&quot;88&quot; width=&quot;8&quot; height=&quot;8&quot;/&gt;
+      &lt;/g&gt;
+    &lt;/svg&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;foot&quot;&gt;
+    &lt;div class=&quot;partners&quot;&gt;Chengdu Research Base of Giant Panda Breeding · Global Brand &amp;amp; IP Division&lt;/div&gt;
+    &lt;div class=&quot;src&quot;&gt;Sources: Xinhua; NHK; Hankook Ilbo; NBS/NIA; Quest Scout Report · Data as of 2026-10-06&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/article&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+(function(){
+  var stack = document.getElementById(&#x27;stack&#x27;);
+  var open  = document.getElementById(&#x27;open&#x27;);
+  var tabs  = Array.prototype.slice.call(document.querySelectorAll(&#x27;#tabs button&#x27;));
+  var posters = Array.prototype.slice.call(stack.querySelectorAll(&#x27;.poster&#x27;));
+
+  function keyFromLocation(){
+    var m = (location.hash || &#x27;&#x27;).match(/style-([abc])/i);
+    if(m) return m[1].toLowerCase();
+    var q = (location.search || &#x27;&#x27;).match(/[?&amp;]style=([abc])/i);
+    return q ? q[1].toLowerCase() : null;
+  }
+  function apply(){
+    var key = keyFromLocation() || &#x27;b&#x27;;
+    tabs.forEach(function(b){ b.classList.toggle(&#x27;on&#x27;, b.getAttribute(&#x27;data-style&#x27;) === key); });
+    posters.forEach(function(p){ p.classList.toggle(&#x27;on&#x27;, p.getAttribute(&#x27;data-style&#x27;) === key); });
+    open.setAttribute(&#x27;href&#x27;, &#x27;poster-&#x27; + key + &#x27;.html&#x27;);
+  }
+  tabs.forEach(function(b){
+    b.addEventListener(&#x27;click&#x27;, function(){ location.hash = &#x27;style-&#x27; + b.getAttribute(&#x27;data-style&#x27;); apply(); });
+  });
+  window.addEventListener(&#x27;hashchange&#x27;, apply);
+  apply();
+})();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe></div>
+  </section>
+
+  <!-- 05 · PROOF & METRICS (full artifact) -->
+  <section class="pane" id="pane-proof">
+    <div class="viewer"><iframe data-auto title="Pilot Metrics" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;title&gt;Pilot Metrics · Quest B · Chengdu Panda Base&lt;/title&gt;
+&lt;style&gt;
+  :root{
+    --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
+    --orange-1:#FFF0E7; --orange-2:#FFD1B8;
+    --teal:#077069; --teal-1:#CDE2E1;
+    --line:#E4E8E7; --bg:#F7F6F4; --card:#FFFFFF; --mut:#5A6663;
+    --accent: var(--ascentium-orange); --accent-tint: var(--orange-1); --accent-line: var(--orange-2);
+  }
+  /* Quest accent is injected from the quest card as inline vars on &lt;body&gt; (see quest-card.md). */
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:&quot;Poppins&quot;,&quot;Noto Sans SC&quot;,&quot;PingFang SC&quot;,&quot;Microsoft YaHei&quot;,Arial,sans-serif;
+       background:var(--bg);color:var(--ascentium-midnight);-webkit-font-smoothing:antialiased;}
+  .page{max-width:1080px;margin:0 auto;padding:18px 24px 20px;min-height:100vh;display:flex;flex-direction:column;}
+  .brandbar{display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--accent);padding-bottom:11px;}
+  .brandbar .logo{font-weight:700;font-size:19px;}
+  .brandbar .logo span{color:var(--accent);}
+  .brandbar .tag{font-size:11px;font-weight:600;color:var(--mut);letter-spacing:.14em;text-transform:uppercase;}
+  h1{font-size:25px;font-weight:800;margin-top:10px;letter-spacing:-.01em;}
+  .sub{margin-top:5px;font-size:12.5px;color:var(--mut);}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin-top:10px;}
+  .card h2{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:9px;}
+
+  /* ---- pilot funnel ---- */
+  .funnel{display:grid;grid-template-columns:repeat(4,1fr);}
+  .fstep{padding:8px 12px 8px 18px;background:var(--accent-tint);border:1px solid var(--accent-line);}
+  .fstep:first-child{padding-left:15px;border-radius:11px 0 0 11px;}
+  .fstep:last-child{border-radius:0 11px 11px 0;}
+  .fstep:not(:first-child){border-left:none;}
+  .fstep .fl{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);}
+  .fstep .fv{font-size:18px;font-weight:800;margin-top:4px;line-height:1.05;}
+  .fstep .fn{font-size:10px;color:var(--mut);margin-top:3px;line-height:1.35;}
+
+  /* ---- metric tiles ---- */
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px;}
+  .tile{background:var(--bg);border:1px solid var(--line);border-radius:11px;padding:10px 12px;}
+  .tile .dm{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);}
+  .tile .v{font-size:24px;font-weight:800;margin-top:5px;line-height:1;}
+  .tile .n{font-size:11px;color:var(--mut);margin-top:6px;line-height:1.35;}
+
+  /* ---- derivation ---- */
+  .deriv{display:grid;gap:8px;}
+  .drow{display:grid;grid-template-columns:180px 88px 1fr;gap:12px;align-items:center;
+        background:var(--card);border:1px solid var(--line);border-radius:10px;padding:7px 12px;}
+  .drow .m{font-size:12px;font-weight:600;}
+  .drow .t{font-size:14px;font-weight:800;color:var(--accent);text-align:right;}
+  .drow .chain{font-size:11px;color:#3B4442;line-height:1.5;}
+  .drow .chain b{color:var(--ascentium-midnight);}
+  .drow .chain .arr{color:var(--accent);font-weight:700;}
+  footer{margin-top:auto;border-top:1px dashed var(--line);padding-top:10px;font-size:10px;color:#9AA5A2;}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body data-quest=&quot;B&quot; style=&quot;--accent:#077069;--accent-tint:#CDE2E1;--accent-line:#83B8B4;--accent-deep:#043835;&quot;&gt;
+&lt;div class=&quot;page&quot;&gt;
+
+  &lt;div class=&quot;brandbar&quot;&gt;
+    &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;tag&quot;&gt;Pilot Metrics · Quest B&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;h1&gt;What the pilot must hit — and how we get there&lt;/h1&gt;
+  &lt;div class=&quot;sub&quot;&gt;Chengdu Research Base of Giant Panda Breeding &amp;nbsp;|&amp;nbsp; 2 pilot markets: Japan + South Korea &amp;nbsp;|&amp;nbsp; 3-month pilot &amp;nbsp;|&amp;nbsp; MVP budget USD 1.1M&lt;/div&gt;
+
+  &lt;!-- 1 · Pilot funnel (expected targets) --&gt;
+  &lt;div class=&quot;card&quot;&gt;
+    &lt;h2&gt;1 · Pilot funnel — expected targets&lt;/h2&gt;
+    &lt;div class=&quot;funnel&quot;&gt;
+      &lt;div class=&quot;fstep&quot;&gt;&lt;div class=&quot;fl&quot;&gt;Reach&lt;/div&gt;&lt;div class=&quot;fv&quot;&gt;50M&lt;/div&gt;&lt;div class=&quot;fn&quot;&gt;Creator reach, 6 weeks&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;fstep&quot;&gt;&lt;div class=&quot;fl&quot;&gt;Engagement&lt;/div&gt;&lt;div class=&quot;fv&quot;&gt;2.2%&lt;/div&gt;&lt;div class=&quot;fn&quot;&gt;Keeper → Guardian conversion&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;fstep&quot;&gt;&lt;div class=&quot;fl&quot;&gt;Conversion&lt;/div&gt;&lt;div class=&quot;fv&quot;&gt;30%&lt;/div&gt;&lt;div class=&quot;fn&quot;&gt;Member drop / merch attach&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;fstep&quot;&gt;&lt;div class=&quot;fl&quot;&gt;Outcome&lt;/div&gt;&lt;div class=&quot;fv&quot;&gt;≤ $13&lt;/div&gt;&lt;div class=&quot;fn&quot;&gt;Blended CAC per Guardian&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- 2 · The metrics we expect to hit --&gt;
+  &lt;div class=&quot;card&quot;&gt;
+    &lt;h2&gt;2 · The metrics we expect the pilot to hit&lt;/h2&gt;
+    &lt;div class=&quot;tiles&quot;&gt;
+      &lt;div class=&quot;tile&quot;&gt;&lt;div class=&quot;dm&quot;&gt;Reach&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;50M&lt;/div&gt;&lt;div class=&quot;n&quot;&gt;Creator reach (6 weeks, JP+KR)&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;tile&quot;&gt;&lt;div class=&quot;dm&quot;&gt;Engagement&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;2.2%&lt;/div&gt;&lt;div class=&quot;n&quot;&gt;Free Keeper → paid Guardian conversion&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;tile&quot;&gt;&lt;div class=&quot;dm&quot;&gt;Conversion&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;25,000&lt;/div&gt;&lt;div class=&quot;n&quot;&gt;Paying Guardians acquired in 3 months&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;tile&quot;&gt;&lt;div class=&quot;dm&quot;&gt;Conversion&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;30%&lt;/div&gt;&lt;div class=&quot;n&quot;&gt;Member drop / merch attach rate&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;tile&quot;&gt;&lt;div class=&quot;dm&quot;&gt;Outcome&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;≤ $13&lt;/div&gt;&lt;div class=&quot;n&quot;&gt;Blended CAC per paying Guardian&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- 3 · Derivation logic --&gt;
+  &lt;div class=&quot;card&quot;&gt;
+    &lt;h2&gt;3 · How each number is derived&lt;/h2&gt;
+    &lt;div class=&quot;deriv&quot;&gt;
+      &lt;div class=&quot;drow&quot;&gt;&lt;div class=&quot;m&quot;&gt;Creator reach (6 weeks)&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;50M&lt;/div&gt;&lt;div class=&quot;chain&quot;&gt;&lt;b&gt;Japan&#x27;s panda-less void (NHK 2025-12-15) + panda-monium earning billions of views&lt;/b&gt; &lt;span class=&quot;arr&quot;&gt;&amp;rarr;&lt;/span&gt; a 6-week JP+KR creator push reaches ~40% of an addressed fan base of ~125M &lt;span class=&quot;arr&quot;&gt;&amp;rarr;&lt;/span&gt; sum of campaign impressions (organic + paid)&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;drow&quot;&gt;&lt;div class=&quot;m&quot;&gt;Free → Guardian conversion&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;2.2%&lt;/div&gt;&lt;div class=&quot;chain&quot;&gt;&lt;b&gt;Patreon free-to-paid average ~2% (best-in-class ~10%) — Okoa 2024&lt;/b&gt; &lt;span class=&quot;arr&quot;&gt;&amp;rarr;&lt;/span&gt; a named-panda offer + live panda-cam converts around the Patreon average &lt;span class=&quot;arr&quot;&gt;&amp;rarr;&lt;/span&gt; paying Guardians / registered Keepers&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;drow&quot;&gt;&lt;div class=&quot;m&quot;&gt;Paying Guardians (3 months)&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;25,000&lt;/div&gt;&lt;div class=&quot;chain&quot;&gt;&lt;b&gt;He Hua photobook &amp;gt;100K copies; Fu Bao 2.7M goods; 250K Ueno debut applications&lt;/b&gt; &lt;span class=&quot;arr&quot;&gt;&amp;rarr;&lt;/span&gt; JP+KR converts 2.2% of a ~1.14M free Keeper base &lt;span class=&quot;arr&quot;&gt;&amp;rarr;&lt;/span&gt; Keepers &amp;times; 2.2%&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;drow&quot;&gt;&lt;div class=&quot;m&quot;&gt;Blended CAC per Guardian&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;≤ $13&lt;/div&gt;&lt;div class=&quot;chain&quot;&gt;&lt;b&gt;Facebook arts/entertainment CPL USD 18.17; Google Events USD 26.84 (Venuera 2026-07)&lt;/b&gt; &lt;span class=&quot;arr&quot;&gt;&amp;rarr;&lt;/span&gt; creator-led organic + member referral cuts paid dependency ~30% &lt;span class=&quot;arr&quot;&gt;&amp;rarr;&lt;/span&gt; paid media spend / paying Guardians&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;drow&quot;&gt;&lt;div class=&quot;m&quot;&gt;Member drop / merch attach&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;30%&lt;/div&gt;&lt;div class=&quot;chain&quot;&gt;&lt;b&gt;Fu Bao 2.7M goods; Seoul pop-up &amp;gt;₩1B and sold out in 5 min (Hankook Ilbo 2024)&lt;/b&gt; &lt;span class=&quot;arr&quot;&gt;&amp;rarr;&lt;/span&gt; 3 in 10 Guardians buy at least one limited drop &lt;span class=&quot;arr&quot;&gt;&amp;rarr;&lt;/span&gt; Guardians with ≥1 purchase / total Guardians&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;footer&gt;Human-led, AI-scaffolded. Benchmarks cited from the Quest Scout Report + live research via agent-reach. These are pilot targets, not full-scale projections. Data as of 2026-10-06.&lt;/footer&gt;
+
+&lt;/div&gt;
+
+&lt;!-- structured capture — invisible in the page; the next gate reads this block (see facilitation/capture-contract.md) --&gt;
+&lt;script type=&quot;application/json&quot; id=&quot;capture&quot;&gt;
+{
+  &quot;gate&quot;: &quot;prove&quot;,
+  &quot;quest&quot;: &quot;B&quot;,
+  &quot;pilot&quot;: {
+    &quot;window&quot;: &quot;3 months&quot;,
+    &quot;markets&quot;: [&quot;Japan&quot;, &quot;South Korea&quot;],
+    &quot;budget&quot;: &quot;USD 1.1M (10% MVP unlock)&quot;
+  },
+  &quot;metrics&quot;: [
+    {
+      &quot;name&quot;: &quot;Creator reach (6 weeks)&quot;,
+      &quot;dimension&quot;: &quot;reach&quot;,
+      &quot;target&quot;: &quot;50M&quot;,
+      &quot;derivation&quot;: {
+        &quot;benchmark_ref&quot;: &quot;Panda-monium earns billions of views; Ueno&#x27;s Jan 2026 panda return was a national news event (NHK 2025-12-15)&quot;,
+        &quot;formula&quot;: &quot;sum of campaign impressions (organic creator + paid)&quot;,
+        &quot;assumptions&quot;: [
+          &quot;A 6-week JP+KR creator push reaches ~40% of an addressed fan base of ~125M&quot;,
+          &quot;Japan&#x27;s panda-less void supplies an organic news hook&quot;
+        ],
+        &quot;logic&quot;: &quot;If reach rebuilds the addressed fan base, qualified visits — and therefore Keepers — follow.&quot;
+      }
+    },
+    {
+      &quot;name&quot;: &quot;Free Keeper to paid Guardian conversion&quot;,
+      &quot;dimension&quot;: &quot;engagement&quot;,
+      &quot;target&quot;: &quot;2.2%&quot;,
+      &quot;derivation&quot;: {
+        &quot;benchmark_ref&quot;: &quot;Patreon free-to-paid averages ~2%, best-in-class ~10% (Okoa 2024)&quot;,
+        &quot;formula&quot;: &quot;paying Guardians / registered free Keepers&quot;,
+        &quot;assumptions&quot;: [
+          &quot;A named-panda offer plus an always-on panda-cam converts around the Patreon average&quot;
+        ],
+        &quot;logic&quot;: &quot;If free fans convert to paid at the creator-community norm, the membership model is validated.&quot;
+      }
+    },
+    {
+      &quot;name&quot;: &quot;Paying Guardians acquired (3 months)&quot;,
+      &quot;dimension&quot;: &quot;conversion&quot;,
+      &quot;target&quot;: &quot;25,000&quot;,
+      &quot;derivation&quot;: {
+        &quot;benchmark_ref&quot;: &quot;He Hua photobook &gt;100K copies; Fu Bao 2.7M goods; 250K applications to see Xiang Xiang on debut (Tencent 2024; Hankook Ilbo 2024; People&#x27;s Daily 2017)&quot;,
+        &quot;formula&quot;: &quot;free Keepers x 2.2% conversion&quot;,
+        &quot;assumptions&quot;: [
+          &quot;JP+KR builds a ~1.14M free Keeper base over 3 months&quot;,
+          &quot;Conversion holds at the creator-community average&quot;
+        ],
+        &quot;logic&quot;: &quot;If 25K paying Guardians are acquired in 2 markets in 3 months, the 12-month / 1M-member trajectory is credible.&quot;
+      }
+    },
+    {
+      &quot;name&quot;: &quot;Blended CAC per paying Guardian&quot;,
+      &quot;dimension&quot;: &quot;outcome&quot;,
+      &quot;target&quot;: &quot;&lt;= USD 13&quot;,
+      &quot;derivation&quot;: {
+        &quot;benchmark_ref&quot;: &quot;Facebook arts/entertainment CPL USD 18.17; Google Events cost/conversion USD 26.84 (Venuera 2026-07)&quot;,
+        &quot;formula&quot;: &quot;paid media spend / paying Guardians&quot;,
+        &quot;assumptions&quot;: [
+          &quot;Creator-led organic content plus member referral lowers paid dependency by ~30%&quot;,
+          &quot;USD ~325K of the USD 1.1M is paid media&quot;
+        ],
+        &quot;logic&quot;: &quot;If CAC stays under USD 13, the full USD 11M can acquire members at scale efficiently.&quot;
+      }
+    },
+    {
+      &quot;name&quot;: &quot;Member drop / merch attach rate&quot;,
+      &quot;dimension&quot;: &quot;conversion&quot;,
+      &quot;target&quot;: &quot;30%&quot;,
+      &quot;derivation&quot;: {
+        &quot;benchmark_ref&quot;: &quot;Fu Bao sold 2.7M goods; a 13-day Seoul pop-up earned &gt;KRW 1B and sold out in 5 minutes (Hankook Ilbo/MK 2024)&quot;,
+        &quot;formula&quot;: &quot;Guardians with &gt;=1 drop purchase / total Guardians&quot;,
+        &quot;assumptions&quot;: [
+          &quot;3 in 10 Guardians buy at least one limited-edition drop&quot;
+        ],
+        &quot;logic&quot;: &quot;If drops attach, non-ticket revenue per member rises and the USD 28M licensing goal comes into range.&quot;
+      }
+    }
+  ],
+  &quot;selected_metrics_reason&quot;: &quot;Chosen to cover the full funnel (reach → engagement → conversion → outcome) and to test the mission&#x27;s core claim: overseas panda fandom can be converted into a paying, recurring global membership at defensible creator-economics rates.&quot;,
+  &quot;source_note&quot;: &quot;Benchmarks: Quest Scout Report + live agent-reach research (NHK, Xinhua/NBS, Hankook Ilbo, Tencent, Venuera, Okoa, Dataslayer) · Data as of 2026-10-06&quot;
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe></div>
+  </section>
+
+  <!-- 06 · PITCH DECK (full artifact · fixed viewport height) -->
+  <section class="pane" id="pane-deck">
+    <div class="viewer"><iframe data-fixed="620" title="Pitch Deck" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;!-- STORYLINE: classic | hero | reveal | demo | trailer (set on &lt;body data-storyline&gt;) --&gt;
+&lt;title&gt;Panda Guardians · Pitch Deck · Quest B&lt;/title&gt;
+&lt;style&gt;
+  :root{
+    --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
+    --orange-1:#FFF0E7; --orange-2:#FFD1B8; --orange-3:#FFA370;
+    --teal:#077069; --teal-1:#CDE2E1; --teal-3:#398D87;
+    --gold:#B98A1D; --gold1:#F7ECD2; --red:#C0392B; --red1:#FBE4E1;
+    --sky:#1877F2; --sky1:#BDD5EF;
+    --line:#E4E8E7; --mut:#5A6663; --go:#077069; --nogo:#DC3545;
+    --accent: var(--ascentium-orange); --accent-tint: var(--orange-1); --accent-line: var(--orange-2);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:100%;height:100%;}
+  body{font-family:&quot;Poppins&quot;,&quot;Noto Sans SC&quot;,&quot;PingFang SC&quot;,&quot;Microsoft YaHei&quot;,Arial,sans-serif;
+       background:#202524;color:var(--ascentium-midnight);overflow:hidden;}
+  .stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#202524;}
+  .deck{width:1000px;height:562px;position:relative;background:#fff;overflow:hidden;flex:none;
+        border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.4);transform-origin:center center;}
+  .slide{position:absolute;inset:0;padding:44px 54px;display:flex;flex-direction:column;
+         opacity:0;pointer-events:none;transition:opacity .35s ease;}
+  .slide.on{opacity:1;pointer-events:auto;}
+  .logo{position:absolute;top:24px;right:34px;font-size:13px;font-weight:700;}
+  .logo span{color:var(--accent);}
+  .beat{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);}
+  h2{font-size:36px;font-weight:800;line-height:1.1;letter-spacing:-.01em;margin-top:12px;max-width:840px;}
+  h2.sm{font-size:28px;}
+  p.lead{font-size:16px;line-height:1.55;margin-top:14px;max-width:820px;color:#28302E;}
+  .nav{position:absolute;bottom:16px;left:54px;right:54px;display:flex;align-items:center;gap:14px;}
+  .dots{display:flex;gap:6px;}
+  .dot{width:8px;height:8px;border-radius:999px;background:#D5DAD9;transition:all .25s;}
+  .dot.on{background:var(--accent);width:22px;}
+  .pgnum{font-size:11px;color:var(--mut);font-weight:600;letter-spacing:.06em;}
+  .hint{font-size:10px;color:#9AA5A2;margin-left:auto;}
+  .statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px;}
+  .stat{border-radius:14px;padding:18px;border:1px solid var(--line);}
+  .stat.gold{background:var(--gold1);border-color:#EAD9AC;}
+  .stat.red{background:var(--red1);border-color:#F0C4BE;}
+  .stat.sky{background:var(--sky1);border-color:#A9C6EA;}
+  .stat .n{font-size:40px;font-weight:800;line-height:1;}
+  .stat.gold .n{color:var(--gold);} .stat.red .n{color:var(--red);} .stat.sky .n{color:var(--sky);}
+  .stat .c{font-size:12px;margin-top:9px;line-height:1.5;color:#28302E;}
+  .stat .l{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:9px;}
+  .stat.gold .l{color:var(--gold);} .stat.red .l{color:var(--red);} .stat.sky .l{color:var(--sky);}
+  .accentbox{background:var(--accent-tint);border-left:6px solid var(--accent);border-radius:10px;
+             padding:16px 20px;margin-top:auto;font-size:17px;font-weight:700;line-height:1.45;}
+  .dark{background:var(--ascentium-midnight);color:#fff;}
+  .dark h2{color:#fff;} .dark .beat{color:var(--accent);} .dark p.lead{color:#CDD4D2;}
+  .dark .logo{color:#fff;} .dark .nav .dot{background:#3A4140;} .dark .nav .dot.on{background:var(--accent);}
+  .dark .pgnum,.dark .hint{color:#8A9492;}
+
+  .hero{background:var(--accent);color:#fff;}
+  .hero .logo{color:#fff;} .hero .logo span{color:#fff;}
+  .hero .beat{color:#fff;opacity:.85;}
+  .hero h2{color:#fff;font-size:54px;line-height:1.02;max-width:760px;}
+  .hero .slogan{font-size:22px;font-weight:700;margin-top:18px;color:#fff;}
+  .hero .subtitle{font-size:18px;font-weight:500;margin-top:14px;opacity:.95;max-width:640px;line-height:1.5;}
+  .hero .meta{font-size:13px;margin-top:24px;opacity:.9;}
+  .hero .arrow{position:absolute;right:-40px;bottom:-60px;width:420px;opacity:.18;}
+  .hero .arrow svg{width:100%;height:auto;}
+  .hero .statline{position:absolute;bottom:60px;left:54px;display:flex;gap:34px;}
+  .hero .statline .n{font-size:42px;font-weight:800;line-height:1;}
+  .hero .statline .c{font-size:11px;opacity:.9;margin-top:6px;max-width:170px;line-height:1.4;}
+  .hero .cta{position:absolute;bottom:54px;right:54px;background:#fff;color:var(--accent);font-size:15px;font-weight:800;padding:13px 30px;border-radius:999px;}
+  .media{position:relative;z-index:2;margin-top:14px;}
+  .media:empty{display:none;}
+  .media audio{width:100%;max-width:560px;display:block;}
+  .media video{width:100%;max-width:560px;border-radius:10px;display:block;}
+  .media img{max-width:100%;border-radius:12px;display:block;}
+  .media-hint{border:2px dashed var(--accent-line);background:var(--accent-tint);color:var(--accent);
+              border-radius:12px;padding:12px 18px;font-size:12.5px;font-weight:700;text-align:center;max-width:560px;}
+  .media-hint small{display:block;font-weight:500;color:var(--mut);margin-top:4px;font-size:11px;}
+
+  .frames{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;}
+  .frame{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card, #fff);}
+  .frame .bar{height:26px;background:var(--accent);display:flex;align-items:center;padding:0 12px;color:#fff;font-size:11px;font-weight:800;letter-spacing:.1em;}
+  .frame .body{padding:12px 14px;min-height:96px;}
+  .frame .body .t{font-size:14px;font-weight:700;color:var(--ascentium-midnight);line-height:1.3;}
+  .frame .body .d{font-size:11.5px;color:#3B4442;margin-top:5px;line-height:1.5;}
+
+  .phones{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px;}
+  .phone{width:100%;max-width:190px;margin:0 auto;border-radius:20px;border:2px solid var(--ascentium-midnight);
+         background:#fff;overflow:hidden;box-shadow:0 10px 24px rgba(0,0,0,.14);}
+  .phone .scr{background:var(--accent);color:#fff;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;}
+  .phone .body{padding:12px;display:grid;gap:6px;}
+  .phone .row{height:22px;border-radius:5px;background:#EEF1F0;}
+  .phone .row.accent{background:var(--accent);}
+  .phone .row.w70{width:70%;}
+  .phone .cap{font-size:11px;font-weight:700;text-align:center;margin-top:9px;color:var(--ascentium-midnight);}
+
+  .lyric{margin-top:20px;background:var(--ascentium-midnight);color:#fff;border-radius:14px;padding:24px 30px;max-width:820px;}
+  .lyric .hook{font-size:22px;font-weight:800;color:var(--accent);margin-bottom:12px;}
+  .lyric .line{font-size:14px;line-height:1.7;color:#CDD4D2;}
+  .lyric .line b{color:#fff;}
+  .lyric .tag{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-top:12px;}
+
+  .budget{margin-top:22px;display:grid;gap:10px;}
+  .brow{display:grid;grid-template-columns:210px 1fr 90px;align-items:center;gap:14px;font-size:12.5px;}
+  .brow .nm{font-weight:600;}
+  .btrack{display:block;height:18px;background:#EEF1F0;border-radius:6px;overflow:hidden;}
+  .bfill{display:block;height:100%;background:var(--accent);border-radius:6px;}
+  .brow .amt{text-align:right;font-weight:700;color:var(--accent);}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px;}
+  .kpi{border:1.5px solid var(--line);border-radius:12px;padding:14px 12px;}
+  .kpi .k{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);}
+  .kpi .v{font-size:28px;font-weight:800;margin-top:6px;color:var(--accent);}
+  .kpi .d{font-size:11px;font-weight:700;color:var(--go);margin-top:4px;}
+  .bars{margin-top:16px;display:grid;gap:8px;}
+  .mbar{display:grid;grid-template-columns:200px 1fr 48px;align-items:center;gap:12px;font-size:12px;}
+  .mtrack{display:block;height:12px;background:#EEF1F0;border-radius:999px;overflow:hidden;}
+  .mfill{display:block;height:100%;background:var(--accent);border-radius:999px;}
+  .mpct{text-align:right;font-weight:700;color:var(--mut);}
+  .beats-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;}
+  .beat-note{font-size:11px;color:var(--mut);font-weight:600;}
+  .proofrow{display:grid;grid-template-columns:1.45fr 1fr;gap:18px;margin-top:12px;align-items:start;}
+  .proofrow .bars{margin-top:0;}
+  .gng{background:var(--ascentium-midnight);color:#fff;border-radius:12px;padding:14px 16px;}
+  .gng-h{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:800;}
+  .gng-v{font-size:13px;line-height:1.5;margin-top:6px;color:#DDE3E1;}
+  .rule{margin-top:14px;font-size:13px;font-weight:600;color:#28302E;}
+  .ask{margin-top:auto;background:var(--accent);color:#fff;border-radius:12px;padding:18px 22px;font-size:21px;font-weight:800;line-height:1.3;}
+  .moment-band{background:var(--accent);color:#fff;border-radius:12px;padding:16px 20px;margin-top:16px;}
+  .moment-band .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.85;}
+  .moment-band .txt{font-size:15px;font-weight:700;margin-top:6px;}
+
+  .posband{background:var(--ascentium-midnight);color:#fff;border-radius:12px;padding:16px 20px;margin-top:14px;font-size:14.5px;font-weight:600;line-height:1.5;}
+  .posband b{color:var(--accent-tint);}
+  .quad{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
+  .quad .q{border:1px solid var(--line);border-radius:12px;padding:13px 16px;background:#fff;}
+  .quad .q .h{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+  .quad .q .v{font-size:12.5px;margin-top:6px;line-height:1.5;color:#28302E;}
+  .pills{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;}
+  .pill{font-size:11.5px;font-weight:600;background:var(--accent-tint);border:1px solid var(--accent-line);color:var(--accent);border-radius:999px;padding:4px 12px;}
+
+  .timeline{display:flex;margin-top:30px;}
+  .moment{flex:1;position:relative;padding:0 10px;text-align:center;}
+  .moment::before{content:&quot;&quot;;position:absolute;top:76px;left:0;right:0;height:3px;background:var(--accent);opacity:.25;}
+  .moment:first-child::before{left:50%;}
+  .moment:last-child::before{right:50%;}
+  .moment .node{width:18px;height:18px;border-radius:999px;background:var(--accent);position:relative;z-index:2;margin:0 auto;}
+  .micon{width:58px;height:58px;margin:0 auto 12px;color:var(--accent);}
+  .micon svg{width:100%;height:100%;display:block;}
+  .moment .t{font-size:11px;font-weight:800;color:var(--accent);margin-top:10px;letter-spacing:.08em;text-transform:uppercase;}
+  .moment .p{font-size:13px;font-weight:700;margin-top:4px;color:var(--ascentium-midnight);}
+  .moment .e{font-size:11.5px;color:#3B4442;margin-top:4px;line-height:1.5;}
+
+  .exp{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px;}
+  .exp .box{border-radius:12px;padding:16px 18px;}
+  .exp .treat{background:var(--accent-tint);border:1px solid var(--accent-line);}
+  .exp .ctrl{background:#F2F4F3;border:1px solid var(--line);}
+  .exp .h{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--accent);}
+  .exp .ctrl .h{color:var(--mut);}
+  .exp .v{font-size:13px;margin-top:6px;line-height:1.55;color:#28302E;}
+  .hypo{margin-top:14px;background:var(--ascentium-midnight);color:#fff;border-radius:10px;padding:14px 18px;font-size:13.5px;font-weight:600;line-height:1.5;}
+
+  .funnel{display:flex;flex-direction:column;align-items:center;gap:7px;margin-top:22px;}
+  .fstage{color:#fff;font-weight:700;font-size:13px;text-align:center;padding:11px 0;border-radius:9px;}
+  .fstage .n{display:block;font-size:17px;font-weight:800;margin-bottom:2px;}
+  .f1{width:96%;background:var(--ascentium-midnight);}
+  .f2{width:78%;background:#575B5B;}
+  .f3{width:58%;background:var(--accent);}
+  .f4{width:40%;background:var(--teal);}
+
+  .trends{display:grid;gap:8px;margin-top:16px;}
+  .trend{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:#fff;}
+  .trend .t{font-size:13px;font-weight:700;color:var(--ascentium-midnight);}
+  .trend .w{font-size:11.5px;color:var(--mut);margin-top:2px;line-height:1.45;}
+  .segs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px;}
+  .seg{border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:#fff;}
+  .seg .name{font-size:14px;font-weight:800;color:var(--accent);}
+  .seg .who{font-size:10.5px;color:var(--mut);margin-top:2px;line-height:1.4;}
+  .seg .job{font-size:11.5px;margin-top:8px;line-height:1.45;color:var(--ascentium-midnight);}
+  .seg .job b{color:var(--accent);}
+  .seg .row{font-size:10.5px;margin-top:5px;line-height:1.4;color:#3B4442;}
+  .seg .row b{color:var(--ascentium-midnight);}
+  .offercards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px;}
+  .ocard{border:1px solid var(--line);border-radius:12px;padding:15px 16px;background:#fff;}
+  .ocard .t{font-size:14px;font-weight:800;color:var(--accent);}
+  .ocard .d{font-size:12px;margin-top:6px;line-height:1.5;color:#28302E;}
+  .found{background:var(--accent);color:#fff;border-radius:12px;padding:13px 18px;margin-top:16px;font-size:13.5px;font-weight:700;line-height:1.5;}
+  .found:empty{display:none;}
+  .anchorband{background:var(--accent-tint);border-left:6px solid var(--accent);border-radius:10px;padding:13px 18px;margin-top:14px;font-size:14px;font-weight:600;line-height:1.5;}
+  .anchorband b{color:var(--accent);}
+
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;}
+  .box{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff;}
+  .box .h{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px;}
+  .box ul{list-style:none;}
+  .box li{font-size:12.5px;line-height:1.55;padding:2px 0 2px 12px;position:relative;}
+  .box li::before{content:&quot;▸&quot;;position:absolute;left:0;color:var(--accent);}
+  .box li b{color:var(--ascentium-midnight);}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;}
+  .chip{font-size:11px;line-height:1.3;background:var(--accent-tint);color:var(--accent);border:1px solid var(--accent-line);border-radius:999px;padding:4px 10px;}
+  .clusters{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+  .cluster{font-size:11px;font-weight:700;background:var(--ascentium-midnight);color:#fff;border-radius:8px;padding:4px 11px;}
+
+  .illo{display:block;}
+  .illo svg{width:100%;height:100%;display:block;}
+  .title-illo{position:absolute;right:0;top:0;bottom:0;width:44%;overflow:hidden;}
+  .title-text{position:relative;z-index:2;max-width:56%;margin-top:auto;}
+  .keyvisual{padding:0;}
+  .kv-illo{position:absolute;inset:0;}
+  .kv-text{position:absolute;left:0;right:0;bottom:0;padding:30px 54px 48px;
+           background:linear-gradient(to top, rgba(255,246,236,.96) 45%, rgba(255,246,236,0));}
+  .kv-text h2{margin-top:6px;color:var(--ascentium-midnight);}
+  .kv-text .slogan{font-size:17px;font-weight:700;color:var(--accent);margin-top:6px;}
+
+  .posterwrap{display:grid;grid-template-columns:420px 1fr;gap:24px;margin-top:14px;align-items:start;}
+  .posterframe{height:474px;overflow:hidden;border:1px solid var(--line);border-radius:12px;background:#DEDAD4;position:relative;}
+  .posterframe iframe{width:1080px;height:2600px;border:0;transform:scale(.388);transform-origin:top left;}
+  .posterpick{display:flex;flex-direction:column;gap:9px;}
+  .posterpick .plab{font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--accent);}
+  .posterpick button{text-align:left;font:inherit;font-size:13.5px;font-weight:700;color:var(--ascentium-midnight);
+        background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:11px 14px;cursor:pointer;}
+  .posterpick button:hover{border-color:var(--accent-line);}
+  .posterpick button.on{border-color:var(--accent);background:var(--accent-tint);}
+  .posterpick button span{display:block;font-size:11px;font-weight:500;color:var(--mut);margin-top:2px;}
+  .posterpick .pnote{font-size:11px;color:var(--mut);line-height:1.5;margin-top:2px;}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body data-storyline=&quot;hero&quot; data-quest=&quot;B&quot; data-poster=&quot;yes&quot; style=&quot;--accent:#077069;--accent-tint:#CDE2E1;--accent-line:#83B8B4;--accent-deep:#043835;&quot;&gt;
+
+&lt;!-- Inline flat-illustration symbol — the quest motif injected from the quest card (see quest-card.md). --&gt;
+&lt;svg width=&quot;0&quot; height=&quot;0&quot; style=&quot;position:absolute&quot; aria-hidden=&quot;true&quot;&gt;
+  &lt;symbol id=&quot;illo&quot; viewBox=&quot;0 0 480 360&quot; preserveAspectRatio=&quot;xMidYMid slice&quot;&gt;
+    &lt;rect width=&quot;480&quot; height=&quot;360&quot; fill=&quot;#CDE2E1&quot;/&gt;
+    &lt;circle cx=&quot;392&quot; cy=&quot;64&quot; r=&quot;62&quot; fill=&quot;#83B8B4&quot; opacity=&quot;.5&quot;/&gt;
+    &lt;g stroke=&quot;#077069&quot; stroke-width=&quot;9&quot; stroke-linecap=&quot;round&quot;&gt;
+      &lt;line x1=&quot;58&quot; y1=&quot;360&quot; x2=&quot;58&quot; y2=&quot;150&quot;/&gt;
+      &lt;line x1=&quot;100&quot; y1=&quot;360&quot; x2=&quot;100&quot; y2=&quot;212&quot;/&gt;
+    &lt;/g&gt;
+    &lt;g fill=&quot;#077069&quot; opacity=&quot;.85&quot;&gt;
+      &lt;ellipse cx=&quot;84&quot; cy=&quot;178&quot; rx=&quot;24&quot; ry=&quot;9&quot; transform=&quot;rotate(-30 84 178)&quot;/&gt;
+      &lt;ellipse cx=&quot;38&quot; cy=&quot;242&quot; rx=&quot;24&quot; ry=&quot;9&quot; transform=&quot;rotate(28 38 242)&quot;/&gt;
+    &lt;/g&gt;
+    &lt;circle cx=&quot;204&quot; cy=&quot;118&quot; r=&quot;52&quot; fill=&quot;#0F1514&quot;/&gt;
+    &lt;circle cx=&quot;326&quot; cy=&quot;118&quot; r=&quot;52&quot; fill=&quot;#0F1514&quot;/&gt;
+    &lt;ellipse cx=&quot;265&quot; cy=&quot;204&quot; rx=&quot;136&quot; ry=&quot;118&quot; fill=&quot;#FFF6EC&quot;/&gt;
+    &lt;ellipse cx=&quot;211&quot; cy=&quot;195&quot; rx=&quot;38&quot; ry=&quot;46&quot; fill=&quot;#0F1514&quot; transform=&quot;rotate(-18 211 195)&quot;/&gt;
+    &lt;ellipse cx=&quot;319&quot; cy=&quot;195&quot; rx=&quot;38&quot; ry=&quot;46&quot; fill=&quot;#0F1514&quot; transform=&quot;rotate(18 319 195)&quot;/&gt;
+    &lt;circle cx=&quot;212&quot; cy=&quot;197&quot; r=&quot;12&quot; fill=&quot;#fff&quot;/&gt;
+    &lt;circle cx=&quot;318&quot; cy=&quot;197&quot; r=&quot;12&quot; fill=&quot;#fff&quot;/&gt;
+    &lt;circle cx=&quot;214&quot; cy=&quot;199&quot; r=&quot;6&quot; fill=&quot;#0F1514&quot;/&gt;
+    &lt;circle cx=&quot;316&quot; cy=&quot;199&quot; r=&quot;6&quot; fill=&quot;#0F1514&quot;/&gt;
+    &lt;ellipse cx=&quot;265&quot; cy=&quot;248&quot; rx=&quot;19&quot; ry=&quot;13&quot; fill=&quot;#0F1514&quot;/&gt;
+    &lt;path d=&quot;M247 268 q18 15 36 0&quot; fill=&quot;none&quot; stroke=&quot;#0F1514&quot; stroke-width=&quot;5&quot; stroke-linecap=&quot;round&quot;/&gt;
+    &lt;circle cx=&quot;178&quot; cy=&quot;232&quot; r=&quot;12&quot; fill=&quot;#83B8B4&quot; opacity=&quot;.85&quot;/&gt;
+    &lt;circle cx=&quot;352&quot; cy=&quot;232&quot; r=&quot;12&quot; fill=&quot;#83B8B4&quot; opacity=&quot;.85&quot;/&gt;
+  &lt;/symbol&gt;
+&lt;/svg&gt;
+
+&lt;div class=&quot;stage&quot;&gt;
+  &lt;div class=&quot;deck&quot;&gt;
+
+    &lt;!-- TITLE --&gt;
+    &lt;section class=&quot;slide dark&quot; data-beat=&quot;title&quot;&gt;
+      &lt;div class=&quot;title-illo illo&quot;&gt;&lt;svg&gt;&lt;use href=&quot;#illo&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;
+      &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;title-text&quot;&gt;
+        &lt;div class=&quot;beat&quot;&gt;Proposal Showcase · Quest B&lt;/div&gt;
+        &lt;h2 style=&quot;margin-top:18px;&quot;&gt;Panda Guardians&lt;/h2&gt;
+        &lt;div class=&quot;slogan&quot; style=&quot;color:var(--accent);&quot;&gt;Belong to the pandas. From anywhere.&lt;/div&gt;
+        &lt;p class=&quot;lead&quot;&gt;A global conservation membership that turns the world&#x27;s panda fandom into a paying, recurring community — piloting in Japan &amp;amp; South Korea.&lt;/p&gt;
+        &lt;div class=&quot;meta&quot; style=&quot;color:#B9C4C1;margin-top:18px;&quot;&gt;Chengdu Research Base of Giant Panda Breeding&lt;br&gt;3-month MVP pilot · Japan + South Korea · USD 1.1M&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- CONTEXT (client + evidence) --&gt;
+    &lt;section class=&quot;slide&quot; data-beat=&quot;context&quot;&gt;
+      &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;beat&quot;&gt;01 · The Client &amp;amp; The Evidence&lt;/div&gt;
+      &lt;h2 class=&quot;sm&quot;&gt;Chengdu Research Base of Giant Panda Breeding&lt;/h2&gt;
+      &lt;div class=&quot;twocol&quot;&gt;
+        &lt;div class=&quot;box&quot;&gt;&lt;div class=&quot;h&quot;&gt;Scout summary&lt;/div&gt;&lt;ul&gt;&lt;li&gt;~260 giant pandas — the world&#x27;s largest breeding population; ¥55 entry; 6.23M visitors YTD 2025 (&amp;gt;12M in 2024).&lt;/li&gt;&lt;li&gt;45K/day weekend ceiling; international visitors 487K in 2025 (+70.7% YoY, Xinhua).&lt;/li&gt;&lt;li&gt;Global star pandas: He Hua (9× ticket lift, Mar 2023) and Fu Bao (2.7M goods sold in Korea).&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        &lt;div class=&quot;box&quot;&gt;&lt;div class=&quot;h&quot;&gt;Org / IP profile&lt;/div&gt;&lt;ul&gt;&lt;li&gt;&lt;b&gt;Assets:&lt;/b&gt; world-class conservation &amp;amp; breeding; global star pandas; Chengdu #2 national attraction; 30-day visa-free access for ~47 countries.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Constraints:&lt;/b&gt; conservation-first (no over-commercialization); USD 1.1M MVP; 3 months; 2 markets.&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;chips&quot;&gt;&lt;span class=&quot;chip&quot;&gt;Fame is global; revenue is local&lt;/span&gt;&lt;span class=&quot;chip&quot;&gt;Fans can watch but can&#x27;t belong&lt;/span&gt;&lt;span class=&quot;chip&quot;&gt;Zoo-gate membership under-converts (2.5–4.9%)&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;clusters&quot;&gt;&lt;span class=&quot;cluster&quot;&gt;Love ≫ Gate&lt;/span&gt;&lt;span class=&quot;cluster&quot;&gt;Friction just fell&lt;/span&gt;&lt;span class=&quot;cluster&quot;&gt;Conservation = permission&lt;/span&gt;&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- PROBLEM --&gt;
+    &lt;section class=&quot;slide&quot; data-beat=&quot;problem&quot;&gt;
+      &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;beat&quot;&gt;02 · The Problem&lt;/div&gt;
+      &lt;h2&gt;The world loves the pandas. The Base can&#x27;t bank it.&lt;/h2&gt;
+      &lt;div class=&quot;statgrid&quot;&gt;
+        &lt;div class=&quot;stat gold&quot;&gt;&lt;div class=&quot;l&quot;&gt;Gold standard&lt;/div&gt;&lt;div class=&quot;n&quot;&gt;¥72.6B&lt;/div&gt;&lt;div class=&quot;c&quot;&gt;Sanrio&#x27;s FY2023 character-IP revenue — cute-animal IP monetizes globally when licensed.&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;stat red&quot;&gt;&lt;div class=&quot;l&quot;&gt;Cautionary tale&lt;/div&gt;&lt;div class=&quot;n&quot;&gt;€1.5M&lt;/div&gt;&lt;div class=&quot;c&quot;&gt;Finland&#x27;s annual panda upkeep → pandas returned; the Ya Ya backlash — credibility is fragile.&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;stat sky&quot;&gt;&lt;div class=&quot;l&quot;&gt;Your arena&lt;/div&gt;&lt;div class=&quot;n&quot;&gt;487K&lt;/div&gt;&lt;div class=&quot;c&quot;&gt;international visitors in 2025, +70.7% YoY — and no membership to receive them.&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;accentbox&quot;&gt;Fame is global, revenue is local: a 45K/day capacity ceiling, ~95% domestic footfall, ~760K owned followers — and no membership, no global store, no English-first channel.&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- STORYBOARD (signature · hero&#x27;s journey) --&gt;
+    &lt;section class=&quot;slide&quot; data-beat=&quot;storyboard&quot;&gt;
+      &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;beat&quot;&gt;03 · The Big Idea — a journey&lt;/div&gt;
+      &lt;h2 class=&quot;sm&quot;&gt;Panda Guardians · &quot;Belong to the pandas. From anywhere.&quot;&lt;/h2&gt;
+      &lt;div class=&quot;frames&quot;&gt;
+        &lt;div class=&quot;frame&quot;&gt;&lt;div class=&quot;bar&quot;&gt;1 · THE WATCH&lt;/div&gt;&lt;div class=&quot;body&quot;&gt;&lt;div class=&quot;t&quot;&gt;A Tokyo fan says goodbye&lt;/div&gt;&lt;div class=&quot;d&quot;&gt;Ueno&#x27;s last pandas return to Sichuan — the end of 50+ years of local love.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;frame&quot;&gt;&lt;div class=&quot;bar&quot;&gt;2 · THE VOID&lt;/div&gt;&lt;div class=&quot;body&quot;&gt;&lt;div class=&quot;t&quot;&gt;The bond has nowhere to go&lt;/div&gt;&lt;div class=&quot;d&quot;&gt;No local panda, no channel, no way to keep belonging.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;frame&quot;&gt;&lt;div class=&quot;bar&quot;&gt;3 · THE INVITATION&lt;/div&gt;&lt;div class=&quot;body&quot;&gt;&lt;div class=&quot;t&quot;&gt;A creator opens a window&lt;/div&gt;&lt;div class=&quot;d&quot;&gt;&quot;Meet your panda.&quot; The Guardian panda-cam goes live, in local language.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;frame&quot;&gt;&lt;div class=&quot;bar&quot;&gt;4 · THE ADOPTION&lt;/div&gt;&lt;div class=&quot;body&quot;&gt;&lt;div class=&quot;t&quot;&gt;She becomes a Guardian&lt;/div&gt;&lt;div class=&quot;d&quot;&gt;Adopts a named panda; a published share funds its care.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;frame&quot;&gt;&lt;div class=&quot;bar&quot;&gt;5 · THE BELONGING&lt;/div&gt;&lt;div class=&quot;body&quot;&gt;&lt;div class=&quot;t&quot;&gt;A community, not a gate&lt;/div&gt;&lt;div class=&quot;d&quot;&gt;Member drops, naming votes, monthly impact reports.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;frame&quot;&gt;&lt;div class=&quot;bar&quot;&gt;6 · THE PILGRIMAGE&lt;/div&gt;&lt;div class=&quot;body&quot;&gt;&lt;div class=&quot;t&quot;&gt;She flies to Chengdu&lt;/div&gt;&lt;div class=&quot;d&quot;&gt;Visa-free, to meet her panda and see conservation in person.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;media&quot; style=&quot;margin-top:12px;&quot;&gt;&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- INSIGHT (tension + trends) --&gt;
+    &lt;section class=&quot;slide&quot; data-beat=&quot;insight&quot;&gt;
+      &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;beat&quot;&gt;02 · The Insight&lt;/div&gt;
+      &lt;h2 class=&quot;sm&quot;&gt;&quot;Panda love is global and free; panda belonging is neither — Japan just lost its pandas and Chengdu is now 30-day visa-free.&quot;&lt;/h2&gt;
+      &lt;div class=&quot;trends&quot;&gt;
+        &lt;div class=&quot;trend&quot;&gt;&lt;div class=&quot;t&quot;&gt;Panda-monium is global; monetization is local&lt;/div&gt;&lt;div class=&quot;w&quot;&gt;Billions of views, yet the Base owns ~760K followers and captures almost nothing beyond ¥55.&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;trend&quot;&gt;&lt;div class=&quot;t&quot;&gt;Visa-free inbound is the acquisition unlock&lt;/div&gt;&lt;div class=&quot;w&quot;&gt;30.08M visa-free entries (+49.5%); 30-day access for ~47 countries incl. Japan &amp;amp; Korea.&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;trend&quot;&gt;&lt;div class=&quot;t&quot;&gt;The panda-diplomacy vacuum&lt;/div&gt;&lt;div class=&quot;w&quot;&gt;Japan has no pandas since Jan 2026 — the deepest fanbase has no local outlet.&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p class=&quot;lead&quot; style=&quot;margin-top:auto;&quot;&gt;Three shifts make now the moment: Japan&#x27;s panda void, collapsed visa friction, and a proven, under-licensed cute-IP economy.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;!-- AUDIENCE (segments + moment) --&gt;
+    &lt;section class=&quot;slide&quot; data-beat=&quot;audience&quot;&gt;
+      &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;beat&quot;&gt;03 · The Audience — who &amp;amp; their job&lt;/div&gt;
+      &lt;h2 class=&quot;sm&quot;&gt;Three fan segments, one emotional job each&lt;/h2&gt;
+      &lt;div class=&quot;segs&quot;&gt;
+        &lt;div class=&quot;seg&quot;&gt;&lt;div class=&quot;name&quot;&gt;Japan Panda Orphans&lt;/div&gt;&lt;div class=&quot;who&quot;&gt;Ueno superfans after the Jan 2026 return; no local pandas left&lt;/div&gt;&lt;div class=&quot;job&quot;&gt;&lt;b&gt;Job:&lt;/b&gt; keep a lifelong bond alive and pass it on&lt;/div&gt;&lt;div class=&quot;row&quot;&gt;&lt;b&gt;Barrier:&lt;/b&gt; no local panda, no channel&lt;/div&gt;&lt;div class=&quot;row&quot;&gt;&lt;b&gt;Trigger:&lt;/b&gt; the first panda-less Lunar New Year&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;seg&quot;&gt;&lt;div class=&quot;name&quot;&gt;Fu Bao Diaspora&lt;/div&gt;&lt;div class=&quot;who&quot;&gt;Korean superfans who lost Fu Bao to Sichuan (5.5M visitors, 2.7M goods)&lt;/div&gt;&lt;div class=&quot;job&quot;&gt;&lt;b&gt;Job:&lt;/b&gt; stay connected to a panda I feel responsible for&lt;/div&gt;&lt;div class=&quot;row&quot;&gt;&lt;b&gt;Barrier:&lt;/b&gt; no continuous membership&lt;/div&gt;&lt;div class=&quot;row&quot;&gt;&lt;b&gt;Trigger:&lt;/b&gt; return anniversary (Apr 3)&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;seg&quot;&gt;&lt;div class=&quot;name&quot;&gt;Kawaii Collectors&lt;/div&gt;&lt;div class=&quot;who&quot;&gt;Sanrio / Chiikawa crossover fans in SEA, US &amp;amp; EU who collect and trade&lt;/div&gt;&lt;div class=&quot;job&quot;&gt;&lt;b&gt;Job:&lt;/b&gt; own something rare and belong to a culture&lt;/div&gt;&lt;div class=&quot;row&quot;&gt;&lt;b&gt;Barrier:&lt;/b&gt; panda merch not globally shoppable&lt;/div&gt;&lt;div class=&quot;row&quot;&gt;&lt;b&gt;Trigger:&lt;/b&gt; limited-edition drops&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;moment-band&quot;&gt;&lt;div class=&quot;lbl&quot;&gt;Moment of truth&lt;/div&gt;&lt;div class=&quot;txt&quot;&gt;The first panda-less Lunar New Year &amp;amp; Fu Bao&#x27;s return anniversary · phone — TikTok / IG / YouTube fan feeds &amp;amp; Discords · the void goes viral and a trusted creator invites the fandom to belong.&lt;/div&gt;&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- KEY VISUAL (full-bleed illustration) --&gt;
+    &lt;section class=&quot;slide keyvisual&quot; data-beat=&quot;keyvisual&quot;&gt;
+      &lt;div class=&quot;kv-illo illo&quot;&gt;&lt;svg&gt;&lt;use href=&quot;#illo&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;
+      &lt;div class=&quot;kv-text&quot;&gt;
+        &lt;div class=&quot;beat&quot;&gt;The World of the Idea&lt;/div&gt;
+        &lt;h2&gt;Panda Guardians&lt;/h2&gt;
+        &lt;div class=&quot;slogan&quot;&gt;&quot;Belong to the pandas. From anywhere.&quot;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- POSTER (signature · pick one of 3 styles) --&gt;
+    &lt;section class=&quot;slide&quot; data-beat=&quot;poster&quot;&gt;
+      &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;beat&quot;&gt;03 · The Big Idea — Hero Poster&lt;/div&gt;
+      &lt;h2 class=&quot;sm&quot;&gt;Panda Guardians · &quot;Belong to the pandas. From anywhere.&quot;&lt;/h2&gt;
+      &lt;div class=&quot;posterwrap&quot;&gt;
+        &lt;div class=&quot;posterframe&quot;&gt;&lt;iframe id=&quot;posterFrame&quot; src=&quot;poster-b.html&quot; title=&quot;Campaign poster&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+        &lt;div&gt;
+          &lt;p class=&quot;lead&quot; style=&quot;margin-top:0;&quot;&gt;A global conservation membership: adopt a named Chengdu panda, follow it live, get member-only drops, and earn a Chengdu pilgrimage — every dollar funds conservation.&lt;/p&gt;
+          &lt;div class=&quot;posterpick&quot;&gt;
+            &lt;div class=&quot;plab&quot;&gt;Poster style — pick one&lt;/div&gt;
+            &lt;button data-pstyle=&quot;a&quot;&gt;A · Full-Bleed Hero&lt;span&gt;Bold editorial — mass reach&lt;/span&gt;&lt;/button&gt;
+            &lt;button data-pstyle=&quot;b&quot; class=&quot;on&quot;&gt;B · Belonging Passport&lt;span&gt;Cream ticket — membership warmth&lt;/span&gt;&lt;/button&gt;
+            &lt;button data-pstyle=&quot;c&quot;&gt;C · Midnight Minimal&lt;span&gt;Swiss dark — premium, brand-led&lt;/span&gt;&lt;/button&gt;
+            &lt;div class=&quot;pnote&quot;&gt;The chosen style drops into the proposal and the final deck.&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- PROTOTYPE (signature · demo) --&gt;
+    &lt;section class=&quot;slide&quot; data-beat=&quot;prototype&quot;&gt;
+      &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;beat&quot;&gt;03 · The Product — show, don&#x27;t tell&lt;/div&gt;
+      &lt;h2 class=&quot;sm&quot;&gt;Panda Guardians · &quot;Belong to the pandas. From anywhere.&quot;&lt;/h2&gt;
+      &lt;div class=&quot;phones&quot;&gt;
+        &lt;div&gt;&lt;div class=&quot;phone&quot;&gt;&lt;div class=&quot;scr&quot;&gt;Your panda&lt;/div&gt;&lt;div class=&quot;body&quot;&gt;&lt;span class=&quot;row accent&quot;&gt;&lt;/span&gt;&lt;span class=&quot;row&quot;&gt;&lt;/span&gt;&lt;span class=&quot;row w70&quot;&gt;&lt;/span&gt;&lt;span class=&quot;row&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;cap&quot;&gt;Live panda-cam&lt;/div&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;div class=&quot;phone&quot;&gt;&lt;div class=&quot;scr&quot;&gt;Adopt&lt;/div&gt;&lt;div class=&quot;body&quot;&gt;&lt;span class=&quot;row&quot;&gt;&lt;/span&gt;&lt;span class=&quot;row w70&quot;&gt;&lt;/span&gt;&lt;span class=&quot;row accent&quot;&gt;&lt;/span&gt;&lt;span class=&quot;row&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;cap&quot;&gt;Choose your tier&lt;/div&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;div class=&quot;phone&quot;&gt;&lt;div class=&quot;scr&quot;&gt;Impact&lt;/div&gt;&lt;div class=&quot;body&quot;&gt;&lt;span class=&quot;row&quot;&gt;&lt;/span&gt;&lt;span class=&quot;row&quot;&gt;&lt;/span&gt;&lt;span class=&quot;row w70&quot;&gt;&lt;/span&gt;&lt;span class=&quot;row accent&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;cap&quot;&gt;Monthly report&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p class=&quot;lead&quot; style=&quot;margin-top:auto;&quot;&gt;A global conservation membership: adopt a named Chengdu panda, follow it live, get member-only drops, and earn a Chengdu pilgrimage — every dollar funds conservation.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;!-- LYRIC (signature · trailer anthem) --&gt;
+    &lt;section class=&quot;slide&quot; data-beat=&quot;lyric&quot;&gt;
+      &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;beat&quot;&gt;03 · The Anthem — Panda Guardians&lt;/div&gt;
+      &lt;h2 class=&quot;sm&quot;&gt;&quot;Belong to the pandas. From anywhere.&quot;&lt;/h2&gt;
+      &lt;div class=&quot;lyric&quot;&gt;
+        &lt;div class=&quot;hook&quot;&gt;&quot;You don&#x27;t have to be there to belong&quot;&lt;/div&gt;
+        &lt;div class=&quot;line&quot;&gt;From Tokyo&#x27;s quiet morning to a Seoul that misses you —&lt;br&gt;&lt;b&gt;I&#x27;ll hold your bamboo, I&#x27;ll hold your name.&lt;/b&gt;&lt;br&gt;Every mile away, we&#x27;re still the same.&lt;br&gt;Adopt a panda, keep the wild alive.&lt;/div&gt;
+        &lt;div class=&quot;tag&quot;&gt;Guardian Anthem · 60s&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;media&quot; style=&quot;margin-top:12px;&quot;&gt;&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- PLAN --&gt;
+    &lt;section class=&quot;slide&quot; data-beat=&quot;plan&quot;&gt;
+      &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;beat&quot;&gt;04 · The Plan&lt;/div&gt;
+      &lt;h2 class=&quot;sm&quot;&gt;2 markets · 3 months · USD 1.1M&lt;/h2&gt;
+      &lt;div class=&quot;budget&quot;&gt;
+        &lt;div class=&quot;brow&quot;&gt;&lt;span class=&quot;nm&quot;&gt;Japan creator squads&lt;/span&gt;&lt;span class=&quot;btrack&quot;&gt;&lt;span class=&quot;bfill&quot; style=&quot;width:12%&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;amt&quot;&gt;$132K&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;brow&quot;&gt;&lt;span class=&quot;nm&quot;&gt;Korea creator squads&lt;/span&gt;&lt;span class=&quot;btrack&quot;&gt;&lt;span class=&quot;bfill&quot; style=&quot;width:12%&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;amt&quot;&gt;$132K&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;brow&quot;&gt;&lt;span class=&quot;nm&quot;&gt;Panda-cam studio &amp;amp; content engine&lt;/span&gt;&lt;span class=&quot;btrack&quot;&gt;&lt;span class=&quot;bfill&quot; style=&quot;width:20%&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;amt&quot;&gt;$220K&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;brow&quot;&gt;&lt;span class=&quot;nm&quot;&gt;Paid acquisition (TikTok/IG/YouTube)&lt;/span&gt;&lt;span class=&quot;btrack&quot;&gt;&lt;span class=&quot;bfill&quot; style=&quot;width:18%&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;amt&quot;&gt;$198K&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;brow&quot;&gt;&lt;span class=&quot;nm&quot;&gt;Membership app / PWA &amp;amp; payments&lt;/span&gt;&lt;span class=&quot;btrack&quot;&gt;&lt;span class=&quot;bfill&quot; style=&quot;width:16%&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;amt&quot;&gt;$176K&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;brow&quot;&gt;&lt;span class=&quot;nm&quot;&gt;Member drops &amp;amp; merch&lt;/span&gt;&lt;span class=&quot;btrack&quot;&gt;&lt;span class=&quot;bfill&quot; style=&quot;width:15%&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;amt&quot;&gt;$165K&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;brow&quot;&gt;&lt;span class=&quot;nm&quot;&gt;Conservation impact &amp;amp; measurement&lt;/span&gt;&lt;span class=&quot;btrack&quot;&gt;&lt;span class=&quot;bfill&quot; style=&quot;width:7%&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;amt&quot;&gt;$77K&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p class=&quot;lead&quot; style=&quot;margin-top:auto;&quot;&gt;A 3-month, 2-market pilot on one global member ID — proving panda fandom converts to paid membership.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;!-- PROOF --&gt;
+    &lt;section class=&quot;slide&quot; data-beat=&quot;proof&quot;&gt;
+      &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;beats-head&quot;&gt;&lt;span class=&quot;beat&quot;&gt;05 · The Proof — condensed&lt;/span&gt;&lt;span class=&quot;beat-note&quot;&gt;full metrics &amp;amp; derivation live in proof.html&lt;/span&gt;&lt;/div&gt;
+      &lt;h2 class=&quot;sm&quot;&gt;The pilot metrics we expect to hit&lt;/h2&gt;
+      &lt;div class=&quot;kpis&quot;&gt;
+        &lt;div class=&quot;kpi&quot;&gt;&lt;div class=&quot;k&quot;&gt;Creator reach&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;50M&lt;/div&gt;&lt;div class=&quot;d&quot;&gt;6 weeks, JP+KR&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;kpi&quot;&gt;&lt;div class=&quot;k&quot;&gt;Free→Guardian&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;2.2%&lt;/div&gt;&lt;div class=&quot;d&quot;&gt;Patreon avg ≈2%&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;kpi&quot;&gt;&lt;div class=&quot;k&quot;&gt;Paying Guardians&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;25,000&lt;/div&gt;&lt;div class=&quot;d&quot;&gt;3 months&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;kpi&quot;&gt;&lt;div class=&quot;k&quot;&gt;Blended CAC&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;≤ $13&lt;/div&gt;&lt;div class=&quot;d&quot;&gt;vs $18 CPL&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;proofrow&quot;&gt;
+        &lt;div class=&quot;bars&quot;&gt;
+          &lt;div class=&quot;mbar&quot;&gt;&lt;span&gt;Reach&lt;/span&gt;&lt;span class=&quot;mtrack&quot;&gt;&lt;span class=&quot;mfill&quot; style=&quot;width:70%&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mpct&quot;&gt;70%&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;mbar&quot;&gt;&lt;span&gt;Conversion&lt;/span&gt;&lt;span class=&quot;mtrack&quot;&gt;&lt;span class=&quot;mfill&quot; style=&quot;width:80%&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mpct&quot;&gt;80%&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;mbar&quot;&gt;&lt;span&gt;CAC efficiency&lt;/span&gt;&lt;span class=&quot;mtrack&quot;&gt;&lt;span class=&quot;mfill&quot; style=&quot;width:90%&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mpct&quot;&gt;90%&lt;/span&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;gng&quot;&gt;
+          &lt;div class=&quot;gng-h&quot;&gt;How we derive them&lt;/div&gt;
+          &lt;div class=&quot;gng-v&quot;&gt;Reach ◀ Japan&#x27;s panda void + a 6-week creator push; Conversion ◀ Patreon free→paid ≈2%; Guardians ◀ Keepers × 2.2%; CAC ◀ $18 CPL benchmark −30% organic/referral. Full chains in proof.html.&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- ASK --&gt;
+    &lt;section class=&quot;slide dark&quot; data-beat=&quot;ask&quot;&gt;
+      &lt;div class=&quot;logo&quot; style=&quot;color:#fff;&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;beat&quot;&gt;06 · The Ask&lt;/div&gt;
+      &lt;h2 class=&quot;sm&quot; style=&quot;color:#fff;margin-top:16px;&quot;&gt;Fund USD 1.1M for a 3-month, 2-market pilot.&lt;/h2&gt;
+      &lt;div class=&quot;ask&quot; style=&quot;margin-top:22px;&quot;&gt;Approve the 10% MVP to prove panda fandom can become a paying global membership — conservation-first, every dollar reported back.&lt;/div&gt;
+      &lt;div class=&quot;media&quot;&gt;&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- STRATEGY (anchor + positioning + 4Ps) --&gt;
+    &lt;section class=&quot;slide&quot; data-beat=&quot;strategy&quot;&gt;
+      &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;beat&quot;&gt;05 · The Strategy&lt;/div&gt;
+      &lt;h2 class=&quot;sm&quot;&gt;One membership, three moves&lt;/h2&gt;
+      &lt;div class=&quot;anchorband&quot;&gt;For &lt;b&gt;Japan Panda Orphans &amp;amp; the Fu Bao Diaspora&lt;/b&gt;, whose bond to the pandas has no local outlet, at &lt;b&gt;the panda-less Lunar New Year&lt;/b&gt; — we launch a paid conservation membership that adopts them a named panda and streams it live, so they &lt;b&gt;become Guardians who belong from anywhere&lt;/b&gt;.&lt;/div&gt;
+      &lt;div class=&quot;posband&quot;&gt;For overseas panda fans with no way to belong, &lt;b&gt;Panda Guardians&lt;/b&gt; is the official Base membership that turns fandom into conservation funding — the pandas&#x27; own home, live and accountable.&lt;/div&gt;
+      &lt;div class=&quot;quad&quot;&gt;
+        &lt;div class=&quot;q&quot;&gt;&lt;div class=&quot;h&quot;&gt;Product&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;3-tier membership with live panda-cam, named-panda adoption, impact reports, drops.&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;q&quot;&gt;&lt;div class=&quot;h&quot;&gt;Price&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;Keeper free · Guardian $9/mo · Patron $25/mo; published conservation share.&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;q&quot;&gt;&lt;div class=&quot;h&quot;&gt;Place&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;Owned app/PWA + TikTok/IG/YouTube + local creator squads + Tokyo/Seoul pop-ups.&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;q&quot;&gt;&lt;div class=&quot;h&quot;&gt;Promotion&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;Creator-led content, serialized panda-cam arcs, Fu Bao Day, limited drops.&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;pills&quot;&gt;&lt;span class=&quot;pill&quot;&gt;Japan Panda Orphans&lt;/span&gt;&lt;span class=&quot;pill&quot;&gt;Fu Bao Diaspora&lt;/span&gt;&lt;span class=&quot;pill&quot;&gt;Kawaii Collectors&lt;/span&gt;&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- OFFERING (the offer / membership tiers) --&gt;
+    &lt;section class=&quot;slide&quot; data-beat=&quot;offering&quot;&gt;
+      &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;beat&quot;&gt;06 · The Offer&lt;/div&gt;
+      &lt;h2 class=&quot;sm&quot;&gt;Choose your Guardian tier&lt;/h2&gt;
+      &lt;div class=&quot;offercards&quot;&gt;
+        &lt;div class=&quot;ocard&quot;&gt;&lt;div class=&quot;t&quot;&gt;Keeper — Free&lt;/div&gt;&lt;div class=&quot;d&quot;&gt;Follow the panda-cam and one named panda, in your language.&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ocard&quot;&gt;&lt;div class=&quot;t&quot;&gt;Guardian — $9 / month&lt;/div&gt;&lt;div class=&quot;d&quot;&gt;Adopt a named panda, monthly impact report, member-only drops.&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ocard&quot;&gt;&lt;div class=&quot;t&quot;&gt;Patron — $25 / month&lt;/div&gt;&lt;div class=&quot;d&quot;&gt;Everything in Guardian, plus priority drops and a Chengdu pilgrimage perk.&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;found&quot;&gt;Founding Guardians: the first 10,000 members get a numbered passport and name a new cub.&lt;/div&gt;
+      &lt;p class=&quot;lead&quot; style=&quot;margin-top:auto;&quot;&gt;A global conservation membership: adopt a named Chengdu panda, follow it live, get member-only drops, and earn a Chengdu pilgrimage — every dollar funds conservation.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;!-- MOMENTS (scenario timeline) --&gt;
+    &lt;section class=&quot;slide&quot; data-beat=&quot;moments&quot;&gt;
+      &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;beat&quot;&gt;05 · The Moments&lt;/div&gt;
+      &lt;h2 class=&quot;sm&quot;&gt;3 moments where we intercept — time · place · event&lt;/h2&gt;
+      &lt;div class=&quot;timeline&quot;&gt;
+        &lt;div class=&quot;moment&quot;&gt;
+          &lt;div class=&quot;micon&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.6&quot;&gt;&lt;rect x=&quot;7&quot; y=&quot;2&quot; width=&quot;10&quot; height=&quot;20&quot; rx=&quot;3&quot;/&gt;&lt;circle cx=&quot;12&quot; cy=&quot;18.4&quot; r=&quot;1.2&quot; fill=&quot;currentColor&quot; stroke=&quot;none&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;
+          &lt;div class=&quot;node&quot;&gt;&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;Jan–Feb 2026&lt;/div&gt;&lt;div class=&quot;p&quot;&gt;The panda-less New Year&lt;/div&gt;&lt;div class=&quot;e&quot;&gt;The void goes viral; creators invite fans to meet their panda on the cam.&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;moment&quot;&gt;
+          &lt;div class=&quot;micon&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;currentColor&quot;&gt;&lt;path d=&quot;M2 12 L22 3 L15 21 L11 13 Z&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;
+          &lt;div class=&quot;node&quot;&gt;&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;Apr 3 2026&lt;/div&gt;&lt;div class=&quot;p&quot;&gt;Fu Bao Day&lt;/div&gt;&lt;div class=&quot;e&quot;&gt;A global live stream + limited drop becomes the membership drive.&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;moment&quot;&gt;
+          &lt;div class=&quot;micon&quot;&gt;&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.6&quot;&gt;&lt;path d=&quot;M6 3 v18&quot;/&gt;&lt;path d=&quot;M6 4 h11 l-2.4 4 2.4 4 H6&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;
+          &lt;div class=&quot;node&quot;&gt;&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;Jul 2026&lt;/div&gt;&lt;div class=&quot;p&quot;&gt;He Hua&#x27;s birthday&lt;/div&gt;&lt;div class=&quot;e&quot;&gt;At-gate and online pilgrimage bundles convert visitors into Guardians.&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p class=&quot;lead&quot; style=&quot;margin-top:auto;&quot;&gt;Demand is manufactured at three moments — the void, the anniversary, and the birthday.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;!-- EXPERIMENT --&gt;
+    &lt;section class=&quot;slide&quot; data-beat=&quot;experiment&quot;&gt;
+      &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;beat&quot;&gt;06 · The Pilot Experiment&lt;/div&gt;
+      &lt;h2 class=&quot;sm&quot;&gt;A 3-month, 2-market test that proves the trajectory&lt;/h2&gt;
+      &lt;div class=&quot;exp&quot;&gt;
+        &lt;div class=&quot;box treat&quot;&gt;&lt;div class=&quot;h&quot;&gt;Treatment&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;JP+KR creator squads + Guardian panda-cam + paid membership (2 tiers) + the Apr 3 Fu Bao drop.&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;box ctrl&quot;&gt;&lt;div class=&quot;h&quot;&gt;Control / baseline&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;Matched JP/KR fan cohorts shown Base content without the membership offer (organic baseline).&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;hypo&quot;&gt;Hypothesis: overseas panda fans will pay a recurring membership to belong to a named panda and fund its conservation.&lt;/div&gt;
+      &lt;p class=&quot;lead&quot; style=&quot;margin-top:auto;&quot;&gt;Measurement: one global member ID across web &amp;amp; social; cohort conversion, CAC, 90-day renewal intent, merch attach.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;!-- FUNNEL --&gt;
+    &lt;section class=&quot;slide&quot; data-beat=&quot;funnel&quot;&gt;
+      &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;beat&quot;&gt;07 · The Funnel&lt;/div&gt;
+      &lt;h2 class=&quot;sm&quot;&gt;How demand moves — and where the pilot must prove it&lt;/h2&gt;
+      &lt;div class=&quot;funnel&quot;&gt;
+        &lt;div class=&quot;fstage f1&quot;&gt;Reach · &lt;span class=&quot;n&quot;&gt;50M&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;fstage f2&quot;&gt;Engagement · &lt;span class=&quot;n&quot;&gt;2.2%&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;fstage f3&quot;&gt;Conversion · &lt;span class=&quot;n&quot;&gt;30%&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;fstage f4&quot;&gt;Outcome · &lt;span class=&quot;n&quot;&gt;≤ $13&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p class=&quot;lead&quot; style=&quot;margin-top:auto;&quot;&gt;The 3-month pilot must prove demand moves from reach to recurring outcome.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;!-- nav --&gt;
+    &lt;div class=&quot;nav&quot;&gt;
+      &lt;div class=&quot;dots&quot; id=&quot;dots&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;pgnum&quot; id=&quot;pgnum&quot;&gt;1 / 7&lt;/div&gt;
+      &lt;div class=&quot;hint&quot;&gt;← → to navigate · F fullscreen&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+(function(){
+  var STORYLINES = {
+    classic: [&quot;title&quot;,&quot;context&quot;,&quot;problem&quot;,&quot;insight&quot;,&quot;audience&quot;,&quot;poster&quot;,&quot;strategy&quot;,&quot;plan&quot;,&quot;proof&quot;,&quot;ask&quot;],
+    hero:    [&quot;title&quot;,&quot;context&quot;,&quot;problem&quot;,&quot;storyboard&quot;,&quot;insight&quot;,&quot;audience&quot;,&quot;poster&quot;,&quot;strategy&quot;,&quot;plan&quot;,&quot;proof&quot;,&quot;ask&quot;],
+    reveal:  [&quot;title&quot;,&quot;context&quot;,&quot;problem&quot;,&quot;poster&quot;,&quot;insight&quot;,&quot;audience&quot;,&quot;strategy&quot;,&quot;plan&quot;,&quot;proof&quot;,&quot;ask&quot;],
+    demo:    [&quot;title&quot;,&quot;context&quot;,&quot;problem&quot;,&quot;prototype&quot;,&quot;insight&quot;,&quot;audience&quot;,&quot;strategy&quot;,&quot;poster&quot;,&quot;plan&quot;,&quot;proof&quot;,&quot;ask&quot;],
+    trailer: [&quot;title&quot;,&quot;context&quot;,&quot;problem&quot;,&quot;lyric&quot;,&quot;insight&quot;,&quot;audience&quot;,&quot;strategy&quot;,&quot;poster&quot;,&quot;plan&quot;,&quot;proof&quot;,&quot;ask&quot;]
+  };
+  var key = (document.body.getAttribute(&#x27;data-storyline&#x27;) || &#x27;classic&#x27;).trim().toLowerCase();
+  var order = (STORYLINES[key] || STORYLINES.classic).slice();
+  var includePoster = (document.body.getAttribute(&#x27;data-poster&#x27;) || &#x27;yes&#x27;).trim().toLowerCase();
+  if (includePoster === &#x27;no&#x27;) {
+    order = order.filter(function(b){ return b !== &#x27;poster&#x27;; });
+  } else if (order.indexOf(&#x27;poster&#x27;) &lt; 0) {
+    var anchor = order.indexOf(&#x27;keyvisual&#x27;) &gt;= 0 ? &#x27;keyvisual&#x27; : (order.indexOf(&#x27;insight&#x27;) &gt;= 0 ? &#x27;insight&#x27; : &#x27;problem&#x27;);
+    var at = order.indexOf(anchor);
+    order = order.slice(0, at + 1).concat([&#x27;poster&#x27;], order.slice(at + 1));
+  }
+  var deck = document.querySelector(&#x27;.deck&#x27;);
+  var all = Array.prototype.slice.call(document.querySelectorAll(&#x27;.slide&#x27;));
+  var slides = order.map(function(b){ return all.filter(function(s){return s.dataset.beat===b;})[0]; }).filter(Boolean);
+  all.forEach(function(s){ if(slides.indexOf(s) &lt; 0) s.style.display=&#x27;none&#x27;; });
+  var dots = document.getElementById(&#x27;dots&#x27;);
+  var pgnum = document.getElementById(&#x27;pgnum&#x27;);
+  function fit(){
+    var s = Math.min(window.innerWidth/1000, window.innerHeight/562);
+    deck.style.transform = &#x27;scale(&#x27;+s+&#x27;)&#x27;;
+  }
+  window.addEventListener(&#x27;resize&#x27;, fit);
+  slides.forEach(function(){ var d=document.createElement(&#x27;span&#x27;); d.className=&#x27;dot&#x27;; dots.appendChild(d); });
+  var dotsEl = dots.children;
+  var i = 0;
+  function show(n){
+    i = (n + slides.length) % slides.length;
+    slides.forEach(function(s,k){ s.classList.toggle(&#x27;on&#x27;, k===i); });
+    for(var k=0;k&lt;dotsEl.length;k++){ dotsEl[k].className = &#x27;dot&#x27; + (k===i ? &#x27; on&#x27; : &#x27;&#x27;); }
+    pgnum.textContent = (i+1) + &#x27; / &#x27; + slides.length;
+  }
+  document.addEventListener(&#x27;keydown&#x27;, function(e){
+    if(e.key===&#x27;ArrowRight&#x27; || e.key===&#x27; &#x27; || e.key===&#x27;PageDown&#x27;) show(i+1);
+    else if(e.key===&#x27;ArrowLeft&#x27; || e.key===&#x27;PageUp&#x27;) show(i-1);
+    else if(e.key===&#x27;f&#x27; || e.key===&#x27;F&#x27;){
+      if(!document.fullscreenElement){ if(document.documentElement.requestFullscreen) document.documentElement.requestFullscreen(); }
+      else { if(document.exitFullscreen) document.exitFullscreen(); }
+    }
+  });
+  fit(); show(0);
+})();
+&lt;/script&gt;
+&lt;script&gt;
+(function(){
+  var frame = document.getElementById(&#x27;posterFrame&#x27;);
+  var btns = Array.prototype.slice.call(document.querySelectorAll(&#x27;.posterpick button&#x27;));
+  if(!frame || !btns.length) return;
+  btns.forEach(function(b){
+    b.addEventListener(&#x27;click&#x27;, function(){
+      btns.forEach(function(x){ x.classList.remove(&#x27;on&#x27;); });
+      b.classList.add(&#x27;on&#x27;);
+      frame.setAttribute(&#x27;src&#x27;, &#x27;poster-&#x27; + b.getAttribute(&#x27;data-pstyle&#x27;) + &#x27;.html&#x27;);
+    });
+  });
+})();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe></div>
+  </section>
+
+  <!-- 07 · MEDIA PROMPT PACK (full artifact) -->
+  <section class="pane" id="pane-prompt">
+    <div class="viewer"><iframe data-auto title="Media Prompt Pack" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;title&gt;Media Prompt Pack · Quest B · Panda Guardians&lt;/title&gt;
+&lt;style&gt;
+  :root{
+    --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
+    --orange-1:#FFF0E7; --teal:#077069; --teal-1:#CDE2E1;
+    --line:#E4E8E7; --bg:#F7F6F4; --card:#FFFFFF; --mut:#5A6663;
+    --accent: var(--ascentium-orange); --accent-tint: var(--orange-1);
+  }
+  /* Quest accent is injected from the quest card as inline vars on &lt;body&gt; (see quest-card.md). */
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:&quot;Poppins&quot;,&quot;Noto Sans SC&quot;,&quot;PingFang SC&quot;,&quot;Microsoft YaHei&quot;,Arial,sans-serif;
+       background:var(--bg);color:var(--ascentium-midnight);-webkit-font-smoothing:antialiased;}
+  .page{max-width:880px;margin:0 auto;padding:36px 24px 64px;}
+  .top{display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--accent);padding-bottom:14px;}
+  .top .logo{font-weight:700;font-size:19px;} .top .logo span{color:var(--accent);}
+  .top .tag{font-size:12px;font-weight:600;color:var(--mut);letter-spacing:.14em;text-transform:uppercase;}
+  h1{font-size:28px;font-weight:800;margin-top:20px;letter-spacing:-.01em;}
+  .sub{font-size:13px;color:var(--mut);margin-top:6px;}
+  .note{margin-top:16px;background:var(--accent-tint);border-left:5px solid var(--accent);border-radius:10px;padding:13px 16px;font-size:12.5px;line-height:1.6;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:18px;}
+  .card h2{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:4px;}
+  .card .tool{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:10px;}
+  .prompt{position:relative;background:#0F1514;color:#E8ECEB;border-radius:10px;padding:14px 16px;font-family:&quot;SF Mono&quot;,Consolas,Menlo,monospace;font-size:12.5px;line-height:1.7;white-space:pre-wrap;word-break:break-word;}
+  .prompt .lbl{color:var(--accent);font-weight:700;}
+  .copy{position:absolute;top:10px;right:10px;background:var(--accent);color:#fff;border:none;border-radius:7px;
+        font-size:11px;font-weight:700;padding:6px 12px;cursor:pointer;font-family:inherit;}
+  .copy:active{opacity:.8;}
+  .back{margin-top:10px;font-size:11.5px;color:var(--mut);}
+  footer{margin-top:26px;border-top:1px dashed var(--line);padding-top:12px;font-size:10.5px;color:#9AA5A2;}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body data-quest=&quot;B&quot; style=&quot;--accent:#077069;--accent-tint:#CDE2E1;--accent-line:#83B8B4;--accent-deep:#043835;&quot;&gt;
+&lt;div class=&quot;page&quot;&gt;
+
+  &lt;div class=&quot;top&quot;&gt;
+    &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;tag&quot;&gt;Media Prompt Pack · Quest B&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;h1&gt;Panda Guardians&lt;/h1&gt;
+  &lt;div class=&quot;sub&quot;&gt;&quot;Belong to the pandas. From anywhere.&quot; &amp;nbsp;|&amp;nbsp; Chengdu Research Base of Giant Panda Breeding&lt;/div&gt;
+
+  &lt;div class=&quot;note&quot;&gt;
+    &lt;b&gt;Bonus (optional).&lt;/b&gt; Copy any prompt below → paste into the tool website → generate → download the file
+    (&lt;b&gt;.mp3 / .mp4 / .png&lt;/b&gt;) → bring it back and the AI will embed it into your Showcase report.
+    All prompts are pre-filled from your campaign. You don&#x27;t need to write anything.
+  &lt;/div&gt;
+
+  &lt;!-- SONG --&gt;
+  &lt;div class=&quot;card&quot;&gt;
+    &lt;h2&gt;Song · 60–90 seconds&lt;/h2&gt;
+    &lt;div class=&quot;tool&quot;&gt;Tool: Suno (v4) — style + lyrics&lt;/div&gt;
+    &lt;div class=&quot;prompt&quot;&gt;&lt;span class=&quot;copy&quot; onclick=&quot;cp(this)&quot;&gt;Copy&lt;/span&gt;&lt;span class=&quot;lbl&quot;&gt;STYLE&lt;/span&gt;
+Warm, hopeful indie-pop anthem. Acoustic guitar fingerpicking + soft strings + a light taiko heartbeat; ~92 BPM; intimate female vocal that opens to a shared chorus. Conservation-first, sincere, never saccharine. Build to a wide, anthemic final chorus. Leave a 6s tail for a logo sting.
+
+&lt;span class=&quot;lbl&quot;&gt;LYRICS&lt;/span&gt;
+[Verse 1]
+A screen goes dark in Tokyo, the platform&#x27;s nearly bare
+A bamboo leaf on empty glass, a name still in the air
+From Seoul across the Yellow Sea, a thousand letters stay
+We never said goodbye for good — we just ran out of days
+
+[Pre-Chorus]
+So send me one small window, send me one small light
+I&#x27;ll be there at midnight, I&#x27;ll be there at first light
+
+[Chorus]
+You don&#x27;t have to be there to belong
+I&#x27;ll hold your bamboo, I&#x27;ll hold your name
+Every mile away, we&#x27;re still the same
+Adopt a panda, keep the wild alive
+You don&#x27;t have to be there to belong — Guardian, stay
+
+[Verse 2]
+A visa-stamped tomorrow, a train to Chengdu sky
+Somewhere a little cub is learning how to say goodbye
+We&#x27;ll meet in six more months, my friend, we&#x27;ll meet on unfamiliar ground
+But every day between now, I&#x27;ll keep you safe and sound
+
+[Chorus]
+You don&#x27;t have to be there to belong
+I&#x27;ll hold your bamboo, I&#x27;ll hold your name
+Every mile away, we&#x27;re still the same
+Adopt a panda, keep the wild alive
+You don&#x27;t have to be there to belong — Guardian, stay
+
+[Outro]
+Guardian, stay… (whispered) we&#x27;re still the same.&lt;/div&gt;
+    &lt;div class=&quot;back&quot;&gt;Bring back: &lt;b&gt;guardian-anthem.mp3&lt;/b&gt; → embed in the &quot;Anthem&quot; slide.&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- VIDEO --&gt;
+  &lt;div class=&quot;card&quot;&gt;
+    &lt;h2&gt;Video · 30–45 seconds&lt;/h2&gt;
+    &lt;div class=&quot;tool&quot;&gt;Tool: Runway Gen-3 — text-to-video&lt;/div&gt;
+    &lt;div class=&quot;prompt&quot;&gt;&lt;span class=&quot;copy&quot; onclick=&quot;cp(this)&quot; &gt;Copy&lt;/span&gt;Cinematic, warm documentary style, 24fps, shallow depth of field. Scene: a quiet, rain-soft Tokyo street at dusk (neon reflecting in puddles); cut to a hand holding a phone — on screen, a live panda-cam feed of a giant panda chewing bamboo, soft teal UI, the word &quot;Guardian.&quot; Cut to a Korean fan&#x27;s desk: a Fu Bao plush, a passport, a plane ticket dated for Chengdu. Match cut from the phone&#x27;s teal glow to the green bamboo of the Chengdu Base at sunrise; pandas climbing, keepers walking. Final shot: the fan, now in Chengdu, pressing a palm to the enclosure glass as the panda looks up — gentle, respectful, no crowds. Colour palette: teal (#077069), warm cream (#FFF6EC), bamboo green. Tone: sincere, conservation-first, hopeful. No text overlays; leave lower-third space clean. Aspect 16:9, then crop-safe 9:16.&lt;/div&gt;
+    &lt;div class=&quot;back&quot;&gt;Bring back: &lt;b&gt;guardian-void-30s.mp4&lt;/b&gt; → embed in the &quot;Moment&quot; slide.&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- IMAGE --&gt;
+  &lt;div class=&quot;card&quot;&gt;
+    &lt;h2&gt;Image · hero visual / poster&lt;/h2&gt;
+    &lt;div class=&quot;tool&quot;&gt;Tool: GPT Image — hero key visual&lt;/div&gt;
+    &lt;div class=&quot;prompt&quot;&gt;&lt;span class=&quot;copy&quot; onclick=&quot;cp(this)&quot;&gt;Copy&lt;/span&gt;A flat, modern vector key visual for a global panda conservation membership. A friendly giant panda face — white face, black ears and eye patches, soft rounded shapes — centred, with tall teal bamboo stalks framing both sides. Background: deep teal (#077069) with a warm cream (#FFF6EC) glow behind the panda and a subtle dotted globe arc suggesting a worldwide community. Small elements: a bamboo leaf, a passport-stamp circle, a tiny heart. Style: clean editorial flat illustration, generous negative space at top for a headline and at bottom for a logo, 2:1 aspect ratio (1200×500), no text. Palette strictly teal #077069, teal-tint #CDE2E1, cream #FFF6EC, midnight #0F1514. Sincere, conservation-first, globally warm — never cartoonish-cute.&lt;/div&gt;
+    &lt;div class=&quot;back&quot;&gt;Bring back: &lt;b&gt;guardian-hero.png&lt;/b&gt; → embed in the &quot;Big Idea&quot; slide.&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;footer&gt;Human-led, AI-scaffolded. Tool output is a bonus, not a required deliverable. Data as of 2026-10-06.&lt;/footer&gt;
+
+&lt;/div&gt;
+
+&lt;script&gt;
+function cp(btn){
+  var text = btn.parentElement.innerText.replace(&#x27;Copy&#x27;,&#x27;&#x27;).trim();
+  if(navigator.clipboard &amp;&amp; navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){ btn.textContent=&#x27;Copied&#x27;; setTimeout(function(){btn.textContent=&#x27;Copy&#x27;;},1500); });
+  } else {
+    var r=document.createRange(); r.selectNodeContents(btn.parentElement);
+    var sel=window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+    document.execCommand(&#x27;copy&#x27;); sel.removeAllRanges(); btn.textContent=&#x27;Copied&#x27;;
+    setTimeout(function(){btn.textContent=&#x27;Copy&#x27;;},1500);
+  }
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe></div>
+  </section>
+
+</main>
+
+<script>
+(function(){
+  var body = document.body;
+  var nav = document.getElementById('nav');
+  var links = Array.prototype.slice.call(nav.querySelectorAll('a'));
+
+  function fit(frame){
+    if(!frame) return;
+    var fixed = frame.getAttribute('data-fixed');
+    if(fixed){ frame.style.height = fixed + 'px'; return; }
+    if(!frame.hasAttribute('data-auto')) return;
+    try{
+      var d = frame.contentDocument || (frame.contentWindow && frame.contentWindow.document);
+      if(!d) return;
+      var h = Math.max(
+        d.documentElement ? d.documentElement.scrollHeight : 0,
+        d.body ? d.body.scrollHeight : 0
+      );
+      if(h > 0) frame.style.height = (h + 6) + 'px';
+    }catch(e){ /* cross-origin guard — srcdoc is same-origin, so this shouldn't fire */ }
+  }
+
+  function fitActive(){
+    var p = document.querySelector('.pane.on');
+    if(!p) return;
+    var f = p.querySelector('iframe');
+    if(f) fit(f);
+  }
+
+  function activate(name){
+    links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('data-pane') === name); });
+    document.querySelectorAll('.pane').forEach(function(p){
+      p.classList.toggle('on', p.id === 'pane-' + name);
+    });
+    requestAnimationFrame(fitActive);
+  }
+
+  links.forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      activate(a.getAttribute('data-pane'));
+      if(window.innerWidth < 920) body.classList.add('collapsed');
+    });
+  });
+
+  document.getElementById('collapser').addEventListener('click', function(){ body.classList.add('collapsed'); });
+  document.getElementById('opener').addEventListener('click', function(){ body.classList.remove('collapsed'); });
+
+  // fit frames once their documents are ready, and refit on resize
+  Array.prototype.slice.call(document.querySelectorAll('iframe')).forEach(function(f){
+    f.addEventListener('load', function(){ fit(f); });
+  });
+  window.addEventListener('resize', function(){ fitActive(); });
+  window.addEventListener('load', function(){ fitActive(); });
+  fitActive();
+})();
+</script>
+
+<!-- structured capture — invisible in the page (see facilitation/capture-contract.md) -->
+<script type="application/json" id="capture">
+{
+  "gate": "showcase",
+  "quest": "B",
+  "storyline": "hero",
+  "include_poster": true,
+  "poster_style": "b",
+  "signature": "storyboard",
+  "visual_direction": "Belonging Passport — cream ticket/stamp, warm conservation-first tone; teal accent",
+  "one_liner": "Fund USD 1.1M for a 3-month, 2-market pilot to turn global panda love into a paying Guardian membership — conservation-first, every dollar reported back.",
+  "bonus_media": {"song": true, "video": true, "image": true},
+  "tweaks": [
+    "Hero's Journey storyline chosen because the campaign is a fan-becomes-Guardian arc (watch → void → adopt → belong → pilgrimage).",
+    "Poster included and set to Style B (Belonging Passport) — the membership-native art direction.",
+    "Prompt pack ships ready-to-run Suno / Runway / GPT prompts; no external media returned yet, so media slots remain hidden."
+  ]
+}
+</script>
+</body>
+</html>

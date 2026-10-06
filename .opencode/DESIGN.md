@@ -114,6 +114,7 @@ AI 给脚手架/问题  →  团队发散(人人出点子)  →  团队收敛(�
 3. **强制计时**：每关有硬时间盒，到点推进，防止完美主义与跑题。
 4. **中立记录**：观点冲突时不偏向，如实聚类；不替团队「润色掉」分歧。
 5. **AI 代为研究（choice-first 的数据底座）**：`agent-reach` 在 insight 环节**主动**用于搜集数据/报告，把事实变成有价值的**数据化洞察选项**；团队只做选择。克制 = **团队**不做研究马拉松、AI 不堆原始数据，而不是 AI 不研究。
+6. **一轮一决策 + 回顾内联**：每个 turn **只出一个 menu 就停**、等团队回复（禁止自问自答、禁止一回合跑多关）；每轮结尾先**回顾**（过程 + 产物路径），再把下一步**选项直接打印在对话里**。**HTML 是记录，对话才是决策界面**（不让用户去浏览器打开 HTML 才知道要选什么）。
 
 ### 5.3 协议库（Protocol Library）
 | 协议 | 用途 | 机制 | 默认时长（14 人） |
@@ -344,7 +345,7 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 └── commands/                        # start · insight · plan · poster · prove · showcase · evaluate · run
 ```
 
-**输出位置（运行约定）**：Facilitator 与 runner 两种模式都把本轮全部产物写入仓库根的 **`artifacts/Quest<ID>-<NN>/`**（每题一轮一子目录：`QuestA-01` → `QuestA-02` ……）。`/start`、`/run` 新建轮次目录；单闸命令并入该题最新轮次目录（无则建 `-01`）；**不覆盖旧轮次**。每轮含各阶段 HTML 产物（decisions 内嵌于各自 `id="capture"` 块，**无 YAML/Markdown**）；构建脚本以 `--dir artifacts/Quest<ID>-<NN>/` 运行。`artifacts/` 已 gitignore；签入示例在 `demo-examples/`。详见 `quest-card.md` → *Output layout*。
+**输出位置（运行约定）**：Facilitator 与 runner 两种模式都把本轮全部产物写入仓库根的 **`artifacts/Quest<ID>-<NN>/`**（每题一轮一子目录：`QuestA-01` → `QuestA-02` ……）。`/run` 新建轮次目录；`/start` **只做 briefing**（不建目录、不产产物），由**第一个写产物的关卡**建目录；单闸命令并入该题最新轮次目录（无则建 `-01`）；**不覆盖旧轮次**。每轮含各阶段 HTML 产物（decisions 内嵌于各自 `id="capture"` 块，**无 YAML/Markdown**）；构建脚本以 `--dir artifacts/Quest<ID>-<NN>/` 运行。`artifacts/` 已 gitignore；签入示例在 `demo-examples/`。详见 `quest-card.md` → *Output layout*。
 
 > **opencode 发现约定 = 递归 `**/SKILL.md`**。四阶段技能 `insight` / `plan` / `prove` / `showcase` 各自带 `sub-skills/`；`poster`、`agent-reach` **平铺为顶层技能**（逻辑上归 `plan` / `insight`，被它们引用）。
 > 命名约定：**技能/Agent/Command 名一律不带 `quest`**（skill: `insight`/`plan`/`poster`/`prove`/`showcase`；agent: `facilitator`/`runner`/`researcher`；command: `/start`、`/run` 等）。

@@ -4,7 +4,7 @@ The default **happy path**. It is a suggestion, not a script (see Prime Directiv
 
 | Time   | Gate          | Lead  | AI does                                   | Human decision                  |
 |--------|---------------|-------|-------------------------------------------|---------------------------------|
-| 0–2′   | Kick-off      | AI    | 30s scout summary + first question        | —                               |
+| 0–2′   | Kick-off      | AI    | confirm brief (mission · 4 gates · research time) → wait for go-ahead → 30s scout summary + first question | —                               |
 | 2–8′   | Insight gate  | human | cluster market truths                     | confirm the seed insight        |
 | 8–22′  | Creative gate | human | assemble the winner into a plan           | big idea + 2 pilot markets      |
 | 22–30′ | Pilot metrics | human | write the derivation chains               | 3–5 expected pilot metrics      |
