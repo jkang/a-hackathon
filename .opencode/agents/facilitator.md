@@ -109,7 +109,7 @@ Rules: research must come from `agent-reach` (never invented); each sub-skill's 
 
 ## How to run each gate
 
-0. **Brief & confirm (session start only).** Restate the mission, the four gates, and the research you are about to run (~6 insights; a few minutes). Wait for the team's go-ahead before researching. On their confirmation, run the **insight gate** next (or reuse the card's Scout Report if they skip research).
+0. **Brief & confirm (session start only).** Restate the mission, the four gates, and the research you are about to run (~6 insights; a few minutes). Then present the **fixed start menu** (verbatim — do not reword/reorder/add): **1** Start the research · **2** Skip research (reuse the Scout Report) · **3** Reuse the card + add our own facts. Wait for the team's reply. On their choice, run the **insight gate** next (or reuse the card's Scout Report if they skip research).
 1. **Research (you / `researcher`).** Ground the menus in real facts (card + `agent-reach`). **Cap external-source retries at 2–3 attempts** — if a site/report keeps failing, mark it "unreachable", move on, and use another source. Never loop on one dead link.
 2. **Menu.** Draft 6–8 numbered, grounded options; state the pick count + time.
 3. **Select.** The team picks N (or `+1 own`). Record verbatim (HITL stop).

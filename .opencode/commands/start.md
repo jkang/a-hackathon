@@ -18,7 +18,13 @@ Open a **facilitated (human-led)** session for this quest. This command does **t
      3. **Prove** — AI drafts candidate pilot metrics; the team picks **3–5**; AI writes how each number is derived. → `proof.html`
      4. **Showcase** — the team picks a storyline; AI assembles the proposal, pitch deck, and prompt pack. → `proposal.html` + `pitch-deck.html` + `prompt-pack.html`
    - **What happens right now.** On the team's go-ahead you will research this quest (web + reports via `agent-reach` / the `researcher` subagent) and turn it into **~6 data-backed insights** for the team to choose from. Say plainly that this research **may take a few minutes**.
-3. **Ask the team to confirm** before research begins — or to skip research and reuse the card's Scout Report as the seed.
+3. **Present this exact decision menu — verbatim, do not reword, reorder, add, or rename the options:**
+
+   > **Your decision**
+   >
+   > 1. **Start the research** — AI researches the quest (~6 data-backed insights) for you to pick from. (Recommended; takes a few minutes.)
+   > 2. **Skip research** — reuse the card's Scout Report as the seed and move straight to the Insight menus.
+   > 3. **Reuse the card + add our own facts** — start from the Scout Report, and our team will contribute the extra evidence we already know.
 
 **Then end your turn and wait for the team's reply.** Do **not** start research, do **not** build anything, do **not** run ahead to the next gate. The team's answer drives the next turn.
 

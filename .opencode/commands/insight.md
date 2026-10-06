@@ -8,7 +8,7 @@ Run **only the INSIGHT gate**.
 
 Use the `insight` skill with `facilitation` (option menu) and `agent-reach` (or delegate to the `researcher` subagent).
 
-0. **Brief & confirm (HITL) — only if the session hasn't been briefed yet.** If you already opened with `/start` and the team confirmed, skip straight to research. Otherwise, before researching, restate the quest (client · mission · market), name the four gates, and say you will research it into **~6 data-backed insights** — noting this may take a few minutes; **wait for the team's go-ahead.**
+0. **Brief & confirm (HITL) — only if the session hasn't been briefed yet.** If you already opened with `/start` and the team confirmed, skip straight to research. Otherwise, before researching, restate the quest (client · mission · market), name the four gates, and say you will research it into **~6 data-backed insights** — noting this may take a few minutes. Then present the **fixed start menu** (verbatim — do not reword/reorder/add): **1** Start the research · **2** Skip research (reuse the Scout Report) · **3** Reuse the card + add our own facts; **wait for the team's reply.**
 1. **Research first** — gather real facts/reports, distil into data-backed options. **Cap retries at 2–3 attempts per source**; if a site keeps failing, mark it unreachable and move on.
 2. Present menus: **trends** (pick 2–3), **audience segments** (pick 2–4), **moment of truth** (pick 1–2), **field truths** (pick the ones that resonate). Always `+1 of our own`.
 3. Converge → the team confirms **one seed insight**.
