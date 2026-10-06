@@ -46,7 +46,7 @@ End **every** turn with these three blocks, in order:
 
 1. **Recap (2–4 lines).** What you just did + the artifact produced (name + path, e.g. `artifacts/QuestA-01/insight-brief.html`) + the key takeaways in one line each. The file is optional to open; state that.
 2. **The decision, printed inline.** The next menu directly in the message — numbered 6–8 options, each with its supporting fact/one-liner — plus the pick count, the time, and `+1 of our own`. (See `facilitation/option-menu.md`.)
-3. **Pick prompt (one line).** e.g. *"Reply with your pick (e.g. `1, 4, 6`) — no need to open the HTML."*
+3. **Pick prompt (one line).** e.g. *"Reply with your pick (e.g. `1, 4, 6`)."*
 
 **What to surface inline, per gate:**
 - **Insight** → the ~6 key insights (pick 2–3), and each sub-menu as it comes (trends · segments · moment · truths).

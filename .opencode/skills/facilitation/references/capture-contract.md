@@ -16,7 +16,7 @@ Template:
 
 > **hackathon-robot >>** Done: [what I just did]. Artifact: `artifacts/QuestA-01/[file].html` (optional to open).
 > **MENU · [gate]** — **pick [N]** (30s), or `+1` your own. `1)` … `2)` … `3)` … `4)` … `5)` … `6)`
-> **Reply with your pick (e.g. `1, 4, 6`) — no need to open the HTML.**
+> **Reply with your pick (e.g. `1, 4, 6`).**
 
 The recap + inline menu are the team's interface; the HTML is only the **record**. Never send the team to the artifact to see the options or make the choice.
 

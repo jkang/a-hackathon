@@ -32,7 +32,7 @@ Every turn that produces output ends with a short wrap-up:
 
 1. **Recap (2–4 lines)** — what you just did + the artifact produced (name + path) + the key takeaways.
 2. **The menu, inline** — print it in the message (numbered, with each option's supporting fact).
-3. **Pick prompt** — "Reply with your pick (e.g. `1, 4, 6`) — no need to open the HTML."
+3. **Pick prompt** — "Reply with your pick (e.g. `1, 4, 6`)."
 
 > Never tell the team to open `insight-brief.html` / `campaign-plan.html` / `proof.html` / `proposal.html` to see the options and then come back. Surface the options yourself.
 

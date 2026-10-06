@@ -143,9 +143,10 @@ the engine shows the slot's placeholder label so the deck still runs.
 | IMG-01 | S2 | OpenCode workspace with a command being typed | screenshot | NEW | 1800×1000 | `img-01.jpg` |
 | IMG-02 | S2 | The command list / palette (8 commands) | screenshot | NEW | 1800×1000 | `img-02.jpg` |
 | IMG-03 | S3 | 5-stage loop diagram with the HITL gate per stage | diagram | REUSE (deck flow at `host-deck.html` L517–569) | 1800×1000 | `img-03.jpg` |
-| IMG-04 | S4 | `/start A` running + first grounded menu | screenshot | NEW | 1800×1000 | `img-04.jpg` |
-| IMG-05 | S5 | `/insight` running + skill callout | screenshot | NEW | 1800×1000 | `img-05.png` |
-| IMG-06 | S5 | `insight-brief.html` result | screenshot | NEW | 1800×1000 | `img-06-insight-brief.png` |
+| IMG-04 | S4 | `/start Quest A` running + first grounded menu | screenshot | NEW | 1800×1000 | `img-04.jpg` |
+| IMG-04 | S4 | `continue with research` running + first grounded menu | screenshot | NEW | 1800×1000 | `img-04-02.jpg` |
+| IMG-05 | S5 | `/insight` running + skill callout | screenshot | NEW | 1800×1000 | `img-05.jpg` |
+| IMG-06 | S5 | `insight-brief.html` result | screenshot | NEW | 1800×1000 | `img-06.png` |
 | IMG-07 | S6 | `/plan` running + skill callout | screenshot | NEW | 1800×1000 | `img-07-plan-cmd.png` |
 | IMG-08 | S6 | `campaign-plan.html` (A/B) result | screenshot | NEW | 1800×1000 | `img-08-campaign-plan.png` |
 | IMG-09 | S6 | `poster.html` hero result | screenshot | NEW | 1400×1000 | `img-09-poster.png` |

@@ -37,7 +37,7 @@ End **every** turn with a recap and the next choice printed in the chat — the 
 > Next — **MENU · [gate]** — **pick [N]** (30s), or `+1` your own:
 > `1)` … `2)` … `3)` … `4)` … `5)` … `6)`
 > `+1)` ___________________
-> **Reply with your pick (e.g. `1, 4, 6`).** No need to open the HTML.
+> **Reply with your pick (e.g. `1, 4, 6`).**
 
 Optional opener greeting: "Beep. That's the picture — here's the next call."
 
