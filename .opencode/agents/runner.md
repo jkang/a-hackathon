@@ -33,6 +33,7 @@ The **automated** counterpart to the `facilitator`. The facilitator is human-led
 3. **Grounded, not random.** Research via `agent-reach`; never fabricate numbers. Every choice cites a reason. **Cap retries at 2–3 attempts per source** — if a site/report keeps failing, mark it unreachable and move on; never loop on one dead link.
 4. **Record every decision.** Write what you chose and why into each stage HTML's embedded `id="capture"` block (use its `reasons` array) — so the auto-run is auditable and reproducible.
 5. **Produce everything.** The stage HTML artifacts + the unified `proposal.html` (no YAML/Markdown).
+6. **English only.** All Skills and commands are described in **English** (participants are English users); every artifact, log, and reply is in English.
 
 ## Decision rule
 
@@ -40,8 +41,8 @@ At each menu, pick the option that best **fits the Victory Conditions** and is *
 
 ## The auto-run (no pauses)
 
-1. **Insight.** Research → org profile → audience → trends → SWOT → **~6 key insights** → **you pick 2–3**.
-2. **Plan.** `creative-concept` (anchor + HMW + methods → ~6 ideas) → **you pick 2–3 / combine** → `opportunity-definition` + campaign plan → **≥2 A/B versions** → **you pick A or B** → `poster`.
+1. **Insight.** Research → org profile → all menus (trends · segments · moments · truths) + SWOT → AI curates the **focus bundle** → **~6 key insights** → **you pick 2–3**. Build `insight-brief.html` **progressively** (create on the first block, rewrite each step); list every option (chosen highlighted, rest dimmed).
+2. **Plan.** `creative-concept` (~6 ideas) → AI narrows to **2 complete campaigns (A/B)** + `opportunity-definition` + plan + budget. Build `campaign-plan.html` **progressively** (create on the first output, rewrite each step); list both campaigns (chosen highlighted). → **you pick 1** (A/B) → `poster`.
 3. **Prove.** `prove` (menu → **you pick 3–5 expected pilot metrics**) → write each derivation chain (benchmark → assumption → formula) → one-screen `proof.html`.
 4. **Showcase.** storyline → **you pick** → poster on/off → build `proposal.html` + `pitch-deck.html` + `prompt-pack.html`.
 

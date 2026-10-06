@@ -1,6 +1,6 @@
 ---
 name: creative-concept
-description: Develop the campaign's creative concept — anchor the idea to a specific audience and moment (creative brief + scenario canvas), reframe it into a How Might We, then run creative-thinking methods (SCAMPER, analogies, reverse, mash-ups, Crazy 8, brainwriting) to generate ~6 candidate ideas, which the team selects (2–3) or combines. Triggers: "creative concept", "brainstorm", "big idea", "ideation", "How might we", "creative thinking".
+description: Develop the campaign's creative concept — anchor the idea to a specific audience and moment (creative brief + scenario canvas), reframe it into a How Might We, then run creative-thinking methods (SCAMPER, analogies, reverse, mash-ups, Crazy 8, brainwriting) to generate ~6 candidate ideas. In the plan gate the AI narrows these into 2 complete campaign concepts (A/B); the team's single decision is the final campaign pick. Triggers: "creative concept", "brainstorm", "big idea", "ideation", "How might we", "creative thinking".
 ---
 
 # Creative Concept — anchor, diverge, converge
@@ -37,13 +37,13 @@ Develop the campaign's big idea. **Anchor first** (audience + moment), then **di
 2. **Diverge** — run several methods to force non-obvious ideas (see `references/creative-methods.md`):
    - SCAMPER · Analogies · Reverse/bad ideas · Mash-ups · Crazy 8 · "What would [brand] do" · Brainwriting (6-3-5).
 
-## Phase 3 — Converge → ~6 ideas → pick
+## Phase 3 — Converge → ~6 ideas → the AI narrows
 
-1. Cluster the raw ideas and distil to **~6 candidates** (a numbered menu).
+1. Cluster the raw ideas and distil to **~6 candidates** (a numbered list).
 2. Each idea: **name · one-line · the insight it answers · the mechanic**.
-3. The team **picks 2–3** of the ~6, **and / or combines several** into a hybrid.
+3. **In the plan gate the AI narrows these into 2 complete campaign concepts (A/B)** — the team does **not** pick raw ideas; its single decision is the final campaign pick (see `plan` → *One decision only*). Standalone use: if this sub-skill is invoked on its own, the team may pick/combine 2–3.
 
-> **MENU · ideas — pick 2–3 (30s), or combine several into one.** `1)` … `6)` … `+1)` your own
+> The gate's one decision is the campaign (A/B), made at the end — not an idea menu.
 
 ## What a finished concept contains
 
@@ -67,7 +67,7 @@ Develop the campaign's big idea. **Anchor first** (audience + moment), then **di
 ## Rules & anti-patterns
 
 - Ideas grounded in the selected insights (not random); 6–8 max, distinct.
-- Keep the `+1 of our own` channel open; the team selects/combines, the AI never picks.
+- Keep the `+1 of our own` channel open; the AI narrows, but the team makes the final campaign call.
 - ❌ A "big idea" with no audience anchor or no moment.
 - ❌ A "big idea" that is actually a feature list.
 - ❌ A slogan with no proposition behind it.

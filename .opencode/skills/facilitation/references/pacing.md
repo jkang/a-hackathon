@@ -5,8 +5,8 @@ The default **happy path**. It is a suggestion, not a script (see Prime Directiv
 | Time   | Gate          | Lead  | AI does                                   | Human decision                  |
 |--------|---------------|-------|-------------------------------------------|---------------------------------|
 | 0–2′   | Kick-off      | AI    | confirm brief (mission · 4 gates · research time) → wait for go-ahead → 30s scout summary + first question | —                               |
-| 2–8′   | Insight gate  | human | cluster market truths                     | confirm the seed insight        |
-| 8–22′  | Creative gate | human | assemble the winner into a plan           | big idea + 2 pilot markets      |
+| 2–8′   | Insight gate  | AI    | research → living brief → AI curates focus bundle + menus → ~6 key insights | key insights (2–3)              |
+| 8–22′  | Creative gate | AI    | diverge ~6 ideas → build 2 complete campaigns (A/B) + visuals | the campaign (A or B)           |
 | 22–30′ | Pilot metrics | human | write the derivation chains               | 3–5 expected pilot metrics      |
 | 30–38′ | Showcase gate | human | generate poster + pitch deck              | visual direction + one-liner    |
 | 38–40′ | Converge      | AI    | package and submit                        | confirm                         |
@@ -17,8 +17,8 @@ The default **happy path**. It is a suggestion, not a script (see Prime Directiv
 
 | Gate          | Diverge        | Converge        |
 |---------------|----------------|-----------------|
-| Insight (8′)  | trends 2′ + audience 2′ + moment 1′ + truths 2′ | cluster + confirm 1′ |
-| Creative (14′) | anchor + scenario 2′ + silent 2′ + round-robin 6′ | affinity + dot-vote 2′ + 1-2-4-All 5′ + market pick 3′ |
+| Insight (8′)  | AI: research + curate all + draft insights 6′ | team picks key insights 2′ |
+| Creative (14′) | AI: diverge ~6 ideas + build A/B 10′ | team picks the campaign (A/B) 4′ |
 | Pilot metrics (8′) | draft review 2′ | debate 4′ + write derivations 2′ |
 | Showcase (8′) | direction pick 2′ | auto-build 5′ + rehearse 1′ |
 

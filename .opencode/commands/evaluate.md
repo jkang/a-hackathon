@@ -9,4 +9,4 @@ Evaluate the proposal at **$ARGUMENTS** (default: the latest round folder under 
 4. Diagnose: **strengths · gaps · top 3 fixes** — be specific and critical, not polite.
 5. Flag "number defensibility" (pilot target derivation) if weak.
 
-Output a one-screen scorecard + a short written critique. **Print the scorecard and the top 3 fixes inline in the chat** (no HTML to open). English only.
+Output a one-screen scorecard + a short written critique. **Print the scorecard and the top 3 fixes inline in the chat.** English only.

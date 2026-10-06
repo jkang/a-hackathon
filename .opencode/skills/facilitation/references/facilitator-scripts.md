@@ -32,7 +32,7 @@ Example (Insight gate):
 
 End **every** turn with a recap and the next choice printed in the chat — the team replies from here, not from the artifact:
 
-> **hackathon-robot >>** Done: [what I just did]. Artifact: `artifacts/QuestA-01/insight-brief.html` (optional to open).
+> **hackathon-robot >>** Done: [what I just did]. Artifact: `artifacts/QuestA-01/insight-brief.html`.
 > **Key takeaways:** [1 line] · [1 line] · [1 line].
 > Next — **MENU · [gate]** — **pick [N]** (30s), or `+1` your own:
 > `1)` … `2)` … `3)` … `4)` … `5)` … `6)`

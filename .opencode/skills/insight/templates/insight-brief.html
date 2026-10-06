@@ -19,7 +19,8 @@
   *{margin:0;padding:0;box-sizing:border-box;}
   body{font-family:"Poppins","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
        background:var(--bg);color:var(--ascentium-midnight);-webkit-font-smoothing:antialiased;}
-  .page{max-width:960px;margin:0 auto;padding:40px 28px 56px;}
+  /* Content area = 80% of the viewport width, capped at 1600px on ultra-wide screens. */
+  .page{width:80%;max-width:1600px;margin:0 auto;padding:40px 28px 56px;}
   .brandbar{display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--accent);padding-bottom:14px;}
   .brandbar .logo{font-weight:700;font-size:20px;letter-spacing:-.01em;}
   .brandbar .logo span{color:var(--accent);}
@@ -28,7 +29,9 @@
   .client{margin-top:8px;font-size:13px;color:var(--mut);font-weight:500;}
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px;}
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
-  .card h2{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;}
+  .card h2{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;
+           display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;}
+  .card h2 .count{font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:none;color:var(--accent);}
   .card ul{list-style:none;}
   .card li{font-size:13.5px;line-height:1.6;padding:4px 0 4px 14px;position:relative;}
   .card li::before{content:"▸";position:absolute;left:0;color:var(--accent);}
@@ -42,39 +45,61 @@
   .bench .gold .bt{color:#B98A1D;} .bench .red .bt{color:#C0392B;} .bench .sky .bt{color:var(--sky);}
   .bench p{font-size:12px;line-height:1.55;}
 
-  .trends{display:grid;gap:10px;}
+  /* ---- Shared option states: every menu is rendered IN FULL; selected vs parked ---- */
+  .state{position:relative;}
+  .state .tag{position:absolute;top:10px;right:12px;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+              border-radius:999px;padding:2px 8px;}
+  .state .tag.sel{color:#fff;background:var(--accent);}
+  .state .tag.ai{color:#fff;background:var(--ascentium-midnight);}
+  .state.is-sel{border:2px solid var(--accent);background:var(--accent-tint);}
+  .state.is-parked{opacity:.5;}
+  .state.is-parked:hover{opacity:.85;}
+
+  .trends{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
   .trend{border-radius:10px;background:var(--bg);border:1px solid var(--line);padding:11px 14px;}
-  .trend .t{font-size:13px;font-weight:700;color:var(--ascentium-midnight);}
+  .trend .t{font-size:13px;font-weight:700;color:var(--ascentium-midnight);padding-right:56px;}
   .trend .w{font-size:12px;color:var(--mut);margin-top:3px;line-height:1.5;}
 
-  .segments{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .segments{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
   .seg{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card);}
-  .seg .name{font-size:15px;font-weight:700;color:var(--accent);}
+  .seg .name{font-size:15px;font-weight:700;color:var(--accent);padding-right:56px;}
   .seg .who{font-size:11px;color:var(--mut);margin-top:2px;line-height:1.5;}
   .seg .job{font-size:12.5px;margin-top:9px;line-height:1.5;color:var(--ascentium-midnight);}
   .seg .job b{color:var(--accent);}
   .seg .row{font-size:11.5px;margin-top:7px;line-height:1.5;color:#3B4442;}
   .seg .row b{color:var(--ascentium-midnight);}
 
+  /* ---- Focus bundles: AI-selected (audience × moment × shift) ---- */
+  .bundles{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .bundle{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card);}
+  .bundle .bh{display:flex;align-items:center;gap:8px;}
+  .bundle .bid{font-size:10px;font-weight:800;letter-spacing:.08em;color:var(--accent);}
+  .bundle .bn{font-size:15px;font-weight:700;margin-top:5px;color:var(--ascentium-midnight);padding-right:56px;}
+  .bundle .brow{font-size:11.5px;margin-top:7px;line-height:1.5;color:#3B4442;}
+  .bundle .brow b{color:var(--accent);}
+  .bundle .bwhy{font-size:11.5px;margin-top:8px;line-height:1.5;color:var(--mut);}
+
   .moment{background:var(--accent);color:#fff;border-radius:12px;padding:16px 20px;margin-top:16px;}
   .moment .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.85;}
   .moment .txt{font-size:15px;font-weight:700;margin-top:6px;line-height:1.5;}
 
   .truths{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
-  .chip{font-size:12px;line-height:1.4;background:var(--accent-tint);color:var(--accent);
-        border:1px solid var(--accent-line);border-radius:999px;padding:6px 12px;}
-  .clusters{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+  .chip{position:relative;font-size:12px;line-height:1.4;background:var(--card);color:#3B4442;
+        border:1px solid var(--line);border-radius:999px;padding:6px 12px;}
+  .chip.is-sel{background:var(--accent-tint);color:var(--accent);border:2px solid var(--accent);font-weight:600;}
   .cluster{font-size:11.5px;font-weight:700;background:var(--ascentium-midnight);color:#fff;border-radius:8px;padding:6px 12px;}
-  .seed{margin-top:26px;background:var(--accent-tint);border-left:6px solid var(--accent);border-radius:12px;padding:20px 24px;}
+
+  /* ---- Seed insight: whole-block tint + hairline border (no decorative side bar, per AGENTS §5.2) ---- */
+  .seed{margin-top:26px;background:var(--accent-tint);border:1px solid var(--accent-line);border-radius:12px;padding:20px 24px;}
   .seed .lbl{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
-    .seed p{font-size:19px;font-weight:600;line-height:1.5;margin-top:8px;}
-  .kinsights{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
+  .seed p{font-size:19px;font-weight:600;line-height:1.5;margin-top:8px;}
+
+  .kinsights{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px;}
   .kin{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card);position:relative;}
   .kin .id{font-size:10px;font-weight:800;letter-spacing:.08em;color:var(--accent);}
-  .kin .t{font-size:13.5px;font-weight:600;line-height:1.5;margin-top:5px;padding-right:60px;}
+  .kin .t{font-size:13.5px;font-weight:600;line-height:1.5;margin-top:5px;padding-right:56px;}
   .kin .ev{font-size:11px;color:var(--mut);margin-top:7px;line-height:1.45;}
-  .kin.sel{border:2px solid var(--accent);background:var(--accent-tint);}
-  .kin.sel::after{content:"SELECTED";position:absolute;top:12px;right:14px;font-size:9px;font-weight:800;letter-spacing:.1em;color:var(--accent);}
+  .kin.is-sel{border:2px solid var(--accent);background:var(--accent-tint);}
   footer{margin-top:26px;border-top:1px dashed var(--line);padding-top:12px;font-size:10.5px;color:#9AA5A2;line-height:1.6;}
 </style>
 </head>
@@ -89,6 +114,16 @@
   <h1>{{MISSION_HEADLINE}}</h1>
   <div class="client">Client · {{CLIENT}} &nbsp;|&nbsp; {{QUEST}} &nbsp;|&nbsp; Data as of {{DATA_AS_OF}}</div>
 
+  <!--
+    PROGRESSIVE BUILD (living brief): create this file as soon as the first research block lands,
+    then rewrite it after every step. Any block not yet ready is left as a short "researching…" placeholder.
+    Every menu below is rendered IN FULL, not just the picks:
+      .state.is-sel  = chosen by the team        (tag: SELECTED)
+      .state.is-parked = shown but not chosen    (dimmed)
+      trends / moments / truths are AI-curated  (tag: AI PICK) and remain listed in full; the team may override.
+    The single human decision is the Key Insights (pick 2–3); the focus bundle is AI-selected.
+  -->
+
   <div class="grid">
     <div class="card">
       <h2>Scout Summary</h2>
@@ -96,6 +131,7 @@
         <li>{{SCOUT_POINT_1}}</li>
         <li>{{SCOUT_POINT_2}}</li>
         <li>{{SCOUT_POINT_3}}</li>
+        <!-- repeat one <li> per scout point -->
       </ul>
     </div>
     <div class="card">
@@ -106,13 +142,42 @@
       </ul>
     </div>
 
-    <div class="card">
-      <h2>Market Trends</h2>
+    <!-- ===== FOCUS BUNDLES (AI-selected) — audience × moment × shift; the AI picks the strongest ===== -->
+    <div class="card wide">
+      <h2>Focus Bundles — AI-selected <span class="count">2 AI picks of 6</span></h2>
+      <div class="bundles">
+        <div class="bundle state is-sel">
+          <span class="tag ai">AI pick</span>
+          <div class="bh"><span class="bid">FOCUS 01</span></div>
+          <div class="bn">{{BUNDLE_1_NAME}}</div>
+          <div class="brow"><b>Audience:</b> {{BUNDLE_1_SEG}}</div>
+          <div class="brow"><b>Moment:</b> {{BUNDLE_1_MOMENT}}</div>
+          <div class="brow"><b>Shift:</b> {{BUNDLE_1_TREND}}</div>
+          <div class="bwhy">{{BUNDLE_1_WHY}}</div>
+        </div>
+        <div class="bundle state is-parked">
+          <div class="bh"><span class="bid">FOCUS 02</span></div>
+          <div class="bn">{{BUNDLE_2_NAME}}</div>
+          <div class="brow"><b>Audience:</b> {{BUNDLE_2_SEG}}</div>
+          <div class="brow"><b>Moment:</b> {{BUNDLE_2_MOMENT}}</div>
+          <div class="brow"><b>Shift:</b> {{BUNDLE_2_TREND}}</div>
+          <div class="bwhy">{{BUNDLE_2_WHY}}</div>
+        </div>
+        <!-- repeat one .bundle per focus bundle; add class is-sel to the chosen one(s), is-parked to the rest -->
+      </div>
+    </div>
+
+    <div class="card wide">
+      <h2>Market Trends — all options <span class="count">3 AI picks of 8</span></h2>
       <div class="trends">
-        <!-- one .trend per shift -->
-        <div class="trend"><div class="t">{{TREND_1}}</div><div class="w">{{TREND_1_WHY}}</div></div>
-        <div class="trend"><div class="t">{{TREND_2}}</div><div class="w">{{TREND_2_WHY}}</div></div>
-        <div class="trend"><div class="t">{{TREND_3}}</div><div class="w">{{TREND_3_WHY}}</div></div>
+        <div class="trend state is-sel">
+          <span class="tag ai">AI pick</span>
+          <div class="t">{{TREND_1}}</div><div class="w">{{TREND_1_WHY}}</div>
+        </div>
+        <div class="trend state is-parked">
+          <div class="t">{{TREND_2}}</div><div class="w">{{TREND_2_WHY}}</div>
+        </div>
+        <!-- repeat one .trend per trend; chosen get class is-sel + tag, the rest is-parked -->
       </div>
     </div>
 
@@ -126,67 +191,75 @@
     </div>
 
     <div class="card wide">
-      <h2>Audience Segments — who they are &amp; the job they hire</h2>
+      <h2>Audience Segments — all options <span class="count">2 selected of 6</span></h2>
       <div class="segments">
-        <!-- persona cards -->
-        <div class="seg">
+        <div class="seg state is-sel">
+          <span class="tag sel">Selected</span>
           <div class="name">{{SEG_1_NAME}}</div>
           <div class="who">{{SEG_1_WHO}}</div>
           <div class="job"><b>Job:</b> {{SEG_1_JOB}}</div>
           <div class="row"><b>Barrier:</b> {{SEG_1_BARRIER}}</div>
           <div class="row"><b>Trigger:</b> {{SEG_1_TRIGGER}}</div>
         </div>
-        <div class="seg">
+        <div class="seg state is-parked">
           <div class="name">{{SEG_2_NAME}}</div>
           <div class="who">{{SEG_2_WHO}}</div>
           <div class="job"><b>Job:</b> {{SEG_2_JOB}}</div>
           <div class="row"><b>Barrier:</b> {{SEG_2_BARRIER}}</div>
           <div class="row"><b>Trigger:</b> {{SEG_2_TRIGGER}}</div>
         </div>
-        <div class="seg">
-          <div class="name">{{SEG_3_NAME}}</div>
-          <div class="who">{{SEG_3_WHO}}</div>
-          <div class="job"><b>Job:</b> {{SEG_3_JOB}}</div>
-          <div class="row"><b>Barrier:</b> {{SEG_3_BARRIER}}</div>
-          <div class="row"><b>Trigger:</b> {{SEG_3_TRIGGER}}</div>
-        </div>
+        <!-- repeat one .seg per segment; chosen is-sel + tag, rest is-parked -->
       </div>
     </div>
 
     <div class="card wide">
-      <h2>Market Truths — from the team</h2>
+      <h2>Market Truths — all options <span class="count">4 AI picks of 8</span></h2>
       <div class="truths">
-        <!-- one .chip per raw market truth -->
-        <span class="chip">{{TRUTH_1}}</span>
+        <span class="chip is-sel">{{TRUTH_1}}</span>
         <span class="chip">{{TRUTH_2}}</span>
-        <span class="chip">{{TRUTH_3}}</span>
+        <!-- repeat one .chip per truth; chosen get is-sel -->
       </div>
       <div class="clusters">
-        <!-- AI affinity clusters -->
+        <!-- one .cluster per affinity cluster (AI) -->
         <span class="cluster">{{CLUSTER_1}}</span>
         <span class="cluster">{{CLUSTER_2}}</span>
         <span class="cluster">{{CLUSTER_3}}</span>
       </div>
     </div>
+
+    <div class="card wide">
+      <h2>Moments of Truth — all options <span class="count">2 AI picks of 8</span></h2>
+      <div class="truths">
+        <!-- one .chip per candidate moment; AI picks get class is-sel -->
+        <span class="chip is-sel">{{MOMENT_1}}</span>
+        <span class="chip">{{MOMENT_2}}</span>
+      </div>
+    </div>
   </div>
 
   <div class="moment">
-    <div class="lbl">Moment of Truth</div>
+    <div class="lbl">Moment of Truth — from the chosen focus</div>
     <div class="txt">{{MOMENT_WHEN}} · {{MOMENT_WHERE}} · {{MOMENT_EVENT}}</div>
   </div>
 
   <div class="seed">
-    <div class="lbl">Key Insights · AI-drafted from org + trends + audience + SWOT</div>
-    <p>Pick <b>2–3</b> to deep-dive in the plan. "{{SEED_INSIGHT}}"</p>
+    <div class="lbl">Seed Insight · AI-drafted from the chosen focus + insights</div>
+    <p>{{SEED_INSIGHT}}</p>
   </div>
 
-  <div class="kinsights">
-    <div class="kin {{KI_1_SEL}}"><div class="id">INSIGHT 01</div><div class="t">{{KI_1}}</div><div class="ev">{{KI_1_EV}}</div></div>
-    <div class="kin {{KI_2_SEL}}"><div class="id">INSIGHT 02</div><div class="t">{{KI_2}}</div><div class="ev">{{KI_2_EV}}</div></div>
-    <div class="kin {{KI_3_SEL}}"><div class="id">INSIGHT 03</div><div class="t">{{KI_3}}</div><div class="ev">{{KI_3_EV}}</div></div>
-    <div class="kin {{KI_4_SEL}}"><div class="id">INSIGHT 04</div><div class="t">{{KI_4}}</div><div class="ev">{{KI_4_EV}}</div></div>
-    <div class="kin {{KI_5_SEL}}"><div class="id">INSIGHT 05</div><div class="t">{{KI_5}}</div><div class="ev">{{KI_5_EV}}</div></div>
-    <div class="kin {{KI_6_SEL}}"><div class="id">INSIGHT 06</div><div class="t">{{KI_6}}</div><div class="ev">{{KI_6_EV}}</div></div>
+  <!-- ===== THE DECISION — KEY INSIGHTS (all listed) · the team picks 2–3 ===== -->
+  <div class="card wide" style="margin-top:16px;">
+    <h2>Key Insights — the team picks 2–3 <span class="count">2 selected of 6</span></h2>
+    <div class="kinsights">
+      <div class="kin state is-sel">
+        <span class="tag sel">Selected</span>
+        <div class="id">INSIGHT 01</div><div class="t">{{KI_1}}</div><div class="ev">{{KI_1_EV}}</div>
+      </div>
+      <div class="kin state is-parked">
+        <div class="id">INSIGHT 02</div><div class="t">{{KI_2}}</div><div class="ev">{{KI_2_EV}}</div>
+      </div>
+      <!-- repeat one .kin per insight; chosen is-sel + tag, rest is-parked -->
+    </div>
   </div>
 
   <footer>

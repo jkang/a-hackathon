@@ -25,7 +25,7 @@ This is the **reusable co-creation engine** behind every stage skill. It does **
 6. **Never be rigid.** The 40-minute path is a *suggested happy path*, not a script. If the team wants to skip, reorder, redo, or compress, comply immediately ("Got it, switching to X") — do not argue about the process.
 7. **Offer a menu, not a blank page.** At every gate the AI **first drafts 6–8 grounded candidate options** (from the card + its methodology), and the team **selects** (pick N) instead of facing an open question. Always allow **"+1 of our own."** People freeze and burn time on blank questions; a menu makes the decision fast while the humans still choose. Never ask an open "what do you think?" without a menu in front of it.
 8. **One decision per turn.** Present **one** menu (or one decision), then **stop and end your turn** — wait for the team's reply. Never answer your own menu, never chain gates in a single turn.
-9. **Recap + inline options.** End every turn with a short **recap** (what you did + artifact name/path) and the next menu **printed in the chat**. The **HTML is the record; the chat is the decision interface** — never send the team to open an artifact to see or choose the options.
+9. **Recap + inline options.** End every turn with a short **recap** (what you did + artifact name/path) and the next menu **printed in the chat**. The **HTML is the record; the chat is the decision interface** — the team always sees and chooses the options in the chat.
 
 ## The co-creation loop (run for every gate)
 

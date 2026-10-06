@@ -32,9 +32,9 @@ Every turn that produces output ends with a short wrap-up:
 
 1. **Recap (2–4 lines)** — what you just did + the artifact produced (name + path) + the key takeaways.
 2. **The menu, inline** — print it in the message (numbered, with each option's supporting fact).
-3. **Pick prompt** — "Reply with your pick (e.g. `1, 4, 6`)."
+3. **Pick prompt (verbatim)** — "Reply with your pick (e.g. `1, 4, 6`)." Add nothing after it.
 
-> Never tell the team to open `insight-brief.html` / `campaign-plan.html` / `proof.html` / `proposal.html` to see the options and then come back. Surface the options yourself.
+> The options always live in the chat — surface them yourself; never route the team through an artifact to choose.
 
 ## Anatomy
 
@@ -86,4 +86,4 @@ MENU · <gate> — pick <N> (30s), or +1 of your own
 - ❌ Vague options ("do better marketing").
 - ❌ No "+1 own" escape hatch (menus shouldn't cap creativity).
 - ❌ The AI picking the options for the team instead of the team picking.
-- ❌ Sending the team to open the HTML to see the options — the menu must be printed in the chat.
+- ❌ Routing the team through an artifact to see the options — the menu must be printed in the chat.

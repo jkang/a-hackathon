@@ -14,11 +14,11 @@ After every divergence and every convergence, the AI **must stop** and explicitl
 
 Template:
 
-> **hackathon-robot >>** Done: [what I just did]. Artifact: `artifacts/QuestA-01/[file].html` (optional to open).
+> **hackathon-robot >>** Done: [what I just did]. Artifact: `artifacts/QuestA-01/[file].html`.
 > **MENU · [gate]** — **pick [N]** (30s), or `+1` your own. `1)` … `2)` … `3)` … `4)` … `5)` … `6)`
 > **Reply with your pick (e.g. `1, 4, 6`).**
 
-The recap + inline menu are the team's interface; the HTML is only the **record**. Never send the team to the artifact to see the options or make the choice.
+The recap + inline menu are the team's interface; the HTML is only the **record** — the team always chooses in the chat.
 
 ## Where the capture lives — inside the HTML
 
@@ -63,6 +63,7 @@ There are **no separate data files** (no `.yaml`, no `.md`). Each stage records 
 ## Rules
 
 - **Menu first** — never open a gate with a blank question.
+- **List the full menu in the artifact** — every candidate option is written into the HTML (not only the winner), each with a `selected` / `ai_pick` flag. Chosen items are highlighted; the rest are dimmed.
 - Store the team's selection **verbatim**; never swap a menu item for the AI's own preference.
 - Keep the `+1 of our own` channel open and record those additions too.
 - If the team overrides an AI draft, record both: `ai_draft` and `team_override`.

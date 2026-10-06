@@ -18,7 +18,7 @@ Four non-negotiables:
 1. **Offer a menu, not a blank page.** Before asking anything, draft **6–8 grounded options**; the team **picks N** (always with `+1 of our own`). Never ask an open question.
 2. **The AI researches, the team decides.** Use `agent-reach` (or the `researcher` subagent) to gather real facts and turn them into **data-backed options**. Research effort = you; judgment = the team.
 3. **Stop at every HITL gate — one decision per turn.** Present the menu, then **end your turn and wait** for the team; record their choice verbatim. Never answer your own menu, never chain gates. (Running the full agenda autonomously is `/run` only.)
-4. **Recap + inline options, every turn.** End each response with a short recap (process + artifact name/path) and the **next decision printed in the chat**. The HTML is the record, not the decision UI — never send the team to open it to choose.
+4. **Recap + inline options, every turn.** End each response with a short recap (process + artifact name/path) and the **next decision printed in the chat**. The HTML is the record, not the decision UI — the team always chooses in the chat.
 
 ---
 
@@ -68,13 +68,11 @@ The full **facilitate-mode** flow — teal diamonds = **HITL (the team decides)*
 ```mermaid
 flowchart TD
     A([/start]) --> H0{"👤 confirm brief — mission · 4 gates · research may take a few minutes"}
-    H0 --> I["1 · INSIGHT — research → ~6 insights"]
-    I --> H1{"👤 pick 2–3 insights"}
-    H1 --> P["2 · PLAN — creative-concept → ~6 ideas"]
-    P --> H2{"👤 pick / combine 2–3 ideas"}
-    H2 --> O["opportunity + campaign plan → A/B"]
-    O --> H3{"👤 pick A or B"}
-    H3 --> H4{"👤 poster: direction + one-liner"}
+    H0 --> I["1 · INSIGHT — research → living brief → AI curates → ~6 key insights"]
+    I --> H1{"👤 pick 2–3 key insights"}
+    H1 --> P["2 · PLAN — creative-concept → ~6 ideas → 2 complete campaigns (A/B)"]
+    P --> H3{"👤 pick the campaign (A or B)"}
+    H3 --> H4{"👤 poster: pick style + one-liner"}
     H4 --> V["3 · PROVE — draft ~8 pilot metrics"]
     V --> H5{"👤 pick 3–5 metrics"}
     H5 --> C["write derivation logic → one-screen board"]
@@ -88,8 +86,8 @@ flowchart TD
 
     classDef ai fill:#FFF0E7,stroke:#FF6611,color:#0F1514;
     classDef hitl fill:#CDE2E1,stroke:#077069,color:#0F1514;
-    class A,I,P,O,V,C,S,B ai;
-    class H0,H1,H2,H3,H4,H5,H6,H7,H8,H9 hitl;
+    class A,I,P,V,C,S,B ai;
+    class H0,H1,H3,H4,H5,H6,H7,H8,H9 hitl;
 ```
 
 Legend — **teal diamonds = HITL (the team decides)** · orange boxes = the AI does. Artifacts land after each gate (`insight-brief` → `campaign-plan (A/B)` + `poster` → `proof` (one-screen pilot metrics) → `proposal` + `pitch-deck`).
@@ -97,8 +95,8 @@ Legend — **teal diamonds = HITL (the team decides)** · orange boxes = the AI 
 | Time | Gate | You do | The team decides |
 |---|---|---|---|
 | 0–2′ | **Kick-off** | Confirm the brief (mission + 4 gates + upcoming research) → wait for the go-ahead; 30-second scout summary; open the first menu | — |
-| 2–10′ | **Insight** | Research → trends / audience / moment / truths menus | trends · segments · moment · seed insight |
-| 10–22′ | **Plan** (+ poster) | Anchor + scenario + idea menus → markets → budget → build the poster | anchor · idea · 2 markets · budget · visual |
+| 2–10′ | **Insight** | Research → living brief → AI curates (focus bundle · trends · segments · moments · truths) → ~6 key insights | key insights (2–3) |
+| 10–22′ | **Plan** (+ poster) | Build 2 complete campaigns (A/B) + hero visuals | the campaign (A or B) |
 | 22–30′ | **Prove** | Pilot-metrics menu + write the derivation logic | 3–5 expected metrics |
 | 30–38′ | **Showcase** | Storyline + poster on/off menus → build the proposal + deck (+ prompt-pack) | storyline · poster · one-liner · bonus media |
 | 38–40′ | **Converge** | Package and confirm | confirm |
@@ -122,7 +120,7 @@ The agenda is a **suggested happy path**. On any team signal, comply in one line
 
 Everything lands in **one round folder**: `artifacts/Quest<ID>-<NN>/` (e.g. `artifacts/QuestA-01/`; the next run → `QuestA-02`). Never overwrite a previous round.
 
-**Outputs are HTML only** — no YAML, no Markdown. Each stage records the decisions (the team's in facilitate mode, the AI's in autopilot) in its own HTML, in an invisible `<script type="application/json" id="capture">` block. **Hand-off between gates:** each gate reads the previous stage's `id="capture"` block.
+**Outputs are HTML only** — no YAML, no Markdown. Each stage records the decisions (the team's in facilitate mode, the AI's in autopilot) in its own HTML, in an invisible `<script type="application/json" id="capture">` block. **Hand-off between gates:** each gate reads the previous stage's `id="capture"` block. **The insight brief and the campaign plan are living documents** — each is created as soon as its first output lands and rewritten after every step, and every menu is listed in full (chosen highlighted, the rest dimmed); the later stages (`prove`, `showcase`) write their artifact once.
 
 **HTML artifacts (all double-click openable, English, Ascentium-branded):**
 

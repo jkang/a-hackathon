@@ -40,17 +40,17 @@ Running the whole agenda autonomously is the **`/run` / `runner`** mode only. In
 
 ## Response format — recap + inline decision (every turn)
 
-**The HTML is the record; the chat is the decision interface.** Never send the team to open an artifact to see the options — print them in your message.
+**The HTML is the record; the chat is the decision interface.** Always print the options in your message — the team replies in the chat.
 
 End **every** turn with these three blocks, in order:
 
-1. **Recap (2–4 lines).** What you just did + the artifact produced (name + path, e.g. `artifacts/QuestA-01/insight-brief.html`) + the key takeaways in one line each. The file is optional to open; state that.
+1. **Recap (2–4 lines).** What you just did + the artifact produced (name + path, e.g. `artifacts/QuestA-01/insight-brief.html`) + the key takeaways in one line each.
 2. **The decision, printed inline.** The next menu directly in the message — numbered 6–8 options, each with its supporting fact/one-liner — plus the pick count, the time, and `+1 of our own`. (See `facilitation/option-menu.md`.)
-3. **Pick prompt (one line).** e.g. *"Reply with your pick (e.g. `1, 4, 6`)."*
+3. **Pick prompt (one line) — verbatim.** *"Reply with your pick (e.g. `1, 4, 6`)."* Add **nothing** after it (no sentence about opening files).
 
 **What to surface inline, per gate:**
-- **Insight** → the ~6 key insights (pick 2–3), and each sub-menu as it comes (trends · segments · moment · truths).
-- **Plan** → the ~6 ideas (pick 2–3 / combine), then the A/B summary (pick A or B).
+- **Insight** → the ~6 **key insights** (pick 2–3). The focus bundle, trends, moments and truths are AI-curated and shown in full in the brief (overridable on request).
+- **Plan** → the **two complete campaigns (A/B)** — pick 1. (The AI builds both; the team makes one call.)
 - **Prove** → the candidate pilot metrics + suggested targets (pick 3–5).
 - **Showcase** → the storyline (pick 1) + poster on/off + visual direction (A/B/C).
 - **Poster** → the visual direction + one-liner options (pick).
@@ -67,6 +67,7 @@ End **every** turn with these three blocks, in order:
 8. **Brief before you research.** At session start, restate the mission, name the four gates, and say you will research the quest into **~6 data-backed insights** — noting the research may take a few minutes. **Wait for the team's go-ahead before creating the round folder or launching any research.** Research runs quietly (the `researcher` subagent returns only when finished), so set that expectation up front.
 9. **One decision per turn.** Present one menu, then **stop and wait** for the team (see *Turn discipline*). Never self-answer, never chain gates.
 10. **Recap + inline options, every turn.** End every response with a short recap (process + artifact name/path) and the next decision **printed in the chat** (see *Response format*). The HTML is the record, not the decision UI.
+11. **English only.** All Skills and commands are described in **English** (the participants are English users). Every brief, menu, recap, question, artifact, and reply is in English — regardless of the language the team uses.
 
 ## Skills & subagents you orchestrate
 
@@ -87,8 +88,8 @@ End **every** turn with these three blocks, in order:
 
 | Gate | Stage skill | Sub-skills / agents to invoke |
 |---|---|---|
-| Insight | `insight` | chain: `agent-reach` → `business-research` → `audience-analysis` → `swot-analysis` (agent-reach feeds both org & audience research) |
-| Plan | `plan` | `creative-concept` (anchor+HMW+methods → ~6 ideas) → team picks 2–3/combines → `opportunity-definition` + campaign plan → **A/B versions → team picks** → `poster` |
+| Insight | `insight` | chain: `agent-reach` → `business-research` → `audience-analysis` → `swot-analysis` (agent-reach feeds both org & audience research) → AI curates focus bundle + all menus → ~6 key insights → **team picks 2–3** |
+| Plan | `plan` | `creative-concept` (anchor + HMW + methods → ~6 ideas) → AI narrows to **2 complete campaigns (A/B)** + `opportunity-definition` + plan + budget + `poster` → **team picks one** |
 | Prove | `prove` | pilot-metrics menu → 3–5 expected metrics + derivation logic (no sub-skills; one-screen board) |
 | Showcase | `showcase` | storyline + poster on/off → build `proposal.html` (unified report) + `pitch-deck.html` + `prompt-pack.html` (no sub-skills) |
 
@@ -101,8 +102,8 @@ Rules: research must come from `agent-reach` (never invented); each sub-skill's 
 | Time | Gate | You do | Team decides |
 |---|---|---|---|
 | 0–2′ | Kick-off | Confirm the brief (mission + 4 gates + upcoming research) → **wait for go-ahead** → 30s scout summary + first menu | — |
-| 2–10′ | **Insight** | research → trends/audience/moment menus | trends · segments · moment · seed insight |
-| 10–22′ | **Plan** (+ poster) | anchor + scenario + idea menus | anchor · idea · 2 markets · budget · visual |
+| 2–10′ | **Insight** | research → living brief → AI curates focus bundle + menus → ~6 key insights | key insights (2–3) |
+| 10–22′ | **Plan** (+ poster) | build 2 complete campaigns (A/B) + hero visuals | the campaign (A or B) |
 | 22–30′ | **Prove** | pilot-metrics menu + derivation logic | 3–5 expected metrics |
 | 30–38′ | **Showcase** | storyline + poster on/off menus | storyline · poster · one-liner · bonus media |
 | 38–40′ | Converge | package and submit | confirm |
@@ -114,7 +115,7 @@ Rules: research must come from `agent-reach` (never invented); each sub-skill's 
 2. **Menu.** Draft 6–8 numbered, grounded options; state the pick count + time.
 3. **Select.** The team picks N (or `+1 own`). Record verbatim (HITL stop).
 4. **Converge.** Cluster/dot-vote if needed.
-5. **Assemble.** Hand to the stage skill; produce the HTML artifact (with its embedded capture block).
+5. **Assemble.** Hand to the stage skill; produce the HTML artifact (with its embedded capture block). The **insight brief and campaign plan are living documents** — create each on its first output and rewrite it after every step, always listing every option (chosen highlighted, rest dimmed).
 6. **Recap + next decision.** End the turn with the *Response format* blocks: recap the process + artifact, then print the next menu **inline**. Never point the team to the HTML to choose.
 7. **Next gate.** Advance on the clock — only after the team's reply.
 
@@ -127,13 +128,14 @@ On any team signal, comply immediately:
 - "Enough research, go creative" → skip insight divergence; reuse card data as the seed; enter `plan`.
 - "Only 8 minutes" → fast mode; compress; assemble in parallel.
 - "Redo the vote" → re-run only the dot-vote protocol.
+- "Redo the trends / moments / truths" → re-draft that AI-curated menu, rewrite the brief; keep the team's decision intact.
 - "Just a poster" → call the `poster` skill alone.
 - "Switch a market" → edit the `campaign-plan.html` capture; regenerate proof.
 - "Skip to slogan" → run only the idea menu.
 
 ## Output
 
-**Create one round folder for the session and write every artifact into it: `artifacts/Quest<ID>-<NN>/`** (see `quest-card.md` → *Output layout*). Create it at the **first gate that writes** (the one that produces `insight-brief.html`) — **not** at the brief, and only after the team has confirmed the selections for that gate.
+**Create one round folder for the session and write every artifact into it: `artifacts/Quest<ID>-<NN>/`** (see `quest-card.md` → *Output layout*). Create it at the **first gate that writes** — for the insight gate that means **as soon as the first research block lands** (after the team's go-ahead), then **rewrite `insight-brief.html` after every step** until the gate closes. The **plan** gate likewise builds `campaign-plan.html` **progressively** (create on its first output, rewrite after every step; the final page lists both campaigns A/B with the chosen one highlighted). The later gates (`prove`, `showcase`) write their artifact once.
 
 - `<ID>` = the quest card's `id` (e.g. `A` → `QuestA`). `<NN>` = 2-digit round, next free number (first run → `01`, next → `02`). **Never overwrite a previous round.**
 - Artifacts: `insight-brief.html` · `campaign-plan.html` · `poster.html` (+ `poster-a|b|c.html`) · `proof.html` (one-screen pilot metrics) · `pitch-deck.html` · `prompt-pack.html` · **`proposal.html`**. Each stage HTML records the team's decisions verbatim in its embedded `id="capture"` block — **no YAML/Markdown files**.

@@ -36,7 +36,7 @@ AI 给脚手架/问题  →  团队发散(人人出点子)  →  团队收敛(�
 
 4 个关卡（对应 4 个 quest 技能）：
 - **洞察门**（insight）：团队注入「市场真相」→ 收敛出「种子洞察」
-- **创意门**（plan）：团队发散大创意 → 投票选赢家 → AI 搭成完整方案
+- **创意门**（plan）：AI 发散并搭出 **2 套完整方案（A/B）** → 团队**选 A 或 B**（1 次决策）
 - **论证门**（prove）：团队挑 pilot 预期指标 → AI 写推演逻辑 + 出单屏看板
 - **呈现门**（showcase）：团队选视觉/主张 → AI 生成海报 + 路演稿
 
@@ -180,71 +180,63 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 ## 7. 阶段技能设计（每个含 facilitate / capture / assemble）
 
 ### 7.1 `insight`（洞察门 · 8 分钟）
-- **目标**：产出一份**厚洞察**：市场趋势 + 人群分层（含 JTBD）+ 关键时刻 + 市场真相 → 种子洞察。**光有真相不够，必须有人群与需求分析**，否则下游创意无根。
+- **目标**：产出一份**厚洞察**：市场趋势 + 人群分层（含 JTBD）+ 关键时刻 + 市场真相 → **焦点包（Focus Bundle）** + 数据化关键洞察 → 种子洞察。**光有真相不够，必须有人群与需求分析**，否则下游创意无根。
 - **输入**：Quest 题卡（含 Scout Report）。
-- **输出**：`insight-brief.html`（decisions 内嵌于 `id="capture"` 块）。
+- **输出**：`insight-brief.html`（decisions 内嵌于 `id="capture"` 块）。**渐进式生成**：第一段研究产出即建文件，之后每步**重写**该文件（living brief）。
+- **只做 1 个决策**（原为 5 个选择点）：
+  - **关键洞察 Key Insights（选 2–3）**：AI 蒸馏 **~6 条数据化洞察**，团队**选 2–3** 进入 `plan` —— **唯一决策**。
+  > **焦点包（Focus Bundle = 人群 × 时刻 × 趋势）/ trends / moments / truths 全部由 AI 策展**（标注 `AI pick`），brief 中**全量列出**，团队可随时一句「redo …」覆盖。
 - **facilitate（串场）**：
-  1. **研究（AI）**：读题卡 → **用 `agent-reach` 搜真实数据/报告/标杆**（市场、消费者趋势、出行、创作者经济等）→ 蒸馏成数据化洞察选项。这是所有菜单的数据底座。
-  2. **市场趋势**：AI 出 **6–8 个带数据的趋势选项** → 团队**选 2–3**（可 +1 自选）`{trend, why_it_matters}`。
-  3. **人群**：AI 出 **6–8 个候选人群** → 团队**选 2–4**，每类补 `who / job(功能·社会·情感) / barrier / trigger`。
-  4. **关键时刻**：AI 出 **6–8 个候选时刻** → 团队**选 1–2**（时间/地点/事件）。
-  5. **市场真相**：AI 出 **6–8 条候选洞察** → 团队勾选共鸣的（可 +1 自选），逐条 verbatim 采集。
-  6. 聚类 + 团队确认**一句话种子洞察**。
-  > 每步均为**选择题**（见 §5.3 Option Menu）；AI 不替团队选。
+  1. **建 brief + 研究（AI，无决策）**：读题卡 → `agent-reach`/`business-research`/`audience-analysis`/`swot-analysis` → 蒸馏**全量菜单**：趋势 ~6–8 · 人群 ~6–8 · 候选时刻 ~6–8 · 候选真相 ~6–8（各带事实/数字 + 来源）。第一段产出即**创建 `insight-brief.html`**，每步**重写**。
+  2. **AI 策展焦点包（AI，无决策）**：合成 ~6 个焦点包 → **AI 选最强的 1–2 个**（`AI pick`）→ 重写 brief（全量列出，其余灰显）；由其导出**关键时刻**。
+  3. **起草关键洞察（AI，无决策）**：蒸馏 ~6 条数据化洞察 → 重写 brief（全量列出）。
+  4. **关键洞察（团队，唯一决策）**：内联呈现 ~6 条 → 团队**选 2–3** 进 `plan` → 重写 brief（选中高亮）。
+  5. **种子洞察（AI）**：由所选洞察合成一句话张力。
+  > 每个区块**全量列出候选**：选中 `SELECTED`（accent 高亮）/ 未选 `is-parked`（灰显）/ AI 策展 `AI PICK`。见 §5.3 Option Menu。
 - **capture（内嵌于 `insight-brief.html` 的 `id="capture"` JSON 块）**：
   ```json
   quest: A|B
   org_profile: {assets, constraints}
   benchmark: {gold_standard, cautionary_tale, arena}
-  market:
-    trends: [ {trend, why_it_matters} ]        # 2–3 个变化
-    truths: [ {author, text} ]                  # 原始真相
-  segments: [ {name, who, job_functional, job_social, job_emotional, barrier, trigger} ]  # 2–4 类人群
-  moment_of_truth: {when, where, event}         # 决策场景
-  clusters: [ {theme, items} ]
-  seed_insight: "一句话张力"                    # 团队确认
+  trends:  [ {id, trend, why_it_matters, source, ai_pick} ]   # 全量，AI pick 标记
+  truths:  [ {id, text, source, ai_pick} ]                    # 全量
+  segments:[ {id, name, who, job_functional, job_social, job_emotional, barrier, trigger, selected} ]
+  moments: [ {id, text, ai_pick} ]                            # 全量
+  focus_bundles: [ {id, name, segment_ids, moment_id, trend_id, why, ai_pick} ]  # AI 策展，全量
+  selected_focus: [1]
+  moment_of_truth: {when, where, event}                       # 由所选焦点导出
+  swot: {strengths, weaknesses, opportunities, threats}
+  key_insights: [ {id, text, evidence, source, selected} ]    # 唯一决策，全量
+  selected_insights: [1, 4]
+  seed_insight: "一句话张力"                                   # AI 由所选焦点 + 洞察合成
   ```
-- **assemble**：insight-brief.html（战报速览 / 组织画像 / **市场趋势** / 标杆对照 / **人群分层卡** / 市场真相聚类 / **关键时刻** / 种子洞察高亮）。
+- **assemble**：`insight-brief.html`（战报速览 / 组织画像 / **焦点包** / 市场趋势（全量）/ 标杆对照 / **人群分层卡**（全量）/ 市场真相与时刻（全量）/ **关键时刻** / 种子洞察高亮 / **关键洞察**（全量））。内容区 **80% 屏宽（上限 1600px）**；**禁用侧边装饰栏**（§5.2）。
 - **吸收/改造**：`business-research`（仅作标杆对照脚手架）；`audience-analysis` 能力升级为 **STP + JTBD + 趋势 + 关键时刻**（见 `references/insight-method.md`）。
 
 ### 7.2 `plan`（创意门 · 14 分钟 · 最重）
-- **目标**：**先锚定（人群 + 时刻）再发散**，让创意有根；再由 AI 拼成完整方案。
-- **输入**：`insight-brief.html` capture（含 segments + moment）。
-- **输出**：`campaign-plan.html`（含**实验计划与测量口径**，capture 内嵌）。
-- **facilitate**：
-  1. **锚定**：填创意 brief——「为【哪类人群】、其【情绪 job】、在【哪个时刻】、我们要【做什么机制】」。
-  2. **场景画布**：列 3–5 个 campaign 时刻（时间/地点/事件），选 1–2 个作为创意主线。
-  3. HMW 由锚点导出（"How might we help [segment] [job] at [moment]?"）。
-  4. 静默发散 2′（每人 2 个大创意）→ 轮报上墙 6′ → 亲和聚类 → 点投票 2′（前 2–3 名）。
-  5. 1-2-4-All 5′ 深挖赢家 → 「一句话主张 + 命名 + slogan + 它占领的时刻」。
-  6. 团队选 2 个试点市场 + 成功口径（3′）。
-  7. **团队做预算切分**（1.5M/1.1M 按市场/渠道/战术分配）——题卡明示「Budget allocation is part of the solution」。
+- **目标**：**先锚定（人群 + 时刻）再发散**，让创意有根；AI 把创意拼成 **2 套完整方案（A/B）**，团队**只做 1 次决策 —— 选 A 或 B**。
+- **输入**：`insight-brief.html` capture（所选焦点包 + key insights + moment）。
+- **输出**：`campaign-plan.html`（**渐进式生成**：第一段产出即建文件，之后每步重写；最终**两套方案 A/B 全量列出**，选中高亮；capture 内嵌）+ `poster-a/b/c.html` + `poster.html`。
+- **facilitate（AI 全跑，团队只决策 1 次）**：
+  1. **发散（AI）**：`creative-concept` —— 锚定人群 × 时刻 → 1 个 HMW → 创意方法 → **~6 个候选创意**。
+  2. **收敛 + 搭 A/B（AI）**：把 ~6 收敛为 **2 套完整、彼此不同的 campaign**（A/B）；各含 `opportunity-definition`(5 要素) + 定位(Moore) + offering + 4Ps + 2 试点市场 + 实验计划 + 预算（题卡 War Chest）。
+  3. **制图（AI）**：用 `poster` 为每套出主视觉（默认方向；独立 `/poster` 阶段可再定风格）。
+  4. **决策（团队 · 唯一 1 次）**：AI 内联呈现两套完整方案（A/B）→ 团队**选 1**（可 +1 自选）。
 - **capture（内嵌于 `campaign-plan.html` 的 `id="capture"` JSON 块）**：
   ```json
-  quest: A|B
-  seed_insight: "..."
-  audience: {primary_segment, job_to_be_done}          # 锚点
-  scenario: [ {moment, time, place, event} ]           # 3–5 个 campaign 时刻
-  creative_brief: "for [segment] whose [job] at [moment], we will [mechanic] — so they [desire]"
-  hmw: "How might we ..."
-  ideas: [ {author, concept}, ... ]
-  votes: {idea -> count}
-  winner: {concept, proposition, name, slogan, moment}
-  offering:                                   # A=campaign concept；B=membership design + founding offer
-    type: campaign | membership
-    tiers: [...]                              # B 必填：会员分层/定价/权益
-    founding_offer: "..."                     # B 必填：创始会员 offer
-  pilot: {markets: [...], duration: "3mo", success_criteria}
-  experiment: {hypothesis, treatment, control, measurement_setup}   # 实验计划 + 测量口径
-  budget: {total: 1.5M|1.1M, allocation: [{market, channel, tactic, amount}...]}
+  quest, selected_insights
+  anchor: {segment, job, moment, mechanic, desire}
+  hmw
+  ideas: [ {id, name, one_line, insight, mechanic} ]   # ~6，全量
+  ai_shortlist: [2, 5]                                  # AI 收敛
+  variants: {                                           # 两套完整方案
+    A: {name, slogan, proposition, offer, positioning, mix, pilot, budget},
+    B: {name, slogan, proposition, offer, positioning, mix, pilot, budget}
+  }
+  chosen_variant: "A"                                   # 团队唯一决策
+  poster: {visual_direction, one_liner}
   ```
-- **assemble（AI 拼装，团队可快速覆盖）**：
-  - **创意锚点 + 场景时刻**（audience & moment / time·place·event）
-  - 定位（Geoffrey Moore 五句式）
-  - 创意主体：A=营销活动概念；B=会员产品设计 + 创始会员 offer
-  - 营销组合 4Ps（分层/定价渠道/内容节奏）
-  - 试点实验设计（PoL probe：假设/测量/对照）+ **测量设置（instrumentation）**
-  - 预算分配（1.5M/1.1M 切分表）
+- **assemble**：`campaign-plan.html`（**两套方案全量** + 选中高亮：锚点/场景 / 定位(Moore) / A=活动概念·B=会员设计 + 创始 offer / 4Ps / 试点实验 + 测量设置 / 预算切分）。
 - **吸收/改造**：`opportunity-definition`（去 AI 口径→营销机会点）；`creative-concept`（人群+场景锚定 + HMW + 创意方法 → ~6 ideas，吸收自原 brainstorming + creative-concept.md）；`marketing-plan`（定位/4Ps）。
 
 ### 7.3 `prove`（论证门 · 8 分钟）
@@ -312,8 +304,8 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 | 时间 | 关卡 | 谁主导 | AI 干什么 | 人的决定 |
 |---|---|---|---|---|
 | 0–2′ | 开题 | AI | 30″ 战报速览 + 抛第一问 | — |
-| 2–10′ | 洞察门 | 人 | 聚类趋势/人群/时刻/真相 | 趋势 + 人群 + 时刻 + 种子洞察 |
-| 10–22′ | 创意门 | 人 | 把赢家搭成方案框架 | 锚点 + 大创意 + 2 市场 + 预算 |
+| 2–10′ | 洞察门 | 人 | 研究 → living brief → AI 策展 → ~6 关键洞察 | 关键洞察（2–3） |
+| 10–22′ | 创意门 | 人 | 搭 2 套完整方案（A/B）+ 主视觉 | 选 A 或 B（1 次） |
 | 22–30′ | 论证门 | 人 | 写推演逻辑 + 出单屏看板 | 3–5 个 pilot 预期指标 |
 | 30–38′ | 呈现门 | 人 | 生成海报 + 路演稿 | 视觉方向 + 主张 |
 | 38–40′ | 收敛提交 | AI | 一键打包 | 确认 |

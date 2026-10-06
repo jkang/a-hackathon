@@ -274,12 +274,12 @@
         <div class="jr-cell jr-hitl r5"><span class="none">—</span></div>
         <div class="jr-cell jr-hitl r5"><span class="none">—</span></div>
         <div class="jr-cell jr-hitl r5"><span class="none">—</span></div>
-        <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 2–4 类人群</div>
         <div class="jr-cell jr-hitl r5"><span class="none">—</span></div>
-        <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 2–3 条洞察 · 确认种子洞察</div>
-        <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 / 组合 2–3 创意</div>
         <div class="jr-cell jr-hitl r5"><span class="none">—</span></div>
-        <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 A/B · 定 2 市场 + 预算切分</div>
+        <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 2–3 条关键洞察</div>
+        <div class="jr-cell jr-hitl r5"><span class="none">—</span></div>
+        <div class="jr-cell jr-hitl r5"><span class="none">—</span></div>
+        <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 1 套完整方案（A/B）</div>
         <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 1 种风格 + 方向 + 一句话</div>
         <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 3–5 个指标 + 阈值</div>
         <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 storyline · poster on/off · 一句话</div>
@@ -320,7 +320,7 @@
   *{margin:0;padding:0;box-sizing:border-box;}
   body{font-family:&quot;Poppins&quot;,&quot;Noto Sans SC&quot;,&quot;PingFang SC&quot;,&quot;Microsoft YaHei&quot;,Arial,sans-serif;
        background:var(--bg);color:var(--ascentium-midnight);-webkit-font-smoothing:antialiased;}
-  .page{max-width:960px;margin:0 auto;padding:40px 28px 56px;}
+  .page{width:80%;max-width:1600px;margin:0 auto;padding:40px 28px 56px;}
   .brandbar{display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--accent);padding-bottom:14px;}
   .brandbar .logo{font-weight:700;font-size:20px;letter-spacing:-.01em;}
   .brandbar .logo span{color:var(--accent);}
@@ -329,7 +329,9 @@
   .client{margin-top:8px;font-size:13px;color:var(--mut);font-weight:500;}
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px;}
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
-  .card h2{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;}
+  .card h2{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;
+           display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;}
+  .card h2 .count{font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:none;color:var(--accent);}
   .card ul{list-style:none;}
   .card li{font-size:13.5px;line-height:1.6;padding:4px 0 4px 14px;position:relative;}
   .card li::before{content:&quot;▸&quot;;position:absolute;left:0;color:var(--accent);}
@@ -342,44 +344,55 @@
   .bench .bt{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;}
   .bench .gold .bt{color:#B98A1D;} .bench .red .bt{color:#C0392B;} .bench .sky .bt{color:var(--sky);}
   .bench p{font-size:12px;line-height:1.55;}
-
-  .trends{display:grid;gap:10px;}
+  .state{position:relative;}
+  .state .tag{position:absolute;top:10px;right:12px;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+              border-radius:999px;padding:2px 8px;}
+  .state .tag.sel{color:#fff;background:var(--accent);}
+  .state .tag.ai{color:#fff;background:var(--ascentium-midnight);}
+  .state.is-sel{border:2px solid var(--accent);background:var(--accent-tint);}
+  .state.is-parked{opacity:.5;}
+  .state.is-parked:hover{opacity:.85;}
+  .trends{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
   .trend{border-radius:10px;background:var(--bg);border:1px solid var(--line);padding:11px 14px;}
-  .trend .t{font-size:13px;font-weight:700;color:var(--ascentium-midnight);}
+  .trend .t{font-size:13px;font-weight:700;color:var(--ascentium-midnight);padding-right:56px;}
   .trend .w{font-size:12px;color:var(--mut);margin-top:3px;line-height:1.5;}
-
-  .segments{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .segments{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
   .seg{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card);}
-  .seg .name{font-size:15px;font-weight:700;color:var(--accent);}
+  .seg .name{font-size:15px;font-weight:700;color:var(--accent);padding-right:56px;}
   .seg .who{font-size:11px;color:var(--mut);margin-top:2px;line-height:1.5;}
   .seg .job{font-size:12.5px;margin-top:9px;line-height:1.5;color:var(--ascentium-midnight);}
   .seg .job b{color:var(--accent);}
   .seg .row{font-size:11.5px;margin-top:7px;line-height:1.5;color:#3B4442;}
   .seg .row b{color:var(--ascentium-midnight);}
-
+  .bundles{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .bundle{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card);}
+  .bundle .bh{display:flex;align-items:center;gap:8px;}
+  .bundle .bid{font-size:10px;font-weight:800;letter-spacing:.08em;color:var(--accent);}
+  .bundle .bn{font-size:15px;font-weight:700;margin-top:5px;color:var(--ascentium-midnight);padding-right:56px;}
+  .bundle .brow{font-size:11.5px;margin-top:7px;line-height:1.5;color:#3B4442;}
+  .bundle .brow b{color:var(--accent);}
+  .bundle .bwhy{font-size:11.5px;margin-top:8px;line-height:1.5;color:var(--mut);}
   .moment{background:var(--accent);color:#fff;border-radius:12px;padding:16px 20px;margin-top:16px;}
   .moment .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.85;}
   .moment .txt{font-size:15px;font-weight:700;margin-top:6px;line-height:1.5;}
-
   .truths{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
-  .chip{font-size:12px;line-height:1.4;background:var(--accent-tint);color:var(--accent);
-        border:1px solid var(--accent-line);border-radius:999px;padding:6px 12px;}
-  .clusters{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+  .chip{position:relative;font-size:12px;line-height:1.4;background:var(--card);color:#3B4442;
+        border:1px solid var(--line);border-radius:999px;padding:6px 12px;}
+  .chip.is-sel{background:var(--accent-tint);color:var(--accent);border:2px solid var(--accent);font-weight:600;}
   .cluster{font-size:11.5px;font-weight:700;background:var(--ascentium-midnight);color:#fff;border-radius:8px;padding:6px 12px;}
-  .seed{margin-top:26px;background:var(--accent-tint);border-left:6px solid var(--accent);border-radius:12px;padding:20px 24px;}
+  .seed{margin-top:26px;background:var(--accent-tint);border:1px solid var(--accent-line);border-radius:12px;padding:20px 24px;}
   .seed .lbl{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
   .seed p{font-size:19px;font-weight:600;line-height:1.5;margin-top:8px;}
-  .kinsights{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
+  .kinsights{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px;}
   .kin{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card);position:relative;}
   .kin .id{font-size:10px;font-weight:800;letter-spacing:.08em;color:var(--accent);}
-  .kin .t{font-size:13.5px;font-weight:600;line-height:1.5;margin-top:5px;padding-right:60px;}
+  .kin .t{font-size:13.5px;font-weight:600;line-height:1.5;margin-top:5px;padding-right:56px;}
   .kin .ev{font-size:11px;color:var(--mut);margin-top:7px;line-height:1.45;}
-  .kin.sel{border:2px solid var(--accent);background:var(--accent-tint);}
-  .kin.sel::after{content:&quot;SELECTED&quot;;position:absolute;top:12px;right:14px;font-size:9px;font-weight:800;letter-spacing:.1em;color:var(--accent);}
+  .kin.is-sel{border:2px solid var(--accent);background:var(--accent-tint);}
   footer{margin-top:26px;border-top:1px dashed var(--line);padding-top:12px;font-size:10.5px;color:#9AA5A2;line-height:1.6;}
 &lt;/style&gt;
 &lt;/head&gt;
-&lt;body&gt;
+&lt;body data-quest=&quot;A&quot; style=&quot;--accent:#FF6611;--accent-tint:#FFF0E7;--accent-line:#FFD1B8;--accent-deep:#B24000;&quot;&gt;
 &lt;div class=&quot;page&quot;&gt;
 
   &lt;div class=&quot;brandbar&quot;&gt;
@@ -407,18 +420,80 @@
       &lt;/ul&gt;
     &lt;/div&gt;
 
-    &lt;div class=&quot;card&quot;&gt;
-      &lt;h2&gt;Market Trends&lt;/h2&gt;
-      &lt;div class=&quot;trends&quot;&gt;
-        &lt;div class=&quot;trend&quot;&gt;&lt;div class=&quot;t&quot;&gt;Asia outbound at an all-time high&lt;/div&gt;&lt;div class=&quot;w&quot;&gt;Thailand 13.06M outbound (2025, +11.4%, record); Indonesia 8.95M (2024, +19.0%) — the demand engine exists.&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&quot;trend&quot;&gt;&lt;div class=&quot;t&quot;&gt;Asia is the world's most mobile-first fan base&lt;/div&gt;&lt;div class=&quot;w&quot;&gt;TikTok 460M MAU in our first Asian markets (ID 160M, VN 70M, TH 50M); 74% of Asia adults are football fans.&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&quot;trend&quot;&gt;&lt;div class=&quot;t&quot;&gt;Doha has already proved it can host the world&lt;/div&gt;&lt;div class=&quot;w&quot;&gt;Qatar 2022: 1.4M international visitors, 3.18M tickets, 96.3% attendance — venue + airlift de-risked.&lt;/div&gt;&lt;/div&gt;
+    &lt;!-- FOCUS BUNDLES (AI-selected) · the single human decision is the Key Insights below --&gt;
+    &lt;div class=&quot;card wide&quot;&gt;
+      &lt;h2&gt;Focus Bundles — AI-selected &lt;span class=&quot;count&quot;&gt;2 AI picks of 6&lt;/span&gt;&lt;/h2&gt;
+      &lt;div class=&quot;bundles&quot;&gt;
+        &lt;div class=&quot;bundle state is-sel&quot;&gt;
+          &lt;span class=&quot;tag ai&quot;&gt;AI pick&lt;/span&gt;
+          &lt;div class=&quot;bh&quot;&gt;&lt;span class=&quot;bid&quot;&gt;FOCUS 01&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;bn&quot;&gt;The Away-Crew Recruitment&lt;/div&gt;
+          &lt;div class=&quot;brow&quot;&gt;&lt;b&gt;Audience:&lt;/b&gt; The Away Crew (Asia Gen-Z / young Millennials)&lt;/div&gt;
+          &lt;div class=&quot;brow&quot;&gt;&lt;b&gt;Moment:&lt;/b&gt; the creator-film drop&lt;/div&gt;
+          &lt;div class=&quot;brow&quot;&gt;&lt;b&gt;Shift:&lt;/b&gt; creator trust now out-performs brand ads in Asia&lt;/div&gt;
+          &lt;div class=&quot;bwhy&quot;&gt;Recruit the crew through the creators they already trust, before tickets drop.&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;bundle state is-sel&quot;&gt;
+          &lt;span class=&quot;tag ai&quot;&gt;AI pick&lt;/span&gt;
+          &lt;div class=&quot;bh&quot;&gt;&lt;span class=&quot;bid&quot;&gt;FOCUS 02&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;bn&quot;&gt;The Family Window&lt;/div&gt;
+          &lt;div class=&quot;brow&quot;&gt;&lt;b&gt;Audience:&lt;/b&gt; The Family Stand (school-holiday travellers)&lt;/div&gt;
+          &lt;div class=&quot;brow&quot;&gt;&lt;b&gt;Moment:&lt;/b&gt; the school-holiday booking window&lt;/div&gt;
+          &lt;div class=&quot;brow&quot;&gt;&lt;b&gt;Shift:&lt;/b&gt; cool-season, visa-free windows are reshaping Asian travel calendars&lt;/div&gt;
+          &lt;div class=&quot;bwhy&quot;&gt;Lock families with a Nov cool-season, visa-free bundle before the trip is re-planned.&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;bundle state is-parked&quot;&gt;
+          &lt;div class=&quot;bh&quot;&gt;&lt;span class=&quot;bid&quot;&gt;FOCUS 03&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;bn&quot;&gt;The Home-Away Gulf Derby&lt;/div&gt;
+          &lt;div class=&quot;brow&quot;&gt;&lt;b&gt;Audience:&lt;/b&gt; The Gulf Crew (Asian diaspora in the Gulf)&lt;/div&gt;
+          &lt;div class=&quot;brow&quot;&gt;&lt;b&gt;Moment:&lt;/b&gt; team-draw / qualification news&lt;/div&gt;
+          &lt;div class=&quot;brow&quot;&gt;&lt;b&gt;Shift:&lt;/b&gt; Gulf-Asia airlift is expanding fast&lt;/div&gt;
+          &lt;div class=&quot;bwhy&quot;&gt;Pack the away section with diaspora who can travel on a weekend.&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;bundle state is-parked&quot;&gt;
+          &lt;div class=&quot;bh&quot;&gt;&lt;span class=&quot;bid&quot;&gt;FOCUS 04&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;bn&quot;&gt;The Drop-Day Loyalty Club&lt;/div&gt;
+          &lt;div class=&quot;brow&quot;&gt;&lt;b&gt;Audience:&lt;/b&gt; super-fan collectors&lt;/div&gt;
+          &lt;div class=&quot;brow&quot;&gt;&lt;b&gt;Moment:&lt;/b&gt; ticket-sale day&lt;/div&gt;
+          &lt;div class=&quot;brow&quot;&gt;&lt;b&gt;Shift:&lt;/b&gt; belonging beats browsing — paid clubs buy priority&lt;/div&gt;
+          &lt;div class=&quot;bwhy&quot;&gt;Convert fandom into a paid priority list on drop day.&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;bundle state is-parked&quot;&gt;
+          &lt;div class=&quot;bh&quot;&gt;&lt;span class=&quot;bid&quot;&gt;FOCUS 05&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;bn&quot;&gt;The Stopover Convert&lt;/div&gt;
+          &lt;div class=&quot;brow&quot;&gt;&lt;b&gt;Audience:&lt;/b&gt; content travellers&lt;/div&gt;
+          &lt;div class=&quot;brow&quot;&gt;&lt;b&gt;Moment:&lt;/b&gt; the airline stopover window&lt;/div&gt;
+          &lt;div class=&quot;brow&quot;&gt;&lt;b&gt;Shift:&lt;/b&gt; Asia is the world's most mobile-first fan base&lt;/div&gt;
+          &lt;div class=&quot;bwhy&quot;&gt;Turn Doha stopovers into Games trips at the moment of transit.&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;bundle state is-parked&quot;&gt;
+          &lt;div class=&quot;bh&quot;&gt;&lt;span class=&quot;bid&quot;&gt;FOCUS 06&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;bn&quot;&gt;The Hospitality Lane&lt;/div&gt;
+          &lt;div class=&quot;brow&quot;&gt;&lt;b&gt;Audience:&lt;/b&gt; corporate / hospitality guests&lt;/div&gt;
+          &lt;div class=&quot;brow&quot;&gt;&lt;b&gt;Moment:&lt;/b&gt; match day at Khalifa&lt;/div&gt;
+          &lt;div class=&quot;brow&quot;&gt;&lt;b&gt;Shift:&lt;/b&gt; the experience economy — fans buy moments&lt;/div&gt;
+          &lt;div class=&quot;bwhy&quot;&gt;Sell premium seats + hospitality as a business-gifting product.&lt;/div&gt;
+        &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
-    &lt;div class=&quot;card&quot;&gt;
+    &lt;div class=&quot;card wide&quot;&gt;
+      &lt;h2&gt;Market Trends — all options &lt;span class=&quot;count&quot;&gt;3 AI picks of 8&lt;/span&gt;&lt;/h2&gt;
+      &lt;div class=&quot;trends&quot;&gt;
+        &lt;div class=&quot;trend state is-sel&quot;&gt;&lt;span class=&quot;tag ai&quot;&gt;AI pick&lt;/span&gt;&lt;div class=&quot;t&quot;&gt;Asia outbound is at an all-time high&lt;/div&gt;&lt;div class=&quot;w&quot;&gt;Thailand 13.06M outbound (2025, +11.4%, record); Indonesia 8.95M (2024, +19.0%) — the demand engine exists.&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;trend state is-sel&quot;&gt;&lt;span class=&quot;tag ai&quot;&gt;AI pick&lt;/span&gt;&lt;div class=&quot;t&quot;&gt;Asia is the world's most mobile-first fan base&lt;/div&gt;&lt;div class=&quot;w&quot;&gt;TikTok 460M MAU in our first Asian markets (ID 160M, VN 70M, TH 50M); 74% of Asia adults are football fans.&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;trend state is-sel&quot;&gt;&lt;span class=&quot;tag ai&quot;&gt;AI pick&lt;/span&gt;&lt;div class=&quot;t&quot;&gt;Doha has already proved it can host the world&lt;/div&gt;&lt;div class=&quot;w&quot;&gt;Qatar 2022: 1.4M international visitors, 3.18M tickets, 96.3% attendance — venue + airlift de-risked.&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;trend state is-parked&quot;&gt;&lt;div class=&quot;t&quot;&gt;Creator trust now out-performs brand ads in Asia&lt;/div&gt;&lt;div class=&quot;w&quot;&gt;Short-video creators drive discovery and booking intent faster than paid media in SEA.&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;trend state is-parked&quot;&gt;&lt;div class=&quot;t&quot;&gt;Cool-season, visa-free windows reshape travel calendars&lt;/div&gt;&lt;div class=&quot;w&quot;&gt;Nov + visa-free is a booking trigger for Southeast Asian families.&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;trend state is-parked&quot;&gt;&lt;div class=&quot;t&quot;&gt;The experience economy — fans buy moments, not merch&lt;/div&gt;&lt;div class=&quot;w&quot;&gt;Spend is shifting from goods to live experience and memory-making.&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;trend state is-parked&quot;&gt;&lt;div class=&quot;t&quot;&gt;Gulf-Asia airlift is expanding fast&lt;/div&gt;&lt;div class=&quot;w&quot;&gt;Qatar Airways / Hamad hub capacity up toward 58–60M pax; 170+ destinations.&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;trend state is-parked&quot;&gt;&lt;div class=&quot;t&quot;&gt;&quot;Away crowd&quot; / national-pride culture is on the rise&lt;/div&gt;&lt;div class=&quot;w&quot;&gt;Organised away support and supporter clubs are growing across Asia.&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;card wide&quot;&gt;
       &lt;h2&gt;Benchmark&lt;/h2&gt;
-      &lt;div class=&quot;bench&quot; style=&quot;grid-template-columns:1fr;gap:8px;&quot;&gt;
+      &lt;div class=&quot;bench&quot;&gt;
         &lt;div class=&quot;b gold&quot;&gt;&lt;div class=&quot;bt&quot;&gt;Gold Standard&lt;/div&gt;&lt;p&gt;Hangzhou 2022/23 — 3.05M tickets, RMB 610M revenue, ~90% attendance, RMB 5.3B market development.&lt;/p&gt;&lt;/div&gt;
         &lt;div class=&quot;b red&quot;&gt;&lt;div class=&quot;bt&quot;&gt;Cautionary Tale&lt;/div&gt;&lt;p&gt;Aichi-Nagoya 2026 — demand never manufactured; &amp;lt;60% sold for football &amp;amp; 7 other big-stadium sports.&lt;/p&gt;&lt;/div&gt;
         &lt;div class=&quot;b sky&quot;&gt;&lt;div class=&quot;bt&quot;&gt;Your Arena&lt;/div&gt;&lt;p&gt;Doha 2030 — Asia's 13.06M Thai + 8.95M Indonesian travellers, all visa-free; Nagoya left this market unmined.&lt;/p&gt;&lt;/div&gt;
@@ -426,38 +501,64 @@
     &lt;/div&gt;
 
     &lt;div class=&quot;card wide&quot;&gt;
-      &lt;h2&gt;Audience Segments — who they are &amp;amp; the job they hire&lt;/h2&gt;
+      &lt;h2&gt;Audience Segments — all options &lt;span class=&quot;count&quot;&gt;2 selected of 6&lt;/span&gt;&lt;/h2&gt;
       &lt;div class=&quot;segments&quot;&gt;
-        &lt;div class=&quot;seg&quot;&gt;
+        &lt;div class=&quot;seg state is-sel&quot;&gt;&lt;span class=&quot;tag sel&quot;&gt;Selected&lt;/span&gt;
           &lt;div class=&quot;name&quot;&gt;The Away Crew&lt;/div&gt;
           &lt;div class=&quot;who&quot;&gt;Asia Gen-Z &amp;amp; young Millennials, 18–32, football- and short-video-first (ID/TH/VN)&lt;/div&gt;
           &lt;div class=&quot;job&quot;&gt;&lt;b&gt;Job:&lt;/b&gt; travel with my crew and belong to a national moment&lt;/div&gt;
           &lt;div class=&quot;row&quot;&gt;&lt;b&gt;Barrier:&lt;/b&gt; cost + who-to-go-with&lt;/div&gt;
           &lt;div class=&quot;row&quot;&gt;&lt;b&gt;Trigger:&lt;/b&gt; a creator my crew trusts films the away end&lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class=&quot;seg&quot;&gt;
+        &lt;div class=&quot;seg state is-sel&quot;&gt;&lt;span class=&quot;tag sel&quot;&gt;Selected&lt;/span&gt;
           &lt;div class=&quot;name&quot;&gt;The Family Stand&lt;/div&gt;
           &lt;div class=&quot;who&quot;&gt;Asian families, school-holiday travellers&lt;/div&gt;
           &lt;div class=&quot;job&quot;&gt;&lt;b&gt;Job:&lt;/b&gt; a once-in-a-decade family trip&lt;/div&gt;
           &lt;div class=&quot;row&quot;&gt;&lt;b&gt;Barrier:&lt;/b&gt; Nov timing unknown + visa/hotel confidence&lt;/div&gt;
           &lt;div class=&quot;row&quot;&gt;&lt;b&gt;Trigger:&lt;/b&gt; cool-season + visa-free + a family bundle&lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class=&quot;seg&quot;&gt;
+        &lt;div class=&quot;seg state is-parked&quot;&gt;
           &lt;div class=&quot;name&quot;&gt;The Gulf Crew&lt;/div&gt;
           &lt;div class=&quot;who&quot;&gt;Asian diaspora working across the Gulf (Qatar/UAE/KSA)&lt;/div&gt;
           &lt;div class=&quot;job&quot;&gt;&lt;b&gt;Job:&lt;/b&gt; see my nation play, close to home&lt;/div&gt;
           &lt;div class=&quot;row&quot;&gt;&lt;b&gt;Barrier:&lt;/b&gt; time off + ticket access&lt;/div&gt;
           &lt;div class=&quot;row&quot;&gt;&lt;b&gt;Trigger:&lt;/b&gt; team draw + crew invite&lt;/div&gt;
         &lt;/div&gt;
+        &lt;div class=&quot;seg state is-parked&quot;&gt;
+          &lt;div class=&quot;name&quot;&gt;The Collector&lt;/div&gt;
+          &lt;div class=&quot;who&quot;&gt;Merch &amp;amp; ticket-collecting super-fans&lt;/div&gt;
+          &lt;div class=&quot;job&quot;&gt;&lt;b&gt;Job:&lt;/b&gt; own the moment and the memorabilia&lt;/div&gt;
+          &lt;div class=&quot;row&quot;&gt;&lt;b&gt;Barrier:&lt;/b&gt; no priority-access product&lt;/div&gt;
+          &lt;div class=&quot;row&quot;&gt;&lt;b&gt;Trigger:&lt;/b&gt; a paid supporters' club&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;seg state is-parked&quot;&gt;
+          &lt;div class=&quot;name&quot;&gt;The Content Traveller&lt;/div&gt;
+          &lt;div class=&quot;who&quot;&gt;Couples &amp;amp; creators chasing shareable experiences&lt;/div&gt;
+          &lt;div class=&quot;job&quot;&gt;&lt;b&gt;Job:&lt;/b&gt; go somewhere worth filming&lt;/div&gt;
+          &lt;div class=&quot;row&quot;&gt;&lt;b&gt;Barrier:&lt;/b&gt; unclear itinerary / stopover friction&lt;/div&gt;
+          &lt;div class=&quot;row&quot;&gt;&lt;b&gt;Trigger:&lt;/b&gt; a stopover + creator itinerary&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;seg state is-parked&quot;&gt;
+          &lt;div class=&quot;name&quot;&gt;Corporate / Hospitality&lt;/div&gt;
+          &lt;div class=&quot;who&quot;&gt;Companies gifting clients &amp;amp; staff trips&lt;/div&gt;
+          &lt;div class=&quot;job&quot;&gt;&lt;b&gt;Job:&lt;/b&gt; host clients at a world event&lt;/div&gt;
+          &lt;div class=&quot;row&quot;&gt;&lt;b&gt;Barrier:&lt;/b&gt; no hospitality product&lt;/div&gt;
+          &lt;div class=&quot;row&quot;&gt;&lt;b&gt;Trigger:&lt;/b&gt; a premium hospitality package&lt;/div&gt;
+        &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
     &lt;div class=&quot;card wide&quot;&gt;
-      &lt;h2&gt;Market Truths — from the research&lt;/h2&gt;
+      &lt;h2&gt;Market Truths — all options &lt;span class=&quot;count&quot;&gt;3 AI picks of 8&lt;/span&gt;&lt;/h2&gt;
       &lt;div class=&quot;truths&quot;&gt;
-        &lt;span class=&quot;chip&quot;&gt;Demand does not appear by itself — Nagoya planned 2.75M and sold &amp;lt;30%&lt;/span&gt;
-        &lt;span class=&quot;chip&quot;&gt;Asian fans book as crews and families — never solo&lt;/span&gt;
-        &lt;span class=&quot;chip&quot;&gt;Visa-free status, not desire, decides who can travel&lt;/span&gt;
+        &lt;span class=&quot;chip is-sel&quot;&gt;Demand does not appear by itself — Nagoya planned 2.75M and sold &amp;lt;30%&lt;/span&gt;
+        &lt;span class=&quot;chip is-sel&quot;&gt;Asian fans book as crews and families — never solo&lt;/span&gt;
+        &lt;span class=&quot;chip is-sel&quot;&gt;Visa-free status, not desire, decides who can travel&lt;/span&gt;
+        &lt;span class=&quot;chip&quot;&gt;Nagoya under-sold big-stadium sports while badminton topped 90%&lt;/span&gt;
+        &lt;span class=&quot;chip&quot;&gt;Qatar 2022 de-risked venue + airlift (96.3% attendance)&lt;/span&gt;
+        &lt;span class=&quot;chip&quot;&gt;Supporters' clubs convert fandom into ticket priority&lt;/span&gt;
+        &lt;span class=&quot;chip&quot;&gt;Date risk (2030→2031) unsettles family planners&lt;/span&gt;
+        &lt;span class=&quot;chip&quot;&gt;No Games host has ever activated Asia's away crowd&lt;/span&gt;
       &lt;/div&gt;
       &lt;div class=&quot;clusters&quot;&gt;
         &lt;span class=&quot;cluster&quot;&gt;Demand exists&lt;/span&gt;
@@ -465,25 +566,42 @@
         &lt;span class=&quot;cluster&quot;&gt;Friction = logistics&lt;/span&gt;
       &lt;/div&gt;
     &lt;/div&gt;
+
+    &lt;div class=&quot;card wide&quot;&gt;
+      &lt;h2&gt;Moments of Truth — all options &lt;span class=&quot;count&quot;&gt;2 AI picks of 8&lt;/span&gt;&lt;/h2&gt;
+      &lt;div class=&quot;truths&quot;&gt;
+        &lt;span class=&quot;chip is-sel&quot;&gt;the creator-film drop&lt;/span&gt;
+        &lt;span class=&quot;chip is-sel&quot;&gt;the school-holiday booking window&lt;/span&gt;
+        &lt;span class=&quot;chip&quot;&gt;ticket-sale day&lt;/span&gt;
+        &lt;span class=&quot;chip&quot;&gt;team-draw / qualification news&lt;/span&gt;
+        &lt;span class=&quot;chip&quot;&gt;the airline stopover window&lt;/span&gt;
+        &lt;span class=&quot;chip&quot;&gt;match day at Khalifa&lt;/span&gt;
+        &lt;span class=&quot;chip&quot;&gt;the medal moment&lt;/span&gt;
+        &lt;span class=&quot;chip&quot;&gt;the 2 a.m. viral clip&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
 
   &lt;div class=&quot;moment&quot;&gt;
-    &lt;div class=&quot;lbl&quot;&gt;Moment of Truth&lt;/div&gt;
-    &lt;div class=&quot;txt&quot;&gt;Ticket-sale day / the creator-film drop · phone — TikTok &amp;amp; IG creator feed · a trusted creator films the away end and invites the crew&lt;/div&gt;
+    &lt;div class=&quot;lbl&quot;&gt;Moment of Truth — from the chosen focus&lt;/div&gt;
+    &lt;div class=&quot;txt&quot;&gt;the creator-film drop &amp;amp; the school-holiday booking window · phone — TikTok / IG creator feed + family booking sites · a trusted creator films the away end and invites the crew, while families lock a Nov bundle&lt;/div&gt;
   &lt;/div&gt;
 
   &lt;div class=&quot;seed&quot;&gt;
-    &lt;div class=&quot;lbl&quot;&gt;Key Insights · AI-drafted from org + trends + audience + SWOT&lt;/div&gt;
-    &lt;p&gt;Auto-selected &lt;b&gt;2–3&lt;/b&gt; to deep-dive in the plan: &quot;Doha's biggest away crowd won't be bought with ads — it will be recruited, crew by crew, by the creators Asian fans already trust.&quot;&lt;/p&gt;
+    &lt;div class=&quot;lbl&quot;&gt;Seed Insight · AI-drafted from the chosen focus + insights&lt;/div&gt;
+    &lt;p&gt;Doha's biggest away crowd won't be bought with ads — it will be recruited, crew by crew, by the creators Asian fans already trust.&lt;/p&gt;
   &lt;/div&gt;
 
-  &lt;div class=&quot;kinsights&quot;&gt;
-    &lt;div class=&quot;kin sel&quot;&gt;&lt;div class=&quot;id&quot;&gt;INSIGHT 01&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;Asia outbound is at a record high, but no Games host has ever aimed it at Doha.&lt;/div&gt;&lt;div class=&quot;ev&quot;&gt;Thailand 13.06M outbound in 2025 (+11.4%); Indonesia 8.95M in 2024 (+19.0%) — Nation Thailand 2026 / BPS 2025&lt;/div&gt;&lt;/div&gt;
-    &lt;div class=&quot;kin sel&quot;&gt;&lt;div class=&quot;id&quot;&gt;INSIGHT 02&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;Demand must be manufactured — and it fails by sport: Nagoya sold &amp;lt;60% for big-stadium sports while badminton topped 90%.&lt;/div&gt;&lt;div class=&quot;ev&quot;&gt;Aichi-Nagoya 2026: &amp;lt;60% sold for 8 sports incl. football — Kyodo News 2026-09-25&lt;/div&gt;&lt;/div&gt;
-    &lt;div class=&quot;kin sel&quot;&gt;&lt;div class=&quot;id&quot;&gt;INSIGHT 03&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;Asia is the most mobile-first, creator-trusting fan base on earth — 460M TikTok MAU, 74% football fandom.&lt;/div&gt;&lt;div class=&quot;ev&quot;&gt;TikTok Newsroom 2025; Nielsen via Zakgt 2025&lt;/div&gt;&lt;/div&gt;
-    &lt;div class=&quot;kin&quot;&gt;&lt;div class=&quot;id&quot;&gt;INSIGHT 04&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;Qatar's visa-free map — not desire — decides the addressable market: CN/ID/TH/MY/SG in; PH/VN need a Hayya e-visa.&lt;/div&gt;&lt;div class=&quot;ev&quot;&gt;Visit Qatar visa policy 2026-08&lt;/div&gt;&lt;/div&gt;
-    &lt;div class=&quot;kin&quot;&gt;&lt;div class=&quot;id&quot;&gt;INSIGHT 05&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;Doha already proved it can fill a stadium with the world — 96.3% attendance at Qatar 2022.&lt;/div&gt;&lt;div class=&quot;ev&quot;&gt;FIFA Annual Report 2022; Gulf Business 2022&lt;/div&gt;&lt;/div&gt;
-    &lt;div class=&quot;kin&quot;&gt;&lt;div class=&quot;id&quot;&gt;INSIGHT 06&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;Belonging beats browsing: paid supporter clubs and early group booking convert fandom into ticket priority.&lt;/div&gt;&lt;div class=&quot;ev&quot;&gt;England Supporters Travel Club; worldmetrics 2026&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;card wide&quot; style=&quot;margin-top:16px;&quot;&gt;
+    &lt;h2&gt;Key Insights — the team picks 2–3 &lt;span class=&quot;count&quot;&gt;3 selected of 6&lt;/span&gt;&lt;/h2&gt;
+    &lt;div class=&quot;kinsights&quot;&gt;
+      &lt;div class=&quot;kin state is-sel&quot;&gt;&lt;span class=&quot;tag sel&quot;&gt;Selected&lt;/span&gt;&lt;div class=&quot;id&quot;&gt;INSIGHT 01&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;Asia outbound is at a record high, but no Games host has ever aimed it at Doha.&lt;/div&gt;&lt;div class=&quot;ev&quot;&gt;Thailand 13.06M outbound 2025 (+11.4%); Indonesia 8.95M 2024 (+19.0%) — Nation Thailand 2026 / BPS 2025&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;kin state is-sel&quot;&gt;&lt;span class=&quot;tag sel&quot;&gt;Selected&lt;/span&gt;&lt;div class=&quot;id&quot;&gt;INSIGHT 02&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;Demand must be manufactured — and it fails by sport: Nagoya sold &amp;lt;60% for big-stadium sports while badminton topped 90%.&lt;/div&gt;&lt;div class=&quot;ev&quot;&gt;Aichi-Nagoya 2026: &amp;lt;60% sold for 8 sports incl. football — Kyodo News 2026-09-25&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;kin state is-sel&quot;&gt;&lt;span class=&quot;tag sel&quot;&gt;Selected&lt;/span&gt;&lt;div class=&quot;id&quot;&gt;INSIGHT 03&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;Asia is the most mobile-first, creator-trusting fan base on earth — 460M TikTok MAU, 74% football fandom.&lt;/div&gt;&lt;div class=&quot;ev&quot;&gt;TikTok Newsroom 2025; Nielsen via Zakgt 2025&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;kin state is-parked&quot;&gt;&lt;div class=&quot;id&quot;&gt;INSIGHT 04&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;Qatar's visa-free map — not desire — decides the addressable market: CN/ID/TH/MY/SG in; PH/VN need a Hayya e-visa.&lt;/div&gt;&lt;div class=&quot;ev&quot;&gt;Visit Qatar visa policy 2026-08&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;kin state is-parked&quot;&gt;&lt;div class=&quot;id&quot;&gt;INSIGHT 05&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;Doha already proved it can fill a stadium with the world — 96.3% attendance at Qatar 2022.&lt;/div&gt;&lt;div class=&quot;ev&quot;&gt;FIFA Annual Report 2022; Gulf Business 2022&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;kin state is-parked&quot;&gt;&lt;div class=&quot;id&quot;&gt;INSIGHT 06&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;Belonging beats browsing: paid supporter clubs and early group booking convert fandom into ticket priority.&lt;/div&gt;&lt;div class=&quot;ev&quot;&gt;England Supporters Travel Club; worldmetrics 2026&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
 
   &lt;footer&gt;
@@ -498,183 +616,96 @@
   &quot;quest&quot;: &quot;A&quot;,
   &quot;client&quot;: &quot;OCA — Doha 2030 Ticketing &amp; Fan Engagement Unit&quot;,
   &quot;mission&quot;: &quot;Make Asia Doha's biggest 'away crowd' in Asian Games history.&quot;,
+  &quot;mode&quot;: &quot;runner (autopilot)&quot;,
   &quot;scope_note&quot;: &quot;Card = Asia-wide. The MVP pilot runs in 2 priority Asian markets (Indonesia + Thailand); China is the phase-2 beachhead.&quot;,
   &quot;org_profile&quot;: {
     &quot;assets&quot;: [
       &quot;Visa-free entry for China, Indonesia, Singapore, Thailand (30 days) and Malaysia (90 days)&quot;,
-      &quot;Qatar Airways + Hamad Int'l hub (35M pax in 2022 -&gt; 58-60M capacity; 170+ destinations winter 2026-27)&quot;,
-      &quot;World-Cup-proven venues, hotel stock and airlift (Qatar 2022: ~130K peak hotel capacity)&quot;,
-      &quot;39 venues / 54 sports; National Vision 2030 tourism target (6M visitors/yr, QAR 34B spend)&quot;,
-      &quot;18-month runway (May 2029 - Oct 2030) + national-tourism backing&quot;
+      &quot;Qatar Airways + Hamad Int'l hub (170+ destinations winter 2026-27)&quot;,
+      &quot;World-Cup-proven venues, hotel stock and airlift&quot;,
+      &quot;39 venues / 54 sports; National Vision 2030 tourism backing&quot;,
+      &quot;18-month runway (May 2029 - Oct 2030)&quot;
     ],
     &quot;constraints&quot;: [
       &quot;MVP budget USD 1.5M (5% of the USD 30M war chest)&quot;,
       &quot;Asia's away crowd has never been activated by an Asian Games host&quot;,
-      &quot;DATE RISK: OCA proposes moving the Asian Games to the year before the Olympics, i.e. Doha 2030 -&gt; 2031 (Xinhua, 2026-04-27)&quot;
+      &quot;DATE RISK: OCA proposes moving Doha 2030 -&gt; 2031 (Xinhua, 2026-04-27)&quot;
     ]
   },
   &quot;benchmark&quot;: {
-    &quot;gold_standard&quot;: &quot;Hangzhou 2022/23 — 3.05M tickets, RMB 610M (~USD 83.5M) ticket revenue, ~90% attendance (92% live), RMB 5.316B (~USD 728M) market development, RMB 700M licensed merch (mascots = 70%).&quot;,
-    &quot;cautionary_tale&quot;: &quot;Aichi-Nagoya 2026 — planned 2.75M tickets, only ~700-800K sold by late Aug; &lt;60% sold for 8 big-stadium sports (incl. football, baseball, hockey) while badminton/fencing topped 90%; empty seats even where 'sold out'.&quot;,
-    &quot;arena&quot;: &quot;Doha 2030 — 4-19 Nov 2030, Khalifa Int'l Stadium; Qatar is visa-free for CN/ID/TH/MY/SG but NOT PH/VN (Hayya e-visa from QAR 100).&quot;
+    &quot;gold_standard&quot;: &quot;Hangzhou 2022/23 — 3.05M tickets, RMB 610M (~USD 83.5M) ticket revenue, ~90% attendance, RMB 5.316B market development, RMB 700M licensed merch (mascots = 70%).&quot;,
+    &quot;cautionary_tale&quot;: &quot;Aichi-Nagoya 2026 — planned 2.75M tickets, only ~700-800K sold by late Aug; &lt;60% sold for 8 big-stadium sports (incl. football) while badminton/fencing topped 90%.&quot;,
+    &quot;arena&quot;: &quot;Doha 2030 — 4-19 Nov 2030; Qatar is visa-free for CN/ID/TH/MY/SG but NOT PH/VN (Hayya e-visa from QAR 100).&quot;
   },
-  &quot;market&quot;: {
-    &quot;trends&quot;: [
-      {
-        &quot;trend&quot;: &quot;Asia outbound is at an all-time high&quot;,
-        &quot;why_it_matters&quot;: &quot;Thailand 13.06M outbound in 2025 (+11.4%, record; spend +29.5%); Indonesia 8.95M in 2024 (+19.0%) — the demand engine exists.&quot;
-      },
-      {
-        &quot;trend&quot;: &quot;Asia is the world's most mobile-first fan base&quot;,
-        &quot;why_it_matters&quot;: &quot;TikTok 460M MAU in our first Asian markets (Indonesia 160M, Vietnam 70M, Thailand 50M); 74% of Asia adults are football fans.&quot;
-      },
-      {
-        &quot;trend&quot;: &quot;Doha has already proved it can host the world&quot;,
-        &quot;why_it_matters&quot;: &quot;Qatar 2022: 1.4M international visitors, 3.18M tickets sold, 96.3% attendance — venue + airlift de-risked.&quot;
-      }
-    ],
-    &quot;truths&quot;: [
-      {
-        &quot;author&quot;: &quot;Auto-run (agent-reach)&quot;,
-        &quot;text&quot;: &quot;Demand does not appear by itself — Nagoya planned 2.75M tickets and sold under 30%.&quot;
-      },
-      {
-        &quot;author&quot;: &quot;Auto-run (agent-reach)&quot;,
-        &quot;text&quot;: &quot;Asian fans book as crews and families; the trip is a group decision, not a solo one.&quot;
-      },
-      {
-        &quot;author&quot;: &quot;Auto-run (agent-reach)&quot;,
-        &quot;text&quot;: &quot;Visa-free status, not desire, decides which markets can actually travel.&quot;
-      }
-    ]
-  },
+  &quot;trends&quot;: [
+    {&quot;id&quot;: 1, &quot;trend&quot;: &quot;Asia outbound is at an all-time high&quot;, &quot;why_it_matters&quot;: &quot;Thailand 13.06M outbound (2025, +11.4%, record); Indonesia 8.95M (2024, +19.0%).&quot;, &quot;source&quot;: &quot;Nation Thailand 2026; BPS 2025&quot;, &quot;ai_pick&quot;: true},
+    {&quot;id&quot;: 2, &quot;trend&quot;: &quot;Asia is the world's most mobile-first fan base&quot;, &quot;why_it_matters&quot;: &quot;TikTok 460M MAU in our first Asian markets; 74% of Asia adults are football fans.&quot;, &quot;source&quot;: &quot;TikTok Newsroom 2025; Nielsen 2025&quot;, &quot;ai_pick&quot;: true},
+    {&quot;id&quot;: 3, &quot;trend&quot;: &quot;Doha has already proved it can host the world&quot;, &quot;why_it_matters&quot;: &quot;Qatar 2022: 1.4M international visitors, 3.18M tickets, 96.3% attendance.&quot;, &quot;source&quot;: &quot;FIFA Annual Report 2022&quot;, &quot;ai_pick&quot;: true},
+    {&quot;id&quot;: 4, &quot;trend&quot;: &quot;Creator trust now out-performs brand ads in Asia&quot;, &quot;why_it_matters&quot;: &quot;Short-video creators drive discovery and booking intent faster than paid media in SEA.&quot;, &quot;source&quot;: &quot;agent-reach&quot;, &quot;ai_pick&quot;: false},
+    {&quot;id&quot;: 5, &quot;trend&quot;: &quot;Cool-season, visa-free windows reshape travel calendars&quot;, &quot;why_it_matters&quot;: &quot;Nov + visa-free is a booking trigger for Southeast Asian families.&quot;, &quot;source&quot;: &quot;agent-reach&quot;, &quot;ai_pick&quot;: false},
+    {&quot;id&quot;: 6, &quot;trend&quot;: &quot;The experience economy — fans buy moments, not merch&quot;, &quot;why_it_matters&quot;: &quot;Spend is shifting from goods to live experience and memory-making.&quot;, &quot;source&quot;: &quot;agent-reach&quot;, &quot;ai_pick&quot;: false},
+    {&quot;id&quot;: 7, &quot;trend&quot;: &quot;Gulf-Asia airlift is expanding fast&quot;, &quot;why_it_matters&quot;: &quot;Qatar Airways / Hamad hub capacity up toward 58-60M pax; 170+ destinations.&quot;, &quot;source&quot;: &quot;agent-reach&quot;, &quot;ai_pick&quot;: false},
+    {&quot;id&quot;: 8, &quot;trend&quot;: &quot;'Away crowd' / national-pride culture is on the rise&quot;, &quot;why_it_matters&quot;: &quot;Organised away support and supporter clubs are growing across Asia.&quot;, &quot;source&quot;: &quot;agent-reach&quot;, &quot;ai_pick&quot;: false}
+  ],
+  &quot;truths&quot;: [
+    {&quot;id&quot;: 1, &quot;text&quot;: &quot;Demand does not appear by itself — Nagoya planned 2.75M tickets and sold under 30%.&quot;, &quot;source&quot;: &quot;Kyodo News 2026&quot;, &quot;ai_pick&quot;: true},
+    {&quot;id&quot;: 2, &quot;text&quot;: &quot;Asian fans book as crews and families; the trip is a group decision, not a solo one.&quot;, &quot;source&quot;: &quot;agent-reach&quot;, &quot;ai_pick&quot;: true},
+    {&quot;id&quot;: 3, &quot;text&quot;: &quot;Visa-free status, not desire, decides which markets can actually travel.&quot;, &quot;source&quot;: &quot;Visit Qatar 2026&quot;, &quot;ai_pick&quot;: true},
+    {&quot;id&quot;: 4, &quot;text&quot;: &quot;Nagoya under-sold big-stadium sports while badminton/fencing topped 90%.&quot;, &quot;source&quot;: &quot;Kyodo News 2026&quot;, &quot;ai_pick&quot;: false},
+    {&quot;id&quot;: 5, &quot;text&quot;: &quot;Qatar 2022 de-risked venue + airlift (96.3% attendance, 1.4M visitors).&quot;, &quot;source&quot;: &quot;FIFA 2022&quot;, &quot;ai_pick&quot;: false},
+    {&quot;id&quot;: 6, &quot;text&quot;: &quot;Supporters' clubs convert fandom into ticket priority.&quot;, &quot;source&quot;: &quot;englandfootball.com&quot;, &quot;ai_pick&quot;: false},
+    {&quot;id&quot;: 7, &quot;text&quot;: &quot;Date risk (2030 -&gt; 2031) unsettles family planners.&quot;, &quot;source&quot;: &quot;Xinhua 2026&quot;, &quot;ai_pick&quot;: false},
+    {&quot;id&quot;: 8, &quot;text&quot;: &quot;No Games host has ever activated Asia's away crowd.&quot;, &quot;source&quot;: &quot;OCA briefing&quot;, &quot;ai_pick&quot;: false}
+  ],
   &quot;segments&quot;: [
-    {
-      &quot;name&quot;: &quot;The Away Crew&quot;,
-      &quot;who&quot;: &quot;Asia Gen-Z &amp; young Millennials, 18-32, football- and short-video-first (ID/TH/VN)&quot;,
-      &quot;job_functional&quot;: &quot;see a live Asian Games&quot;,
-      &quot;job_social&quot;: &quot;travel with my crew and be seen&quot;,
-      &quot;job_emotional&quot;: &quot;belong to a national moment&quot;,
-      &quot;barrier&quot;: &quot;cost + who-to-go-with&quot;,
-      &quot;trigger&quot;: &quot;a creator my crew trusts films the away end&quot;
-    },
-    {
-      &quot;name&quot;: &quot;The Family Stand&quot;,
-      &quot;who&quot;: &quot;Asian families, school-holiday travellers&quot;,
-      &quot;job_functional&quot;: &quot;a once-in-a-decade family trip&quot;,
-      &quot;job_social&quot;: &quot;give the kids a story&quot;,
-      &quot;job_emotional&quot;: &quot;safe, proud, shared memory&quot;,
-      &quot;barrier&quot;: &quot;Nov timing unknown + visa/hotel confidence&quot;,
-      &quot;trigger&quot;: &quot;cool-season + visa-free + a family bundle&quot;
-    },
-    {
-      &quot;name&quot;: &quot;The Gulf Crew&quot;,
-      &quot;who&quot;: &quot;Asian diaspora working across the Gulf (Qatar/UAE/KSA)&quot;,
-      &quot;job_functional&quot;: &quot;see my nation play, close to home&quot;,
-      &quot;job_social&quot;: &quot;lead the away section&quot;,
-      &quot;job_emotional&quot;: &quot;national pride + belonging&quot;,
-      &quot;barrier&quot;: &quot;time off + ticket access&quot;,
-      &quot;trigger&quot;: &quot;team draw + crew invite&quot;
-    }
+    {&quot;id&quot;: 1, &quot;name&quot;: &quot;The Away Crew&quot;, &quot;who&quot;: &quot;Asia Gen-Z &amp; young Millennials, 18-32, football- and short-video-first (ID/TH/VN)&quot;, &quot;job_functional&quot;: &quot;see a live Asian Games&quot;, &quot;job_social&quot;: &quot;travel with my crew and be seen&quot;, &quot;job_emotional&quot;: &quot;belong to a national moment&quot;, &quot;barrier&quot;: &quot;cost + who-to-go-with&quot;, &quot;trigger&quot;: &quot;a creator my crew trusts films the away end&quot;, &quot;selected&quot;: true},
+    {&quot;id&quot;: 2, &quot;name&quot;: &quot;The Family Stand&quot;, &quot;who&quot;: &quot;Asian families, school-holiday travellers&quot;, &quot;job_functional&quot;: &quot;a once-in-a-decade family trip&quot;, &quot;job_social&quot;: &quot;give the kids a story&quot;, &quot;job_emotional&quot;: &quot;safe, proud, shared memory&quot;, &quot;barrier&quot;: &quot;Nov timing unknown + visa/hotel confidence&quot;, &quot;trigger&quot;: &quot;cool-season + visa-free + a family bundle&quot;, &quot;selected&quot;: true},
+    {&quot;id&quot;: 3, &quot;name&quot;: &quot;The Gulf Crew&quot;, &quot;who&quot;: &quot;Asian diaspora working across the Gulf (Qatar/UAE/KSA)&quot;, &quot;job_functional&quot;: &quot;see my nation play, close to home&quot;, &quot;job_social&quot;: &quot;lead the away section&quot;, &quot;job_emotional&quot;: &quot;national pride + belonging&quot;, &quot;barrier&quot;: &quot;time off + ticket access&quot;, &quot;trigger&quot;: &quot;team draw + crew invite&quot;, &quot;selected&quot;: false},
+    {&quot;id&quot;: 4, &quot;name&quot;: &quot;The Collector&quot;, &quot;who&quot;: &quot;Merch &amp; ticket-collecting super-fans&quot;, &quot;job_functional&quot;: &quot;own the moment and the memorabilia&quot;, &quot;job_social&quot;: &quot;be the one with the story&quot;, &quot;job_emotional&quot;: &quot;fandom made tangible&quot;, &quot;barrier&quot;: &quot;no priority-access product&quot;, &quot;trigger&quot;: &quot;a paid supporters' club&quot;, &quot;selected&quot;: false},
+    {&quot;id&quot;: 5, &quot;name&quot;: &quot;The Content Traveller&quot;, &quot;who&quot;: &quot;Couples &amp; creators chasing shareable experiences&quot;, &quot;job_functional&quot;: &quot;go somewhere worth filming&quot;, &quot;job_social&quot;: &quot;post a trip that stands out&quot;, &quot;job_emotional&quot;: &quot;be first to a moment&quot;, &quot;barrier&quot;: &quot;unclear itinerary / stopover friction&quot;, &quot;trigger&quot;: &quot;a stopover + creator itinerary&quot;, &quot;selected&quot;: false},
+    {&quot;id&quot;: 6, &quot;name&quot;: &quot;Corporate / Hospitality&quot;, &quot;who&quot;: &quot;Companies gifting clients &amp; staff trips&quot;, &quot;job_functional&quot;: &quot;host clients at a world event&quot;, &quot;job_social&quot;: &quot;be seen as a premium host&quot;, &quot;job_emotional&quot;: &quot;prestige&quot;, &quot;barrier&quot;: &quot;no hospitality product&quot;, &quot;trigger&quot;: &quot;a premium hospitality package&quot;, &quot;selected&quot;: false}
   ],
+  &quot;moments&quot;: [
+    {&quot;id&quot;: 1, &quot;text&quot;: &quot;the creator-film drop&quot;, &quot;ai_pick&quot;: true},
+    {&quot;id&quot;: 2, &quot;text&quot;: &quot;the school-holiday booking window&quot;, &quot;ai_pick&quot;: true},
+    {&quot;id&quot;: 3, &quot;text&quot;: &quot;ticket-sale day&quot;, &quot;ai_pick&quot;: false},
+    {&quot;id&quot;: 4, &quot;text&quot;: &quot;team-draw / qualification news&quot;, &quot;ai_pick&quot;: false},
+    {&quot;id&quot;: 5, &quot;text&quot;: &quot;the airline stopover window&quot;, &quot;ai_pick&quot;: false},
+    {&quot;id&quot;: 6, &quot;text&quot;: &quot;match day at Khalifa&quot;, &quot;ai_pick&quot;: false},
+    {&quot;id&quot;: 7, &quot;text&quot;: &quot;the medal moment&quot;, &quot;ai_pick&quot;: false},
+    {&quot;id&quot;: 8, &quot;text&quot;: &quot;the 2 a.m. viral clip&quot;, &quot;ai_pick&quot;: false}
+  ],
+  &quot;focus_bundles&quot;: [
+    {&quot;id&quot;: 1, &quot;name&quot;: &quot;The Away-Crew Recruitment&quot;, &quot;segment_ids&quot;: [1], &quot;moment_id&quot;: 1, &quot;trend_id&quot;: 4, &quot;why&quot;: &quot;Recruit the crew through the creators they already trust, before tickets drop.&quot;, &quot;ai_pick&quot;: true},
+    {&quot;id&quot;: 2, &quot;name&quot;: &quot;The Family Window&quot;, &quot;segment_ids&quot;: [2], &quot;moment_id&quot;: 2, &quot;trend_id&quot;: 5, &quot;why&quot;: &quot;Lock families with a Nov cool-season, visa-free bundle before the trip is re-planned.&quot;, &quot;ai_pick&quot;: true},
+    {&quot;id&quot;: 3, &quot;name&quot;: &quot;The Home-Away Gulf Derby&quot;, &quot;segment_ids&quot;: [3], &quot;moment_id&quot;: 4, &quot;trend_id&quot;: 7, &quot;why&quot;: &quot;Pack the away section with diaspora who can travel on a weekend.&quot;, &quot;ai_pick&quot;: false},
+    {&quot;id&quot;: 4, &quot;name&quot;: &quot;The Drop-Day Loyalty Club&quot;, &quot;segment_ids&quot;: [4], &quot;moment_id&quot;: 3, &quot;trend_id&quot;: 8, &quot;why&quot;: &quot;Convert fandom into a paid priority list on drop day.&quot;, &quot;ai_pick&quot;: false},
+    {&quot;id&quot;: 5, &quot;name&quot;: &quot;The Stopover Convert&quot;, &quot;segment_ids&quot;: [5], &quot;moment_id&quot;: 5, &quot;trend_id&quot;: 2, &quot;why&quot;: &quot;Turn Doha stopovers into Games trips at the moment of transit.&quot;, &quot;ai_pick&quot;: false},
+    {&quot;id&quot;: 6, &quot;name&quot;: &quot;The Hospitality Lane&quot;, &quot;segment_ids&quot;: [6], &quot;moment_id&quot;: 6, &quot;trend_id&quot;: 6, &quot;why&quot;: &quot;Sell premium seats + hospitality as a business-gifting product.&quot;, &quot;ai_pick&quot;: false}
+  ],
+  &quot;selected_focus&quot;: [1, 2],
   &quot;moment_of_truth&quot;: {
-    &quot;when&quot;: &quot;ticket-sale day / the creator-film drop&quot;,
-    &quot;where&quot;: &quot;phone — TikTok / IG creator feed&quot;,
-    &quot;event&quot;: &quot;a trusted creator films the away end and invites the crew&quot;
+    &quot;when&quot;: &quot;the creator-film drop &amp; the school-holiday booking window&quot;,
+    &quot;where&quot;: &quot;phone — TikTok / IG creator feed + family booking sites&quot;,
+    &quot;event&quot;: &quot;a trusted creator films the away end and invites the crew, while families lock a Nov bundle&quot;
   },
-  &quot;clusters&quot;: [
-    {
-      &quot;theme&quot;: &quot;Demand exists&quot;,
-      &quot;items&quot;: [
-        &quot;outbound records&quot;,
-        &quot;74% football fandom&quot;,
-        &quot;China-Gulf warming&quot;
-      ]
-    },
-    {
-      &quot;theme&quot;: &quot;Distribution = creators&quot;,
-      &quot;items&quot;: [
-        &quot;460M TikTok MAU&quot;,
-        &quot;creator trust &gt; ads&quot;,
-        &quot;short-video discovery&quot;
-      ]
-    },
-    {
-      &quot;theme&quot;: &quot;Friction = logistics&quot;,
-      &quot;items&quot;: [
-        &quot;visa map&quot;,
-        &quot;cost&quot;,
-        &quot;who-to-go-with&quot;
-      ]
-    }
-  ],
   &quot;swot&quot;: {
-    &quot;strengths&quot;: [
-      &quot;Visa-free + Qatar Airways hub for most target markets&quot;,
-      &quot;World-Cup-proven venues, hotels, airlift&quot;,
-      &quot;18-month runway + national-tourism backing&quot;
-    ],
-    &quot;weaknesses&quot;: [
-      &quot;Asia never activated by a Games host&quot;,
-      &quot;No existing fan pipeline or membership&quot;,
-      &quot;USD 1.5M pilot vs 6 Asian markets&quot;
-    ],
-    &quot;opportunities&quot;: [
-      &quot;Asia outbound records + China-Gulf warming&quot;,
-      &quot;460M TikTok MAU + creator trust&quot;,
-      &quot;Nagoya left Asia unmined; Nov cool season&quot;
-    ],
-    &quot;threats&quot;: [
-      &quot;Doha 2030 -&gt; 2031 date risk&quot;,
-      &quot;Nagoya-style under-demand if we spread thin&quot;,
-      &quot;PH/VN not visa-free — excluded from paid push&quot;
-    ]
+    &quot;strengths&quot;: [&quot;Visa-free + Qatar Airways hub for most target markets&quot;, &quot;World-Cup-proven venues, hotels, airlift&quot;, &quot;18-month runway + national-tourism backing&quot;],
+    &quot;weaknesses&quot;: [&quot;Asia never activated by a Games host&quot;, &quot;No existing fan pipeline or membership&quot;, &quot;USD 1.5M pilot vs 6 Asian markets&quot;],
+    &quot;opportunities&quot;: [&quot;Asia outbound records + China-Gulf warming&quot;, &quot;460M TikTok MAU + creator trust&quot;, &quot;Nagoya left Asia unmined; Nov cool season&quot;],
+    &quot;threats&quot;: [&quot;Doha 2030 -&gt; 2031 date risk&quot;, &quot;Nagoya-style under-demand if we spread thin&quot;, &quot;PH/VN not visa-free — excluded from paid push&quot;]
   },
   &quot;key_insights&quot;: [
-    {
-      &quot;id&quot;: 1,
-      &quot;text&quot;: &quot;Asia outbound is at a record high, but no Games host has ever aimed it at Doha.&quot;,
-      &quot;evidence&quot;: &quot;Thailand 13.06M outbound in 2025 (+11.4%, all-time high); Indonesia 8.95M in 2024 (+19.0%).&quot;,
-      &quot;source&quot;: &quot;Nation Thailand 2026; BPS/statbase 2025&quot;
-    },
-    {
-      &quot;id&quot;: 2,
-      &quot;text&quot;: &quot;Demand must be manufactured — and it fails by sport: Nagoya sold under 60% for big-stadium sports while badminton topped 90%.&quot;,
-      &quot;evidence&quot;: &quot;Aichi-Nagoya 2026: &lt;60% sold for 8 sports incl. football/baseball/hockey (Kyodo 2026-09-25).&quot;,
-      &quot;source&quot;: &quot;Kyodo News 2026-09-25&quot;
-    },
-    {
-      &quot;id&quot;: 3,
-      &quot;text&quot;: &quot;Asia is the most mobile-first, creator-trusting fan base on earth — 460M TikTok MAU and 74% football fandom.&quot;,
-      &quot;evidence&quot;: &quot;TikTok 460M MAU in Asia (ID 160M, VN 70M, TH 50M), 2025; 74% of Asia adults are football fans.&quot;,
-      &quot;source&quot;: &quot;TikTok Newsroom 2025; Nielsen via Zakgt 2025&quot;
-    },
-    {
-      &quot;id&quot;: 4,
-      &quot;text&quot;: &quot;Qatar's visa-free map — not desire — decides the addressable market: CN/ID/TH/MY/SG are in; PH/VN need a Hayya e-visa.&quot;,
-      &quot;evidence&quot;: &quot;Qatar visa policy 2026: visa-free 30-90 days for CN/ID/SG/TH/MY; PH/VN not visa-free.&quot;,
-      &quot;source&quot;: &quot;Visit Qatar 2026; Wikipedia visa policy of Qatar 2026-08&quot;
-    },
-    {
-      &quot;id&quot;: 5,
-      &quot;text&quot;: &quot;Doha already proved it can fill a stadium with the world — 96.3% attendance at Qatar 2022.&quot;,
-      &quot;evidence&quot;: &quot;FIFA World Cup 2022: 3,182,406 tickets, 96.3% attendance, 1.4M international visitors.&quot;,
-      &quot;source&quot;: &quot;FIFA Annual Report 2022; Gulf Business 2022&quot;
-    },
-    {
-      &quot;id&quot;: 6,
-      &quot;text&quot;: &quot;Belonging beats browsing: paid supporter clubs and early group booking convert fandom into ticket priority.&quot;,
-      &quot;evidence&quot;: &quot;England Supporters Travel Club gives members priority away/tournament allocation; most group trips are planned &gt;6 months out.&quot;,
-      &quot;source&quot;: &quot;englandfootball.com; worldmetrics 2026&quot;
-    }
+    {&quot;id&quot;: 1, &quot;text&quot;: &quot;Asia outbound is at a record high, but no Games host has ever aimed it at Doha.&quot;, &quot;evidence&quot;: &quot;Thailand 13.06M outbound in 2025 (+11.4%); Indonesia 8.95M in 2024 (+19.0%).&quot;, &quot;source&quot;: &quot;Nation Thailand 2026; BPS 2025&quot;, &quot;selected&quot;: true},
+    {&quot;id&quot;: 2, &quot;text&quot;: &quot;Demand must be manufactured — and it fails by sport: Nagoya sold under 60% for big-stadium sports while badminton topped 90%.&quot;, &quot;evidence&quot;: &quot;Aichi-Nagoya 2026: &lt;60% sold for 8 sports incl. football.&quot;, &quot;source&quot;: &quot;Kyodo News 2026-09-25&quot;, &quot;selected&quot;: true},
+    {&quot;id&quot;: 3, &quot;text&quot;: &quot;Asia is the most mobile-first, creator-trusting fan base on earth — 460M TikTok MAU and 74% football fandom.&quot;, &quot;evidence&quot;: &quot;TikTok 460M MAU in Asia (ID 160M, VN 70M, TH 50M); 74% of Asia adults are football fans.&quot;, &quot;source&quot;: &quot;TikTok Newsroom 2025; Nielsen 2025&quot;, &quot;selected&quot;: true},
+    {&quot;id&quot;: 4, &quot;text&quot;: &quot;Qatar's visa-free map — not desire — decides the addressable market: CN/ID/TH/MY/SG are in; PH/VN need a Hayya e-visa.&quot;, &quot;evidence&quot;: &quot;Qatar visa policy 2026: visa-free 30-90 days for CN/ID/SG/TH/MY; PH/VN not visa-free.&quot;, &quot;source&quot;: &quot;Visit Qatar 2026&quot;, &quot;selected&quot;: false},
+    {&quot;id&quot;: 5, &quot;text&quot;: &quot;Doha already proved it can fill a stadium with the world — 96.3% attendance at Qatar 2022.&quot;, &quot;evidence&quot;: &quot;FIFA World Cup 2022: 3,182,406 tickets, 96.3% attendance, 1.4M international visitors.&quot;, &quot;source&quot;: &quot;FIFA Annual Report 2022&quot;, &quot;selected&quot;: false},
+    {&quot;id&quot;: 6, &quot;text&quot;: &quot;Belonging beats browsing: paid supporter clubs and early group booking convert fandom into ticket priority.&quot;, &quot;evidence&quot;: &quot;England Supporters Travel Club gives members priority away/tournament allocation.&quot;, &quot;source&quot;: &quot;englandfootball.com; worldmetrics 2026&quot;, &quot;selected&quot;: false}
   ],
-  &quot;selected_insights&quot;: [
-    1,
-    2,
-    3
-  ],
+  &quot;selected_insights&quot;: [1, 2, 3],
   &quot;seed_insight&quot;: &quot;Doha's biggest away crowd won't be bought with ads — it will be recruited, crew by crew, by the creators Asian fans already trust.&quot;,
-  &quot;source_note&quot;: &quot;Scout Report (card, 2026-09) + live research via agent-reach · Data as of 2026-09-29&quot;
+  &quot;source_note&quot;: &quot;Scout Report (card, 2026-09) + live research via agent-reach · Data as of 2026-09-29 · runner autopilot&quot;
 }
 &lt;/script&gt;
 &lt;script&gt;(function(){function h(){try{parent.postMessage({__fit:Math.max(document.documentElement.scrollHeight,document.body.scrollHeight)},&quot;*&quot;);}catch(e){}}window.addEventListener(&quot;load&quot;,h);window.addEventListener(&quot;resize&quot;,h);setInterval(h,1500);})();&lt;/script&gt;
@@ -5412,7 +5443,7 @@ opencode</code></pre>
           <div class="say"><span class="k">Say to the team</span>While it runs — this step is powered by three skills: <code>agent-reach</code> pulls the real data, <code>audience-analysis</code> builds the segments, <code>swot-analysis</code> synthesizes them. Curious how they work? I can open the skill files and show you live.</div>
         </li>
         <li><b>每环节结束：review → 讨论决策 → 示范提交 → 下一环节。</b>AI 产出后先停（HITL）：带团队一起读产出、逐条理解，讨论后做选择；示范怎么把选择结果交给 AI（从菜单选 N，或 <code>+1</code> 自选），随后进入下一环节。
-          <div class="say"><span class="k">Say to the team</span>Stop here — six insights are on the board. Read them together, then tell me which 2–3 to build on. Give your pick like this: <i>"We take 1, 4 and 6, plus one of our own — …"</i>. The AI records exactly what you say, then we move to Plan.</div>
+          <div class="say"><span class="k">Say to the team</span>Stop here — the AI has curated the market and drafted six data-backed insights. Read them together, then tell me which 2–3 to build on. Give your pick like this: <i>"We take insights 1, 4 and 6 — plus one of our own."</i> The AI records exactly what you say, then we move to Plan.</div>
         </li>
         <li><b>结果不满意：示范用 feedback 让 AI 重跑该环节。</b>用具体反馈让 AI 重跑这一环节，而不是推翻整个流程。
           <div class="say"><span class="k">Say to the team</span>Not happy with these? Just tell the AI what to change: <i>"Redo the insight menu — focus on Gen-Z travellers and visa constraints."</i> It re-runs only this gate. Short on time? <i>"Only 8 minutes left — compress and give me 3 options."</i></div>

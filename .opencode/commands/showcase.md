@@ -15,7 +15,7 @@ Use the `showcase` skill with `facilitation` (option menu). Requires the capture
 5. Optional **bonus media** — write `prompt-pack.html` (Suno / Runway / GPT prompts); embed returned files.
 6. Write into the current round folder `artifacts/Quest<ID>-<NN>/`: `proposal.html` (the unified proposal viewer) + `pitch-deck.html` + `prompt-pack.html`; the showcase capture is embedded in `proposal.html`.
 
-**End every turn with a wrap-up (see `facilitator` → *Response format*):** a 2–4 line recap + the artifact name/path, then the **next decision printed inline** — the **storyline menu** (pick 1) + **poster on/off** + **visual direction A/B/C**. Add a one-line pick prompt. **Never ask the team to open the HTML to choose.**
+**End every turn with a wrap-up (see `facilitator` → *Response format*):** a 2–4 line recap + the artifact name/path, then the **next decision printed inline** — the **storyline menu** (pick 1) + **poster on/off** + **visual direction A/B/C**. End with the pick prompt, verbatim: **Reply with your pick (e.g. `1, 2`).** — nothing after it.
 
 Choice-first, human-led. Do not decide for the team.
 

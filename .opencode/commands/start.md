@@ -13,8 +13,8 @@ Open a **facilitated (human-led)** session for this quest. This command does **t
 2. **Brief the team — explain clearly, in plain language, what is about to happen:**
    - **The task.** The client, the mission, and the target market, in your own words.
    - **The plan — four gates, walked one at a time, with the team deciding at each step:**
-     1. **Insight** — AI researches the market; the team picks the trends, the audience segments, the moment of truth, and **2–3 key insights**. → `insight-brief.html`
-     2. **Plan (+ poster)** — AI generates ~6 campaign ideas; the team picks 2–3 (or combines them); AI builds **A/B** plan versions; the team picks one and the poster direction. → `campaign-plan.html` + `poster.html`
+     1. **Insight** — AI researches and curates everything (focus bundle · trends · segments · moments · truths); the team **picks 2–3 key insights**. → `insight-brief.html`
+     2. **Plan (+ poster)** — AI diverges ~6 ideas and builds **2 complete campaigns (A/B)**; the team **picks one**. → `campaign-plan.html` + `poster.html`
      3. **Prove** — AI drafts candidate pilot metrics; the team picks **3–5**; AI writes how each number is derived. → `proof.html`
      4. **Showcase** — the team picks a storyline; AI assembles the proposal, pitch deck, and prompt pack. → `proposal.html` + `pitch-deck.html` + `prompt-pack.html`
    - **What happens right now.** On the team's go-ahead you will research this quest (web + reports via `agent-reach` / the `researcher` subagent) and turn it into **~6 data-backed insights** for the team to choose from. Say plainly that this research **may take a few minutes**.

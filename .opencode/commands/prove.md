@@ -14,7 +14,7 @@ Use the `prove` skill with `facilitation` (option menu). Requires the `campaign-
 4. AI writes each metric's **derivation chain**: benchmark → assumption(s) → formula → target.
 5. Output **`proof.html` only** (**one screen**: pilot framing → funnel with targets → metric tiles → derivation rows); the capture is embedded in its `id="capture"` block — no YAML.
 
-**End every turn with a wrap-up (see `facilitator` → *Response format*):** a 2–4 line recap + the artifact name/path, then the **next decision printed inline** — the **candidate pilot metrics with suggested targets** (pick 3–5). Add a one-line pick prompt. **Never ask the team to open the HTML to choose.**
+**End every turn with a wrap-up (see `facilitator` → *Response format*):** a 2–4 line recap + the artifact name/path, then the **next decision printed inline** — the **candidate pilot metrics with suggested targets** (pick 3–5). End with the pick prompt, verbatim: **Reply with your pick (e.g. `1, 2`).** — nothing after it.
 
 Choice-first, human-led. Do not decide for the team. No Go/No-Go, no cost-benefit, no scale-up.
 

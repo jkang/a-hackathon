@@ -87,6 +87,7 @@ artifacts/Quest<ID>-<NN>/
 - `<ID>` = the card's `id`, normalized: strip any leading "Quest" and spaces, then prefix `Quest` (e.g. id `A` → `QuestA`, id `C` → `QuestC`).
 - `<NN>` = a 2-digit round number. Pick the **next free** one by scanning `artifacts/Quest<ID>-*` (none → `01`; existing `01`,`02` → `03`).
 - **`/run`** creates a new round folder at the start and writes every artifact into it. **`/start`** is a briefing only — it creates **no** folder and **no** artifact; the **first gate that writes** creates the round folder. A **single-gate command** (`/insight` … `/showcase`) writes into the **latest** round for that quest — create `-01` if none exists.
+- The `insight` gate creates the folder **as soon as its first research block lands**, then **rewrites `insight-brief.html` after every step** (a living brief); the `plan` gate likewise builds `campaign-plan.html` **progressively**. Later gates write their artifact once.
 - **Never overwrite a previous round.** A repeat run always increments `<NN>`.
 - Round contents (**HTML only** — no YAML/Markdown): `insight-brief.html` · `campaign-plan.html` · `poster.html` (+ `poster-a|b|c.html`) · `proof.html` · `pitch-deck.html` · `prompt-pack.html` · `proposal.html`. Each stage HTML carries its decisions in an embedded `<script type="application/json" id="capture">` block.
 - Builder steps run with `--dir artifacts/Quest<ID>-<NN>/` (`build-posters.py`, `build-proposal.py`).

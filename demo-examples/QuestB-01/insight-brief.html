@@ -11,7 +11,6 @@
     --teal:#077069; --teal-1:#CDE2E1; --teal-3:#398D87;
     --sky:#1877F2; --sky-1:#BDD5EF;
     --line:#E4E8E7; --bg:#F7F6F4; --card:#FFFFFF; --mut:#5A6663;
-    /* Quest accent is injected from the quest card as inline vars on <body> (see quest-card.md). */
     --accent: var(--ascentium-orange);
     --accent-tint: var(--orange-1);
     --accent-line: var(--orange-2);
@@ -19,7 +18,7 @@
   *{margin:0;padding:0;box-sizing:border-box;}
   body{font-family:"Poppins","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
        background:var(--bg);color:var(--ascentium-midnight);-webkit-font-smoothing:antialiased;}
-  .page{max-width:960px;margin:0 auto;padding:40px 28px 56px;}
+  .page{width:80%;max-width:1600px;margin:0 auto;padding:40px 28px 56px;}
   .brandbar{display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--accent);padding-bottom:14px;}
   .brandbar .logo{font-weight:700;font-size:20px;letter-spacing:-.01em;}
   .brandbar .logo span{color:var(--accent);}
@@ -28,7 +27,9 @@
   .client{margin-top:8px;font-size:13px;color:var(--mut);font-weight:500;}
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px;}
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
-  .card h2{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;}
+  .card h2{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;
+           display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;}
+  .card h2 .count{font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:none;color:var(--accent);}
   .card ul{list-style:none;}
   .card li{font-size:13.5px;line-height:1.6;padding:4px 0 4px 14px;position:relative;}
   .card li::before{content:"▸";position:absolute;left:0;color:var(--accent);}
@@ -41,40 +42,51 @@
   .bench .bt{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;}
   .bench .gold .bt{color:#B98A1D;} .bench .red .bt{color:#C0392B;} .bench .sky .bt{color:var(--sky);}
   .bench p{font-size:12px;line-height:1.55;}
-
-  .trends{display:grid;gap:10px;}
+  .state{position:relative;}
+  .state .tag{position:absolute;top:10px;right:12px;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+              border-radius:999px;padding:2px 8px;}
+  .state .tag.sel{color:#fff;background:var(--accent);}
+  .state .tag.ai{color:#fff;background:var(--ascentium-midnight);}
+  .state.is-sel{border:2px solid var(--accent);background:var(--accent-tint);}
+  .state.is-parked{opacity:.5;}
+  .state.is-parked:hover{opacity:.85;}
+  .trends{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
   .trend{border-radius:10px;background:var(--bg);border:1px solid var(--line);padding:11px 14px;}
-  .trend .t{font-size:13px;font-weight:700;color:var(--ascentium-midnight);}
+  .trend .t{font-size:13px;font-weight:700;color:var(--ascentium-midnight);padding-right:56px;}
   .trend .w{font-size:12px;color:var(--mut);margin-top:3px;line-height:1.5;}
-
-  .segments{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .segments{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
   .seg{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card);}
-  .seg .name{font-size:15px;font-weight:700;color:var(--accent);}
+  .seg .name{font-size:15px;font-weight:700;color:var(--accent);padding-right:56px;}
   .seg .who{font-size:11px;color:var(--mut);margin-top:2px;line-height:1.5;}
   .seg .job{font-size:12.5px;margin-top:9px;line-height:1.5;color:var(--ascentium-midnight);}
   .seg .job b{color:var(--accent);}
   .seg .row{font-size:11.5px;margin-top:7px;line-height:1.5;color:#3B4442;}
   .seg .row b{color:var(--ascentium-midnight);}
-
+  .bundles{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .bundle{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card);}
+  .bundle .bh{display:flex;align-items:center;gap:8px;}
+  .bundle .bid{font-size:10px;font-weight:800;letter-spacing:.08em;color:var(--accent);}
+  .bundle .bn{font-size:15px;font-weight:700;margin-top:5px;color:var(--ascentium-midnight);padding-right:56px;}
+  .bundle .brow{font-size:11.5px;margin-top:7px;line-height:1.5;color:#3B4442;}
+  .bundle .brow b{color:var(--accent);}
+  .bundle .bwhy{font-size:11.5px;margin-top:8px;line-height:1.5;color:var(--mut);}
   .moment{background:var(--accent);color:#fff;border-radius:12px;padding:16px 20px;margin-top:16px;}
   .moment .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.85;}
   .moment .txt{font-size:15px;font-weight:700;margin-top:6px;line-height:1.5;}
-
   .truths{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
-  .chip{font-size:12px;line-height:1.4;background:var(--accent-tint);color:var(--accent);
-        border:1px solid var(--accent-line);border-radius:999px;padding:6px 12px;}
-  .clusters{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+  .chip{position:relative;font-size:12px;line-height:1.4;background:var(--card);color:#3B4442;
+        border:1px solid var(--line);border-radius:999px;padding:6px 12px;}
+  .chip.is-sel{background:var(--accent-tint);color:var(--accent);border:2px solid var(--accent);font-weight:600;}
   .cluster{font-size:11.5px;font-weight:700;background:var(--ascentium-midnight);color:#fff;border-radius:8px;padding:6px 12px;}
-  .seed{margin-top:26px;background:var(--accent-tint);border-left:6px solid var(--accent);border-radius:12px;padding:20px 24px;}
+  .seed{margin-top:26px;background:var(--accent-tint);border:1px solid var(--accent-line);border-radius:12px;padding:20px 24px;}
   .seed .lbl{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
-    .seed p{font-size:19px;font-weight:600;line-height:1.5;margin-top:8px;}
-  .kinsights{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
+  .seed p{font-size:19px;font-weight:600;line-height:1.5;margin-top:8px;}
+  .kinsights{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px;}
   .kin{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card);position:relative;}
   .kin .id{font-size:10px;font-weight:800;letter-spacing:.08em;color:var(--accent);}
-  .kin .t{font-size:13.5px;font-weight:600;line-height:1.5;margin-top:5px;padding-right:60px;}
+  .kin .t{font-size:13.5px;font-weight:600;line-height:1.5;margin-top:5px;padding-right:56px;}
   .kin .ev{font-size:11px;color:var(--mut);margin-top:7px;line-height:1.45;}
-  .kin.sel{border:2px solid var(--accent);background:var(--accent-tint);}
-  .kin.sel::after{content:"SELECTED";position:absolute;top:12px;right:14px;font-size:9px;font-weight:800;letter-spacing:.1em;color:var(--accent);}
+  .kin.is-sel{border:2px solid var(--accent);background:var(--accent-tint);}
   footer{margin-top:26px;border-top:1px dashed var(--line);padding-top:12px;font-size:10.5px;color:#9AA5A2;line-height:1.6;}
 </style>
 </head>
@@ -86,278 +98,314 @@
     <div class="tag">Insight Brief · Quest B</div>
   </div>
 
-  <h1>Turn the world's most-loved animal into a paying global conservation membership.</h1>
+  <h1>Turn the world's most famous zoo into a global membership brand.</h1>
   <div class="client">Client · Chengdu Research Base of Giant Panda Breeding — Global Brand &amp; IP Division &nbsp;|&nbsp; Quest B &nbsp;|&nbsp; Data as of 2026-10-06</div>
 
   <div class="grid">
     <div class="card">
       <h2>Scout Summary</h2>
       <ul>
-        <li><b>The asset:</b> ~260 captive giant pandas (world's largest breeding population), ¥55 entry; 6.23M visitors YTD 2025 / &gt;12M in 2024; 45K/day weekend ceiling — on-site growth is capped.</li>
-        <li><b>The gap:</b> fame is global, revenue is local — no membership, no global store, no English-first channel; the Base's owned Weibo following is only ~760K.</li>
-        <li><b>The proof:</b> 487K international visitors 2025 (+70.7% YoY, Xinhua); He Hua drove a 9× ticket jump in Mar 2023; Fu Bao sold 2.7M goods in Korea; one visit ≈ ¥1,500 city-wide spend (Qunar).</li>
+        <li><b>The asset:</b> 200+ giant pandas — the world's largest conservation &amp; breeding population, ¥55 entry; weekday 15–20K visitors/day, summer 30–42K, weekend peaks 45K (capacity ceiling).</li>
+        <li><b>The gap:</b> fame is global, monetization is local — no membership program, no global store, no English-first content engine; international visitors are only ~5% of footfall.</li>
+        <li><b>The proof:</b> 487K international visitors in 2025 (+70.7% YoY, Xinhua); one visit to see He Hua ≈ ¥1,500 city-wide spend (Qunar); Fu Bao merch 2.7M units in Korea (+60%).</li>
       </ul>
     </div>
     <div class="card">
       <h2>Org / IP Profile</h2>
       <ul>
-        <li><b>Assets:</b> ~260 pandas incl. global stars He Hua &amp; Fu Bao; world-class conservation &amp; breeding science; Chengdu = #2 national attraction; 30-day visa-free access for ~47 countries; Chengdu Tianfu hub (~56.7M pax 2024).</li>
-        <li><b>Constraints:</b> conservation-first brand values — no over-commercialization; USD 1.1M MVP (10% of USD 11M), 3 months, 2 overseas markets; panda leases/access are politically sensitive; IUCN "Vulnerable".</li>
+        <li><b>Assets:</b> 200+ pandas incl. global stars He Hua &amp; Fu Bao; world's largest conservation &amp; breeding population; Chengdu = China's #2 attraction; visa-free access for inbound fans (77 countries, 240-hr transit); 18-month runway + USD 11M approved.</li>
+        <li><b>Constraints:</b> conservation-first brand values — no over-commercialization; MVP budget USD 1.1M (10% of USD 11M), 3 months, 2 overseas markets; panda leases/access are politically sensitive; IUCN "Vulnerable".</li>
       </ul>
     </div>
 
-    <div class="card">
-      <h2>Market Trends</h2>
-      <div class="trends">
-        <div class="trend"><div class="t">Panda-monium is global; monetization is local</div><div class="w">Celebrity pandas earn billions of views, yet the Base owns only ~760K Weibo followers and captures almost nothing beyond the ¥55 gate.</div></div>
-        <div class="trend"><div class="t">Visa-free inbound is the acquisition unlock</div><div class="w">30.08M visa-free foreign entries in 2025 (+49.5%); 73% of inbound entered visa-free; 30-day access for ~47 countries incl. Japan &amp; Korea (NBS/NIA via Xinhua 2026).</div></div>
-        <div class="trend"><div class="t">The panda-diplomacy vacuum</div><div class="w">Ueno returned its last pandas in Jan 2026 — Japan has no pandas for the first time since 1972 — leaving the deepest fanbase with no local outlet (NHK 2025-12-15).</div></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Benchmark</h2>
-      <div class="bench" style="grid-template-columns:1fr;gap:8px;">
-        <div class="b gold"><div class="bt">Gold Standard</div><p>Sanrio — ¥72.6B (~US$480M) FY2023 revenue from character IP; proves cute-animal IP monetizes globally when licensed &amp; merchandised. WWF's adopt-a-panda tiers ($25–100) show conservation itself sells.</p></div>
-        <div class="b red"><div class="bt">Cautionary Tale</div><p>Ya Ya (Memphis) 2023 welfare controversy + Finland returning its pandas over €1.5M/yr upkeep — commercial missteps and opaque care erode credibility fast and travel politically.</p></div>
-        <div class="b sky"><div class="bt">Your Arena</div><p>Panda fandom is hyper-global but unstructured: 487K international visitors (+70.7%), He Hua 9× ticket lift, Fu Bao 2.7M merch units — with no global membership, owned channel or store to receive it.</p></div>
+    <!-- FOCUS BUNDLES (AI-selected) · the single human decision is the Key Insights below -->
+    <div class="card wide">
+      <h2>Focus Bundles — AI-selected <span class="count">2 AI picks of 6</span></h2>
+      <div class="bundles">
+        <div class="bundle state is-sel">
+          <span class="tag ai">AI pick</span>
+          <div class="bh"><span class="bid">FOCUS 01</span></div>
+          <div class="bn">Global Membership Rails</div>
+          <div class="brow"><b>Audience:</b> Kawaii Collectors + Pet-Parent Households</div>
+          <div class="brow"><b>Moment:</b> live-cam / content-drop moments</div>
+          <div class="brow"><b>Shift:</b> creator-led fandom is a quarter-trillion economy</div>
+          <div class="bwhy">Convert one-off global viewers into a renewing membership they can join from anywhere.</div>
+        </div>
+        <div class="bundle state is-sel">
+          <span class="tag ai">AI pick</span>
+          <div class="bh"><span class="bid">FOCUS 02</span></div>
+          <div class="bn">The Panda-Pilgrim Gate Membership</div>
+          <div class="brow"><b>Audience:</b> Panda-Pilgrim Inbound Travelers</div>
+          <div class="brow"><b>Moment:</b> visa-free travel-booking windows</div>
+          <div class="brow"><b>Shift:</b> visa-free inbound surge to China</div>
+          <div class="bwhy">Pack a paid membership into the visa-free trip at the ¥55 gate, not a one-off ticket.</div>
+        </div>
+        <div class="bundle state is-parked">
+          <div class="bh"><span class="bid">FOCUS 03</span></div>
+          <div class="bn">The Japan Digital Fanbase</div>
+          <div class="brow"><b>Audience:</b> Japan's panda-less fanbase</div>
+          <div class="brow"><b>Moment:</b> Fu Bao / He Hua birthdays</div>
+          <div class="brow"><b>Shift:</b> classic IP is durable</div>
+          <div class="bwhy">Serve the deepest fanbase with a digital membership — no travel required.</div>
+        </div>
+        <div class="bundle state is-parked">
+          <div class="bh"><span class="bid">FOCUS 04</span></div>
+          <div class="bn">The Heritage Licensing Lane</div>
+          <div class="brow"><b>Audience:</b> Kawaii Collectors</div>
+          <div class="brow"><b>Moment:</b> limited-edition drop day</div>
+          <div class="brow"><b>Shift:</b> character/IP licensing is a $370–390B industry</div>
+          <div class="bwhy">Position pandas as a durable heritage IP, not a viral moment.</div>
+        </div>
+        <div class="bundle state is-parked">
+          <div class="bh"><span class="bid">FOCUS 05</span></div>
+          <div class="bn">The Pet-Parent Gifting Club</div>
+          <div class="brow"><b>Audience:</b> Pet-Parent / Animal-Lover Households</div>
+          <div class="brow"><b>Moment:</b> Lunar New Year gifting</div>
+          <div class="brow"><b>Shift:</b> the pet–human bond economy is family-scale</div>
+          <div class="bwhy">Win households with a gift-led membership that plays on the pet bond.</div>
+        </div>
+        <div class="bundle state is-parked">
+          <div class="bh"><span class="bid">FOCUS 06</span></div>
+          <div class="bn">The Conservation Club</div>
+          <div class="brow"><b>Audience:</b> conservation-first supporters</div>
+          <div class="brow"><b>Moment:</b> a conservation milestone (new cub)</div>
+          <div class="brow"><b>Shift:</b> conservation itself sells at retail price points</div>
+          <div class="bwhy">Turn the conservation mission into the membership's core benefit.</div>
+        </div>
       </div>
     </div>
 
     <div class="card wide">
-      <h2>Audience Segments — who they are &amp; the job they hire</h2>
+      <h2>Market Trends — all options <span class="count">3 AI picks of 8</span></h2>
+      <div class="trends">
+        <div class="trend state is-sel"><span class="tag ai">AI pick</span><div class="t">Creator-led fandom is a quarter-trillion economy</div><div class="w">~$250B in 2025 (+19% YoY), projected ~$480B by 2027; Patreon has paid &gt;$10B across 25M+ memberships (Influencer Marketing Hub 2025).</div></div>
+        <div class="trend state is-sel"><span class="tag ai">AI pick</span><div class="t">Character/IP licensing is a $370–390B industry — and classic IP wins</div><div class="w">$369.6B (2024, +3.7%) → $389.8B (2026); 77% of character-licensing revenue is classic/franchise IP (Licensing International 2025–26).</div></div>
+        <div class="trend state is-sel"><span class="tag ai">AI pick</span><div class="t">The pet–human bond economy is family-scale</div><div class="w">Global pet market $273.42B (2025); 71.6% of US households own a pet; Korea's pet market $5.93B, +10%/yr (World Animal Foundation/APPA 2026).</div></div>
+        <div class="trend state is-parked"><div class="t">Cute / kawaii economy keeps compounding across Asia</div><div class="w">Sanrio-style cuteness travels across borders and age groups.</div></div>
+        <div class="trend state is-parked"><div class="t">The subscription economy is durable</div><div class="w">Global subscription economy $557.8B (2025); 72% B2C retention, 2.8-yr median life.</div></div>
+        <div class="trend state is-parked"><div class="t">Visa-free inbound travel to China is surging</div><div class="w">30.08M visa-free foreign entries in 2025 (+49.5%); 73% of foreign entries visa-free.</div></div>
+        <div class="trend state is-parked"><div class="t">Always-on live-cam culture</div><div class="w">24/7 panda cams create ambient fandom with no travel required.</div></div>
+        <div class="trend state is-parked"><div class="t">Drop &amp; collectible culture</div><div class="w">Limited-edition drops convert fandom into repeat purchase.</div></div>
+      </div>
+    </div>
+
+    <div class="card wide">
+      <h2>Benchmark</h2>
+      <div class="bench">
+        <div class="b gold"><div class="bt">Gold Standard</div><p>Sanrio — ¥72.6B (~$480M) FY2023 revenue from character IP. WWF's adopt-a-panda tiers ($25–100) show conservation itself sells at retail price points.</p></div>
+        <div class="b red"><div class="bt">Cautionary Tale</div><p>Angry Birds / Rovio over-licensed and faded. Ya Ya (Memphis) 2023 welfare controversy + Finland returning its pandas over €1.5M/yr upkeep — commercial missteps erode conservation credibility fast.</p></div>
+        <div class="b sky"><div class="bt">Your Arena</div><p>Panda fandom is hyper-global but unstructured: 487K international visitors (+70.7%), Fu Bao 2.7M merch units, 5.4M Everland visitors — with no global membership or store to receive it.</p></div>
+      </div>
+    </div>
+
+    <div class="card wide">
+      <h2>Audience Segments — all options <span class="count">3 selected of 6</span></h2>
       <div class="segments">
-        <div class="seg">
-          <div class="name">Japan Panda Orphans</div>
-          <div class="who">Ueno superfans after the Jan 2026 return; multi-generational panda love, no local pandas left</div>
-          <div class="job"><b>Job:</b> keep a lifelong bond alive and pass it on</div>
-          <div class="row"><b>Barrier:</b> no local panda, no ongoing channel</div>
-          <div class="row"><b>Trigger:</b> the first panda-less Lunar New Year</div>
-        </div>
-        <div class="seg">
-          <div class="name">Fu Bao Diaspora</div>
-          <div class="who">Korean superfans who "lost" Fu Bao to Sichuan (5.5M visitors, 2.7M goods)</div>
-          <div class="job"><b>Job:</b> stay connected to a panda I feel responsible for</div>
-          <div class="row"><b>Barrier:</b> no continuous membership or drops</div>
-          <div class="row"><b>Trigger:</b> return anniversary (Apr 3) / birthday (Jul 20)</div>
-        </div>
-        <div class="seg">
+        <div class="seg state is-sel"><span class="tag sel">Selected</span>
           <div class="name">Kawaii Collectors</div>
-          <div class="who">Sanrio / Chiikawa crossover fans in SEA, US &amp; EU who collect and trade</div>
-          <div class="job"><b>Job:</b> own something rare and belong to a culture</div>
+          <div class="who">Sanrio / cute-IP crossover fans in SEA, US &amp; EU who collect and trade</div>
+          <div class="job"><b>Job:</b> collect rare, high-quality panda goods and belong to a global collector culture</div>
           <div class="row"><b>Barrier:</b> panda merch is not globally shoppable</div>
           <div class="row"><b>Trigger:</b> limited-edition drop culture</div>
         </div>
-        <div class="seg">
-          <div class="name">Panda-Pilgrim Travelers</div>
-          <div class="who">Inbound travellers for whom Chengdu &amp; the Base is the #1 China stop</div>
-          <div class="job"><b>Job:</b> a once-in-a-lifetime encounter, and take more home</div>
-          <div class="row"><b>Barrier:</b> only a ¥55 ticket offered at the gate</div>
-          <div class="row"><b>Trigger:</b> visa-free trip planning + at-gate upsell</div>
+        <div class="seg state is-sel"><span class="tag sel">Selected</span>
+          <div class="name">Panda-Pilgrim Inbound Travelers</div>
+          <div class="who">Inbound travelers for whom Chengdu &amp; the Base is the #1 China stop</div>
+          <div class="job"><b>Job:</b> see the pandas in person and take the trip of a lifetime home</div>
+          <div class="row"><b>Barrier:</b> only a ¥55 ticket is offered at the gate</div>
+          <div class="row"><b>Trigger:</b> visa-free trip planning</div>
+        </div>
+        <div class="seg state is-sel"><span class="tag sel">Selected</span>
+          <div class="name">Pet-Parent / Animal-Lover Households</div>
+          <div class="who">Pet-owning households in the US &amp; EU who treat animals as family</div>
+          <div class="job"><b>Job:</b> nurture, belong, and gift</div>
+          <div class="row"><b>Barrier:</b> no panda in their daily life</div>
+          <div class="row"><b>Trigger:</b> a live cam, a conservation story, or gifting</div>
+        </div>
+        <div class="seg state is-parked">
+          <div class="name">Japan's Panda-Less Fanbase</div>
+          <div class="who">Japanese fans with no panda to visit since Jan 2026</div>
+          <div class="job"><b>Job:</b> stay close to a beloved animal</div>
+          <div class="row"><b>Barrier:</b> no local panda to visit</div>
+          <div class="row"><b>Trigger:</b> a digital membership</div>
+        </div>
+        <div class="seg state is-parked">
+          <div class="name">Corporate / Gift Buyers</div>
+          <div class="who">Brands and firms buying panda IP or gifting</div>
+          <div class="job"><b>Job:</b> license or gift something loved</div>
+          <div class="row"><b>Barrier:</b> no licensing / gifting product</div>
+          <div class="row"><b>Trigger:</b> a co-branded drop</div>
+        </div>
+        <div class="seg state is-parked">
+          <div class="name">School / Education Groups</div>
+          <div class="who">Schools &amp; families using pandas to teach conservation</div>
+          <div class="job"><b>Job:</b> a learning experience</div>
+          <div class="row"><b>Barrier:</b> no structured program</div>
+          <div class="row"><b>Trigger:</b> a conservation curriculum</div>
         </div>
       </div>
     </div>
 
     <div class="card wide">
-      <h2>Market Truths — from the team</h2>
+      <h2>Market Truths — all options <span class="count">4 AI picks of 8</span></h2>
       <div class="truths">
-        <span class="chip">Fame is global; revenue is local — the Base captures almost nothing beyond the ¥55 gate</span>
-        <span class="chip">Fans can watch but can't belong — ~95% of footfall is domestic and the owned channel is tiny</span>
-        <span class="chip">Zoo-gate membership is a weak model (2.5–4.9% of admissions) — this must be a creator-style digital membership</span>
+        <span class="chip is-sel">Membership is a subscription, not a ticket — 72% B2C retention, 2.8-yr median life</span>
+        <span class="chip is-sel">Panda diplomacy is double-edged — loans cost up to $1M/yr; welfare rows and forced returns are real</span>
+        <span class="chip is-sel">Nostalgia + classic IP dominates licensing — 77% of character revenue is classic/franchise IP</span>
+        <span class="chip is-sel">The pet–human bond is the emotional frame — global pet market $273B; people spend on animals as family</span>
+        <span class="chip">Fame is global, monetization is local</span>
+        <span class="chip">The owned channel is tiny vs billions of impressions</span>
+        <span class="chip">Conservation ceiling caps pricing and messaging</span>
+        <span class="chip">Japan is panda-less for the first time in 50 years</span>
       </div>
       <div class="clusters">
-        <span class="cluster">Love ≫ Gate</span>
-        <span class="cluster">Friction just fell</span>
-        <span class="cluster">Conservation = permission</span>
+        <span class="cluster">Recurring ≫ One-off</span>
+        <span class="cluster">Classic = durable</span>
+        <span class="cluster">Bond = emotional frame</span>
+        <span class="cluster">Handle with care</span>
+      </div>
+    </div>
+
+    <div class="card wide">
+      <h2>Moments of Truth — all options <span class="count">2 AI picks of 8</span></h2>
+      <div class="truths">
+        <span class="chip is-sel">Fu Bao's return anniversary (Apr 3) &amp; birthday (Jul 20)</span>
+        <span class="chip is-sel">He Hua's birthday (Jul 4)</span>
+        <span class="chip">visa-free travel-booking windows</span>
+        <span class="chip">live-cam / content-drop moments</span>
+        <span class="chip">Lunar New Year gifting</span>
+        <span class="chip">a global panda film / doc release</span>
+        <span class="chip">a limited-merch drop day</span>
+        <span class="chip">a conservation milestone (new cub)</span>
       </div>
     </div>
   </div>
 
   <div class="moment">
-    <div class="lbl">Moment of Truth</div>
-    <div class="txt">The first panda-less Lunar New Year (Jan–Feb 2026) &amp; Fu Bao's return anniversary (Apr 3) · phone — TikTok / IG / YouTube panda-fan feeds &amp; fan Discords · the void goes viral and a trusted creator invites the fandom to belong to the Base, globally</div>
+    <div class="lbl">Moment of Truth — from the chosen focus</div>
+    <div class="txt">Fu Bao's return anniversary (Apr 3) &amp; birthday (Jul 20) · He Hua's birthday (Jul 4) · visa-free travel-booking windows &amp; live-cam drops · phone &amp; booking channels (TikTok / IG / YouTube fan feeds) · the fan calendar plus always-on cams convert global love into membership, at any time zone</div>
   </div>
 
   <div class="seed">
-    <div class="lbl">Key Insights · AI-drafted from org + trends + audience + SWOT</div>
-    <p>Pick <b>2–3</b> to deep-dive in the plan. "Panda love is global and free; panda belonging is neither — Japan just lost its pandas and Chengdu is now 30-day visa-free, so the fandom is ready to be recruited, Guardian by Guardian."</p>
+    <div class="lbl">Seed Insight · AI-drafted from the chosen focus + insights</div>
+    <p>Panda love is global and free; panda belonging is not — convert one-off viewers and one-off visitors into a renewing global membership, built under the conservation ceiling.</p>
   </div>
 
-  <div class="kinsights">
-    <div class="kin sel"><div class="id">INSIGHT 01</div><div class="t">The love is far bigger than the gate: He Hua lifted Base ticket sales 9× in one month and Fu Bao sold 2.7M goods — yet there is no paid global membership to receive that fandom.</div><div class="ev">Tencent/成都文旅 2024-07; Hankook Ilbo/MK 2024-03</div></div>
-    <div class="kin sel"><div class="id">INSIGHT 02</div><div class="t">Japan just lost its pandas — Ueno returned its last two in Jan 2026, ending 50+ years of presence — so the world's deepest panda fanbase now has no local panda to visit and no outlet.</div><div class="ev">NHK 2025-12-15</div></div>
-    <div class="kin sel"><div class="id">INSIGHT 03</div><div class="t">The barrier to Chengdu just fell: 30.08M visa-free entries (+49.5%) and 30-day access for ~47 countries make a "belong online, visit in person" loop newly actionable.</div><div class="ev">NBS/NIA via Xinhua, 2026</div></div>
-    <div class="kin"><div class="id">INSIGHT 04</div><div class="t">Conservation is the price tag, not a tax: WWF adopt tiers ($25–100) and zoo memberships ($78–95/yr) sell — but "white-elephant" upkeep and the Ya Ya backlash show credibility is fragile.</div><div class="ev">WWF; RZSS; SDZWA; Wikipedia 2023–26</div></div>
-    <div class="kin"><div class="id">INSIGHT 05</div><div class="t">Cute-IP monetization is proven while the panda is the under-licensed giant: Sanrio earns ¥72.6B/yr, yet panda's global fame outsizes Hello Kitty and its licensed revenue does not.</div><div class="ev">Sanrio FY2023; quest card ($28M target)</div></div>
-    <div class="kin"><div class="id">INSIGHT 06</div><div class="t">Creator economics set realistic targets: free→paid community conversion averages ~2% (best ~10%), and strong live sessions convert 1.5–3% — so model membership as a creator community, not a zoo gate.</div><div class="ev">Patreon/Okoa 2024; Dataslayer 2025</div></div>
+  <div class="card wide" style="margin-top:16px;">
+    <h2>Key Insights — the team picks 2–3 <span class="count">3 selected of 6</span></h2>
+    <div class="kinsights">
+      <div class="kin state is-sel"><span class="tag sel">Selected</span><div class="id">INSIGHT 01</div><div class="t">Love ≫ capture: 500M+ Fu Bao views and 5.4M Everland visitors, but the Base's owned channel is tiny (~760K) and international footfall ~4–5% — build owned membership rails to catch demand that already exists.</div><div class="ev">BridgingNews 2024; Bastille Post 2025</div></div>
+      <div class="kin state is-sel"><span class="tag sel">Selected</span><div class="id">INSIGHT 02</div><div class="t">Visa-free inflow ≫ upsell: 30.08M visa-free foreign entries (2025) yet international visitors pay only the ¥55 gate — pack a paid membership into the visa-free trip at the gate.</div><div class="ev">Travel China Guide 2025; quest card</div></div>
+      <div class="kin state is-parked"><div class="id">INSIGHT 03</div><div class="t">Japan void ≫ demand: Japan is panda-less for the first time in 50 years, ~¥20B/yr foregone — serve the deepest fanbase with a digital membership, no travel required.</div><div class="ev">ITV / DW 2026</div></div>
+      <div class="kin state is-parked"><div class="id">INSIGHT 04</div><div class="t">Conservation permission ≪ commercial temptation: 12% accepted premium vs 28% actual, 75% claim-blindness — price and message strictly under the conservation ceiling to keep the license.</div><div class="ev">Bain via ESG Today 2023–24</div></div>
+      <div class="kin state is-sel"><span class="tag sel">Selected</span><div class="id">INSIGHT 05</div><div class="t">Recurring ≫ one-off: a $557.8B subscription economy with 72% retention / 2.8-yr life vs one-off merch — prioritize a renewing membership over drop-only merch.</div><div class="ev">FMI 2025; SQ Magazine 2025</div></div>
+      <div class="kin state is-parked"><div class="id">INSIGHT 06</div><div class="t">Classic ≫ fad: 77% of character-licensing revenue is classic/franchise IP; pandas are a 50-yr global classic — position as a durable heritage IP, not a viral moment.</div><div class="ev">Licensing International 2024</div></div>
+    </div>
   </div>
 
   <footer>
-    Sources: Quest Card Scout Report (Xinhua 2025; Sichuan Dept. of Culture &amp; Tourism 2024; Qunar / TravelDaily; public reports on Xiang Xiang &amp; Fu Bao) + live research via agent-reach (NHK 2025-12-15; NBS/NIA via Xinhua 2026; Hankook Ilbo/MK 2024; Tencent 2024; Sanrio FY2023; WWF; RZSS; SDZWA; AMS 2019; Dataslayer 2025). Data as of 2026-10-06. Generated by the Ascentium Hackathon toolkit — human-led, AI-scaffolded.
+    Sources: Quest Card Scout Report (Xinhua 2025; Sichuan Dept. of Culture &amp; Tourism 2024; Qunar / TravelDaily; public reports on Xiang Xiang &amp; Fu Bao) + live research via agent-reach (Future Market Insights 2025; Influencer Marketing Hub 2025; Licensing International 2025–26; Bain via ESG Today 2023–24; Travel China Guide/MCT 2025; World Animal Foundation/APPA 2026; ITV/DW 2026; BridgingNews 2024; Bastille Post 2025; Sanrio 2023). Data as of 2026-10-06. Generated by the Ascentium Hackathon toolkit — human-led, AI-scaffolded.
   </footer>
 
 </div>
-
 <!-- structured capture — invisible in the page; the next gate reads this block (see facilitation/capture-contract.md) -->
 <script type="application/json" id="capture">
 {
   "gate": "insight",
   "quest": "B",
   "client": "Chengdu Research Base of Giant Panda Breeding — Global Brand & IP Division",
-  "mission": "Turn the world's most-loved animal into a paying global conservation membership.",
-  "scope_note": "Card = global. The MVP pilot runs in 2 priority overseas markets (Japan + South Korea); a global digital membership engine wraps both.",
+  "mission": "Turn the world's most famous zoo into a global membership brand.",
+  "mode": "facilitated (human-led)",
+  "scope_note": "Card = global. The MVP pilot runs in 2 overseas markets; a global digital membership engine wraps both.",
   "org_profile": {
     "assets": [
-      "~260 captive giant pandas — the world's largest conservation & breeding population (HKong/Bastille Post 2025-09-30)",
-      "Global superstar pandas: He Hua (花花) and Fu Bao (福宝, returned from Korea Apr 2024)",
-      "World-class conservation & breeding science; Chengdu is China's #2 attraction (Tencent 2024)",
-      "30-day visa-free access for ~47 countries incl. Japan & South Korea; Chengdu Tianfu hub ~56.7M pax (2024)",
+      "200+ giant pandas — the world's largest conservation & breeding population, ¥55 entry (card)",
+      "Global superstar pandas: He Hua (花花) and Fu Bao (福宝)",
+      "World-class conservation & breeding science; Chengdu is China's #2 attraction",
+      "Visa-free inbound access for fans (77 countries, 240-hr transit)",
       "18-month runway (2027–2028) + USD 11M approved budget"
     ],
     "constraints": [
       "Conservation-first brand values — no over-commercialization backlash (card)",
-      "MVP budget USD 1.1M (10% of USD 11M); 3-month, 2-market pilot",
-      "Panda access & leases are politically sensitive (panda diplomacy); Iceland/Finland/Calgary returned pandas",
-      "IUCN status Vulnerable; ~1,900 wild / 757 captive (Nov 2024)"
+      "MVP budget USD 1.1M (10% of USD 11M); 3-month, 2-overseas-market pilot",
+      "Panda access & leases are politically sensitive (panda diplomacy)",
+      "IUCN status Vulnerable; on-site growth capped at 45K/day"
     ]
   },
   "benchmark": {
-    "gold_standard": "Sanrio — ¥72.6B (~US$480M) FY2023 revenue from character IP, 450+ characters; WWF adopt-a-panda tiers USD 25–100 prove conservation itself sells at retail price points.",
-    "cautionary_tale": "Ya Ya (Memphis) 2023 welfare controversy + Finland returning its pandas over EUR 1.5M/yr upkeep — commercial missteps and opaque care erode credibility and travel politically.",
-    "arena": "Panda fandom is hyper-global but unstructured: 487K international visitors 2025 (+70.7% YoY), He Hua 9x Base ticket lift (Mar 2023), Fu Bao 2.7M merch units — with no global membership, owned channel or store to receive it."
+    "gold_standard": "Sanrio — ¥72.6B (~$480M) FY2023 revenue from character IP; WWF adopt-a-panda tiers ($25–100) show conservation itself sells at retail price points.",
+    "cautionary_tale": "Angry Birds / Rovio over-licensed and faded; Ya Ya (Memphis) 2023 welfare controversy + Finland returning its pandas over EUR 1.5M/yr upkeep show commercial missteps erode conservation credibility fast.",
+    "arena": "Panda fandom is hyper-global but unstructured: 487K international visitors 2025 (+70.7% YoY), Fu Bao 2.7M merch units, 5.4M Everland visitors — with no global membership or store to receive it."
   },
-  "market": {
-    "trends": [
-      {
-        "trend": "Panda-monium is global; monetization is local",
-        "why_it_matters": "Celebrity pandas earn billions of views, yet the Base owns only ~760K Weibo followers and captures almost nothing beyond the ¥55 gate."
-      },
-      {
-        "trend": "Visa-free inbound is the acquisition unlock",
-        "why_it_matters": "30.08M visa-free foreign entries in 2025 (+49.5%); 73% of inbound entered visa-free; 30-day access for ~47 countries incl. Japan & Korea (NBS/NIA via Xinhua 2026)."
-      },
-      {
-        "trend": "The panda-diplomacy vacuum",
-        "why_it_matters": "Ueno returned its last pandas in Jan 2026 — Japan has no pandas for the first time since 1972 — leaving the deepest fanbase with no local outlet (NHK 2025-12-15)."
-      }
-    ],
-    "truths": [
-      { "author": "Auto-run (agent-reach)", "text": "Fame is global; revenue is local — the Base captures almost nothing beyond the ¥55 gate." },
-      { "author": "Auto-run (agent-reach)", "text": "Fans can watch but can't belong — ~95% of footfall is domestic and the owned channel is tiny." },
-      { "author": "Auto-run (agent-reach)", "text": "Zoo-gate membership is a weak model (2.5–4.9% of admissions) — this must be a creator-style digital membership." }
-    ]
-  },
+  "trends": [
+    {"id": 1, "trend": "Creator-led fandom is a quarter-trillion economy", "why_it_matters": "~$250B in 2025 (+19% YoY), projected ~$480B by 2027; Patreon has paid >$10B across 25M+ memberships.", "source": "Influencer Marketing Hub 2025", "ai_pick": true},
+    {"id": 2, "trend": "Character/IP licensing is a $370–390B industry — and classic IP wins", "why_it_matters": "$369.6B (2024) → $389.8B (2026); 77% of character-licensing revenue is classic/franchise IP.", "source": "Licensing International 2025–26", "ai_pick": true},
+    {"id": 3, "trend": "The pet–human bond economy is family-scale", "why_it_matters": "Global pet market $273.42B (2025); 71.6% of US households own a pet; Korea's pet market $5.93B, +10%/yr.", "source": "World Animal Foundation/APPA 2026", "ai_pick": true},
+    {"id": 4, "trend": "Cute / kawaii economy keeps compounding across Asia", "why_it_matters": "Sanrio-style cuteness travels across borders and age groups.", "source": "agent-reach", "ai_pick": false},
+    {"id": 5, "trend": "The subscription economy is durable", "why_it_matters": "Global subscription economy $557.8B (2025); 72% B2C retention, 2.8-yr median life.", "source": "Future Market Insights 2025", "ai_pick": false},
+    {"id": 6, "trend": "Visa-free inbound travel to China is surging", "why_it_matters": "30.08M visa-free foreign entries in 2025 (+49.5%); 73% of foreign entries visa-free.", "source": "Travel China Guide/MCT 2025", "ai_pick": false},
+    {"id": 7, "trend": "Always-on live-cam culture", "why_it_matters": "24/7 panda cams create ambient fandom with no travel required.", "source": "agent-reach", "ai_pick": false},
+    {"id": 8, "trend": "Drop & collectible culture", "why_it_matters": "Limited-edition drops convert fandom into repeat purchase.", "source": "agent-reach", "ai_pick": false}
+  ],
+  "truths": [
+    {"id": 1, "text": "Membership is a subscription, not a ticket — 72% B2C retention, 2.8-yr median life.", "source": "SQ Magazine 2025", "ai_pick": true},
+    {"id": 2, "text": "Panda diplomacy is double-edged — loans cost up to $1M/yr; welfare rows and forced returns are real.", "source": "agent-reach", "ai_pick": true},
+    {"id": 3, "text": "Nostalgia + classic IP dominates licensing — 77% of character revenue is classic/franchise IP.", "source": "Licensing International 2024", "ai_pick": true},
+    {"id": 4, "text": "The pet–human bond is the emotional frame — global pet market $273B; people spend on animals as family.", "source": "APPA 2026", "ai_pick": true},
+    {"id": 5, "text": "Fame is global, monetization is local.", "source": "agent-reach", "ai_pick": false},
+    {"id": 6, "text": "The owned channel is tiny vs billions of impressions.", "source": "agent-reach", "ai_pick": false},
+    {"id": 7, "text": "Conservation ceiling caps pricing and messaging (12% accepted vs 28% actual premium).", "source": "Bain via ESG Today", "ai_pick": false},
+    {"id": 8, "text": "Japan is panda-less for the first time in 50 years.", "source": "ITV / DW 2026", "ai_pick": false}
+  ],
   "segments": [
-    {
-      "name": "Japan Panda Orphans",
-      "who": "Ueno superfans after the Jan 2026 return; multi-generational panda love, no local pandas left",
-      "job_functional": "keep following the pandas",
-      "job_social": "belong to a community that outlives the zoo exhibit",
-      "job_emotional": "keep a lifelong bond alive and pass it on",
-      "barrier": "no local panda, no ongoing channel",
-      "trigger": "the first panda-less Lunar New Year"
-    },
-    {
-      "name": "Fu Bao Diaspora",
-      "who": "Korean superfans who lost Fu Bao to Sichuan (5.5M visitors, 2.7M goods sold)",
-      "job_functional": "stay connected to Fu Bao",
-      "job_social": "share the fandom with other keepers",
-      "job_emotional": "stay responsible for a panda I love",
-      "barrier": "no continuous membership or member drops",
-      "trigger": "return anniversary (Apr 3) / birthday (Jul 20)"
-    },
-    {
-      "name": "Kawaii Collectors",
-      "who": "Sanrio / Chiikawa crossover fans in SEA, US & EU who collect and trade",
-      "job_functional": "collect rare, high-quality panda goods",
-      "job_social": "belong to a global collector culture",
-      "job_emotional": "own a piece of the world's most-loved animal",
-      "barrier": "panda merch is not globally shoppable",
-      "trigger": "limited-edition drop culture"
-    },
-    {
-      "name": "Panda-Pilgrim Travelers",
-      "who": "Inbound travellers for whom Chengdu & the Base is the #1 China stop",
-      "job_functional": "see the pandas in person",
-      "job_social": "show and tell the trip of a lifetime",
-      "job_emotional": "a once-in-a-lifetime encounter, taken home",
-      "barrier": "only a ¥55 ticket offered at the gate",
-      "trigger": "visa-free trip planning + at-gate upsell"
-    }
+    {"id": 1, "name": "Kawaii Collectors", "who": "Sanrio / cute-IP crossover fans in SEA, US & EU who collect and trade", "job_functional": "collect rare, high-quality panda goods", "job_social": "belong to a global collector culture", "job_emotional": "own a piece of the world's most-loved animal", "barrier": "panda merch is not globally shoppable", "trigger": "limited-edition drop culture", "selected": true},
+    {"id": 2, "name": "Panda-Pilgrim Inbound Travelers", "who": "Inbound travelers for whom Chengdu & the Base is the #1 China stop", "job_functional": "see the pandas in person", "job_social": "show and tell the trip of a lifetime", "job_emotional": "a once-in-a-lifetime encounter, taken home", "barrier": "only a ¥55 ticket offered at the gate", "trigger": "visa-free trip planning", "selected": true},
+    {"id": 3, "name": "Pet-Parent / Animal-Lover Households", "who": "Pet-owning households in the US & EU who treat animals as family", "job_functional": "nurture and care for an animal", "job_social": "belong to a community of animal lovers", "job_emotional": "gift and bond with a loved animal", "barrier": "no panda in their daily life", "trigger": "a live cam, a conservation story, or gifting", "selected": true},
+    {"id": 4, "name": "Japan's Panda-Less Fanbase", "who": "Japanese fans with no panda to visit since Jan 2026", "job_functional": "stay close to a beloved animal", "job_social": "keep the fandom alive", "job_emotional": "hold on to a cherished memory", "barrier": "no local panda to visit", "trigger": "a digital membership", "selected": false},
+    {"id": 5, "name": "Corporate / Gift Buyers", "who": "Brands and firms buying panda IP or gifting", "job_functional": "license or gift something loved", "job_social": "be seen as generous / on-brand", "job_emotional": "associate with a beloved icon", "barrier": "no licensing / gifting product", "trigger": "a co-branded drop", "selected": false},
+    {"id": 6, "name": "School / Education Groups", "who": "Schools & families using pandas to teach conservation", "job_functional": "a learning experience", "job_social": "teach stewardship", "job_emotional": "inspire the next generation", "barrier": "no structured program", "trigger": "a conservation curriculum", "selected": false}
   ],
+  "moments": [
+    {"id": 1, "text": "Fu Bao's return anniversary (Apr 3) & birthday (Jul 20)", "ai_pick": true},
+    {"id": 2, "text": "He Hua's birthday (Jul 4)", "ai_pick": true},
+    {"id": 3, "text": "visa-free travel-booking windows", "ai_pick": false},
+    {"id": 4, "text": "live-cam / content-drop moments", "ai_pick": false},
+    {"id": 5, "text": "Lunar New Year gifting", "ai_pick": false},
+    {"id": 6, "text": "a global panda film / doc release", "ai_pick": false},
+    {"id": 7, "text": "a limited-merch drop day", "ai_pick": false},
+    {"id": 8, "text": "a conservation milestone (new cub)", "ai_pick": false}
+  ],
+  "focus_bundles": [
+    {"id": 1, "name": "Global Membership Rails", "segment_ids": [1, 3], "moment_id": 4, "trend_id": 1, "why": "Convert one-off global viewers into a renewing membership they can join from anywhere.", "ai_pick": true},
+    {"id": 2, "name": "The Panda-Pilgrim Gate Membership", "segment_ids": [2], "moment_id": 3, "trend_id": 6, "why": "Pack a paid membership into the visa-free trip at the ¥55 gate, not a one-off ticket.", "ai_pick": true},
+    {"id": 3, "name": "The Japan Digital Fanbase", "segment_ids": [4], "moment_id": 1, "trend_id": 2, "why": "Serve the deepest fanbase with a digital membership — no travel required.", "ai_pick": false},
+    {"id": 4, "name": "The Heritage Licensing Lane", "segment_ids": [1], "moment_id": 7, "trend_id": 2, "why": "Position pandas as a durable heritage IP, not a viral moment.", "ai_pick": false},
+    {"id": 5, "name": "The Pet-Parent Gifting Club", "segment_ids": [3], "moment_id": 5, "trend_id": 3, "why": "Win households with a gift-led membership that plays on the pet bond.", "ai_pick": false},
+    {"id": 6, "name": "The Conservation Club", "segment_ids": [6], "moment_id": 8, "trend_id": 5, "why": "Turn the conservation mission into the membership's core benefit.", "ai_pick": false}
+  ],
+  "selected_focus": [1, 2],
   "moment_of_truth": {
-    "when": "the first panda-less Lunar New Year (Jan–Feb 2026) & Fu Bao's return anniversary (Apr 3)",
-    "where": "phone — TikTok / IG / YouTube panda-fan feeds & fan Discords",
-    "event": "the void goes viral and a trusted creator invites the fandom to belong to the Base, globally"
+    "when": "Fu Bao's return anniversary (Apr 3) & birthday (Jul 20) · He Hua's birthday (Jul 4) · visa-free travel-booking windows · live-cam / content-drop moments",
+    "where": "phone & booking channels — TikTok / IG / YouTube panda-fan feeds",
+    "event": "the fan calendar plus always-on cams convert global love into membership, at any time zone"
   },
-  "clusters": [
-    { "theme": "Love ≫ Gate", "items": ["billions of views", "9x ticket lift", "2.7M goods", "760K owned followers"] },
-    { "theme": "Friction just fell", "items": ["30.08M visa-free entries", "30-day access x47 countries", "TFU 56.7M pax", "Apr 3 / Jul 20 moments"] },
-    { "theme": "Conservation = permission", "items": ["IUCN Vulnerable", "WWF adopt $25–100", "Ya Ya backlash", "no over-commercialization"] }
-  ],
   "swot": {
-    "strengths": [
-      "~260 pandas incl. global stars He Hua & Fu Bao",
-      "World-class conservation credibility + breeding science",
-      "Chengdu scale & 30-day visa-free access for ~47 countries"
-    ],
-    "weaknesses": [
-      "No membership, global store or English-first channel",
-      "~760K owned followers vs billions of impressions",
-      "On-site capped at 45K/day + Monday closures"
-    ],
-    "opportunities": [
-      "Japan panda-less from Jan 2026 — an unserved superfan base",
-      "Visa-free inbound surge (+49.5%) removes travel friction",
-      "Under-licensed cute-IP economy (Sanrio ¥72.6B benchmark)"
-    ],
-    "threats": [
-      "Over-commercialization / welfare backlash (Ya Ya precedent)",
-      "Panda-diplomacy politicization (leases, access)",
-      "Zoo-gate membership model under-converts (2.5–4.9%)"
-    ]
+    "strengths": ["200+ pandas incl. global stars He Hua & Fu Bao", "World's largest conservation & breeding population; deep credibility", "Chengdu scale + visa-free inbound access; USD 11M approved budget"],
+    "weaknesses": ["No membership, global store or English-first channel", "Tiny owned channel (~760K followers) vs billions of impressions", "On-site growth capped at 45K/day; international footfall ~4–5%"],
+    "opportunities": ["Creator-led fandom ($250B) + IP licensing ($370–390B, 77% classic)", "Pet-human bond economy ($273B) as the emotional frame", "Visa-free inbound surge (30.08M entries) removes travel friction"],
+    "threats": ["Over-commercialization / welfare backlash (Ya Ya precedent)", "Panda-diplomacy politicization (leases, access)", "Conservation price ceiling — 12% accepted premium vs 28% actual"]
   },
   "key_insights": [
-    {
-      "id": 1,
-      "text": "The love is far bigger than the gate: He Hua lifted Base ticket sales 9x in one month and Fu Bao sold 2.7M goods — yet there is no paid global membership to receive that fandom.",
-      "evidence": "He Hua drove a 9x YoY ticket jump in Mar 2023 and a >100,000-copy photobook; Fu Bao sold ~2.7M panda goods across 400+ SKUs.",
-      "source": "Tencent/成都文旅 2024-07; Hankook Ilbo/MK 2024-03"
-    },
-    {
-      "id": 2,
-      "text": "Japan just lost its pandas — Ueno returned its last two in Jan 2026, ending 50+ years of presence — so the world's deepest panda fanbase now has no local panda and no outlet.",
-      "evidence": "Xiao Xiao & Lei Lei returned to China in Jan 2026; Japan without pandas for the first time since 1972.",
-      "source": "NHK 2025-12-15"
-    },
-    {
-      "id": 3,
-      "text": "The barrier to Chengdu just fell: 30.08M visa-free entries (+49.5%) and 30-day access for ~47 countries make a 'belong online, visit in person' loop newly actionable.",
-      "evidence": "30.08M visa-free foreign entries in 2025; 73% of inbound used visa-free; 30-day visa-free for ~47 countries incl. Japan/Korea.",
-      "source": "NBS/NIA via Xinhua, 2026"
-    },
-    {
-      "id": 4,
-      "text": "Conservation is the price tag, not a tax: WWF adopt tiers ($25–100) and zoo memberships ($78–95/yr) sell — but white-elephant upkeep and the Ya Ya backlash show credibility is fragile.",
-      "evidence": "WWF Adopt-a-Panda USD 25/50/75/100; Edinburgh Zoo £85.50/yr; Finland returned pandas over EUR 1.5M/yr upkeep; Ya Ya 2023 welfare controversy.",
-      "source": "WWF; RZSS; SDZWA; Wikipedia 2023-26"
-    },
-    {
-      "id": 5,
-      "text": "Cute-IP monetization is proven while the panda is the under-licensed giant: Sanrio earns ¥72.6B/yr, yet panda's global fame outsizes Hello Kitty and its licensed revenue does not.",
-      "evidence": "Sanrio FY2023 revenue ¥72.6B, net income ¥8.2B; Chiikawa Park opened Tokyo 2025; quest card targets USD 28M international licensing.",
-      "source": "Sanrio FY2023 (Wikipedia); Quest Card"
-    },
-    {
-      "id": 6,
-      "text": "Creator economics set realistic targets: free-to-paid community conversion averages ~2% (best ~10%) and strong live sessions convert 1.5–3% — so model membership as a creator community, not a zoo gate.",
-      "evidence": "Patreon free-to-paid ~2% average / ~10% best-in-class; TikTok live session conversion 1.5–3%.",
-      "source": "Okoa 2024; Dataslayer 2025"
-    }
+    {"id": 1, "text": "Love ≫ capture: 500M+ Fu Bao views and 5.4M Everland visitors, but the Base's owned channel is tiny (~760K) and international footfall ~4–5% — build owned membership rails to catch demand that already exists.", "evidence": "Fu Bao drew 5.4M Everland visitors and 500M video views; Base owned channel ~760K; international share ~4–5%.", "source": "BridgingNews 2024; Bastille Post 2025", "selected": true},
+    {"id": 2, "text": "Visa-free inflow ≫ upsell: 30.08M visa-free foreign entries (2025) yet international visitors pay only the ¥55 gate — pack a paid membership into the visa-free trip at the gate.", "evidence": "30.08M visa-free foreign entries in 2025 (+49.5%); Base ticket is ¥55 with no upsell.", "source": "Travel China Guide/MCT 2025; quest card", "selected": true},
+    {"id": 3, "text": "Japan void ≫ demand: Japan is panda-less for the first time in 50 years, ~¥20B/yr foregone — serve the deepest fanbase with a digital membership, no travel required.", "evidence": "Ueno's last two pandas returned Jan 2026; estimated ~¥20B/yr economic loss to Japan.", "source": "ITV / DW 2026", "selected": false},
+    {"id": 4, "text": "Conservation permission ≪ commercial temptation: 12% accepted premium vs 28% actual, 75% claim-blindness — price and message strictly under the conservation ceiling to keep the license.", "evidence": "Willing to pay ~12% premium; actual premium charged ~28%.", "source": "Bain via ESG Today 2023–24", "selected": false},
+    {"id": 5, "text": "Recurring ≫ one-off: a $557.8B subscription economy with 72% retention / 2.8-yr life vs one-off merch — prioritize a renewing membership over drop-only merch.", "evidence": "Global subscription economy $557.8B (2025); B2C retention 72%, median lifetime 2.8 yrs.", "source": "Future Market Insights 2025; SQ Magazine 2025", "selected": true},
+    {"id": 6, "text": "Classic ≫ fad: 77% of character-licensing revenue is classic/franchise IP; pandas are a 50-yr global classic — position as a durable heritage IP, not a viral moment.", "evidence": "Entertainment/Characters licensing $149.8B; 77% from classic/franchise properties.", "source": "Licensing International 2024", "selected": false}
   ],
-  "selected_insights": [1, 2, 3],
-  "seed_insight": "Panda love is global and free; panda belonging is neither — Japan just lost its pandas and Chengdu is now 30-day visa-free, so the fandom is ready to be recruited, Guardian by Guardian.",
-  "source_note": "Scout Report (card, 2026-09) + live research via agent-reach · Data as of 2026-10-06"
+  "selected_insights": [1, 2, 5],
+  "seed_insight": "Panda love is global and free; panda belonging is not — convert one-off viewers and one-off visitors into a renewing global membership, built under the conservation ceiling.",
+  "source_note": "Scout Report (card, 2026-09) + live research via agent-reach · Data as of 2026-10-06 · facilitated mode, team selections recorded verbatim"
 }
 </script>
 </body>
