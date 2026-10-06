@@ -73,11 +73,9 @@ flowchart TD
     H1 --> P["2 · PLAN — creative-concept → ~6 ideas → 2 complete campaigns (A/B)"]
     P --> H3{"👤 pick the campaign (A or B)"}
     H3 --> H4{"👤 poster: pick style + one-liner"}
-    H4 --> V["3 · PROVE — draft ~8 pilot metrics"]
-    V --> H5{"👤 pick 3–5 metrics"}
-    H5 --> C["write derivation logic → one-screen board"]
-    C --> H6{"👤 confirm targets"}
-    H6 --> S["4 · SHOWCASE — 5 storylines"]
+    H4 --> V["3 · PROVE — AI builds the most-reasonable forecast + derivation"]
+    V --> C["one-screen forecast board"]
+    C --> S["4 · SHOWCASE — 5 storylines"]
     S --> H7{"👤 pick storyline"}
     H7 --> H8{"👤 poster on/off · deck direction"}
     H8 --> B["build proposal + deck + prompt-pack"]
@@ -87,17 +85,17 @@ flowchart TD
     classDef ai fill:#FFF0E7,stroke:#FF6611,color:#0F1514;
     classDef hitl fill:#CDE2E1,stroke:#077069,color:#0F1514;
     class A,I,P,V,C,S,B ai;
-    class H0,H1,H3,H4,H5,H6,H7,H8,H9 hitl;
+    class H0,H1,H3,H4,H7,H8,H9 hitl;
 ```
 
-Legend — **teal diamonds = HITL (the team decides)** · orange boxes = the AI does. Artifacts land after each gate (`insight-brief` → `campaign-plan (A/B)` + `poster` → `proof` (one-screen pilot metrics) → `proposal` + `pitch-deck`).
+Legend — **teal diamonds = HITL (the team decides)** · orange boxes = the AI does. Artifacts land after each gate (`insight-brief` → `campaign-plan (A/B)` + `poster` → `proof` (one-screen pilot forecast) → `proposal` + `pitch-deck`).
 
 | Time | Gate | You do | The team decides |
 |---|---|---|---|
 | 0–2′ | **Kick-off** | Confirm the brief (mission + 4 gates + upcoming research) → wait for the go-ahead; 30-second scout summary; open the first menu | — |
 | 2–10′ | **Insight** | Research → living brief → AI curates (focus bundle · trends · segments · moments · truths) → ~6 key insights | key insights (2–3) |
 | 10–22′ | **Plan** (+ poster) | Build 2 complete campaigns (A/B) + hero visuals | the campaign (A or B) |
-| 22–30′ | **Prove** | Pilot-metrics menu + write the derivation logic | 3–5 expected metrics |
+| 22–30′ | **Prove** | Build the most-reasonable numeric forecast + derivation logic | — (AI only) |
 | 30–38′ | **Showcase** | Storyline + poster on/off menus → build the proposal + deck (+ prompt-pack) | storyline · poster · one-liner · bonus media |
 | 38–40′ | **Converge** | Package and confirm | confirm |
 
@@ -129,7 +127,7 @@ Everything lands in **one round folder**: `artifacts/Quest<ID>-<NN>/` (e.g. `art
 | `insight-brief.html` (capture embedded) | insight |
 | `campaign-plan.html` (capture embedded) | plan |
 | `poster.html` (+ `poster-a|b|c.html`) | poster |
-| `proof.html` (one-screen pilot metrics; capture embedded) | prove |
+| `proof.html` (one-screen pilot forecast; capture embedded) | prove |
 | **`proposal.html`** | showcase — **the umbrella**: one navigable document embedding the whole case (executive summary + insight, plan, poster, pilot metrics, deck and prompt-pack as full artifacts) |
 | `pitch-deck.html` + `prompt-pack.html` | showcase |
 

@@ -1,11 +1,11 @@
 ---
 name: showcase
-description: Run the SHOWCASE gate of the Ascentium mini-hackathon quest — the team picks a storyline (Classic / Hero's Journey / Big Reveal / Demo / Trailer) and a signature element (poster / storyboard / prototype / lyric), the AI assembles a full-screen, storyline-driven Ascentium-branded pitch deck, and optionally writes media prompt scripts (song / video / image) for the team to generate in external tools and embed back. To create the poster itself, use the `poster` skill. Triggers: "showcase", "pitch deck", "storyline", "storyboard", "proposal showcase", "presentation", "prompt pack", "showcase".
+description: Run the SHOWCASE gate of the Ascentium mini-hackathon quest — the team makes exactly TWO decisions (the storyline — Classic / Hero's Journey / Big Reveal / Demo / Trailer — and whether to attempt bonus media), while the AI decides the signature element, the visual direction, the one-liner, and always includes the poster. The AI then assembles a full-screen, storyline-driven Ascentium-branded pitch deck and optionally writes media prompt scripts (song / video / image) for the team to generate in external tools and embed back. To create the poster itself, use the `poster` skill. Triggers: "showcase", "pitch deck", "storyline", "storyboard", "proposal showcase", "presentation", "prompt pack", "showcase".
 ---
 
 # Quest Showcase — the SHOWCASE gate (AUTO)
 
-The final gate. The **team picks the storyline + signature element**; the AI **builds the artifacts**. Mirrors the quest card's "★ Proposal Showcase — Showcase Report Agent (AUTO)".
+The final gate. The **team makes two decisions — the storyline and whether to attempt bonus media**; the AI **decides everything else and builds the artifacts**. Mirrors the quest card's "★ Proposal Showcase — Showcase Report Agent (AUTO)".
 
 ## When to use
 
@@ -15,36 +15,36 @@ The final gate. The **team picks the storyline + signature element**; the AI **b
 ## Inputs
 
 - The captures embedded in `insight-brief.html`, `campaign-plan.html`, `proof.html`.
-- Team choices: **storyline** (S1–S5), **include the poster?** (yes/no), **signature element**, **visual direction**, and **one-liner**.
+- **Team decisions (only two): storyline** (S1–S5) and **bonus media** (song / video / image / none).
+- **AI-decided** (never asked): the **signature element** (taken from the storyline's default), the **visual direction**, the **one-liner**, and the **poster** (always included).
 
 ## Flow (uses the `facilitation` engine)
 
-> **Choice-first**: storyline, poster on/off, and visual direction are all presented as **menus** — the team selects (see `facilitation` → `option-menu.md`).
+> **Choice-first**: the storyline and the bonus-media choice are presented as **menus** — the team selects (see `facilitation` → `option-menu.md`). Everything else the AI settles directly.
 
-1. **Storyline pick (team, 1′).** AI presents the **menu of 5 storylines** (see `references/pitch-narrative.md`): Classic / Hero's Journey / Big Reveal / Demo / Trailer — pick 1. This sets the deck's shape and signature element.
-2. **Poster choice (team, 1′).** Decide whether the **campaign poster** appears in the deck. If yes, the `poster` beat is included (inserted after the key visual for storylines that don't already have it); if no, it is omitted. When it appears, the `poster` beat carries a **3-style picker** (the card's `poster_styles` — A / B / C) and a live `<iframe src="poster-a.html">` preview that swaps to `poster-b.html` / `poster-c.html` — **the team picks the style here**, and the choice is recorded. (The poster pages themselves are produced by the separate `poster` skill in the Plan stage.)
-3. **Direction + one-liner (team, 1′).** Visual direction (AI offers 2–3) + the single ask line.
-4. **Build (AI, AUTO, 5′).** Assemble the signature element + the deck (`pitch-deck.html` with `data-storyline` and `data-poster`).
-5. **Bonus media (team, optional).** If the team wants a song / video / image, the AI writes `prompt-pack.html` (copy-paste prompts for Suno / Runway / GPT); the team generates externally and brings files back.
-6. **Embed (AI).** Embed returned files into the matching slide.
-7. **Rehearse (team, 1′).** 30-second dry run + tweaks.
+1. **Storyline pick (team, 1′).** AI presents the **menu of 5 storylines** (see `references/pitch-narrative.md`): Classic / Hero's Journey / Big Reveal / Demo / Trailer — pick 1. This sets the deck's shape, the signature element, and the opening order.
+2. **Bonus media (team, optional, 1′).** The team decides whether to attempt **bonus media** (song / video / image / none). If yes, the AI writes `prompt-pack.html` (copy-paste prompts for Suno / Runway / GPT); the team generates externally and brings files back.
+3. **AI settles the rest (no decision).** The AI takes the **signature element** from the storyline's default, derives the **visual direction** and the **one-liner** from the chosen campaign, and **always includes the poster** in the deck (the `poster` beat, using the final style from the `poster` skill — default A if none was picked).
+4. **Build (AI, AUTO, 5′).** Assemble the signature element + the deck (`pitch-deck.html` with `data-storyline` and `data-poster="yes"`).
+5. **Embed (AI).** Embed any returned media files into the matching slide.
+6. **Rehearse (team, 1′).** 30-second dry run + tweaks.
 
 ## HITL gates (mandatory)
 
-- The team picks the storyline.
-- The team decides **whether to include the poster**.
-- The team picks the signature element (if different from the storyline default).
-- The team picks the visual direction and the one-liner.
-- The team decides whether to attempt bonus media and which result to use.
-The AI must not choose these.
+Exactly **two** team decisions:
+
+- The team picks the **storyline**.
+- The team decides whether to attempt **bonus media** (and, later, which generated result to use).
+
+Everything else is AI-decided: the **signature element** (the storyline's default), the **visual direction**, the **one-liner**, and the **poster** (always included). The AI must not ask the team to choose any of these.
 
 ## Output
 
 - `proposal.html` — **the unified proposal *viewer***: a single document with a **collapsible sidebar nav**; clicking a nav item renders that artifact's **full HTML** in the content area (embedded via `srcdoc` iframes). It contains only one authored section — the **Executive Summary** (the cover is merged into it; there is no separate cover and no "all artifacts" index). Everything else is the live artifact. This is the **primary deliverable**.
-- `pitch-deck.html` — full-screen, storyline-driven deck; poster included or not per the team's choice (`data-poster`) (see `references/pitch-narrative.md`).
+- `pitch-deck.html` — full-screen, storyline-driven deck; the poster is **always included** (`data-poster="yes"`) (see `references/pitch-narrative.md`).
 - `prompt-pack.html` — bonus media prompt scripts (optional).
 
-> The **poster** is produced by the separate `poster` skill (Create stage), since Poster is a Create-stage deliverable. The showcase **optionally embeds** it as the `poster` beat — the team decides whether it appears.
+> The **poster** is produced by the separate `poster` skill (Create stage), since Poster is a Create-stage deliverable. The showcase **always embeds** it as the `poster` beat (default On) — no team toggle.
 > **`proposal.html` is the umbrella viewer**: the Executive Summary is the one inline section; the Insight Brief, Campaign Plan, Poster, Pilot Metrics, Pitch Deck and Prompt Pack are embedded as **full artifacts** (not links, not summaries).
 
 ### Building the proposal viewer
@@ -83,6 +83,8 @@ The builder escapes each artifact for an `srcdoc` attribute. Because `srcdoc` if
 }
 </script>
 ```
+
+> Only `storyline` and `bonus_media` are **team decisions**; `include_poster` is always `true`, and `poster_style` · `signature` · `visual_direction` · `one_liner` are **AI-decided** (recorded for the record, not for a pick).
 
 ## Storylines (the deck shapes)
 

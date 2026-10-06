@@ -29,7 +29,7 @@ The **automated** counterpart to the `facilitator`. The facilitator is human-led
 ## Prime directives
 
 1. **Fully autonomous.** No HITL stops, no questions. At every decision node, **you pick**.
-2. **Same methods, auto-selected.** Use the same skills and menus — `agent-reach` / `researcher` (research), `business-research`, `audience-analysis`, `swot-analysis`, `creative-concept`, `opportunity-definition`, `prove` (pilot metrics), `poster`, `showcase` — but you select the options.
+2. **Same methods, auto-selected.** Use the same skills and menus — `agent-reach` / `researcher` (research), `business-research`, `audience-analysis`, `swot-analysis`, `creative-concept`, `opportunity-definition`, `prove` (pilot forecast), `poster`, `showcase` — but you select the options.
 3. **Grounded, not random.** Research via `agent-reach`; never fabricate numbers. Every choice cites a reason. **Cap retries at 2–3 attempts per source** — if a site/report keeps failing, mark it unreachable and move on; never loop on one dead link.
 4. **Record every decision.** Write what you chose and why into each stage HTML's embedded `id="capture"` block (use its `reasons` array) — so the auto-run is auditable and reproducible.
 5. **Produce everything.** The stage HTML artifacts + the unified `proposal.html` (no YAML/Markdown).
@@ -43,7 +43,7 @@ At each menu, pick the option that best **fits the Victory Conditions** and is *
 
 1. **Insight.** Research → org profile → all menus (trends · segments · moments · truths) + SWOT → AI curates the **focus bundle** → **~6 key insights** → **you pick 2–3**. Build `insight-brief.html` **progressively** (create on the first block, rewrite each step); list every option (chosen highlighted, rest dimmed).
 2. **Plan.** `creative-concept` (~6 ideas) → AI narrows to **2 complete campaigns (A/B)** + `opportunity-definition` + plan + budget. Build `campaign-plan.html` **progressively** (create on the first output, rewrite each step); list both campaigns (chosen highlighted). → **you pick 1** (A/B) → `poster`.
-3. **Prove.** `prove` (menu → **you pick 3–5 expected pilot metrics**) → write each derivation chain (benchmark → assumption → formula) → one-screen `proof.html`.
+3. **Prove.** `prove` — produce **one most-reasonable numeric forecast** for the funnel + derivation chains (benchmark → assumption → formula); no decision → one-screen `proof.html`.
 4. **Showcase.** storyline → **you pick** → poster on/off → build `proposal.html` + `pitch-deck.html` + `prompt-pack.html`.
 
 ## Output
@@ -51,7 +51,7 @@ At each menu, pick the option that best **fits the Victory Conditions** and is *
 **Create one round folder for the run and write everything into it: `artifacts/Quest<ID>-<NN>/`** (see `quest-card.md` → *Output layout*).
 
 - `<ID>` = the quest card's `id` (e.g. `A` → `QuestA`). `<NN>` = 2-digit round, next free number (first run → `01`, next → `02`). **Never overwrite a previous round.**
-- Artifacts: `insight-brief.html` · `campaign-plan.html` (A/B) · `poster.html` (+ `poster-a|b|c.html`) · `proof.html` (one-screen pilot metrics) · `pitch-deck.html` · `prompt-pack.html` · **`proposal.html`** (unified report). Each HTML carries its decisions + reasons in an embedded `id="capture"` block — **no YAML/Markdown files**.
+- Artifacts: `insight-brief.html` · `campaign-plan.html` (A/B) · `poster.html` (+ `poster-a|b|c.html`) · `proof.html` (one-screen pilot forecast) · `pitch-deck.html` · `prompt-pack.html` · **`proposal.html`** (unified report). Each HTML carries its decisions + reasons in an embedded `id="capture"` block — **no YAML/Markdown files**.
 - Builders run with `--dir artifacts/Quest<ID>-<NN>/`.
 
 All English, Ascentium-branded, single-file HTML. Every auto-decision is recorded in the stage artifact's embedded capture block with a one-line reason.

@@ -2,18 +2,18 @@
 
 ## 1. What this gate produces
 
-A one-screen board of the **pilot's expected target metrics** and, for each, the **derivation logic** behind the number. Nothing else: no Go/No-Go, no cost-benefit, no scale-up.
+A one-screen board of the **pilot's most-reasonable expected targets** and, for each, the **derivation logic** behind the number. The AI produces it directly from the insight + plan (**no team decision**). Nothing else: no Go/No-Go, no cost-benefit, no scale-up.
 
-## 2. Pick the metric set (3–5)
+## 2. Choose the metric set (3–5)
 
-Each metric must:
+Pick the **3–5 metrics that best prove this pilot's hypothesis**. Each metric must:
 
 1. Sit on the funnel: reach → engagement → conversion → outcome.
 2. Be an **expected pilot value** over the 3-month window (not a full-scale target).
 3. Cite a **Scout Report benchmark** from the card (a named event, a % change, a unit count — with its source).
 4. Carry a **target** and a **derivation chain** (benchmark → assumption → formula).
 
-Suggested candidates (team chooses/edits):
+Suggested candidates (AI picks 3–5):
 
 | Funnel stage | Campaign example | Membership example |
 |---|---|---|

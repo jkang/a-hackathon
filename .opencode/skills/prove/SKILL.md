@@ -1,37 +1,36 @@
 ---
 name: prove
-description: Run the PROVE gate of the Ascentium mini-hackathon quest — turn the plan into a one-screen PILOT METRICS board: the 3–5 metrics the pilot expects to hit (across the marketing funnel), each with the derivation logic behind its number (benchmark → assumption → formula → target). No Go/No-Go, no cost-benefit, no scale-up. Human-decided metrics; AI builds the board and writes the math. Triggers: "prove gate", "pilot metrics", "expected metrics", "metric derivation", "measurement", "prove".
+description: Run the PROVE gate of the Ascentium mini-hackathon quest — produce ONE most-reasonable numeric pilot forecast directly from the insight + plan, covering the funnel (reach → engagement → conversion → outcome) with the derivation logic behind every number (benchmark → assumption → formula → target). AI-only, no team decision. No Go/No-Go, no cost-benefit, no scale-up. Triggers: "prove gate", "pilot forecast", "pilot metrics", "expected metrics", "metric derivation", "measurement", "prove".
 ---
 
-# Quest Prove — the PROVE gate (pilot metrics)
+# Quest Prove — the PROVE gate (pilot forecast)
 
-Show **what the pilot must hit, and how each number is derived**. The **team picks the metrics**; the AI writes the derivation chain and builds a single one-screen board.
+Show **what the pilot must hit, and how each number is derived** — as **one most-reasonable forecast**. The **AI produces it directly** from the insight + plan; there is **no team decision** in this gate.
+
+## No team decision
+
+This gate has **no user decision**. The AI reads the chosen insights + the chosen campaign, picks the metric set, sets the most reasonable target for each, and writes the derivation chains. The team reviews the finished board; the AI does **not** stop for a pick.
+
+> Judgment still applies — it is just made by the AI and shown transparently (benchmark → assumption → formula), so the team can challenge any number.
 
 ## When to use
 
 - After `plan` (reads the `campaign-plan.html` capture).
-- When the team only wants the pilot-metrics board refreshed after a plan change.
+- When the team wants the pilot-forecast board refreshed after a plan change.
 
 ## Inputs
 
+- The `insight-brief.html` capture — the chosen key insights (`selected_insights`) and the benchmark data.
 - The `campaign-plan.html` capture — the **chosen variant** (`chosen_variant`), esp. its `pilot` (markets · hypothesis · treatment · control · measurement_setup) and `budget`.
 - Quest card **pilot window / pilot markets / MVP budget** and **Scout Report benchmarks** (the anchors for every derivation).
 
-## Flow (uses the `facilitation` engine)
+## Flow
 
-> **Choice-first**: the AI **drafts the menu** (candidate pilot metrics + a suggested target each); the team **selects** and may add `+1 own`.
-
-1. **Frame (AI, 1′).** Read the pilot (2 markets · 3 months · MVP budget) and the card benchmarks.
-2. **Menu (AI, 2′).** Map the pilot's funnel (reach → engagement → conversion → outcome) and present a **menu of ~6–8 candidate pilot metrics**, each with a **suggested target** and a one-line derivation sketch.
-3. **Choose (team, 3′).** The team **picks 3–5** (or `+1 own`). There are no thresholds to set.
-4. **Derive (AI, 2′).** For each pick, write the **derivation chain**: `benchmark → assumption(s) → formula → target`, plus a one-line logic ("why hitting this predicts the outcome").
-5. **Capture** — record the metrics in the artifact's embedded `id="capture"` block (see Output). No separate data file.
-
-## HITL gates (mandatory)
-
-- The AI presents the menu; the team **selects** the 3–5 pilot metrics.
-- The team may edit any target; the AI never fixes a number alone.
-Always keep the `+1 of our own` channel open.
+1. **Frame (AI).** Read the pilot (2 markets · 3 months · MVP budget), the chosen campaign's hypothesis, and the card benchmarks.
+2. **Choose the metric set (AI).** Map the funnel (reach → engagement → conversion → outcome) and pick the **3–5 metrics that best prove this pilot's hypothesis**. No menu.
+3. **Set the most reasonable target (AI).** For each metric, pick a **conservative-but-defensible** target, anchored to a Scout Report benchmark. Prefer a benchmark-anchored number over an optimistic one.
+4. **Derive (AI).** Write each metric's **derivation chain**: `benchmark → assumption(s) → formula → target`, plus a one-line logic ("why hitting this predicts the outcome").
+5. **Build + capture (AI).** `proof.html` — one screen; decisions recorded in the artifact's embedded `id="capture"` block (see Output). No separate data file.
 
 ## Output
 
@@ -54,7 +53,8 @@ Always keep the `+1 of our own` channel open.
   "metrics": [
     {"name": "…", "dimension": "reach | engagement | conversion | outcome", "target": "…",
      "derivation": {"benchmark_ref": "…", "formula": "…", "assumptions": ["…"], "logic": "…"}}
-  ]
+  ],
+  "source_note": "Scout Report + live research · Data as of …"
 }
 </script>
 ```

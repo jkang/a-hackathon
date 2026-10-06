@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pilot Metrics · {{QUEST}} · {{CLIENT}}</title>
+<title>Pilot Forecast · {{QUEST}} · {{CLIENT}}</title>
 <style>
   :root{
     --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
@@ -60,11 +60,16 @@
 
   <div class="brandbar">
     <div class="logo">Ascentium<span>.</span></div>
-    <div class="tag">Pilot Metrics · {{QUEST}}</div>
+    <div class="tag">Pilot Forecast · {{QUEST}}</div>
   </div>
 
   <h1>What the pilot must hit — and how we get there</h1>
   <div class="sub">{{CLIENT}} &nbsp;|&nbsp; {{PILOT_MARKETS}} &nbsp;|&nbsp; {{PILOT_WINDOW}} &nbsp;|&nbsp; MVP budget {{BUDGET}}</div>
+
+  <!--
+    The AI produces ONE most-reasonable forecast directly from the insight + plan (no team decision).
+    Anchored to the Scout Report benchmarks; every target carries a visible derivation chain.
+  -->
 
   <!-- 1 · Pilot funnel (expected targets) -->
   <div class="card">
@@ -101,7 +106,7 @@
     </div>
   </div>
 
-  <footer>Human-led, AI-scaffolded. Benchmarks cited from the Quest Scout Report + live research. These are pilot targets, not full-scale projections. Data as of {{DATA_AS_OF}}.</footer>
+  <footer>AI-computed from the insight + plan; benchmarks cited from the Quest Scout Report + live research. These are pilot targets for the 3-month window, not full-scale projections. Data as of {{DATA_AS_OF}}.</footer>
 
 </div>
 

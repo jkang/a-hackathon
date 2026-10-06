@@ -1,21 +1,17 @@
 ---
-description: Run only the PROVE gate (pilot expected metrics + derivation logic, one screen).
+description: Run only the PROVE gate (AI produces one most-reasonable numeric forecast; no team decision).
 agent: facilitator
 ---
-Run **only the PROVE gate**.
+Run **only the PROVE gate**. Requires the `insight-brief.html` + `campaign-plan.html` captures.
 
-> **One decision per turn.** Present one menu, then **STOP and wait** for the team's reply. **Never answer your own menu; never run another gate.** (See `facilitator` → *Turn discipline*.)
+**This gate has NO team decision.** The AI reads the chosen insights + the chosen campaign and produces **one most-reasonable numeric forecast** — the funnel targets + a derivation chain per metric.
 
-Use the `prove` skill with `facilitation` (option menu). Requires the `campaign-plan.html` capture.
+1. Read the insight + plan captures for the pilot hypothesis, markets, budget, and Scout Report benchmarks.
+2. Choose the **3–5 funnel metrics** that best prove this pilot's hypothesis (no menu).
+3. Set the **most reasonable target** for each — conservative-but-defensible, anchored to a benchmark.
+4. Write each metric's **derivation chain**: benchmark → assumption(s) → formula → target.
+5. Output **`proof.html`** (**one screen**: pilot framing → funnel with targets → metric tiles → derivation rows); the capture is embedded in its `id="capture"` block — no YAML.
 
-1. Frame the pilot (2 markets · 3 months · MVP budget) and read the card benchmarks.
-2. Map the pilot funnel (reach → engagement → conversion → outcome) → present a **menu of ~6–8 candidate pilot metrics**, each with a suggested target.
-3. The team **picks 3–5** (`+1 own`). No thresholds.
-4. AI writes each metric's **derivation chain**: benchmark → assumption(s) → formula → target.
-5. Output **`proof.html` only** (**one screen**: pilot framing → funnel with targets → metric tiles → derivation rows); the capture is embedded in its `id="capture"` block — no YAML.
-
-**End every turn with a wrap-up (see `facilitator` → *Response format*):** a 2–4 line recap + the artifact name/path, then the **next decision printed inline** — the **candidate pilot metrics with suggested targets** (pick 3–5). End with the pick prompt, verbatim: **Reply with your pick (e.g. `1, 2`).** — nothing after it.
-
-Choice-first, human-led. Do not decide for the team. No Go/No-Go, no cost-benefit, no scale-up.
+**End the turn with a recap** (what you did + the artifact name/path + the forecast headline). Do **not** present a menu and do **not** ask for a pick — the next decision belongs to Showcase.
 
 **Language: English only.** Reply to the team in **English**, regardless of the language they use.

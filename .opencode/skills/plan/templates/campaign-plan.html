@@ -19,14 +19,14 @@
   *{margin:0;padding:0;box-sizing:border-box;}
   body{font-family:"Poppins","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
        background:var(--bg);color:var(--ascentium-midnight);-webkit-font-smoothing:antialiased;}
-  .page{max-width:1100px;margin:0 auto;padding:40px 28px 56px;}
+  .page{width:80%;max-width:1600px;margin:0 auto;padding:40px 28px 56px;}
   .brandbar{display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--accent);padding-bottom:14px;}
   .brandbar .logo{font-weight:700;font-size:20px;letter-spacing:-.01em;}
   .brandbar .logo span{color:var(--accent);}
   .brandbar .tag{font-size:12px;font-weight:600;color:var(--mut);letter-spacing:.14em;text-transform:uppercase;}
   h1{font-size:32px;font-weight:800;line-height:1.15;margin-top:22px;letter-spacing:-.01em;}
   .sub{margin-top:8px;font-size:13px;color:var(--mut);font-weight:500;}
-  .seed{margin-top:20px;background:var(--accent-tint);border-left:6px solid var(--accent);border-radius:12px;padding:16px 20px;}
+  .seed{margin-top:20px;background:var(--accent-tint);border:1px solid var(--accent-line);border-radius:12px;padding:16px 20px;}
   .seed .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
   .seed p{font-size:16px;font-weight:600;line-height:1.5;margin-top:6px;}
   .anchor{margin-top:12px;background:var(--ascentium-midnight);color:#fff;border-radius:12px;padding:16px 20px;}
@@ -65,6 +65,8 @@
   .vhead .badge{display:none;font-size:10px;font-weight:800;letter-spacing:.12em;color:#fff;background:var(--accent);
                 border-radius:999px;padding:4px 12px;}
   .variant.chosen .vhead .badge{display:inline-block;}
+  .variant.parked{opacity:.62;}
+  .variant.parked .vhead .badge{display:inline-block;background:var(--mut);}
   .vhead .vsub{font-size:12px;color:var(--mut);font-weight:500;}
   footer{margin-top:30px;border-top:1px dashed var(--line);padding-top:12px;font-size:10.5px;color:#9AA5A2;line-height:1.6;}
 </style>
@@ -99,10 +101,12 @@
     </div>
   </div>
 
-  <!-- ===== VARIANT A ===== -->
+  <!-- ===== VARIANT A =====
+       A_CHOSEN / B_CHOSEN = class token: "chosen" for the team's pick, "parked" for the other.
+       A_BADGE / B_BADGE    = "Chosen" / "Parked". -->
   <section class="variant {{A_CHOSEN}}">
     <div class="vhead">
-      <span class="vt">Variant A</span><span class="badge">Chosen</span>
+      <span class="vt">Variant A</span><span class="badge">{{A_BADGE}}</span>
       <span class="vsub">{{A_SUB}}</span>
     </div>
     <div class="grid">
@@ -154,7 +158,7 @@
   <!-- ===== VARIANT B ===== -->
   <section class="variant {{B_CHOSEN}}">
     <div class="vhead">
-      <span class="vt">Variant B</span><span class="badge">Chosen</span>
+      <span class="vt">Variant B</span><span class="badge">{{B_BADGE}}</span>
       <span class="vsub">{{B_SUB}}</span>
     </div>
     <div class="grid">

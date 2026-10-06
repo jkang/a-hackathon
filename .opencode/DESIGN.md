@@ -37,7 +37,7 @@ AI 给脚手架/问题  →  团队发散(人人出点子)  →  团队收敛(�
 4 个关卡（对应 4 个 quest 技能）：
 - **洞察门**（insight）：团队注入「市场真相」→ 收敛出「种子洞察」
 - **创意门**（plan）：AI 发散并搭出 **2 套完整方案（A/B）** → 团队**选 A 或 B**（1 次决策）
-- **论证门**（prove）：团队挑 pilot 预期指标 → AI 写推演逻辑 + 出单屏看板
+- **论证门**（prove）：AI **直接出一版最合理的数字预测 + 推演**（无团队决策）
 - **呈现门**（showcase）：团队选视觉/主张 → AI 生成海报 + 路演稿
 
 ### 3.1 灵活调度模型（关键）
@@ -79,7 +79,7 @@ AI 给脚手架/问题  →  团队发散(人人出点子)  →  团队收敛(�
 | 1 | Pilot **campaign** concept（2 Asian markets, 3mo）／Pilot **membership** design（2 overseas markets, 3mo） | `plan`（creative-concept → `offering`） | 大创意 + 会员设计 |
 | 2 | Experiment plan & **measurement setup** | `plan`（`experiment.measurement_setup`）+ `prove` | 选市场 / 成功口径 |
 | 3 | Hero visual / poster ／ **Founding-member offer** + hero visual | `plan`（`offering.founding_offer`）+ **`poster`**（hero visual） | 视觉方向 |
-| 4 | **Pilot expected metrics + derivation logic**（3–5 个 pilot 预期指标；每条用 Scout Report 标杆佐证并写出推演链 benchmark → assumption → formula） | `prove`（单屏 `proof.html`，capture 内嵌） | 挑指标 |
+| 4 | **A most-reasonable pilot forecast + derivation logic**（一版最合理的数字预测；每条用 Scout Report 标杆佐证并写出推演链 benchmark → assumption → formula） | `prove`（单屏 `proof.html`，capture 内嵌） | —（AI 出） |
 
 **题卡 Arsenal 技能链 ↔ 本设计映射**：
 
@@ -240,18 +240,18 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 - **吸收/改造**：`opportunity-definition`（去 AI 口径→营销机会点）；`creative-concept`（人群+场景锚定 + HMW + 创意方法 → ~6 ideas，吸收自原 brainstorming + creative-concept.md）；`marketing-plan`（定位/4Ps）。
 
 ### 7.3 `prove`（论证门 · 8 分钟）
-- **目标**：pilot 预期要达成的指标（3–5 个）+ 每个指标数值的**推演逻辑**；输出一屏 `proof.html`。**不含** Go/No-Go、成本收益/ROI、scale-up。
-- **输入**：`campaign-plan.html` capture（含 pilot 市场/窗口/budget）+ 题卡 Scout Report 标杆。
+- **目标**：AI 依据 insights + plan **直接产出一版最合理的数字预测**（漏斗 reach→engagement→conversion→outcome + 指标目标 + 推演链），**无团队决策**。输出一屏 `proof.html`。**不含** Go/No-Go、成本收益/ROI、scale-up。
+- **输入**：`insight-brief.html` capture（所选洞察 + 标杆）+ `campaign-plan.html` capture（pilot 市场/窗口/budget）+ 题卡 Scout Report 标杆。
 - **输出**：`proof.html`（单屏，capture 内嵌）。
-- **facilitate**：
-  1. AI 展示 pilot 漏斗（reach→engagement→conversion→outcome）的候选指标菜单（~6–8 个，各带建议目标 + 一句推演草稿）。
-  2. 团队挑 3–5 个（+1 自选）——**用 Scout Report 标杆佐证**。
-  3. AI 为每个指标写推演链：`benchmark → assumption → formula → target`。
-  4. AI 出单屏可视化（漏斗 + 指标卡 + 推演行）。
+- **facilitate（AI 全跑，无 HITL）**：
+  1. **选指标集（AI）**：从漏斗里挑最能证明本 pilot 假设的 3–5 个指标。
+  2. **定最合理的目标（AI）**：每条锚定 Scout Report 标杆，取保守可辩护的数值。
+  3. **写推演链（AI）**：`benchmark → assumption → formula → target` + 一句逻辑。
+  4. AI 出单屏（漏斗 + 指标卡 + 推演行）。
 - **capture（内嵌于 `proof.html` 的 `id="capture"` JSON 块）**：
   ```json
   pilot: {window, markets, budget}
-  metrics: [ {name, dimension, target, derivation: {benchmark_ref, formula, assumptions, logic}}, ... ]
+  metrics: [ {name, dimension, target, derivation: {benchmark_ref, formula, assumptions, logic}} ]
   ```
 - **assemble**：`proof.html` 单屏（pilot 漏斗 + 指标卡 + 推演行），品牌随题卡 accent。
 - **保留但不再调用**：`sub-skills/campaign-metrics`、`sub-skills/data-visualizer-pro`、`references/cost-benefit.md` 留在库中（休眠），本门不调用。
@@ -306,7 +306,7 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 | 0–2′ | 开题 | AI | 30″ 战报速览 + 抛第一问 | — |
 | 2–10′ | 洞察门 | 人 | 研究 → living brief → AI 策展 → ~6 关键洞察 | 关键洞察（2–3） |
 | 10–22′ | 创意门 | 人 | 搭 2 套完整方案（A/B）+ 主视觉 | 选 A 或 B（1 次） |
-| 22–30′ | 论证门 | 人 | 写推演逻辑 + 出单屏看板 | 3–5 个 pilot 预期指标 |
+| 22–30′ | 论证门 | AI | 出一版最合理的数字预测 + 推演 | — |
 | 30–38′ | 呈现门 | 人 | 生成海报 + 路演稿 | 视觉方向 + 主张 |
 | 38–40′ | 收敛提交 | AI | 一键打包 | 确认 |
 
@@ -327,7 +327,7 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 │   ├── plan/                        # 策划门
 │   │   └── sub-skills/  creative-concept · opportunity-definition
 │   ├── poster/                      # 海报（Create 阶段，独立）
-│   ├── prove/                       # 论证门（单屏 pilot metrics）
+│   ├── prove/                       # 论证门（单屏 pilot forecast A/B）
 │   │   └── sub-skills/  campaign-metrics · data-visualizer-pro（保留·休眠，不调用）
 │   ├── showcase/                    # 呈现门（AUTO）
 │   ├── agent-reach/                 # 实时研究（insight 调用）
@@ -356,7 +356,7 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 | 3 | `insight` | Quest A/B 各跑一遍：14 人洞察 → 种子洞察落 `insight-brief.html`（capture 内嵌） |
 | 4 | `plan` | 投票选赢家 → 完整方案框架（定位/4Ps/试点/预算） |
 | 5 | `poster` | 专业 campaign poster（9 段式：客户 logo/主视觉/offer/数据带/CTA+QR） |
-| 6 | `prove` | 3–5 个 pilot 预期指标 + 推演逻辑（单屏） |
+| 6 | `prove` | 一版最合理的数字预测 + 推演逻辑（单屏） |
 | 7 | `showcase` | 5 storylines 路演稿 + 媒体占位符（内嵌 poster） |
 | 8 | `facilitator` + `README` | 一键串全场 40 分钟，冒烟通过 |
 

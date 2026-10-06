@@ -239,7 +239,7 @@
         <div class="jr-cell jr-act r2">机会定义</div>
         <div class="jr-cell jr-act r2">营销方案（A/B）</div>
         <div class="jr-cell jr-act r2">海报设计（9 段 × 3 风格）</div>
-        <div class="jr-cell jr-act r2">指标菜单 → 推演链 → 单屏可视化</div>
+        <div class="jr-cell jr-act r2">一版最合理预测 → 推演链 → 单屏</div>
         <div class="jr-cell jr-act r2">选 storyline</div>
         <div class="jr-cell jr-act r2">组装 deck + 媒体</div>
 
@@ -280,8 +280,8 @@
         <div class="jr-cell jr-hitl r5"><span class="none">—</span></div>
         <div class="jr-cell jr-hitl r5"><span class="none">—</span></div>
         <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 1 套完整方案（A/B）</div>
-        <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 1 种风格 + 方向 + 一句话</div>
-        <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 3–5 个指标 + 阈值</div>
+        <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 从 3 张海报（A/B/C）选 1</div>
+        <div class="jr-cell jr-hitl r5"><span class="none">—</span></div>
         <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 storyline · poster on/off · 一句话</div>
         <div class="jr-cell jr-hitl r5"><span class="h">👤</span>（可选）加分媒体</div>
       </div>
@@ -735,14 +735,14 @@
   *{margin:0;padding:0;box-sizing:border-box;}
   body{font-family:&quot;Poppins&quot;,&quot;Noto Sans SC&quot;,&quot;PingFang SC&quot;,&quot;Microsoft YaHei&quot;,Arial,sans-serif;
        background:var(--bg);color:var(--ascentium-midnight);-webkit-font-smoothing:antialiased;}
-  .page{max-width:1100px;margin:0 auto;padding:40px 28px 56px;}
+  .page{width:80%;max-width:1600px;margin:0 auto;padding:40px 28px 56px;}
   .brandbar{display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--accent);padding-bottom:14px;}
   .brandbar .logo{font-weight:700;font-size:20px;letter-spacing:-.01em;}
   .brandbar .logo span{color:var(--accent);}
   .brandbar .tag{font-size:12px;font-weight:600;color:var(--mut);letter-spacing:.14em;text-transform:uppercase;}
   h1{font-size:32px;font-weight:800;line-height:1.15;margin-top:22px;letter-spacing:-.01em;}
   .sub{margin-top:8px;font-size:13px;color:var(--mut);font-weight:500;}
-  .seed{margin-top:20px;background:var(--accent-tint);border-left:6px solid var(--accent);border-radius:12px;padding:16px 20px;}
+  .seed{margin-top:20px;background:var(--accent-tint);border:1px solid var(--accent-line);border-radius:12px;padding:16px 20px;}
   .seed .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
   .seed p{font-size:16px;font-weight:600;line-height:1.5;margin-top:6px;}
   .anchor{margin-top:12px;background:var(--ascentium-midnight);color:#fff;border-radius:12px;padding:16px 20px;}
@@ -780,6 +780,8 @@
   .vhead .badge{display:none;font-size:10px;font-weight:800;letter-spacing:.12em;color:#fff;background:var(--accent);
                 border-radius:999px;padding:4px 12px;}
   .variant.chosen .vhead .badge{display:inline-block;}
+  .variant.parked{opacity:.62;}
+  .variant.parked .vhead .badge{display:inline-block;background:var(--mut);}
   .vhead .vsub{font-size:12px;color:var(--mut);font-weight:500;}
   .why{margin-top:12px;font-size:12.5px;color:var(--mut);line-height:1.6;font-style:italic;}
   footer{margin-top:30px;border-top:1px dashed var(--line);padding-top:12px;font-size:10.5px;color:#9AA5A2;line-height:1.6;}
@@ -816,16 +818,16 @@
   &lt;/div&gt;
 
   &lt;div class=&quot;card&quot; style=&quot;margin-top:16px;&quot;&gt;
-    &lt;h2&gt;Diverged Ideas · 6 → auto-selected 1+2+3&lt;/h2&gt;
+    &lt;h2&gt;Diverged Ideas — AI narrowed 6 → 2 campaigns&lt;/h2&gt;
     &lt;ul&gt;
       &lt;li&gt;&lt;b&gt;1 · THE AWAY END&lt;/b&gt; — creator squads recruit national away crews. &lt;i&gt;(insight 3)&lt;/i&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;2 · THE SUPPORTER PASSPORT&lt;/b&gt; — paid fan membership with priority tickets. &lt;i&gt;(insight 6)&lt;/i&gt; &lt;b&gt;[SELECTED]&lt;/b&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;3 · FLY TOGETHER&lt;/b&gt; — Qatar Airways fly-stay-ticket bundle. &lt;i&gt;(insight 4/5)&lt;/i&gt; &lt;b&gt;[SELECTED]&lt;/b&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;2 · THE SUPPORTER PASSPORT&lt;/b&gt; — paid fan membership with priority tickets. &lt;i&gt;(insight 6)&lt;/i&gt; &lt;b&gt;[AI pick]&lt;/b&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;3 · FLY TOGETHER&lt;/b&gt; — Qatar Airways fly-stay-ticket bundle. &lt;i&gt;(insight 4/5)&lt;/i&gt; &lt;b&gt;[AI pick]&lt;/b&gt;&lt;/li&gt;
       &lt;li&gt;&lt;b&gt;4 · THE FAMILY STAND&lt;/b&gt; — Nov cool-season family bundles. &lt;i&gt;(insight 4)&lt;/i&gt;&lt;/li&gt;
       &lt;li&gt;&lt;b&gt;5 · GOLDEN TICKET DROPS&lt;/b&gt; — limited national allocations in waves. &lt;i&gt;(insight 2)&lt;/i&gt;&lt;/li&gt;
       &lt;li&gt;&lt;b&gt;6 · #MYDOHA2030&lt;/b&gt; — UGC fan-film challenge. &lt;i&gt;(insight 3)&lt;/i&gt;&lt;/li&gt;
     &lt;/ul&gt;
-    &lt;p class=&quot;why&quot;&gt;Combined: THE AWAY END (1) + THE SUPPORTER PASSPORT (2) + FLY TOGETHER (3).&lt;/p&gt;
+    &lt;p class=&quot;why&quot;&gt;AI combined 1 + 2 + 3 into Variant A (THE AWAY END) and built Variant B (FLY TOGETHER) from the bundle angle. The team picks one.&lt;/p&gt;
   &lt;/div&gt;
 
   &lt;section class=&quot;variant chosen&quot;&gt;
@@ -882,9 +884,9 @@
     &lt;p class=&quot;why&quot;&gt;Chosen because it builds an owned, reusable fan pipeline (not a one-off discount), directly monetises belonging (insight 6), and is the most reach-efficient play under USD 1.5M given 460M Asia TikTok MAU (insight 3).&lt;/p&gt;
   &lt;/section&gt;
 
-  &lt;section class=&quot;variant&quot;&gt;
+  &lt;section class=&quot;variant parked&quot;&gt;
     &lt;div class=&quot;vhead&quot;&gt;
-      &lt;span class=&quot;vt&quot;&gt;Variant B&lt;/span&gt;&lt;span class=&quot;badge&quot;&gt;Chosen&lt;/span&gt;
+      &lt;span class=&quot;vt&quot;&gt;Variant B&lt;/span&gt;&lt;span class=&quot;badge&quot;&gt;Parked&lt;/span&gt;
       &lt;span class=&quot;vsub&quot;&gt;Bundle-led (price/OTA) — parked&lt;/span&gt;
     &lt;/div&gt;
     &lt;div class=&quot;grid&quot;&gt;
@@ -1655,7 +1657,7 @@
 &lt;head&gt;
 &lt;meta charset=&quot;UTF-8&quot;&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-&lt;title&gt;Pilot Metrics · A · OCA — Doha 2030 Ticketing &amp;amp; Fan Engagement Unit&lt;/title&gt;
+&lt;title&gt;Pilot Forecast · A · OCA — Doha 2030 Ticketing &amp;amp; Fan Engagement Unit&lt;/title&gt;
 &lt;style&gt;
   :root{
     --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
@@ -1705,13 +1707,12 @@
 
   &lt;div class=&quot;brandbar&quot;&gt;
     &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;tag&quot;&gt;Pilot Metrics · Quest A&lt;/div&gt;
+    &lt;div class=&quot;tag&quot;&gt;Pilot Forecast · Quest A&lt;/div&gt;
   &lt;/div&gt;
 
   &lt;h1&gt;What the pilot must hit — and how we get there&lt;/h1&gt;
   &lt;div class=&quot;sub&quot;&gt;OCA — Doha 2030 Ticketing &amp;amp; Fan Engagement Unit &amp;nbsp;|&amp;nbsp; 2 pilot markets: Indonesia + Thailand &amp;nbsp;|&amp;nbsp; 3-month pilot &amp;nbsp;|&amp;nbsp; MVP budget USD 1.5M&lt;/div&gt;
 
-  &lt;!-- 1 · Pilot funnel (expected targets) --&gt;
   &lt;div class=&quot;card&quot;&gt;
     &lt;h2&gt;1 · Pilot funnel — expected targets&lt;/h2&gt;
     &lt;div class=&quot;funnel&quot;&gt;
@@ -1722,7 +1723,6 @@
     &lt;/div&gt;
   &lt;/div&gt;
 
-  &lt;!-- 2 · The metrics we expect to hit --&gt;
   &lt;div class=&quot;card&quot;&gt;
     &lt;h2&gt;2 · The metrics we expect the pilot to hit&lt;/h2&gt;
     &lt;div class=&quot;tiles&quot;&gt;
@@ -1734,7 +1734,6 @@
     &lt;/div&gt;
   &lt;/div&gt;
 
-  &lt;!-- 3 · Derivation logic --&gt;
   &lt;div class=&quot;card&quot;&gt;
     &lt;h2&gt;3 · How each number is derived&lt;/h2&gt;
     &lt;div class=&quot;deriv&quot;&gt;
@@ -1746,7 +1745,7 @@
     &lt;/div&gt;
   &lt;/div&gt;
 
-  &lt;footer&gt;Human-led, AI-scaffolded. Benchmarks cited from the Quest Scout Report + live research. These are pilot targets, not full-scale projections. Data as of 2026-09-29.&lt;/footer&gt;
+  &lt;footer&gt;AI-computed from the insight + plan; benchmarks cited from the Quest Scout Report + live research. These are pilot targets for the 3-month window, not full-scale projections. Data as of 2026-09-29.&lt;/footer&gt;
 
 &lt;/div&gt;
 &lt;!-- structured capture — invisible; read by the next gate (see facilitation/capture-contract.md) --&gt;
@@ -1756,10 +1755,7 @@
   &quot;quest&quot;: &quot;A&quot;,
   &quot;pilot&quot;: {
     &quot;window&quot;: &quot;3 months&quot;,
-    &quot;markets&quot;: [
-      &quot;Indonesia&quot;,
-      &quot;Thailand&quot;
-    ],
+    &quot;markets&quot;: [&quot;Indonesia&quot;, &quot;Thailand&quot;],
     &quot;budget&quot;: &quot;USD 1.5M (5% MVP unlock)&quot;
   },
   &quot;metrics&quot;: [
@@ -1770,10 +1766,7 @@
       &quot;derivation&quot;: {
         &quot;benchmark_ref&quot;: &quot;TikTok MAU 460M across our first Asian markets (TikTok 2025); Hangzhou 2023 delivered 500M+ impressions for the Games brand&quot;,
         &quot;formula&quot;: &quot;sum of campaign impressions (organic + paid creator content)&quot;,
-        &quot;assumptions&quot;: [
-          &quot;A 6-week creator push reaches ~33% of in-market MAU&quot;,
-          &quot;Two pilot markets carry the bulk of impressions&quot;
-        ],
+        &quot;assumptions&quot;: [&quot;A 6-week creator push reaches ~33% of in-market MAU&quot;, &quot;Two pilot markets carry the bulk of impressions&quot;],
         &quot;logic&quot;: &quot;If reach builds the addressable crowd, qualified visits — and therefore sign-ups — follow.&quot;
       }
     },
@@ -1784,9 +1777,7 @@
       &quot;derivation&quot;: {
         &quot;benchmark_ref&quot;: &quot;Meta all-industry lead conversion 7.72%; arts &amp; events Facebook 9.34% (WordStream / Venuera 2025–26)&quot;,
         &quot;formula&quot;: &quot;crew sign-ups / qualified visits&quot;,
-        &quot;assumptions&quot;: [
-          &quot;Landing page + crew offer converts at about half the meta-vertical benchmark&quot;
-        ],
+        &quot;assumptions&quot;: [&quot;Landing page + crew offer converts at about half the meta-vertical benchmark&quot;],
         &quot;logic&quot;: &quot;If the crew offer converts visits into sign-ups, the ticket-intent pool forms; group bookings follow.&quot;
       }
     },
@@ -1797,9 +1788,7 @@
       &quot;derivation&quot;: {
         &quot;benchmark_ref&quot;: &quot;Asian fans travel as crews; ~4 in 5 group trips are booked via an agent (worldmetrics 2026)&quot;,
         &quot;formula&quot;: &quot;orders with &gt;=2 tickets / total orders&quot;,
-        &quot;assumptions&quot;: [
-          &quot;Crew travel is the norm for Asia-based away fans&quot;
-        ],
+        &quot;assumptions&quot;: [&quot;Crew travel is the norm for Asia-based away fans&quot;],
         &quot;logic&quot;: &quot;If bookings skew to groups, the away-end atmosphere — and attendance — rises.&quot;
       }
     },
@@ -1810,9 +1799,7 @@
       &quot;derivation&quot;: {
         &quot;benchmark_ref&quot;: &quot;Facebook arts/entertainment CPL USD 18.17; Google Events cost/conversion USD 26.84 (Venuera 2026-07)&quot;,
         &quot;formula&quot;: &quot;paid media spend / crew sign-ups&quot;,
-        &quot;assumptions&quot;: [
-          &quot;Creator-led organic content plus a referral loop lowers paid dependency&quot;
-        ],
+        &quot;assumptions&quot;: [&quot;Creator-led organic content plus a referral loop lowers paid dependency&quot;],
         &quot;logic&quot;: &quot;If CAC stays under USD 10, the full-scale budget can buy the 400K-ticket goal efficiently.&quot;
       }
     },
@@ -1823,14 +1810,12 @@
       &quot;derivation&quot;: {
         &quot;benchmark_ref&quot;: &quot;Discover Qatar stopover from USD 14/night; Qatar Airways serves 170+ destinations (2026)&quot;,
         &quot;formula&quot;: &quot;fly-stay bundles / crew sign-ups&quot;,
-        &quot;assumptions&quot;: [
-          &quot;1 in 5 crew members adds a fly-stay bundle&quot;
-        ],
+        &quot;assumptions&quot;: [&quot;1 in 5 crew members adds a fly-stay bundle&quot;],
         &quot;logic&quot;: &quot;If bundles attach, travel friction drops and conversions-per-traveller rise.&quot;
       }
     }
   ],
-  &quot;source_note&quot;: &quot;Benchmarks: Quest Scout Report + live agent-reach research · Data as of 2026-09-29&quot;
+  &quot;source_note&quot;: &quot;Benchmarks: Quest Scout Report + live agent-reach research · Data as of 2026-09-29 · AI-computed (no team decision)&quot;
 }
 &lt;/script&gt;
 &lt;script&gt;(function(){function h(){try{parent.postMessage({__fit:Math.max(document.documentElement.scrollHeight,document.body.scrollHeight)},&quot;*&quot;);}catch(e){}}window.addEventListener(&quot;load&quot;,h);window.addEventListener(&quot;resize&quot;,h);setInterval(h,1500);})();&lt;/script&gt;

@@ -1,6 +1,6 @@
 ---
 name: poster
-description: Create a professional campaign poster — the "hero visual" / poster deliverable from the Create (Plan) stage. Produces a self-contained portrait poster: masthead (creator + client), campaign name + tagline + key visual, lead proposition, offer panel (or membership tiers), benefit bullets, a stats band of 4 numbers, CTA + hashtag + URL + QR, and a partner/source footer. Use whenever a campaign poster or hero visual is needed. Triggers: "poster", "hero visual", "campaign poster", "key visual", "make a poster".
+description: Create a professional campaign poster — the "hero visual" / poster deliverable from the Create (Plan) stage. Produces a self-contained portrait poster: masthead (creator + client), campaign name + tagline + key visual, lead proposition, offer panel (or membership tiers), benefit bullets, a stats band of 4 numbers, CTA + hashtag + URL + QR, and a partner/source footer. The AI builds **all three styles at once**; the team's single decision is **which one to keep**. Use whenever a campaign poster or hero visual is needed. Triggers: "poster", "hero visual", "campaign poster", "key visual", "make a poster".
 ---
 
 # Poster — professional campaign poster
@@ -19,7 +19,7 @@ The **most-seen asset** of a campaign. It must be **self-contained**: a stranger
 
 - The `campaign-plan.html` capture — the chosen variant: campaign name, slogan, proposition, offering/tiers, pilot markets, budget.
 - The `insight-brief.html` capture — audience + moment (for the anchor).
-- Team choices: visual direction + the one-liner/CTA.
+- The **AI derives** the visual direction + the one-liner/CTA from the chosen campaign. The team's **single decision is the style pick** (A/B/C) — made **after** the three posters are built, **never** requested beforehand.
 
 ## Anatomy (top → bottom)
 
@@ -63,7 +63,7 @@ Offer **3 genuinely different designs**, each matched to a campaign tone. Keep o
 ## Workflow
 
 1. Pull name / slogan / proposition / offer from the `campaign-plan.html` capture.
-2. Fill the shared content pack once into `templates/poster-page.html` (leave the `{{POSTER_STYLE}}` tokens) and the few fields in `templates/poster-tabs.html`; set `data-quest`, the accent vars, the key-visual motif, and the `{{STYLE_*}}` names from the quest card.
+2. Fill the shared content pack once into `templates/poster-page.html` (leave the `{{POSTER_STYLE}}` tokens) and the few fields in `templates/poster-tabs.html`; inject the accent vars (`--accent` / `--accent-tint` / `--accent-line` / `--accent-deep`) from the quest card, plus the key-visual motif and the `{{STYLE_*}}` names.
 3. Build the deliverable: `python3 scripts/build-posters.py --dir artifacts/Quest<ID>-<NN>/ [--default a]` → `poster-a.html` · `poster-b.html` · `poster-c.html` · `poster.html`. (Write into the current round folder — see `quest-card.md` → *Output layout*.)
 4. **Team previews the 3 styles and picks one** (HITL — the AI does not choose), via the tab page and/or the Showcase deck.
 5. Record the choice in the `campaign-plan.html` capture (`poster.style`) so the deck/proposal embed the right page.

@@ -66,7 +66,7 @@ MENU · <gate> — pick <N> (30s), or +1 of your own
 **Plan · pilot markets** — "Pick 2 markets."
 1 China · 2 Indonesia · 3 Thailand · 4 Vietnam · 5 Philippines · 6 India · 7 Japan · 8 Malaysia
 
-**Prove · metrics** — "Pick 3–5 sub-metrics."
+**Prove · forecast** — no menu: the AI produces the forecast directly (no team pick).
 1 Ticket-intent rate · 2 CAC per hold/member · 3 Creator reach · 4 Group-booking ratio · 5 Bundle attach · 6 Conversion rate · 7 Merch sell-through · 8 Organic reach
 
 **Showcase · storyline** — the 5 storylines are already a menu (Classic / Hero's Journey / Big Reveal / Demo / Trailer).

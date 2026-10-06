@@ -51,9 +51,9 @@ End **every** turn with these three blocks, in order:
 **What to surface inline, per gate:**
 - **Insight** → the ~6 **key insights** (pick 2–3). The focus bundle, trends, moments and truths are AI-curated and shown in full in the brief (overridable on request).
 - **Plan** → the **two complete campaigns (A/B)** — pick 1. (The AI builds both; the team makes one call.)
-- **Prove** → the candidate pilot metrics + suggested targets (pick 3–5).
+- **Prove** → no team decision — the AI produces the most reasonable forecast; recap it and move on.
 - **Showcase** → the storyline (pick 1) + poster on/off + visual direction (A/B/C).
-- **Poster** → the visual direction + one-liner options (pick).
+- **Poster** → the three poster styles (A/B/C) — pick one. (The AI builds all three first, then the team picks.)
 
 ## Prime directives
 
@@ -75,7 +75,7 @@ End **every** turn with these three blocks, in order:
 - `insight` → `insight-brief.html`
 - `plan` → `campaign-plan.html`
 - `poster` → `poster.html` (+ `poster-a|b|c.html`)
-- `prove` → `proof.html` (one-screen pilot metrics)
+- `prove` → `proof.html` (one-screen pilot forecast A/B)
 - `showcase` → `proposal.html` (unified proposal) + `pitch-deck.html` + `prompt-pack.html`
 
 > **Every stage writes exactly one HTML artifact** and records its decisions in that artifact's embedded `<script type="application/json" id="capture">` block. No YAML or Markdown files are produced.
@@ -90,7 +90,7 @@ End **every** turn with these three blocks, in order:
 |---|---|---|
 | Insight | `insight` | chain: `agent-reach` → `business-research` → `audience-analysis` → `swot-analysis` (agent-reach feeds both org & audience research) → AI curates focus bundle + all menus → ~6 key insights → **team picks 2–3** |
 | Plan | `plan` | `creative-concept` (anchor + HMW + methods → ~6 ideas) → AI narrows to **2 complete campaigns (A/B)** + `opportunity-definition` + plan + budget + `poster` → **team picks one** |
-| Prove | `prove` | pilot-metrics menu → 3–5 expected metrics + derivation logic (no sub-skills; one-screen board) |
+| Prove | `prove` | build **one most-reasonable numeric forecast** + derivation chains (no HITL; one-screen board) |
 | Showcase | `showcase` | storyline + poster on/off → build `proposal.html` (unified report) + `pitch-deck.html` + `prompt-pack.html` (no sub-skills) |
 
 Rules: research must come from `agent-reach` (never invented); each sub-skill's method is applied, not paraphrased; the deck/poster output must match their templates.
@@ -104,7 +104,7 @@ Rules: research must come from `agent-reach` (never invented); each sub-skill's 
 | 0–2′ | Kick-off | Confirm the brief (mission + 4 gates + upcoming research) → **wait for go-ahead** → 30s scout summary + first menu | — |
 | 2–10′ | **Insight** | research → living brief → AI curates focus bundle + menus → ~6 key insights | key insights (2–3) |
 | 10–22′ | **Plan** (+ poster) | build 2 complete campaigns (A/B) + hero visuals | the campaign (A or B) |
-| 22–30′ | **Prove** | pilot-metrics menu + derivation logic | 3–5 expected metrics |
+| 22–30′ | **Prove** | build the most-reasonable forecast + derivation logic | — (AI only) |
 | 30–38′ | **Showcase** | storyline + poster on/off menus | storyline · poster · one-liner · bonus media |
 | 38–40′ | Converge | package and submit | confirm |
 
@@ -138,7 +138,7 @@ On any team signal, comply immediately:
 **Create one round folder for the session and write every artifact into it: `artifacts/Quest<ID>-<NN>/`** (see `quest-card.md` → *Output layout*). Create it at the **first gate that writes** — for the insight gate that means **as soon as the first research block lands** (after the team's go-ahead), then **rewrite `insight-brief.html` after every step** until the gate closes. The **plan** gate likewise builds `campaign-plan.html` **progressively** (create on its first output, rewrite after every step; the final page lists both campaigns A/B with the chosen one highlighted). The later gates (`prove`, `showcase`) write their artifact once.
 
 - `<ID>` = the quest card's `id` (e.g. `A` → `QuestA`). `<NN>` = 2-digit round, next free number (first run → `01`, next → `02`). **Never overwrite a previous round.**
-- Artifacts: `insight-brief.html` · `campaign-plan.html` · `poster.html` (+ `poster-a|b|c.html`) · `proof.html` (one-screen pilot metrics) · `pitch-deck.html` · `prompt-pack.html` · **`proposal.html`**. Each stage HTML records the team's decisions verbatim in its embedded `id="capture"` block — **no YAML/Markdown files**.
+- Artifacts: `insight-brief.html` · `campaign-plan.html` · `poster.html` (+ `poster-a|b|c.html`) · `proof.html` (one-screen pilot forecast A/B) · `pitch-deck.html` · `prompt-pack.html` · **`proposal.html`**. Each stage HTML records the team's decisions verbatim in its embedded `id="capture"` block — **no YAML/Markdown files**.
 - Builders run with `--dir artifacts/Quest<ID>-<NN>/`.
 
 All English. All branded per `ascentium-brand`.
