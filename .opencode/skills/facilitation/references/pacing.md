@@ -8,7 +8,7 @@ The default **happy path**. It is a suggestion, not a script (see Prime Directiv
 | 2–8′   | Insight gate  | AI    | research → living brief → AI curates focus bundle + menus → ~6 key insights | key insights (2–3)              |
 | 8–22′  | Creative gate | AI    | diverge ~6 ideas → build 2 complete campaigns (A/B) + visuals | the campaign (A or B)           |
 | 22–30′ | Pilot forecast| AI    | build the most-reasonable forecast + derivations | — (AI only)                    |
-| 30–38′ | Showcase gate | human | generate poster + pitch deck              | visual direction + one-liner    |
+| 30–38′ | Showcase gate | human | build deck + proposal (poster always on)  | storyline + bonus media         |
 | 38–40′ | Converge      | AI    | package and submit                        | confirm                         |
 
 > The run-sheet allows "45′ hands-on + 10′ converge". This design uses **40 minutes** as the creative core and leaves 5–10 min as a submission buffer.
@@ -20,7 +20,7 @@ The default **happy path**. It is a suggestion, not a script (see Prime Directiv
 | Insight (8′)  | AI: research + curate all + draft insights 6′ | team picks key insights 2′ |
 | Creative (14′) | AI: diverge ~6 ideas + build A/B 10′ | team picks the campaign (A/B) 4′ |
 | Pilot forecast (8′) | AI builds the most-reasonable forecast 8′ | — (no decision) |
-| Showcase (8′) | direction pick 2′ | auto-build 5′ + rehearse 1′ |
+| Showcase (8′) | storyline + bonus-media pick 2′ | auto-build 5′ + rehearse 1′ |
 
 ## Fast mode (when time is tight)
 

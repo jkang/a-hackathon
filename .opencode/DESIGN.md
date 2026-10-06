@@ -261,13 +261,13 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 - **输入**：上游三个 HTML 的内嵌 capture（`insight-brief.html` / `campaign-plan.html` / `proof.html`）。
 - **输出**：`pitch-deck.html`（可配置 storyline）+ `prompt-pack.html`（可选）；**内嵌** `poster`（由 `poster` 技能产出）。
 - **facilitate**：
-  1. **团队选 storyline**（S1 Classic / S2 Hero's Journey / S3 Big Reveal / S4 Demo / S5 Trailer）——决定 deck 形状与 signature element。
-  2. 团队选视觉方向 + 一句话主张。
-  3. AI 拼装 signature + deck（`data-storyline` 驱动，AUTO）。
-  4. **加分媒体（团队可选）**：AI 写 `prompt-pack.html`（Suno/Runway/GPT 提示词脚本）→ 团队到工具站生成 → 拿回文件。
+  1. **团队选 storyline**（S1 Classic / S2 Hero's Journey / S3 Big Reveal / S4 Demo / S5 Trailer）——决定 deck 形状；signature 取该 storyline 默认（AI）。
+  2. **团队选加分媒体**（歌曲/视频/图片/无）。
+  3. AI 决定视觉方向 + 一句话主张，并拼装 signature + deck（`data-storyline` 驱动，AUTO；**poster 恒为 On**）。
+  4. **加分媒体（团队已选）**：AI 写 `prompt-pack.html`（Suno/Runway/GPT 提示词脚本）→ 团队到工具站生成 → 拿回文件。
   5. AI 把结果**按 storyline 分散嵌入对应 slide**（图→poster、视频→storyboard、歌→lyric）。
   6. 团队 30″ 预演 + 微调。
-- **capture**：`{storyline, signature, visual_direction, one_liner, bonus_media, tweaks}`。
+- **capture**：`{storyline, include_poster, poster_style, signature, visual_direction, one_liner, bonus_media, tweaks}`（仅 `storyline` 与 `bonus_media` 为团队决策；`include_poster` 恒为 true，其余为 AI 决定）。
 - **assemble**：
   - **内嵌** `poster.html`（由独立 `poster` 技能产出，作为 Classic / Big Reveal 的 `poster` beat + poster signature）。
   - pitch-deck.html（**可配置 5 storylines**）：title / problem / insight / **poster** / **storyboard** / **prototype** / **lyric** / strategy / moments / experiment / budget / funnel / proof / ask，按 storyline 选取顺序；全屏自适应 + ←/→ + F 全屏；**核心创意由 signature element 承载**（不靠文字描述）。

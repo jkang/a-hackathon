@@ -44,7 +44,7 @@ At each menu, pick the option that best **fits the Victory Conditions** and is *
 1. **Insight.** Research → org profile → all menus (trends · segments · moments · truths) + SWOT → AI curates the **focus bundle** → **~6 key insights** → **you pick 2–3**. Build `insight-brief.html` **progressively** (create on the first block, rewrite each step); list every option (chosen highlighted, rest dimmed).
 2. **Plan.** `creative-concept` (~6 ideas) → AI narrows to **2 complete campaigns (A/B)** + `opportunity-definition` + plan + budget. Build `campaign-plan.html` **progressively** (create on the first output, rewrite each step); list both campaigns (chosen highlighted). → **you pick 1** (A/B) → `poster`.
 3. **Prove.** `prove` — produce **one most-reasonable numeric forecast** for the funnel + derivation chains (benchmark → assumption → formula); no decision → one-screen `proof.html`.
-4. **Showcase.** storyline → **you pick** → poster on/off → build `proposal.html` + `pitch-deck.html` + `prompt-pack.html`.
+4. **Showcase.** storyline → **you pick** → bonus media → **you decide** → settle signature · direction · one-liner yourself (poster always on) → build `proposal.html` + `pitch-deck.html` + `prompt-pack.html`.
 
 ## Output
 

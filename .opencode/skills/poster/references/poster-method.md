@@ -66,7 +66,7 @@ All three carry the **same** 9 sections. Vary: colour balance, typographic scale
 ## Choosing a style (HITL)
 
 - Present all three; do **not** decide.
-- Preview them in the **tab page** (`poster.html`) and/or the Showcase deck's poster beat; each style is also its own clean page (`poster-a|b|c.html`) for cropping/embedding.
+- Preview them in the **tab page** (`poster.html`); each style is also its own clean page (`poster-a|b|c.html`) for cropping/embedding.
 - Record `poster.style: a|b|c` in the plan capture; the deck and proposal embed the matching page.
 
 ## Anti-patterns

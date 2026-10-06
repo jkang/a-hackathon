@@ -58,7 +58,7 @@ Offer **3 genuinely different designs**, each matched to a campaign tone. Keep o
 - Set the accent from the quest card's `accent` (injected as `--accent` / `--accent-tint` / `--accent-line` / `--accent-deep` on `<body>`); the key visual comes from the card's `key_visual_svg`, re-art-ed per style.
 - Each style is a full, self-contained poster (all 9 anatomy sections) — never a partial.
 - **The team picks one**; record it as `poster.style` in the `campaign-plan.html` capture (and in the showcase capture).
-- In the **Showcase deck** the `poster` beat carries a 3-way picker that previews `poster-a|b|c.html` live, so the choice is made there.
+- The style pick happens in the **`poster` stage** (the tab page `poster.html` / the standalone pages); the **Showcase deck** simply **embeds the chosen poster** — it does not re-ask for the style.
 
 ## Workflow
 

@@ -77,15 +77,14 @@ flowchart TD
     V --> C["one-screen forecast board"]
     C --> S["4 · SHOWCASE — 5 storylines"]
     S --> H7{"👤 pick storyline"}
-    H7 --> H8{"👤 poster on/off · deck direction"}
-    H8 --> B["build proposal + deck + prompt-pack"]
-    B --> H9{"👤 bonus media?"}
-    H9 --> D([DONE · converge & submit])
+    H7 --> H9{"👤 bonus media?"}
+    H9 --> B["build proposal + deck (+ prompt-pack)"]
+    B --> D([DONE · converge & submit])
 
     classDef ai fill:#FFF0E7,stroke:#FF6611,color:#0F1514;
     classDef hitl fill:#CDE2E1,stroke:#077069,color:#0F1514;
     class A,I,P,V,C,S,B ai;
-    class H0,H1,H3,H4,H7,H8,H9 hitl;
+    class H0,H1,H3,H4,H7,H9 hitl;
 ```
 
 Legend — **teal diamonds = HITL (the team decides)** · orange boxes = the AI does. Artifacts land after each gate (`insight-brief` → `campaign-plan (A/B)` + `poster` → `proof` (one-screen pilot forecast) → `proposal` + `pitch-deck`).
@@ -96,7 +95,7 @@ Legend — **teal diamonds = HITL (the team decides)** · orange boxes = the AI 
 | 2–10′ | **Insight** | Research → living brief → AI curates (focus bundle · trends · segments · moments · truths) → ~6 key insights | key insights (2–3) |
 | 10–22′ | **Plan** (+ poster) | Build 2 complete campaigns (A/B) + hero visuals | the campaign (A or B) |
 | 22–30′ | **Prove** | Build the most-reasonable numeric forecast + derivation logic | — (AI only) |
-| 30–38′ | **Showcase** | Storyline + poster on/off menus → build the proposal + deck (+ prompt-pack) | storyline · poster · one-liner · bonus media |
+| 30–38′ | **Showcase** | Storyline + bonus-media menus; AI settles signature · direction · one-liner (poster always on) → build the proposal + deck (+ prompt-pack) | storyline · bonus media |
 | 38–40′ | **Converge** | Package and confirm | confirm |
 
 **At every gate:** `research → menu → team picks → capture (HITL stop) → assemble → next gate`. **One menu per turn** — present it, then stop and wait. Announce a 3-minute and 1-minute warning, then move.

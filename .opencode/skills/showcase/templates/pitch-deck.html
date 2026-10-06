@@ -536,7 +536,7 @@
   // Hard cap: keep the deck at <= 12 slides (5-minute pitch).
   var key = (document.body.getAttribute('data-storyline') || 'classic').trim().toLowerCase();
   var order = (STORYLINES[key] || STORYLINES.classic).slice();
-  // Optional poster: team chooses whether the campaign poster appears in the deck.
+  // Poster is always on (default 'yes'); the poster beat is present in every storyline.
   var includePoster = (document.body.getAttribute('data-poster') || 'yes').trim().toLowerCase();
   if (includePoster === 'no') {
     order = order.filter(function(b){ return b !== 'poster'; });

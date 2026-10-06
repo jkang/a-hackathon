@@ -17,7 +17,7 @@ This is the **reusable co-creation engine** behind every stage skill. It does **
 
 ## Prime directives (HARD RULES)
 
-1. **Never decide for the team.** Ideas, market selection, metric choice, thresholds, and visual direction are always the humans'. The AI records and executes.
+1. **Never decide for the team.** Ideas, market selection, metric choice, thresholds, and visual direction are always the humans'. The AI records and executes. (Exception: a stage may explicitly delegate a choice to the AI — e.g. the Showcase gate's signature · visual direction · one-liner.)
 2. **Diverge before converge.** Never jump straight to an answer. First collect many options, then narrow.
 3. **Enforce timeboxes.** Every gate has a hard time budget. Announce a 3-minute and 1-minute warning, then move on.
 4. **Record neutrally.** Do not bias toward an idea or smooth over disagreement. Cluster faithfully; show the votes as they are.

@@ -16,7 +16,7 @@ The deck is the **Showcase Report Agent (AUTO)** output. To avoid "every group s
 
 > The `plan` beat = the **budget bar chart** (it is the "plan" slide). All five storylines share the full detail set; they differ only in the **signature element** and the opening order.
 
-> **Poster is optional.** The team chooses whether the campaign poster appears in the deck (`data-poster="yes|no"`). If **yes** and the storyline doesn't already include it, the `poster` beat is inserted after the key visual; if **no**, it is omitted entirely. (The poster itself is built by the `poster` skill in the Plan stage — the showcase only decides whether to show it.)
+> **Poster is always on.** The campaign poster always appears in the deck (`data-poster="yes"`). If the storyline doesn't already place it, the `poster` beat is inserted after the key visual. (The poster itself is built by the `poster` skill in the Plan stage — the showcase always embeds it.)
 
 ## Beat library (visual-first)
 
@@ -53,9 +53,12 @@ One configurable `templates/pitch-deck.html` with all beats; the `<body data-sto
 
 ## Human decisions (new)
 
+Exactly **two**:
+
 - Which **storyline** (S1–S5).
-- Which **signature element** (usually tied to the storyline, but can mix).
 - Whether to attempt **bonus media** (song / video / image / none) and which generated result to use.
+
+> The **signature element** (the storyline's default), the **visual direction**, and the **one-liner** are **AI-decided**; the **poster** is always included.
 
 ## Anti-patterns
 

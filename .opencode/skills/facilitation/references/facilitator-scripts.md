@@ -20,7 +20,7 @@ Example (Insight gate):
 - **Creative gate (scenario canvas)**: "Here are **8 moments** on the menu. **Pick 3–5** (time · place · event)."
 - **Creative gate (idea)**: "Here are **8 idea starters**. **Pick 2–3 to build on** — or remix / `+1` your own."
 - **Pilot-forecast gate**: the AI produces it directly (no menu) — just recap: "Here's the pilot forecast the AI derived from our insights + plan — every number shows its benchmark → assumption → formula."
-- **Showcase gate**: "**5 storylines** on the menu — **pick 1**. Include the poster: **yes / no**. Visual direction: **A / B / C**."
+- **Showcase gate**: "**5 storylines** on the menu — **pick 1**. Bonus media: **song / video / image / none** — pick one. The AI settles the signature, direction, and one-liner; the poster is always included."
 
 **Menu opener (pattern):**
 
