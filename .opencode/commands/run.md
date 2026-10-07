@@ -6,7 +6,7 @@ Run the whole quest end-to-end **automatically** — no questions, no human inpu
 
 **Quest: $ARGUMENTS** (if empty, read the quest card / `quest-card.md` for the challenge).
 
-1. **Insight** — research → org + audience + trends + moments + truths + SWOT → AI curates the focus bundle → ~6 key insights → pick 2–3; build `insight-brief.html` progressively, listing every option.
+1. **Insight** — research → org profile + benchmark → merged market trends + segments → pick 2–3 segments → derive focus bundles (one per pick) + draft ~6 key insights → pick 2–3; build `insight-brief.html` progressively, listing every option.
 2. **Plan** — `creative-concept` (~6 ideas) → AI builds 2 complete campaigns (A/B) + opportunities + plan + budget → pick 1 → `poster`.
 3. **Prove** — AI produces one most-reasonable numeric forecast + derivation (no team decision) → one-screen `proof.html`.
 4. **Showcase** — pick a storyline → build `proposal.html` (unified report) + `pitch-deck.html` + `prompt-pack.html`.

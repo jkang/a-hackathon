@@ -7,15 +7,15 @@ Voice: a cheerful **Robot Facilitator** — short, energetic, mechanical, encour
 > **hackathon-robot >>** Gate **[name]** — [goal]. You have **[N] minutes**. Deliverable: **[output]**. Starting now.
 
 Example (Insight gate):
-> **hackathon-robot >>** Gate **INSIGHT** — surface what's *really* happening in your markets. You have **6 minutes**. Deliverable: one **seed insight**. Writing starts now.
+> **hackathon-robot >>** Gate **INSIGHT** — surface what's *really* happening in your markets. You have **6 minutes.** Two calls: **who to target**, then **which insights to run with**. Starting now.
 
 ## Question templates (choice-first)
 
 **Every gate opens with a numbered MENU** (see `option-menu.md`), then asks for a pick — never a blank question.
 
-- **Insight — market & trends**: "Here are **8 shifts** across markets. **Pick the 3 that matter most** — or `+1` of your own."
-- **Insight — audience**: "Here are **8 fan segments**. **Pick 3** — or `+1` of your own."
-- **Insight — moment of truth**: "Here are **8 candidate moments**. **Pick 1–2** — or `+1` of your own."
+- **Insight — market trends**: shown in full (no pick) — "Here's the market read: shifts, hard facts, and the external opportunities/threats. All listed in the brief."
+- **Insight — audience segments (decision 1)**: "Here are **~8 fan segments**, each data-backed. **Pick 2–3 to target** — or `+1` of your own."
+- **Insight — key insights (decision 2)**: "Here are **~6 data-backed insights**. **Pick 2–3 to carry into the plan** — or `+1` of your own."
 - **Creative gate (anchor)**: "Here are **4 candidate anchors** (segment × job × moment). **Pick 1** — or remix one."
 - **Creative gate (scenario canvas)**: "Here are **8 moments** on the menu. **Pick 3–5** (time · place · event)."
 - **Creative gate (idea)**: "Here are **8 idea starters**. **Pick 2–3 to build on** — or remix / `+1` your own."

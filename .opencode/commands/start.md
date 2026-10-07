@@ -13,7 +13,7 @@ Open a **facilitated (human-led)** session for this quest. This command does **t
 2. **Brief the team — explain clearly, in plain language, what is about to happen:**
    - **The task.** The client, the mission, and the target market, in your own words.
    - **The plan — four gates, walked one at a time, with the team deciding at each step:**
-     1. **Insight** — AI researches and curates everything (focus bundle · trends · segments · moments · truths); the team **picks 2–3 key insights**. → `insight-brief.html`
+     1. **Insight** — AI researches and curates the market read + segments; the team **picks 2–3 audience segments**, then **2–3 key insights**. → `insight-brief.html`
      2. **Plan (+ poster)** — AI diverges ~6 ideas and builds **2 complete campaigns (A/B)**; the team **picks one**. → `campaign-plan.html` + `poster.html`
      3. **Prove** — AI produces the most reasonable numeric forecast (no team decision). → `proof.html`
      4. **Showcase** — the team picks a storyline; AI assembles the proposal, pitch deck, and prompt pack. → `proposal.html` + `pitch-deck.html` + `prompt-pack.html`
@@ -26,7 +26,11 @@ Open a **facilitated (human-led)** session for this quest. This command does **t
    > 2. **Skip research** — reuse the card's Scout Report as the seed and move straight to the Insight menus.
    > 3. **Reuse the card + add our own facts** — start from the Scout Report, and our team will contribute the extra evidence we already know.
 
-**Then end your turn and wait for the team's reply.** Do **not** start research, do **not** build anything, do **not** run ahead to the next gate. The team's answer drives the next turn.
+**Then end your turn and wait for the team's reply.** Do **not** start research, do **not** build anything.
+
+**When the team replies with their choice, log it and STOP** — do **not** research, do **not** build anything, do **not** advance into the next stage. End the turn with:
+
+> **Briefing done.** Your choice is logged. Run **`/insight`** to begin.
 
 > This is the *explanation* of the plan — not a to-do list. Walk the happy path **one decision per turn** (see `facilitator` → *Turn discipline*). To run the whole quest automatically instead, use `/run`.
 

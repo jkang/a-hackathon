@@ -23,12 +23,12 @@ The gate ends in **exactly one team decision**: **pick the campaign (A or B)** �
 
 ## When to use
 
-- After `insight` (reads the `insight-brief.html` capture: `focus_bundles` + `key_insights` + `segments` + `moment_of_truth`).
+- After `insight` (reads the `insight-brief.html` capture: `selected_segments` + `focus_bundles` + `key_insights` + `segments` + `moment_of_truth`).
 - When the team wants only the poster — use the `poster` skill directly.
 
 ## Inputs
 
-- The `insight-brief.html` capture — the chosen focus bundle(s) (segment × moment) + `selected_insights`.
+- The `insight-brief.html` capture — the team's chosen segments (`selected_segments`) + the derived focus bundle(s) (segment × moment) + `selected_insights`.
 - Quest card — the **How Might We** if present, War Chest budget (MVP unlock + full), Victory Conditions.
 
 ## Flow (uses the `facilitation` engine)
@@ -57,6 +57,7 @@ The AI drafts both campaigns fully but **never chooses** for the team. Keep the 
 {
   "gate": "plan",
   "quest": "A",
+  "selected_segments": [3, 1],
   "selected_insights": [1, 4],
   "anchor": {"segment": "…", "job": "…", "moment": "…", "mechanic": "…", "desire": "…"},
   "hmw": "How might we …",

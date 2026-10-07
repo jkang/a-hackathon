@@ -5,7 +5,7 @@ The default **happy path**. It is a suggestion, not a script (see Prime Directiv
 | Time   | Gate          | Lead  | AI does                                   | Human decision                  |
 |--------|---------------|-------|-------------------------------------------|---------------------------------|
 | 0–2′   | Kick-off      | AI    | confirm brief (mission · 4 gates · research time) → wait for go-ahead → 30s scout summary + first question | —                               |
-| 2–8′   | Insight gate  | AI    | research → living brief → AI curates focus bundle + menus → ~6 key insights | key insights (2–3)              |
+| 2–8′   | Insight gate  | AI    | research → living brief → merged market trends + ~6–8 segments → focus bundles + ~6 key insights | segments (2–3), then key insights (2–3) |
 | 8–22′  | Creative gate | AI    | diverge ~6 ideas → build 2 complete campaigns (A/B) + visuals | the campaign (A or B)           |
 | 22–30′ | Pilot forecast| AI    | build the most-reasonable forecast + derivations | — (AI only)                    |
 | 30–38′ | Showcase gate | human | build deck + proposal (poster always on)  | storyline + bonus media         |
@@ -17,7 +17,7 @@ The default **happy path**. It is a suggestion, not a script (see Prime Directiv
 
 | Gate          | Diverge        | Converge        |
 |---------------|----------------|-----------------|
-| Insight (8′)  | AI: research + curate all + draft insights 6′ | team picks key insights 2′ |
+| Insight (8′)  | AI: research + curate trends & segments + derive focus + draft insights 6′ | team picks segments (2–3), then key insights (2–3) 2′ |
 | Creative (14′) | AI: diverge ~6 ideas + build A/B 10′ | team picks the campaign (A/B) 4′ |
 | Pilot forecast (8′) | AI builds the most-reasonable forecast 8′ | — (no decision) |
 | Showcase (8′) | storyline + bonus-media pick 2′ | auto-build 5′ + rehearse 1′ |
@@ -42,6 +42,6 @@ The AI must continuously sense remaining time + team intent. On any of these sig
 | "That vote was wrong — redo it" | re-run the dot-vote protocol only (not the whole gate) |
 | "We just want a poster" | call `showcase` alone, using the existing stage HTML captures |
 | "Switch the pilot market" | edit the `campaign-plan.html` capture's pilot field; regenerate proof |
-| "Skip SWOT, just do a slogan" | call HMW + silent brainstorm from `facilitation` only |
+| "Skip the research, just do a slogan" | call HMW + silent brainstorm from `facilitation` only |
 
 **Response style**: one line — "Got it, switching to X." Never explain the deviation or push back.

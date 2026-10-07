@@ -68,9 +68,11 @@ The full **facilitate-mode** flow — teal diamonds = **HITL (the team decides)*
 ```mermaid
 flowchart TD
     A([/start]) --> H0{"👤 confirm brief — mission · 4 gates · research may take a few minutes"}
-    H0 --> I["1 · INSIGHT — research → living brief → AI curates → ~6 key insights"]
-    I --> H1{"👤 pick 2–3 key insights"}
-    H1 --> P["2 · PLAN — creative-concept → ~6 ideas → 2 complete campaigns (A/B)"]
+    H0 --> I["1 · INSIGHT — research → living brief → AI curates market trends + segments"]
+    I --> H1{"👤 pick 2–3 audience segments"}
+    H1 --> I2["AI derives focus bundles + drafts ~6 key insights"]
+    I2 --> H1b{"👤 pick 2–3 key insights"}
+    H1b --> P["2 · PLAN — creative-concept → ~6 ideas → 2 complete campaigns (A/B)"]
     P --> H3{"👤 pick the campaign (A or B)"}
     H3 --> H4{"👤 poster: pick style + one-liner"}
     H4 --> V["3 · PROVE — AI builds the most-reasonable forecast + derivation"]
@@ -84,7 +86,7 @@ flowchart TD
     classDef ai fill:#FFF0E7,stroke:#FF6611,color:#0F1514;
     classDef hitl fill:#CDE2E1,stroke:#077069,color:#0F1514;
     class A,I,P,V,C,S,B ai;
-    class H0,H1,H3,H4,H7,H9 hitl;
+    class H0,H1,H1b,H3,H4,H7,H9 hitl;
 ```
 
 Legend — **teal diamonds = HITL (the team decides)** · orange boxes = the AI does. Artifacts land after each gate (`insight-brief` → `campaign-plan (A/B)` + `poster` → `proof` (one-screen pilot forecast) → `proposal` + `pitch-deck`).
@@ -92,7 +94,7 @@ Legend — **teal diamonds = HITL (the team decides)** · orange boxes = the AI 
 | Time | Gate | You do | The team decides |
 |---|---|---|---|
 | 0–2′ | **Kick-off** | Confirm the brief (mission + 4 gates + upcoming research) → wait for the go-ahead; 30-second scout summary; open the first menu | — |
-| 2–10′ | **Insight** | Research → living brief → AI curates (focus bundle · trends · segments · moments · truths) → ~6 key insights | key insights (2–3) |
+| 2–10′ | **Insight** | Research → living brief → AI curates market trends + ~6–8 segments → derives focus bundles + drafts ~6 key insights | segments (2–3), then key insights (2–3) |
 | 10–22′ | **Plan** (+ poster) | Build 2 complete campaigns (A/B) + hero visuals | the campaign (A or B) |
 | 22–30′ | **Prove** | Build the most-reasonable numeric forecast + derivation logic | — (AI only) |
 | 30–38′ | **Showcase** | Storyline + bonus-media menus; AI settles signature · direction · one-liner (poster always on) → build the proposal + deck (+ prompt-pack) | storyline · bonus media |

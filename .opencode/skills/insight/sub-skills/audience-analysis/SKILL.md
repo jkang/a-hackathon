@@ -1,6 +1,6 @@
 ---
 name: audience-analysis
-description: Identify and segment the campaign audience — find relevant audience data and trend reports, split the audience into 3–5 segments, and profile each one (who they are, jobs-to-be-done, needs & motivations, barriers & triggers, where to reach them, size & market potential, trend). Produces an audience/segment map for the insight gate. Uses the agent-reach sub-skill for audience data & reports. Triggers: "audience analysis", "audience segments", "target audience", "segmentation", "persona", "audience research", "who is it for".
+description: Identify and segment the campaign audience — find relevant audience data and trend reports, split the audience into 3–5 segments, and profile each one (who they are, jobs-to-be-done, needs & motivations, barriers & triggers, where to reach them, size & market potential, trend). Produces the audience/segment menu for the insight gate; the TEAM then picks 2–3 segments to target (the gate's decision 1). Uses the agent-reach sub-skill for audience data & reports. Triggers: "audience analysis", "audience segments", "target audience", "segmentation", "persona", "audience research", "who is it for".
 ---
 
 # Audience Analysis — find, segment & profile the audience
@@ -37,7 +37,7 @@ The insight gate's counterpart to `business-research`: research the **audience**
 2. **Gather data & trend reports** — size, growth, behaviour, channels (live, via `agent-reach`).
 3. **Segment** — split into **3–5 segments**; pick an explicit basis (motivation/need, life-stage, geography, or behaviour). Segments must be **distinct and actionable**.
 4. **Profile each segment** — fill the profile fields below (esp. the **job-to-be-done** and **needs/motivations**).
-5. **Prioritise** — score **attractiveness × fit** (see framework) → name the **target segment(s)** for the campaign.
+5. **Prioritise (recommendation only — never auto-select)** — score **attractiveness × fit** (see framework) to order the segments, then hand them to the team as a **menu**. **The team picks 2–3** — this is the insight gate's **decision 1**.
 
 ## Segment profile fields
 
@@ -56,7 +56,7 @@ The insight gate's counterpart to `business-research`: research the **audience**
 ## Output
 
 - A **Segment Map** (the segment cards, rendered into the insight brief; template + sizing/prioritisation in [`references/segmentation-framework.md`](references/segmentation-framework.md)).
-- The structured `segments` object is embedded in the `insight-brief.html` capture (no separate file).
+- The structured `segments` object is embedded in the `insight-brief.html` capture (no separate file); the team's pick is recorded as `selected_segments`.
 
 ## Self-check
 
@@ -64,7 +64,7 @@ The insight gate's counterpart to `business-research`: research the **audience**
 - [ ] Each has an explicit **job-to-be-done** + **needs/motivations**.
 - [ ] Each size/trend number has a **source + date**.
 - [ ] **Market potential** stated per segment (rough is fine).
-- [ ] A **target segment** is recommended (attractiveness × fit).
+- [ ] Segments are **prioritised** (attractiveness × fit) as a menu — the **team** picks 2–3, not the AI.
 - [ ] Facts vs `[inference]` separated; **no fabricated numbers**.
 
 ## Where it fits (insight research chain)

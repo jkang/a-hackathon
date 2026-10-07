@@ -36,30 +36,35 @@
   .card li{font-size:13.5px;line-height:1.6;padding:4px 0 4px 14px;position:relative;}
   .card li::before{content:"▸";position:absolute;left:0;color:var(--accent);}
   .wide{grid-column:1 / -1;}
-  .bench{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:4px;}
-  .bench .b{border-radius:10px;padding:12px 14px;border:1px solid var(--line);}
+
+  /* ---- Benchmark (now folded into the Scout Summary card) ---- */
+  .bench{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);}
+  .bench .b{border-radius:10px;padding:10px 12px;border:1px solid var(--line);}
   .bench .gold{background:#F7ECD2;border-color:#EAD9AC;}
   .bench .red{background:#FBE4E1;border-color:#F0C4BE;}
   .bench .sky{background:var(--sky-1);border-color:#A9C6EA;}
-  .bench .bt{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;}
+  .bench .bt{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px;}
   .bench .gold .bt{color:#B98A1D;} .bench .red .bt{color:#C0392B;} .bench .sky .bt{color:var(--sky);}
-  .bench p{font-size:12px;line-height:1.55;}
+  .bench p{font-size:11.5px;line-height:1.5;}
 
   /* ---- Shared option states: every menu is rendered IN FULL; selected vs parked ---- */
   .state{position:relative;}
   .state .tag{position:absolute;top:10px;right:12px;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
               border-radius:999px;padding:2px 8px;}
   .state .tag.sel{color:#fff;background:var(--accent);}
-  .state .tag.ai{color:#fff;background:var(--ascentium-midnight);}
   .state.is-sel{border:2px solid var(--accent);background:var(--accent-tint);}
   .state.is-parked{opacity:.5;}
   .state.is-parked:hover{opacity:.85;}
 
+  /* ---- Market Trends: a merged market read — shown in full, no pick ---- */
   .trends{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
   .trend{border-radius:10px;background:var(--bg);border:1px solid var(--line);padding:11px 14px;}
-  .trend .t{font-size:13px;font-weight:700;color:var(--ascentium-midnight);padding-right:56px;}
+  .trend .t{font-size:13px;font-weight:700;color:var(--ascentium-midnight);}
   .trend .w{font-size:12px;color:var(--mut);margin-top:3px;line-height:1.5;}
+  .trend .kind{display:inline-block;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+               color:var(--accent);border:1px solid var(--accent-line);border-radius:999px;padding:1px 7px;margin-bottom:5px;}
 
+  /* ---- Audience Segments: the team's DECISION 1 (pick 2–3) ---- */
   .segments{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
   .seg{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card);}
   .seg .name{font-size:15px;font-weight:700;color:var(--accent);padding-right:56px;}
@@ -69,31 +74,20 @@
   .seg .row{font-size:11.5px;margin-top:7px;line-height:1.5;color:#3B4442;}
   .seg .row b{color:var(--ascentium-midnight);}
 
-  /* ---- Focus bundles: AI-selected (audience × moment × shift) ---- */
+  /* ---- Focus Bundles: derived one per SELECTED segment (segment × moment × shift) ---- */
   .bundles{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
   .bundle{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card);}
-  .bundle .bh{display:flex;align-items:center;gap:8px;}
   .bundle .bid{font-size:10px;font-weight:800;letter-spacing:.08em;color:var(--accent);}
-  .bundle .bn{font-size:15px;font-weight:700;margin-top:5px;color:var(--ascentium-midnight);padding-right:56px;}
+  .bundle .bn{font-size:15px;font-weight:700;margin-top:5px;color:var(--ascentium-midnight);}
   .bundle .brow{font-size:11.5px;margin-top:7px;line-height:1.5;color:#3B4442;}
   .bundle .brow b{color:var(--accent);}
   .bundle .bwhy{font-size:11.5px;margin-top:8px;line-height:1.5;color:var(--mut);}
 
-  .moment{background:var(--accent);color:#fff;border-radius:12px;padding:16px 20px;margin-top:16px;}
-  .moment .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.85;}
-  .moment .txt{font-size:15px;font-weight:700;margin-top:6px;line-height:1.5;}
-
-  .truths{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
-  .chip{position:relative;font-size:12px;line-height:1.4;background:var(--card);color:#3B4442;
-        border:1px solid var(--line);border-radius:999px;padding:6px 12px;}
-  .chip.is-sel{background:var(--accent-tint);color:var(--accent);border:2px solid var(--accent);font-weight:600;}
-  .cluster{font-size:11.5px;font-weight:700;background:var(--ascentium-midnight);color:#fff;border-radius:8px;padding:6px 12px;}
-
-  /* ---- Seed insight: whole-block tint + hairline border (no decorative side bar, per AGENTS §5.2) ---- */
   .seed{margin-top:26px;background:var(--accent-tint);border:1px solid var(--accent-line);border-radius:12px;padding:20px 24px;}
   .seed .lbl{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
   .seed p{font-size:19px;font-weight:600;line-height:1.5;margin-top:8px;}
 
+  /* ---- Key Insights: the team's DECISION 2 (pick 2–3) ---- */
   .kinsights{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px;}
   .kin{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card);position:relative;}
   .kin .id{font-size:10px;font-weight:800;letter-spacing:.08em;color:var(--accent);}
@@ -117,15 +111,20 @@
   <!--
     PROGRESSIVE BUILD (living brief): create this file as soon as the first research block lands,
     then rewrite it after every step. Any block not yet ready is left as a short "researching…" placeholder.
+
+    ORDER: context (scout+benchmark · org) → Market Trends (no pick) → Audience Segments (DECISION 1)
+           → Focus Bundles (derived) → Key Insights (DECISION 2) → Seed Insight.
+
     Every menu below is rendered IN FULL, not just the picks:
-      .state.is-sel  = chosen by the team        (tag: SELECTED)
-      .state.is-parked = shown but not chosen    (dimmed)
-      trends / moments / truths are AI-curated  (tag: AI PICK) and remain listed in full; the team may override.
-    The single human decision is the Key Insights (pick 2–3); the focus bundle is AI-selected.
+      .state.is-sel    = chosen by the team     (tag: SELECTED)
+      .state.is-parked = shown but not chosen   (dimmed)
+      Market Trends are shown in full with NO pick; Focus Bundles are derived one per selected segment.
+    The TWO human decisions are the Audience Segments (pick 2–3) and the Key Insights (pick 2–3).
   -->
 
   <div class="grid">
-    <div class="card">
+    <!-- ===== CONTEXT: scout summary + benchmark (benchmark is folded into the scout card) ===== -->
+    <div class="card wide">
       <h2>Scout Summary</h2>
       <ul>
         <li>{{SCOUT_POINT_1}}</li>
@@ -133,57 +132,8 @@
         <li>{{SCOUT_POINT_3}}</li>
         <!-- repeat one <li> per scout point -->
       </ul>
-    </div>
-    <div class="card">
-      <h2>Org / IP Profile</h2>
-      <ul>
-        <li><b>Assets:</b> {{ASSETS}}</li>
-        <li><b>Constraints:</b> {{CONSTRAINTS}}</li>
-      </ul>
-    </div>
-
-    <!-- ===== FOCUS BUNDLES (AI-selected) — audience × moment × shift; the AI picks the strongest ===== -->
-    <div class="card wide">
-      <h2>Focus Bundles — AI-selected <span class="count">2 AI picks of 6</span></h2>
-      <div class="bundles">
-        <div class="bundle state is-sel">
-          <span class="tag ai">AI pick</span>
-          <div class="bh"><span class="bid">FOCUS 01</span></div>
-          <div class="bn">{{BUNDLE_1_NAME}}</div>
-          <div class="brow"><b>Audience:</b> {{BUNDLE_1_SEG}}</div>
-          <div class="brow"><b>Moment:</b> {{BUNDLE_1_MOMENT}}</div>
-          <div class="brow"><b>Shift:</b> {{BUNDLE_1_TREND}}</div>
-          <div class="bwhy">{{BUNDLE_1_WHY}}</div>
-        </div>
-        <div class="bundle state is-parked">
-          <div class="bh"><span class="bid">FOCUS 02</span></div>
-          <div class="bn">{{BUNDLE_2_NAME}}</div>
-          <div class="brow"><b>Audience:</b> {{BUNDLE_2_SEG}}</div>
-          <div class="brow"><b>Moment:</b> {{BUNDLE_2_MOMENT}}</div>
-          <div class="brow"><b>Shift:</b> {{BUNDLE_2_TREND}}</div>
-          <div class="bwhy">{{BUNDLE_2_WHY}}</div>
-        </div>
-        <!-- repeat one .bundle per focus bundle; add class is-sel to the chosen one(s), is-parked to the rest -->
-      </div>
-    </div>
-
-    <div class="card wide">
-      <h2>Market Trends — all options <span class="count">3 AI picks of 8</span></h2>
-      <div class="trends">
-        <div class="trend state is-sel">
-          <span class="tag ai">AI pick</span>
-          <div class="t">{{TREND_1}}</div><div class="w">{{TREND_1_WHY}}</div>
-        </div>
-        <div class="trend state is-parked">
-          <div class="t">{{TREND_2}}</div><div class="w">{{TREND_2_WHY}}</div>
-        </div>
-        <!-- repeat one .trend per trend; chosen get class is-sel + tag, the rest is-parked -->
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Benchmark</h2>
-      <div class="bench" style="grid-template-columns:1fr;gap:8px;">
+      <!-- benchmark folded in -->
+      <div class="bench">
         <div class="b gold"><div class="bt">Gold Standard</div><p>{{GOLD_STANDARD}}</p></div>
         <div class="b red"><div class="bt">Cautionary Tale</div><p>{{CAUTIONARY_TALE}}</p></div>
         <div class="b sky"><div class="bt">Your Arena</div><p>{{ARENA}}</p></div>
@@ -191,7 +141,32 @@
     </div>
 
     <div class="card wide">
-      <h2>Audience Segments — all options <span class="count">2 selected of 6</span></h2>
+      <h2>Org / IP Profile <span class="count">assets = strengths · constraints = weaknesses</span></h2>
+      <ul>
+        <li><b>Assets:</b> {{ASSETS}}</li>
+        <li><b>Constraints:</b> {{CONSTRAINTS}}</li>
+      </ul>
+    </div>
+
+    <!-- ===== MARKET TRENDS (merged market read) — shown in full; NO pick ===== -->
+    <div class="card wide">
+      <h2>Market Trends — the market read <span class="count">shown in full · no pick</span></h2>
+      <div class="trends">
+        <div class="trend">
+          <span class="kind">shift</span>
+          <div class="t">{{TREND_1}}</div><div class="w">{{TREND_1_WHY}}</div>
+        </div>
+        <div class="trend">
+          <span class="kind">fact</span>
+          <div class="t">{{TREND_2}}</div><div class="w">{{TREND_2_WHY}}</div>
+        </div>
+        <!-- repeat one .trend per trend; kind = shift | fact | opportunity | threat -->
+      </div>
+    </div>
+
+    <!-- ===== AUDIENCE SEGMENTS — DECISION 1 (the team picks 2–3) ===== -->
+    <div class="card wide">
+      <h2>Audience Segments — the team picks 2–3 <span class="count">2 selected of 6</span></h2>
       <div class="segments">
         <div class="seg state is-sel">
           <span class="tag sel">Selected</span>
@@ -212,54 +187,41 @@
       </div>
     </div>
 
+    <!-- ===== FOCUS BUNDLES — derived one per SELECTED segment (audience × moment × shift) ===== -->
     <div class="card wide">
-      <h2>Market Truths — all options <span class="count">4 AI picks of 8</span></h2>
-      <div class="truths">
-        <span class="chip is-sel">{{TRUTH_1}}</span>
-        <span class="chip">{{TRUTH_2}}</span>
-        <!-- repeat one .chip per truth; chosen get is-sel -->
-      </div>
-      <div class="clusters">
-        <!-- one .cluster per affinity cluster (AI) -->
-        <span class="cluster">{{CLUSTER_1}}</span>
-        <span class="cluster">{{CLUSTER_2}}</span>
-        <span class="cluster">{{CLUSTER_3}}</span>
+      <h2>Focus Bundles — from the selected segments <span class="count">1 per selected segment</span></h2>
+      <div class="bundles">
+        <div class="bundle">
+          <div class="bid">FOCUS 01</div>
+          <div class="bn">{{BUNDLE_1_NAME}}</div>
+          <div class="brow"><b>Audience:</b> {{BUNDLE_1_SEG}}</div>
+          <div class="brow"><b>Moment:</b> {{BUNDLE_1_MOMENT}}</div>
+          <div class="brow"><b>Shift:</b> {{BUNDLE_1_TREND}}</div>
+          <div class="bwhy">{{BUNDLE_1_WHY}}</div>
+        </div>
+        <!-- repeat one .bundle per selected segment -->
       </div>
     </div>
 
+    <!-- ===== KEY INSIGHTS — DECISION 2 (the team picks 2–3) ===== -->
     <div class="card wide">
-      <h2>Moments of Truth — all options <span class="count">2 AI picks of 8</span></h2>
-      <div class="truths">
-        <!-- one .chip per candidate moment; AI picks get class is-sel -->
-        <span class="chip is-sel">{{MOMENT_1}}</span>
-        <span class="chip">{{MOMENT_2}}</span>
+      <h2>Key Insights — the team picks 2–3 <span class="count">2 selected of 6</span></h2>
+      <div class="kinsights">
+        <div class="kin state is-sel">
+          <span class="tag sel">Selected</span>
+          <div class="id">INSIGHT 01</div><div class="t">{{KI_1}}</div><div class="ev">{{KI_1_EV}}</div>
+        </div>
+        <div class="kin state is-parked">
+          <div class="id">INSIGHT 02</div><div class="t">{{KI_2}}</div><div class="ev">{{KI_2_EV}}</div>
+        </div>
+        <!-- repeat one .kin per insight; chosen is-sel + tag, rest is-parked -->
       </div>
     </div>
-  </div>
-
-  <div class="moment">
-    <div class="lbl">Moment of Truth — from the chosen focus</div>
-    <div class="txt">{{MOMENT_WHEN}} · {{MOMENT_WHERE}} · {{MOMENT_EVENT}}</div>
   </div>
 
   <div class="seed">
-    <div class="lbl">Seed Insight · AI-drafted from the chosen focus + insights</div>
+    <div class="lbl">Seed Insight · AI-drafted from the chosen segments + insights</div>
     <p>{{SEED_INSIGHT}}</p>
-  </div>
-
-  <!-- ===== THE DECISION — KEY INSIGHTS (all listed) · the team picks 2–3 ===== -->
-  <div class="card wide" style="margin-top:16px;">
-    <h2>Key Insights — the team picks 2–3 <span class="count">2 selected of 6</span></h2>
-    <div class="kinsights">
-      <div class="kin state is-sel">
-        <span class="tag sel">Selected</span>
-        <div class="id">INSIGHT 01</div><div class="t">{{KI_1}}</div><div class="ev">{{KI_1_EV}}</div>
-      </div>
-      <div class="kin state is-parked">
-        <div class="id">INSIGHT 02</div><div class="t">{{KI_2}}</div><div class="ev">{{KI_2_EV}}</div>
-      </div>
-      <!-- repeat one .kin per insight; chosen is-sel + tag, rest is-parked -->
-    </div>
   </div>
 
   <footer>

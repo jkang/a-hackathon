@@ -1,13 +1,13 @@
 ---
 name: insight
-description: Run the INSIGHT gate of the Ascentium mini-hackathon quest — turn the quest-card Scout Report plus the team's own knowledge into a rich, defensible Insight Brief: market & trends, audience segments, the moment of truth, raw market truths, focus bundles, and data-backed key insights. The AI curates everything (focus bundle · trends · segments · moments · truths); the brief is built progressively and always lists every option. The team makes ONE decision — the Key Insights (2–3) to carry into the plan. Human-led, AI-scaffolded. Use at the start of any quest (reads the quest card). Triggers: "insight gate", "seed insight", "audience analysis", "focus bundle", "market trend", "moment of truth", "scout report", "insight".
+description: Run the INSIGHT gate of the Ascentium mini-hackathon quest — turn the quest-card Scout Report plus the team's own knowledge into a rich, defensible Insight Brief. The AI researches and curates the market trends, audience segments, focus bundles, and key insights. The gate has TWO team decisions: (1) pick the audience segments (2–3) to target, and (2) pick the key insights (2–3) to carry into the plan. Human-led, AI-scaffolded. Use at the start of any quest (reads the quest card). Triggers: "insight gate", "seed insight", "audience analysis", "audience segments", "focus bundle", "market trend", "moment of truth", "scout report", "insight".
 ---
 
 # Quest Insight — the INSIGHT gate
 
-Produce a one-page **Insight Brief** that seeds the creative gate. The AI does all the research and **every selection** (focus bundle · trends · segments · moments · truths, plus the SWOT). The **team makes ONE decision** — which **key insights** to carry into the plan.
+Produce a one-page **Insight Brief** that seeds the creative gate. The AI does all the research; the **team makes TWO decisions** — **which audience segments to target (2–3)**, then **which key insights to carry into the plan (2–3)**.
 
-> Rationale: 40 minutes is tight. The AI curates everything and the team makes a **single, high-value call at the end** of the gate — instead of five separate picks.
+> Rationale: in a marketing challenge the team's first and most valuable call is *who to target*; the second is *which data-backed tension to run with*. The AI curates everything else, and the brief always lists every option.
 
 ## When to use
 
@@ -19,46 +19,50 @@ Produce a one-page **Insight Brief** that seeds the creative gate. The AI does a
 - The quest card (the challenge brief) — already contains the Scout Report, War Chest, and Victory Conditions. **Treat it as the primary data pack.**
 - The team's own knowledge — the primary *human* source (the market / business experts in the room).
 
-## One decision only
+## Two decisions
 
-The gate ends in **exactly one team decision**: **pick 2–3 key insights** (from ~6 AI-drafted, data-backed insights).
+1. **Select the audience segments** — pick 2–3 from ~6–8 AI-drafted, data-backed segments. *(This defines who the campaign targets — the anchor for `plan`.)*
+2. **Select the key insights** — pick 2–3 from ~6 AI-drafted, data-backed insights. *(These carry into `plan`.)*
 
-Everything upstream is **AI-curated and shown in full** in the brief, each option marked `AI pick` and overridable on request:
-- the **focus bundle(s)** (audience × moment × shift) — the AI selects the strongest;
-- **trends**, **segments**, **moments of truth**, **truths**, and the **SWOT**.
+Everything else is **AI-curated and shown in full** in the brief, overridable on request:
+- the **Market Trends** — a merged market read (directional shifts + hard facts + the external opportunities/threats) — shown in full, no pick;
+- the **Focus Bundles** — one per selected segment (audience × moment × shift), derived *after* the segment pick;
+- the **Seed Insight** — synthesized from the picked insights.
 
 ## Living brief — build it progressively
 
 `insight-brief.html` is **not** a one-shot final artifact. It is a **living brief**:
 
 - **Create it as soon as the first research block lands** — right after the brief is confirmed and the kick-off / org research returns, create the round folder `artifacts/Quest<ID>-<NN>/` and write the skeleton (scout summary + org profile) with short `researching…` placeholders for the rest.
-- **Rewrite it after every step** — audience & trends → moments & truths & SWOT → focus bundle (AI) → key insights → seed. Each rewrite refreshes the page **and** its embedded `id="capture"` block.
-- **Always list every candidate option** in each block, not just the picks: chosen → highlighted (`SELECTED`); not chosen → dimmed (`is-parked`); AI-curated → tagged (`AI pick`).
+- **Rewrite it after every step** — market trends + segments → (team picks segments) → focus bundles → key insights → (team picks insights) → seed. Each rewrite refreshes the page **and** its embedded `id="capture"` block.
+- **Always list every candidate option** in each block, not just the picks: chosen → highlighted (`SELECTED`); not chosen → dimmed (`is-parked`).
 
 ## Flow (uses the `facilitation` engine)
 
-> **Choice-first**: the single decision opens with an **AI-drafted menu of 6–8 grounded options** (`facilitation` → `option-menu.md`); the team **selects** and may add `+1 of our own`. Never ask a blank question.
+> **Choice-first**: each decision opens with an **AI-drafted menu of 6–8 grounded options** (`facilitation` → `option-menu.md`); the team **selects** and may add `+1 of our own`. Never ask a blank question.
 
 **Research chain (sub-skills):** `agent-reach` → `business-research` → `audience-analysis` → `swot-analysis`.
-- `agent-reach` is the **shared data engine**; `business-research` and `audience-analysis` both call it.
-- `business-research` (internal) feeds `audience-analysis` (fit) and `swot-analysis` (S/W).
-- `audience-analysis` (external) feeds `swot-analysis` (O/T).
+- `agent-reach` is the **shared data engine**; the research skills call it.
+- `business-research` (internal) → the **organization profile** (assets = strengths, constraints = weaknesses).
+- `audience-analysis` (external) → the **segments**.
+- `swot-analysis` (synthesis) → its **external opportunities/threats fold into Market Trends**; its **internal strengths/weaknesses are already the org profile**. There is **no separate SWOT block**.
 - Use the `researcher` subagent to run `agent-reach` and return **data-backed menus**.
 
-**Before any research (only if the session hasn't been briefed yet): brief & confirm (HITL).** If the team already confirmed the brief via `/start`, skip this and go straight to research. Otherwise, read the card, then tell the team in a few plain lines: (1) what this quest is — client, mission, market; (2) the four gates — Insight → Plan (+ poster) → Prove → Showcase; (3) what happens next — you will research this quest and turn it into **~6 data-backed insights**; (4) that the research **may take a few minutes**. Then present the **fixed start menu** (verbatim — do not reword/reorder/add): **1** Start the research · **2** Skip research (reuse the Scout Report) · **3** Reuse the card + add our own facts; **wait for the team's reply.**
+**Before any research (only if the session hasn't been briefed yet): brief & confirm (HITL).** If the team already confirmed the brief via `/start`, skip this and go straight to research. Otherwise, read the card, then tell the team in a few plain lines: (1) what this quest is — client, mission, market; (2) the four gates — Insight → Plan (+ poster) → Prove → Showcase; (3) what happens next — you will research this quest and turn it into **~6 data-backed insights**, and the gate has **two picks** (segments, then insights); (4) that the research **may take a few minutes**. Then present the **fixed start menu** (verbatim — do not reword/reorder/add): **1** Start the research · **2** Skip research (reuse the Scout Report) · **3** Reuse the card + add our own facts; **wait for the team's reply.**
 
-1. **Seed the brief (AI).** After the go-ahead, deliver a 30-second scout summary and run **`business-research`** (via `agent-reach`) for the **organization profile** + benchmark. **Create `insight-brief.html` now** with the scout summary + org profile (placeholders for what's still coming).
-2. **Research & curate all menus (AI, no decision).** Run **`audience-analysis`** + trend + truth research via `agent-reach`; then run **`swot-analysis`**. Distil, as **full data-backed menus**: trends (~6–8), segments (~6–8), candidate moments (~6–8), candidate field truths (~6–8), each with a fact/number/behavior + source. **Select the focus bundle(s)** (audience × moment × shift) and mark your `AI pick`s. **Rewrite the brief** listing every option.
-3. **Draft key insights (AI, no decision).** Distil **~6 key insights** from the org profile + trends + audience + focus + SWOT. Each insight = a **data-backed tension** (a fact/trend + its "so what") with a source. **Rewrite the brief** listing all ~6.
-4. **DECIDE (team) — the single decision.** Present the **~6 key insights** inline → the team **picks 2–3** to carry into `plan` (the rest are parked). **Rewrite the brief** (chosen highlighted).
-5. **Seed insight (AI).** Synthesize the one-line overarching tension from the chosen insights. Finalize the brief + capture.
-6. **Capture.** Every rewrite refreshes the artifact's embedded `id="capture"` block (see Output). No separate data file.
+1. **Seed the brief (AI).** After the go-ahead, deliver a 30-second scout summary and run **`business-research`** (via `agent-reach`) for the **organization profile** + benchmark. **Create `insight-brief.html` now** with the scout summary (benchmark folded in) + org profile (placeholders for what's still coming).
+2. **Research & build the market read + segments (AI, no decision).** Run **`audience-analysis`** + **`swot-analysis`** via `agent-reach`. Distil, as **full data-backed menus**: **Market Trends** (~6–8 — one merged read spanning directional shifts, hard field facts, and external opportunities/threats, each with a fact/number + source) and **segments** (~6–8 — STP + JTBD). **Rewrite the brief** listing every option.
+3. **DECISION 1 (team) — select the segments.** Present the **~6–8 segments** inline → the team **picks 2–3** to target. **Rewrite the brief** (chosen highlighted).
+4. **Derive the focus bundles (AI, no decision).** For each **selected** segment, derive one **Focus Bundle** — segment × its **moment of truth** (when / where / event) × the supporting trend — plus the strategic why. **Rewrite the brief.**
+5. **Draft key insights (AI, no decision).** Distil **~6 key insights** from the org profile + market trends + selected segments + focus bundles. Each insight = a **data-backed tension** (a fact/trend + its "so what") with a source. **Rewrite the brief** listing all ~6.
+6. **DECISION 2 (team) — select the key insights.** Present the **~6 key insights** inline → the team **picks 2–3** to carry into `plan` (the rest are parked). **Rewrite the brief** (chosen highlighted).
+7. **Seed insight (AI).** Synthesize the one-line overarching tension from the chosen insights. Finalize the brief + capture.
 
-## HITL gate (mandatory)
+## HITL gates (mandatory)
 
 - **Before research begins**, the team confirms the brief (mission + four gates + that research may take a few minutes).
-- Exactly **one** decision: the team **picks 2–3 key insights**.
-The AI must **not** make that pick — it drafts the menu. The focus bundle, trends, moments, and truths are AI-curated but always **shown in full** and overridable on request (e.g. the team says "redo the trends"). Always keep the `+1 of our own` channel open.
+- **Two decisions**: (1) the team **picks 2–3 segments**; (2) the team **picks 2–3 key insights**.
+The AI must **not** make either pick — it drafts the menus. The market trends and focus bundles are AI-curated but always **shown in full** and overridable on request (e.g. the team says "redo the trends"). Always keep the `+1 of our own` channel open.
 
 ## Output
 
@@ -76,14 +80,11 @@ The AI must **not** make that pick — it drafts the menu. The focus bundle, tre
   "mission": "one line from the card",
   "org_profile": {"assets": ["…"], "constraints": ["…"]},
   "benchmark": {"gold_standard": "…", "cautionary_tale": "…", "arena": "…"},
-  "trends": [{"id": 1, "trend": "…", "why_it_matters": "…", "source": "…", "ai_pick": true}],
-  "truths": [{"id": 1, "text": "…", "source": "…", "ai_pick": true}],
-  "segments": [{"id": 1, "name": "…", "who": "…", "job_functional": "…", "job_social": "…", "job_emotional": "…", "barrier": "…", "trigger": "…", "source": "…", "ai_pick": false}],
-  "moments": [{"id": 1, "text": "…", "ai_pick": true}],
-  "focus_bundles": [{"id": 1, "name": "…", "segment_ids": [3], "moment_id": 2, "trend_id": 4, "why": "…", "ai_pick": true}],
-  "selected_focus": [1],
+  "trends": [{"id": 1, "trend": "…", "why_it_matters": "…", "kind": "shift | fact | opportunity | threat", "source": "…"}],
+  "segments": [{"id": 1, "name": "…", "who": "…", "job_functional": "…", "job_social": "…", "job_emotional": "…", "barrier": "…", "trigger": "…", "source": "…", "selected": false}],
+  "selected_segments": [3, 1],
+  "focus_bundles": [{"id": 1, "name": "…", "segment_id": 3, "moment": {"when": "…", "where": "…", "event": "…"}, "trend_id": 4, "why": "…"}],
   "moment_of_truth": {"when": "…", "where": "…", "event": "…"},
-  "swot": {"strengths": ["…"], "weaknesses": ["…"], "opportunities": ["…"], "threats": ["…"]},
   "key_insights": [{"id": 1, "text": "fact/trend + so-what", "evidence": "…", "source": "…", "selected": true}],
   "selected_insights": [1, 4],
   "seed_insight": "the one-line overarching tension",
@@ -92,26 +93,26 @@ The AI must **not** make that pick — it drafts the menu. The focus bundle, tre
 </script>
 ```
 
-> **Every menu carries all its options**, each with a `selected` / `ai_pick` flag — never only the winner. `selected_focus` is an **AI pick**; `selected_insights` is the **team's single decision**. The `plan` gate consumes `selected_insights`, `segments`, and `moment_of_truth`.
+> **Every menu carries all its options**, each with a `selected` flag — never only the winner. `selected_segments` and `selected_insights` are the **team's two decisions**. `moment_of_truth` is the **primary** selected focus's moment. The `plan` gate consumes `selected_segments`, `selected_insights`, `focus_bundles`, and `moment_of_truth`.
 
 ## Methodology anchors
 
 - **STP — Segmentation**: 2–4 fan segments, by market + psychographic.
 - **JTBD**: functional / social / emotional job for each segment.
-- **Trend analysis**: behavior / culture / policy shifts.
-- **Moment of truth**: the time-place-event where demand is manufactured.
-- **Focus bundle**: audience × moment × shift, in one coherent package (AI-selected).
+- **Trend analysis**: behavior / culture / policy shifts — merged with the hard field facts and the external opportunities/threats (SWOT O/T) into one market read.
+- **Moment of truth**: the time-place-event where demand is manufactured (derived per selected segment).
+- **Focus bundle**: audience × moment × shift, in one coherent package (derived from the selected segments).
 - See `references/insight-method.md`.
 
 ## Research & restraint
 
-- **The AI researches; the team doesn't.** In this gate, actively call `agent-reach` to gather facts, reports and data, then distill them into **valuable, data-backed insight options**. The team's effort goes into *one decision*, not research.
+- **The AI researches; the team doesn't.** In this gate, actively call `agent-reach` to gather facts, reports and data, then distill them into **valuable, data-backed options**. The team's effort goes into *the two decisions*, not research.
 - Restraint means: don't turn the room into a research marathon, and don't dump raw data — **distill each fact into a crisp, defensible option** (a number, a trend, a named behavior). Richer *analysis*, not more data.
 - **Cap retries at 2–3 attempts per source.** If a site / report keeps failing, mark it **unreachable**, move on, and use another source — never loop on one dead link. If the web is largely unreachable, fall back to the card's Scout Report and say what could not be verified.
 - Ground every menu in the card + `agent-reach` findings; cite the source in the option.
 
 ## Design notes
 
-- **Invoke these sub-skills** (do not hand-roll their output): `agent-reach` (live research → data-backed options), `business-research` (organization profile), `audience-analysis` (segment the audience — profiles, needs, market potential), `swot-analysis`.
+- **Invoke these sub-skills** (do not hand-roll their output): `agent-reach` (live research → data-backed options), `business-research` (organization profile), `audience-analysis` (segment the audience — profiles, needs, market potential), `swot-analysis` (its opportunities/threats fold into the trends; strengths/weaknesses are the org profile).
 - Keep the brief to ONE page. It is a seed for creativity, not a research report.
 - Content area is **80% of the viewport width** (max 1600px) — see the template's `.page`. Do not reintroduce decorative side bars (`border-left`) — AGENTS §5.2.

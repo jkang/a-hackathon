@@ -1,11 +1,11 @@
 ---
 name: swot-analysis
-description: Structured SWOT synthesis for a marketing campaign — combine the organization profile (internal Strengths/Weaknesses) with the audience + market context (external Opportunities/Threats), and produce an evidence-backed SO/WO/ST/WT cross-strategy matrix. The synthesis step of the insight gate. Triggers: "SWOT", "strengths weaknesses", "competitive analysis", "business diagnosis", "cross-strategy".
+description: Structured SWOT synthesis for a marketing campaign — combine the organization profile (internal Strengths/Weaknesses) with the audience + market context (external Opportunities/Threats), and produce an evidence-backed SO/WO/ST/WT cross-strategy matrix. The synthesis step of the insight gate. It produces no standalone block: Strengths/Weaknesses feed the Org/IP Profile and Opportunities/Threats fold into Market Trends. Triggers: "SWOT", "strengths weaknesses", "competitive analysis", "business diagnosis", "cross-strategy".
 ---
 
 # SWOT Analysis — campaign synthesis
 
-Turn the insight research into a strategic read. **Internal** factors come from the organization profile; **external** factors come from the audience map + market. Output = an evidence-backed SWOT + a cross-strategy matrix that points to where to play.
+Turn the insight research into a strategic read. **Internal** factors come from the organization profile; **external** factors come from the audience map + market. Its output is **distributed, not a standalone block**: **S/W → the Org / IP Profile**, **O/T → the Market Trends block**. (A cross-strategy matrix remains an optional scaffold.)
 
 ## Inputs
 
@@ -74,7 +74,10 @@ Produce 1–2 concrete, adoptable moves per quadrant.
 
 ## Output
 
-A Markdown SWOT + cross-strategy report; template in [`references/analysis_framework.md`](references/analysis_framework.md).
+The synthesis **feeds the insight brief — there is no standalone SWOT block**:
+- **Internal Strengths / Weaknesses** → the **Org / IP Profile** (assets = strengths, constraints = weaknesses).
+- **External Opportunities / Threats** → the **Market Trends** block (the merged market read).
+Cross-strategy moves remain an optional scaffold; template in [`references/analysis_framework.md`](references/analysis_framework.md).
 
 ## Self-check
 
@@ -87,5 +90,5 @@ A Markdown SWOT + cross-strategy report; template in [`references/analysis_frame
 ## Where it fits (insight research chain)
 
 - **Upstream**: `business-research` (**internal S/W**) + `audience-analysis` + market context (**external O/T**).
-- **Downstream**: the **key insights** → the `plan` gate (strategic move).
-- **Note**: SWOT is the **synthesis** layer — it comes *after* both the org profile and the audience map, because O/T need the external view.
+- **Downstream**: the **key insights** → the `plan` gate (strategic move). S/W are written into the org profile; O/T into the market trends.
+- **Note**: SWOT is the **synthesis** layer — it comes *after* both the org profile and the audience map, because O/T need the external view. It does **not** produce its own brief block.

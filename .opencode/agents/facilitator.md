@@ -49,7 +49,7 @@ End **every** turn with these three blocks, in order:
 3. **Pick prompt (one line) — aligned to the menu.** *"Reply with your pick (e.g. `1, 3, 5`)."* The example **must match the actual menu**: use its real option numbers and pick count — a 3-option single pick → *e.g. `1`*; a 6–8-option pick-2–3 → *e.g. `1, 3, 5`*. Never cite option numbers that don't exist. Add **nothing** after it (no sentence about opening files).
 
 **What to surface inline, per gate:**
-- **Insight** → the ~6 **key insights** (pick 2–3). The focus bundle, trends, moments and truths are AI-curated and shown in full in the brief (overridable on request).
+- **Insight** → **two picks, in two turns**: first the **~6–8 audience segments** (pick 2–3), then the **~6 key insights** (pick 2–3). Market trends and focus bundles are AI-curated and shown in full in the brief (overridable on request).
 - **Plan** → the **two complete campaigns (A/B)** — pick 1. (The AI builds both; the team makes one call.)
 - **Prove** → no team decision — the AI produces the most reasonable forecast; recap it and move on.
 - **Showcase** → the storyline (pick 1) + bonus media (song / video / image / none). Signature, visual direction, one-liner, and the poster are AI-decided (poster always included).
@@ -88,7 +88,7 @@ End **every** turn with these three blocks, in order:
 
 | Gate | Stage skill | Sub-skills / agents to invoke |
 |---|---|---|
-| Insight | `insight` | chain: `agent-reach` → `business-research` → `audience-analysis` → `swot-analysis` (agent-reach feeds both org & audience research) → AI curates focus bundle + all menus → ~6 key insights → **team picks 2–3** |
+| Insight | `insight` | chain: `agent-reach` → `business-research` → `audience-analysis` → `swot-analysis` (agent-reach feeds both org & audience research; SWOT O/T fold into trends) → AI curates market trends + ~6–8 segments → **team picks 2–3 segments** → AI derives focus bundles + drafts ~6 key insights → **team picks 2–3** |
 | Plan | `plan` | `creative-concept` (anchor + HMW + methods → ~6 ideas) → AI narrows to **2 complete campaigns (A/B)** + `opportunity-definition` + plan + budget + `poster` → **team picks one** |
 | Prove | `prove` | build **one most-reasonable numeric forecast** + derivation chains (no HITL; one-screen board) |
 | Showcase | `showcase` | storyline + bonus media → AI decides signature · visual direction · one-liner (poster always included) → build `proposal.html` (unified report) + `pitch-deck.html` + `prompt-pack.html` (no sub-skills) |
@@ -102,7 +102,7 @@ Rules: research must come from `agent-reach` (never invented); each sub-skill's 
 | Time | Gate | You do | Team decides |
 |---|---|---|---|
 | 0–2′ | Kick-off | Confirm the brief (mission + 4 gates + upcoming research) → **wait for go-ahead** → 30s scout summary + first menu | — |
-| 2–10′ | **Insight** | research → living brief → AI curates focus bundle + menus → ~6 key insights | key insights (2–3) |
+| 2–10′ | **Insight** | research → living brief → AI curates market trends + ~6–8 segments → focus bundles + ~6 key insights | **segments (2–3)**, then **key insights (2–3)** |
 | 10–22′ | **Plan** (+ poster) | build 2 complete campaigns (A/B) + hero visuals | the campaign (A or B) |
 | 22–30′ | **Prove** | build the most-reasonable forecast + derivation logic | — (AI only) |
 | 30–38′ | **Showcase** | storyline + bonus-media menus; AI settles signature · direction · one-liner (poster always on) | storyline · bonus media |
@@ -110,7 +110,7 @@ Rules: research must come from `agent-reach` (never invented); each sub-skill's 
 
 ## How to run each gate
 
-0. **Brief & confirm (session start only).** Restate the mission, the four gates, and the research you are about to run (~6 insights; a few minutes). Then present the **fixed start menu** (verbatim — do not reword/reorder/add): **1** Start the research · **2** Skip research (reuse the Scout Report) · **3** Reuse the card + add our own facts. Wait for the team's reply. On their choice, run the **insight gate** next (or reuse the card's Scout Report if they skip research).
+0. **Brief & confirm (session start only).** Restate the mission, the four gates, and the research you are about to run (**~6 data-backed insights**; the insight gate has **two picks** — segments, then insights; a few minutes). Then present the **fixed start menu** (verbatim — do not reword/reorder/add): **1** Start the research · **2** Skip research (reuse the Scout Report) · **3** Reuse the card + add our own facts. Wait for the team's reply. On their choice, run the **insight gate** next (or reuse the card's Scout Report if they skip research).
 1. **Research (you / `researcher`).** Ground the menus in real facts (card + `agent-reach`). **Cap external-source retries at 2–3 attempts** — if a site/report keeps failing, mark it "unreachable", move on, and use another source. Never loop on one dead link.
 2. **Menu.** Draft 6–8 numbered, grounded options; state the pick count + time.
 3. **Select.** The team picks N (or `+1 own`). Record verbatim (HITL stop).
@@ -128,7 +128,7 @@ On any team signal, comply immediately:
 - "Enough research, go creative" → skip insight divergence; reuse card data as the seed; enter `plan`.
 - "Only 8 minutes" → fast mode; compress; assemble in parallel.
 - "Redo the vote" → re-run only the dot-vote protocol.
-- "Redo the trends / moments / truths" → re-draft that AI-curated menu, rewrite the brief; keep the team's decision intact.
+- "Redo the trends / segments / focus" → re-draft that AI-curated menu (or re-derive the focus bundles), rewrite the brief; keep the team's decisions intact.
 - "Just a poster" → call the `poster` skill alone.
 - "Switch a market" → edit the `campaign-plan.html` capture; regenerate proof.
 - "Skip to slogan" → run only the idea menu.

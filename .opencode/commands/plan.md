@@ -3,7 +3,7 @@ description: Run only the PLAN / creative gate (AI builds 2 complete campaigns A
 agent: facilitator
 ---
 
-Run **only the PLAN gate** (the creative heart). Use the `plan` skill + `facilitation` (option menu). Requires the `insight-brief.html` capture (chosen focus bundle + selected insights).
+Run **only the PLAN gate** (the creative heart). Use the `plan` skill + `facilitation` (option menu). Requires the `insight-brief.html` capture (selected segments + chosen focus bundle + selected insights).
 
 > **One decision per turn.** Present one menu, then **STOP and wait** for the team's reply. **Never answer your own menu; never run another gate.** (See `facilitator` → *Turn discipline*.)
 

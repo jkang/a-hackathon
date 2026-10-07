@@ -198,7 +198,7 @@
   .anchorband{background:var(--accent-tint);border-left:6px solid var(--accent);border-radius:10px;padding:13px 18px;margin-top:14px;font-size:14px;font-weight:600;line-height:1.5;}
   .anchorband b{color:var(--accent);}
 
-  /* context: scout summary + org profile + truths */
+  /* context: scout summary + org profile + market read */
   .twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;}
   .box{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff;}
   .box .h{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px;}
@@ -270,8 +270,7 @@
         <div class="box"><div class="h">Scout summary</div><ul><li>{{SCOUT_1}}</li><li>{{SCOUT_2}}</li><li>{{SCOUT_3}}</li></ul></div>
         <div class="box"><div class="h">Org / IP profile</div><ul><li><b>Assets:</b> {{ORG_ASSETS}}</li><li><b>Constraints:</b> {{ORG_CONSTRAINTS}}</li></ul></div>
       </div>
-      <div class="chips">{{TRUTHS}}</div>
-      <div class="clusters">{{CLUSTERS}}</div>
+      <div class="chips">{{MARKET_TRENDS}}</div>
     </section>
 
     <!-- PROBLEM -->

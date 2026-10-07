@@ -2,7 +2,7 @@
 
 **The default way to gather human input.** Never hand the team a blank page. At every gate the AI **drafts a menu of 6–8 grounded options**, the team **selects** (pick N), and may add **"+1 of our own."**
 
-> Why: under time pressure, people freeze and lose minutes on open questions ("what truths do you see?"). A menu turns a 3-minute blank into a 30-second choice — while the humans still make every call.
+> Why: under time pressure, people freeze and lose minutes on open questions ("who should we target?"). A menu turns a 3-minute blank into a 30-second choice — while the humans still make every call.
 
 ## How to build a menu (AI does this BEFORE asking)
 
@@ -51,14 +51,13 @@ MENU · <gate> — pick <N> (30s), or +1 of your own
 
 > These are **format examples only** — replace each list with options grounded in the current quest card (+ `agent-reach` findings).
 
-**Insight · trends** — "Which 3 shifts matter most?"
-1 Mobile-first short-video is where fans decide · 2 Creator trust beats ads · 3 Group/experience travel · 4 Visa liberalization · 5 The fan-membership economy · 6 Diaspora return-travel · 7 Post-event tourism rebound · 8 AI-personalized content
-
-**Insight · audience** — "Pick 3 fan segments."
+**Insight · audience segments** — "Pick 2–3 fan segments."
 1 First-time Gen-Z · 2 Families (school-holiday trips) · 3 Diaspora workers · 4 Sport super-fans · 5 Collector/fandom buyers · 6 Couples/content travellers · 7 Corporate/hospitality guests · 8 Local residents
 
-**Insight · moment of truth** — "Pick 1–2 moments."
-1 Team-qualification news · 2 Ticket-sale day · 3 The creator film drop · 4 The airline stopover · 5 School-holiday booking window · 6 Match day · 7 The medal moment · 8 The 2 a.m. viral clip
+**Insight · key insights** — "Pick 2–3 to carry into the plan."
+1 "Sold out" ≠ attended — optimise for attendance · 2 The away crowd is already in the Gulf · 3 Asia travels for events, not for the Games · 4 Discovery + checkout live on short-video · 5 Qatar's hosting works — the gap is demand · 6 Hangzhou's money was mascot-led
+
+> Market trends are **shown in full, not picked** — the AI curates the merged market read (shifts + hard facts + external opportunities/threats) into the brief.
 
 **Plan · creative idea** — "Pick 2–3 starters to build on (or remix)."
 1 Creator squads recruit crews · 2 Bundle a trip + tickets · 3 A branded standing section · 4 A founding-members club · 5 A live cams / behind-the-scenes play · 6 A loyalty/referral loop · 7 A "first time" concierge · 8 A family travel package

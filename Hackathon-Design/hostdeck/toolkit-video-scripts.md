@@ -173,10 +173,10 @@ slot's placeholder label so the deck still runs.
 | IMG-05 | S6 | `/start` reply — how to open the Insight gate | screenshot | `img-05.jpg` |
 | IMG-06 | S7 | Insight market-trends menu (team picks 2,4,7) | screenshot | `img-06.jpg` |
 | IMG-07 | S8 | `insight-brief.html` — insights selected | screenshot | `img-07.jpg` |
-| IMG-08 | S9 | Plan · Anchor menu | screenshot | `img-08.jpg` |
-| IMG-09 | S10 | Plan · two versions — pick A or B | screenshot | `img-09.jpg` |
+| IMG-08 | S9 | Plan · two versions — pick A or B | screenshot | `img-08.jpg` |
+| IMG-09 | S10 | continue with the posters | screenshot | `img-09.jpg` |
 | IMG-10 | S11 | `poster.html` — three styles + hero | screenshot | `img-10.jpg` |
-| IMG-11 | S12 | `proof.html` written + recap | screenshot | `img-11.jpg` |
+| IMG-11 | S12 | `proof.html` written + Pick up the showcase story line | screenshot | `img-11.jpg` |
 | IMG-12 | S13 | Showcase package + final check | screenshot | `img-12.jpg` |
 | IMG-13 | S14 | Final proposal / pitch deck | screenshot | `img-13.jpg` |
 
@@ -197,33 +197,38 @@ slot's placeholder label so the deck still runs.
 ## 6. Status
 
 - [x] Images IMG-01 … IMG-13 supplied
-- [ ] Player built into `host-deck.html` (Phase B)
-- [ ] Browser check passed (Phase C)
+- [x] Player built into `host-deck.html` (Phase B)
+- [x] Browser check passed (Phase C)
 
 ---
 
 ## 7. Player contract (Phase B spec)
 
-The build adds a self-contained scene engine to `host-deck.html`. No external libraries.
+Built. A self-contained scene engine was added to `host-deck.html`; no external libraries.
 
-**Markup** — one container inside slide `01`, replacing the `.video-ph` block:
+**Markup (as built)** — the old `.video-ph` body in slide `01` was replaced by one container.
+The engine then adds the `demo` / `plain` classes to the slide and removes its `sec-tag`, so the
+visitor logo stays but the slide content is the full-bleed stage:
 
 ```
-<section class="slide demo" data-sec="1">
-  <div class="demo-stage" id="toolkitDemo"> … scenes injected from JSON … </div>
+<section class="slide" data-sec="1">
+  <div class="logo">…</div>
+  <div class="demo-stage" id="toolkitDemo"> … scenes injected from SCENES … </div>
 </section>
 ```
 
-**Scene data** — a JS array of objects mirroring section 3: `{ id, dur, eyebrow, headline, sub,
-img, imgAlt, skills[], decision }`. Copy is data, not markup, so the script stays editable.
-Image paths are `assets/video/<filename>`; `S1`/`S15` have no image.
+**Scene data** — a JS `SCENES` array of objects mirroring section 3: `{ id, dur, layout, eyebrow,
+head, sub, img, alt, skills[] }`. Copy is data, not markup. Image paths are `assets/video/<file>`;
+`S1` (intro) uses `../assets/hero.png`; `S15` (outro) has no image.
 
 **Engine behaviour**
-- Auto-advances on `dur`; cross-fades scenes; progress bar fills across the full runtime.
-- Controls: Play/Pause, Restart, Prev, Next; Space toggles, ←/→ step, R restarts, F fullscreen.
-- Auto-plays when slide `01` becomes active; pauses when the slide changes.
-- Missing image → render the `IMG-xx` placeholder label instead of a broken image.
-- Timer keeps running only while the slide is visible.
+- Auto-advances on `dur`; cross-fades scenes; a progress bar fills across the full runtime.
+- On-screen controls: Play/Pause, Restart, Prev, Next. Clicking the stage toggles play/pause.
+- Auto-plays (from the first scene) when slide `01` becomes active; pauses when it changes.
+  Implemented with a `MutationObserver` on the slide's `class`, so the deck's `show()` is untouched.
+- Missing image → an `IMG-xx` placeholder tile renders in its place; the deck still runs.
+- Keyboard is left to the deck (←/→ change slides, F fullscreen) so the host is never trapped;
+  scene stepping is via the on-screen buttons.
 
 **Brand rules** — colours, fonts, radius, and spacing come from the existing `:root` tokens.
 No new palettes, no decorative side bars.

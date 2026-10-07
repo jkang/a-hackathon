@@ -1,50 +1,48 @@
-# Insight Method — research chain → focus bundle (AI) → key insights (the one decision)
+# Insight Method — market read → segments (decision 1) → focus bundles → key insights (decision 2)
 
-The AI does the research **and the curation**; the team makes **one decision**:
+The AI does the research; the team makes **two decisions**:
 
+- **Segments** — pick 2–3 *(who the campaign targets)*.
 - **Key Insights** — pick 2–3 *(the data-backed tensions to deep-dive in the plan)*.
 
-Everything upstream — the **focus bundle** (audience × moment × shift), **trends**, **segments**, **moments of truth**, **truths** — is **AI-curated**, shown in full in the brief, marked `AI pick`, and overridable on request.
+Everything else — the **market trends** (a merged read), the **focus bundles** (audience × moment × shift), and the **seed insight** — is **AI-curated**, shown in full in the brief, and overridable on request.
 
 ## Research chain (sub-skills)
 
 `agent-reach` → `business-research` → `audience-analysis` → `swot-analysis`
 
-- `agent-reach` = the shared data engine (feeds the two research skills).
-- `business-research` = organization profile (internal).
+- `agent-reach` = the shared data engine (feeds the research skills).
+- `business-research` = organization profile (internal) — its **assets / constraints are the SWOT S / W**.
 - `audience-analysis` = audience & segments (external).
-- `swot-analysis` = synthesis (internal × external).
+- `swot-analysis` = synthesis — its **opportunities / threats fold into Market Trends**; there is **no separate SWOT block**.
 
-## The living brief — building blocks → focus bundle → key insights
+## The living brief — building blocks → focus bundles → key insights
 
 | Block | Question it answers | Source | Decision? |
 |---|---|---|---|
 | 1 · Organization profile | who is the client, what do they own & offer? | `business-research` | AI |
-| 2 · Market & Trends | what's the market, and what's *shifting*? | card + `agent-reach` | AI pick, shown in full |
-| 3 · Audience | who are the segments, and what job do they hire? | `audience-analysis` | AI, shown in full |
-| 4 · Moments of Truth | when / where does the decision happen? | card + `agent-reach` | AI pick, shown in full |
-| 5 · Truths | the raw field reality | team + research | AI pick, shown in full |
-| 6 · SWOT | internal × external synthesis | `swot-analysis` | AI |
-| → **Focus bundle** | **who × moment × shift** | AI selects | **AI** |
-| → **Key insights** | **~6 data-backed tensions** | AI drafts | **THE DECISION · pick 2–3** |
-| → **Seed insight** | the one-line overarching tension | AI | AI (from the picks) |
+| 2 · Market & Trends | what's the market, what's shifting, and what are the hard facts + external opportunities/threats? | card + `agent-reach` + `swot-analysis` (O/T) | AI, shown in full |
+| 3 · Audience Segments | who are the segments, and what job do they hire? | `audience-analysis` | **DECISION 1 · pick 2–3** |
+| → Focus bundles | **selected segment × moment × shift** | AI derives from the picks | AI |
+| → Key insights | **~6 data-backed tensions** | AI drafts | **DECISION 2 · pick 2–3** |
+| → Seed insight | the one-line overarching tension | AI | AI (from the picks) |
 
 > Every option and insight carries a **fact, number, or named behavior + a source** — not a generic label. See `facilitation/references/option-menu.md`.
 
 ---
 
-## 1. Market & Trends
+## 1. Market & Trends (merged)
 
-Start from the card (market size, benchmark, arena), then add ~6–8 shifts; mark the **2–3 AI picks**. Trends reveal *where demand is headed* — they are the raw material for creativity.
+Start from the card (market size, benchmark, arena), then add ~6–8 items. This single block is the **merged market read** — directional shifts, hard field facts, and the external **opportunities / threats** (SWOT O/T). There is **no separate truths block and no separate SWOT block** — everything market-facing lives here.
 
 Categories to scan (pick what's real for the quest):
 - **Behavior**: mobile-first, short-video, social/group travel, experience economy.
 - **Culture**: creator trust > ads; national pride; "cute economy" / soft-power IP.
 - **Technology/Policy**: visa liberalization, hub airlines, digital collectibles, livestream commerce.
 
-Capture each trend as `{trend, why_it_matters}` — **all** of them stay in the brief.
+Capture each item as `{trend, why_it_matters, kind, source}` — **all** of them stay in the brief. Mark each item's `kind` (`shift` / `fact` / `opportunity` / `threat`).
 
-## 2. Audience — STP + JTBD
+## 2. Audience — STP + JTBD (DECISION 1)
 
 For each of **~6 segments**, fill one line each:
 
@@ -56,31 +54,21 @@ For each of **~6 segments**, fill one line each:
 - **Barrier**: what stops them today.
 - **Trigger**: what would flip them into action.
 
-> A segment with no emotional job and no trigger is not a real segment — it's a demo label. Force the emotional job. List all segments in the brief.
+> A segment with no emotional job and no trigger is not a real segment — it's a demo label. Force the emotional job. List all segments in the brief, then **the team picks 2–3**.
 
-## 3. Focus Bundle — AI-selected
+## 3. Focus Bundles — derived from the selected segments (AI)
 
-Combine audience × moment × shift into **~6 coherent bundles**, each:
+After the team selects 2–3 segments, derive **one focus bundle per selected segment**:
 
 - **Name** — a short strategic label.
-- **Audience** — the segment(s) it serves.
-- **Moment** — the time/place/event where the decision happens.
+- **Audience** — the selected segment.
+- **Moment** — the time / place / event where that segment decides.
 - **Shift** — the supporting trend.
 - **Why** — one line on why this combination is the opportunity.
 
-The AI **selects the strongest bundle(s)** (`AI pick`) and derives the **Moment of Truth**; all bundles stay listed in full and the team may override ("redo the focus").
+The **Moment of Truth** is derived here (audience × moment) — **no separate moment menu**; each selected segment contributes one moment. All focus bundles stay listed in full and the team may override ("redo the focus").
 
-## 4. Moments of Truth
-
-Name the specific **time / place / event** where the audience decides. Demand is manufactured at moments, not in general. Draft ~6–8 candidates, mark the **AI picks** (1–2), and keep them all visible.
-
-Examples: a qualification announcement · a sale / drop day · a journey / stopover · a seasonal travel window · a match / event moment · a birthday livestream · a holiday gifting window · a viral clip.
-
-## 5. Truths (raw field reality)
-
-The team's verbatim field insights (the existing "market truths"). Keep them — they are the ground truth the analysis must respect. Draft ~6–8, mark the salient ones as **AI picks**, and list them in full.
-
-## 6. The seed insight
+## 4. The seed insight
 
 A **tension**, not a summary. It connects the chosen audience's job ↔ market gap ↔ trend:
 
@@ -88,7 +76,7 @@ A **tension**, not a summary. It connects the chosen audience's job ↔ market g
 
 Synthesized by the AI from the focus + chosen insights; no extra decision.
 
-## Key Insights — THE one decision (pick 2–3)
+## Key Insights — DECISION 2 (pick 2–3)
 
 Distil **~6 key insights**, each a data-backed tension with a source. The team picks **2–3** to deep-dive in `plan`; the rest are parked (still listed).
 
@@ -96,18 +84,21 @@ Distil **~6 key insights**, each a data-backed tension with a source. The team p
 
 - Long web research instead of card + team knowledge.
 - Segments with no emotional job / no trigger.
+- A separate "truths" block duplicating the trends — keep the market read in one block.
+- A separate SWOT block — fold S/W into the org profile and O/T into the trends.
 - No moment of truth (everything "in general").
 - A seed insight that restates the card instead of forming a tension.
 - **Hiding the losing options** — every menu must be listed in full with its selection state.
-- **Asking the team more than once** — the gate is a single decision (the key insights).
+- **Asking the team beyond the two decisions** — segments, then insights.
 
 ## Running it in ~8 minutes (facilitation)
 
 1. AI: 30s scout + org/benchmark scaffold → **create the brief**.
-2. AI: research → draft all menus (trends · segments · moments · truths) + select the focus bundle + SWOT. No decision.
-3. AI: draft ~6 key insights. No decision.
-4. AI: present the ~6 key insights → **team picks 2–3** (the single decision).
-5. AI: seed insight + finalize the brief.
+2. AI: research → draft the market read (trends) + segments. No decision.
+3. AI: present the segments → **team picks 2–3** (decision 1).
+4. AI: derive the focus bundles + draft ~6 key insights. No decision.
+5. AI: present the ~6 key insights → **team picks 2–3** (decision 2).
+6. AI: seed insight + finalize the brief.
 
 ## Source materials (reference only)
 
