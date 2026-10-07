@@ -9,7 +9,7 @@ Show **what the pilot must hit, and how each number is derived** — as **one mo
 
 ## No team decision
 
-This stage has **no user decision**. The AI reads the chosen insights + the chosen campaign, picks the metric set, sets the most reasonable target for each, and writes the derivation chains. The team reviews the finished board; the AI does **not** stop for a pick.
+This stage has **no user decision**. The AI reads the chosen insights + the chosen plan, picks the metric set, sets the most reasonable target for each, and writes the derivation chains. The team reviews the finished board; the AI does **not** stop for a pick.
 
 > Judgment still applies — it is just made by the AI and shown transparently (benchmark → assumption → formula), so the team can challenge any number.
 
@@ -21,13 +21,13 @@ This stage has **no user decision**. The AI reads the chosen insights + the chos
 ## Inputs
 
 - The `insight-brief.html` capture — the chosen key insights (`selected_insights`) and the benchmark data.
-- The `campaign-plan.html` capture — the **chosen variant** (`chosen_variant`), esp. its `pilot` (markets · hypothesis · treatment · control · measurement_setup) and `budget`.
+- The `campaign-plan.html` capture — the **chosen plan** (`chosen_plan` → `plans[chosen_plan]`), esp. its `pilot` (markets · hypothesis · treatment · control · measurement_setup) and `budget`.
 - Quest card **pilot window / pilot markets / MVP budget** and **Scout Report benchmarks** (the anchors for every derivation).
 - **Resume (recover upstream).** If run on its own (`/prove`), find the latest round `artifacts/Quest<ID>-*` and read both captures from that folder; if the round is unambiguous, state it and continue — ask only when genuinely ambiguous. If either is missing, say so and ask the team to run `/plan` (or `/insight`) first.
 
 ## Flow
 
-1. **Frame (AI).** Read the pilot (2 markets · 3 months · MVP budget), the chosen campaign's hypothesis, and the card benchmarks.
+1. **Frame (AI).** Read the pilot (2 markets · 3 months · MVP budget), the chosen plan's hypothesis, and the card benchmarks.
 2. **Choose the metric set (AI).** Map the funnel (reach → engagement → conversion → outcome) and pick the **3–5 metrics that best prove this pilot's hypothesis**. No menu.
 3. **Set the most reasonable target (AI).** For each metric, pick a **conservative-but-defensible** target, anchored to a Scout Report benchmark. Prefer a benchmark-anchored number over an optimistic one.
 4. **Derive (AI).** Write each metric's **derivation chain**: `benchmark → assumption(s) → formula → target`, plus a one-line logic ("why hitting this predicts the outcome").

@@ -57,16 +57,16 @@
   td.amt{text-align:right;font-weight:700;color:var(--accent);}
   .pill{display:inline-block;font-size:11.5px;font-weight:600;background:var(--accent-tint);
         border:1px solid var(--accent-line);color:var(--accent);border-radius:999px;padding:4px 11px;margin:3px 5px 0 0;}
-  /* A/B variants */
-  .variant{margin-top:26px;border:1.5px solid var(--line);border-radius:16px;padding:18px 20px 22px;background:#fff;}
-  .variant.chosen{border-color:var(--accent);border-width:2px;box-shadow:0 4px 18px rgba(255,102,17,.12);}
+  /* A/B plans */
+  .plan{margin-top:26px;border:1.5px solid var(--line);border-radius:16px;padding:18px 20px 22px;background:#fff;}
+  .plan.chosen{border-color:var(--accent);border-width:2px;box-shadow:0 4px 18px rgba(255,102,17,.12);}
   .vhead{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
   .vhead .vt{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ascentium-midnight);}
   .vhead .badge{display:none;font-size:10px;font-weight:800;letter-spacing:.12em;color:#fff;background:var(--accent);
                 border-radius:999px;padding:4px 12px;}
-  .variant.chosen .vhead .badge{display:inline-block;}
-  .variant.parked{opacity:.62;}
-  .variant.parked .vhead .badge{display:inline-block;background:var(--mut);}
+  .plan.chosen .vhead .badge{display:inline-block;}
+  .plan.parked{opacity:.62;}
+  .plan.parked .vhead .badge{display:inline-block;background:var(--mut);}
   .vhead .vsub{font-size:12px;color:var(--mut);font-weight:500;}
   footer{margin-top:30px;border-top:1px dashed var(--line);padding-top:12px;font-size:10.5px;color:#9AA5A2;line-height:1.6;}
 </style>
@@ -101,12 +101,12 @@
     </div>
   </div>
 
-  <!-- ===== VARIANT A =====
+  <!-- ===== PLAN A =====
        A_CHOSEN / B_CHOSEN = class token: "chosen" for the team's pick, "parked" for the other.
        A_BADGE / B_BADGE    = "Chosen" / "Parked". -->
-  <section class="variant {{A_CHOSEN}}">
+  <section class="plan {{A_CHOSEN}}">
     <div class="vhead">
-      <span class="vt">Variant A</span><span class="badge">{{A_BADGE}}</span>
+      <span class="vt">Plan A</span><span class="badge">{{A_BADGE}}</span>
       <span class="vsub">{{A_SUB}}</span>
     </div>
     <div class="grid">
@@ -141,6 +141,15 @@
         </ul>
       </div>
       <div class="card">
+        <h2>The Offer</h2>
+        <p>{{A_OFFER_SUMMARY}}</p>
+        <ul>
+          <li><b>{{A_OFFER_1_T}}:</b> {{A_OFFER_1_D}}</li>
+          <li><b>{{A_OFFER_2_T}}:</b> {{A_OFFER_2_D}}</li>
+          <li><b>{{A_OFFER_3_T}}:</b> {{A_OFFER_3_D}}</li>
+        </ul>
+      </div>
+      <div class="card">
         <h2>Pilot Experiment</h2>
         <ul>
           <li><b>Hypothesis:</b> {{A_HYPOTHESIS}}</li>
@@ -164,10 +173,10 @@
     </div>
   </section>
 
-  <!-- ===== VARIANT B ===== -->
-  <section class="variant {{B_CHOSEN}}">
+  <!-- ===== PLAN B ===== -->
+  <section class="plan {{B_CHOSEN}}">
     <div class="vhead">
-      <span class="vt">Variant B</span><span class="badge">{{B_BADGE}}</span>
+      <span class="vt">Plan B</span><span class="badge">{{B_BADGE}}</span>
       <span class="vsub">{{B_SUB}}</span>
     </div>
     <div class="grid">
@@ -202,6 +211,15 @@
         </ul>
       </div>
       <div class="card">
+        <h2>The Offer</h2>
+        <p>{{B_OFFER_SUMMARY}}</p>
+        <ul>
+          <li><b>{{B_OFFER_1_T}}:</b> {{B_OFFER_1_D}}</li>
+          <li><b>{{B_OFFER_2_T}}:</b> {{B_OFFER_2_D}}</li>
+          <li><b>{{B_OFFER_3_T}}:</b> {{B_OFFER_3_D}}</li>
+        </ul>
+      </div>
+      <div class="card">
         <h2>Pilot Experiment</h2>
         <ul>
           <li><b>Hypothesis:</b> {{B_HYPOTHESIS}}</li>
@@ -225,7 +243,7 @@
     </div>
   </section>
 
-  <footer>Human-led, AI-scaffolded. Two plan variants — the team picks A or B. Budget allocation is part of the solution. Data as of {{DATA_AS_OF}}.</footer>
+  <footer>Human-led, AI-scaffolded. Two plans — the team picks A or B. Budget allocation is part of the solution. Data as of {{DATA_AS_OF}}.</footer>
 
 </div>
 

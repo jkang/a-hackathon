@@ -76,9 +76,9 @@ AI 给脚手架/问题  →  团队发散(人人出点子)  →  团队收敛(�
 
 | # | 交付物（A 原话 / B 原话） | 覆盖技能 | 人的决定 |
 |---|---|---|---|
-| 1 | Pilot **campaign** concept（2 Asian markets, 3mo）／Pilot **membership** design（2 overseas markets, 3mo） | `plan`（creative-concept → `offering`） | 大创意 + 会员设计 |
+| 1 | Pilot **campaign** concept（2 Asian markets, 3mo）／Pilot **membership** design（2 overseas markets, 3mo） | `plan`（creative-concept → `offer`） | 大创意 + 会员设计 |
 | 2 | Experiment plan & **measurement setup** | `plan`（`experiment.measurement_setup`）+ `prove` | 选市场 / 成功口径 |
-| 3 | Hero visual / poster ／ **Founding-member offer** + hero visual | `plan`（`offering.founding_offer`）+ **`poster`**（hero visual） | 视觉方向 |
+| 3 | Hero visual / poster ／ **Founding-member offer** + hero visual | `plan`（`plans[chosen_plan].offer`）+ **`poster`**（hero visual） | 视觉方向 |
 | 4 | **A most-reasonable pilot forecast + derivation logic**（一版最合理的数字预测；每条用 Scout Report 标杆佐证并写出推演链 benchmark → assumption → formula） | `prove`（单屏 `proof.html`，capture 内嵌） | —（AI 出） |
 
 **题卡 Arsenal 技能链 ↔ 本设计映射**：
@@ -92,7 +92,7 @@ AI 给脚手架/问题  →  团队发散(人人出点子)  →  团队收敛(�
 
 **本轮对照修正点（已回写 §7）**：
 1. 交付物 #2「experiment + measurement setup」显式落到 `campaign-plan.html` capture 的 `experiment.measurement_setup` 字段（原设计漏了测量口径）。
-2. 交付物 #3 B 的「Founding-member offer」落到 `campaign-plan.html` capture 的 `offering.founding_offer`，并由 showcase 打上海报（原设计只做了「海报」，漏了「offer」本体）。
+2. 交付物 #3 B 的「Founding-member offer」落到 `campaign-plan.html` capture 的 `plans[chosen_plan].offer`（`summary` + 3 `cards`），并由 showcase 打上海报（原设计只做了「海报」，漏了「offer」本体）。
 3. 题卡明示「Budget allocation is part of the solution」→ capture 新增 `budget.allocation` 且为**人的决定**（原设计未显式）。
 4. **Prove 简化（本轮）**：只保留 pilot 预期指标 + 推演逻辑；移除 Go/No-Go、Cost-Benefit/ROI、scale-up、KPI 看板 mock。
 5. 指标必须「用 Scout Report 标杆佐证」并写出推演链 → `metrics` 用 `benchmark_ref` + `derivation`（benchmark → assumption → formula）。
@@ -217,7 +217,7 @@ AI 必须在每个阶段**持续感知剩余时间 + 团队意图**，动态调�
 - **输出**：`campaign-plan.html`（**渐进式生成**：第一段产出即建文件，之后每步重写；最终**两套方案 A/B 全量列出**，选中高亮；**内嵌主视觉**；capture 内嵌）。**不产独立 poster 文件**（`poster-a/b/c.html` + `poster.html` 由独立 `/poster` 阶段产出）。
 - **facilitate（AI 全跑，团队只决策 1 次）**：
   1. **发散（AI）**：`creative-concept` —— 锚定 **人群 × 时刻 × 趋势 × 渠道** → 1 个 HMW → 创意方法 → **~6 个候选创意**。
-  2. **收敛 + 搭 A/B（AI）**：把 ~6 收敛为 **2 套完整、彼此不同的 campaign**（A/B）；各含 **渠道组合**（`references/channel-strategy.md`，由 人群 `channels` + 洞察趋势 + 时刻 推导）+ 定位(Moore) + offering + 4Ps + 2 试点市场 + 实验计划 + 预算（题卡 War Chest）。
+  2. **收敛 + 搭 A/B（AI）**：把 ~6 收敛为 **2 套完整、彼此不同的 campaign**（A/B）；各含 **渠道组合**（`references/channel-strategy.md`，由 人群 `channels` + 洞察趋势 + 时刻 推导）+ 定位(Moore) + **offer**（结构化：`summary` + 3 `cards`）+ 4Ps + 2 试点市场 + 实验计划 + 预算（题卡 War Chest）+ 各自的 `visual_direction` / `one_liner`。
   3. **制图（AI）**：为每套 campaign 在 `campaign-plan.html` 内**嵌主视觉**（复用 `ascentium-brand`；**不产独立 poster 文件**）；独立 `/poster` 阶段负责产出 `poster-a/b/c.html` + `poster.html` 并让团队定风格。
   4. **决策（团队 · 唯一 1 次）**：AI 内联呈现两套完整方案（A/B）→ 团队**选 1**（可 +1 自选）。
 - **capture（内嵌于 `campaign-plan.html` 的 `id="capture"` JSON 块）**：
@@ -227,12 +227,12 @@ AI 必须在每个阶段**持续感知剩余时间 + 团队意图**，动态调�
   hmw
   ideas: [ {id, name, one_line, insight, mechanic} ]   # ~6，全量
   ai_shortlist: [2, 5]                                  # AI 收敛
-  variants: {                                           # 两套完整方案
-    A: {name, slogan, proposition, offer, positioning, channel_mix, mix, pilot, budget},
-    B: {name, slogan, proposition, offer, positioning, channel_mix, mix, pilot, budget}
+  plans: {                                              # 两套完整方案
+    A: {name, slogan, proposition, offer:{summary, cards:[3×{title,detail}]}, positioning, channel_mix, mix, pilot, budget, visual_direction, one_liner},
+    B: {name, slogan, proposition, offer:{summary, cards:[3×{title,detail}]}, positioning, channel_mix, mix, pilot, budget, visual_direction, one_liner}
   }
-  chosen_variant: "A"                                   # 团队唯一决策
-  poster: {visual_direction, one_liner}
+  chosen_plan: "A"                                      # 团队唯一决策
+  poster_style: "a"                                     # 由 /poster 选定（默认 a）
   ```
 - **assemble**：`campaign-plan.html`（**两套方案全量** + 选中高亮：**锚点(人群·时刻·趋势·渠道·概念)** / 场景 / 定位(Moore) / **渠道组合** / A=活动概念·B=会员设计 + 创始 offer / 4Ps / 试点实验 + 测量设置 / 预算切分）。
 - **吸收/改造**：**移除 `opportunity-definition`**（其 5 要素与 insight/creative-concept/prove 重叠且未落产物）；新增 `channel-strategy`（**渠道组合**：由 人群 `channels` + 洞察趋势 + 时刻 推导，AI 策展、无团队决策）；`creative-concept`（人群×时刻×趋势×渠道 锚定 + HMW + 创意方法 → ~6 ideas）；`marketing-plan`（定位 + 4Ps，Place=分销）。

@@ -4,18 +4,20 @@ agent: facilitator
 ---
 Create the **campaign poster** using the `poster` skill (from the `campaign-plan.html` + `insight-brief.html` captures).
 
-> **Stage opening.** We're now in the **Poster** stage: I build **three poster styles (A/B/C)**; you **pick one**.
+> **Stage opening.** We're now in the **Poster** stage: I build **three poster styles (Style A · Full-Bleed Hero / Style B · Belonging Passport / Style C · Midnight Minimal)**; you **pick one**.
 
 > **One decision per turn.** Present one menu, then **STOP and wait** for the team's reply. **Never answer your own menu; never run another stage.** (See `facilitator` → *Turn discipline*.)
 
-**This stage has exactly ONE team decision — pick 1 of the 3 posters (A/B/C).** The AI builds all three styles first.
+**This stage has exactly ONE team decision — pick 1 of the 3 poster styles.** The AI builds all three styles first.
 
-**Recover upstream (resume) — do this first.** Determine the quest id and find the latest round `artifacts/Quest<ID>-*`. If it's unambiguous (a single round, or the round already established in this session), state it in one line and continue — no need to ask. Ask **only when genuinely ambiguous**. Read the `campaign-plan.html` capture (chosen variant: name · slogan · proposition · offer/tiers) and the `insight-brief.html` capture (audience + moment). If either is missing, say so and ask the team to run `/plan` (or `/insight`) first.
+> **Plan vs style (don't conflate).** `chosen_plan` = **A | B** — the campaign the team picked in the plan stage. `poster_style` = **a | b | c** — the poster design you offer here. Different letters, different concepts.
 
-1. Pull name / slogan / proposition / offer / tiers from the `campaign-plan.html` capture, and **derive the visual direction + one-liner from the chosen campaign yourself** — do **not** ask the team first.
+**Recover upstream (resume) — do this first.** Determine the quest id and find the latest round `artifacts/Quest<ID>-*`. If it's unambiguous (a single round, or the round already established in this session), state it in one line and continue — no need to ask. Ask **only when genuinely ambiguous**. Read the `campaign-plan.html` capture — **the chosen plan** (`plans[chosen_plan]`: name · slogan · proposition · `offer` + its 3 cards · `visual_direction` · `one_liner`) — and the `insight-brief.html` capture (audience + moment). If either is missing, say so and ask the team to run `/plan` (or `/insight`) first.
+
+1. Pull name · slogan · proposition · the structured `offer` (summary + 3 cards) from **`plans[chosen_plan]`** in the `campaign-plan.html` capture, and **reuse that plan's `visual_direction` + `one_liner`** — do **not** re-derive them and do **not** ask the team first.
 2. Fill the 9-section poster anatomy **once** across the three style templates; set the accent vars + key visual from the quest card.
 3. **Build all three at once** → `poster-a.html` · `poster-b.html` · `poster-c.html` + the `poster.html` tab page. Self-check against the content checklist.
-4. **DECIDE (team) — the single decision** — present the **three styles (A/B/C)** inline → the team **picks one** (or `+1 own`). Record it as `poster.style`.
+4. **DECIDE (team) — the single decision** — present the **three styles (Style A · Full-Bleed Hero / Style B · Belonging Passport / Style C · Midnight Minimal)** inline → the team **picks one** (or `+1 own`). Record it as `poster_style` (a | b | c).
 
 Write into the current round folder `artifacts/Quest<ID>-<NN>/`: `poster.html` + `poster-a|b|c.html` — portrait, single-file, Ascentium brand.
 

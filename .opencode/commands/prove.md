@@ -6,7 +6,7 @@ Run **only the PROVE stage**. Requires the `insight-brief.html` + `campaign-plan
 
 > **Stage opening.** We're now in the **Prove** stage: I produce **one most-reasonable pilot forecast** (funnel targets + the derivation chain behind each number). **No team decision** — you review the finished board.
 
-**Recover upstream (resume) — do this first.** Determine the quest id and find the latest round `artifacts/Quest<ID>-*`. If it's unambiguous (a single round, or the round already established in this session), state it in one line and continue — no need to ask. Ask **only when genuinely ambiguous**. Read the `campaign-plan.html` capture (chosen variant: `pilot` · `budget`) and the `insight-brief.html` capture (`selected_insights` + benchmark). If either is missing, say so and ask the team to run `/plan` (or `/insight`) first.
+**Recover upstream (resume) — do this first.** Determine the quest id and find the latest round `artifacts/Quest<ID>-*`. If it's unambiguous (a single round, or the round already established in this session), state it in one line and continue — no need to ask. Ask **only when genuinely ambiguous**. Read the `campaign-plan.html` capture (the chosen plan: `pilot` · `budget`) and the `insight-brief.html` capture (`selected_insights` + benchmark). If either is missing, say so and ask the team to run `/plan` (or `/insight`) first.
 
 **This stage has NO team decision.** The AI reads the chosen insights + the chosen campaign and produces **one most-reasonable numeric forecast** — the funnel targets + a derivation chain per metric.
 

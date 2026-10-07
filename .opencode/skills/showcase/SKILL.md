@@ -25,7 +25,7 @@ The final stage. The **team makes two decisions — the storyline and whether to
 
 1. **Storyline pick (team, 1′).** AI presents the **menu of 5 storylines** (see `references/pitch-narrative.md`): Classic / Hero's Journey / Big Reveal / Demo / Trailer — pick 1. This sets the deck's shape, the signature element, and the opening order.
 2. **Bonus media (team, optional, 1′).** The team decides whether to attempt **bonus media** (song / video / image / none). If yes, the AI writes `prompt-pack.html` (copy-paste prompts for Suno / Runway / GPT); the team generates externally and brings files back.
-3. **AI settles the rest (no decision).** The AI takes the **signature element** from the storyline's default, derives the **visual direction** and the **one-liner** from the chosen campaign, and **always includes the poster** in the deck (the `poster` beat, using the final style from the `poster` skill — default A if none was picked).
+3. **AI settles the rest (no decision).** The AI takes the **signature element** from the storyline's default, **reuses the chosen plan's `visual_direction` + `one_liner`** (`plans[chosen_plan]` in the `campaign-plan.html` capture — do not re-derive), and **always includes the poster** in the deck (the `poster` beat, using `poster_style` from the capture — default `a` if none was picked).
 4. **Build (AI, AUTO, 5′).** Assemble the signature element + the deck (`pitch-deck.html` with `data-storyline` and `data-poster="yes"`).
 5. **Embed (AI).** Embed any returned media files into the matching slide.
 6. **Rehearse (team, 1′).** 30-second dry run + tweaks.
@@ -85,7 +85,7 @@ The builder escapes each artifact for an `srcdoc` attribute. Because `srcdoc` if
 </script>
 ```
 
-> Only `storyline` and `bonus_media` are **team decisions**; `include_poster` is always `true`, and `poster_style` · `signature` · `visual_direction` · `one_liner` are **AI-decided** (recorded for the record, not for a pick).
+> Only `storyline` and `bonus_media` are **team decisions**; `include_poster` is always `true`, and `poster_style` · `signature` · `visual_direction` · `one_liner` are **AI-decided** (recorded for the record, not for a pick). The `visual_direction` + `one_liner` are **carried over from the chosen plan** (`plans[chosen_plan]`) — not re-derived.
 
 ## Storylines (the deck shapes)
 

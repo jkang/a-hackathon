@@ -11,8 +11,8 @@ A campaign poster is not a slogan on a colour block. It is the **single most-see
 | 1 | **Masthead** | creator logo (Ascentium) + **client logo** + edition | card / client |
 | 2 | **Hero lockup** | kicker (edition) + **campaign name** (dominant) + **tagline** | plan capture |
 | 3 | **Key visual** | the brand illustration (the quest's key-visual motif) | template |
-| 4 | **Lead** | the proposition in one sentence | plan / insight captures |
-| 5 | **Offer panel** | 3 cards: the offer / markets / access. For membership: the **tiers** | plan capture |
+| 4 | **Lead** | the proposition in one sentence | plan capture (`plans[chosen_plan].offer.summary`) |
+| 5 | **Offer panel** | the 3 `offer.cards` of the chosen plan (offer / markets / access — or the membership **tiers**) | plan capture (`plans[chosen_plan].offer.cards`) |
 | 6 | **Bullets** | 3 concrete benefits / proof points | plan capture |
 | 7 | **Stats band** | 4 hard numbers (target, market, benchmark, window) | card / proof |
 | 8 | **CTA band** | action button + **hashtag** + **URL** + **QR** | team |
@@ -67,7 +67,7 @@ All three carry the **same** 9 sections. Vary: colour balance, typographic scale
 
 - Present all three; do **not** decide.
 - Preview them in the **tab page** (`poster.html`); each style is also its own clean page (`poster-a|b|c.html`) for cropping/embedding.
-- Record `poster.style: a|b|c` in the plan capture; the deck and proposal embed the matching page.
+- Record `poster_style: a|b|c` in the plan capture; the deck and proposal embed the matching page.
 
 ## Anti-patterns
 
