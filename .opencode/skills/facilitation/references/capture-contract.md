@@ -16,7 +16,9 @@ Template:
 
 > **hackathon-robot >>** Done: [what I just did]. Artifact: `artifacts/QuestA-01/[file].html`.
 > **MENU · [gate]** — **pick [N]** (30s), or `+1` your own. `1)` … `2)` … `3)` … `4)` … `5)` … `6)`
-> **Reply with your pick (e.g. `1, 4, 6`).**
+> **Reply with your pick (e.g. `1, 3, 5`).**
+
+> The example must match the actual menu — use its real option numbers and pick count (a 3-option single pick → *e.g. `1`*; a 6–8-option pick-2–3 → *e.g. `1, 3, 5`*). Never cite options that aren't there.
 
 The recap + inline menu are the team's interface; the HTML is only the **record** — the team always chooses in the chat.
 

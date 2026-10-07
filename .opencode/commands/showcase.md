@@ -17,7 +17,7 @@ Use the `showcase` skill with `facilitation` (option menu). Requires the capture
 5. If bonus media was chosen, write `prompt-pack.html` (Suno / Runway / GPT prompts) and embed returned files.
 6. Write into the current round folder `artifacts/Quest<ID>-<NN>/`: `proposal.html` (the unified proposal viewer) + `pitch-deck.html` + `prompt-pack.html`; the showcase capture is embedded in `proposal.html`.
 
-**End every turn with a wrap-up (see `facilitator` → *Response format*):** a 2–4 line recap + the artifact name/path, then the **next decision printed inline** — the **storyline menu** (pick 1) + **bonus media** (song / video / image / none). End with the pick prompt, verbatim: **Reply with your pick (e.g. `1, 2`).** — nothing after it.
+**End every turn with a wrap-up (see `facilitator` → *Response format*):** a 2–4 line recap + the artifact name/path, then the **next decision printed inline** — the **storyline menu** (pick 1) + **bonus media** (song / video / image / none). End with the pick prompt, aligned to the menu: **Reply with your pick (e.g. `1, 2`).** (the example reflects the actual choices — storyline + bonus media). — nothing after it.
 
 Choice-first, human-led. Do not decide the storyline or the bonus-media choice for the team. The signature, visual direction, one-liner, and poster are **AI-decided** — never ask the team to choose them.
 

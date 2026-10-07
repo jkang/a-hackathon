@@ -18,7 +18,7 @@ Use the `insight` skill with `facilitation` (option menu) and `agent-reach` (or 
 
 **The gate is exactly one decision — the Key Insights (2–3).** Focus bundle / trends / moments / truths are AI-curated, shown in full, and overridable on request.
 
-**End every turn with a wrap-up (see `facilitator` → *Response format*):** a 2–4 line recap of what you did + the artifact name/path, then the **next decision printed inline in the chat** — the **~6 key insights** (pick 2–3). End with the pick prompt, verbatim: **Reply with your pick (e.g. `1, 2`).** — nothing after it.
+**End every turn with a wrap-up (see `facilitator` → *Response format*):** a 2–4 line recap of what you did + the artifact name/path, then the **next decision printed inline in the chat** — the **~6 key insights** (pick 2–3). End with the pick prompt, aligned to the menu: **Reply with your pick (e.g. `1, 3`).** (the example must use the actual insight numbers; pick 2–3). — nothing after it.
 
 Choice-first, human-led. Do not decide for the team.
 

@@ -206,13 +206,60 @@
   .box li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:2px;background:var(--org);transform:rotate(45deg);}
   .box li b{font-weight:700;color:var(--ink);}
 
-  /* video placeholder */
-  .video-ph{margin-top:16px;border:2px dashed var(--org2);background:var(--org1);border-radius:16px;
-            height:296px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;}
-  .video-ph .play{width:66px;height:66px;border-radius:999px;background:var(--org);display:flex;align-items:center;justify-content:center;}
-  .video-ph .play svg{width:24px;height:24px;fill:#fff;margin-left:3px;}
-  .video-ph .vt{font-size:22px;font-weight:700;}
-  .video-ph .vs{font-size:14px;color:var(--mut);max-width:600px;line-height:1.5;}
+  /* toolkit demo player (full-bleed slide 01) */
+  .slide.demo{padding:0;background:var(--ink);overflow:hidden;}
+  .slide.demo .sec-tag{display:none;}
+  .demo-stage{position:absolute;inset:0;background:var(--ink);overflow:hidden;color:#fff;font-family:inherit;cursor:pointer;}
+  .dscene{position:absolute;inset:0;display:flex;opacity:0;transition:opacity .45s ease;pointer-events:none;}
+  .dscene.on{opacity:1;pointer-events:auto;}
+  .dcopy{width:38%;flex:none;display:flex;flex-direction:column;justify-content:center;z-index:2;
+         padding:52px 32px 74px 52px;background:linear-gradient(155deg,#0F1514 0%,#182120 100%);
+         border-right:1px solid rgba(255,255,255,.07);}
+  .deyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:800;
+            letter-spacing:.17em;text-transform:uppercase;color:var(--org3);}
+  .deyebrow::before{content:"";width:22px;height:3px;background:var(--org);border-radius:2px;}
+  .dhead{font-size:30px;font-weight:700;line-height:1.13;letter-spacing:-.01em;margin-top:14px;color:#fff;}
+  .dsub{font-size:14.5px;line-height:1.55;color:#C7CFCD;margin-top:12px;}
+  .dchips{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px;}
+  .dchip{font-size:11.5px;font-weight:600;background:rgba(255,102,17,.16);
+         border:1px solid rgba(255,102,17,.4);color:var(--org3);border-radius:999px;padding:4px 11px;}
+  .dfig{flex:1;display:flex;align-items:center;justify-content:center;overflow:hidden;
+        padding:46px 46px 46px 28px;background:radial-gradient(125% 125% at 78% 8%,#232c2b 0%,#0F1514 72%);}
+  .dfig img{max-width:100%;max-height:100%;border-radius:11px;background:#fff;
+            box-shadow:0 18px 50px rgba(0,0,0,.55);display:block;}
+  .dmissing{display:flex;align-items:center;justify-content:center;width:70%;height:60%;
+            border:2px dashed rgba(255,102,17,.5);border-radius:12px;color:var(--org3);
+            font-size:14px;font-weight:700;letter-spacing:.08em;}
+  .dscene.on .dfig img{animation:dzoom 12s ease-out both;}
+  .dscene.on .dcopy{animation:dIn .5s ease both;}
+  .dscene.intro,.dscene.outro{display:block;}
+  .dbg{position:absolute;inset:0;}
+  .dbg img{width:100%;height:100%;object-fit:cover;display:block;}
+  .dshade{position:absolute;inset:0;}
+  .dscene.intro .dshade{background:linear-gradient(to top,rgba(15,21,20,.95) 16%,rgba(15,21,20,.66) 58%,rgba(15,21,20,.3) 100%);}
+  .dscene.outro .dshade{background:radial-gradient(120% 120% at 50% 28%,#1c2524 0%,#0F1514 76%);}
+  .dcenter{position:absolute;left:0;right:0;bottom:0;padding:52px 56px 88px;z-index:2;}
+  .dscene.outro .dcenter{top:0;bottom:0;display:flex;flex-direction:column;align-items:center;
+                         justify-content:center;text-align:center;padding:0 130px;}
+  .dscene.intro .dhead{font-size:44px;}
+  .dscene.outro .dhead{font-size:38px;margin-top:16px;}
+  .dscene.intro .dsub,.dscene.outro .dsub{font-size:16px;max-width:720px;color:#DBDFDE;}
+  .dscene.outro .deyebrow{justify-content:center;}
+  .dscene.on .dcenter{animation:dIn .55s ease both;}
+  .dtop{position:absolute;top:24px;left:52px;right:96px;display:flex;align-items:center;gap:12px;
+        z-index:6;pointer-events:none;}
+  .dtitle{font-size:11.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#AEB8B6;}
+  .dcount{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--org3);font-variant-numeric:tabular-nums;}
+  .dcontrols{position:absolute;right:32px;bottom:20px;display:flex;align-items:center;gap:8px;z-index:8;cursor:default;}
+  .dbtn{appearance:none;border:1.5px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);
+        color:#fff;font:inherit;font-size:13px;font-weight:700;line-height:1;border-radius:9px;
+        padding:8px 11px;cursor:pointer;transition:.15s;}
+  .dbtn:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.4);}
+  .dbtn.wide{min-width:66px;}
+  .dbar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.14);z-index:8;}
+  .dbar i{display:block;height:100%;width:0;background:var(--org);}
+  @keyframes dzoom{from{transform:scale(1);}to{transform:scale(1.05);}}
+  @keyframes dIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
 
   /* highlight duration row */
   .durations{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:auto;}
@@ -601,14 +648,7 @@
     <section class="slide" data-sec="1">
       <div class="sec-tag">01 · Opening Brief</div>
       <div class="logo"><img src="data:image/jpeg;base64,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" alt="Ascentium"></div>
-      <div class="kicker" style="margin-top:14px;">The AI toolkit</div>
-      <h2 class="sm" style="margin-top:8px;">The Skills / Agents arsenal</h2>
-      <div class="video-ph">
-        <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="vt">Toolkit demo — playing next</div>
-        <div class="vs">A short walkthrough of the full loop: insight → plan → poster → prove → showcase. Watch the screen; we start the run right after.</div>
-      </div>
-      <div class="ruleband">Pre-loaded and ready — your guild opens the toolkit and equips the stages as it goes.</div>
+      <div class="demo-stage" id="toolkitDemo" aria-label="Toolkit demo"></div>
     </section>
 
     <!-- ================= SECTION 2 · PICK ================= -->
@@ -1274,6 +1314,183 @@
   });
 
   fit(); show(0);
+})();
+</script>
+
+<script>
+/* Toolkit demo — scene engine for slide 01 (see toolkit-video-scripts.md) */
+(function(){
+  var stage = document.getElementById('toolkitDemo');
+  if(!stage) return;
+  var slide = stage.closest('.slide');
+  slide.classList.add('demo','plain');
+
+  var P = 'assets/video/';
+  var HERO = '../assets/hero.png';
+  var SCENES = [
+    { id:'IMG-00', dur:6,  layout:'intro', eyebrow:'The AI toolkit',
+      head:'The Marketing AI Toolkit', sub:'One loop. Five stages. Your team makes the calls.',
+      img:HERO, alt:'Ascentium hackathon hero' },
+    { id:'IMG-01', dur:10, eyebrow:'Where it lives',
+      head:'The toolkit sits in your editor',
+      sub:'One workspace, pre-loaded with the quest card and the skills. No setup.',
+      img:P+'img-01.jpg', alt:'OpenCode new session', skills:['skills','commands'] },
+    { id:'IMG-02', dur:10, eyebrow:'One command line',
+      head:'Eight commands run the whole loop',
+      sub:'/start · /insight · /plan · /poster · /prove · /showcase — plus /run and /evaluate.',
+      img:P+'img-02.jpg', alt:'Command palette' },
+    { id:'IMG-03', dur:12, eyebrow:'The loop',
+      head:'One loop, five stages — a decision at every gate',
+      sub:'agent-reach pulls real data, creative-concept builds options, poster draws the hero, prove fixes the metrics, showcase assembles the pitch.',
+      img:P+'img-03.jpg', alt:'Five-stage journey map', skills:['insight','plan','poster','prove','showcase'] },
+    { id:'IMG-04', dur:9,  eyebrow:'Kick off',
+      head:'Type /start and name the quest',
+      sub:'The toolkit reads the quest card and opens the first gate.',
+      img:P+'img-04.jpg', alt:'Typing /start', skills:['/start'] },
+    { id:'IMG-05', dur:10, eyebrow:'The first decision',
+      head:'It answers with a clear decision',
+      sub:'Run the research, take a fast start, or add your own angle. The team picks.',
+      img:P+'img-05.jpg', alt:'Start reply menu', skills:['/start'] },
+    { id:'IMG-06', dur:12, eyebrow:'Insight',
+      head:'Insight returns a grounded menu of options',
+      sub:'Eight findings, each with its source. The team picks two or three to build on.',
+      img:P+'img-06.jpg', alt:'Insight market-trends menu', skills:['agent-reach','business-research','audience-analysis','swot-analysis'] },
+    { id:'IMG-07', dur:10, eyebrow:'The brief',
+      head:'The choice becomes the brief',
+      sub:'Moment of truth, seed insight, and the selected insights on one screen.',
+      img:P+'img-07.jpg', alt:'Insight brief', skills:['insight'] },
+    { id:'IMG-08', dur:10, eyebrow:'Plan',
+      head:'Plan starts by fixing who and when',
+      sub:'Seven segment × moment anchors. The team picks the one that answers the insights.',
+      img:P+'img-08.jpg', alt:'Plan anchor menu', skills:['creative-concept','opportunity-definition'] },
+    { id:'IMG-09', dur:12, eyebrow:'Plan',
+      head:'Then two complete plans, A and B',
+      sub:'Positioning, offer, 4Ps, pilot, budget. The team picks one or mixes.',
+      img:P+'img-09.jpg', alt:'Two plan versions', skills:['plan'] },
+    { id:'IMG-10', dur:10, eyebrow:'Poster',
+      head:'The hero poster, in three styles',
+      sub:'Same message, three art directions. The team keeps one.',
+      img:P+'img-10.jpg', alt:'Poster result', skills:['poster'] },
+    { id:'IMG-11', dur:11, eyebrow:'Prove',
+      head:'Prove — pilot metrics with the logic behind each',
+      sub:'Benchmark → assumption → formula for every target.',
+      img:P+'img-11.jpg', alt:'Proof artifact and recap', skills:['prove'] },
+    { id:'IMG-12', dur:11, eyebrow:'Showcase',
+      head:'Showcase assembles the package',
+      sub:'Proposal, poster, proof, and deck — then a final check before submitting.',
+      img:P+'img-12.jpg', alt:'Showcase package and final check', skills:['showcase'] },
+    { id:'IMG-13', dur:11, eyebrow:'The package',
+      head:'One report, one deck, ready to pitch',
+      sub:'A five-minute pitch, brand-compliant end to end.',
+      img:P+'img-13.jpg', alt:'Final proposal and pitch deck', skills:['showcase'] },
+    { id:'IMG-14', dur:7,  layout:'outro', eyebrow:'Close',
+      head:'Your Facilitator walks the loop with you',
+      sub:'Stuck on a command or a choice? Raise a hand — one Facilitator per guild keeps it moving.' }
+  ];
+
+  var total = SCENES.reduce(function(a,s){ return a + s.dur; }, 0);
+
+  function copyHTML(s){
+    var chips = (s.skills && s.skills.length)
+      ? '<div class="dchips">' + s.skills.map(function(k){ return '<span class="dchip">' + k + '</span>'; }).join('') + '</div>'
+      : '';
+    return '<div class="deyebrow">' + (s.eyebrow || '') + '</div>' +
+           '<h3 class="dhead">' + s.head + '</h3>' +
+           '<p class="dsub">' + s.sub + '</p>' + chips;
+  }
+  function sceneHTML(s){
+    var im = s.img ? '<img src="' + s.img + '" alt="' + (s.alt || '') + '">' : '';
+    if(s.layout === 'intro')  return '<div class="dbg">' + im + '</div><div class="dshade"></div><div class="dcenter">' + copyHTML(s) + '</div>';
+    if(s.layout === 'outro')  return '<div class="dshade"></div><div class="dcenter">' + copyHTML(s) + '</div>';
+    return '<div class="dcopy">' + copyHTML(s) + '</div><div class="dfig">' + im + '</div>';
+  }
+
+  var els = SCENES.map(function(s){
+    var el = document.createElement('div');
+    el.className = 'dscene ' + (s.layout || 'split');
+    el.innerHTML = sceneHTML(s);
+    var im = el.querySelector('img');
+    if(im){
+      im.addEventListener('error', function(){
+        var box = document.createElement('div');
+        box.className = 'dmissing';
+        box.textContent = s.id;
+        im.replaceWith(box);
+      });
+    }
+    stage.appendChild(el);
+    return el;
+  });
+
+  var chrome = document.createElement('div');
+  chrome.innerHTML =
+    '<div class="dtop"><span class="dtitle">The Marketing AI Toolkit</span><span class="dcount"></span></div>' +
+    '<div class="dcontrols">' +
+      '<button class="dbtn" data-d="restart" title="Restart" aria-label="Restart">&#8635;</button>' +
+      '<button class="dbtn" data-d="prev" title="Previous" aria-label="Previous">&#8249;</button>' +
+      '<button class="dbtn wide" data-d="play" title="Play / Pause">Pause</button>' +
+      '<button class="dbtn" data-d="next" title="Next" aria-label="Next">&#8250;</button>' +
+    '</div>' +
+    '<div class="dbar"><i></i></div>';
+  stage.appendChild(chrome);
+  var countEl = chrome.querySelector('.dcount');
+  var barEl   = chrome.querySelector('.dbar i');
+  var playBtn = chrome.querySelector('[data-d="play"]');
+  var stEl = slide.querySelector('.sec-tag'); if(stEl) stEl.remove();
+
+  var idx = 0, playing = false, elapsed = 0, raf = null, last = 0;
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
+  function beforeDur(){ var t = 0; for(var k = 0; k < idx; k++) t += SCENES[k].dur; return t; }
+  function render(){
+    var overall = (beforeDur() + Math.min(elapsed, SCENES[idx].dur)) / total;
+    barEl.style.width = (overall * 100) + '%';
+  }
+  function setScene(n, atStart){
+    idx = ((n % SCENES.length) + SCENES.length) % SCENES.length;
+    if(atStart !== false) elapsed = 0;
+    els.forEach(function(e,k){ e.classList.toggle('on', k === idx); });
+    countEl.textContent = pad(idx + 1) + ' / ' + pad(SCENES.length);
+    render();
+  }
+  function play(){
+    if(playing) return;
+    playing = true; playBtn.textContent = 'Pause';
+    last = (window.performance && performance.now) ? performance.now() : Date.now();
+    raf = requestAnimationFrame(function step(now){
+      if(!playing) return;
+      var dt = (now - last) / 1000; last = now;
+      elapsed += dt;
+      if(elapsed >= SCENES[idx].dur){
+        if(idx < SCENES.length - 1){ setScene(idx + 1, true); }
+        else { elapsed = SCENES[idx].dur; render(); pause(); return; }
+      }
+      render();
+      raf = requestAnimationFrame(step);
+    });
+  }
+  function pause(){ playing = false; playBtn.textContent = 'Play'; if(raf) cancelAnimationFrame(raf); raf = null; }
+  function toggle(){ playing ? pause() : play(); }
+  function restart(){ setScene(0, true); play(); }
+
+  chrome.addEventListener('click', function(e){
+    var b = e.target.closest('[data-d]'); if(!b) return;
+    var a = b.getAttribute('data-d');
+    if(a === 'play') toggle();
+    else if(a === 'prev') setScene(idx - 1, true);
+    else if(a === 'next') setScene(idx + 1, true);
+    else if(a === 'restart') restart();
+  });
+  stage.addEventListener('click', function(e){
+    if(e.target.closest('.dcontrols')) return;
+    toggle();
+  });
+
+  new MutationObserver(function(){
+    if(slide.classList.contains('on')) restart();
+    else pause();
+  }).observe(slide, { attributes:true, attributeFilter:['class'] });
+
+  setScene(0, true);
 })();
 </script>
 </body>

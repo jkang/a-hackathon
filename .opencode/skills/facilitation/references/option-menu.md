@@ -32,7 +32,7 @@ Every turn that produces output ends with a short wrap-up:
 
 1. **Recap (2–4 lines)** — what you just did + the artifact produced (name + path) + the key takeaways.
 2. **The menu, inline** — print it in the message (numbered, with each option's supporting fact).
-3. **Pick prompt (verbatim)** — "Reply with your pick (e.g. `1, 4, 6`)." Add nothing after it.
+3. **Pick prompt (one line) — aligned to the menu** — "Reply with your pick (e.g. `1, 3, 5`)." The example **must match the actual menu**: use its real option numbers and pick count (3-option single pick → *e.g. `1`*; 6–8-option pick-2–3 → *e.g. `1, 3, 5`*). Never cite numbers that aren't on the menu. Add nothing after it.
 
 > The options always live in the chat — surface them yourself; never route the team through an artifact to choose.
 

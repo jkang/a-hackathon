@@ -16,7 +16,7 @@ The technical build is specified in section 7.
 |---|---|
 | Title | The Marketing AI Toolkit |
 | Subtitle | Insight → Plan → Poster → Prove → Showcase |
-| Runtime | ~2:00 (10 scenes, timed auto-advance) |
+| Runtime | ~2:30 (15 scenes, timed auto-advance) |
 | Stage | 1000 × 562 (16:9), full-bleed inside the deck |
 | Audience | 8 guilds, non-technical business managers |
 | Tone | Calm, concrete, business. Show the loop, name the skills, stop at each decision. |
@@ -28,7 +28,7 @@ The technical build is specified in section 7.
 
 ## 2. Global conventions
 
-- **Scene ID** — `S1`–`S10`, played in order.
+- **Scene ID** — `S1`–`S15`, played in order.
 - **Timing** — `dur` is seconds; the engine auto-advances after `dur`. Host can pause anytime.
 - **Copy fields** — `headline` (large), `sub` (one supporting line), `skills` (the skills/commands
   active in this scene), `decision` (the call the team makes before moving on).
@@ -41,134 +41,162 @@ The technical build is specified in section 7.
 
 ## 3. Storyboard
 
+Each scene shows one screenshot (except S1 and S15) with a headline and one supporting line.
+The example run uses Quest B (Chengdu Panda Base).
+
 ### S1 · Title / cold open — 6s
 - **Headline:** The Marketing AI Toolkit
 - **Sub:** One loop. Five stages. Your team makes the calls.
 - **Visual:** brand cover — Ascentium logo over `hero.png` (reuse), orange kicker.
-- **Skills:** —
-- **Decision:** —
+- **Skills:** — · **Decision:** —
 
-### S2 · What the toolkit is — 12s
-- **Headline:** One command line opens the whole loop
-- **Sub:** Skills are reusable expert playbooks. Commands are the one-tap entries that run them.
-- **Visual:** `IMG-01` (workspace with a command being typed) → `IMG-02` (the command list).
-- **Skills:** `skills/` + `commands/` overview
-- **Decision:** —
+### S2 · Where the toolkit lives — 10s
+- **Headline:** The toolkit sits in your editor
+- **Sub:** One workspace, pre-loaded with the quest card and the skills. No setup.
+- **Visual:** `IMG-01` — OpenCode new session.
+- **Skills:** `skills/` + `commands/` · **Decision:** —
 
-### S3 · Journey map + how Skills & Commands work — 12s
-- **Headline:** One loop, five stages — with a decision at every gate
-- **Sub:** `agent-reach` pulls real data, `creative-concept` builds the options,
-  `poster` draws the hero image, `prove` fixes the pilot metrics, `showcase` assembles the pitch.
-- **Visual:** `IMG-03` — 5-stage loop diagram with the HITL gate on each stage
-  (reused from the deck's "One loop, five stages" flow).
-- **Skills:** `insight` · `plan` · `poster` · `prove` · `showcase`
-- **Decision:** —
+### S3 · One command line — 10s
+- **Headline:** Eight commands run the whole loop
+- **Sub:** `/start · /insight · /plan · /poster · /prove · /showcase` — plus `/run` and `/evaluate`.
+- **Visual:** `IMG-02` — the command palette.
+- **Skills:** `commands/` · **Decision:** —
 
-### S4 · `/start A` — 10s
-- **Headline:** Start the quest
-- **Sub:** The toolkit reads the quest card and returns the first grounded menu. Claim a role, then go.
-- **Visual:** `IMG-04` — `/start A` running and the first menu on screen.
-- **Skills:** `/start`
-- **Decision:** Read the quest; each member claims a lane.
+### S4 · The loop — 12s
+- **Headline:** One loop, five stages — a decision at every gate
+- **Sub:** `agent-reach` pulls real data, `creative-concept` builds options, `poster` draws the hero,
+  `prove` fixes the metrics, `showcase` assembles the pitch.
+- **Visual:** `IMG-03` — the five-stage journey map.
+- **Skills:** `insight` · `plan` · `poster` · `prove` · `showcase` · **Decision:** —
 
-### S5 · `/insight` — 14s
-- **Headline:** Insight — a grounded menu, not a blank page
-- **Sub:** Research first, then a shortlist of data-backed options. Pick 2–3 and the AI records your call.
-- **Visual:** `IMG-05` (command + skill callout) → `IMG-06` (`insight-brief.html`).
+### S5 · Kick off — 9s
+- **Headline:** Type `/start` and name the quest
+- **Sub:** The toolkit reads the quest card and opens the first gate.
+- **Visual:** `IMG-04` — typing `/start the Quest B - Chengdu Panda Base`.
+- **Skills:** `/start` · **Decision:** Read the quest; each member claims a lane.
+
+### S6 · The first decision — 10s
+- **Headline:** It answers with a decision, not a wall of text
+- **Sub:** Run the research, take the fast start, or add your own angle. The team picks.
+- **Visual:** `IMG-05` — the `/start` reply and its three options.
+- **Skills:** `/start` · **Decision:** Choose how to open the Insight gate.
+
+### S7 · Insight — a grounded menu — 12s
+- **Headline:** Insight returns a grounded menu of options
+- **Sub:** Eight findings, each with its source. The team picks two or three to build on.
+- **Visual:** `IMG-06` — the market-trends menu; the team replies `2, 4, 7`.
 - **Skills:** `agent-reach` · `business-research` · `audience-analysis` · `swot-analysis` · `insight`
-- **Decision:** Choose 2–3 insights to build on (or add one of your own).
+- **Decision:** Pick 2–3 insights (or add one of your own).
 
-### S6 · `/plan` + `/poster` — 14s
-- **Headline:** Plan — two concepts, one choice
-- **Sub:** The AI drafts A/B concepts with markets and budget, then renders the hero poster in your chosen direction.
-- **Visual:** `IMG-07` (command + skill callout) → `IMG-08` (`campaign-plan.html`) → `IMG-09` (`poster.html`).
-- **Skills:** `creative-concept` · `opportunity-definition` · `poster` · `plan`
-- **Decision:** Choose the concept, the plan, and the poster art direction.
+### S8 · The brief — 10s
+- **Headline:** The choice becomes the brief
+- **Sub:** Moment of truth, seed insight, and the selected insights on one screen.
+- **Visual:** `IMG-07` — `insight-brief.html`.
+- **Skills:** `insight` · **Decision:** Confirm the brief; move to Plan.
 
-### S7 · `/prove` — 12s
-- **Headline:** Prove — the pilot metrics and the logic behind each
-- **Sub:** Every target shows its benchmark, assumption, and formula. Confirm the numbers carry.
-- **Visual:** `IMG-10` — `/prove` running and `proof.html` (single screen).
-- **Skills:** `prove`
-- **Decision:** Confirm the 3–5 pilot metrics and their reasoning.
+### S9 · Plan — fix who and when — 10s
+- **Headline:** Plan starts by fixing who and when
+- **Sub:** Seven segment × moment anchors. The team picks the one that answers the insights.
+- **Visual:** `IMG-08` — the Plan · Anchor menu.
+- **Skills:** `creative-concept` · `opportunity-definition` · **Decision:** Choose the anchor.
 
-### S8 · `/showcase` — 14s
-- **Headline:** Showcase — proposal and pitch deck, ready to present
-- **Sub:** The AI assembles everything into one report and a deck. Read it, adjust, approve before you submit.
-- **Visual:** `IMG-11` — `/showcase` running, `proposal.html` and `pitch-deck.html`.
-- **Skills:** `showcase`
-- **Decision:** Approve the proposal and pitch.
+### S10 · Plan — two versions — 12s
+- **Headline:** Then two complete plans, A and B
+- **Sub:** Positioning, offer, 4Ps, pilot, budget. The team picks one or mixes.
+- **Visual:** `IMG-09` — Plan · two versions (A "Belong Anywhere" / B "Passport to Chengdu").
+- **Skills:** `plan` · **Decision:** Pick A, B, or a mix.
 
-### S9 · The loop you actually run — 10s
-- **Headline:** The AI proposes. Your team decides. The AI executes.
-- **Sub:** Same three steps at every gate: a grounded menu, a team choice, then the build.
-- **Visual:** none — three-step HTML recap (menu → choose → execute).
-- **Skills:** —
-- **Decision:** —
+### S11 · Poster — 10s
+- **Headline:** The hero poster, in three styles
+- **Sub:** Same message, three art directions. The team keeps one.
+- **Visual:** `IMG-10` — `poster.html`.
+- **Skills:** `poster` · **Decision:** Keep one poster style.
 
-### S10 · Close — 8s
+### S12 · Prove — 11s
+- **Headline:** Prove — pilot metrics with the logic behind each
+- **Sub:** Benchmark → assumption → formula for every target.
+- **Visual:** `IMG-11` — `proof.html` written, plus the recap.
+- **Skills:** `prove` · **Decision:** Confirm the pilot metrics and their reasoning.
+
+### S13 · Showcase — the package — 11s
+- **Headline:** Showcase assembles the package
+- **Sub:** Proposal, poster, proof, and deck — then a final check before submitting.
+- **Visual:** `IMG-12` — the package summary, one-line pitch, and Converge · Final check.
+- **Skills:** `showcase` · **Decision:** Confirm and submit, or request a change.
+
+### S14 · One report, one deck — 11s
+- **Headline:** One report, one deck, ready to pitch
+- **Sub:** A five-minute pitch, brand-compliant end to end.
+- **Visual:** `IMG-13` — the final proposal / pitch deck.
+- **Skills:** `showcase` · **Decision:** —
+
+### S15 · Close — 7s
 - **Headline:** Your Facilitator walks the loop with you
 - **Sub:** Stuck on a command or a choice? Raise a hand — one Facilitator per guild keeps it moving.
-- **Visual:** `IMG-12` — a Facilitator beside a guild.
-- **Skills:** —
-- **Decision:** —
+- **Visual:** none — HTML closing card.
+- **Skills:** — · **Decision:** —
 
 ---
 
 ## 4. Full run-through (copy block)
 
-For convenience when writing on-screen text, the scenes in reading order:
-
 1. The Marketing AI Toolkit — one loop, five stages, your team makes the calls.
-2. One command line opens the whole loop — skills are playbooks, commands are the entries.
-3. One loop, five stages, with a decision at every gate.
-4. `/start A` — read the quest, claim a role.
-5. `/insight` — a grounded menu; pick 2–3 insights.
-6. `/plan` + `/poster` — two concepts; choose the plan and the art direction.
-7. `/prove` — pilot metrics and the logic behind each; confirm the numbers.
-8. `/showcase` — proposal and deck; approve before submitting.
-9. The AI proposes, your team decides, the AI executes.
-10. Your Facilitator walks the loop with you.
+2. The toolkit sits in your editor — pre-loaded, no setup.
+3. Eight commands run the whole loop.
+4. One loop, five stages, with a decision at every gate.
+5. Type `/start` and name the quest.
+6. It answers with a decision, not a wall of text.
+7. Insight returns a grounded menu; the team picks two or three.
+8. The choice becomes the brief.
+9. Plan starts by fixing who and when.
+10. Then two complete plans, A and B.
+11. The hero poster, in three styles.
+12. Prove — pilot metrics with the logic behind each.
+13. Showcase assembles the package.
+14. One report, one deck, ready to pitch.
+15. Your Facilitator walks the loop with you.
 
 ---
 
 ## 5. Image manifest
 
-All files go in `Hackathon-Design/hostdeck/assets/video/`, referenced relatively as
-`assets/video/<filename>`. Preferred format: PNG, sRGB, 2× (retina). If a file is missing,
-the engine shows the slot's placeholder label so the deck still runs.
+All files live in `Hackathon-Design/hostdeck/assets/video/`, referenced relatively as
+`assets/video/<filename>`. Format: JPG, sRGB. If a file is missing, the engine shows the
+slot's placeholder label so the deck still runs.
 
-| ID | Scene | What it shows | Type | Source | Suggested size | Filename |
-|---|---|---|---|---|---|---|
-| IMG-01 | S2 | OpenCode workspace with a command being typed | screenshot | NEW | 1800×1000 | `img-01.jpg` |
-| IMG-02 | S2 | The command list / palette (8 commands) | screenshot | NEW | 1800×1000 | `img-02.jpg` |
-| IMG-03 | S3 | 5-stage loop diagram with the HITL gate per stage | diagram | REUSE (deck flow at `host-deck.html` L517–569) | 1800×1000 | `img-03.jpg` |
-| IMG-04 | S4 | `/start Quest B Panda-base` running + first grounded menu | screenshot | NEW | 1800×1000 | `img-04.jpg` |
-| IMG-04 | S4 | `continue with research` running + first grounded menu | screenshot | NEW | 1800×1000 | `img-05.jpg` |
-| IMG-05 | S5 | `review insight brief & choose insights direction` running + skill callout | screenshot | NEW | 1800×1000 | `img-05.jpg` |
-| IMG-06 | S5 | `insight-brief.html` result | screenshot | NEW | 1800×1000 | `img-07.jpg` |
-| IMG-07 | S6 | `design campaing plan` running + skill callout | screenshot | NEW | 1800×1000 | `img-08.jpg` |
-| IMG-08 | S6 | `campaign-plan.html` (A/B) result | screenshot | NEW | 1800×1000 | `img-09.jpg` |
-| IMG-09 | S6 | `poster.html` hero result | screenshot | NEW | 1400×1000 | `img-10.jpg` |
-| IMG-10 | S7 | `/prove` running + `proof.html` result | screenshot | NEW | 1800×1000 | `img-11.jpg` |
-| IMG-11 | S8 | `/showcase` running + `proposal.html` / `pitch-deck.html` | screenshot | NEW | 1800×1000 | `img-12.jpg` |
-| IMG-12 | S10 | review final package | 1400×1000 | `img-13.jpg` |
+| ID | Scene | What it shows | Type | Filename |
+|---|---|---|---|---|
+| IMG-01 | S2 | OpenCode new session (toolkit workspace) | screenshot | `img-01.jpg` |
+| IMG-02 | S3 | Command palette — the eight commands | screenshot | `img-02.jpg` |
+| IMG-03 | S4 | "One loop, five stages" journey map | diagram | `img-03.jpg` |
+| IMG-04 | S5 | Typing `/start the Quest B - Chengdu Panda Base` | screenshot | `img-04.jpg` |
+| IMG-05 | S6 | `/start` reply — how to open the Insight gate | screenshot | `img-05.jpg` |
+| IMG-06 | S7 | Insight market-trends menu (team picks 2,4,7) | screenshot | `img-06.jpg` |
+| IMG-07 | S8 | `insight-brief.html` — insights selected | screenshot | `img-07.jpg` |
+| IMG-08 | S9 | Plan · Anchor menu | screenshot | `img-08.jpg` |
+| IMG-09 | S10 | Plan · two versions — pick A or B | screenshot | `img-09.jpg` |
+| IMG-10 | S11 | `poster.html` — three styles + hero | screenshot | `img-10.jpg` |
+| IMG-11 | S12 | `proof.html` written + recap | screenshot | `img-11.jpg` |
+| IMG-12 | S13 | Showcase package + final check | screenshot | `img-12.jpg` |
+| IMG-13 | S14 | Final proposal / pitch deck | screenshot | `img-13.jpg` |
 
 **Reused, no file needed:** Ascentium logo (already inline in the deck) and `hero.png`
 (already in `Hackathon-Design/assets/`).
 
+**Alternates on disk (not in the manifest):**
+- `img-071.jpg` — internal "thinking" screen for the anchor menu. Rough; not recommended.
+- `img-101.jpg` — Poster · Style decision menu (pick A/B/C). Can slot in **before** `IMG-10`
+  as a "Poster — pick a style" scene if a 16th scene is wanted.
+
 **Notes**
-- IMG-03 may be a fresh screenshot of the deck's own journey-map slide if you prefer a
-  matching look; otherwise a clean standalone version of the same diagram.
-- IMG-06 / IMG-08 / IMG-09 / IMG-10 / IMG-11 can be captured directly from the checked-in
-  `demo-examples/QuestA-v2/*.html` files.
 - Keep screenshots free of private tokens, account IDs, or local file paths.
+- Use `demo-examples/QuestA-v2/*.html` if a Quest A variant is ever needed.
 
 ---
 
 ## 6. Status
 
-- [ ] Images IMG-01 … IMG-12 supplied
+- [x] Images IMG-01 … IMG-13 supplied
 - [ ] Player built into `host-deck.html` (Phase B)
 - [ ] Browser check passed (Phase C)
 
@@ -188,6 +216,7 @@ The build adds a self-contained scene engine to `host-deck.html`. No external li
 
 **Scene data** — a JS array of objects mirroring section 3: `{ id, dur, eyebrow, headline, sub,
 img, imgAlt, skills[], decision }`. Copy is data, not markup, so the script stays editable.
+Image paths are `assets/video/<filename>`; `S1`/`S15` have no image.
 
 **Engine behaviour**
 - Auto-advances on `dur`; cross-fades scenes; progress bar fills across the full runtime.

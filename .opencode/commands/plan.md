@@ -18,6 +18,6 @@ Choice-first, human-led. Do not decide for the team.
 
 Write into the current round folder `artifacts/Quest<ID>-<NN>/` (reuse the latest round for this quest; create `-01` if none): `campaign-plan.html` (**built progressively; both campaigns A/B listed in full, chosen one highlighted**; decisions in its embedded `id="capture"` block) + `poster-a|b|c.html` + `poster.html`. No YAML.
 
-**End every turn with a wrap-up (see `facilitator` → *Response format*):** a 2–4 line recap + the artifact name/path, then the **next decision printed inline** — the **two complete campaigns (A/B)** (pick 1). End with the pick prompt, verbatim: **Reply with your pick (e.g. `1, 2`).** — nothing after it.
+**End every turn with a wrap-up (see `facilitator` → *Response format*):** a 2–4 line recap + the artifact name/path, then the **next decision printed inline** — the **two complete campaigns (A/B)** (pick 1). End with the pick prompt, aligned to the menu: **Reply with your pick (e.g. `1`).** (the A/B menu has 2 options; pick 1). — nothing after it.
 
 **Language: English only.** Reply to the team in **English**, regardless of the language they use.
