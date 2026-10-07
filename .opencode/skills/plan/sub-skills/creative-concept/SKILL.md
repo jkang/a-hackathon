@@ -11,15 +11,16 @@ Develop the campaign's big idea. **Anchor first** (audience + moment), then **di
 
 ## Inputs
 
-- The **selected key insights** (2–3) from the insight stage.
+- The **selected key insights** (2–3) from the insight stage — each fuses a **segment × moment × trend**.
+- The segment's **`channels`** field and the insight's **trend** (the raw material for the channel).
 - The **Quest's How Might We (HMW)**.
 - The org profile + audience map (for grounding).
 
 ## Phase 1 — Anchor (before any ideation)
 
-**1a. The creative brief.** Lock the anchor in ONE line:
+**1a. The creative brief.** Lock the anchor in ONE line — the full **campaign kernel** (`audience · moment · trend · channel · concept`):
 
-> For **[primary segment]**, whose **[emotional job]**, at **[moment of truth]**, our campaign will **[mechanic]** — so they **[desired belief/action]**.
+> For **[primary segment]**, whose **[emotional job]**, at **[moment of truth]**, riding **[trend]**, our campaign intercepts via **[channel]** with **[mechanic]** — so they **[desired belief/action]**.
 
 **1b. Scenario canvas.** List **3–5 campaign moments** (time · place · event) where the brand intercepts the audience; pick the 1–2 highest-leverage as the creative spine.
 
@@ -55,10 +56,12 @@ Develop the campaign's big idea. **Anchor first** (audience + moment), then **di
 | Hero idea | the one memorable mechanic | the membership hook |
 | Offer | ticket/experience bundle | founding-member offer (tiers, price, benefits) |
 | Scenario | the moment(s) it intercepts | the moment(s) it intercepts |
+| Channel | the primary channel it intercepts through | the primary channel it intercepts through |
 
 ## Quality bar
 
 - **Anchored** — names the segment + the moment it serves.
+- **Channeled** — names the media channel it intercepts through (from the segment's `channels` + the trend).
 - **Specific & ownable** — a rival couldn't run it unchanged.
 - **Human** — speaks to a real emotional job.
 - **Feasible under the MVP budget** — runnable in 3 months in 2 markets.
@@ -69,6 +72,7 @@ Develop the campaign's big idea. **Anchor first** (audience + moment), then **di
 - Ideas grounded in the selected insights (not random); 6–8 max, distinct.
 - Keep the `+1 of our own` channel open; the AI narrows, but the team makes the final campaign call.
 - ❌ A "big idea" with no audience anchor or no moment.
+- ❌ A "big idea" with no channel (where it reaches the audience).
 - ❌ A "big idea" that is actually a feature list.
 - ❌ A slogan with no proposition behind it.
 - ❌ Forcing one idea on a group of 10 — always diverge first.

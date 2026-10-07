@@ -102,7 +102,7 @@ End **every** turn with these three blocks, in order:
 | Stage | Stage skill | Sub-skills / agents to invoke |
 |---|---|---|
 | Insight | `insight` | chain: `agent-reach` → `business-research` → `market-trends` → `audience-analysis` → AI curates market trends (each tagged `kind`) **then** ~6–8 segments → **team picks 2–3 segments** → AI derives focus bundles + drafts ~6 key insights (each fusing a selected segment × its moment × a trend) → **team picks 2–3** |
-| Plan | `plan` | `creative-concept` (anchor + HMW + methods → ~6 ideas) → AI narrows to **2 complete campaigns (A/B)** + `opportunity-definition` + plan + budget + `poster` → **team picks one** |
+| Plan | `plan` | `creative-concept` (anchor + HMW + methods → ~6 ideas) → AI narrows to **2 complete campaigns (A/B)** + channel mix + plan + budget + `poster` → **team picks one** |
 | Prove | `prove` | build **one most-reasonable numeric forecast** + derivation chains (no HITL; one-screen board) |
 | Showcase | `showcase` | storyline + bonus media → AI decides signature · visual direction · one-liner (poster always included) → build `proposal.html` (unified report) + `pitch-deck.html` + `prompt-pack.html` (no sub-skills) |
 

@@ -22,8 +22,10 @@ Make each blank specific. If "unlike X" is hard to fill, differentiation is weak
 |---|---|---|
 | Product / offering | campaign + ticket/experience bundle | membership tiers + founding offer |
 | Price | ticket tiers / bundle pricing | membership price points |
-| Place / channels | the card's routes to market (airlines/partners, ticketing, retail, social, communities) | social, ecommerce, licensed retail, travel partners |
+| Place *(distribution)* | the card's routes to market (airlines/partners, ticketing, retail) | ecommerce, licensed retail, travel partners |
 | Promotion / content | content rhythm (teaser → hero → countdown), creator & community | always-on content engine, member referral, UGC |
+
+> **Place = distribution** (where the product is *sold*). The **media / communication channel** mix (where the *message* is delivered — short-video, creators, search, partnerships) is selected separately in `channel-strategy.md`, not here.
 
 ## 4. Membership design (when the offering is a membership)
 

@@ -174,10 +174,10 @@
 ├── skills/                      # 技能：一技能一目录；opencode 递归发现 **/SKILL.md
 │   ├── insight/                 # 洞察门 → insight-brief.html
 │   │   ├── references/ · templates/
-│   │   └── sub-skills/          # business-research · audience-analysis · swot-analysis
+│   │   └── sub-skills/          # business-research · market-trends · audience-analysis
 │   ├── plan/                    # 策划门 → campaign-plan.html
 │   │   ├── references/ · templates/
-│   │   └── sub-skills/          # creative-concept · opportunity-definition
+│   │   └── sub-skills/          # creative-concept
 │   ├── poster/                  # 海报（Create 阶段，独立）→ poster-a/b/c.html + poster.html
 │   ├── prove/                   # 论证门 → proof.html（单屏 pilot 指标）
 │   │   ├── references/ · templates/
@@ -232,11 +232,11 @@
         <div class="jr-cell jr-act r2">题卡导读 · 规则说明 · 设备自检</div>
         <div class="jr-cell jr-act r2">真实数据研究</div>
         <div class="jr-cell jr-act r2">组织 / IP 画像</div>
+        <div class="jr-cell jr-act r2">市场趋势（含机会 / 威胁）</div>
         <div class="jr-cell jr-act r2">受众分群</div>
-        <div class="jr-cell jr-act r2">SWOT 综合</div>
-        <div class="jr-cell jr-act r2">洞察综合 + 种子洞察</div>
+        <div class="jr-cell jr-act r2">焦点包 · 关键洞察 + 种子洞察</div>
         <div class="jr-cell jr-act r2">创意发散</div>
-        <div class="jr-cell jr-act r2">机会定义</div>
+        <div class="jr-cell jr-act r2">渠道策略</div>
         <div class="jr-cell jr-act r2">营销方案（A/B）</div>
         <div class="jr-cell jr-act r2">海报设计（9 段 × 3 风格）</div>
         <div class="jr-cell jr-act r2">一版最合理预测 → 推演链 → 单屏</div>
@@ -246,11 +246,11 @@
         <div class="jr-cell jr-skill r3"><code>facilitator</code> · <code>facilitation</code></div>
         <div class="jr-cell jr-skill r3"><code>agent-reach</code></div>
         <div class="jr-cell jr-skill r3"><code>business-research</code></div>
+        <div class="jr-cell jr-skill r3"><code>market-trends</code></div>
         <div class="jr-cell jr-skill r3"><code>audience-analysis</code></div>
-        <div class="jr-cell jr-skill r3"><code>swot-analysis</code></div>
         <div class="jr-cell jr-skill r3"><code>insight</code></div>
         <div class="jr-cell jr-skill r3"><code>creative-concept</code></div>
-        <div class="jr-cell jr-skill r3"><code>opportunity-definition</code></div>
+        <div class="jr-cell jr-skill r3"><code>channel-strategy</code></div>
         <div class="jr-cell jr-skill r3"><code>plan</code></div>
         <div class="jr-cell jr-skill r3"><code>poster</code></div>
         <div class="jr-cell jr-skill r3"><code>prove</code></div>
@@ -275,8 +275,8 @@
         <div class="jr-cell jr-hitl r5"><span class="none">—</span></div>
         <div class="jr-cell jr-hitl r5"><span class="none">—</span></div>
         <div class="jr-cell jr-hitl r5"><span class="none">—</span></div>
-        <div class="jr-cell jr-hitl r5"><span class="none">—</span></div>
-        <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 2–3 条关键洞察</div>
+        <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 2–3 人群</div>
+        <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 2–3 关键洞察</div>
         <div class="jr-cell jr-hitl r5"><span class="none">—</span></div>
         <div class="jr-cell jr-hitl r5"><span class="none">—</span></div>
         <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 1 套完整方案（A/B）</div>
@@ -388,16 +388,16 @@ opencode</code></pre>
           <div class="say"><span class="k">Say to the team</span>Here's the whole flow: Insight → Plan → Poster → Prove → Showcase. At every step the AI drafts a grounded menu, you choose, then the AI executes. <b>You make the calls; the AI does the work.</b> 40 minutes to produce, 10 to package and submit.</div>
         </li>
         <li><b>示范如何用 <code>/start</code> 开始与 AI 协作。</b>当场输入 <code>/start A</code>，让团队看到命令触发 Agent、读取题卡、讲清任务与四阶段，并<b>等待确认</b>；确认后再 research（约数分钟），并给出第一份带数据的「菜单」。
-          <div class="say"><span class="k">Say to the team</span>I'll kick us off now — watch the screen. <i>(type <code>/start A</code>)</i> The AI reads Quest A, explains the plan, and waits for our go-ahead before it starts. Once we say go, it researches for a few minutes, then hands us the first data-backed menu. Every gate starts like this.</div>
+          <div class="say"><span class="k">Say to the team</span>I'll kick us off now — watch the screen. <i>(type <code>/start A</code>)</i> The AI reads Quest A, explains the plan, and waits for our go-ahead before it starts. Once we say go, it researches for a few minutes, then hands us the first data-backed menu. Every stage starts like this.</div>
         </li>
         <li><b>AI 执行时，讲清背后用了哪些 Skills。</b>说明这个环节实际调用了哪些 skill、各自做什么；<b>视团队兴趣</b>，可打开 <code>.opencode/skills/&lt;name&gt;/SKILL.md</code> 现场展示它们如何工作。
-          <div class="say"><span class="k">Say to the team</span>While it runs — this step is powered by three skills: <code>agent-reach</code> pulls the real data, <code>audience-analysis</code> builds the segments, <code>swot-analysis</code> synthesizes them. Curious how they work? I can open the skill files and show you live.</div>
+          <div class="say"><span class="k">Say to the team</span>While it runs — this step chains a few skills: <code>business-research</code> profiles the client, <code>market-trends</code> reads the market, and <code>audience-analysis</code> segments the fans — all grounded by <code>agent-reach</code>. Curious how they work? I can open the skill files and show you live.</div>
         </li>
         <li><b>每环节结束：review → 讨论决策 → 示范提交 → 下一环节。</b>AI 产出后先停（HITL）：带团队一起读产出、逐条理解，讨论后做选择；示范怎么把选择结果交给 AI（从菜单选 N，或 <code>+1</code> 自选），随后进入下一环节。
-          <div class="say"><span class="k">Say to the team</span>Stop here — the AI has curated the market and drafted six data-backed insights. Read them together, then tell me which 2–3 to build on. Give your pick like this: <i>"We take insights 1, 4 and 6 — plus one of our own."</i> The AI records exactly what you say, then we move to Plan.</div>
+          <div class="say"><span class="k">Say to the team</span>First pick — the AI curated ~6 fan segments from the market read. Read them together and tell me which 2–3 to target: <i>"We take segments 1, 4 and 7."</i> Then the AI derives the focus bundles and drafts six key insights (each a segment × moment × trend tension) — pick 2–3 of those to build on. The AI records exactly what you say, then we move to Plan.</div>
         </li>
         <li><b>结果不满意：示范用 feedback 让 AI 重跑该环节。</b>用具体反馈让 AI 重跑这一环节，而不是推翻整个流程。
-          <div class="say"><span class="k">Say to the team</span>Not happy with these? Just tell the AI what to change: <i>"Redo the insight menu — focus on Gen-Z travellers and visa constraints."</i> It re-runs only this gate. Short on time? <i>"Only 8 minutes left — compress and give me 3 options."</i></div>
+          <div class="say"><span class="k">Say to the team</span>Not happy with these? Just tell the AI what to change: <i>"Redo the insight menu — focus on Gen-Z travellers and visa constraints."</i> It re-runs only this stage. Short on time? <i>"Only 8 minutes left — compress and give me 3 options."</i></div>
         </li>
         <li><b>控节奏：先出一轮 Showcase，再优化。</b>盯时间、及时提醒决策，先保证一轮完整产出，再打磨细节。
           <div class="say"><span class="k">Say to the team</span>20 minutes left — let's lock this and move on; we can refine later. One rule: get a complete first pass of the Showcase first, then improve. A finished draft beats a perfect half.</div>
@@ -411,8 +411,8 @@ opencode</code></pre>
       <table>
         <thead><tr><th>环节</th><th>命令</th><th>背后 Skill</th><th>Quest A 示例产出</th></tr></thead>
         <tbody>
-          <tr><td>洞察</td><td><code>/insight</code></td><td><code>agent-reach</code> · <code>business-research</code> · <code>audience-analysis</code> · <code>swot-analysis</code> · <code>insight</code></td><td><a href="demo-examples/QuestA-v2/insight-brief.html" target="_blank">insight-brief.html ↗</a></td></tr>
-          <tr><td>策划</td><td><code>/plan</code></td><td><code>creative-concept</code> · <code>opportunity-definition</code> · <code>plan</code></td><td><a href="demo-examples/QuestA-v2/campaign-plan.html" target="_blank">campaign-plan.html ↗</a></td></tr>
+          <tr><td>洞察</td><td><code>/insight</code></td><td><code>agent-reach</code> · <code>business-research</code> · <code>market-trends</code> · <code>audience-analysis</code> · <code>insight</code></td><td><a href="demo-examples/QuestA-v2/insight-brief.html" target="_blank">insight-brief.html ↗</a></td></tr>
+          <tr><td>策划</td><td><code>/plan</code></td><td><code>creative-concept</code> · <code>channel-strategy</code> · <code>plan</code></td><td><a href="demo-examples/QuestA-v2/campaign-plan.html" target="_blank">campaign-plan.html ↗</a></td></tr>
           <tr><td>海报</td><td><code>/poster</code></td><td><code>poster</code></td><td><a href="demo-examples/QuestA-v2/poster.html" target="_blank">poster.html ↗</a></td></tr>
           <tr><td>论证</td><td><code>/prove</code></td><td><code>prove</code></td><td><a href="demo-examples/QuestA-v2/proof.html" target="_blank">proof.html ↗</a></td></tr>
           <tr><td>呈现</td><td><code>/showcase</code></td><td><code>showcase</code></td><td><a href="demo-examples/QuestA-v2/proposal.html" target="_blank">proposal.html ↗</a> · <a href="demo-examples/QuestA-v2/pitch-deck.html" target="_blank">pitch-deck.html ↗</a></td></tr>

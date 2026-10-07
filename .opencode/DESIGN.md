@@ -212,30 +212,30 @@ AI 必须在每个阶段**持续感知剩余时间 + 团队意图**，动态调�
 - **吸收/改造**：`business-research`（组织画像 + 标杆对照）；**新增 `market-trends`**（合并市场读数：趋势 + 硬事实 + 外部机会/威胁，各带 `kind`）；`audience-analysis` 能力升级为 **STP + JTBD + 渠道 + 规模潜力**；**移除 `swot-analysis`**（S/W 已并入组织画像的 assets/constraints，O/T 已由 `market-trends` 的 `kind` 承载）。
 
 ### 7.2 `plan`（创意门 · 14 分钟 · 最重）
-- **目标**：**先锚定（人群 + 时刻）再发散**，让创意有根；AI 把创意拼成 **2 套完整方案（A/B）**，团队**只做 1 次决策 —— 选 A 或 B**。
+- **目标**：**先锚定（人群 × 时刻 × 趋势 × 渠道）再发散**，让创意有根；AI 把创意拼成 **2 套完整方案（A/B）**，团队**只做 1 次决策 —— 选 A 或 B**。
 - **输入**：`insight-brief.html` capture（所选人群 + 所选焦点包 + key insights + moment）。
 - **输出**：`campaign-plan.html`（**渐进式生成**：第一段产出即建文件，之后每步重写；最终**两套方案 A/B 全量列出**，选中高亮；**内嵌主视觉**；capture 内嵌）。**不产独立 poster 文件**（`poster-a/b/c.html` + `poster.html` 由独立 `/poster` 阶段产出）。
 - **facilitate（AI 全跑，团队只决策 1 次）**：
-  1. **发散（AI）**：`creative-concept` —— 锚定人群 × 时刻 → 1 个 HMW → 创意方法 → **~6 个候选创意**。
-  2. **收敛 + 搭 A/B（AI）**：把 ~6 收敛为 **2 套完整、彼此不同的 campaign**（A/B）；各含 `opportunity-definition`(5 要素) + 定位(Moore) + offering + 4Ps + 2 试点市场 + 实验计划 + 预算（题卡 War Chest）。
+  1. **发散（AI）**：`creative-concept` —— 锚定 **人群 × 时刻 × 趋势 × 渠道** → 1 个 HMW → 创意方法 → **~6 个候选创意**。
+  2. **收敛 + 搭 A/B（AI）**：把 ~6 收敛为 **2 套完整、彼此不同的 campaign**（A/B）；各含 **渠道组合**（`references/channel-strategy.md`，由 人群 `channels` + 洞察趋势 + 时刻 推导）+ 定位(Moore) + offering + 4Ps + 2 试点市场 + 实验计划 + 预算（题卡 War Chest）。
   3. **制图（AI）**：为每套 campaign 在 `campaign-plan.html` 内**嵌主视觉**（复用 `ascentium-brand`；**不产独立 poster 文件**）；独立 `/poster` 阶段负责产出 `poster-a/b/c.html` + `poster.html` 并让团队定风格。
   4. **决策（团队 · 唯一 1 次）**：AI 内联呈现两套完整方案（A/B）→ 团队**选 1**（可 +1 自选）。
 - **capture（内嵌于 `campaign-plan.html` 的 `id="capture"` JSON 块）**：
   ```json
   quest, selected_segments, selected_insights
-  anchor: {segment, job, moment, mechanic, desire}
+  anchor: {segment, job, trend, moment, channel, mechanic, desire}
   hmw
   ideas: [ {id, name, one_line, insight, mechanic} ]   # ~6，全量
   ai_shortlist: [2, 5]                                  # AI 收敛
   variants: {                                           # 两套完整方案
-    A: {name, slogan, proposition, offer, positioning, mix, pilot, budget},
-    B: {name, slogan, proposition, offer, positioning, mix, pilot, budget}
+    A: {name, slogan, proposition, offer, positioning, channel_mix, mix, pilot, budget},
+    B: {name, slogan, proposition, offer, positioning, channel_mix, mix, pilot, budget}
   }
   chosen_variant: "A"                                   # 团队唯一决策
   poster: {visual_direction, one_liner}
   ```
-- **assemble**：`campaign-plan.html`（**两套方案全量** + 选中高亮：锚点/场景 / 定位(Moore) / A=活动概念·B=会员设计 + 创始 offer / 4Ps / 试点实验 + 测量设置 / 预算切分）。
-- **吸收/改造**：`opportunity-definition`（去 AI 口径→营销机会点）；`creative-concept`（人群+场景锚定 + HMW + 创意方法 → ~6 ideas，吸收自原 brainstorming + creative-concept.md）；`marketing-plan`（定位/4Ps）。
+- **assemble**：`campaign-plan.html`（**两套方案全量** + 选中高亮：**锚点(人群·时刻·趋势·渠道·概念)** / 场景 / 定位(Moore) / **渠道组合** / A=活动概念·B=会员设计 + 创始 offer / 4Ps / 试点实验 + 测量设置 / 预算切分）。
+- **吸收/改造**：**移除 `opportunity-definition`**（其 5 要素与 insight/creative-concept/prove 重叠且未落产物）；新增 `channel-strategy`（**渠道组合**：由 人群 `channels` + 洞察趋势 + 时刻 推导，AI 策展、无团队决策）；`creative-concept`（人群×时刻×趋势×渠道 锚定 + HMW + 创意方法 → ~6 ideas）；`marketing-plan`（定位 + 4Ps，Place=分销）。
 
 ### 7.3 `prove`（论证门 · 8 分钟）
 - **目标**：AI 依据 insights + plan **直接产出一版最合理的数字预测**（漏斗 reach→engagement→conversion→outcome + 指标目标 + 推演链），**无团队决策**。输出一屏 `proof.html`。**不含** Go/No-Go、成本收益/ROI、scale-up。
@@ -323,7 +323,7 @@ AI 必须在每个阶段**持续感知剩余时间 + 团队意图**，动态调�
 │   ├── insight/                     # 洞察门
 │   │   └── sub-skills/  business-research · market-trends · audience-analysis
 │   ├── plan/                        # 策划门
-│   │   └── sub-skills/  creative-concept · opportunity-definition
+│   │   └── sub-skills/  creative-concept
 │   ├── poster/                      # 海报（Create 阶段，独立）
 │   ├── prove/                       # 论证门（单屏 pilot forecast A/B）
 │   │   └── sub-skills/  campaign-metrics · data-visualizer-pro（保留·休眠，不调用）

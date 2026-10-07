@@ -39,6 +39,7 @@ Record the allocation in `campaign-plan.html` (the plan capture). Shape:
 
 Rules:
 - Every line ties to a market, a channel, and a tactic.
+- The **Channel** column draws from the variant's **`channel_mix`** (see `channel-strategy.md`) — spend only on channels the insight supports.
 - Sum must equal the envelope.
 - Reserve ~5–10% contingency.
 

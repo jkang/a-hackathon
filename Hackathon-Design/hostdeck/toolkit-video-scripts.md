@@ -81,16 +81,16 @@ The example run uses Quest B (Chengdu Panda Base).
 - **Visual:** `IMG-05` — the `/start` reply and its three options.
 - **Skills:** `/start` · **Decision:** Choose how to open the Insight gate.
 
-### S7 · Insight — a grounded menu — 12s
-- **Headline:** Insight returns a grounded menu of options
-- **Sub:** Eight findings, each with its source. The team picks two or three to build on.
-- **Visual:** `IMG-06` — the market-trends menu; the team replies `2, 4, 7`.
-- **Skills:** `agent-reach` · `business-research` · `audience-analysis` · `swot-analysis` · `insight`
-- **Decision:** Pick 2–3 insights (or add one of your own).
+### S7 · Insight — grounded menus — 12s
+- **Headline:** Insight returns grounded menus
+- **Sub:** The market read in full, then ~6 segments and ~6 key insights — each with its source. The team picks two or three of each.
+- **Visual:** `IMG-06` — the segments / key-insights menu; the team replies `2, 4, 7`.
+- **Skills:** `agent-reach` · `business-research` · `market-trends` · `audience-analysis` · `insight`
+- **Decision:** Pick 2–3 segments, then 2–3 key insights (or add one of your own).
 
 ### S8 · The brief — 10s
 - **Headline:** The choice becomes the brief
-- **Sub:** Moment of truth, seed insight, and the selected insights on one screen.
+- **Sub:** Market trends, the segment × moment focus bundles, and the selected key insights on one screen.
 - **Visual:** `IMG-07` — `insight-brief.html`.
 - **Skills:** `insight` · **Decision:** Confirm the brief; move to Plan.
 
@@ -98,7 +98,7 @@ The example run uses Quest B (Chengdu Panda Base).
 - **Headline:** Then two complete plans, A and B
 - **Sub:** Positioning, offer, 4Ps, pilot, budget. The team picks one or mixes.
 - **Visual:** `IMG-08` — Plan · two versions (A "Belong Anywhere" / B "Passport to Chengdu").
-- **Skills:** `creative-concept` · `opportunity-definition` · `plan` · **Decision:** Pick A, B, or a mix.
+- **Skills:** `creative-concept` · `channel-strategy` · `plan` · **Decision:** Pick A, B, or a mix.
 
 ### S10 · Poster — the prompt — 10s
 - **Headline:** Continue to the posters

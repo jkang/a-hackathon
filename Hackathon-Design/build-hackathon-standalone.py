@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
 """
-Build the single-file versions of the hackathon page.
+Build the single-file version of the hackathon page.
 
-- Reads Hackathon Design/index.html and inlines every `assets/*` image it
-  references as a base64 data URI -> Hackathon Design/ascentium-hackathon-standalone.html
-  (title gets a " (single file)" suffix, mirroring the existing build).
+- Reads `index.html` (in this folder) and inlines every `assets/*` image it
+  references as a base64 data URI -> `ascentium-hackathon-standalone.html`
+  (title gets a " (single file)" suffix).
 
-Usage:  python3 build-hackathon-standalone.py
+Usage:  python3 Hackathon-Design/build-hackathon-standalone.py
 """
 import base64, mimetypes, os, re
 
-ROOT = os.path.dirname(os.path.abspath(__file__))
-HD = os.path.join(ROOT, "Hackathon Design")
+HD = os.path.dirname(os.path.abspath(__file__))
 
 
 def inline_assets(html):
@@ -32,7 +31,7 @@ def build(src_name, out_name):
     html = html.replace("</title>", " (single file)</title>", 1)
     out = os.path.join(HD, out_name)
     open(out, "w", encoding="utf-8").write(html)
-    print("wrote %s (%d KB)" % (os.path.relpath(out, ROOT), len(html) // 1024))
+    print("wrote %s (%d KB)" % (out, len(html) // 1024))
 
 
 if __name__ == "__main__":

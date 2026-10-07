@@ -146,7 +146,7 @@ Everything lands in **one round folder**: `artifacts/Quest<ID>-<NN>/` (e.g. `art
 │   ├── insight/                # stage skill
 │   │   └── sub-skills/         # business-research · market-trends · audience-analysis
 │   ├── plan/                   # stage skill
-│   │   └── sub-skills/         # creative-concept · opportunity-definition
+│   │   └── sub-skills/         # creative-concept
 │   ├── poster/                 # Create-stage deliverable skill (poster-a/b/c.html)
 │   ├── prove/                  # stage skill
 │   │   └── sub-skills/         # campaign-metrics · data-visualizer-pro (retained · dormant)
