@@ -1,6 +1,6 @@
 # Pilot Metrics & Derivation Method
 
-## 1. What this gate produces
+## 1. What this stage produces
 
 A one-screen board of the **pilot's most-reasonable expected targets** and, for each, the **derivation logic** behind the number. The AI produces it directly from the insight + plan (**no team decision**). Nothing else: no Go/No-Go, no cost-benefit, no scale-up.
 

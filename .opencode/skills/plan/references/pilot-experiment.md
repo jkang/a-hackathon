@@ -24,7 +24,7 @@ Fill these five fields:
 ## 4. What the pilot must produce
 
 - A **trajectory signal** on the success metrics that is defensible against the Scout Report benchmarks.
-- A set of **pilot targets with a visible derivation chain** (benchmark → assumption → formula), handed to the `prove` gate.
+- A set of **pilot targets with a visible derivation chain** (benchmark → assumption → formula), handed to the `prove` stage.
 
 ## 5. Honesty rules (from PoL)
 

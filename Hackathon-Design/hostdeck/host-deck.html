@@ -46,7 +46,15 @@
   .rail{display:flex;gap:3px;align-items:center;}
   .rail .seg{font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#7C8785;padding:3px 7px;border-radius:6px;}
   .rail .seg.on{color:var(--org);background:var(--org1);}
-  .pgnum{font-size:12.5px;color:var(--mut);font-weight:600;letter-spacing:.05em;margin-left:auto;}
+  .pgnum{font-size:12.5px;color:var(--mut);font-weight:600;letter-spacing:.05em;}
+  .navright{margin-left:auto;display:flex;align-items:center;gap:12px;}
+  .pager{display:flex;gap:6px;}
+  .pbtn{width:26px;height:26px;border-radius:7px;border:1px solid var(--line);background:#fff;color:var(--mut);
+        display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;transition:.15s;}
+  .pbtn:hover{border-color:var(--org2);background:var(--org1);color:var(--org-ink);}
+  .pbtn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;}
+  .dark .pbtn{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.22);color:#E6EAE9;}
+  .dark .pbtn:hover{background:rgba(255,102,17,.18);border-color:rgba(255,102,17,.5);color:#fff;}
   .hint{font-size:11px;color:#6B7673;margin-left:auto;}
   .nav.off{display:none;}
 
@@ -488,15 +496,7 @@
       </div>
     </section>
 
-    <section class="slide dark center" data-sec="1">
-      <div class="logo"><img src="data:image/jpeg;base64,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" alt="Ascentium"></div>
-      <div class="center-inner">
-        <div class="kicker">Welcome</div>
-        <h2 style="font-size:46px;margin-top:14px;">Welcome to the Ascentium Arena</h2>
-        <p class="lead" style="margin-top:16px;">For the next three hours, your guild takes one real business quest from first insight to a pitched proposal — with a pre-loaded AI toolkit alongside you.</p>
-        <div class="ruleband">Find your guild table, meet your 13 teammates, and get ready to decide, create and pitch.</div>
-      </div>
-    </section>
+    
 
     <section class="slide" data-sec="1">
       <div class="sec-tag">01 · Opening Brief</div>
@@ -1094,7 +1094,13 @@
     <!-- nav -->
     <div class="nav">
       <div class="rail" id="rail"></div>
-      <div class="pgnum" id="pgnum">1 / 32</div>
+      <div class="navright">
+        <div class="pager">
+          <button class="pbtn" id="prevBtn" type="button" aria-label="Previous slide"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <button class="pbtn" id="nextBtn" type="button" aria-label="Next slide"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+        </div>
+        <div class="pgnum" id="pgnum">1 / 29</div>
+      </div>
     </div>
   </div>
 </div>
@@ -1238,6 +1244,12 @@
     else if(e.key === 'r' || e.key === 'R'){ var t2 = activeTimer(); if(t2){ resetTimer(t2); } }
   });
 
+  /* page flip buttons */
+  var prevBtn = document.getElementById('prevBtn');
+  var nextBtn = document.getElementById('nextBtn');
+  if(prevBtn) prevBtn.addEventListener('click', function(){ show(i-1); });
+  if(nextBtn) nextBtn.addEventListener('click', function(){ show(i+1); });
+
   /* round table */
   var tw = document.getElementById('tblwrap');
   if(tw){
@@ -1359,22 +1371,22 @@
       head:'The choice becomes the brief',
       sub:'Moment of truth, seed insight, and the selected insights on one screen.',
       img:P+'img-07.jpg', alt:'Insight brief', skills:['insight'] },
-    { id:'IMG-08', dur:10, eyebrow:'Plan',
-      head:'Plan starts by fixing who and when',
-      sub:'Seven segment × moment anchors. The team picks the one that answers the insights.',
-      img:P+'img-08.jpg', alt:'Plan anchor menu', skills:['creative-concept','opportunity-definition'] },
-    { id:'IMG-09', dur:12, eyebrow:'Plan',
+    { id:'IMG-08', dur:12, eyebrow:'Plan',
       head:'Then two complete plans, A and B',
       sub:'Positioning, offer, 4Ps, pilot, budget. The team picks one or mixes.',
-      img:P+'img-09.jpg', alt:'Two plan versions', skills:['plan'] },
+      img:P+'img-08.jpg', alt:'Two plan versions', skills:['creative-concept','opportunity-definition','plan'] },
+    { id:'IMG-09', dur:10, eyebrow:'Poster',
+      head:'Continue to the posters',
+      sub:'The plan is set; three poster directions come next. The team keeps one.',
+      img:P+'img-09.jpg', alt:'Poster step prompt', skills:['poster'] },
     { id:'IMG-10', dur:10, eyebrow:'Poster',
       head:'The hero poster, in three styles',
       sub:'Same message, three art directions. The team keeps one.',
       img:P+'img-10.jpg', alt:'Poster result', skills:['poster'] },
-    { id:'IMG-11', dur:11, eyebrow:'Prove',
-      head:'Prove — pilot metrics with the logic behind each',
-      sub:'Benchmark → assumption → formula for every target.',
-      img:P+'img-11.jpg', alt:'Proof artifact and recap', skills:['prove'] },
+    { id:'IMG-11', dur:11, eyebrow:'Prove → Showcase',
+      head:'Prove, then pick the storyline',
+      sub:'Pilot metrics are written with their logic; the deck shape is the next call.',
+      img:P+'img-11.jpg', alt:'Proof artifact and storyline menu', skills:['prove','showcase'] },
     { id:'IMG-12', dur:11, eyebrow:'Showcase',
       head:'Showcase assembles the package',
       sub:'Proposal, poster, proof, and deck — then a final check before submitting.',

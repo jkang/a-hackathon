@@ -1,12 +1,12 @@
 # Collaboration Protocols
 
-Seven lightweight protocols. **Run the Option Menu first at every gate**, then pick by intent. All timings assume **14 people**.
+Seven lightweight protocols. **Run the Option Menu first at every stage**, then pick by intent. All timings assume **14 people**.
 
 ---
 
 ## 0. Option Menu — choice-first (DEFAULT, run FIRST)
 
-**Use**: gather input at ANY gate without a blank-page stall.
+**Use**: gather input at ANY stage without a blank-page stall.
 
 **Mechanics**:
 - The AI **drafts 6–8 grounded options** (from the card + methodology) BEFORE asking.
@@ -104,7 +104,7 @@ Seven lightweight protocols. **Run the Option Menu first at every gate**, then p
 
 | Goal | Protocol |
 |---|---|
-| **Gather input at any gate (start here)** | **Option Menu (pick N, +1 own)** |
+| **Gather input at any stage (start here)** | **Option Menu (pick N, +1 own)** |
 | Frame the problem | HMW |
 | Generate many ideas from all 10 | Option Menu → Silent Brainstorm → Round-Robin |
 | Make sense of many ideas | Affinity Clustering |

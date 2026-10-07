@@ -29,14 +29,10 @@ Pick **one primary basis** (you may layer a secondary). State it explicitly — 
   - Functional: {…}
   - Social: {…}
   - Emotional: {…}
-- **Needs & motivations**: {why they act}
 - **Barriers**: {what stops them today}
 - **Triggers**: {what flips them}
 - **Channels**: {where to reach them}
-- **Size**: {estimated reach} (source, date)
-- **Market potential**: {size × value / propensity → rough TAM→SAM}
-- **Trend**: {growing / flat / declining} — {evidence, source, date}
-- **Priority**: Tier {1/2/3}
+- **Size & market potential**: {estimated reach → rough addressable TAM→SAM} (source, date)
 ```
 
 ---
@@ -55,17 +51,17 @@ Then attach value: `potential ≈ serviceable × value_per_user`. Cite the unive
 
 ---
 
-## 4. Prioritise — attractiveness × fit
+## 4. Frame the choice — attractiveness × fit (recommendation only)
 
-Score each segment 1–5 and plot; recommend the **Tier 1** target(s).
+You may score each segment 1–5 on attractiveness × fit to **help the team** compare — but **do not rank-pick**; the team chooses.
 
-| Segment | Attractiveness *(size × growth × value)* | Fit *(offer, assets, channels)* | Priority |
-|---|---|---|---|
-| {A} | {1–5} | {1–5} | Tier 1 / 2 / 3 |
+| Segment | Attractiveness *(size × growth × value)* | Fit *(offer, assets, channels)* |
+|---|---|---|
+| {A} | {1–5} | {1–5} |
 
 - **Attractiveness** — how big / fast-growing / valuable the segment is.
 - **Fit** — how well the org's offer, assets and channels match the segment.
-- Pick the segment(s) where **both** are high; call out why others are deferred.
+- Flag where **both** are high as a soft recommendation; the team picks 2–3.
 
 ---
 
@@ -80,15 +76,11 @@ Score each segment 1–5 and plot; recommend the **Tier 1** target(s).
 - Basis of segmentation: {motivation / life-stage / geography / behaviour}
 
 ## Segments
-{repeat the Segment profile template for each of the 3–5 segments}
+{repeat the Segment profile template for each of the 6–8 segments}
 
-## Prioritisation
-| Segment | Attractiveness | Fit | Priority |
-
-## Target recommendation
-- **Primary target (Tier 1):** {segment} — because {reason}
-- **Secondary:** {segment}
-- **Deferred:** {segment} — because {reason}
+## Choice framing (soft recommendation)
+| Segment | Attractiveness | Fit |
+> The team picks 2–3 — the AI does not rank-pick.
 
 ## Data gaps
 - {what we could not find and why}
@@ -112,8 +104,8 @@ Sources: {URL + date}
 ## 7. Self-check
 
 - [ ] Basis of segmentation stated.
-- [ ] 3–5 distinct, actionable segments.
-- [ ] Each has a JTBD + needs + triggers.
-- [ ] Sizes/trends cited; percentages labelled as assumptions.
-- [ ] Target recommendation made (attractiveness × fit).
+- [ ] 6–8 distinct, actionable segments.
+- [ ] Each has a JTBD (functional · social · emotional) + barrier + trigger + channels.
+- [ ] Sizes cited; percentages labelled as assumptions.
+- [ ] Choice framed (attractiveness × fit) — but the **team** picks, not the AI.
 - [ ] No fabricated numbers.

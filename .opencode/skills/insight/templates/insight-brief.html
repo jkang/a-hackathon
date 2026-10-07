@@ -91,7 +91,10 @@
   .kinsights{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px;}
   .kin{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card);position:relative;}
   .kin .id{font-size:10px;font-weight:800;letter-spacing:.08em;color:var(--accent);}
-  .kin .t{font-size:13.5px;font-weight:600;line-height:1.5;margin-top:5px;padding-right:56px;}
+  .kin .anchor{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;}
+  .kin .anchor span{font-size:9.5px;font-weight:700;letter-spacing:.03em;color:var(--accent);
+                    border:1px solid var(--accent-line);border-radius:999px;padding:1px 8px;background:var(--card);}
+  .kin .t{font-size:13.5px;font-weight:600;line-height:1.5;margin-top:7px;padding-right:56px;}
   .kin .ev{font-size:11px;color:var(--mut);margin-top:7px;line-height:1.45;}
   .kin.is-sel{border:2px solid var(--accent);background:var(--accent-tint);}
   footer{margin-top:26px;border-top:1px dashed var(--line);padding-top:12px;font-size:10.5px;color:#9AA5A2;line-height:1.6;}
@@ -120,6 +123,8 @@
       .state.is-parked = shown but not chosen   (dimmed)
       Market Trends are shown in full with NO pick; Focus Bundles are derived one per selected segment.
     The TWO human decisions are the Audience Segments (pick 2–3) and the Key Insights (pick 2–3).
+    Each Key Insight is a tension derived from a focus bundle: it fuses a selected segment × its moment × a
+    supporting trend — render that audience + moment as the .anchor chips, never as a trend-only line.
   -->
 
   <div class="grid">
@@ -175,6 +180,8 @@
           <div class="job"><b>Job:</b> {{SEG_1_JOB}}</div>
           <div class="row"><b>Barrier:</b> {{SEG_1_BARRIER}}</div>
           <div class="row"><b>Trigger:</b> {{SEG_1_TRIGGER}}</div>
+          <div class="row"><b>Reach:</b> {{SEG_1_CHANNELS}}</div>
+          <div class="row"><b>Prize:</b> {{SEG_1_SIZE}}</div>
         </div>
         <div class="seg state is-parked">
           <div class="name">{{SEG_2_NAME}}</div>
@@ -182,6 +189,8 @@
           <div class="job"><b>Job:</b> {{SEG_2_JOB}}</div>
           <div class="row"><b>Barrier:</b> {{SEG_2_BARRIER}}</div>
           <div class="row"><b>Trigger:</b> {{SEG_2_TRIGGER}}</div>
+          <div class="row"><b>Reach:</b> {{SEG_2_CHANNELS}}</div>
+          <div class="row"><b>Prize:</b> {{SEG_2_SIZE}}</div>
         </div>
         <!-- repeat one .seg per segment; chosen is-sel + tag, rest is-parked -->
       </div>
@@ -209,12 +218,17 @@
       <div class="kinsights">
         <div class="kin state is-sel">
           <span class="tag sel">Selected</span>
-          <div class="id">INSIGHT 01</div><div class="t">{{KI_1}}</div><div class="ev">{{KI_1_EV}}</div>
+          <div class="id">INSIGHT 01</div>
+          <div class="anchor"><span>{{KI_1_SEGMENT}}</span><span>{{KI_1_MOMENT}}</span></div>
+          <div class="t">{{KI_1}}</div><div class="ev">{{KI_1_EV}}</div>
         </div>
         <div class="kin state is-parked">
-          <div class="id">INSIGHT 02</div><div class="t">{{KI_2}}</div><div class="ev">{{KI_2_EV}}</div>
+          <div class="id">INSIGHT 02</div>
+          <div class="anchor"><span>{{KI_2_SEGMENT}}</span><span>{{KI_2_MOMENT}}</span></div>
+          <div class="t">{{KI_2}}</div><div class="ev">{{KI_2_EV}}</div>
         </div>
-        <!-- repeat one .kin per insight; chosen is-sel + tag, rest is-parked -->
+        <!-- repeat one .kin per insight; chosen is-sel + tag, rest is-parked.
+             The .anchor chips name the audience (segment) + moment each insight fuses — every insight must carry both (segment × moment × trend). -->
       </div>
     </div>
   </div>

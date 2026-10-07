@@ -7,7 +7,7 @@ All quest-specific facts live in **one place**: the **quest card** (the challeng
 ## Where quest data lives
 
 - **The activity material** (e.g. `quest-cards.html` in this project) is the canonical card: it carries the Scout Report, War Chest, Victory Conditions, and the How Might We.
-- **This file** is the *contract* — the schema a card must provide so every gate and every template can consume it.
+- **This file** is the *contract* — the schema a card must provide so every stage and every template can consume it.
 - **The `.opencode/` skills contain no quest facts.** Any concrete client, market, budget, or benchmark in a skill or template is a placeholder (`{{...}}`) to be filled from the card at run time.
 
 ## The contract (fields every card must provide)
@@ -19,7 +19,7 @@ quest:
   client: "{client / brand / IP holder}"
   mission: "{one-line mission from the card}"
   market_scope: "{e.g. Asia-wide, global}"       # the challenge's own target market
-  doc_type: "Campaign Plan | Membership Design"  # plan-gate artifact flavor
+  doc_type: "Campaign Plan | Membership Design"  # plan-stage artifact flavor
 
   war_chest:
     full: "{USD full approved budget}"          # the unlock target the pilot de-risks
@@ -62,10 +62,10 @@ quest:
 | Consumer | Reads from the card |
 |---|---|
 | `/start`, `/run` | `quest.id`, `client`, `mission`, `market_scope` |
-| `insight` gate | `scout_report` + `client` + `market_scope` (the research chain) |
-| `plan` gate | `how_might_we`, `war_chest.mvp_unlock`, `victory_conditions`, `pilot_market_hints` |
-| `prove` gate | `scout_report.benchmarks`, `war_chest.mvp_unlock`, `war_chest.pilot_window`, `war_chest.pilot_markets_hint` |
-| `showcase` gate | `accent`, `key_visual_motif`, `key_visual_svg`, `poster_styles` |
+| `insight` stage | `scout_report` + `client` + `market_scope` (the research chain) |
+| `plan` stage | `how_might_we`, `war_chest.mvp_unlock`, `victory_conditions`, `pilot_market_hints` |
+| `prove` stage | `scout_report.benchmarks`, `war_chest.mvp_unlock`, `war_chest.pilot_window`, `war_chest.pilot_markets_hint` |
+| `showcase` stage | `accent`, `key_visual_motif`, `key_visual_svg`, `poster_styles` |
 | **every HTML template** | `accent` + `accent_values` (injected as `--accent` / `--accent-tint` / `--accent-line` / `--accent-deep`) and `key_visual_svg` |
 
 ## Accent & key-visual rules (locked)
@@ -86,8 +86,8 @@ artifacts/Quest<ID>-<NN>/
 
 - `<ID>` = the card's `id`, normalized: strip any leading "Quest" and spaces, then prefix `Quest` (e.g. id `A` → `QuestA`, id `C` → `QuestC`).
 - `<NN>` = a 2-digit round number. Pick the **next free** one by scanning `artifacts/Quest<ID>-*` (none → `01`; existing `01`,`02` → `03`).
-- **`/run`** creates a new round folder at the start and writes every artifact into it. **`/start`** is a briefing only — it creates **no** folder and **no** artifact; the **first gate that writes** creates the round folder. A **single-gate command** (`/insight` … `/showcase`) writes into the **latest** round for that quest — create `-01` if none exists.
-- The `insight` gate creates the folder **as soon as its first research block lands**, then **rewrites `insight-brief.html` after every step** (a living brief); the `plan` gate likewise builds `campaign-plan.html` **progressively**. Later gates write their artifact once.
+- **`/run`** creates a new round folder at the start and writes every artifact into it. **`/start`** briefs and then **starts the Insight stage**; it writes nothing itself — the **first stage that writes** (Insight) creates the round folder. A **single-stage command** (`/insight` … `/showcase`) writes into the **latest** round for that quest — create `-01` if none exists.
+- The `insight` stage creates the folder **as soon as its first research block lands**, then **rewrites `insight-brief.html` after every step** (a living brief); the `plan` stage likewise builds `campaign-plan.html` **progressively**. Later stages write their artifact once.
 - **Never overwrite a previous round.** A repeat run always increments `<NN>`.
 - Round contents (**HTML only** — no YAML/Markdown): `insight-brief.html` · `campaign-plan.html` · `poster.html` (+ `poster-a|b|c.html`) · `proof.html` · `pitch-deck.html` · `prompt-pack.html` · `proposal.html`. Each stage HTML carries its decisions in an embedded `<script type="application/json" id="capture">` block.
 - Builder steps run with `--dir artifacts/Quest<ID>-<NN>/` (`build-posters.py`, `build-proposal.py`).

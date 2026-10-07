@@ -17,30 +17,30 @@ This is the **reusable co-creation engine** behind every stage skill. It does **
 
 ## Prime directives (HARD RULES)
 
-1. **Never decide for the team.** Ideas, market selection, metric choice, thresholds, and visual direction are always the humans'. The AI records and executes. (Exception: a stage may explicitly delegate a choice to the AI — e.g. the Showcase gate's signature · visual direction · one-liner.)
+1. **Never decide for the team.** Ideas, market selection, metric choice, thresholds, and visual direction are always the humans'. The AI records and executes. (Exception: a stage may explicitly delegate a choice to the AI — e.g. the Showcase stage's signature · visual direction · one-liner.)
 2. **Diverge before converge.** Never jump straight to an answer. First collect many options, then narrow.
-3. **Enforce timeboxes.** Every gate has a hard time budget. Announce a 3-minute and 1-minute warning, then move on.
+3. **Enforce timeboxes.** Every stage has a hard time budget. Announce a 3-minute and 1-minute warning, then move on.
 4. **Record neutrally.** Do not bias toward an idea or smooth over disagreement. Cluster faithfully; show the votes as they are.
-5. **The AI researches so the team doesn't.** Restraint means *the team* never runs a research marathon — but the **menus must be grounded**. Especially in the insight gate, actively use `agent-reach` to gather facts, reports and data, and turn them into **data-backed insight options** (a number, a trend, a named behavior — never a generic label). Research effort sits with the AI; judgment sits with the team.
+5. **The AI researches so the team doesn't.** Restraint means *the team* never runs a research marathon — but the **menus must be grounded**. Especially in the insight stage, actively use `agent-reach` to gather facts, reports and data, and turn them into **data-backed insight options** (a number, a trend, a named behavior — never a generic label). Research effort sits with the AI; judgment sits with the team.
 6. **Never be rigid.** The 40-minute path is a *suggested happy path*, not a script. If the team wants to skip, reorder, redo, or compress, comply immediately ("Got it, switching to X") — do not argue about the process.
-7. **Offer a menu, not a blank page.** At every gate the AI **first drafts 6–8 grounded candidate options** (from the card + its methodology), and the team **selects** (pick N) instead of facing an open question. Always allow **"+1 of our own."** People freeze and burn time on blank questions; a menu makes the decision fast while the humans still choose. Never ask an open "what do you think?" without a menu in front of it.
-8. **One decision per turn.** Present **one** menu (or one decision), then **stop and end your turn** — wait for the team's reply. Never answer your own menu, never chain gates in a single turn.
+7. **Offer a menu, not a blank page.** At every stage the AI **first drafts 6–8 grounded candidate options** (from the card + its methodology), and the team **selects** (pick N) instead of facing an open question. Always allow **"+1 of our own."** People freeze and burn time on blank questions; a menu makes the decision fast while the humans still choose. Never ask an open "what do you think?" without a menu in front of it.
+8. **One decision per turn.** Present **one** menu (or one decision), then **stop and end your turn** — wait for the team's reply. Never answer your own menu, never chain stages in a single turn.
 9. **Recap + inline options.** End every turn with a short **recap** (what you did + artifact name/path) and the next menu **printed in the chat**. The **HTML is the record; the chat is the decision interface** — the team always sees and chooses the options in the chat.
 
-## The co-creation loop (run for every gate)
+## The co-creation loop (run for every stage)
 
 ```
-AI drafts a 6–8 option MENU  →  team SELECTS (pick N, +1 own)  →  converge (vote/cluster)  →  AI assembles  →  recap + next menu  →  next gate
+AI drafts a 6–8 option MENU  →  team SELECTS (pick N, +1 own)  →  converge (vote/cluster)  →  AI assembles  →  recap + next menu  →  next stage
 ```
 
 > Each arrow that needs a human decision is a **turn boundary**: present one menu, then **stop and wait**. Run one decision per turn — never the whole loop in one turn.
 
 ## Workflow
 
-1. **Frame + menu**: state what this gate produces, how many minutes, and **draft a 6–8 option menu** (grounded in the quest card + methodology — see `references/option-menu.md`). Present it numbered; the team selects.
-2. **Select (diverge-lite)**: the team picks N (per the gate's target) from the menu, and may add 1–2 of their own. For deeper gates, run Silent Brainstorm → Round-Robin *on top of the menu*.
+1. **Frame + menu**: state what this stage produces, how many minutes, and **draft a 6–8 option menu** (grounded in the quest card + methodology — see `references/option-menu.md`). Present it numbered; the team selects.
+2. **Select (diverge-lite)**: the team picks N (per the stage's target) from the menu, and may add 1–2 of their own. For deeper stages, run Silent Brainstorm → Round-Robin *on top of the menu*.
 3. **Converge**: run affinity clustering + dot-vote to pick the winner(s) (menu shortcuts this when the picks are already clear).
-4. **Capture**: stop and record the team's explicit selection per `references/capture-contract.md`. **This is a mandatory HITL gate — never skip it.**
+4. **Capture**: stop and record the team's explicit selection per `references/capture-contract.md`. **This is a mandatory HITL checkpoint — never skip it.**
 5. **Assemble**: hand the captured decisions to the stage skill (or format per the stage spec).
 
 ## References
@@ -49,4 +49,4 @@ AI drafts a 6–8 option MENU  →  team SELECTS (pick N, +1 own)  →  converge
 - `references/protocols.md` — the collaboration protocols (menu + HMW + brainstorm + clustering + vote + 1-2-4-All).
 - `references/pacing.md` — the 40-minute 14-person pacing template + fast mode / degradation.
 - `references/facilitator-scripts.md` — English scripts, menu/question templates, robot voice, time warnings.
-- `references/capture-contract.md` — HITL gate rules + the shared capture-card schema.
+- `references/capture-contract.md` — HITL checkpoint rules + the shared capture-card schema.

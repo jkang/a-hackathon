@@ -1,15 +1,15 @@
 ---
 name: prove
-description: Run the PROVE gate of the Ascentium mini-hackathon quest — produce ONE most-reasonable numeric pilot forecast directly from the insight + plan, covering the funnel (reach → engagement → conversion → outcome) with the derivation logic behind every number (benchmark → assumption → formula → target). AI-only, no team decision. No Go/No-Go, no cost-benefit, no scale-up. Triggers: "prove gate", "pilot forecast", "pilot metrics", "expected metrics", "metric derivation", "measurement", "prove".
+description: Run the PROVE stage of the Ascentium mini-hackathon quest — produce ONE most-reasonable numeric pilot forecast directly from the insight + plan, covering the funnel (reach → engagement → conversion → outcome) with the derivation logic behind every number (benchmark → assumption → formula → target). AI-only, no team decision. No Go/No-Go, no cost-benefit, no scale-up. Triggers: "prove stage", "pilot forecast", "pilot metrics", "expected metrics", "metric derivation", "measurement", "prove".
 ---
 
-# Quest Prove — the PROVE gate (pilot forecast)
+# Quest Prove — the PROVE stage (pilot forecast)
 
-Show **what the pilot must hit, and how each number is derived** — as **one most-reasonable forecast**. The **AI produces it directly** from the insight + plan; there is **no team decision** in this gate.
+Show **what the pilot must hit, and how each number is derived** — as **one most-reasonable forecast**. The **AI produces it directly** from the insight + plan; there is **no team decision** in this stage.
 
 ## No team decision
 
-This gate has **no user decision**. The AI reads the chosen insights + the chosen campaign, picks the metric set, sets the most reasonable target for each, and writes the derivation chains. The team reviews the finished board; the AI does **not** stop for a pick.
+This stage has **no user decision**. The AI reads the chosen insights + the chosen campaign, picks the metric set, sets the most reasonable target for each, and writes the derivation chains. The team reviews the finished board; the AI does **not** stop for a pick.
 
 > Judgment still applies — it is just made by the AI and shown transparently (benchmark → assumption → formula), so the team can challenge any number.
 
@@ -23,6 +23,7 @@ This gate has **no user decision**. The AI reads the chosen insights + the chose
 - The `insight-brief.html` capture — the chosen key insights (`selected_insights`) and the benchmark data.
 - The `campaign-plan.html` capture — the **chosen variant** (`chosen_variant`), esp. its `pilot` (markets · hypothesis · treatment · control · measurement_setup) and `budget`.
 - Quest card **pilot window / pilot markets / MVP budget** and **Scout Report benchmarks** (the anchors for every derivation).
+- **Resume (recover upstream).** If run on its own (`/prove`), find the latest round `artifacts/Quest<ID>-*` and read both captures from that folder; if the round is unambiguous, state it and continue — ask only when genuinely ambiguous. If either is missing, say so and ask the team to run `/plan` (or `/insight`) first.
 
 ## Flow
 
@@ -40,7 +41,7 @@ This gate has **no user decision**. The AI reads the chosen insights + the chose
   3. **metric tiles** — metric name + target value + funnel tag
   4. **derivation logic** — one row per metric: `target ◀ benchmark · assumption(s) · formula`
   **The only artifact** — no separate data file.
-- The structured capture is embedded in that artifact: an invisible `<script type="application/json" id="capture">` block just before `</body>`. The `showcase` gate reads it.
+- The structured capture is embedded in that artifact: an invisible `<script type="application/json" id="capture">` block just before `</body>`. The `showcase` stage reads it.
 
 ### capture block (embedded in `proof.html`)
 
@@ -74,5 +75,5 @@ This gate has **no user decision**. The AI reads the chosen insights + the chose
 ## Design notes
 
 - **No sub-skills.** Build the page directly from `templates/proof.html` (the retained `sub-skills/` are not invoked here).
-- **No Go/No-Go, no cost-benefit, no scale-up** — out of scope for this gate.
+- **No Go/No-Go, no cost-benefit, no scale-up** — out of scope for this stage.
 - Every target must be **defensible**: a visible chain (benchmark → assumption → formula), never a bare assertion.

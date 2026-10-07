@@ -1,6 +1,6 @@
 ---
 name: creative-concept
-description: Develop the campaign's creative concept — anchor the idea to a specific audience and moment (creative brief + scenario canvas), reframe it into a How Might We, then run creative-thinking methods (SCAMPER, analogies, reverse, mash-ups, Crazy 8, brainwriting) to generate ~6 candidate ideas. In the plan gate the AI narrows these into 2 complete campaign concepts (A/B); the team's single decision is the final campaign pick. Triggers: "creative concept", "brainstorm", "big idea", "ideation", "How might we", "creative thinking".
+description: Develop the campaign's creative concept — anchor the idea to a specific audience and moment (creative brief + scenario canvas), reframe it into a How Might We, then run creative-thinking methods (SCAMPER, analogies, reverse, mash-ups, Crazy 8, brainwriting) to generate ~6 candidate ideas. In the plan stage the AI narrows these into 2 complete campaign concepts (A/B); the team's single decision is the final campaign pick. Triggers: "creative concept", "brainstorm", "big idea", "ideation", "How might we", "creative thinking".
 ---
 
 # Creative Concept — anchor, diverge, converge
@@ -11,7 +11,7 @@ Develop the campaign's big idea. **Anchor first** (audience + moment), then **di
 
 ## Inputs
 
-- The **selected key insights** (2–3) from the insight gate.
+- The **selected key insights** (2–3) from the insight stage.
 - The **Quest's How Might We (HMW)**.
 - The org profile + audience map (for grounding).
 
@@ -41,9 +41,9 @@ Develop the campaign's big idea. **Anchor first** (audience + moment), then **di
 
 1. Cluster the raw ideas and distil to **~6 candidates** (a numbered list).
 2. Each idea: **name · one-line · the insight it answers · the mechanic**.
-3. **In the plan gate the AI narrows these into 2 complete campaign concepts (A/B)** — the team does **not** pick raw ideas; its single decision is the final campaign pick (see `plan` → *One decision only*). Standalone use: if this sub-skill is invoked on its own, the team may pick/combine 2–3.
+3. **In the plan stage the AI narrows these into 2 complete campaign concepts (A/B)** — the team does **not** pick raw ideas; its single decision is the final campaign pick (see `plan` → *One decision only*). Standalone use: if this sub-skill is invoked on its own, the team may pick/combine 2–3.
 
-> The gate's one decision is the campaign (A/B), made at the end — not an idea menu.
+> The stage's one decision is the campaign (A/B), made at the end — not an idea menu.
 
 ## What a finished concept contains
 

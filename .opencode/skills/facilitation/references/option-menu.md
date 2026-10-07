@@ -1,6 +1,6 @@
 # Option Menu — choice-first input
 
-**The default way to gather human input.** Never hand the team a blank page. At every gate the AI **drafts a menu of 6–8 grounded options**, the team **selects** (pick N), and may add **"+1 of our own."**
+**The default way to gather human input.** Never hand the team a blank page. At every stage the AI **drafts a menu of 6–8 grounded options**, the team **selects** (pick N), and may add **"+1 of our own."**
 
 > Why: under time pressure, people freeze and lose minutes on open questions ("who should we target?"). A menu turns a 3-minute blank into a 30-second choice — while the humans still make every call.
 
@@ -12,9 +12,9 @@
 4. **Always append**: `+1 of our own` — the team may add 1–2 items the menu missed.
 5. State the **pick count** ("pick 3") and the **time** ("30 seconds").
 
-## Ground the menu in research (mandatory in the insight gate)
+## Ground the menu in research (mandatory in the insight stage)
 
-A menu is only as good as its options. **Generic labels are worthless.** Before drafting the menu — especially in the **insight gate** — the AI **gathers real facts** via `agent-reach` (web / social / reports) plus the quest card, and turns them into **data-backed mini-insights**.
+A menu is only as good as its options. **Generic labels are worthless.** Before drafting the menu — especially in the **insight stage** — the AI **gathers real facts** via `agent-reach` (web / social / reports) plus the quest card, and turns them into **data-backed mini-insights**.
 
 - ❌ "Group travel" → ✅ "Crew/group travel is rising — ~X% of travellers now book in groups (source)".
 - ❌ "Fans like creators" → ✅ "Creator-led content out-converts brand ads in the target market (platform benchmark)".
@@ -39,7 +39,7 @@ Every turn that produces output ends with a short wrap-up:
 ## Anatomy
 
 ```
-MENU · <gate> — pick <N> (30s), or +1 of your own
+MENU · <stage> — pick <N> (30s), or +1 of your own
 1) <option>            5) <option>
 2) <option>            6) <option>
 3) <option>            7) <option>
@@ -47,15 +47,16 @@ MENU · <gate> — pick <N> (30s), or +1 of your own
 +1) ________________
 ```
 
-## Menu examples (per gate)
+## Menu examples (per stage)
 
 > These are **format examples only** — replace each list with options grounded in the current quest card (+ `agent-reach` findings).
 
-**Insight · audience segments** — "Pick 2–3 fan segments."
+**Insight · audience segments** — "Pick 2–3 fan segments." (6–8 options)
 1 First-time Gen-Z · 2 Families (school-holiday trips) · 3 Diaspora workers · 4 Sport super-fans · 5 Collector/fandom buyers · 6 Couples/content travellers · 7 Corporate/hospitality guests · 8 Local residents
 
-**Insight · key insights** — "Pick 2–3 to carry into the plan."
-1 "Sold out" ≠ attended — optimise for attendance · 2 The away crowd is already in the Gulf · 3 Asia travels for events, not for the Games · 4 Discovery + checkout live on short-video · 5 Qatar's hosting works — the gap is demand · 6 Hangzhou's money was mascot-led
+**Insight · key insights** — "Pick 2–3 to carry into the plan." Each option must fuse a **segment × moment × trend** — a bare trend is not a key insight:
+1 [Families · school-holiday window] the date freeze makes long-lead family booking a gamble → sell a date-flexible package · 2 [Diaspora workers · phased ticket drop] they're already in-market but book late → bank the warm crowd first · 3 [Sport super-fans · fixture draw] demand is built sport-by-sport → sell by sport, not by "the Games" · 4 [First-time Gen-Z · discovery scroll] they discover and pay on short-video → creator-led checkout · 5 … · 6 …
+> Format: `[Segment · moment] trend/fact → tension → implication`. ~2 insights per selected segment so the set isn't one-sided.
 
 > Market trends are **shown in full, not picked** — the AI curates the merged market read (shifts + hard facts + external opportunities/threats) into the brief.
 

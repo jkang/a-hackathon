@@ -1,11 +1,11 @@
 ---
 name: showcase
-description: Run the SHOWCASE gate of the Ascentium mini-hackathon quest — the team makes exactly TWO decisions (the storyline — Classic / Hero's Journey / Big Reveal / Demo / Trailer — and whether to attempt bonus media), while the AI decides the signature element, the visual direction, the one-liner, and always includes the poster. The AI then assembles a full-screen, storyline-driven Ascentium-branded pitch deck and optionally writes media prompt scripts (song / video / image) for the team to generate in external tools and embed back. To create the poster itself, use the `poster` skill. Triggers: "showcase", "pitch deck", "storyline", "storyboard", "proposal showcase", "presentation", "prompt pack", "showcase".
+description: Run the SHOWCASE stage of the Ascentium mini-hackathon quest — the team makes exactly TWO decisions (the storyline — Classic / Hero's Journey / Big Reveal / Demo / Trailer — and whether to attempt bonus media), while the AI decides the signature element, the visual direction, the one-liner, and always includes the poster. The AI then assembles a full-screen, storyline-driven Ascentium-branded pitch deck and optionally writes media prompt scripts (song / video / image) for the team to generate in external tools and embed back. To create the poster itself, use the `poster` skill. Triggers: "showcase", "pitch deck", "storyline", "storyboard", "proposal showcase", "presentation", "prompt pack", "showcase".
 ---
 
-# Quest Showcase — the SHOWCASE gate (AUTO)
+# Quest Showcase — the SHOWCASE stage (AUTO)
 
-The final gate. The **team makes two decisions — the storyline and whether to attempt bonus media**; the AI **decides everything else and builds the artifacts**. Mirrors the quest card's "★ Proposal Showcase — Showcase Report Agent (AUTO)".
+The final stage. The **team makes two decisions — the storyline and whether to attempt bonus media**; the AI **decides everything else and builds the artifacts**. Mirrors the quest card's "★ Proposal Showcase — Showcase Report Agent (AUTO)".
 
 ## When to use
 
@@ -15,6 +15,7 @@ The final gate. The **team makes two decisions — the storyline and whether to 
 ## Inputs
 
 - The captures embedded in `insight-brief.html`, `campaign-plan.html`, `proof.html`.
+- **Resume (recover upstream).** If run on its own (`/showcase`), find the latest round `artifacts/Quest<ID>-*` and read those captures (plus the poster style from `campaign-plan.html`) from that folder; if the round is unambiguous, state it and continue — ask only when genuinely ambiguous. If a capture is missing, say which and ask the team to run the missing stage first. **Poster fallback:** if no `poster.html` exists in the round, build a **default poster (style A)** so the always-on poster beat is present.
 - **Team decisions (only two): storyline** (S1–S5) and **bonus media** (song / video / image / none).
 - **AI-decided** (never asked): the **signature element** (taken from the storyline's default), the **visual direction**, the **one-liner**, and the **poster** (always included).
 
@@ -29,7 +30,7 @@ The final gate. The **team makes two decisions — the storyline and whether to 
 5. **Embed (AI).** Embed any returned media files into the matching slide.
 6. **Rehearse (team, 1′).** 30-second dry run + tweaks.
 
-## HITL gates (mandatory)
+## HITL checkpoints (mandatory)
 
 Exactly **two** team decisions:
 

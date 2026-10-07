@@ -1,21 +1,21 @@
 # Pacing Template — 14 people × 40 minutes
 
-The default **happy path**. It is a suggestion, not a script (see Prime Directive 6). Each gate = one co-creation loop (see `protocols.md`).
+The default **happy path**. It is a suggestion, not a script (see Prime Directive 6). Each stage = one co-creation loop (see `protocols.md`).
 
-| Time   | Gate          | Lead  | AI does                                   | Human decision                  |
+| Time   | Stage          | Lead  | AI does                                   | Human decision                  |
 |--------|---------------|-------|-------------------------------------------|---------------------------------|
-| 0–2′   | Kick-off      | AI    | confirm brief (mission · 4 gates · research time) → wait for go-ahead → 30s scout summary + first question | —                               |
-| 2–8′   | Insight gate  | AI    | research → living brief → merged market trends + ~6–8 segments → focus bundles + ~6 key insights | segments (2–3), then key insights (2–3) |
-| 8–22′  | Creative gate | AI    | diverge ~6 ideas → build 2 complete campaigns (A/B) + visuals | the campaign (A or B)           |
+| 0–2′   | Kick-off      | AI    | confirm brief (mission · 4 stages · research time) → wait for go-ahead → 30s scout summary + first question | —                               |
+| 2–8′   | Insight stage  | AI    | research → living brief → merged market trends + ~6–8 segments → focus bundles + ~6 key insights | segments (2–3), then key insights (2–3) |
+| 8–22′  | Creative stage | AI    | diverge ~6 ideas → build 2 complete campaigns (A/B) + visuals | the campaign (A or B)           |
 | 22–30′ | Pilot forecast| AI    | build the most-reasonable forecast + derivations | — (AI only)                    |
-| 30–38′ | Showcase gate | human | build deck + proposal (poster always on)  | storyline + bonus media         |
+| 30–38′ | Showcase stage | human | build deck + proposal (poster always on)  | storyline + bonus media         |
 | 38–40′ | Converge      | AI    | package and submit                        | confirm                         |
 
 > The run-sheet allows "45′ hands-on + 10′ converge". This design uses **40 minutes** as the creative core and leaves 5–10 min as a submission buffer.
 
-## Per-gate timebox (announce at gate start)
+## Per-stage timebox (announce at stage start)
 
-| Gate          | Diverge        | Converge        |
+| Stage          | Diverge        | Converge        |
 |---------------|----------------|-----------------|
 | Insight (8′)  | AI: research + curate trends & segments + derive focus + draft insights 6′ | team picks segments (2–3), then key insights (2–3) 2′ |
 | Creative (14′) | AI: diverge ~6 ideas + build A/B 10′ | team picks the campaign (A/B) 4′ |
@@ -24,12 +24,12 @@ The default **happy path**. It is a suggestion, not a script (see Prime Directiv
 
 ## Fast mode (when time is tight)
 
-Switch automatically when remaining time < the standard gate budget, or when the team asks to compress.
+Switch automatically when remaining time < the standard stage budget, or when the team asks to compress.
 
 - **Diverge downgrade**: silent brainstorm → ask just 2–3 active members for ideas (saves ~2′).
 - **Converge downgrade**: dot-vote → facilitator proposes 2 candidates and asks for a nod (saves ~2′).
-- **Gate skip**: if the team says "we have enough insight", skip the divergence and reuse quest-card data as the seed.
-- **Gate merge**: under ~8 min left, merge Pilot forecast + Showcase and assemble poster + board in parallel.
+- **Stage skip**: if the team says "we have enough insight", skip the divergence and reuse quest-card data as the seed.
+- **Stage merge**: under ~8 min left, merge Pilot forecast + Showcase and assemble poster + board in parallel.
 
 ## Dynamic dispatch (human has full control)
 
@@ -38,8 +38,8 @@ The AI must continuously sense remaining time + team intent. On any of these sig
 | Signal | AI action |
 |---|---|
 | "Enough research, go straight to creative" | skip insight divergence; fall back to quest-card data as seed; enter `plan` |
-| "We have only 8 minutes" | enter fast mode; compress gates; assemble in parallel |
-| "That vote was wrong — redo it" | re-run the dot-vote protocol only (not the whole gate) |
+| "We have only 8 minutes" | enter fast mode; compress stages; assemble in parallel |
+| "That vote was wrong — redo it" | re-run the dot-vote protocol only (not the whole stage) |
 | "We just want a poster" | call `showcase` alone, using the existing stage HTML captures |
 | "Switch the pilot market" | edit the `campaign-plan.html` capture's pilot field; regenerate proof |
 | "Skip the research, just do a slogan" | call HMW + silent brainstorm from `facilitation` only |

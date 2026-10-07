@@ -11,7 +11,7 @@ The **most-seen asset** of a campaign. It must be **self-contained**: a stranger
 
 ## When to use
 
-- During the Create/Plan gate (the poster belongs with the creative concept, not the showcase).
+- During the Create/Plan stage (the poster belongs with the creative concept, not the showcase).
 - When the team wants the hero visual, or the Big Reveal storyline needs a poster.
 - Standalone: "make a poster for this campaign".
 
@@ -19,6 +19,7 @@ The **most-seen asset** of a campaign. It must be **self-contained**: a stranger
 
 - The `campaign-plan.html` capture — the chosen variant: campaign name, slogan, proposition, offering/tiers, pilot markets, budget.
 - The `insight-brief.html` capture — audience + moment (for the anchor).
+- **Resume (recover upstream).** If run on its own (`/poster`), find the latest round `artifacts/Quest<ID>-*` and read both captures from that folder; if the round is unambiguous, state it and continue — ask only when genuinely ambiguous. If either capture is missing, say so and ask the team to run `/plan` (or `/insight`) first.
 - The **AI derives** the visual direction + the one-liner/CTA from the chosen campaign. The team's **single decision is the style pick** (A/B/C) — made **after** the three posters are built, **never** requested beforehand.
 
 ## Anatomy (top → bottom)

@@ -2,7 +2,7 @@
 
 How the robot facilitator records human input, and the rule that keeps it human-in-the-loop.
 
-## The HITL gate (mandatory)
+## The HITL checkpoint (mandatory)
 
 After every divergence and every convergence, the AI **must stop** and explicitly request the team's input. It must never:
 
@@ -10,12 +10,12 @@ After every divergence and every convergence, the AI **must stop** and explicitl
 - pick the winner itself,
 - silently proceed past a decision.
 
-**Menu-first rule**: every HITL gate is opened with an **AI-drafted menu of 6–8 grounded options** (see `option-menu.md`), and the team **selects** (pick N) — not a blank question. Always offer `+1 of our own`.
+**Menu-first rule**: every HITL checkpoint is opened with an **AI-drafted menu of 6–8 grounded options** (see `option-menu.md`), and the team **selects** (pick N) — not a blank question. Always offer `+1 of our own`.
 
 Template:
 
 > **hackathon-robot >>** Done: [what I just did]. Artifact: `artifacts/QuestA-01/[file].html`.
-> **MENU · [gate]** — **pick [N]** (30s), or `+1` your own. `1)` … `2)` … `3)` … `4)` … `5)` … `6)`
+> **MENU · [stage]** — **pick [N]** (30s), or `+1` your own. `1)` … `2)` … `3)` … `4)` … `5)` … `6)`
 > **Reply with your pick (e.g. `1, 3, 5`).**
 
 > The example must match the actual menu — use its real option numbers and pick count (a 3-option single pick → *e.g. `1`*; a 6–8-option pick-2–3 → *e.g. `1, 3, 5`*). Never cite options that aren't there.
@@ -33,14 +33,14 @@ There are **no separate data files** (no `.yaml`, no `.md`). Each stage records 
 ```
 
 - The block is **invisible** in the rendered page (browsers do not display `application/json` scripts).
-- The next gate reads the upstream artifact's `id="capture"` block (grep `id="capture"`, parse the JSON) instead of a YAML file.
+- The next stage reads the upstream artifact's `id="capture"` block (grep `id="capture"`, parse the JSON) instead of a YAML file.
 - Never write `.yaml` / `.md` sidecars — the HTML is the single source of truth.
 
 ## Input types
 
 | Type            | Used for                         | Captured as            |
 |-----------------|----------------------------------|------------------------|
-| Menu selection  | any gate's choice                | `{chosen: [...], own: [...]}` |
+| Menu selection  | any stage's choice                | `{chosen: [...], own: [...]}` |
 | Idea list       | brainstorm output                | `[{author, text}]`     |
 | Vote tally      | dot-vote result                  | `{idea_id: count}`     |
 | Single choice   | winner / markets / direction     | one value              |
@@ -64,7 +64,7 @@ There are **no separate data files** (no `.yaml`, no `.md`). Each stage records 
 
 ## Rules
 
-- **Menu first** — never open a gate with a blank question.
+- **Menu first** — never open a stage with a blank question.
 - **List the full menu in the artifact** — every candidate option is written into the HTML (not only the winner), each with a `selected` flag. Chosen items are highlighted; the rest are dimmed.
 - Store the team's selection **verbatim**; never swap a menu item for the AI's own preference.
 - Keep the `+1 of our own` channel open and record those additions too.

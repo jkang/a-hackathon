@@ -26,7 +26,7 @@ Toolkit 目标：让**每组 14 个人的创意与判断**在 50 分钟内被充
 
 ---
 
-## 3. 人机共创模型（双菱形 + 4 关卡）
+## 3. 人机共创模型（双菱形 + 4 阶段）
 
 每关遵循同一条共创回路：
 
@@ -34,7 +34,7 @@ Toolkit 目标：让**每组 14 个人的创意与判断**在 50 分钟内被充
 AI 给脚手架/问题  →  团队发散(人人出点子)  →  团队收敛(投票/合并)  →  AI 结构化+排版  →  下一关
 ```
 
-4 个关卡（对应 4 个 quest 技能）：
+4 个阶段（对应 4 个 quest 技能）：
 - **洞察门**（insight）：团队注入「市场真相」→ 收敛出「种子洞察」
 - **创意门**（plan）：AI 发散并搭出 **2 套完整方案（A/B）** → 团队**选 A 或 B**（1 次决策）
 - **论证门**（prove）：AI **直接出一版最合理的数字预测 + 推演**（无团队决策）
@@ -45,7 +45,7 @@ AI 给脚手架/问题  →  团队发散(人人出点子)  →  团队收敛(�
 所有技能/协议**原子化、可独立触发**，三种运行形态并存：
 
 1. **全流程**：`facilitator` 按 happy path 串场（默认）。
-2. **单关卡**：团队只要某阶段产物（如「直接做海报」），就只调 `poster`；只要路演稿就调 `showcase`。
+2. **单阶段**：团队只要某阶段产物（如「直接做海报」），就只调 `poster`；只要路演稿就调 `showcase`。
 3. **单协议**：团队只要某个协作动作（如「再投一次票」），就只调 `facilitation` 的「点投票」协议。
 
 **人类的调度权**：随时可喊「跳过研究 / 直接创意 / 重投票 / 换市场 / 我们只剩 8 分钟 / 重来这关」，AI 立即顺应并调整，不追问「为什么偏离流程」。
@@ -127,7 +127,7 @@ AI 给脚手架/问题  →  团队发散(人人出点子)  →  团队收敛(�
 | **点投票 Dot-vote** | 民主收敛 | 每人 2 票，票数前 2–3 名晋级 | 2′ |
 | **1-2-4-All** | 深挖单一赢家创意 | 个人→两人→四人→全员，逐级合并补充 | 5′ |
 
-> **Choice-first 铁律**：每个 HITL 关卡**先出菜单**（AI 用 research/方法论给出 6–8 个候选），团队**做选择题**而非填空题，并始终保留 `+1 of our own`。详见 `skills/facilitation/references/option-menu.md`。
+> **Choice-first 铁律**：每个 HITL 检查点**先出菜单**（AI 用 research/方法论给出 6–8 个候选），团队**做选择题**而非填空题，并始终保留 `+1 of our own`。详见 `skills/facilitation/references/option-menu.md`。
 
 ### 5.4 节奏模板（Pacing Template）
 14 人 × 40 分钟标准节奏（各关时间盒见 §9）。AI 每关按「**先出菜单 → 团队选 → 收敛 → 采集 → 推进**」执行，带 T-minus 倒计时提醒。
@@ -151,14 +151,14 @@ AI 给脚手架/问题  →  团队发散(人人出点子)  →  团队收敛(�
 - ❌ **执拗于流程**：团队已明确要跳过/加速/换向，AI 仍按原脚本追问
 
 ### 5.8 动态调度与降级（弹性）
-AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调整，不把流程当死规则。
+AI 必须在每个阶段**持续感知剩余时间 + 团队意图**，动态调整，不把流程当死规则。
 
 - **时间感知**：每关开始时对表，剩不足标准时长即自动切「快模式」。
 - **降级模式（快模式）**：
   - 发散降级：静默发散 → 直接让 2–3 个活跃成员提主意（省 2′）。
   - 收敛降级：点投票 → 主持人直接提 2 个候选请团队点头（省 2′）。
-  - 关卡跳过：团队说「研究够了」就跳过洞察发散，直接进创意。
-  - 关卡合并：时间紧时把「论证 + 呈现」合并，AI 后台并行拼装。
+  - 阶段跳过：团队说「研究够了」就跳过洞察发散，直接进创意。
+  - 阶段合并：时间紧时把「论证 + 呈现」合并，AI 后台并行拼装。
 - **人类可随时**：喊停、跳关、回退、重投票、换市场、换视觉方向、单独重跑某协议。
 - **AI 的回应**：只确认一句「收到，切到 X」，不劝返、不解释偏离。
 
@@ -185,12 +185,12 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 - **输出**：`insight-brief.html`（decisions 内嵌于 `id="capture"` 块）。**渐进式生成**：第一段研究产出即建文件，之后每步**重写**该文件（living brief）。
 - **做 2 个决策**：
   - **人群分层 Audience Segments（选 2–3）**：AI 出 **~6–8 个数据化人群**，团队**选 2–3** 作为目标 —— **决策 1**。
-  - **关键洞察 Key Insights（选 2–3）**：AI 蒸馏 **~6 条数据化洞察**，团队**选 2–3** 进入 `plan` —— **决策 2**。
-  > **市场读数（Market Trends = 原 trends 合并 truths + SWOT 的 O/T）与焦点包（Focus Bundle = 人群 × 时刻 × 趋势）全部由 AI 策展**，brief 中**全量列出**，团队可随时一句「redo …」覆盖。**不再有独立的 Truths 块、独立的 SWOT 块、独立的 Moments 菜单**：S/W 归组织画像，O/T 并入 Market Trends；时刻按已选人群各给 1 条。
+  - **关键洞察 Key Insights（选 2–3）**：AI **由焦点包派生 ~6 条洞察**（每条 = 已选人群 × 其时刻 × 支撑趋势的张力，约每个已选人群 2 条），团队**选 2–3** 进入 `plan` —— **决策 2**。
+  > **市场读数（Market Trends）与焦点包（Focus Bundle = 人群 × 时刻 × 趋势）全部由 AI 策展**，brief 中**全量列出**，团队可随时一句「redo …」覆盖。**不再有独立的 Truths 块、独立的 SWOT 块、独立的 Moments 菜单**：市场读数独立成块（含外部机会/威胁，各带 `kind`）；时刻按已选人群各给 1 条。
 - **facilitate（串场）**：
-  1. **建 brief + 研究（AI，无决策）**：读题卡 → `agent-reach`/`business-research`/`audience-analysis`/`swot-analysis` → 蒸馏**全量**：市场读数 ~6–8（趋势 + 硬事实 + O/T，另附 `kind`）· 人群 ~6–8（各带事实/数字 + 来源）。第一段产出即**创建 `insight-brief.html`**，每步**重写**。
+  1. **建 brief + 研究（AI，无决策）**：读题卡 → `agent-reach`/`business-research`/`market-trends`/`audience-analysis` → 蒸馏**全量**：市场读数 ~6–8（趋势 + 硬事实 + O/T，另附 `kind`）**先行**，人群 ~6–8（各带事实/数字 + 来源）**随后**。第一段产出即**创建 `insight-brief.html`**，每步**重写**。
   2. **人群决策（团队，决策 1）**：内联呈现 ~6–8 人群 → 团队**选 2–3** → 重写 brief（选中高亮）。
-  3. **推导焦点包 + 起草洞察（AI，无决策）**：由已选人群各推导 **1 个焦点包**（人群 × 时刻 × 趋势 + why）→ 蒸馏 ~6 条数据化洞察 → 重写 brief（全量列出）。
+  3. **推导焦点包 + 起草洞察（AI，无决策）**：由已选人群各推导 **1 个焦点包**（人群 × 时刻 × 趋势 + why）→ **由焦点包派生 ~6 条洞察**（每条融合人群 × 时刻 × 趋势）→ 重写 brief（全量列出）。
   4. **洞察决策（团队，决策 2）**：内联呈现 ~6 条 → 团队**选 2–3** 进 `plan` → 重写 brief（选中高亮）。
   5. **种子洞察（AI）**：由所选人群 + 洞察合成一句话张力。
   > 每个区块**全量列出候选**：选中 `SELECTED`（accent 高亮）/ 未选 `is-parked`（灰显）。见 §5.3 Option Menu。
@@ -199,26 +199,26 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
   quest: A|B
   org_profile: {assets, constraints}          # assets=S, constraints=W
   benchmark: {gold_standard, cautionary_tale, arena}
-  trends:  [ {id, trend, why_it_matters, kind, source} ]      # 合并 truths + SWOT O/T，全量，无 pick
-  segments:[ {id, name, who, job_functional, job_social, job_emotional, barrier, trigger, source, selected} ]
+  trends:  [ {id, trend, why_it_matters, kind, source} ]      # 合并硬事实 + 外部机会/威胁，全量，无 pick
+  segments:[ {id, name, who, job_functional, job_social, job_emotional, barrier, trigger, channels, size_potential, source, selected} ]
   selected_segments: [3, 1]                    # 决策 1
   focus_bundles: [ {id, name, segment_id, moment:{when,where,event}, trend_id, why} ]  # 由已选人群各 1 个
   moment_of_truth: {when, where, event}        # 主焦点包的时刻
-  key_insights: [ {id, text, evidence, source, selected} ]    # 决策 2，全量
+  key_insights: [ {id, segment_id, trend_id, moment:{when,where,event}, text, evidence, source, selected} ]  # 决策 2，全量；每条融合人群 × 时刻 × 趋势
   selected_insights: [1, 4]
   seed_insight: "一句话张力"
   ```
 - **assemble**：`insight-brief.html`（战报速览 + 标杆对照 / 组织画像 / **市场读数**（全量，无 pick）/ **人群分层卡**（全量，团队选 2–3）/ **焦点包**（按已选人群，含时刻 × 趋势）/ **关键洞察**（全量，团队选 2–3）/ 种子洞察高亮）。内容区 **80% 屏宽（上限 1600px）**；**禁用侧边装饰栏**（§5.2）。
-- **吸收/改造**：`business-research`（仅作标杆对照脚手架）；`audience-analysis` 能力升级为 **STP + JTBD + 趋势**；`swot-analysis` 的方法保留但**不独立成块**（S/W→组织画像，O/T→市场读数）。
+- **吸收/改造**：`business-research`（组织画像 + 标杆对照）；**新增 `market-trends`**（合并市场读数：趋势 + 硬事实 + 外部机会/威胁，各带 `kind`）；`audience-analysis` 能力升级为 **STP + JTBD + 渠道 + 规模潜力**；**移除 `swot-analysis`**（S/W 已并入组织画像的 assets/constraints，O/T 已由 `market-trends` 的 `kind` 承载）。
 
 ### 7.2 `plan`（创意门 · 14 分钟 · 最重）
 - **目标**：**先锚定（人群 + 时刻）再发散**，让创意有根；AI 把创意拼成 **2 套完整方案（A/B）**，团队**只做 1 次决策 —— 选 A 或 B**。
 - **输入**：`insight-brief.html` capture（所选人群 + 所选焦点包 + key insights + moment）。
-- **输出**：`campaign-plan.html`（**渐进式生成**：第一段产出即建文件，之后每步重写；最终**两套方案 A/B 全量列出**，选中高亮；capture 内嵌）+ `poster-a/b/c.html` + `poster.html`。
+- **输出**：`campaign-plan.html`（**渐进式生成**：第一段产出即建文件，之后每步重写；最终**两套方案 A/B 全量列出**，选中高亮；**内嵌主视觉**；capture 内嵌）。**不产独立 poster 文件**（`poster-a/b/c.html` + `poster.html` 由独立 `/poster` 阶段产出）。
 - **facilitate（AI 全跑，团队只决策 1 次）**：
   1. **发散（AI）**：`creative-concept` —— 锚定人群 × 时刻 → 1 个 HMW → 创意方法 → **~6 个候选创意**。
   2. **收敛 + 搭 A/B（AI）**：把 ~6 收敛为 **2 套完整、彼此不同的 campaign**（A/B）；各含 `opportunity-definition`(5 要素) + 定位(Moore) + offering + 4Ps + 2 试点市场 + 实验计划 + 预算（题卡 War Chest）。
-  3. **制图（AI）**：用 `poster` 为每套出主视觉（默认方向；独立 `/poster` 阶段可再定风格）。
+  3. **制图（AI）**：为每套 campaign 在 `campaign-plan.html` 内**嵌主视觉**（复用 `ascentium-brand`；**不产独立 poster 文件**）；独立 `/poster` 阶段负责产出 `poster-a/b/c.html` + `poster.html` 并让团队定风格。
   4. **决策（团队 · 唯一 1 次）**：AI 内联呈现两套完整方案（A/B）→ 团队**选 1**（可 +1 自选）。
 - **capture（内嵌于 `campaign-plan.html` 的 `id="capture"` JSON 块）**：
   ```json
@@ -299,7 +299,7 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 
 ## 9. 40 分钟节奏总表
 
-| 时间 | 关卡 | 谁主导 | AI 干什么 | 人的决定 |
+| 时间 | 阶段 | 谁主导 | AI 干什么 | 人的决定 |
 |---|---|---|---|---|
 | 0–2′ | 开题 | AI | 30″ 战报速览 + 抛第一问 | — |
 | 2–10′ | 洞察门 | 人 | 研究 → living brief → AI 策展 → ~6 关键洞察 | 关键洞察（2–3） |
@@ -321,7 +321,7 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 ├── evaluation-rubric.md             # 方案评分卡
 ├── skills/                          # 技能：一技能一目录；opencode 递归发现 **/SKILL.md
 │   ├── insight/                     # 洞察门
-│   │   └── sub-skills/  business-research · audience-analysis · swot-analysis
+│   │   └── sub-skills/  business-research · market-trends · audience-analysis
 │   ├── plan/                        # 策划门
 │   │   └── sub-skills/  creative-concept · opportunity-definition
 │   ├── poster/                      # 海报（Create 阶段，独立）
@@ -335,7 +335,7 @@ AI 必须在每个关卡**持续感知剩余时间 + 团队意图**，动态调�
 └── commands/                        # start · insight · plan · poster · prove · showcase · evaluate · run
 ```
 
-**输出位置（运行约定）**：Facilitator 与 runner 两种模式都把本轮全部产物写入仓库根的 **`artifacts/Quest<ID>-<NN>/`**（每题一轮一子目录：`QuestA-01` → `QuestA-02` ……）。`/run` 新建轮次目录；`/start` **只做 briefing**（不建目录、不产产物），由**第一个写产物的关卡**建目录；单闸命令并入该题最新轮次目录（无则建 `-01`）；**不覆盖旧轮次**。每轮含各阶段 HTML 产物（decisions 内嵌于各自 `id="capture"` 块，**无 YAML/Markdown**）；构建脚本以 `--dir artifacts/Quest<ID>-<NN>/` 运行。`artifacts/` 已 gitignore；签入示例在 `demo-examples/`。详见 `quest-card.md` → *Output layout*。
+**输出位置（运行约定）**：Facilitator 与 runner 两种模式都把本轮全部产物写入仓库根的 **`artifacts/Quest<ID>-<NN>/`**（每题一轮一子目录：`QuestA-01` → `QuestA-02` ……）。`/run` 新建轮次目录；`/start` **briefing 后直接进入 Insight 阶段**（自身不建目录、不产产物），由**第一个写产物的阶段**（Insight）建目录；单阶段命令并入该题最新轮次目录（无则建 `-01`）；**不覆盖旧轮次**。每轮含各阶段 HTML 产物（decisions 内嵌于各自 `id="capture"` 块，**无 YAML/Markdown**）；构建脚本以 `--dir artifacts/Quest<ID>-<NN>/` 运行。`artifacts/` 已 gitignore；签入示例在 `demo-examples/`。详见 `quest-card.md` → *Output layout*。
 
 > **opencode 发现约定 = 递归 `**/SKILL.md`**。四阶段技能 `insight` / `plan` / `prove` / `showcase` 各自带 `sub-skills/`；`poster`、`agent-reach` **平铺为顶层技能**（逻辑上归 `plan` / `insight`，被它们引用）。
 > 命名约定：**技能/Agent/Command 名一律不带 `quest`**（skill: `insight`/`plan`/`poster`/`prove`/`showcase`；agent: `facilitator`/`runner`/`researcher`；command: `/start`、`/run` 等）。

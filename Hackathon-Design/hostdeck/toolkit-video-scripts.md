@@ -94,29 +94,29 @@ The example run uses Quest B (Chengdu Panda Base).
 - **Visual:** `IMG-07` — `insight-brief.html`.
 - **Skills:** `insight` · **Decision:** Confirm the brief; move to Plan.
 
-### S9 · Plan — fix who and when — 10s
-- **Headline:** Plan starts by fixing who and when
-- **Sub:** Seven segment × moment anchors. The team picks the one that answers the insights.
-- **Visual:** `IMG-08` — the Plan · Anchor menu.
-- **Skills:** `creative-concept` · `opportunity-definition` · **Decision:** Choose the anchor.
-
-### S10 · Plan — two versions — 12s
+### S9 · Plan — two versions — 12s
 - **Headline:** Then two complete plans, A and B
 - **Sub:** Positioning, offer, 4Ps, pilot, budget. The team picks one or mixes.
-- **Visual:** `IMG-09` — Plan · two versions (A "Belong Anywhere" / B "Passport to Chengdu").
-- **Skills:** `plan` · **Decision:** Pick A, B, or a mix.
+- **Visual:** `IMG-08` — Plan · two versions (A "Belong Anywhere" / B "Passport to Chengdu").
+- **Skills:** `creative-concept` · `opportunity-definition` · `plan` · **Decision:** Pick A, B, or a mix.
 
-### S11 · Poster — 10s
+### S10 · Poster — the prompt — 10s
+- **Headline:** Continue to the posters
+- **Sub:** The plan is set; three poster directions come next. The team keeps one.
+- **Visual:** `IMG-09` — the poster step prompt (styles A/B/C).
+- **Skills:** `poster` · **Decision:** Pick the poster style.
+
+### S11 · Poster — the result — 10s
 - **Headline:** The hero poster, in three styles
 - **Sub:** Same message, three art directions. The team keeps one.
 - **Visual:** `IMG-10` — `poster.html`.
-- **Skills:** `poster` · **Decision:** Keep one poster style.
+- **Skills:** `poster` · **Decision:** —
 
-### S12 · Prove — 11s
-- **Headline:** Prove — pilot metrics with the logic behind each
-- **Sub:** Benchmark → assumption → formula for every target.
-- **Visual:** `IMG-11` — `proof.html` written, plus the recap.
-- **Skills:** `prove` · **Decision:** Confirm the pilot metrics and their reasoning.
+### S12 · Prove → Showcase — 11s
+- **Headline:** Prove, then pick the storyline
+- **Sub:** Pilot metrics are written with their logic; the deck shape is the next call.
+- **Visual:** `IMG-11` — `proof.html` written, plus the Showcase storyline menu.
+- **Skills:** `prove` · `showcase` · **Decision:** Confirm the metrics; pick the storyline.
 
 ### S13 · Showcase — the package — 11s
 - **Headline:** Showcase assembles the package
@@ -145,13 +145,13 @@ The example run uses Quest B (Chengdu Panda Base).
 3. Eight commands run the whole loop.
 4. One loop, five stages, with a decision at every gate.
 5. Type `/start` and name the quest.
-6. It answers with a decision, not a wall of text.
+6. It answers with a clear decision.
 7. Insight returns a grounded menu; the team picks two or three.
 8. The choice becomes the brief.
-9. Plan starts by fixing who and when.
-10. Then two complete plans, A and B.
+9. Then two complete plans, A and B.
+10. Continue to the posters.
 11. The hero poster, in three styles.
-12. Prove — pilot metrics with the logic behind each.
+12. Prove, then pick the storyline.
 13. Showcase assembles the package.
 14. One report, one deck, ready to pitch.
 15. Your Facilitator walks the loop with you.
@@ -185,8 +185,8 @@ slot's placeholder label so the deck still runs.
 
 **Alternates on disk (not in the manifest):**
 - `img-071.jpg` — internal "thinking" screen for the anchor menu. Rough; not recommended.
-- `img-101.jpg` — Poster · Style decision menu (pick A/B/C). Can slot in **before** `IMG-10`
-  as a "Poster — pick a style" scene if a 16th scene is wanted.
+- `img-081.jpg` — spare Plan-gate capture.
+- `img-101.jpg` — Poster · Style decision menu (pick A/B/C).
 
 **Notes**
 - Keep screenshots free of private tokens, account IDs, or local file paths.

@@ -11,7 +11,7 @@ Research the **organization** behind the quest — the client, brand, or IP hold
 
 ## When to use
 
-- In the insight gate, to build the **organization / IP profile** and the **benchmark baseline**.
+- In the insight stage, to build the **organization / IP profile** and the **benchmark baseline**.
 - Anytime a campaign needs grounding on the client, brand, or IP holder.
 
 ## Inputs
@@ -58,4 +58,4 @@ A structured **Organization Profile** in Markdown (template in the reference). E
 ## Where it fits (insight research chain)
 
 - **Upstream**: the quest card + **`agent-reach`** (data collection).
-- **Downstream**: `audience-analysis` (the org's offer / assets / constraints set **fit** — which segments we can win) and `swot-analysis` (**internal S/W**).
+- **Downstream**: `market-trends` (the org's assets shape which external opportunities matter) and `audience-analysis` (the org's offer / assets / constraints set **fit** — which segments we can win).

@@ -1,11 +1,11 @@
 ---
 name: opportunity-definition
-description: Define a marketing opportunity in 5 structured elements — ① a one-line description, ② the target segment & scenario, ③ the pain/tension, ④ the solution hypothesis, ⑤ the value/return — plus a 4-row value-breakdown table. Use in the plan gate to scope a single, focused opportunity from the insight. Triggers: "opportunity definition", "define the opportunity", "scope the campaign", "opportunity".
+description: Define a marketing opportunity in 5 structured elements — ① a one-line description, ② the target segment & scenario, ③ the pain/tension, ④ the solution hypothesis, ⑤ the value/return — plus a 4-row value-breakdown table. Use in the plan stage to scope a single, focused opportunity from the insight. Triggers: "opportunity definition", "define the opportunity", "scope the campaign", "opportunity".
 ---
 
 # Opportunity Definition (marketing · 5 elements)
 
-After the insight gate has produced **~6 key insights**, scope the opportunity the plan will pursue into something **structured, reviewable, and fundable**.
+After the insight stage has produced **~6 key insights**, scope the opportunity the plan will pursue into something **structured, reviewable, and fundable**.
 
 ## The 5 elements
 
@@ -39,7 +39,7 @@ After the insight gate has produced **~6 key insights**, scope the opportunity t
 
 ## Where it fits
 
-- **Upstream**: the plan gate — the chosen idea(s) from `creative-concept`.
+- **Upstream**: the plan stage — the chosen idea(s) from `creative-concept`.
 - **Downstream**: the campaign plan (positioning, offering, 4Ps, pilot, budget) → the A/B variants.
 
 ## QA
