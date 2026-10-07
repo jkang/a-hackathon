@@ -2,10 +2,10 @@
 
 Built-in animation that replaces the `Toolkit demo — playing next` placeholder in
 `host-deck.html` (slide `01 · Opening Brief`). It plays as a full-bleed 1000×562 stage
-inside the deck, like a short walkthrough video: headline text, screenshots, transitions,
-and a progress bar.
+inside the deck: screenshots with captions, transitions, and a progress bar. It starts
+playing as soon as the slide opens — there is no title/cover card.
 
-This file is the single source of truth for the **content** (scenes, copy, images).
+This file is the single source of truth for the **content** (pages, copy, images).
 The technical build is specified in section 7.
 
 ---
@@ -14,147 +14,81 @@ The technical build is specified in section 7.
 
 | Field | Value |
 |---|---|
-| Title | The Marketing AI Toolkit |
-| Subtitle | Insight → Plan → Poster → Prove → Showcase |
-| Runtime | ~2:30 (15 scenes, timed auto-advance) |
+| Title | The Marketing AI Toolkit (document title only; no on-screen title bar) |
+| Runtime | ~2:00 (18 pages, timed auto-advance) |
 | Stage | 1000 × 562 (16:9), full-bleed inside the deck |
 | Audience | 8 guilds, non-technical business managers |
 | Tone | Calm, concrete, business. Show the loop, name the skills, stop at each decision. |
-| Language | English only (on-screen text and narration) |
+| Language | English only (on-screen text) |
 | Brand | Ascentium tokens only — orange `#FF6611`, midnight `#0F1514`, Poppins / Noto Sans SC |
 | Controls | Play / Pause · Restart · Prev / Next · progress bar |
+| Example run | Quest B (Chengdu Panda Base), session `QuestB-FullRun` |
 
 ---
 
 ## 2. Global conventions
 
-- **Scene ID** — `S1`–`S15`, played in order.
-- **Timing** — `dur` is seconds; the engine auto-advances after `dur`. Host can pause anytime.
-- **Copy fields** — `headline` (large), `sub` (one supporting line), `skills` (the skills/commands
-  active in this scene), `decision` (the call the team makes before moving on).
-- **Image slot** — `IMG-xx`, resolved against the manifest in section 5. Every slot is optional:
-  a scene with no slot renders headline-only.
-- **Transitions** — default cross-fade 0.35s; the engine may add a subtle rise on the headline.
-- **No inventing numbers** — any figure on screen must come from a real ticket or skill output.
+- **Page** — `P01`–`P18`, played in order. Each page shows one image with a caption.
+- **Timing** — `dur` is seconds; the engine auto-advances after `dur`. Dwell is short
+  (~5–8s per page). The host can pause anytime.
+- **Copy fields** — `eyebrow` (label), `head` (large), `sub` (one supporting line),
+  `skills` (the skills/commands active on this page).
+- **Image slot** — `IMG-xx`, resolved against the manifest in section 5. A missing file
+  renders an `IMG-xx` placeholder tile.
+- **Transitions** — cross-fade 0.45s; images get a slow zoom, captions fade up.
+- **No inventing numbers** — any figure on screen comes from a real artifact or skill output.
 
 ---
 
 ## 3. Storyboard
 
-Each scene shows one screenshot (except S1 and S15) with a headline and one supporting line.
-The example run uses Quest B (Chengdu Panda Base).
+Each page pairs one screenshot (right) with a caption (left). Durations are in seconds.
 
-### S1 · Title / cold open — 6s
-- **Headline:** The Marketing AI Toolkit
-- **Sub:** One loop. Five stages. Your team makes the calls.
-- **Visual:** brand cover — Ascentium logo over `hero.png` (reuse), orange kicker.
-- **Skills:** — · **Decision:** —
+| Page | IMG | dur | eyebrow | head | sub | skills |
+|---|---|---|---|---|---|---|
+| P01 | IMG-01 | 6 | The toolkit | The toolkit sits in your editor | One workspace, pre-loaded with the quest card and the skills. | skills · commands |
+| P02 | IMG-02 | 6 | Commands | Eight commands run the whole loop | /start · /insight · /plan · /poster · /prove · /showcase — plus /run and /evaluate. | — |
+| P03 | IMG-03 | 8 | The loop | One loop, five stages — a decision at every gate | agent-reach pulls real data, creative-concept builds options, poster draws the hero, prove fixes the metrics, showcase assembles the pitch. | insight · plan · poster · prove · showcase |
+| P04 | IMG-04 | 5 | Start | Type /start and name the quest | The toolkit reads the quest card and opens the first gate. | /start |
+| P05 | IMG-05 | 7 | Insight | Start the research | Choose how to open the Insight gate: live research, a fast start, or your own facts. | /insight |
+| P06 | IMG-06 | 8 | Insight | Insights come as directions to build on | Six data-backed directions; the team picks two or three. | market-trends · audience-analysis |
+| P07 | IMG-07 | 7 | The brief | The choice becomes the brief | Selected insights, focus bundles, and the seed insight on one screen. | insight |
+| P08 | IMG-081 | 6 | Plan | Insight complete — on to the plan | Run /plan and the campaign design begins. | /plan |
+| P09 | IMG-082 | 8 | Plan | Two complete plans, A and B | Each with positioning, channel mix, pilot markets, and budget. The team picks one. | creative-concept · channel-strategy · plan |
+| P10 | IMG-083 | 7 | Plan | The chosen plan, written up | Concept, offer, campaign moments, and budget on one page. | plan |
+| P11 | IMG-091 | 5 | Poster | Plan complete — on to the poster | Run /poster and the campaign poster begins. | /poster |
+| P12 | IMG-092 | 7 | Poster | Three poster styles, one choice | Full-Bleed Hero, Belonging Passport, or Midnight Minimal. The team keeps one. | poster |
+| P13 | IMG-093 | 7 | Poster | The chosen poster | The selected style rendered on the Ascentium brand. | poster |
+| P14 | IMG-101 | 6 | Prove | Poster complete — on to Prove | Run /prove; the pilot forecast is produced with no team decision. | /prove |
+| P15 | IMG-111 | 6 | Showcase | Prove complete — on to Showcase | Run /showcase to assemble the proposal and pitch deck. | /showcase |
+| P16 | IMG-112 | 7 | Showcase | Pick the storyline | Classic, Hero’s Journey, Big Reveal, Demo, or Trailer — plus optional bonus media. | showcase |
+| P17 | IMG-121 | 6 | Showcase | The package is complete | Proposal, poster, proof, deck, and prompt pack — ready to submit. | showcase |
+| P18 | IMG-131 | 7 | The package | One proposal, one deck, ready to pitch | A five-minute pitch, brand-compliant end to end. | showcase |
 
-### S2 · Where the toolkit lives — 10s
-- **Headline:** The toolkit sits in your editor
-- **Sub:** One workspace, pre-loaded with the quest card and the skills. No setup.
-- **Visual:** `IMG-01` — OpenCode new session.
-- **Skills:** `skills/` + `commands/` · **Decision:** —
-
-### S3 · One command line — 10s
-- **Headline:** Eight commands run the whole loop
-- **Sub:** `/start · /insight · /plan · /poster · /prove · /showcase` — plus `/run` and `/evaluate`.
-- **Visual:** `IMG-02` — the command palette.
-- **Skills:** `commands/` · **Decision:** —
-
-### S4 · The loop — 12s
-- **Headline:** One loop, five stages — a decision at every gate
-- **Sub:** `agent-reach` pulls real data, `creative-concept` builds options, `poster` draws the hero,
-  `prove` fixes the metrics, `showcase` assembles the pitch.
-- **Visual:** `IMG-03` — the five-stage journey map.
-- **Skills:** `insight` · `plan` · `poster` · `prove` · `showcase` · **Decision:** —
-
-### S5 · Kick off — 9s
-- **Headline:** Type `/start` and name the quest
-- **Sub:** The toolkit reads the quest card and opens the first gate.
-- **Visual:** `IMG-04` — typing `/start the Quest B - Chengdu Panda Base`.
-- **Skills:** `/start` · **Decision:** Read the quest; each member claims a lane.
-
-### S6 · The first decision — 10s
-- **Headline:** It answers with a decision, not a wall of text
-- **Sub:** Run the research, take the fast start, or add your own angle. The team picks.
-- **Visual:** `IMG-05` — the `/start` reply and its three options.
-- **Skills:** `/start` · **Decision:** Choose how to open the Insight gate.
-
-### S7 · Insight — grounded menus — 12s
-- **Headline:** Insight returns grounded menus
-- **Sub:** The market read in full, then ~6 segments and ~6 key insights — each with its source. The team picks two or three of each.
-- **Visual:** `IMG-06` — the segments / key-insights menu; the team replies `2, 4, 7`.
-- **Skills:** `agent-reach` · `business-research` · `market-trends` · `audience-analysis` · `insight`
-- **Decision:** Pick 2–3 segments, then 2–3 key insights (or add one of your own).
-
-### S8 · The brief — 10s
-- **Headline:** The choice becomes the brief
-- **Sub:** Market trends, the segment × moment focus bundles, and the selected key insights on one screen.
-- **Visual:** `IMG-07` — `insight-brief.html`.
-- **Skills:** `insight` · **Decision:** Confirm the brief; move to Plan.
-
-### S9 · Plan — two versions — 12s
-- **Headline:** Then two complete plans, A and B
-- **Sub:** Positioning, offer, 4Ps, pilot, budget. The team picks one or mixes.
-- **Visual:** `IMG-08` — Plan · two versions (A "Belong Anywhere" / B "Passport to Chengdu").
-- **Skills:** `creative-concept` · `channel-strategy` · `plan` · **Decision:** Pick A, B, or a mix.
-
-### S10 · Poster — the prompt — 10s
-- **Headline:** Continue to the posters
-- **Sub:** The plan is set; three poster directions come next. The team keeps one.
-- **Visual:** `IMG-09` — the poster step prompt (styles A/B/C).
-- **Skills:** `poster` · **Decision:** Pick the poster style.
-
-### S11 · Poster — the result — 10s
-- **Headline:** The hero poster, in three styles
-- **Sub:** Same message, three art directions. The team keeps one.
-- **Visual:** `IMG-10` — `poster.html`.
-- **Skills:** `poster` · **Decision:** —
-
-### S12 · Prove → Showcase — 11s
-- **Headline:** Prove, then pick the storyline
-- **Sub:** Pilot metrics are written with their logic; the deck shape is the next call.
-- **Visual:** `IMG-11` — `proof.html` written, plus the Showcase storyline menu.
-- **Skills:** `prove` · `showcase` · **Decision:** Confirm the metrics; pick the storyline.
-
-### S13 · Showcase — the package — 11s
-- **Headline:** Showcase assembles the package
-- **Sub:** Proposal, poster, proof, and deck — then a final check before submitting.
-- **Visual:** `IMG-12` — the package summary, one-line pitch, and Converge · Final check.
-- **Skills:** `showcase` · **Decision:** Confirm and submit, or request a change.
-
-### S14 · One report, one deck — 11s
-- **Headline:** One report, one deck, ready to pitch
-- **Sub:** A five-minute pitch, brand-compliant end to end.
-- **Visual:** `IMG-13` — the final proposal / pitch deck.
-- **Skills:** `showcase` · **Decision:** —
-
-### S15 · Close — 7s
-- **Headline:** Your Facilitator walks the loop with you
-- **Sub:** Stuck on a command or a choice? Raise a hand — one Facilitator per guild keeps it moving.
-- **Visual:** none — HTML closing card.
-- **Skills:** — · **Decision:** —
+**Total: ~119s (~2:00).**
 
 ---
 
 ## 4. Full run-through (copy block)
 
-1. The Marketing AI Toolkit — one loop, five stages, your team makes the calls.
-2. The toolkit sits in your editor — pre-loaded, no setup.
-3. Eight commands run the whole loop.
-4. One loop, five stages, with a decision at every gate.
-5. Type `/start` and name the quest.
-6. It answers with a clear decision.
-7. Insight returns a grounded menu; the team picks two or three.
-8. The choice becomes the brief.
-9. Then two complete plans, A and B.
-10. Continue to the posters.
-11. The hero poster, in three styles.
-12. Prove, then pick the storyline.
-13. Showcase assembles the package.
-14. One report, one deck, ready to pitch.
-15. Your Facilitator walks the loop with you.
+1. The toolkit sits in your editor — one workspace, pre-loaded.
+2. Eight commands run the whole loop.
+3. One loop, five stages, with a decision at every gate.
+4. Type `/start` and name the quest.
+5. Insight — start the research.
+6. Insights come as directions; the team picks two or three.
+7. The choice becomes the brief.
+8. Insight complete — on to the plan.
+9. Two complete plans, A and B.
+10. The chosen plan, written up.
+11. Plan complete — on to the poster.
+12. Three poster styles, one choice.
+13. The chosen poster.
+14. Poster complete — on to Prove.
+15. Prove complete — on to Showcase.
+16. Pick the storyline.
+17. The package is complete.
+18. One proposal, one deck, ready to pitch.
 
 ---
 
@@ -164,79 +98,86 @@ All files live in `Hackathon-Design/hostdeck/assets/video/`, referenced relative
 `assets/video/<filename>`. Format: JPG, sRGB. If a file is missing, the engine shows the
 slot's placeholder label so the deck still runs.
 
-| ID | Scene | What it shows | Type | Filename |
+| ID | Page | What it shows | Type | Filename |
 |---|---|---|---|---|
-| IMG-01 | S1 | OpenCode new session (toolkit workspace) | screenshot | `img-01.jpg` |
-| IMG-02 | S2 | Command palette — the eight commands | screenshot | `img-02.jpg` |
-| IMG-03 | S3 | "One loop, five stages" journey map | diagram | `img-03.jpg` |
-| IMG-04 | S4 | Typing `/start the Quest B - Chengdu Panda Base` | screenshot | `img-04.jpg` |
-| IMG-05 | S5 | `/insight` reply — start the research | screenshot | screenshot | `img-05.jpg` |
-| IMG-06 | S6 | Insights · multiple directions  — pick 2-3 directions to build on. | screenshot | `img-06.jpg` |
-| IMG-07 | S7 | `insight-brief.html` — insights selected | screenshot | `img-07.jpg` |
-| IMG-08 | S8 | `/plan` reply — start the plan | screenshot | `img-081.jpg` |
-| IMG-08 | S8 | Plan · two versions — pick A or B | screenshot | `img-082.jpg` |
-| IMG-08 | S8 | `campaign-plan.html` — plan selected | screenshot | `img-083.jpg` |
-| IMG-09 | S9 | `/poster` reply — start the poster | screenshot | `img-091.jpg` |
-| IMG-09 | S9 | Pick the poster style A/B/C | screenshot | `img-092.jpg` |
-| IMG-09 | S9 | `poster.html` — poster selected | screenshot | `img-093.jpg` |
-| IMG-10 | S10 | `/prove` reply — start the prove | screenshot | `img-101.jpg` |
-| IMG-11 | S11 | `/showcase` reply — start the showcase |  screenshot | `img-111.jpg` |
-| IMG-11 | S11 | pick showcase storyline |  screenshot | `img-112.jpg` |
-| IMG-12 | S12 | see the final package |  screenshot | `img-121.jpg` |
-| IMG-13 | S14 | Final proposal / pitch deck | screenshot | `img-131.jpg` |
-
-**Reused, no file needed:** Ascentium logo (already inline in the deck) and `hero.png`
-(already in `Hackathon-Design/assets/`).
-
-**Alternates on disk (not in the manifest):**
-- `img-071.jpg` — internal "thinking" screen for the anchor menu. Rough; not recommended.
-- `img-081.jpg` — spare Plan-gate capture.
-- `img-101.jpg` — Poster · Style decision menu (pick A/B/C).
+| IMG-01 | P01 | OpenCode new session (toolkit workspace) | screenshot | `img-01.jpg` |
+| IMG-02 | P02 | Command palette — the eight commands | screenshot | `img-02.jpg` |
+| IMG-03 | P03 | "One loop, five stages" journey map | diagram | `img-03.jpg` |
+| IMG-04 | P04 | Typing `/start the Quest B - Chengdu Panda Base` | screenshot | `img-04.jpg` |
+| IMG-05 | P05 | Insight gate — decision to start the research | screenshot | `img-05.jpg` |
+| IMG-06 | P06 | Insights — multiple directions; pick 2–3 | screenshot | `img-06.jpg` |
+| IMG-07 | P07 | `insight-brief.html` — insights selected | screenshot | `img-07.jpg` |
+| IMG-081 | P08 | Plan handoff — run `/plan` | screenshot | `img-081.jpg` |
+| IMG-082 | P09 | Plan · two versions — pick A or B | screenshot | `img-082.jpg` |
+| IMG-083 | P10 | `campaign-plan.html` — plan selected | screenshot | `img-083.jpg` |
+| IMG-091 | P11 | Poster handoff — run `/poster` | screenshot | `img-091.jpg` |
+| IMG-092 | P12 | Pick the poster style A/B/C | screenshot | `img-092.jpg` |
+| IMG-093 | P13 | `poster.html` — poster selected | screenshot | `img-093.jpg` |
+| IMG-101 | P14 | Prove handoff — run `/prove` | screenshot | `img-101.jpg` |
+| IMG-111 | P15 | Showcase handoff — run `/showcase` | screenshot | `img-111.jpg` |
+| IMG-112 | P16 | Pick the showcase storyline | screenshot | `img-112.jpg` |
+| IMG-121 | P17 | See the final package | screenshot | `img-121.jpg` |
+| IMG-131 | P18 | Final proposal / pitch deck | screenshot | `img-131.jpg` |
 
 **Notes**
+- No reused deck assets in the video — every page is a supplied screenshot.
 - Keep screenshots free of private tokens, account IDs, or local file paths.
-- Use `demo-examples/QuestA-v2/*.html` if a Quest A variant is ever needed.
 
 ---
 
 ## 6. Status
 
-- [x] Images IMG-01 … IMG-13 supplied
+- [x] Images IMG-01 … IMG-131 supplied
 - [x] Player built into `host-deck.html` (Phase B)
 - [x] Browser check passed (Phase C)
 
 ---
 
-## 7. Player contract (Phase B spec)
+## 7. Player contract (as built)
 
-Built. A self-contained scene engine was added to `host-deck.html`; no external libraries.
+A self-contained scene engine in `host-deck.html`; no external libraries.
 
-**Markup (as built)** — the old `.video-ph` body in slide `01` was replaced by one container.
-The engine then adds the `demo` / `plain` classes to the slide and removes its `sec-tag`, so the
-visitor logo stays but the slide content is the full-bleed stage:
+**Markup** — the `host-deck.html` slide `01` body holds one container. The engine adds the
+`demo` / `plain` classes to the slide and removes its `sec-tag`, keeping the visitor logo:
 
 ```
 <section class="slide" data-sec="1">
   <div class="logo">…</div>
-  <div class="demo-stage" id="toolkitDemo"> … scenes injected from SCENES … </div>
+  <div class="demo-stage" id="toolkitDemo"> … pages injected from SCENES … </div>
 </section>
 ```
 
-**Scene data** — a JS `SCENES` array of objects mirroring section 3: `{ id, dur, layout, eyebrow,
-head, sub, img, alt, skills[] }`. Copy is data, not markup. Image paths are `assets/video/<file>`;
-`S1` (intro) uses `../assets/hero.png`; `S15` (outro) has no image.
+**Scene data** — a JS `SCENES` array of 18 objects: `{ id, dur, eyebrow, head, sub, img, alt,
+skills[] }`. Copy is data, not markup. Image paths are `assets/video/<file>`. There is **no
+intro/outro card** — `SCENES[0]` is IMG-01 and the video starts playing on entry.
 
 **Engine behaviour**
-- Auto-advances on `dur`; cross-fades scenes; a progress bar fills across the full runtime.
+- Auto-advances on `dur`; cross-fades pages; a progress bar fills across the full runtime.
 - On-screen controls: Play/Pause, Restart, Prev, Next. Clicking the stage toggles play/pause.
-- Auto-plays (from the first scene) when slide `01` becomes active; pauses when it changes.
-  Implemented with a `MutationObserver` on the slide's `class`, so the deck's `show()` is untouched.
-- Missing image → an `IMG-xx` placeholder tile renders in its place; the deck still runs.
-- Keyboard is left to the deck (←/→ change slides, F fullscreen) so the host is never trapped;
-  scene stepping is via the on-screen buttons.
+- Starts on the first page and plays as soon as slide `01` becomes active; pauses when it
+  changes. Implemented with a `MutationObserver` on the slide's `class`, so the deck's
+  `show()` is untouched.
+- Missing image → an `IMG-xx` placeholder tile renders in its place.
+- The persistent on-screen title bar was removed; only the page counter (`01 / 18`) shows
+  top-left. Keyboard is left to the deck (←/→ change slides, F fullscreen).
 
 **Brand rules** — colours, fonts, radius, and spacing come from the existing `:root` tokens.
 No new palettes, no decorative side bars.
 
-**Deck integration** — reuse the deck's existing `show()`/`fit()`/rail logic; the demo is
-one slide, so deck navigation, the rail, and page count stay unchanged.
+**Deck integration** — the demo is one slide; the deck's `show()`/`fit()`/rail logic are
+unchanged. The rail chips are clickable (jump to their section), and the prev/next pager is
+shown on every slide except this full-bleed demo slide, which carries its own pager.
+
+---
+
+## 8. Standalone demo
+
+`toolkit-demo.html` — the same 18-page video as a single shareable file. Every screenshot is
+base64-embedded, so the file has no external dependencies and can be sent on its own.
+
+- Generated by `build-toolkit-demo.py` (re-run it after changing the images or `SCENES`):
+  it reads `SCENES` + the logo from `host-deck.html` and embeds `assets/video/*.jpg`.
+- Layout: a 1000×562 stage scaled to the window, autoplay on open.
+- Controls: on-screen Play/Pause · Prev · Next · Restart, plus keyboard —
+  `←` / `→` step pages, `Space` play/pause, `R` restart, `F` fullscreen.
+- Branded with the Ascentium logo; progress bar and page counter included.

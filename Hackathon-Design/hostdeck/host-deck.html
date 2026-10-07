@@ -39,12 +39,13 @@
   .dark h2{color:#fff;} .dark p.lead{color:#DCE1DF;} .dark .kicker{color:var(--org3);}
   .dark .sec-tag{color:#AEB8B6;}
   .dark .pgnum,.dark .hint{color:#AEB8B6;}
-  .dark .rail .seg{color:#4A5250;} .dark .rail .seg.on{color:var(--org);background:rgba(255,102,17,.16);}
+  .dark .rail .seg{color:#4A5250;} .dark .rail .seg:hover{color:#fff;background:rgba(255,255,255,.10);} .dark .rail .seg.on{color:var(--org);background:rgba(255,102,17,.16);}
 
   /* nav */
   .nav{position:absolute;bottom:14px;left:52px;right:52px;display:flex;align-items:center;gap:12px;z-index:5;}
   .rail{display:flex;gap:3px;align-items:center;}
-  .rail .seg{font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#7C8785;padding:3px 7px;border-radius:6px;}
+  .rail .seg{font:inherit;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#7C8785;padding:3px 7px;border-radius:6px;border:0;background:transparent;cursor:pointer;transition:.15s;}
+  .rail .seg:hover{color:var(--org-ink);background:var(--org1);}
   .rail .seg.on{color:var(--org);background:var(--org1);}
   .pgnum{font-size:12.5px;color:var(--mut);font-weight:600;letter-spacing:.05em;}
   .navright{margin-left:auto;display:flex;align-items:center;gap:12px;}
@@ -233,8 +234,9 @@
          border:1px solid rgba(255,102,17,.4);color:var(--org3);border-radius:999px;padding:4px 11px;}
   .dfig{flex:1;display:flex;align-items:center;justify-content:center;overflow:hidden;
         padding:46px 46px 46px 28px;background:radial-gradient(125% 125% at 78% 8%,#232c2b 0%,#0F1514 72%);}
-  .dfig img{max-width:100%;max-height:100%;border-radius:11px;background:#fff;
-            box-shadow:0 18px 50px rgba(0,0,0,.55);display:block;}
+  .dframe{width:100%;aspect-ratio:2520 / 1596;background:#fff;border-radius:11px;overflow:hidden;
+          box-shadow:0 18px 50px rgba(0,0,0,.55);display:flex;}
+  .dframe img{width:100%;height:100%;object-fit:contain;display:block;}
   .dmissing{display:flex;align-items:center;justify-content:center;width:70%;height:60%;
             border:2px dashed rgba(255,102,17,.5);border-radius:12px;color:var(--org3);
             font-size:14px;font-weight:700;letter-spacing:.08em;}
@@ -256,7 +258,6 @@
   .dscene.on .dcenter{animation:dIn .55s ease both;}
   .dtop{position:absolute;top:24px;left:52px;right:96px;display:flex;align-items:center;gap:12px;
         z-index:6;pointer-events:none;}
-  .dtitle{font-size:11.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#AEB8B6;}
   .dcount{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--org3);font-variant-numeric:tabular-nums;}
   .dcontrols{position:absolute;right:32px;bottom:20px;display:flex;align-items:center;gap:8px;z-index:8;cursor:default;}
   .dbtn{appearance:none;border:1.5px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);
@@ -1133,9 +1134,12 @@
     if(!(sec in secFirst)) secFirst[sec] = i;
   });
   secOrder.forEach(function(sec){
-    var b = document.createElement('span');
+    var b = document.createElement('button');
+    b.type = 'button';
     b.className = 'seg'; b.textContent = SEC_LABELS[sec] || sec;
     b.setAttribute('data-sec', sec);
+    b.title = 'Jump to ' + (SEC_LABELS[sec] || sec);
+    b.addEventListener('click', function(){ jumpSec(sec); });
     railEl.appendChild(b);
   });
 
@@ -1156,7 +1160,7 @@
     });
     progress.style.width = ((i+1)/slides.length*100) + '%';
     var nav = document.querySelector('.nav');
-    if(nav) nav.classList.toggle('off', slides[i].classList.contains('plain'));
+    if(nav) nav.classList.toggle('off', slides[i].classList.contains('demo'));
     if(awardMusic) setMusic(slides[i].hasAttribute('data-music'));
     renderClock();
   }
@@ -1427,7 +1431,7 @@
     var im = s.img ? '<img src="' + s.img + '" alt="' + (s.alt || '') + '">' : '';
     if(s.layout === 'intro')  return '<div class="dbg">' + im + '</div><div class="dshade"></div><div class="dcenter">' + copyHTML(s) + '</div>';
     if(s.layout === 'outro')  return '<div class="dshade"></div><div class="dcenter">' + copyHTML(s) + '</div>';
-    return '<div class="dcopy">' + copyHTML(s) + '</div><div class="dfig">' + im + '</div>';
+    return '<div class="dcopy">' + copyHTML(s) + '</div><div class="dfig"><div class="dframe">' + im + '</div></div>';
   }
 
   var els = SCENES.map(function(s){
