@@ -166,19 +166,24 @@ slot's placeholder label so the deck still runs.
 
 | ID | Scene | What it shows | Type | Filename |
 |---|---|---|---|---|
-| IMG-01 | S2 | OpenCode new session (toolkit workspace) | screenshot | `img-01.jpg` |
-| IMG-02 | S3 | Command palette — the eight commands | screenshot | `img-02.jpg` |
-| IMG-03 | S4 | "One loop, five stages" journey map | diagram | `img-03.jpg` |
-| IMG-04 | S5 | Typing `/start the Quest B - Chengdu Panda Base` | screenshot | `img-04.jpg` |
-| IMG-05 | S6 | `/start` reply — how to open the Insight gate | screenshot | `img-05.jpg` |
-| IMG-06 | S7 | Insight market-trends menu (team picks 2,4,7) | screenshot | `img-06.jpg` |
-| IMG-07 | S8 | `insight-brief.html` — insights selected | screenshot | `img-07.jpg` |
-| IMG-08 | S9 | Plan · two versions — pick A or B | screenshot | `img-08.jpg` |
-| IMG-09 | S10 | continue with the posters | screenshot | `img-09.jpg` |
-| IMG-10 | S11 | `poster.html` — three styles + hero | screenshot | `img-10.jpg` |
-| IMG-11 | S12 | `proof.html` written + Pick up the showcase story line | screenshot | `img-11.jpg` |
-| IMG-12 | S13 | Showcase package + final check | screenshot | `img-12.jpg` |
-| IMG-13 | S14 | Final proposal / pitch deck | screenshot | `img-13.jpg` |
+| IMG-01 | S1 | OpenCode new session (toolkit workspace) | screenshot | `img-01.jpg` |
+| IMG-02 | S2 | Command palette — the eight commands | screenshot | `img-02.jpg` |
+| IMG-03 | S3 | "One loop, five stages" journey map | diagram | `img-03.jpg` |
+| IMG-04 | S4 | Typing `/start the Quest B - Chengdu Panda Base` | screenshot | `img-04.jpg` |
+| IMG-05 | S5 | `/insight` reply — start the research | screenshot | screenshot | `img-05.jpg` |
+| IMG-06 | S6 | Insights · multiple directions  — pick 2-3 directions to build on. | screenshot | `img-06.jpg` |
+| IMG-07 | S7 | `insight-brief.html` — insights selected | screenshot | `img-07.jpg` |
+| IMG-08 | S8 | `/plan` reply — start the plan | screenshot | `img-081.jpg` |
+| IMG-08 | S8 | Plan · two versions — pick A or B | screenshot | `img-082.jpg` |
+| IMG-08 | S8 | `campaign-plan.html` — plan selected | screenshot | `img-083.jpg` |
+| IMG-09 | S9 | `/poster` reply — start the poster | screenshot | `img-091.jpg` |
+| IMG-09 | S9 | Pick the poster style A/B/C | screenshot | `img-092.jpg` |
+| IMG-09 | S9 | `poster.html` — poster selected | screenshot | `img-093.jpg` |
+| IMG-10 | S10 | `/prove` reply — start the prove | screenshot | `img-101.jpg` |
+| IMG-11 | S11 | `/showcase` reply — start the showcase |  screenshot | `img-111.jpg` |
+| IMG-11 | S11 | pick showcase storyline |  screenshot | `img-112.jpg` |
+| IMG-12 | S12 | see the final package |  screenshot | `img-121.jpg` |
+| IMG-13 | S14 | Final proposal / pitch deck | screenshot | `img-131.jpg` |
 
 **Reused, no file needed:** Ascentium logo (already inline in the deck) and `hero.png`
 (already in `Hackathon-Design/assets/`).
