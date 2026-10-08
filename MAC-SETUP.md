@@ -1,11 +1,11 @@
-# Mac 预装 Checklist（Vendor 版）
+# Mac 预装 Checklist
 
 统一路径 `/Users/Shared/a-hackathon`。opencode 从官网直接安装；**项目不联网 git**，从 GitHub 取的东西由**项目方以 zip 包分发**（`agent-reach.zip`、`a-hackathon.zip`），vendor 从本地安装。
 装完能跑通 `/run A` 并**用 Chrome 打开**产出即合格。
 
 ## 1. 基础环境
 
-### 1.1 网络与设备标识（现场协作基础）
+### 1.1 网络与设备标识 - vendor在 12号之前提前安装配置好
 
 | 项 | 操作 | 验收 |
 |---|---|---|
