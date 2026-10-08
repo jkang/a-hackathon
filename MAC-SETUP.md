@@ -45,6 +45,8 @@
 
 ## 3. 冒烟
 
+### 3.1 Toolkit 链路
+
 在仓库目录启动 opencode，进入 workspace 后**在 opencode 里输入 `/run A`**：
 
 ```bash
@@ -53,5 +55,13 @@ opencode          # 进入 workspace
 # 然后在 opencode 提示符输入：/run A
 ```
 产出后用 **Chrome 打开** `artifacts/QuestA-01/proposal.html` 即合格。
+
+### 3.2 Teams 会议接入与屏幕共享
+
+不登录账号、用 Chrome **以访客身份加入** Teams 会议，并测试屏幕共享：
+
+1. Chrome 打开会议链接 → 「**改为在 Web 上加入**」（不要安装桌面客户端）
+2. 以访客身份输入姓名 → 进入会议（无需 Microsoft 账号）
+3. 点「**共享**」→ 选择屏幕 / 窗口，确认对方能看到（现场路演用）
 
 **注意**：Key 只留本机、不进仓库。
