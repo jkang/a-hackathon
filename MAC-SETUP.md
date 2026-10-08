@@ -30,7 +30,17 @@
 | DeepSeek Key | 驱动 AI | `opencode auth login`（选 DeepSeek，粘贴项目方提供的 Key） |
 | mcporter | Exa 网页搜索 / 小红书 / 抖音 / LinkedIn 渠道 | `npm install -g mcporter` |
 
-## 3. 冒烟
+## 3. AirDrop 与设备标识
+
+现场每组 2 台设备要靠 **AirDrop** 互传文件，需逐台配置并给出唯一标识。
+
+| 项 | 操作 |
+|---|---|
+| 设备标识（唯一名） | 系统设置 → 通用 → 共享 → **电脑名称** 改为统一命名 `G01-A`、`G01-B`、`G02-A`、`G02-B`…（`组号-A` = 主设备，`-B` = 备用设备） |
+| AirDrop 可被发现 | 打开 **Wi-Fi 与蓝牙**；Finder → AirDrop → 「允许被以下人员发现」选 **所有人**（跨 Apple ID 也能互传） |
+| 验收 | 两台设备互相能看到对方名称，并成功传一个文件 |
+
+## 4. 冒烟
 
 在仓库目录启动 opencode，进入 workspace 后**在 opencode 里输入 `/run A`**：
 
