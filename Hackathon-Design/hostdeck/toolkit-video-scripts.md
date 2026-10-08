@@ -152,6 +152,9 @@ skills[] }`. Copy is data, not markup. Image paths are `assets/video/<file>`. Th
 intro/outro card** — `SCENES[0]` is IMG-01 and the video starts playing on entry.
 
 **Engine behaviour**
+- Every screenshot renders inside one fixed frame (`.dframe`, aspect `2520/1596`, white screen,
+  `object-fit: contain`), so captures of different pixel sizes look uniform — the wider diagram
+  and artifact shots letterbox onto the same white card.
 - Auto-advances on `dur`; cross-fades pages; a progress bar fills across the full runtime.
 - On-screen controls: Play/Pause, Restart, Prev, Next. Clicking the stage toggles play/pause.
 - Starts on the first page and plays as soon as slide `01` becomes active; pauses when it
