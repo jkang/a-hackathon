@@ -59,7 +59,7 @@ Examples per stage:
 - Insight → "Research and insight are complete — `insight-brief.html`. Next: run `/plan`."
 - Plan → "The plan is ready — `campaign-plan.html`. Open it with your team and review it; send any feedback or changes and I'll revise it. When you're happy with it, run `/poster` to design and pick a poster, then `/showcase`."
 - Poster → "The poster is ready — `poster.html`. Open it with your team and review it; send any feedback or changes and I'll revise it. When you're happy with it, run `/showcase`."
-- Showcase → "Your proposal is packaged — `proposal.html`. Open it with your team and review the deck; to strengthen it, generate bonus media from `prompt-pack.html` (song / video / image) and bring the files back so I can embed them. When you're happy, you're ready to submit."
+- Showcase → "Your proposal is packaged — `proposal.html`. Before you submit, the bonus media still needs generating: open `prompt-pack.html`, take each ready-made prompt to its tool — song → Suno, video → Runway Gen-3, image → GPT — and bring the files back so I can embed them into the deck. Then you're ready to submit."
 
 ## Divergence prompts
 
