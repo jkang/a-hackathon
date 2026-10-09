@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Campaign poster · ONE style per file (a = a|b|c).
+     Accent + key visual are injected from the quest card (see quest-card.md) — no per-quest hard-coding.
+     Build the three pages with scripts/build-posters.py. Each page is a clean, croppable single poster. -->
+<title>Campaign Poster · B · The Numbered Drop · Style A</title>
+<style>
+  :root{
+    --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
+    --orange-1:#FFF0E7; --orange-2:#FFD1B8; --orange-3:#FFA370;
+    --teal:#077069; --teal-1:#CDE2E1; --teal-2:#83B8B4; --teal-4:#043835;
+    --line:#E4E8E7; --mut:#5A6663; --cream:#FFF6EC;
+    --accent: var(--ascentium-orange);
+    --accent-tint: var(--orange-1);
+    --accent-line: var(--orange-2);
+    --accent-deep:#B24000;
+  }
+  /* Quest accent is injected from the quest card as inline vars on <body> (see quest-card.md).
+     :root keeps the brand default (orange); never hard-code a per-quest colour here. */
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#DEDAD4;}
+  body{font-family:"Poppins","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+       color:var(--ascentium-midnight);padding:28px 12px;display:flex;justify-content:center;}
+
+  .poster{width:1080px;max-width:100%;background:#fff;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.25);}
+
+  /* shared inner pieces */
+  .mast{display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative;z-index:3;}
+  .mast .logo{font-weight:800;letter-spacing:-.01em;}
+  .mast .client{font-weight:700;border-radius:999px;white-space:nowrap;}
+  .kicker{font-weight:800;letter-spacing:.2em;text-transform:uppercase;}
+  .name{font-weight:800;line-height:.94;letter-spacing:-.02em;}
+  .tagline{font-weight:700;}
+  .art{position:relative;overflow:hidden;aspect-ratio:1200/500;}
+  .art svg{display:block;width:100%;height:100%;}
+  .lead{font-weight:600;line-height:1.5;}
+  .sec-h{font-weight:800;letter-spacing:.2em;text-transform:uppercase;}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .card{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:#fff;}
+  .card .t{font-weight:800;}
+  .card .d{line-height:1.5;color:#3B4442;}
+  .bullets{list-style:none;}
+  .bullets li{position:relative;line-height:1.55;}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);}
+  .stat{text-align:center;}
+  .stat .n{font-weight:800;line-height:1;}
+  .stat .c{line-height:1.4;}
+  .cta{display:flex;align-items:center;gap:26px;}
+  .cta .btn{font-weight:800;border-radius:999px;white-space:nowrap;}
+  .cta .meta{flex:1;}
+  .cta .hash{font-weight:800;letter-spacing:-.01em;}
+  .cta .url{line-height:1.4;}
+  .qr{background:#fff;border-radius:10px;flex:none;}
+  .qr svg{display:block;width:100%;height:100%;}
+  .foot{display:flex;justify-content:space-between;gap:24px;}
+  .foot .partners{font-weight:700;}
+  .foot .src{text-align:right;}
+
+  /* ===== STYLE A — MATCHDAY ROAR (bold sports editorial) ===== */
+  .p-a{background:#fff;}
+  .p-a .hero{background:var(--accent);color:#fff;padding:42px 54px 0;}
+  .p-a .mast .logo{font-size:26px;}
+  .p-a .mast .client{font-size:14px;background:rgba(0,0,0,.16);padding:7px 16px;}
+  .p-a .kicker{font-size:15px;opacity:.92;margin-top:32px;}
+  .p-a .name{font-size:98px;margin-top:10px;}
+  .p-a .tagline{font-size:27px;margin-top:14px;}
+  .p-a .art{margin-top:26px;border-radius:18px 18px 0 0;}
+  .p-a .body{padding:38px 54px 6px;}
+  .p-a .lead{font-size:21px;max-width:920px;}
+  .p-a .sec-h{font-size:12px;color:var(--accent);margin-top:32px;}
+  .p-a .cards{margin-top:14px;}
+  .p-a .card .t{font-size:15px;color:var(--accent);}
+  .p-a .card .d{font-size:13px;margin-top:6px;}
+  .p-a .bullets{margin-top:14px;}
+  .p-a .bullets li{font-size:14.5px;padding:5px 0 5px 20px;}
+  .p-a .bullets li::before{content:"";position:absolute;left:0;top:11px;width:9px;height:9px;border-radius:3px;background:var(--accent);}
+  .p-a .stats{background:var(--ascentium-midnight);color:#fff;margin-top:30px;}
+  .p-a .stat{padding:26px 16px;border-right:1px solid rgba(255,255,255,.12);}
+  .p-a .stat:last-child{border-right:none;}
+  .p-a .stat .n{font-size:40px;color:var(--accent-tint);}
+  .p-a .stat .c{font-size:11.5px;margin-top:8px;opacity:.85;}
+  .p-a .cta{background:var(--accent);color:#fff;padding:32px 54px;}
+  .p-a .cta .btn{background:#fff;color:var(--accent);font-size:21px;padding:16px 36px;}
+  .p-a .cta .hash{font-size:26px;}
+  .p-a .cta .url{font-size:14px;opacity:.92;margin-top:5px;}
+  .p-a .qr{width:104px;height:104px;padding:7px;}
+  .p-a .foot{padding:20px 54px;border-top:1px solid var(--line);}
+  .p-a .foot .partners{font-size:12px;}
+  .p-a .foot .src{font-size:10.5px;color:var(--mut);max-width:540px;}
+
+  /* ===== STYLE B — SUPPORTER PASSPORT (travel / ticket · cream) ===== */
+  .toprule{display:none;}
+  .p-b{background:var(--cream);}
+  .p-b .toprule{display:block;height:12px;background:var(--accent);}
+  .p-b .hero{padding:34px 54px 0;color:var(--ascentium-midnight);}
+  .p-b .mast .logo{font-size:25px;color:var(--ascentium-midnight);}
+  .p-b .mast .logo span{color:var(--accent);}
+  .p-b .mast .client{font-size:13px;color:var(--accent-deep);border:1.5px solid var(--accent-line);padding:6px 15px;background:#fff;}
+  .p-b .kicker{font-size:13px;color:var(--accent);margin-top:30px;letter-spacing:.24em;}
+  .p-b .name{font-size:88px;margin-top:8px;letter-spacing:-.03em;}
+  .p-b .tagline{font-size:25px;margin-top:12px;color:var(--accent-deep);font-style:italic;}
+  .p-b .art{margin-top:24px;border-radius:14px;border:1.5px dashed var(--accent-line);}
+  .p-b .body{padding:34px 54px 6px;}
+  .p-b .lead{font-size:20px;max-width:920px;}
+  .p-b .sec-h{font-size:12px;color:var(--accent-deep);margin-top:30px;padding-bottom:8px;border-bottom:2px dashed var(--accent-line);}
+  .p-b .cards{margin-top:16px;}
+  .p-b .card{background:#fff;border:1.5px dashed var(--accent-line);border-radius:12px;position:relative;}
+  .p-b .card::before,.p-b .card::after{content:"";position:absolute;top:50%;width:12px;height:12px;border-radius:999px;background:var(--cream);border:1.5px dashed var(--accent-line);}
+  .p-b .card::before{left:-7px;transform:translateY(-50%);}
+  .p-b .card::after{right:-7px;transform:translateY(-50%);}
+  .p-b .card .t{font-size:15px;color:var(--accent-deep);}
+  .p-b .card .d{font-size:13px;margin-top:6px;}
+  .p-b .bullets{margin-top:16px;}
+  .p-b .bullets li{font-size:14.5px;padding:6px 0 6px 24px;}
+  .p-b .bullets li::before{content:"✓";position:absolute;left:0;top:6px;color:var(--accent);font-weight:800;font-size:13px;}
+  .p-b .stats{background:#fff;border:1.5px dashed var(--accent-line);border-radius:14px;margin:28px 54px 0;}
+  .p-b .stat{padding:22px 14px;border-right:1px dashed var(--accent-line);}
+  .p-b .stat:last-child{border-right:none;}
+  .p-b .stat .n{font-size:36px;color:var(--accent-deep);}
+  .p-b .stat .c{font-size:11px;margin-top:8px;color:var(--mut);}
+  .p-b .cta{background:var(--accent);color:#fff;padding:30px 54px;margin-top:28px;}
+  .p-b .cta .btn{background:#fff;color:var(--accent-deep);font-size:20px;padding:15px 34px;}
+  .p-b .cta .hash{font-size:25px;}
+  .p-b .cta .url{font-size:13.5px;opacity:.94;margin-top:5px;}
+  .p-b .qr{width:100px;height:100px;padding:7px;}
+  .p-b .foot{padding:20px 54px;border-top:2px dashed var(--accent-line);}
+  .p-b .foot .partners{font-size:12px;}
+  .p-b .foot .src{font-size:10.5px;color:var(--mut);max-width:540px;}
+
+  /* ===== STYLE C — MIDNIGHT MINIMAL (Swiss typographic) ===== */
+  .p-c{background:var(--ascentium-midnight);color:#fff;}
+  .p-c .hero{padding:46px 54px 0;}
+  .p-c .mast .logo{font-size:25px;color:#fff;}
+  .p-c .mast .client{font-size:13px;color:#fff;border:1px solid rgba(255,255,255,.32);padding:6px 15px;}
+  .p-c .kicker{font-size:13px;color:var(--accent);margin-top:38px;}
+  .p-c .name{font-size:104px;margin-top:12px;}
+  .p-c .tagline{font-size:26px;margin-top:16px;color:var(--accent);font-weight:600;}
+  .p-c .art{margin-top:30px;}
+  .p-c .body{padding:36px 54px 6px;}
+  .p-c .lead{font-size:20px;max-width:880px;color:#CDD4D2;}
+  .p-c .sec-h{font-size:12px;color:var(--accent);margin-top:34px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.14);}
+  .p-c .cards{margin-top:18px;gap:0;}
+  .p-c .card{background:transparent;border:none;border-right:1px solid rgba(255,255,255,.14);border-radius:0;padding:6px 22px 6px 0;}
+  .p-c .card:last-child{border-right:none;}
+  .p-c .card .t{font-size:15px;color:#fff;}
+  .p-c .card .d{font-size:13px;margin-top:8px;color:#B9C4C1;}
+  .p-c .bullets{margin-top:16px;}
+  .p-c .bullets li{font-size:14.5px;padding:6px 0 6px 20px;color:#DDE3E1;}
+  .p-c .bullets li::before{content:"—";position:absolute;left:0;color:var(--accent);font-weight:800;}
+  .p-c .stats{margin-top:30px;border-top:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14);}
+  .p-c .stat{padding:26px 16px;border-right:1px solid rgba(255,255,255,.12);text-align:left;}
+  .p-c .stat:last-child{border-right:none;}
+  .p-c .stat .n{font-size:40px;color:var(--accent);}
+  .p-c .stat .c{font-size:11px;margin-top:8px;color:#9AA5A2;}
+  .p-c .cta{background:var(--accent);color:#fff;padding:30px 54px;}
+  .p-c .cta .btn{background:var(--ascentium-midnight);color:#fff;font-size:20px;padding:15px 34px;}
+  .p-c .cta .hash{font-size:25px;}
+  .p-c .cta .url{font-size:13.5px;opacity:.94;margin-top:5px;}
+  .p-c .qr{width:100px;height:100px;padding:7px;}
+  .p-c .foot{padding:20px 54px 26px;}
+  .p-c .foot .partners{font-size:12px;color:#fff;}
+  .p-c .foot .src{font-size:10.5px;color:#8A9492;max-width:540px;}
+
+  @media print{
+    @page{size:A3;margin:8mm;}
+    html,body{background:#fff;padding:0;display:block;}
+    .poster{box-shadow:none;margin:0 auto;width:100%;}
+  }
+</style>
+</head>
+<body data-quest="B" style="--accent:#077069;--accent-tint:#CDE2E1;--accent-line:#83B8B4;--accent-deep:#043835;">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <!-- Key-visual art per style (1200x500). These are EXAMPLE placeholder motifs (sports/travel).
+       Replace each <symbol> with the quest's own key visual (see quest-card.md → key_visual_svg),
+       rendered in each style's palette. Keep viewBox "0 0 1200 500" to match the .art frame.
+  -->
+  <symbol id="art-a" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice">
+    <rect width="1200" height="500" fill="#043835"/>
+    <circle cx="1010" cy="70" r="160" fill="#077069" opacity="0.55"/>
+    <circle cx="110" cy="440" r="130" fill="#398D87" opacity="0.32"/>
+    <g transform="translate(180,60)">
+      <ellipse cx="165" cy="368" rx="185" ry="44" fill="#000" opacity="0.25"/>
+      <circle cx="88" cy="72" r="46" fill="#0F1514"/><circle cx="242" cy="72" r="46" fill="#0F1514"/>
+      <circle cx="165" cy="176" r="122" fill="#F7F6F4"/>
+      <ellipse cx="121" cy="164" rx="23" ry="29" fill="#0F1514"/>
+      <ellipse cx="209" cy="164" rx="23" ry="29" fill="#0F1514"/>
+      <circle cx="126" cy="158" r="7" fill="#fff"/><circle cx="214" cy="158" r="7" fill="#fff"/>
+      <ellipse cx="165" cy="214" rx="16" ry="11" fill="#0F1514"/>
+      <path d="M150 236 q15 12 30 0" stroke="#0F1514" stroke-width="4" fill="none" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(760,140)">
+      <rect width="330" height="212" rx="18" fill="#F7F6F4"/>
+      <path d="M0 18 a18 18 0 0 1 18 -18 h294 a18 18 0 0 1 18 18 v34 h-330 z" fill="#CDE2E1"/>
+      <text x="26" y="36" font-size="20" font-weight="800" fill="#043835" font-family="Poppins,Arial">No. 001</text>
+      <rect x="232" y="14" width="80" height="26" rx="13" fill="#077069"/>
+      <text x="248" y="32" font-size="12" font-weight="700" fill="#fff" font-family="Poppins,Arial">DROP 1</text>
+      <circle cx="72" cy="132" r="36" fill="#0F1514"/><circle cx="72" cy="110" r="12" fill="#0F1514"/><circle cx="45" cy="110" r="12" fill="#0F1514"/>
+      <circle cx="72" cy="132" r="26" fill="#fff"/>
+      <text x="128" y="124" font-size="17" font-weight="800" fill="#0F1514" font-family="Poppins,Arial">Numbered · Certified</text>
+      <text x="128" y="152" font-size="13" fill="#5A6663" font-family="Poppins,Arial">collect · own · trade</text>
+    </g>
+  </symbol>
+
+  <symbol id="art-b" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice">
+    <rect width="1200" height="500" fill="#FFF6EC"/>
+    <path d="M40 440 C 340 330, 860 330, 1160 140" fill="none" stroke="#077069" stroke-width="3" stroke-dasharray="2 13"/>
+    <g transform="translate(1120,150) rotate(24)"><path d="M0 0 l46 16 -46 16 10 -16z" fill="#077069"/></g>
+    <g transform="rotate(-4 600 250)">
+      <rect x="230" y="112" width="740" height="276" rx="18" fill="#FFFFFF" stroke="#B9D3D1" stroke-width="2"/>
+      <line x1="770" y1="112" x2="770" y2="388" stroke="#83B8B4" stroke-width="3" stroke-dasharray="8 8"/>
+      <circle cx="770" cy="112" r="10" fill="#FFF6EC"/><circle cx="770" cy="388" r="10" fill="#FFF6EC"/>
+      <text x="262" y="150" font-size="16" font-weight="800" fill="#077069" font-family="Poppins,Arial">PANDA PASS · FOUNDING</text>
+      <rect x="262" y="172" width="310" height="10" rx="5" fill="#E4E8E7"/>
+      <rect x="262" y="192" width="240" height="10" rx="5" fill="#E4E8E7"/>
+      <g transform="translate(292,238)">
+        <circle cx="30" cy="16" r="13" fill="#0F1514"/><circle cx="66" cy="16" r="13" fill="#0F1514"/>
+        <circle cx="48" cy="48" r="34" fill="#F7F6F4" stroke="#0F1514" stroke-width="2.5"/>
+        <circle cx="37" cy="43" r="7" fill="#0F1514"/><circle cx="59" cy="43" r="7" fill="#0F1514"/>
+        <ellipse cx="48" cy="59" rx="6" ry="4.5" fill="#0F1514"/>
+      </g>
+      <text x="392" y="292" font-size="13" fill="#5A6663" font-family="Poppins,Arial">MEMBER · 2027</text>
+      <g fill="#0F1514"><rect x="820" y="150" width="4" height="150"/><rect x="838" y="150" width="4" height="150"/><rect x="856" y="150" width="4" height="150"/><rect x="866" y="150" width="8" height="150"/><rect x="892" y="150" width="4" height="150"/><rect x="908" y="150" width="4" height="150"/><rect x="928" y="150" width="4" height="150"/></g>
+    </g>
+    <g transform="translate(600,440)" fill="none" stroke="#077069" stroke-width="4">
+      <circle r="44" stroke-dasharray="6 6"/><circle r="32"/><path d="M-16 0 h32 M0 -16 v32" stroke-width="3"/>
+    </g>
+  </symbol>
+
+  <symbol id="art-c" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice">
+    <rect width="1200" height="500" fill="#0F1514"/>
+    <line x1="0" y1="404" x2="1200" y2="404" stroke="#272C2C" stroke-width="2"/>
+    <g transform="translate(520,140)">
+      <circle cx="35" cy="18" r="17" fill="#077069"/><circle cx="89" cy="18" r="17" fill="#077069"/>
+      <circle cx="62" cy="64" r="48" fill="#F7F6F4"/>
+      <circle cx="47" cy="58" r="9.5" fill="#0F1514"/><circle cx="77" cy="58" r="9.5" fill="#0F1514"/>
+      <ellipse cx="62" cy="78" rx="7" ry="5" fill="#0F1514"/>
+    </g>
+    <rect x="0" y="404" width="1200" height="6" fill="#077069" opacity="0.5"/>
+    <text x="120" y="462" font-size="22" font-weight="800" fill="#398D87" font-family="Poppins,Arial">No. 001 / ∞</text>
+  </symbol>
+</svg>
+
+<article class="poster p-a" data-style="a">
+  <div class="toprule"></div>
+  <div class="hero">
+    <div class="mast">
+      <div class="logo">Ascentium<span>.</span></div>
+      <div class="client">Chengdu Panda Base · Global IP Division</div>
+    </div>
+    <div class="kicker">GLOBAL MEMBERSHIP · USD 1.1M PILOT · 2027</div>
+    <div class="name">The Numbered Drop</div>
+    <div class="tagline">"The only panda with a serial number."</div>
+    <div class="art"><svg><use href="#art-a"/></svg></div>
+  </div>
+  <div class="body">
+    <div class="lead">The panda is a 50-year classic IP, and collectors pay for provenance — so give the world's most-loved animal a numbered, certified drop series it can own and trade.</div>
+    <div class="sec-h">The Offer</div>
+    <div class="cards">
+      <div class="card"><div class="t">The Offer</div><div class="d">A Founding membership ($30/yr) with first access to every numbered panda drop.</div></div>
+      <div class="card"><div class="t">Markets</div><div class="d">Indonesia + the United States — a short-video collector market and the world's largest licensing market.</div></div>
+      <div class="card"><div class="t">Access</div><div class="d">A numbered certificate + provenance per piece; direct-to-fan shipping; a tradeable community.</div></div>
+    </div>
+    <div class="sec-h">Why it works</div>
+    <ul class="bullets"><li>Classic IP: 77% of the $161.8B character-licensing market is classic/franchise IP — collectors pay for provenance.</li><li>Drop culture compounds: Pop Mart 2025 revenue ¥37.12B, +184.7%; plush +560.6%.</li><li>Cause-first: every drop funds panda conservation — no over-commercialization, no hard sell.</li></ul>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="n">$161.8B</div><div class="c">character / entertainment licensing market</div></div>
+    <div class="stat"><div class="n">+184.7%</div><div class="c">Pop Mart revenue growth, 2025</div></div>
+    <div class="stat"><div class="n">200+</div><div class="c">giant pandas — the world's largest population</div></div>
+    <div class="stat"><div class="n">$30/yr</div><div class="c">Founding membership price point</div></div>
+  </div>
+  <div class="cta">
+    <div class="btn">Join the Founding cohort</div>
+    <div class="meta"><div class="hash">#TheNumberedDrop</div><div class="url">pandabase.org/numbereddrop</div></div>
+    <div class="qr"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="#fff"/><g fill="#0F1514"><rect x="0.00" y="0.00" width="4.76" height="4.76"/><rect x="4.76" y="0.00" width="4.76" height="4.76"/><rect x="9.52" y="0.00" width="4.76" height="4.76"/><rect x="14.29" y="0.00" width="4.76" height="4.76"/><rect x="19.05" y="0.00" width="4.76" height="4.76"/><rect x="23.81" y="0.00" width="4.76" height="4.76"/><rect x="28.57" y="0.00" width="4.76" height="4.76"/><rect x="42.86" y="0.00" width="4.76" height="4.76"/><rect x="47.62" y="0.00" width="4.76" height="4.76"/><rect x="52.38" y="0.00" width="4.76" height="4.76"/><rect x="66.67" y="0.00" width="4.76" height="4.76"/><rect x="71.43" y="0.00" width="4.76" height="4.76"/><rect x="76.19" y="0.00" width="4.76" height="4.76"/><rect x="80.95" y="0.00" width="4.76" height="4.76"/><rect x="85.71" y="0.00" width="4.76" height="4.76"/><rect x="90.48" y="0.00" width="4.76" height="4.76"/><rect x="95.24" y="0.00" width="4.76" height="4.76"/><rect x="0.00" y="4.76" width="4.76" height="4.76"/><rect x="28.57" y="4.76" width="4.76" height="4.76"/><rect x="47.62" y="4.76" width="4.76" height="4.76"/><rect x="52.38" y="4.76" width="4.76" height="4.76"/><rect x="57.14" y="4.76" width="4.76" height="4.76"/><rect x="66.67" y="4.76" width="4.76" height="4.76"/><rect x="95.24" y="4.76" width="4.76" height="4.76"/><rect x="0.00" y="9.52" width="4.76" height="4.76"/><rect x="9.52" y="9.52" width="4.76" height="4.76"/><rect x="14.29" y="9.52" width="4.76" height="4.76"/><rect x="19.05" y="9.52" width="4.76" height="4.76"/><rect x="28.57" y="9.52" width="4.76" height="4.76"/><rect x="38.10" y="9.52" width="4.76" height="4.76"/><rect x="47.62" y="9.52" width="4.76" height="4.76"/><rect x="52.38" y="9.52" width="4.76" height="4.76"/><rect x="66.67" y="9.52" width="4.76" height="4.76"/><rect x="76.19" y="9.52" width="4.76" height="4.76"/><rect x="80.95" y="9.52" width="4.76" height="4.76"/><rect x="85.71" y="9.52" width="4.76" height="4.76"/><rect x="95.24" y="9.52" width="4.76" height="4.76"/><rect x="0.00" y="14.29" width="4.76" height="4.76"/><rect x="9.52" y="14.29" width="4.76" height="4.76"/><rect x="14.29" y="14.29" width="4.76" height="4.76"/><rect x="19.05" y="14.29" width="4.76" height="4.76"/><rect x="28.57" y="14.29" width="4.76" height="4.76"/><rect x="42.86" y="14.29" width="4.76" height="4.76"/><rect x="57.14" y="14.29" width="4.76" height="4.76"/><rect x="66.67" y="14.29" width="4.76" height="4.76"/><rect x="76.19" y="14.29" width="4.76" height="4.76"/><rect x="80.95" y="14.29" width="4.76" height="4.76"/><rect x="85.71" y="14.29" width="4.76" height="4.76"/><rect x="95.24" y="14.29" width="4.76" height="4.76"/><rect x="0.00" y="19.05" width="4.76" height="4.76"/><rect x="9.52" y="19.05" width="4.76" height="4.76"/><rect x="14.29" y="19.05" width="4.76" height="4.76"/><rect x="19.05" y="19.05" width="4.76" height="4.76"/><rect x="28.57" y="19.05" width="4.76" height="4.76"/><rect x="47.62" y="19.05" width="4.76" height="4.76"/><rect x="52.38" y="19.05" width="4.76" height="4.76"/><rect x="66.67" y="19.05" width="4.76" height="4.76"/><rect x="76.19" y="19.05" width="4.76" height="4.76"/><rect x="80.95" y="19.05" width="4.76" height="4.76"/><rect x="85.71" y="19.05" width="4.76" height="4.76"/><rect x="95.24" y="19.05" width="4.76" height="4.76"/><rect x="0.00" y="23.81" width="4.76" height="4.76"/><rect x="28.57" y="23.81" width="4.76" height="4.76"/><rect x="38.10" y="23.81" width="4.76" height="4.76"/><rect x="42.86" y="23.81" width="4.76" height="4.76"/><rect x="47.62" y="23.81" width="4.76" height="4.76"/><rect x="66.67" y="23.81" width="4.76" height="4.76"/><rect x="95.24" y="23.81" width="4.76" height="4.76"/><rect x="0.00" y="28.57" width="4.76" height="4.76"/><rect x="4.76" y="28.57" width="4.76" height="4.76"/><rect x="9.52" y="28.57" width="4.76" height="4.76"/><rect x="14.29" y="28.57" width="4.76" height="4.76"/><rect x="19.05" y="28.57" width="4.76" height="4.76"/><rect x="23.81" y="28.57" width="4.76" height="4.76"/><rect x="28.57" y="28.57" width="4.76" height="4.76"/><rect x="57.14" y="28.57" width="4.76" height="4.76"/><rect x="66.67" y="28.57" width="4.76" height="4.76"/><rect x="71.43" y="28.57" width="4.76" height="4.76"/><rect x="76.19" y="28.57" width="4.76" height="4.76"/><rect x="80.95" y="28.57" width="4.76" height="4.76"/><rect x="85.71" y="28.57" width="4.76" height="4.76"/><rect x="90.48" y="28.57" width="4.76" height="4.76"/><rect x="95.24" y="28.57" width="4.76" height="4.76"/><rect x="4.76" y="38.10" width="4.76" height="4.76"/><rect x="9.52" y="38.10" width="4.76" height="4.76"/><rect x="14.29" y="38.10" width="4.76" height="4.76"/><rect x="19.05" y="38.10" width="4.76" height="4.76"/><rect x="23.81" y="38.10" width="4.76" height="4.76"/><rect x="28.57" y="38.10" width="4.76" height="4.76"/><rect x="33.33" y="38.10" width="4.76" height="4.76"/><rect x="42.86" y="38.10" width="4.76" height="4.76"/><rect x="47.62" y="38.10" width="4.76" height="4.76"/><rect x="52.38" y="38.10" width="4.76" height="4.76"/><rect x="57.14" y="38.10" width="4.76" height="4.76"/><rect x="76.19" y="38.10" width="4.76" height="4.76"/><rect x="85.71" y="38.10" width="4.76" height="4.76"/><rect x="90.48" y="38.10" width="4.76" height="4.76"/><rect x="23.81" y="42.86" width="4.76" height="4.76"/><rect x="28.57" y="42.86" width="4.76" height="4.76"/><rect x="33.33" y="42.86" width="4.76" height="4.76"/><rect x="38.10" y="42.86" width="4.76" height="4.76"/><rect x="42.86" y="42.86" width="4.76" height="4.76"/><rect x="57.14" y="42.86" width="4.76" height="4.76"/><rect x="66.67" y="42.86" width="4.76" height="4.76"/><rect x="76.19" y="42.86" width="4.76" height="4.76"/><rect x="80.95" y="42.86" width="4.76" height="4.76"/><rect x="85.71" y="42.86" width="4.76" height="4.76"/><rect x="95.24" y="42.86" width="4.76" height="4.76"/><rect x="9.52" y="47.62" width="4.76" height="4.76"/><rect x="14.29" y="47.62" width="4.76" height="4.76"/><rect x="28.57" y="47.62" width="4.76" height="4.76"/><rect x="33.33" y="47.62" width="4.76" height="4.76"/><rect x="38.10" y="47.62" width="4.76" height="4.76"/><rect x="52.38" y="47.62" width="4.76" height="4.76"/><rect x="57.14" y="47.62" width="4.76" height="4.76"/><rect x="61.90" y="47.62" width="4.76" height="4.76"/><rect x="85.71" y="47.62" width="4.76" height="4.76"/><rect x="4.76" y="52.38" width="4.76" height="4.76"/><rect x="14.29" y="52.38" width="4.76" height="4.76"/><rect x="19.05" y="52.38" width="4.76" height="4.76"/><rect x="23.81" y="52.38" width="4.76" height="4.76"/><rect x="38.10" y="52.38" width="4.76" height="4.76"/><rect x="47.62" y="52.38" width="4.76" height="4.76"/><rect x="61.90" y="52.38" width="4.76" height="4.76"/><rect x="76.19" y="52.38" width="4.76" height="4.76"/><rect x="0.00" y="57.14" width="4.76" height="4.76"/><rect x="4.76" y="57.14" width="4.76" height="4.76"/><rect x="9.52" y="57.14" width="4.76" height="4.76"/><rect x="28.57" y="57.14" width="4.76" height="4.76"/><rect x="33.33" y="57.14" width="4.76" height="4.76"/><rect x="47.62" y="57.14" width="4.76" height="4.76"/><rect x="57.14" y="57.14" width="4.76" height="4.76"/><rect x="71.43" y="57.14" width="4.76" height="4.76"/><rect x="85.71" y="57.14" width="4.76" height="4.76"/><rect x="95.24" y="57.14" width="4.76" height="4.76"/><rect x="38.10" y="61.90" width="4.76" height="4.76"/><rect x="52.38" y="61.90" width="4.76" height="4.76"/><rect x="57.14" y="61.90" width="4.76" height="4.76"/><rect x="71.43" y="61.90" width="4.76" height="4.76"/><rect x="80.95" y="61.90" width="4.76" height="4.76"/><rect x="85.71" y="61.90" width="4.76" height="4.76"/><rect x="90.48" y="61.90" width="4.76" height="4.76"/><rect x="0.00" y="66.67" width="4.76" height="4.76"/><rect x="4.76" y="66.67" width="4.76" height="4.76"/><rect x="9.52" y="66.67" width="4.76" height="4.76"/><rect x="14.29" y="66.67" width="4.76" height="4.76"/><rect x="19.05" y="66.67" width="4.76" height="4.76"/><rect x="23.81" y="66.67" width="4.76" height="4.76"/><rect x="28.57" y="66.67" width="4.76" height="4.76"/><rect x="38.10" y="66.67" width="4.76" height="4.76"/><rect x="42.86" y="66.67" width="4.76" height="4.76"/><rect x="47.62" y="66.67" width="4.76" height="4.76"/><rect x="57.14" y="66.67" width="4.76" height="4.76"/><rect x="71.43" y="66.67" width="4.76" height="4.76"/><rect x="76.19" y="66.67" width="4.76" height="4.76"/><rect x="85.71" y="66.67" width="4.76" height="4.76"/><rect x="90.48" y="66.67" width="4.76" height="4.76"/><rect x="0.00" y="71.43" width="4.76" height="4.76"/><rect x="28.57" y="71.43" width="4.76" height="4.76"/><rect x="57.14" y="71.43" width="4.76" height="4.76"/><rect x="61.90" y="71.43" width="4.76" height="4.76"/><rect x="66.67" y="71.43" width="4.76" height="4.76"/><rect x="71.43" y="71.43" width="4.76" height="4.76"/><rect x="95.24" y="71.43" width="4.76" height="4.76"/><rect x="0.00" y="76.19" width="4.76" height="4.76"/><rect x="9.52" y="76.19" width="4.76" height="4.76"/><rect x="14.29" y="76.19" width="4.76" height="4.76"/><rect x="19.05" y="76.19" width="4.76" height="4.76"/><rect x="28.57" y="76.19" width="4.76" height="4.76"/><rect x="38.10" y="76.19" width="4.76" height="4.76"/><rect x="42.86" y="76.19" width="4.76" height="4.76"/><rect x="52.38" y="76.19" width="4.76" height="4.76"/><rect x="57.14" y="76.19" width="4.76" height="4.76"/><rect x="61.90" y="76.19" width="4.76" height="4.76"/><rect x="66.67" y="76.19" width="4.76" height="4.76"/><rect x="71.43" y="76.19" width="4.76" height="4.76"/><rect x="76.19" y="76.19" width="4.76" height="4.76"/><rect x="85.71" y="76.19" width="4.76" height="4.76"/><rect x="0.00" y="80.95" width="4.76" height="4.76"/><rect x="9.52" y="80.95" width="4.76" height="4.76"/><rect x="14.29" y="80.95" width="4.76" height="4.76"/><rect x="19.05" y="80.95" width="4.76" height="4.76"/><rect x="28.57" y="80.95" width="4.76" height="4.76"/><rect x="38.10" y="80.95" width="4.76" height="4.76"/><rect x="66.67" y="80.95" width="4.76" height="4.76"/><rect x="76.19" y="80.95" width="4.76" height="4.76"/><rect x="80.95" y="80.95" width="4.76" height="4.76"/><rect x="85.71" y="80.95" width="4.76" height="4.76"/><rect x="90.48" y="80.95" width="4.76" height="4.76"/><rect x="0.00" y="85.71" width="4.76" height="4.76"/><rect x="9.52" y="85.71" width="4.76" height="4.76"/><rect x="14.29" y="85.71" width="4.76" height="4.76"/><rect x="19.05" y="85.71" width="4.76" height="4.76"/><rect x="28.57" y="85.71" width="4.76" height="4.76"/><rect x="38.10" y="85.71" width="4.76" height="4.76"/><rect x="47.62" y="85.71" width="4.76" height="4.76"/><rect x="52.38" y="85.71" width="4.76" height="4.76"/><rect x="76.19" y="85.71" width="4.76" height="4.76"/><rect x="80.95" y="85.71" width="4.76" height="4.76"/><rect x="0.00" y="90.48" width="4.76" height="4.76"/><rect x="28.57" y="90.48" width="4.76" height="4.76"/><rect x="42.86" y="90.48" width="4.76" height="4.76"/><rect x="61.90" y="90.48" width="4.76" height="4.76"/><rect x="71.43" y="90.48" width="4.76" height="4.76"/><rect x="76.19" y="90.48" width="4.76" height="4.76"/><rect x="90.48" y="90.48" width="4.76" height="4.76"/><rect x="95.24" y="90.48" width="4.76" height="4.76"/><rect x="0.00" y="95.24" width="4.76" height="4.76"/><rect x="4.76" y="95.24" width="4.76" height="4.76"/><rect x="9.52" y="95.24" width="4.76" height="4.76"/><rect x="14.29" y="95.24" width="4.76" height="4.76"/><rect x="19.05" y="95.24" width="4.76" height="4.76"/><rect x="23.81" y="95.24" width="4.76" height="4.76"/><rect x="28.57" y="95.24" width="4.76" height="4.76"/><rect x="42.86" y="95.24" width="4.76" height="4.76"/><rect x="57.14" y="95.24" width="4.76" height="4.76"/><rect x="76.19" y="95.24" width="4.76" height="4.76"/><rect x="85.71" y="95.24" width="4.76" height="4.76"/><rect x="90.48" y="95.24" width="4.76" height="4.76"/></g></svg></div>
+  </div>
+  <div class="foot">
+    <div class="partners">Chengdu Research Base of Giant Panda Breeding · Global Brand & IP Division</div>
+    <div class="src">Sources: Licensing International 2026; Reuters/Pop Mart 2025; Xinhua 2026 · Data as of 2026-10-07</div>
+  </div>
+</article>
+
+</body>
+</html>

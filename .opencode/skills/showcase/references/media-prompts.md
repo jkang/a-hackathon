@@ -9,6 +9,7 @@ Bonus (optional) layer. Each group **optionally** generates a song, a video, or 
 | Song | **Suno** (suno.com) | Udio | `.mp3` |
 | Video | **Runway Gen-3** (runwayml.com) | Kling | `.mp4` |
 | Image | **GPT** (ChatGPT image generation) | — | `.png` |
+| Storyboard | **GPT** (ChatGPT image generation) | Midjourney | `.png` × 6 |
 
 ---
 
@@ -84,6 +85,23 @@ no watermark, no logo. 16:9.
 
 ---
 
+## 3b. Storyboard — GPT (6 frames)
+
+The **Hero's Journey** signature. A storyboard is **6 cinematic stills** (3:2, ~1536×1024) that follow the fan journey — one frame per step — so the pitch shows the idea as a visual sequence, not a paragraph.
+
+Structure the pack as **one shared STYLE prompt + six FRAME prompts**:
+
+1. **STYLE (shared)** — lock the look once: palette (brand hexes), lighting, lens/film grain, headline style (white UPPERCASE top-left + one-line subtext), left-third clear for the headline, aspect ratio, "no watermark, no logo". Run this first to keep all six consistent.
+2. **FRAME 1…6** — each names the scene, the moment, the **verbatim headline + subtext**, and any on-brand prop (e.g. a "No. 001" tag). Map the six to the journey steps: `Attract → Tease → Convert → Amplify → Belong → Deepen`.
+
+**Rules:**
+- One style prompt, consistently reused, is what makes six images read as *one board*.
+- Write every headline/subtext verbatim; keep the left third clear for it.
+- 3:2, high contrast, "no watermark, no logo".
+- Generate all six, download `.png` (§ `frame-01 … frame-06`); the AI assembles them into the **storyboard page** in the deck and the **Storyboard panel** in the proposal.
+
+---
+
 ## 4. Embedding back
 
 The deck already has **media placeholder slots** (rendered as dashed "embed here" boxes). Bring the files into the run folder and the AI replaces the matching placeholder with the real player (relative path):
@@ -91,6 +109,7 @@ The deck already has **media placeholder slots** (rendered as dashed "embed here
 | Media | Deck placeholder | Beat | Inserted element |
 |---|---|---|---|
 | Image (GPT) | `{{MEDIA_IMAGE}}` | `poster` (and `keyvisual`) | `<img src="media/hero.png">` |
+| Storyboard (GPT) | six images | `storyboard` page | `frame-01 … frame-06` → the 6-frame wall |
 | Video (Runway) | `{{MEDIA_VIDEO}}` | `storyboard` | `<video controls src="media/video.mp4">` |
 | Song (Suno) | `{{MEDIA_SONG}}` | `lyric` | `<audio controls src="media/song.mp3">` |
 | Any bonus | `{{MEDIA_ASK}}` | `ask` | any of the above |

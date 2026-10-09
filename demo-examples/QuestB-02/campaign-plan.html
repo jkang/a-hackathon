@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Membership Design · Quest B · Chengdu Panda Base</title>
+<style>
+  :root{
+    --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
+    --line:#E4E8E7; --bg:#F7F6F4; --card:#FFFFFF; --mut:#5A6663;
+    --accent: var(--ascentium-orange); --accent-tint:#CDE2E1; --accent-line:#83B8B4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"Poppins","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+       background:var(--bg);color:var(--ascentium-midnight);-webkit-font-smoothing:antialiased;}
+  .page{width:80%;max-width:1600px;margin:0 auto;padding:40px 28px 56px;}
+  .brandbar{display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--accent);padding-bottom:14px;}
+  .brandbar .logo{font-weight:700;font-size:20px;letter-spacing:-.01em;}
+  .brandbar .logo span{color:var(--accent);}
+  .brandbar .tag{font-size:12px;font-weight:600;color:var(--mut);letter-spacing:.14em;text-transform:uppercase;}
+  h1{font-size:32px;font-weight:800;line-height:1.15;margin-top:22px;letter-spacing:-.01em;}
+  .sub{margin-top:8px;font-size:13px;color:var(--mut);font-weight:500;}
+  .seed{margin-top:20px;background:var(--accent-tint);border:1px solid var(--accent-line);border-radius:12px;padding:16px 20px;}
+  .seed .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
+  .seed p{font-size:16px;font-weight:600;line-height:1.5;margin-top:6px;}
+  .anchor{margin-top:12px;background:var(--ascentium-midnight);color:#fff;border-radius:12px;padding:16px 20px;}
+  .anchor .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-tint);}
+  .anchor p{font-size:14.5px;font-weight:600;line-height:1.5;margin-top:6px;color:#fff;}
+  .anchor p b{color:var(--accent-tint);}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+  .card h2{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;}
+  .card p,.card li{font-size:13px;line-height:1.6;}
+  .card ul{list-style:none;}
+  .card li{padding:3px 0 3px 14px;position:relative;}
+  .card li::before{content:"▸";position:absolute;left:0;color:var(--accent);}
+  .wide{grid-column:1 / -1;}
+  .card.wide{margin-top:22px;}
+  .moments{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .moment{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--card);}
+  .moment .t{font-size:10.5px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;}
+  .moment .v{font-size:12.5px;margin-top:5px;line-height:1.5;color:#3B4442;}
+  .moment .v b{color:var(--ascentium-midnight);}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+  .hero-idea{background:var(--ascentium-midnight);color:#fff;border-radius:14px;padding:20px 22px;}
+  .hero-idea h2{color:#B9C4C1;}
+  .hero-idea .name{font-size:24px;font-weight:800;letter-spacing:-.01em;color:#fff;}
+  .hero-idea .slogan{font-size:15px;color:var(--accent-tint);margin-top:6px;font-weight:600;}
+  .hero-idea .prop{font-size:13.5px;color:#D6DCDA;margin-top:12px;line-height:1.6;}
+  table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:4px;}
+  th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);}
+  th{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);}
+  td.amt{text-align:right;font-weight:700;color:var(--accent);}
+  .pill{display:inline-block;font-size:11.5px;font-weight:600;background:var(--accent-tint);border:1px solid var(--accent-line);color:var(--accent);border-radius:999px;padding:4px 11px;margin:3px 5px 0 0;}
+  .plan{margin-top:26px;border:1.5px solid var(--line);border-radius:16px;padding:18px 20px 22px;background:#fff;}
+  .plan.chosen{border-color:var(--accent);border-width:2px;box-shadow:0 4px 18px rgba(7,112,105,.12);}
+  .vhead{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+  .vhead .vt{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ascentium-midnight);}
+  .vhead .badge{display:none;font-size:10px;font-weight:800;letter-spacing:.12em;color:#fff;background:var(--accent);border-radius:999px;padding:4px 12px;}
+  .plan.chosen .vhead .badge{display:inline-block;}
+  .plan.parked{opacity:.62;}
+  .plan.parked .vhead .badge{display:inline-block;background:var(--mut);}
+  .vhead .vsub{font-size:12px;color:var(--mut);font-weight:500;}
+  .hero-visual{margin:6px 0 4px;}
+  .hero-visual svg{width:100%;height:auto;display:block;border-radius:12px;}
+  .hero-visual .cap{font-size:11px;color:var(--mut);font-style:italic;margin-top:8px;line-height:1.5;}
+  footer{margin-top:30px;border-top:1px dashed var(--line);padding-top:12px;font-size:10.5px;color:#9AA5A2;line-height:1.6;}
+</style>
+</head>
+<body data-quest="B" style="--accent:#077069;--accent-tint:#CDE2E1;--accent-line:#83B8B4;--accent-deep:#043835;">
+<div class="page">
+
+  <div class="brandbar">
+    <div class="logo">Ascentium<span>.</span></div>
+    <div class="tag">Membership Design · Quest B</div>
+  </div>
+
+  <h1>From Zoo Visit to World Membership</h1>
+  <div class="sub">Chengdu Research Base of Giant Panda Breeding — Global Brand &amp; IP Division &nbsp;|&nbsp; MVP pilot · 2 overseas markets · 3 months &nbsp;|&nbsp; Budget USD 1.1M (10% of USD 11M)</div>
+
+  <div class="seed">
+    <div class="lbl">Seed Insight</div>
+    <p>“The panda is the world's classic character IP and its most-watched animal — a 50-year icon loved on a permanent, always-on live feed — yet the Base gives that affection nowhere to belong and no way to pay. Turn ambient panda love into a membership.”</p>
+  </div>
+
+  <div class="anchor">
+    <div class="lbl">Creative Brief · the campaign kernel (audience · moment · trend · channel · concept)</div>
+    <p>For <b>Kawaii / Blind-Box Collectors (with Panda-Pilgrim inbound travelers)</b>, whose <b>emotional job is to own a piece of the world's most-loved animal</b>, at <b>the always-on panda cam and the numbered drop day</b>, riding <b>classic-IP licensing ($161.8B; 77% classic) and drop-collectible culture (Pop Mart +184.7%)</b>, our campaign intercepts via <b>short-video + collector creators, and OTA travel funnels</b> with a numbered, provenance-backed panda drop and a travel-linked Panda Pass — so <b>collectors can own and belong, and live-cam viewers can join before they ever book</b>.</p>
+  </div>
+
+  <div class="card wide">
+    <h2>Scenario · Campaign Moments (time · place · event)</h2>
+    <div class="moments">
+      <div class="moment"><div class="t">Moment 1 · drop day</div><div class="v"><b>phone / creator feed</b> — a collector creator unboxes the latest numbered panda on a livestream.</div></div><div class="moment"><div class="t">Moment 2 · trip-planning window</div><div class="v"><b>Trip.com / Ctrip</b> — booking the Chengdu panda trip inside the visa-free window.</div></div><div class="moment"><div class="t">Moment 3 · always-on</div><div class="v"><b>YouTube live cam</b> — watching the panda cam — the front door to a membership, before any travel.</div></div>
+    </div>
+  </div>
+
+  <section class="plan chosen">
+    <div class="vhead">
+      <span class="vt">Plan A</span><span class="badge">Chosen</span>
+      <span class="vsub">The only panda with a serial number.</span>
+    </div>
+    <div class="hero-visual"><svg viewBox="0 0 1200 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Numbered panda drop hero">
+  <defs>
+    <linearGradient id="gA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0F1514"/><stop offset="1" stop-color="#043835"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="420" fill="url(#gA)"/>
+  <circle cx="980" cy="340" r="220" fill="#077069" opacity="0.35"/>
+  <circle cx="1050" cy="80" r="120" fill="#398D87" opacity="0.25"/>
+  <g transform="translate(120,70)">
+    <ellipse cx="150" cy="230" rx="150" ry="60" fill="#000" opacity="0.25"/>
+    <circle cx="80" cy="60" r="40" fill="#0F1514"/><circle cx="220" cy="60" r="40" fill="#0F1514"/>
+    <circle cx="150" cy="140" r="110" fill="#F7F6F4"/>
+    <ellipse cx="110" cy="130" rx="20" ry="26" fill="#0F1514"/>
+    <ellipse cx="190" cy="130" rx="20" ry="26" fill="#0F1514"/>
+    <circle cx="114" cy="126" r="6" fill="#fff"/><circle cx="194" cy="126" r="6" fill="#fff"/>
+    <ellipse cx="150" cy="175" rx="14" ry="10" fill="#0F1514"/>
+    <path d="M138 196 q12 10 24 0" stroke="#0F1514" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(760,150)">
+    <rect x="0" y="0" width="300" height="180" rx="16" fill="#F7F6F4"/>
+    <rect x="0" y="0" width="300" height="44" rx="16" fill="#CDE2E1"/>
+    <text x="24" y="29" font-family="Poppins,Arial" font-size="18" font-weight="800" fill="#043835">No. 001</text>
+    <rect x="208" y="12" width="72" height="22" rx="11" fill="#077069"/>
+    <text x="222" y="28" font-family="Poppins,Arial" font-size="11" font-weight="700" fill="#fff">DROP 1</text>
+    <circle cx="70" cy="112" r="32" fill="#0F1514"/><circle cx="70" cy="96" r="10" fill="#0F1514"/><circle cx="46" cy="96" r="10" fill="#0F1514"/>
+    <circle cx="70" cy="112" r="24" fill="#fff"/>
+    <text x="120" y="106" font-family="Poppins,Arial" font-size="16" font-weight="800" fill="#0F1514">The Numbered Drop</text>
+    <text x="120" y="130" font-family="Poppins,Arial" font-size="12" fill="#5A6663">collect · certify · trade</text>
+  </g>
+  <text x="120" y="392" font-family="Poppins,Arial" font-size="26" font-weight="800" fill="#fff">The only panda with a serial number.</text>
+</svg><div class="cap">Midnight + teal drop-box hero: a numbered panda plush on a collector shelf, a serial tag “No. 001”, shelfie-ready — bold, collectible, bold type.</div></div>
+    <div class="grid">
+      <div class="hero-idea">
+        <h2>The Big Idea</h2>
+        <div class="name">The Numbered Drop</div>
+        <div class="slogan">The only panda with a serial number.</div>
+        <div class="prop">The panda is a 50-year classic IP, and collectors pay for provenance — so give the world's most-loved animal a numbered, certified drop series it can own and trade, wrapped in a cause-first membership.</div>
+      </div>
+      <div class="card">
+        <h2>Positioning</h2>
+        <p>For kawaii and blind-box collectors who collect rare cute IP, the Panda Numbered Drop is a collectible membership that ships numbered, globally available panda pieces with provenance. Unlike generic zoo souvenirs, we release a certified, limited series designed to be collected and traded.</p>
+        <h2 style="margin-top:14px;">Target Segments</h2>
+        <span class="pill">Kawaii / Blind-Box Collectors</span><span class="pill">SEA Short-Video Superfans</span><span class="pill">Corporate / Gift Buyers</span>
+      </div>
+      <div class="card">
+        <h2>Channel &amp; Moment</h2>
+        <ul>
+          <li><b>Primary:</b> TikTok + collector creators (creator-seeded drops)</li>
+          <li><b>Support:</b> Instagram + Xiaohongshu · Direct-to-fan store (TikTok Shop / Shopify)</li>
+          <li><b>Why:</b> Drop culture compounds (Pop Mart +184.7%) and cute IP spreads creator-to-creator (creator economy → ~$480B by 2027), so discovery-to-checkout happens on short-video.</li>
+          <li><b>Moment:</b> the numbered drop day</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Offering &amp; Mix (4Ps)</h2>
+        <ul>
+          <li><b>Product:</b> Limited, numbered panda collectible drops + a Founding membership</li>
+          <li><b>Price:</b> $30/yr Founding membership; numbered drops $25–60 (under idol fan clubs ~$40 and zoo memberships $50–120)</li>
+          <li><b>Place:</b> Direct-to-fan e-commerce (TikTok Shop / Shopify) + partner retail crossover</li>
+          <li><b>Promotion:</b> Creator-seeded countdown → drop-day livestream → UGC shelfies</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>The Offer</h2>
+        <p>A numbered panda you can own — join the Founding cohort and get every drop before the public.</p>
+        <ul>
+          <li><b>The Offer:</b> A Founding membership ($30/yr) with first access to every numbered panda drop, plus members-only cam and creator content.</li>
+          <li><b>Markets:</b> Indonesia + the United States — a proven short-video collector market and the world's largest licensing market.</li>
+          <li><b>Access:</b> A numbered certificate + provenance per piece; direct-to-fan shipping; a tradeable collector community.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Pilot Experiment · Indonesia + United States</h2>
+        <ul>
+          <li><b>Hypothesis:</b> If we launch a creator-seeded numbered drop in Indonesia and the US, then collector sign-ups and drop sell-through will beat a no-drop baseline — predicting that panda fandom converts to paid membership globally.</li>
+          <li><b>Treatment:</b> Both markets get a creator-seeded numbered drop, a Founding membership, a D2F store, and localized content.</li>
+          <li><b>Control:</b> Held-out comparison: organic live-cam traffic + the existing ¥55 gate (no drop, no membership); plus the prior-period merch benchmark.</li>
+          <li><b>Measurement setup:</b> Instrument the D2F funnel (view → sign-up → first drop) end to end; a weekly dashboard; drop sell-through tracked per SKU; 3-month window with a mid-point check at week 6.</li>
+        </ul>
+      </div>
+      <div class="card wide">
+        <h2>Budget Allocation · USD 1.1M</h2>
+        <table>
+          <thead><tr><th>Market</th><th>Channel</th><th>Tactic</th><th style="text-align:right;">Amount</th></tr></thead>
+          <tbody>
+            <tr><td>Indonesia</td><td>TikTok / creators</td><td>numbered drop launch</td><td class="amt">$180,000</td></tr>
+            <tr><td>Indonesia</td><td>D2F e-commerce</td><td>store + fulfilment</td><td class="amt">$90,000</td></tr>
+            <tr><td>United States</td><td>Creators</td><td>collector creator kits</td><td class="amt">$220,000</td></tr>
+            <tr><td>United States</td><td>Paid social + retail</td><td>drop amplification</td><td class="amt">$150,000</td></tr>
+            <tr><td>Both</td><td>Content engine</td><td>hero film + live-cam cutdowns</td><td class="amt">$200,000</td></tr>
+            <tr><td>Both</td><td>Localization</td><td>English + Bahasa</td><td class="amt">$80,000</td></tr>
+            <tr><td>Both</td><td>Measurement &amp; tools</td><td>attribution + dashboard</td><td class="amt">$60,000</td></tr>
+            <tr><td>Both</td><td>Contingency</td><td>buffer</td><td class="amt">$120,000</td></tr>
+            <tr><td colspan="3" style="text-align:right;font-weight:700;">Total</td><td class="amt">USD 1.1M</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="plan parked">
+    <div class="vhead">
+      <span class="vt">Plan B</span><span class="badge">Parked</span>
+      <span class="vsub">Watch. Join. Then come meet them.</span>
+    </div>
+    <div class="hero-visual"><svg viewBox="0 0 1200 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Live-cam to journey hero">
+  <defs>
+    <linearGradient id="gB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#043835"/><stop offset="1" stop-color="#0F1514"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="420" fill="url(#gB)"/>
+  <circle cx="220" cy="80" r="150" fill="#077069" opacity="0.30"/>
+  <circle cx="1080" cy="360" r="200" fill="#398D87" opacity="0.20"/>
+  <g transform="translate(120,80)">
+    <rect x="0" y="0" width="240" height="290" rx="26" fill="#F7F6F4"/>
+    <rect x="14" y="30" width="212" height="200" rx="14" fill="#0F1514"/>
+    <circle cx="78" cy="130" r="30" fill="#0F1514"/><circle cx="78" cy="118" r="10" fill="#0F1514"/><circle cx="58" cy="118" r="10" fill="#0F1514"/>
+    <circle cx="78" cy="130" r="22" fill="#fff"/>
+    <circle cx="150" cy="130" r="22" fill="#077069"/><path d="M146 120 l18 10 -18 10 z" fill="#fff"/>
+    <text x="24" y="258" font-family="Poppins,Arial" font-size="12" font-weight="700" fill="#077069">LIVE · panda cam</text>
+    <text x="24" y="278" font-family="Poppins,Arial" font-size="11" fill="#5A6663">&gt;40% viewers overseas</text>
+  </g>
+  <path d="M380 220 C 560 120, 640 320, 830 210" stroke="#CDE2E1" stroke-width="3" stroke-dasharray="8 10" fill="none"/>
+  <g transform="translate(840,150)">
+    <circle cx="60" cy="60" r="54" fill="#077069"/>
+    <path d="M60 30 a30 30 0 0 0 -30 30 c0 22 30 46 30 46 s30 -24 30 -46 a30 30 0 0 0 -30 -30 z" fill="#fff"/>
+    <circle cx="60" cy="60" r="12" fill="#077069"/>
+    <text x="0" y="150" font-family="Poppins,Arial" font-size="18" font-weight="800" fill="#fff">Chengdu</text>
+    <text x="0" y="174" font-family="Poppins,Arial" font-size="12" fill="#B9C4C1">30.08M visa-free entries</text>
+  </g>
+  <text x="120" y="392" font-family="Poppins,Arial" font-size="26" font-weight="800" fill="#fff">Watch. Join. Then come meet them.</text>
+</svg><div class="cap">Live-cam-to-journey hero: a phone showing the panda cam, joined by a dotted line to a travel pin over Chengdu — calm, always-on, cause-first.</div></div>
+    <div class="grid">
+      <div class="hero-idea">
+        <h2>The Big Idea</h2>
+        <div class="name">The Pre-Trip Gate Membership</div>
+        <div class="slogan">Watch. Join. Then come meet them.</div>
+        <div class="prop">iPanda's ~1B views create always-on panda love — give viewers a membership to join now, and bundle it into the Chengdu trip at the moment of booking, so affection becomes belonging before arrival.</div>
+      </div>
+      <div class="card">
+        <h2>Positioning</h2>
+        <p>For inbound China travelers and live-cam fans who already love the pandas, the Panda Pass is a travel-linked membership that turns viewing into belonging and a guided visit. Unlike a one-off ¥55 gate ticket, we convert affection into a member before arrival and reward the visit.</p>
+        <h2 style="margin-top:14px;">Target Segments</h2>
+        <span class="pill">Panda-Pilgrim Inbound Travelers</span><span class="pill">Kawaii / Blind-Box Collectors</span><span class="pill">Japan's Panda-Less Fanbase</span>
+      </div>
+      <div class="card">
+        <h2>Channel &amp; Moment</h2>
+        <ul>
+          <li><b>Primary:</b> OTA &amp; travel partners (Trip.com / Ctrip, airlines) — the booking funnel</li>
+          <li><b>Support:</b> Live-cam / YouTube content engine · TikTok travel + WeChat / CRM</li>
+          <li><b>Why:</b> Discovery and payment already live on OTAs and short-video (30.08M visa-free entries, +49.5%), and live cams create ambient fandom (&gt;40% overseas) — so the message converts where the trip is booked.</li>
+          <li><b>Moment:</b> the visa-free trip-planning / booking window</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Offering &amp; Mix (4Ps)</h2>
+        <ul>
+          <li><b>Product:</b> Panda Pass membership + a guided 'panda trip' bundle</li>
+          <li><b>Price:</b> $30/yr Panda Pass; trip bundle attach at the point of booking</li>
+          <li><b>Place:</b> OTA / airline partner funnels + the Base gate (distribution)</li>
+          <li><b>Promotion:</b> Always-on live-cam content → pre-trip conversion → a member arrival moment</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>The Offer</h2>
+        <p>Join before you go — a Panda Pass that turns watching the cam into a member's welcome when you arrive.</p>
+        <ul>
+          <li><b>The Offer:</b> Panda Pass ($30/yr): live-cam + behind-the-scenes content, member pricing on the trip, and a welcome experience at the gate.</li>
+          <li><b>Markets:</b> Japan + Thailand — a proven panda-affinity market now panda-less, and a high-volume SEA travel market.</li>
+          <li><b>Access:</b> One-tap join inside the OTA booking flow; membership recognized on arrival; invite-a-friend referral.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Pilot Experiment · Japan + Thailand</h2>
+        <ul>
+          <li><b>Hypothesis:</b> If we bundle a Panda Pass into the OTA booking flow in Japan and Thailand, then member sign-ups per 1,000 bookings and pre-arrival conversion will beat a no-bundle baseline — predicting that inbound travelers become paying global members.</li>
+          <li><b>Treatment:</b> Both markets get a Panda Pass inside the OTA booking flow, localized live-cam content, and a member welcome at the gate.</li>
+          <li><b>Control:</b> Held-out comparison: OTA bookings without the Pass offer, plus the Base's current gate-only baseline.</li>
+          <li><b>Measurement setup:</b> Tag the OTA booking funnel (view → Pass attach → arrival check-in); a weekly dashboard; Pass attach rate per market; 3-month window with a mid-point check at week 6.</li>
+        </ul>
+      </div>
+      <div class="card wide">
+        <h2>Budget Allocation · USD 1.1M</h2>
+        <table>
+          <thead><tr><th>Market</th><th>Channel</th><th>Tactic</th><th style="text-align:right;">Amount</th></tr></thead>
+          <tbody>
+            <tr><td>Japan</td><td>OTA / travel partners</td><td>Panda Pass bundle at booking</td><td class="amt">$200,000</td></tr>
+            <tr><td>Japan</td><td>Content / creators</td><td>Japanese creator + live-cam engine</td><td class="amt">$160,000</td></tr>
+            <tr><td>Thailand</td><td>TikTok travel</td><td>localized pre-trip engine</td><td class="amt">$170,000</td></tr>
+            <tr><td>Thailand</td><td>OTA partnership</td><td>bundle + co-promo</td><td class="amt">$120,000</td></tr>
+            <tr><td>Both</td><td>Content engine</td><td>live-cam → membership funnel</td><td class="amt">$180,000</td></tr>
+            <tr><td>Both</td><td>CRM + platform</td><td>membership stack</td><td class="amt">$90,000</td></tr>
+            <tr><td>Both</td><td>Localization</td><td>Japanese + Thai</td><td class="amt">$80,000</td></tr>
+            <tr><td>Both</td><td>Measurement &amp; tools</td><td>attribution + dashboard</td><td class="amt">$60,000</td></tr>
+            <tr><td>Both</td><td>Contingency</td><td>buffer</td><td class="amt">$40,000</td></tr>
+            <tr><td colspan="3" style="text-align:right;font-weight:700;">Total</td><td class="amt">USD 1.1M</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <footer>Human-led, AI-scaffolded. Two plans — the team picks A or B. Budget allocation is part of the solution. Data as of 2026-10-07.</footer>
+
+</div>
+
+<script type="application/json" id="capture">{
+  "gate": "plan",
+  "quest": "B",
+  "round": "QuestB-02",
+  "doc_type": "Membership Design",
+  "mode": "facilitated (human-led)",
+  "data_as_of": "2026-10-07",
+  "selected_segments": [
+    1,
+    2
+  ],
+  "selected_insights": [
+    2,
+    6
+  ],
+  "seed_insight": "The panda is the world's classic character IP and its most-watched animal — a 50-year icon loved on a permanent, always-on live feed — yet the Base gives that affection nowhere to belong and no way to pay. Turn ambient panda love into a membership.",
+  "anchor": {
+    "segment": "Kawaii / Blind-Box Collectors (with Panda-Pilgrim inbound travelers)",
+    "job": "emotional job is to own a piece of the world's most-loved animal",
+    "trend": "classic-IP licensing ($161.8B; 77% classic) and drop-collectible culture (Pop Mart +184.7%)",
+    "moment": "the always-on panda cam and the numbered drop day",
+    "channel": "short-video + collector creators, and OTA travel funnels",
+    "mechanic": "a numbered, provenance-backed panda drop and a travel-linked Panda Pass",
+    "desire": "collectors can own and belong, and live-cam viewers can join before they ever book"
+  },
+  "hmw": "How might we turn the world's most-watched animals into paying global members — giving collectors a numbered panda to own, and every live-cam viewer a reason to join before they book?",
+  "ideas": [
+    {
+      "id": 1,
+      "name": "The Numbered Drop",
+      "one_line": "Limited, numbered panda collectibles sold direct-to-fan.",
+      "insight": "classic-IP provenance",
+      "mechanic": "a serial-numbered drop series with a certificate."
+    },
+    {
+      "id": 2,
+      "name": "Live-Cam → Membership",
+      "one_line": "Convert iPanda's ~1B views into members before arrival.",
+      "insight": "ambient fandom",
+      "mechanic": "always-on content with an in-feed join CTA."
+    },
+    {
+      "id": 3,
+      "name": "The Pre-Trip Gate Membership",
+      "one_line": "Bundle a paid membership into the trip at booking.",
+      "insight": "visa-free inbound surge",
+      "mechanic": "an OTA booking-flow attach."
+    },
+    {
+      "id": 4,
+      "name": "Panda Passport",
+      "one_line": "A collectible passport stamped by digital + physical encounters.",
+      "insight": "collector identity",
+      "mechanic": "a gamified member identity."
+    },
+    {
+      "id": 5,
+      "name": "Fu Bao Reunion Club",
+      "one_line": "Nostalgia membership around returned superstar pandas.",
+      "insight": "Japan/Korea fandom",
+      "mechanic": "reunion content + travel."
+    },
+    {
+      "id": 6,
+      "name": "The Guardian Tier",
+      "one_line": "A conservation-first sponsorship membership.",
+      "insight": "$700B funding gap",
+      "mechanic": "adopt / sponsor a named panda."
+    }
+  ],
+  "ai_shortlist": [
+    1,
+    3
+  ],
+  "combination": "mechanic of idea 1 (the numbered drop) + moment of idea 3 (the pre-trip gate)",
+  "plans": {
+    "A": {
+      "name": "The Numbered Drop",
+      "slogan": "The only panda with a serial number.",
+      "proposition": "The panda is a 50-year classic IP, and collectors pay for provenance — so give the world's most-loved animal a numbered, certified drop series it can own and trade, wrapped in a cause-first membership.",
+      "positioning": "For kawaii and blind-box collectors who collect rare cute IP, the Panda Numbered Drop is a collectible membership that ships numbered, globally available panda pieces with provenance. Unlike generic zoo souvenirs, we release a certified, limited series designed to be collected and traded.",
+      "segments": [
+        "Kawaii / Blind-Box Collectors",
+        "SEA Short-Video Superfans",
+        "Corporate / Gift Buyers"
+      ],
+      "channel_mix": {
+        "primary": "TikTok + collector creators (creator-seeded drops)",
+        "support": [
+          "Instagram + Xiaohongshu",
+          "Direct-to-fan store (TikTok Shop / Shopify)"
+        ],
+        "why": "Drop culture compounds (Pop Mart +184.7%) and cute IP spreads creator-to-creator (creator economy → ~$480B by 2027), so discovery-to-checkout happens on short-video.",
+        "moment": "the numbered drop day"
+      },
+      "mix": {
+        "product": "Limited, numbered panda collectible drops + a Founding membership",
+        "price": "$30/yr Founding membership; numbered drops $25–60 (under idol fan clubs ~$40 and zoo memberships $50–120)",
+        "place": "Direct-to-fan e-commerce (TikTok Shop / Shopify) + partner retail crossover",
+        "promotion": "Creator-seeded countdown → drop-day livestream → UGC shelfies"
+      },
+      "offer": {
+        "summary": "A numbered panda you can own — join the Founding cohort and get every drop before the public.",
+        "cards": [
+          {
+            "title": "The Offer",
+            "detail": "A Founding membership ($30/yr) with first access to every numbered panda drop, plus members-only cam and creator content."
+          },
+          {
+            "title": "Markets",
+            "detail": "Indonesia + the United States — a proven short-video collector market and the world's largest licensing market."
+          },
+          {
+            "title": "Access",
+            "detail": "A numbered certificate + provenance per piece; direct-to-fan shipping; a tradeable collector community."
+          }
+        ]
+      },
+      "pilot": {
+        "markets": [
+          "Indonesia",
+          "United States"
+        ],
+        "hypothesis": "If we launch a creator-seeded numbered drop in Indonesia and the US, then collector sign-ups and drop sell-through will beat a no-drop baseline — predicting that panda fandom converts to paid membership globally.",
+        "treatment": "Both markets get a creator-seeded numbered drop, a Founding membership, a D2F store, and localized content.",
+        "control": "Held-out comparison: organic live-cam traffic + the existing ¥55 gate (no drop, no membership); plus the prior-period merch benchmark.",
+        "measurement_setup": "Instrument the D2F funnel (view → sign-up → first drop) end to end; a weekly dashboard; drop sell-through tracked per SKU; 3-month window with a mid-point check at week 6."
+      },
+      "budget": {
+        "total": "USD 1.1M",
+        "allocation": [
+          {
+            "market": "Indonesia",
+            "channel": "TikTok / creators",
+            "tactic": "numbered drop launch",
+            "amount": "180,000"
+          },
+          {
+            "market": "Indonesia",
+            "channel": "D2F e-commerce",
+            "tactic": "store + fulfilment",
+            "amount": "90,000"
+          },
+          {
+            "market": "United States",
+            "channel": "Creators",
+            "tactic": "collector creator kits",
+            "amount": "220,000"
+          },
+          {
+            "market": "United States",
+            "channel": "Paid social + retail",
+            "tactic": "drop amplification",
+            "amount": "150,000"
+          },
+          {
+            "market": "Both",
+            "channel": "Content engine",
+            "tactic": "hero film + live-cam cutdowns",
+            "amount": "200,000"
+          },
+          {
+            "market": "Both",
+            "channel": "Localization",
+            "tactic": "English + Bahasa",
+            "amount": "80,000"
+          },
+          {
+            "market": "Both",
+            "channel": "Measurement & tools",
+            "tactic": "attribution + dashboard",
+            "amount": "60,000"
+          },
+          {
+            "market": "Both",
+            "channel": "Contingency",
+            "tactic": "buffer",
+            "amount": "120,000"
+          }
+        ]
+      },
+      "visual_direction": "Midnight + teal drop-box hero: a numbered panda plush on a collector shelf, a serial tag “No. 001”, shelfie-ready — bold, collectible, bold type.",
+      "one_liner": "Own a numbered piece of the world's most-loved animal."
+    },
+    "B": {
+      "name": "The Pre-Trip Gate Membership",
+      "slogan": "Watch. Join. Then come meet them.",
+      "proposition": "iPanda's ~1B views create always-on panda love — give viewers a membership to join now, and bundle it into the Chengdu trip at the moment of booking, so affection becomes belonging before arrival.",
+      "positioning": "For inbound China travelers and live-cam fans who already love the pandas, the Panda Pass is a travel-linked membership that turns viewing into belonging and a guided visit. Unlike a one-off ¥55 gate ticket, we convert affection into a member before arrival and reward the visit.",
+      "segments": [
+        "Panda-Pilgrim Inbound Travelers",
+        "Kawaii / Blind-Box Collectors",
+        "Japan's Panda-Less Fanbase"
+      ],
+      "channel_mix": {
+        "primary": "OTA & travel partners (Trip.com / Ctrip, airlines) — the booking funnel",
+        "support": [
+          "Live-cam / YouTube content engine",
+          "TikTok travel + WeChat / CRM"
+        ],
+        "why": "Discovery and payment already live on OTAs and short-video (30.08M visa-free entries, +49.5%), and live cams create ambient fandom (>40% overseas) — so the message converts where the trip is booked.",
+        "moment": "the visa-free trip-planning / booking window"
+      },
+      "mix": {
+        "product": "Panda Pass membership + a guided 'panda trip' bundle",
+        "price": "$30/yr Panda Pass; trip bundle attach at the point of booking",
+        "place": "OTA / airline partner funnels + the Base gate (distribution)",
+        "promotion": "Always-on live-cam content → pre-trip conversion → a member arrival moment"
+      },
+      "offer": {
+        "summary": "Join before you go — a Panda Pass that turns watching the cam into a member's welcome when you arrive.",
+        "cards": [
+          {
+            "title": "The Offer",
+            "detail": "Panda Pass ($30/yr): live-cam + behind-the-scenes content, member pricing on the trip, and a welcome experience at the gate."
+          },
+          {
+            "title": "Markets",
+            "detail": "Japan + Thailand — a proven panda-affinity market now panda-less, and a high-volume SEA travel market."
+          },
+          {
+            "title": "Access",
+            "detail": "One-tap join inside the OTA booking flow; membership recognized on arrival; invite-a-friend referral."
+          }
+        ]
+      },
+      "pilot": {
+        "markets": [
+          "Japan",
+          "Thailand"
+        ],
+        "hypothesis": "If we bundle a Panda Pass into the OTA booking flow in Japan and Thailand, then member sign-ups per 1,000 bookings and pre-arrival conversion will beat a no-bundle baseline — predicting that inbound travelers become paying global members.",
+        "treatment": "Both markets get a Panda Pass inside the OTA booking flow, localized live-cam content, and a member welcome at the gate.",
+        "control": "Held-out comparison: OTA bookings without the Pass offer, plus the Base's current gate-only baseline.",
+        "measurement_setup": "Tag the OTA booking funnel (view → Pass attach → arrival check-in); a weekly dashboard; Pass attach rate per market; 3-month window with a mid-point check at week 6."
+      },
+      "budget": {
+        "total": "USD 1.1M",
+        "allocation": [
+          {
+            "market": "Japan",
+            "channel": "OTA / travel partners",
+            "tactic": "Panda Pass bundle at booking",
+            "amount": "200,000"
+          },
+          {
+            "market": "Japan",
+            "channel": "Content / creators",
+            "tactic": "Japanese creator + live-cam engine",
+            "amount": "160,000"
+          },
+          {
+            "market": "Thailand",
+            "channel": "TikTok travel",
+            "tactic": "localized pre-trip engine",
+            "amount": "170,000"
+          },
+          {
+            "market": "Thailand",
+            "channel": "OTA partnership",
+            "tactic": "bundle + co-promo",
+            "amount": "120,000"
+          },
+          {
+            "market": "Both",
+            "channel": "Content engine",
+            "tactic": "live-cam → membership funnel",
+            "amount": "180,000"
+          },
+          {
+            "market": "Both",
+            "channel": "CRM + platform",
+            "tactic": "membership stack",
+            "amount": "90,000"
+          },
+          {
+            "market": "Both",
+            "channel": "Localization",
+            "tactic": "Japanese + Thai",
+            "amount": "80,000"
+          },
+          {
+            "market": "Both",
+            "channel": "Measurement & tools",
+            "tactic": "attribution + dashboard",
+            "amount": "60,000"
+          },
+          {
+            "market": "Both",
+            "channel": "Contingency",
+            "tactic": "buffer",
+            "amount": "40,000"
+          }
+        ]
+      },
+      "visual_direction": "Live-cam-to-journey hero: a phone showing the panda cam, joined by a dotted line to a travel pin over Chengdu — calm, always-on, cause-first.",
+      "one_liner": "Join from anywhere; belong when you arrive."
+    }
+  },
+  "chosen_plan": "A",
+  "poster_style": "a",
+  "budget_envelope": {
+    "total": "USD 11M",
+    "mvp_unlock": "USD 1.1M (10%)",
+    "pilot_window": "3 months",
+    "scope": "2 overseas markets"
+  },
+  "status": "complete"
+}</script>
+</body>
+</html>
