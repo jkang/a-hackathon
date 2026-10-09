@@ -43,7 +43,7 @@ At each menu, pick the option that best **fits the Victory Conditions** and is *
 
 1. **Insight.** Research → org profile + benchmark → **market trends** (each tagged `kind`) then ~6–8 segments → **you pick 2–3 segments** → derive focus bundles (one per pick) → draft **~6 key insights** (each fusing a segment × its moment × a trend) → **you pick 2–3**. Build `insight-brief.html` **progressively** (create on the first block, rewrite each step); list every option (chosen highlighted, rest dimmed).
 2. **Plan.** Pick **1–2 concept keywords** → `creative-concept` (~6 ideas) → converge to **one complete campaign** + channel mix + plan + budget + the **pilot forecast with derivation chains** (benchmark → assumption → formula). Build `campaign-plan.html` **progressively** (create on the first output, rewrite each step). → `poster`.
-3. **Showcase.** storyline → **you pick** → bonus media → **you decide** → settle signature · direction · one-liner yourself (poster always on) → build `proposal.html` + `pitch-deck.html` (≤ 8 slides, visual-first) + `prompt-pack.html`.
+3. **Showcase.** storyline → **you pick** → bonus media → **you decide** → settle signature · direction · one-liner yourself (poster always on) → build `proposal.html` + `pitch-deck.html` (≤ 8 slides, visual-first) + `prompt-pack.html` (always — it carries the ready-made Suno / Runway / GPT prompts the team uses to generate the media externally and bring back for embedding).
 
 ## Output
 

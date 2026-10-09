@@ -21,6 +21,16 @@ def data_uri(path):
         return "data:image/jpeg;base64," + base64.b64encode(f.read()).decode("ascii")
 
 
+# Shown when a referenced screenshot file is missing, so the demo still builds/runs.
+_MISSING_SVG = ('<svg xmlns="http://www.w3.org/2000/svg" width="2520" height="1596">'
+                '<rect width="100%" height="100%" fill="#F2F0EC"/>'
+                '<text x="1260" y="788" font-family="Poppins,Arial,sans-serif" font-size="66" '
+                'font-weight="700" fill="#0F1514" text-anchor="middle">screenshot missing</text>'
+                '</svg>')
+MISSING = "data:image/svg+xml;base64," + base64.b64encode(_MISSING_SVG.encode("utf-8")).decode("ascii")
+missing = []
+
+
 src = open(SRC, encoding="utf-8").read()
 
 # logo data URI (reuse the deck's inline logo)
@@ -32,7 +42,12 @@ scenes = re.search(r"var SCENES = \[.*?\n  \];", src, re.S).group(0)
 # embed each referenced image
 def repl(m):
     fn = m.group(1)
-    return "'" + data_uri(os.path.join(VID, fn)) + "'"
+    path = os.path.join(VID, fn)
+    if not os.path.isfile(path):
+        if fn not in missing:
+            missing.append(fn)
+        return "'" + MISSING + "'"
+    return "'" + data_uri(path) + "'"
 
 scenes = re.sub(r"P\+'(img-[\w.-]+\.jpg)'", repl, scenes)
 
@@ -223,3 +238,5 @@ __SCENES__
 out = HTML.replace("__LOGO__", logo).replace("__SCENES__", scenes)
 open(OUT, "w", encoding="utf-8").write(out)
 print("wrote", OUT, "({:.1f} MB)".format(os.path.getsize(OUT) / 1e6))
+if missing:
+    print("WARNING: missing screenshots (placeholder shown):", ", ".join(missing))

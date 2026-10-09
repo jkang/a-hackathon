@@ -18,7 +18,7 @@ Use the `showcase` skill with `facilitation` (option menu). Requires the capture
 2. **Bonus media** — the team decides whether to attempt song / video / image (or none).
 3. **AI settles the rest (no decision)** — the **signature element** (the storyline's default), the **visual direction**, the **one-liner**, and the **poster** (**always included** — `data-poster="yes"`; style = the final `poster` skill pick, default A).
 4. Build the deck (`data-storyline` + `data-poster="yes"`) — **hard cap 8 slides, visual-first** (fewer text blocks, more full-bleed visual).
-5. If bonus media was chosen, write `prompt-pack.html` (Suno / Runway / GPT prompts) and embed returned files.
+5. **Always write `prompt-pack.html`** (Suno / Runway / GPT prompts) so the media prompts are ready even if the team initially chose none; embed any returned files.
 6. Write into the current round folder `artifacts/Quest<ID>-<NN>/`: `proposal.html` (the unified proposal viewer) + `pitch-deck.html` + `prompt-pack.html`; the showcase capture is embedded in `proposal.html`.
 
 **End every turn with a wrap-up (see `facilitator` → *Response format*):** a 2–4 line recap + the artifact name/path, then the **next decision printed inline** — the **storyline menu** (pick 1) + **bonus media** (song / video / image / none). End with: **"Open `insight-brief.html` / `campaign-plan.html` and review them with your team — choose the options that fit, or add your own — then reply here to continue."** then **"Reply with your pick (e.g. `1, 2`), or type your own."** (the example reflects the actual choices — storyline + bonus media). Put nothing after it.
