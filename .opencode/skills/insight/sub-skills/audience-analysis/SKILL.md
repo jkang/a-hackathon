@@ -26,7 +26,7 @@ The insight stage's counterpart to `business-research`: research the **audience*
 ## How to research (live, via `agent-reach`)
 
 - Find **audience data + trend reports**: audience size, growth, behaviour, platform mix.
-  - Exa search (`mcporter call exa.web_search_exa(query: "…")`), Jina reader for full pages (`curl -s "https://r.jina.ai/URL"`), YouTube, platform data.
+  - Exa search (`mcporter call exa.web_search_exa(query: "…")`), Jina reader for full pages (`curl -s "https://r.jina.ai/URL"`), platform data.
   - Typical sources: digital/social reports, tourism & sports bodies, fan surveys, industry analyses.
 - **Open the source and read the full report** — never rely on snippets.
 - Attach a **source + date** to every size/trend number; separate fact from `[inference]`.

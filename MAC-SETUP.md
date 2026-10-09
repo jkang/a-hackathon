@@ -41,7 +41,7 @@
 | agent-reach | 实时研究引擎 | `pipx install ~/Downloads/agent-reach.zip`（zip 由项目方提供，即 GitHub 源码包，本地即可安装）后 `agent-reach install --env=auto --system` |
 | 项目仓库 | skills / agents / commands | `unzip -q a-hackathon.zip -d /Users/Shared/`（最终为 `/Users/Shared/a-hackathon`） |
 | DeepSeek Key | 驱动 AI | `opencode auth login`（选 DeepSeek，粘贴项目方提供的 Key） |
-| mcporter | Exa 网页搜索 / 小红书 / 抖音 / LinkedIn 渠道 | `npm install -g mcporter` |
+| mcporter | Exa 网页搜索 / 小红书 / 抖音 渠道 | `npm install -g mcporter` |
 
 ## 3. 冒烟
 

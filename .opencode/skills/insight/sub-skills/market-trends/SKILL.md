@@ -28,7 +28,7 @@ It is **not** a generic industry report. Every item is a **decision-grade** tren
 
 ## How to research (live, via `agent-reach`)
 
-- Use the **`agent-reach`** sub-skill / the `researcher` subagent for real sources: Exa web search (`mcporter call exa.web_search_exa …`), Jina reader for any page (`curl -s "https://r.jina.ai/URL"`), YouTube, reports.
+- Use the **`agent-reach`** sub-skill / the `researcher` subagent for real sources: Exa web search (`mcporter call exa.web_search_exa …`), Jina reader for any page (`curl -s "https://r.jina.ai/URL"`), reports.
 - **Open the source and read the full report** — never rely on search snippets.
 - Default data window: **the last ~24 months**, computed from the current year.
 - The **quest card is the primary pack** — research *supplements* it; do not re-collect what the card already gives.

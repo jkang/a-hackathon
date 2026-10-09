@@ -25,7 +25,7 @@ Research the **organization** behind the quest — the client, brand, or IP hold
 
 ## How to research (live, via `agent-reach`)
 
-- Use the **`agent-reach`** sub-skill for real sources: Exa web search (`mcporter call exa.web_search_exa …`), Jina reader for any page (`curl -s "https://r.jina.ai/URL"`), YouTube, etc.
+- Use the **`agent-reach`** sub-skill for real sources: Exa web search (`mcporter call exa.web_search_exa …`), Jina reader for any page (`curl -s "https://r.jina.ai/URL"`), etc.
 - **Open the source and read the full text** — never rely on search snippets alone.
 - Default data window: **the last ~24 months**, computed from the current year (do not use stale years).
 - The **quest card is the primary pack** — research *supplements* it; do not re-collect what the card already gives.
