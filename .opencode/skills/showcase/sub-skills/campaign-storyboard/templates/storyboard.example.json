@@ -1,0 +1,17 @@
+{
+  "quest": "B",
+  "brand": "The Numbered Drop",
+  "crumb": "Campaign Storyboard · Chengdu Panda Base",
+  "h1": "How we attract the target audience",
+  "accent": {"accent": "#077069", "tint": "#CDE2E1", "line": "#83B8B4", "deep": "#043835"},
+  "board": "storyboard-sheet.png",
+  "width": 1600,
+  "steps": [
+    {"n": "01", "label": "Attract", "headline": "Live from Chengdu. Streaming straight to Jakarta 24/7."},
+    {"n": "02", "label": "Tease", "headline": "DROP 1 · 24 hours. Serial number inside."},
+    {"n": "03", "label": "Convert", "headline": "The only panda with a serial number."},
+    {"n": "04", "label": "Amplify", "headline": "Unbox. Display. Share. The collection grows."},
+    {"n": "05", "label": "Belong", "headline": "A rare beginning. Yours to keep."},
+    {"n": "06", "label": "Deepen", "headline": "Watch. Join. Then come meet them."}
+  ]
+}

@@ -77,7 +77,7 @@
               border-radius:12px;padding:12px 18px;font-size:12.5px;font-weight:700;text-align:center;max-width:560px;}
   .media-hint small{display:block;font-weight:500;color:var(--mut);margin-top:4px;font-size:11px;}
 
-  /* storyboard (6 frames) */
+  /* storyboard (six-step text board) */
   .frames{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;}
   .frame{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card, #fff);}
   .frame .bar{height:26px;background:var(--accent);display:flex;align-items:center;padding:0 12px;color:#fff;font-size:11px;font-weight:800;letter-spacing:.1em;}
@@ -110,25 +110,6 @@
   .btrack{display:block;height:18px;background:#EEF1F0;border-radius:6px;overflow:hidden;}
   .bfill{display:block;height:100%;background:var(--accent);border-radius:6px;}
   .brow .amt{text-align:right;font-weight:700;color:var(--accent);}
-  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px;}
-  .kpi{border:1.5px solid var(--line);border-radius:12px;padding:14px 12px;}
-  .kpi .k{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);}
-  .kpi .v{font-size:28px;font-weight:800;margin-top:6px;color:var(--accent);}
-  .kpi .d{font-size:11px;font-weight:700;color:var(--go);margin-top:4px;}
-  .bars{margin-top:16px;display:grid;gap:8px;}
-  .mbar{display:grid;grid-template-columns:200px 1fr 48px;align-items:center;gap:12px;font-size:12px;}
-  .mtrack{display:block;height:12px;background:#EEF1F0;border-radius:999px;overflow:hidden;}
-  .mfill{display:block;height:100%;background:var(--accent);border-radius:999px;}
-  .mpct{text-align:right;font-weight:700;color:var(--mut);}
-  .beats-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;}
-  .beat-note{font-size:11px;color:var(--mut);font-weight:600;}
-  .proofrow{display:grid;grid-template-columns:1.45fr 1fr;gap:18px;margin-top:12px;align-items:start;}
-  .proofrow .bars{margin-top:0;}
-  .gng{background:var(--ascentium-midnight);color:#fff;border-radius:12px;padding:14px 16px;}
-  .gng-h{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:800;}
-  .gng-v{font-size:13px;line-height:1.5;margin-top:6px;color:#DDE3E1;}
-  .rule{margin-top:14px;font-size:13px;font-weight:600;color:#28302E;}
-  /* (legacy cost-benefit styles removed — Prove is now a one-screen pilot-metrics board) */
   .ask{margin-top:auto;background:var(--accent);color:#fff;border-radius:12px;padding:18px 22px;font-size:21px;font-weight:800;line-height:1.3;}
   .moment-band{background:var(--accent);color:#fff;border-radius:12px;padding:16px 20px;margin-top:16px;}
   .moment-band .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.85;}
@@ -138,6 +119,7 @@
   .posband{background:var(--ascentium-midnight);color:#fff;border-radius:12px;padding:16px 20px;margin-top:14px;font-size:14.5px;font-weight:600;line-height:1.5;}
   .posband b{color:var(--accent-tint);}
   .quad{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
+  .strategyrow{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px;align-items:start;}
   .quad .q{border:1px solid var(--line);border-radius:12px;padding:13px 16px;background:#fff;}
   .quad .q .h{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;}
   .quad .q .v{font-size:12.5px;margin-top:6px;line-height:1.5;color:#28302E;}
@@ -261,29 +243,20 @@
       </div>
     </section>
 
-    <!-- CONTEXT (client + evidence) -->
+    <!-- CONTEXT (client + evidence + the problem) -->
     <section class="slide" data-beat="context">
       <div class="logo">Ascentium<span>.</span></div>
-      <div class="beat">01 · The Client &amp; The Evidence</div>
-      <h2 class="sm">{{CLIENT}}</h2>
-      <div class="twocol">
-        <div class="box"><div class="h">Scout summary</div><ul><li>{{SCOUT_1}}</li><li>{{SCOUT_2}}</li><li>{{SCOUT_3}}</li></ul></div>
-        <div class="box"><div class="h">Org / IP profile</div><ul><li><b>Assets:</b> {{ORG_ASSETS}}</li><li><b>Constraints:</b> {{ORG_CONSTRAINTS}}</li></ul></div>
-      </div>
-      <div class="chips">{{MARKET_TRENDS}}</div>
-    </section>
-
-    <!-- PROBLEM -->
-    <section class="slide" data-beat="problem">
-      <div class="logo">Ascentium<span>.</span></div>
-      <div class="beat">02 · The Problem</div>
-      <h2>{{PROBLEM_HEADLINE}}</h2>
+      <div class="beat">01 · The Client &amp; The Problem</div>
+      <h2 class="sm">{{PROBLEM_HEADLINE}}</h2>
       <div class="statgrid">
         <div class="stat gold"><div class="l">Gold standard</div><div class="n">{{STAT_GOLD}}</div><div class="c">{{STAT_GOLD_CAP}}</div></div>
         <div class="stat red"><div class="l">Cautionary tale</div><div class="n">{{STAT_RED}}</div><div class="c">{{STAT_RED_CAP}}</div></div>
         <div class="stat sky"><div class="l">Your arena</div><div class="n">{{STAT_SKY}}</div><div class="c">{{STAT_SKY_CAP}}</div></div>
       </div>
-      <div class="accentbox">{{PROBLEM_TENSION}}</div>
+      <div class="twocol">
+        <div class="box"><div class="h">{{CLIENT}} · evidence</div><ul><li>{{SCOUT_1}}</li><li>{{SCOUT_2}}</li><li>{{SCOUT_3}}</li></ul></div>
+        <div class="box"><div class="h">Org / IP profile</div><ul><li><b>Assets:</b> {{ORG_ASSETS}}</li><li><b>Constraints:</b> {{ORG_CONSTRAINTS}}</li></ul></div>
+      </div>
     </section>
 
     <!-- INSIGHT (tension + trends) -->
@@ -312,20 +285,10 @@
       <div class="moment-band"><div class="lbl">Moment of truth</div><div class="txt">{{MOMENT_OF_TRUTH}}</div></div>
     </section>
 
-    <!-- KEY VISUAL (full-bleed illustration) -->
-    <section class="slide keyvisual" data-beat="keyvisual">
-      <div class="kv-illo illo"><svg><use href="#illo"/></svg></div>
-      <div class="kv-text">
-        <div class="beat">The World of the Idea</div>
-        <h2>{{IDEA_NAME}}</h2>
-        <div class="slogan">"{{IDEA_SLOGAN}}"</div>
-      </div>
-    </section>
-
     <!-- POSTER (signature · pick one of 3 styles) -->
     <section class="slide" data-beat="poster">
       <div class="logo">Ascentium<span>.</span></div>
-      <div class="beat">03 · The Big Idea — Hero Poster</div>
+      <div class="beat">04 · The Big Idea — Hero Poster</div>
       <h2 class="sm">{{IDEA_NAME}} · "{{IDEA_SLOGAN}}"</h2>
       <div class="posterwrap">
         <div class="posterframe"><iframe id="posterFrame" src="poster-a.html" title="Campaign poster"></iframe></div>
@@ -345,7 +308,7 @@
     <!-- STORYBOARD (signature · hero's journey) -->
     <section class="slide" data-beat="storyboard">
       <div class="logo">Ascentium<span>.</span></div>
-      <div class="beat">03 · The Big Idea — a journey</div>
+      <div class="beat">04 · The Big Idea — a journey</div>
       <h2 class="sm">{{IDEA_NAME}} · "{{IDEA_SLOGAN}}"</h2>
       <div class="frames">
         <div class="frame"><div class="bar">1 · {{SB1_T}}</div><div class="body"><div class="t">{{SB1_TITLE}}</div><div class="d">{{SB1_TEXT}}</div></div></div>
@@ -361,7 +324,7 @@
     <!-- PROTOTYPE (signature · demo) -->
     <section class="slide" data-beat="prototype">
       <div class="logo">Ascentium<span>.</span></div>
-      <div class="beat">03 · The Product — show, don't tell</div>
+      <div class="beat">04 · The Idea, in product</div>
       <h2 class="sm">{{IDEA_NAME}} · "{{IDEA_SLOGAN}}"</h2>
       <div class="phones">
         <div><div class="phone"><div class="scr">{{PR1_SCR}}</div><div class="body">{{PR1_ROWS}}</div></div><div class="cap">{{PR1_CAP}}</div></div>
@@ -374,7 +337,7 @@
     <!-- LYRIC (signature · trailer anthem) -->
     <section class="slide" data-beat="lyric">
       <div class="logo">Ascentium<span>.</span></div>
-      <div class="beat">03 · The Anthem — {{IDEA_NAME}}</div>
+      <div class="beat">04 · The Anthem — {{IDEA_NAME}}</div>
       <h2 class="sm">"{{IDEA_SLOGAN}}"</h2>
       <div class="lyric">
         <div class="hook">{{LYRIC_HOOK}}</div>
@@ -382,47 +345,6 @@
         <div class="tag">{{LYRIC_TAG}}</div>
       </div>
       <div class="media" style="margin-top:12px;">{{MEDIA_SONG}}</div>
-    </section>
-
-    <!-- PLAN -->
-    <section class="slide" data-beat="plan">
-      <div class="logo">Ascentium<span>.</span></div>
-      <div class="beat">04 · The Plan</div>
-      <h2 class="sm">2 markets · 3 months · {{BUDGET}}</h2>
-      <div class="budget">
-        <div class="brow"><span class="nm">{{B1_NAME}}</span><span class="btrack"><span class="bfill" style="width:{{B1_PCT}}%"></span></span><span class="amt">{{B1_AMT}}</span></div>
-        <div class="brow"><span class="nm">{{B2_NAME}}</span><span class="btrack"><span class="bfill" style="width:{{B2_PCT}}%"></span></span><span class="amt">{{B2_AMT}}</span></div>
-        <div class="brow"><span class="nm">{{B3_NAME}}</span><span class="btrack"><span class="bfill" style="width:{{B3_PCT}}%"></span></span><span class="amt">{{B3_AMT}}</span></div>
-        <div class="brow"><span class="nm">{{B4_NAME}}</span><span class="btrack"><span class="bfill" style="width:{{B4_PCT}}%"></span></span><span class="amt">{{B4_AMT}}</span></div>
-        <div class="brow"><span class="nm">{{B5_NAME}}</span><span class="btrack"><span class="bfill" style="width:{{B5_PCT}}%"></span></span><span class="amt">{{B5_AMT}}</span></div>
-        <div class="brow"><span class="nm">{{B6_NAME}}</span><span class="btrack"><span class="bfill" style="width:{{B6_PCT}}%"></span></span><span class="amt">{{B6_AMT}}</span></div>
-        <div class="brow"><span class="nm">{{B7_NAME}}</span><span class="btrack"><span class="bfill" style="width:{{B7_PCT}}%"></span></span><span class="amt">{{B7_AMT}}</span></div>
-      </div>
-      <p class="lead" style="margin-top:auto;">{{PILOT_LINE}}</p>
-    </section>
-
-    <!-- PROOF -->
-    <section class="slide" data-beat="proof">
-      <div class="logo">Ascentium<span>.</span></div>
-      <div class="beats-head"><span class="beat">05 · The Proof — condensed</span><span class="beat-note">full metrics &amp; derivation live in proof.html</span></div>
-      <h2 class="sm">The pilot metrics we expect to hit</h2>
-      <div class="kpis">
-        <div class="kpi"><div class="k">{{K1_NAME}}</div><div class="v">{{K1_VALUE}}</div><div class="d">{{K1_DELTA}}</div></div>
-        <div class="kpi"><div class="k">{{K2_NAME}}</div><div class="v">{{K2_VALUE}}</div><div class="d">{{K2_DELTA}}</div></div>
-        <div class="kpi"><div class="k">{{K3_NAME}}</div><div class="v">{{K3_VALUE}}</div><div class="d">{{K3_DELTA}}</div></div>
-        <div class="kpi"><div class="k">{{K4_NAME}}</div><div class="v">{{K4_VALUE}}</div><div class="d">{{K4_DELTA}}</div></div>
-      </div>
-      <div class="proofrow">
-        <div class="bars">
-          <div class="mbar"><span>{{M1}}</span><span class="mtrack"><span class="mfill" style="width:{{M1_PCT}}%"></span></span><span class="mpct">{{M1_PCT}}%</span></div>
-          <div class="mbar"><span>{{M2}}</span><span class="mtrack"><span class="mfill" style="width:{{M2_PCT}}%"></span></span><span class="mpct">{{M2_PCT}}%</span></div>
-          <div class="mbar"><span>{{M3}}</span><span class="mtrack"><span class="mfill" style="width:{{M3_PCT}}%"></span></span><span class="mpct">{{M3_PCT}}%</span></div>
-        </div>
-        <div class="gng">
-          <div class="gng-h">How we derive them</div>
-          <div class="gng-v">{{DERIVATION_NOTE}}</div>
-        </div>
-      </div>
     </section>
 
     <!-- ASK -->
@@ -434,83 +356,30 @@
       <div class="media">{{MEDIA_ASK}}</div>
     </section>
 
-    <!-- STRATEGY (anchor + positioning + 4Ps) -->
+    <!-- STRATEGY + PLAN (positioning + 4Ps + budget) -->
     <section class="slide" data-beat="strategy">
       <div class="logo">Ascentium<span>.</span></div>
-      <div class="beat">05 · The Strategy</div>
+      <div class="beat">05 · The Strategy &amp; The Plan</div>
       <h2 class="sm">{{STRAT_HEADLINE}}</h2>
       <div class="anchorband">{{CREATIVE_BRIEF}}</div>
       <div class="posband">{{STRAT_POSITIONING}}</div>
-      <div class="quad">
-        <div class="q"><div class="h">Product</div><div class="v">{{STRAT_PRODUCT}}</div></div>
-        <div class="q"><div class="h">Price</div><div class="v">{{STRAT_PRICE}}</div></div>
-        <div class="q"><div class="h">Place</div><div class="v">{{STRAT_PLACE}}</div></div>
-        <div class="q"><div class="h">Promotion</div><div class="v">{{STRAT_PROMOTION}}</div></div>
-      </div>
-      <div class="pills"><span class="pill">{{STRAT_SEG1}}</span><span class="pill">{{STRAT_SEG2}}</span><span class="pill">{{STRAT_SEG3}}</span></div>
-    </section>
-
-    <!-- OFFERING (the offer / membership tiers) -->
-    <section class="slide" data-beat="offering">
-      <div class="logo">Ascentium<span>.</span></div>
-      <div class="beat">06 · The Offer</div>
-      <h2 class="sm">{{OFFER_TITLE}}</h2>
-      <div class="offercards">
-        <div class="ocard"><div class="t">{{OFFER_1_T}}</div><div class="d">{{OFFER_1_D}}</div></div>
-        <div class="ocard"><div class="t">{{OFFER_2_T}}</div><div class="d">{{OFFER_2_D}}</div></div>
-        <div class="ocard"><div class="t">{{OFFER_3_T}}</div><div class="d">{{OFFER_3_D}}</div></div>
-      </div>
-      <div class="found">{{FOUNDING_OFFER}}</div>
-      <p class="lead" style="margin-top:auto;">{{IDEA_PROPOSITION}}</p>
-    </section>
-
-    <!-- MOMENTS (scenario timeline) -->
-    <section class="slide" data-beat="moments">
-      <div class="logo">Ascentium<span>.</span></div>
-      <div class="beat">05 · The Moments</div>
-      <h2 class="sm">3 moments where we intercept — time · place · event</h2>
-      <div class="timeline">
-        <div class="moment">
-          <div class="micon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="2" width="10" height="20" rx="3"/><circle cx="12" cy="18.4" r="1.2" fill="currentColor" stroke="none"/></svg></div>
-          <div class="node"></div><div class="t">{{MOM1_T}}</div><div class="p">{{MOM1_P}}</div><div class="e">{{MOM1_E}}</div>
+      <div class="strategyrow">
+        <div class="quad" style="margin-top:0;">
+          <div class="q"><div class="h">Product</div><div class="v">{{STRAT_PRODUCT}}</div></div>
+          <div class="q"><div class="h">Price</div><div class="v">{{STRAT_PRICE}}</div></div>
+          <div class="q"><div class="h">Place</div><div class="v">{{STRAT_PLACE}}</div></div>
+          <div class="q"><div class="h">Promotion</div><div class="v">{{STRAT_PROMOTION}}</div></div>
         </div>
-        <div class="moment">
-          <div class="micon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 12 L22 3 L15 21 L11 13 Z"/></svg></div>
-          <div class="node"></div><div class="t">{{MOM2_T}}</div><div class="p">{{MOM2_P}}</div><div class="e">{{MOM2_E}}</div>
-        </div>
-        <div class="moment">
-          <div class="micon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3 v18"/><path d="M6 4 h11 l-2.4 4 2.4 4 H6"/></svg></div>
-          <div class="node"></div><div class="t">{{MOM3_T}}</div><div class="p">{{MOM3_P}}</div><div class="e">{{MOM3_E}}</div>
+        <div>
+          <div class="pills" style="margin-top:0;"><span class="pill">{{STRAT_SEG1}}</span><span class="pill">{{STRAT_SEG2}}</span><span class="pill">{{STRAT_SEG3}}</span></div>
+          <div class="budget" style="margin-top:12px;">
+            <div class="brow"><span class="nm">{{B1_NAME}}</span><span class="btrack"><span class="bfill" style="width:{{B1_PCT}}%"></span></span><span class="amt">{{B1_AMT}}</span></div>
+            <div class="brow"><span class="nm">{{B2_NAME}}</span><span class="btrack"><span class="bfill" style="width:{{B2_PCT}}%"></span></span><span class="amt">{{B2_AMT}}</span></div>
+            <div class="brow"><span class="nm">{{B3_NAME}}</span><span class="btrack"><span class="bfill" style="width:{{B3_PCT}}%"></span></span><span class="amt">{{B3_AMT}}</span></div>
+          </div>
+          <p class="lead" style="margin-top:12px;font-size:13px;">{{PILOT_LINE}}</p>
         </div>
       </div>
-      <p class="lead" style="margin-top:auto;">{{MOMENT_LINE}}</p>
-    </section>
-
-    <!-- EXPERIMENT -->
-    <section class="slide" data-beat="experiment">
-      <div class="logo">Ascentium<span>.</span></div>
-      <div class="beat">06 · The Pilot Experiment</div>
-      <h2 class="sm">A 3-month, 2-market test that proves the trajectory</h2>
-      <div class="exp">
-        <div class="box treat"><div class="h">Treatment</div><div class="v">{{EXP_TREATMENT}}</div></div>
-        <div class="box ctrl"><div class="h">Control / baseline</div><div class="v">{{EXP_CONTROL}}</div></div>
-      </div>
-      <div class="hypo">Hypothesis: {{EXP_HYPOTHESIS}}</div>
-      <p class="lead" style="margin-top:auto;">Measurement: {{EXP_MEASURE}}</p>
-    </section>
-
-    <!-- FUNNEL -->
-    <section class="slide" data-beat="funnel">
-      <div class="logo">Ascentium<span>.</span></div>
-      <div class="beat">07 · The Funnel</div>
-      <h2 class="sm">How demand moves — and where the pilot must prove it</h2>
-      <div class="funnel">
-        <div class="fstage f1">{{F1_NAME}} · <span class="n">{{F1_VAL}}</span></div>
-        <div class="fstage f2">{{F2_NAME}} · <span class="n">{{F2_VAL}}</span></div>
-        <div class="fstage f3">{{F3_NAME}} · <span class="n">{{F3_VAL}}</span></div>
-        <div class="fstage f4">{{F4_NAME}} · <span class="n">{{F4_VAL}}</span></div>
-      </div>
-      <p class="lead" style="margin-top:auto;">{{FUNNEL_LINE}}</p>
     </section>
 
     <!-- nav -->
@@ -525,22 +394,22 @@
 <script>
 (function(){
   var STORYLINES = {
-    classic: ["title","context","problem","insight","audience","poster","strategy","plan","proof","ask"],
-    hero:    ["title","context","problem","storyboard","insight","audience","poster","strategy","plan","proof","ask"],
-    reveal:  ["title","context","problem","poster","insight","audience","strategy","plan","proof","ask"],
-    demo:    ["title","context","problem","prototype","insight","audience","strategy","poster","plan","proof","ask"],
-    trailer: ["title","context","problem","lyric","insight","audience","strategy","poster","plan","proof","ask"]
+    classic: ["title","context","insight","audience","poster","strategy","ask"],
+    hero:    ["title","context","insight","audience","storyboard","strategy","ask"],
+    reveal:  ["title","context","insight","audience","poster","strategy","ask"],
+    demo:    ["title","context","insight","audience","prototype","strategy","ask"],
+    trailer: ["title","context","insight","audience","lyric","strategy","ask"]
   };
-  // Optional extra beats (add back only if the pitch runs long): context · keyvisual · moments · offering · experiment · funnel.
-  // Hard cap: keep the deck at <= 12 slides (5-minute pitch).
+  // Locked 7 beats: title → context → insight → audience → signature → strategy → ask.
+  // Hard cap: the deck stays at <= 8 slides (visual-first, 5-minute pitch).
   var key = (document.body.getAttribute('data-storyline') || 'classic').trim().toLowerCase();
   var order = (STORYLINES[key] || STORYLINES.classic).slice();
-  // Poster is always on (default 'yes'); the poster beat is present in every storyline.
+  // Poster is always on (default 'yes'); if a storyline's signature isn't the poster, insert the poster beat after the audience.
   var includePoster = (document.body.getAttribute('data-poster') || 'yes').trim().toLowerCase();
   if (includePoster === 'no') {
     order = order.filter(function(b){ return b !== 'poster'; });
   } else if (order.indexOf('poster') < 0) {
-    var anchor = order.indexOf('keyvisual') >= 0 ? 'keyvisual' : (order.indexOf('insight') >= 0 ? 'insight' : 'problem');
+    var anchor = order.indexOf('audience') >= 0 ? 'audience' : (order.indexOf('insight') >= 0 ? 'insight' : 'context');
     var at = order.indexOf(anchor);
     order = order.slice(0, at + 1).concat(['poster'], order.slice(at + 1));
   }

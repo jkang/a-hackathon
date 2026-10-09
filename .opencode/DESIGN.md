@@ -257,7 +257,7 @@ AI 必须在每个阶段**持续感知剩余时间 + 团队意图**，动态调�
 ### 7.4 `showcase`（呈现门 · 8 分钟 · AUTO）＝题卡「Showcase Report Agent (AUTO)」
 - **目标**：**多形态**呈现——5 种 storyline + signature element 承载核心创意 + 可选加分媒体（歌曲/视频/图片）。避免十组同一模板。
 - **输入**：上游三个 HTML 的内嵌 capture（`insight-brief.html` / `campaign-plan.html` / `proof.html`）。
-- **输出**：`pitch-deck.html`（可配置 storyline）+ `prompt-pack.html`（可选）；**内嵌** `poster`（由 `poster` 技能产出）。
+- **输出**：`pitch-deck.html`（可配置 storyline）+ `prompt-pack.html`（可选）+ `storyboard.html`（Hero's Journey 的独立 16:9 看板）；**内嵌** `poster`（由 `poster` 技能产出）。
 - **facilitate**：
   1. **团队选 storyline**（S1 Classic / S2 Hero's Journey / S3 Big Reveal / S4 Demo / S5 Trailer）——决定 deck 形状；signature 取该 storyline 默认（AI）。
   2. **团队选加分媒体**（歌曲/视频/图片/无）。
@@ -270,9 +270,9 @@ AI 必须在每个阶段**持续感知剩余时间 + 团队意图**，动态调�
   - **内嵌** `poster.html`（由独立 `poster` 技能产出，作为 Classic / Big Reveal 的 `poster` beat + poster signature）。
   - pitch-deck.html（**可配置 5 storylines**）：title / problem / insight / **poster** / **storyboard** / **prototype** / **lyric** / strategy / moments / experiment / budget / funnel / proof / ask，按 storyline 选取顺序；全屏自适应 + ←/→ + F 全屏；**核心创意由 signature element 承载**（不靠文字描述）。
   - prompt-pack.html（**提示词脚本包**）：歌曲/视频/图片三类，从 campaign-plan capture 自动填好，复制即用；媒体占位符预置在 deck（图→poster、视频→storyboard、歌→lyric、加分→ask）。
-- **signature element（创意载体）**：poster（整屏海报）/ storyboard（6 帧旅程）/ prototype（手机 mock）/ lyric（anthem 歌词）——对应 5 storylines。
+- **signature element（创意载体）**：poster（整屏海报）/ storyboard（6 面板故事板单图）/ prototype（手机 mock）/ lyric（anthem 歌词）——对应 5 storylines。
 - **加分媒体工具**：歌曲 **Suno**、视频 **Runway Gen-3**、图片 **GPT**（每类 1 主 1 备）。
-- **吸收/改造**：`pitch-narrative.md`（5 storylines + beat 库）、`media-prompts.md`（工具指南）。deck 直接由 `templates/pitch-deck.html` 产出；海报本体见 `poster`。无子技能。
+- **吸收/改造**：`pitch-narrative.md`（5 storylines + beat 库）、`media-prompts.md`（工具指南）。deck 直接由 `templates/pitch-deck.html` 产出；海报本体见 `poster`。子技能：`sub-skills/campaign-storyboard`（把 6 面板单图 + 走查文案装配为独立 16:9 `storyboard.html`，供 Hero's Journey signature 内嵌；单图由**一条完整 prompt** 生成，而非逐帧 prompt）。
 
 ---
 
@@ -328,6 +328,7 @@ AI 必须在每个阶段**持续感知剩余时间 + 团队意图**，动态调�
 │   ├── prove/                       # 论证门（单屏 pilot forecast A/B）
 │   │   └── sub-skills/  campaign-metrics · data-visualizer-pro（保留·休眠，不调用）
 │   ├── showcase/                    # 呈现门（AUTO）
+│   │   └── sub-skills/  campaign-storyboard（standalone 16:9 看板 → storyboard.html）
 │   ├── agent-reach/                 # 实时研究（insight 调用）
 │   ├── facilitation/                # 共创引擎（含 option-menu）
 │   └── ascentium-brand/             # 品牌执行器（tokens + 规则 + brand-guideline.md）

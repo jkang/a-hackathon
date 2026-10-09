@@ -1,6 +1,6 @@
 ---
 name: showcase
-description: Run the SHOWCASE stage of the Ascentium mini-hackathon quest — the team makes exactly TWO decisions (the storyline — Classic / Hero's Journey / Big Reveal / Demo / Trailer — and whether to attempt bonus media), while the AI decides the signature element, the visual direction, the one-liner, and always includes the poster. The AI then assembles a full-screen, storyline-driven Ascentium-branded pitch deck and optionally writes media prompt scripts (song / video / image) for the team to generate in external tools and embed back. To create the poster itself, use the `poster` skill. Triggers: "showcase", "pitch deck", "storyline", "storyboard", "proposal showcase", "presentation", "prompt pack", "showcase".
+description: Run the SHOWCASE stage of the Ascentium mini-hackathon quest — the team makes exactly TWO decisions (the storyline — Classic / Hero's Journey / Big Reveal / Demo / Trailer — and whether to attempt bonus media), while the AI decides the signature element, the visual direction, the one-liner, and always includes the poster. The AI then assembles a full-screen, storyline-driven Ascentium-branded pitch deck (≤ 8 slides, visual-first) and optionally writes media prompt scripts (song / video / image) for the team to generate in external tools and embed back. To create the poster itself, use the `poster` skill. Triggers: "showcase", "pitch deck", "storyline", "storyboard", "proposal showcase", "presentation", "prompt pack", "showcase".
 ---
 
 # Quest Showcase — the SHOWCASE stage (AUTO)
@@ -9,12 +9,12 @@ The final stage. The **team makes two decisions — the storyline and whether to
 
 ## When to use
 
-- After `prove` (reads the captures embedded in `insight-brief.html` + `campaign-plan.html` + `proof.html`).
+- After `plan` (reads the captures embedded in `insight-brief.html` + `campaign-plan.html`).
 - Standalone: "we just want a deck" — call this skill with whatever stage HTML exists.
 
 ## Inputs
 
-- The captures embedded in `insight-brief.html`, `campaign-plan.html`, `proof.html`.
+- The captures embedded in `insight-brief.html`, `campaign-plan.html`.
 - **Resume (recover upstream).** If run on its own (`/showcase`), find the latest round `artifacts/Quest<ID>-*` and read those captures (plus the poster style from `campaign-plan.html`) from that folder; if the round is unambiguous, state it and continue — ask only when genuinely ambiguous. If a capture is missing, say which and ask the team to run the missing stage first. **Poster fallback:** if no `poster.html` exists in the round, build a **default poster (style A)** so the always-on poster beat is present.
 - **Team decisions (only two): storyline** (S1–S5) and **bonus media** (song / video / image / none).
 - **AI-decided** (never asked): the **signature element** (taken from the storyline's default), the **visual direction**, the **one-liner**, and the **poster** (always included).
@@ -25,8 +25,8 @@ The final stage. The **team makes two decisions — the storyline and whether to
 
 1. **Storyline pick (team, 1′).** AI presents the **menu of 5 storylines** (see `references/pitch-narrative.md`): Classic / Hero's Journey / Big Reveal / Demo / Trailer — pick 1. This sets the deck's shape, the signature element, and the opening order.
 2. **Bonus media (team, optional, 1′).** The team decides whether to attempt **bonus media** (song / video / image / none). If yes, the AI writes `prompt-pack.html` (copy-paste prompts for Suno / Runway / GPT); the team generates externally and brings files back.
-3. **AI settles the rest (no decision).** The AI takes the **signature element** from the storyline's default, **reuses the chosen plan's `visual_direction` + `one_liner`** (`plans[chosen_plan]` in the `campaign-plan.html` capture — do not re-derive), and **always includes the poster** in the deck (the `poster` beat, using `poster_style` from the capture — default `a` if none was picked).
-4. **Build (AI, AUTO, 5′).** Assemble the signature element + the deck (`pitch-deck.html` with `data-storyline` and `data-poster="yes"`).
+3. **AI settles the rest (no decision).** The AI takes the **signature element** from the storyline's default, **reuses the plan's `visual_direction` + `one_liner`** (`plan` in the `campaign-plan.html` capture — do not re-derive), and **always includes the poster** in the deck (the `poster` beat, using `poster_style` from the capture — default `a` if none was picked).
+4. **Build (AI, AUTO, 5′).** Assemble the signature element + the deck (`pitch-deck.html` with `data-storyline` and `data-poster="yes"`) — **hard cap 8 slides, visual-first** (fewer text blocks, more full-bleed visual).
 5. **Embed (AI).** Embed any returned media files into the matching slide.
 6. **Rehearse (team, 1′).** 30-second dry run + tweaks.
 
@@ -42,11 +42,11 @@ Everything else is AI-decided: the **signature element** (the storyline's defaul
 ## Output
 
 - `proposal.html` — **the unified proposal *viewer***: a single document with a **collapsible sidebar nav**; clicking a nav item renders that artifact's **full HTML** in the content area (embedded via `srcdoc` iframes). It contains only one authored section — the **Executive Summary** (the cover is merged into it; there is no separate cover and no "all artifacts" index). Everything else is the live artifact. This is the **primary deliverable**.
-- `pitch-deck.html` — full-screen, storyline-driven deck; the poster is **always included** (`data-poster="yes"`) (see `references/pitch-narrative.md`).
+- `pitch-deck.html` — full-screen, storyline-driven deck, **≤ 8 slides, visual-first**; the poster is **always included** (`data-poster="yes"`) (see `references/pitch-narrative.md`).
 - `prompt-pack.html` — bonus media prompt scripts (optional).
 
 > The **poster** is produced by the separate `poster` skill (Create stage), since Poster is a Create-stage deliverable. The showcase **always embeds** it as the `poster` beat (default On) — no team toggle.
-> **`proposal.html` is the umbrella viewer**: the Executive Summary is the one inline section; the Insight Brief, Campaign Plan, Poster, Pilot Metrics, Pitch Deck and Prompt Pack are embedded as **full artifacts** (not links, not summaries).
+> **`proposal.html` is the umbrella viewer**: the Executive Summary is the one inline section; the Insight Brief, Campaign Plan, Poster, Pitch Deck and Prompt Pack are embedded as **full artifacts** (not links, not summaries).
 
 ### Building the proposal viewer
 
@@ -85,24 +85,24 @@ The builder escapes each artifact for an `srcdoc` attribute. Because `srcdoc` if
 </script>
 ```
 
-> Only `storyline` and `bonus_media` are **team decisions**; `include_poster` is always `true`, and `poster_style` · `signature` · `visual_direction` · `one_liner` are **AI-decided** (recorded for the record, not for a pick). The `visual_direction` + `one_liner` are **carried over from the chosen plan** (`plans[chosen_plan]`) — not re-derived.
+> Only `storyline` and `bonus_media` are **team decisions**; `include_poster` is always `true`, and `poster_style` · `signature` · `visual_direction` · `one_liner` are **AI-decided** (recorded for the record, not for a pick). The `visual_direction` + `one_liner` are **carried over from the plan** (`plan`) — not re-derived.
 
 ## Storylines (the deck shapes)
 
-**5-minute rule (locked): the deck is ≤ 12 slides.** A 5-minute pitch cannot carry every detail — the deck is the headline, the artifacts are the depth. Core beats only; optional beats are added back only if the pitch runs long.
+**Rule (locked): the deck is ≤ 8 slides, visual-first.** A 5-minute pitch cannot carry every detail — the deck is the headline, the artifacts are the depth. The locked core is **7 beats**; the poster is always on, so a storyline whose signature isn't the poster runs at 8.
 
-| # | Storyline | Signature | Beats (≤12) |
+| # | Storyline | Signature | Beats (≤8) |
 |---|---|---|---|
-| S1 | Classic | poster | title → context → problem → insight → audience → poster → strategy → plan → proof → ask |
-| S2 | Hero's Journey | storyboard | title → context → problem → storyboard → insight → audience → poster → strategy → plan → proof → ask |
-| S3 | Big Reveal | poster | title → context → problem → poster → insight → audience → strategy → plan → proof → ask |
-| S4 | Demo | prototype | title → context → problem → prototype → insight → audience → strategy → poster → plan → proof → ask |
-| S5 | Trailer | lyric | title → context → problem → lyric → insight → audience → strategy → poster → plan → proof → ask |
+| S1 | Classic | poster | title → context → insight → audience → poster → strategy → ask |
+| S2 | Hero's Journey | storyboard | title → context → insight → audience → storyboard → strategy → ask |
+| S3 | Big Reveal | poster | title → context → insight → audience → poster → strategy → ask |
+| S4 | Demo | prototype | title → context → insight → audience → prototype → strategy → ask |
+| S5 | Trailer | lyric | title → context → insight → audience → lyric → strategy → ask |
 
-- **Core beats**: title · context · problem · (signature) · insight · audience · poster · strategy · plan · proof · ask.
-- **Optional extra beats** (only if time allows): `keyvisual` · `moments` · `offering` · `experiment` · `funnel`.
-- **Condensed beats**: `plan` = pilot + budget (experiment folded in); `proof` = the pilot's expected metrics + how they're derived (the full metric set + derivation logic lives in `proof.html`); `strategy` merges positioning + 4Ps + offering.
-- Beat library still available: title · context · problem · insight · audience · keyvisual · poster · storyboard · prototype · lyric · strategy · offering · moments · experiment · plan · funnel · proof · ask. Brand flat illustrations (inline SVG) render on `title` + `keyvisual`.
+- **Core beats (7)**: title · context (client + evidence + problem) · insight · audience · signature (poster / storyboard / prototype / lyric) · strategy (positioning + 4Ps + budget + pilot line) · ask.
+- **Poster always on**: when the signature isn't the poster, the `poster` beat is inserted after `audience` (8 slides).
+- **No proof/metrics slide** — the pilot forecast + derivation chains live in `campaign-plan.html` and the proposal.
+- **Retired beats** (removed to keep ≤ 8): `keyvisual` · `offering` · `moments` · `experiment` · `funnel` · `plan` · `proof`. Brand flat illustrations (inline SVG) render on `title`.
 
 ## Bonus media (prompt pack)
 
@@ -117,4 +117,4 @@ All visual output uses `ascentium-brand`. The accent comes from the quest card's
 ## Design notes
 
 - Output is single-file and double-click openable. The deck and prompt pack need no tooling; the proposal viewer is assembled by one local inliner step (`scripts/build-proposal.py`) that embeds the artifacts — the *result* is still a single self-contained HTML file.
-- **No sub-skills** — the deck + proposal + prompt pack are built directly from `templates/pitch-deck.html` / `templates/proposal.html` / `templates/prompt-pack.html` (see `references/pitch-narrative.md` + `references/media-prompts.md`), then the proposal is inlined via `scripts/build-proposal.py`.
+- **Sub-skills:** `sub-skills/campaign-storyboard/` builds the standalone 16:9 storyboard (`storyboard.html`) — the Hero's-Journey signature (see `sub-skills/campaign-storyboard/SKILL.md`). The deck + proposal + prompt pack themselves are built directly from `templates/pitch-deck.html` / `templates/proposal.html` / `templates/prompt-pack.html` (see `references/pitch-narrative.md` + `references/media-prompts.md`), then the proposal is inlined via `scripts/build-proposal.py`.

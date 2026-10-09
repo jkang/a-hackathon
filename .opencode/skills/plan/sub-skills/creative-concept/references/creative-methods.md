@@ -69,4 +69,4 @@ Run the problem through a familiar brand's lens, then translate:
 After running 2–4 methods, cluster and distil to **~6**:
 - Each idea = **name · one-line · insight it answers · mechanic**.
 - Distinct, nameable, grounded in the insight.
-- Present as a numbered list; in the plan stage the AI narrows these into **2 complete campaigns (A/B)** for the team's single pick (not an idea menu).
+- Present as a numbered list; in the plan stage the AI converges these into **ONE complete campaign built directly from the team's concept keywords** (not an idea menu, and no A/B).

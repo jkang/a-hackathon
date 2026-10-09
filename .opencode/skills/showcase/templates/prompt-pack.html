@@ -81,24 +81,11 @@
 
   <!-- STORYBOARD -->
   <div class="card">
-    <h2>Storyboard · 6 frames (3:2)</h2>
+    <h2>Storyboard · one 6-panel sheet</h2>
     <div class="tool">Tool: {{STORYBOARD_TOOL}}</div>
-    <p class="back" style="margin-bottom:10px;">Run the shared <b>STYLE</b> prompt once to lock the look, then one prompt per frame — so the six frames read as a single board.</p>
-    <div class="prompt"><span class="copy" onclick="cp(this)">Copy</span><span class="lbl">STYLE · shared look</span>
-{{SB_STYLE}}</div>
-    <div class="prompt" style="margin-top:10px;"><span class="copy" onclick="cp(this)">Copy</span><span class="lbl">FRAME 01 · ATTRACT</span>
-{{SB_F1}}</div>
-    <div class="prompt" style="margin-top:10px;"><span class="copy" onclick="cp(this)">Copy</span><span class="lbl">FRAME 02 · TEASE</span>
-{{SB_F2}}</div>
-    <div class="prompt" style="margin-top:10px;"><span class="copy" onclick="cp(this)">Copy</span><span class="lbl">FRAME 03 · CONVERT</span>
-{{SB_F3}}</div>
-    <div class="prompt" style="margin-top:10px;"><span class="copy" onclick="cp(this)">Copy</span><span class="lbl">FRAME 04 · AMPLIFY</span>
-{{SB_F4}}</div>
-    <div class="prompt" style="margin-top:10px;"><span class="copy" onclick="cp(this)">Copy</span><span class="lbl">FRAME 05 · BELONG</span>
-{{SB_F5}}</div>
-    <div class="prompt" style="margin-top:10px;"><span class="copy" onclick="cp(this)">Copy</span><span class="lbl">FRAME 06 · DEEPEN</span>
-{{SB_F6}}</div>
-    <div class="back">Bring back: <b>{{STORYBOARD_FILE}}</b> → six 3:2 images (frame-01 … frame-06); the AI assembles them into the storyboard page.</div>
+    <p class="back" style="margin-bottom:10px;">One complete prompt. Paste it once and generate a <b>single 6-panel storyboard sheet</b> — so all six frames share one look and one prompt carries the whole journey.</p>
+    <div class="prompt"><span class="copy" onclick="cp(this)">Copy</span>{{SB_PROMPT}}</div>
+    <div class="back">Bring back: <b>{{STORYBOARD_FILE}}</b> → one 6-panel sheet image; the AI embeds it in the storyboard page.</div>
   </div>
 
   <footer>Human-led, AI-scaffolded. Tool output is a bonus, not a required deliverable. Data as of {{DATA_AS_OF}}.</footer>

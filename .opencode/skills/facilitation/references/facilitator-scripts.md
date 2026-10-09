@@ -9,10 +9,9 @@ Voice: a cheerful **Robot Facilitator** — short, energetic, mechanical, encour
 Per stage:
 
 - **Insight** — "Now: **Insight** — I research the market and curate segments + insights; you make two picks (segments, then insights)."
-- **Plan** — "Now: **Plan** — I build two complete campaigns (A/B); you pick one."
+- **Plan** — "Now: **Plan** — you give me **1–2 concept keywords**; I build one complete campaign from them, with the pilot forecast."
 - **Poster** — "Now: **Poster** — I build three poster styles (A/B/C); you pick one."
-- **Prove** — "Now: **Prove** — I produce one most-reasonable pilot forecast; no team decision."
-- **Showcase** — "Now: **Showcase** — I assemble the proposal + deck; you pick a storyline and whether to add bonus media."
+- **Showcase** — "Now: **Showcase** — I assemble the proposal + deck (≤ 8 slides); you pick a storyline and whether to add bonus media."
 
 ## Question templates (choice-first)
 
@@ -21,10 +20,8 @@ Per stage:
 - **Insight — market trends**: shown in full (no pick) — "Here's the market read: shifts, hard facts, and the external opportunities/threats. All listed in the brief."
 - **Insight — audience segments (decision 1)**: "Here are **~8 fan segments**, each data-backed. **Pick 2–3 to target** — or `+1` of your own."
 - **Insight — key insights (decision 2)**: "Here are **~6 insights**, each a **segment × moment × trend** tension. **Pick 2–3 to carry into the plan** — or `+1` of your own."
-- **Creative stage (anchor)**: "Here are **4 candidate anchors** (segment × job × moment). **Pick 1** — or remix one."
-- **Creative stage (scenario canvas)**: "Here are **8 moments** on the menu. **Pick 3–5** (time · place · event)."
-- **Creative stage (idea)**: "Here are **8 idea starters**. **Pick 2–3 to build on** — or remix / `+1` your own."
-- **Pilot-forecast stage**: the AI produces it directly (no menu) — just recap: "Here's the pilot forecast the AI derived from our insights + plan — every number shows its benchmark → assumption → formula."
+- **Plan — concept keywords (the single input, open ask)**: "Give me **1–2 concept keywords** to steer the campaign — e.g. *national pride · first-timers · family · creators · collectors · eco/cause · nostalgia · underdogs · belonging · unmissable* — or your own. I'll run the creative methods on them and build one complete campaign." (This is an example-led open ask, not a pick menu.)
+- **Plan — pilot forecast (part of the build, no menu)**: the AI produces it as part of the plan — just recap: "Here's the pilot forecast the AI derived from our insights + plan — every number shows its benchmark → assumption → formula."
 - **Showcase stage**: "**5 storylines** on the menu — **pick 1**. Bonus media: **song / video / image / none** — pick one. The AI settles the signature, direction, and one-liner; the poster is always included."
 
 **Menu opener (pattern):**
@@ -57,9 +54,8 @@ When a stage's artifact is finalized, announce it in plain language and point to
 Examples per stage:
 
 - Insight → "Research and insight are complete — `insight-brief.html`. Next: run `/plan`."
-- Plan → "The plan is ready — `campaign-plan.html`. Next: run `/poster` to design and pick a poster, or `/prove` to continue without one."
-- Poster → "The poster is ready — `poster.html`. Next: run `/prove`."
-- Prove → "The pilot forecast is ready — `proof.html`. Next: run `/showcase`."
+- Plan → "The plan is ready — `campaign-plan.html` (with the pilot forecast). Next: run `/poster` to design and pick a poster, then `/showcase`."
+- Poster → "The poster is ready — `poster.html`. Next: run `/showcase`."
 - Showcase → "Your proposal is packaged — `proposal.html`. You're ready to submit."
 
 ## Divergence prompts

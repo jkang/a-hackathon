@@ -51,7 +51,7 @@ There are **no separate data files** (no `.yaml`, no `.md`). Each stage records 
 
 ```json
 {
-  "gate": "insight | plan | prove | showcase",
+  "gate": "insight | plan | showcase",
   "quest": "A",
   "menu": ["1) …", "2) …", "…"],
   "inputs": [{"type": "selection", "chosen": [1, 4, 6], "own": ["+1 custom"]}],
@@ -70,4 +70,4 @@ There are **no separate data files** (no `.yaml`, no `.md`). Each stage records 
 - Keep the `+1 of our own` channel open and record those additions too.
 - If the team overrides an AI draft, record both: `ai_draft` and `team_override`.
 - Attach every decision to a `timestamp_min` so the run can be replayed.
-- Output goes into the stage HTML (`insight-brief.html`, `campaign-plan.html`, `proof.html`, `proposal.html`); never overwrite the `sources/` materials.
+- Output goes into the stage HTML (`insight-brief.html`, `campaign-plan.html`, `proposal.html`); never overwrite the `sources/` materials.

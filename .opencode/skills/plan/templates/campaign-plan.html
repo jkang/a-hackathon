@@ -29,6 +29,10 @@
   .seed{margin-top:20px;background:var(--accent-tint);border:1px solid var(--accent-line);border-radius:12px;padding:16px 20px;}
   .seed .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
   .seed p{font-size:16px;font-weight:600;line-height:1.5;margin-top:6px;}
+  .kw{margin-top:12px;background:#fff;border:1.5px solid var(--accent);border-radius:12px;padding:14px 20px;}
+  .kw .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
+  .kw .kws{margin-top:8px;}
+  .kw .cv{font-size:12.5px;color:var(--mut);margin-top:9px;line-height:1.5;}
   .anchor{margin-top:12px;background:var(--ascentium-midnight);color:#fff;border-radius:12px;padding:16px 20px;}
   .anchor .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-tint);}
   .anchor p{font-size:14.5px;font-weight:600;line-height:1.5;margin-top:6px;color:#fff;}
@@ -46,6 +50,15 @@
   .card li{padding:3px 0 3px 14px;position:relative;}
   .card li::before{content:"▸";position:absolute;left:0;color:var(--accent);}
   .wide{grid-column:1 / -1;}
+  .idea-row{display:grid;grid-template-columns:26px 1fr;gap:8px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:12.5px;line-height:1.5;}
+  .idea-row:last-child{border-bottom:0;}
+  .idea-row .n{font-weight:800;color:var(--accent);}
+  .idea-row b{color:var(--ascentium-midnight);}
+  /* The single plan */
+  .plan{margin-top:26px;border:2px solid var(--accent);border-radius:16px;padding:18px 20px 22px;background:#fff;box-shadow:0 4px 18px rgba(15,21,20,.06);}
+  .vhead{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;}
+  .vhead .vt{font-size:14px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ascentium-midnight);}
+  .vhead .vsub{font-size:12px;color:var(--mut);font-weight:500;}
   .hero-idea{background:var(--ascentium-midnight);color:#fff;border-radius:14px;padding:20px 22px;}
   .hero-idea h2{color:#B9C4C1;}
   .hero-idea .name{font-size:24px;font-weight:800;letter-spacing:-.01em;color:#fff;}
@@ -55,19 +68,12 @@
   th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);}
   th{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);}
   td.amt{text-align:right;font-weight:700;color:var(--accent);}
+  .derive{margin-top:14px;display:grid;gap:7px;}
+  .drow{font-size:12px;line-height:1.55;color:#3B4442;border-top:1px dashed var(--line);padding-top:7px;}
+  .drow b{color:var(--ascentium-midnight);}
+  .drow .chain{color:var(--accent);font-weight:600;}
   .pill{display:inline-block;font-size:11.5px;font-weight:600;background:var(--accent-tint);
         border:1px solid var(--accent-line);color:var(--accent);border-radius:999px;padding:4px 11px;margin:3px 5px 0 0;}
-  /* A/B plans */
-  .plan{margin-top:26px;border:1.5px solid var(--line);border-radius:16px;padding:18px 20px 22px;background:#fff;}
-  .plan.chosen{border-color:var(--accent);border-width:2px;box-shadow:0 4px 18px rgba(255,102,17,.12);}
-  .vhead{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
-  .vhead .vt{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ascentium-midnight);}
-  .vhead .badge{display:none;font-size:10px;font-weight:800;letter-spacing:.12em;color:#fff;background:var(--accent);
-                border-radius:999px;padding:4px 12px;}
-  .plan.chosen .vhead .badge{display:inline-block;}
-  .plan.parked{opacity:.62;}
-  .plan.parked .vhead .badge{display:inline-block;background:var(--mut);}
-  .vhead .vsub{font-size:12px;color:var(--mut);font-weight:500;}
   footer{margin-top:30px;border-top:1px dashed var(--line);padding-top:12px;font-size:10.5px;color:#9AA5A2;line-height:1.6;}
 </style>
 </head>
@@ -87,6 +93,12 @@
     <p>"{{SEED_INSIGHT}}"</p>
   </div>
 
+  <div class="kw">
+    <div class="lbl">Concept Direction · the team's keywords</div>
+    <div class="kws">{{CONCEPT_KEYWORDS}}</div>
+    <p class="cv">{{CONVERGENCE}}</p>
+  </div>
+
   <div class="anchor">
     <div class="lbl">Creative Brief · the campaign kernel (audience · moment · trend · channel · concept)</div>
     <p>For <b>{{ANCHOR_SEGMENT}}</b>, whose <b>{{ANCHOR_JOB}}</b>, at <b>{{ANCHOR_MOMENT}}</b>, riding <b>{{ANCHOR_TREND}}</b>, our campaign intercepts via <b>{{ANCHOR_CHANNEL}}</b> with {{ANCHOR_MECHANIC}} — so they {{ANCHOR_DESIRE}}.</p>
@@ -101,61 +113,64 @@
     </div>
   </div>
 
-  <!-- ===== PLAN A =====
-       A_CHOSEN / B_CHOSEN = class token: "chosen" for the team's pick, "parked" for the other.
-       A_BADGE / B_BADGE    = "Chosen" / "Parked". -->
-  <section class="plan {{A_CHOSEN}}">
+  <div class="card wide" style="margin-top:16px;">
+    <h2>Divergence · the ~6 idea candidates the AI explored (keyword-driven)</h2>
+    {{IDEAS_ROWS}}
+  </div>
+
+  <!-- ===== THE PLAN (single — generated from the team's concept keywords) ===== -->
+  <section class="plan">
     <div class="vhead">
-      <span class="vt">Plan A</span><span class="badge">{{A_BADGE}}</span>
-      <span class="vsub">{{A_SUB}}</span>
+      <span class="vt">The Plan</span>
+      <span class="vsub">{{P_SUB}}</span>
     </div>
     <div class="grid">
       <div class="hero-idea">
         <h2>The Big Idea</h2>
-        <div class="name">{{A_NAME}}</div>
-        <div class="slogan">{{A_SLOGAN}}</div>
-        <div class="prop">{{A_PROPOSITION}}</div>
+        <div class="name">{{P_NAME}}</div>
+        <div class="slogan">{{P_SLOGAN}}</div>
+        <div class="prop">{{P_PROPOSITION}}</div>
       </div>
       <div class="card">
         <h2>Positioning</h2>
-        <p>{{A_POSITIONING}}</p>
+        <p>{{P_POSITIONING}}</p>
         <h2 style="margin-top:14px;">Target Segments</h2>
-        <span class="pill">{{A_SEG1}}</span><span class="pill">{{A_SEG2}}</span><span class="pill">{{A_SEG3}}</span>
+        <span class="pill">{{P_SEG1}}</span><span class="pill">{{P_SEG2}}</span><span class="pill">{{P_SEG3}}</span>
       </div>
       <div class="card">
         <h2>Channel &amp; Moment</h2>
         <ul>
-          <li><b>Primary:</b> {{A_CH_PRIMARY}}</li>
-          <li><b>Support:</b> {{A_CH_SUPPORT}}</li>
-          <li><b>Why:</b> {{A_CH_WHY}}</li>
-          <li><b>Moment:</b> {{A_CH_MOMENT}}</li>
+          <li><b>Primary:</b> {{P_CH_PRIMARY}}</li>
+          <li><b>Support:</b> {{P_CH_SUPPORT}}</li>
+          <li><b>Why:</b> {{P_CH_WHY}}</li>
+          <li><b>Moment:</b> {{P_CH_MOMENT}}</li>
         </ul>
       </div>
       <div class="card">
         <h2>Offering &amp; Mix (4Ps)</h2>
         <ul>
-          <li><b>Product:</b> {{A_PRODUCT}}</li>
-          <li><b>Price:</b> {{A_PRICE}}</li>
-          <li><b>Place:</b> {{A_PLACE}}</li>
-          <li><b>Promotion:</b> {{A_PROMOTION}}</li>
+          <li><b>Product:</b> {{P_PRODUCT}}</li>
+          <li><b>Price:</b> {{P_PRICE}}</li>
+          <li><b>Place:</b> {{P_PLACE}}</li>
+          <li><b>Promotion:</b> {{P_PROMOTION}}</li>
         </ul>
       </div>
       <div class="card">
         <h2>The Offer</h2>
-        <p>{{A_OFFER_SUMMARY}}</p>
+        <p>{{P_OFFER_SUMMARY}}</p>
         <ul>
-          <li><b>{{A_OFFER_1_T}}:</b> {{A_OFFER_1_D}}</li>
-          <li><b>{{A_OFFER_2_T}}:</b> {{A_OFFER_2_D}}</li>
-          <li><b>{{A_OFFER_3_T}}:</b> {{A_OFFER_3_D}}</li>
+          <li><b>{{P_OFFER_1_T}}:</b> {{P_OFFER_1_D}}</li>
+          <li><b>{{P_OFFER_2_T}}:</b> {{P_OFFER_2_D}}</li>
+          <li><b>{{P_OFFER_3_T}}:</b> {{P_OFFER_3_D}}</li>
         </ul>
       </div>
       <div class="card">
         <h2>Pilot Experiment</h2>
         <ul>
-          <li><b>Hypothesis:</b> {{A_HYPOTHESIS}}</li>
-          <li><b>Treatment:</b> {{A_TREATMENT}}</li>
-          <li><b>Control:</b> {{A_CONTROL}}</li>
-          <li><b>Measurement setup:</b> {{A_MEASUREMENT}}</li>
+          <li><b>Hypothesis:</b> {{P_HYPOTHESIS}}</li>
+          <li><b>Treatment:</b> {{P_TREATMENT}}</li>
+          <li><b>Control:</b> {{P_CONTROL}}</li>
+          <li><b>Measurement setup:</b> {{P_MEASUREMENT}}</li>
         </ul>
       </div>
       <div class="card wide">
@@ -163,87 +178,37 @@
         <table>
           <thead><tr><th>Market</th><th>Channel</th><th>Tactic</th><th style="text-align:right;">Amount</th></tr></thead>
           <tbody>
-            <tr><td>{{A_M1}}</td><td>{{A_CH1}}</td><td>{{A_TAC1}}</td><td class="amt">{{A_AMT1}}</td></tr>
-            <tr><td>{{A_M2}}</td><td>{{A_CH2}}</td><td>{{A_TAC2}}</td><td class="amt">{{A_AMT2}}</td></tr>
-            <tr><td>{{A_M3}}</td><td>{{A_CH3}}</td><td>{{A_TAC3}}</td><td class="amt">{{A_AMT3}}</td></tr>
+            <tr><td>{{P_M1}}</td><td>{{P_CH1}}</td><td>{{P_TAC1}}</td><td class="amt">{{P_AMT1}}</td></tr>
+            <tr><td>{{P_M2}}</td><td>{{P_CH2}}</td><td>{{P_TAC2}}</td><td class="amt">{{P_AMT2}}</td></tr>
+            <tr><td>{{P_M3}}</td><td>{{P_CH3}}</td><td>{{P_TAC3}}</td><td class="amt">{{P_AMT3}}</td></tr>
             <tr><td colspan="3" style="text-align:right;font-weight:700;">Total</td><td class="amt">{{BUDGET}}</td></tr>
           </tbody>
         </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PLAN B ===== -->
-  <section class="plan {{B_CHOSEN}}">
-    <div class="vhead">
-      <span class="vt">Plan B</span><span class="badge">{{B_BADGE}}</span>
-      <span class="vsub">{{B_SUB}}</span>
-    </div>
-    <div class="grid">
-      <div class="hero-idea">
-        <h2>The Big Idea</h2>
-        <div class="name">{{B_NAME}}</div>
-        <div class="slogan">{{B_SLOGAN}}</div>
-        <div class="prop">{{B_PROPOSITION}}</div>
-      </div>
-      <div class="card">
-        <h2>Positioning</h2>
-        <p>{{B_POSITIONING}}</p>
-        <h2 style="margin-top:14px;">Target Segments</h2>
-        <span class="pill">{{B_SEG1}}</span><span class="pill">{{B_SEG2}}</span><span class="pill">{{B_SEG3}}</span>
-      </div>
-      <div class="card">
-        <h2>Channel &amp; Moment</h2>
-        <ul>
-          <li><b>Primary:</b> {{B_CH_PRIMARY}}</li>
-          <li><b>Support:</b> {{B_CH_SUPPORT}}</li>
-          <li><b>Why:</b> {{B_CH_WHY}}</li>
-          <li><b>Moment:</b> {{B_CH_MOMENT}}</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h2>Offering &amp; Mix (4Ps)</h2>
-        <ul>
-          <li><b>Product:</b> {{B_PRODUCT}}</li>
-          <li><b>Price:</b> {{B_PRICE}}</li>
-          <li><b>Place:</b> {{B_PLACE}}</li>
-          <li><b>Promotion:</b> {{B_PROMOTION}}</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h2>The Offer</h2>
-        <p>{{B_OFFER_SUMMARY}}</p>
-        <ul>
-          <li><b>{{B_OFFER_1_T}}:</b> {{B_OFFER_1_D}}</li>
-          <li><b>{{B_OFFER_2_T}}:</b> {{B_OFFER_2_D}}</li>
-          <li><b>{{B_OFFER_3_T}}:</b> {{B_OFFER_3_D}}</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h2>Pilot Experiment</h2>
-        <ul>
-          <li><b>Hypothesis:</b> {{B_HYPOTHESIS}}</li>
-          <li><b>Treatment:</b> {{B_TREATMENT}}</li>
-          <li><b>Control:</b> {{B_CONTROL}}</li>
-          <li><b>Measurement setup:</b> {{B_MEASUREMENT}}</li>
-        </ul>
       </div>
       <div class="card wide">
-        <h2>Budget Allocation · {{BUDGET}}</h2>
+        <h2>Pilot Forecast · expected metrics + derivation (benchmark → assumption → formula → target)</h2>
         <table>
-          <thead><tr><th>Market</th><th>Channel</th><th>Tactic</th><th style="text-align:right;">Amount</th></tr></thead>
+          <thead><tr><th>Metric</th><th>Funnel</th><th style="text-align:right;">Target</th></tr></thead>
           <tbody>
-            <tr><td>{{B_M1}}</td><td>{{B_CH1}}</td><td>{{B_TAC1}}</td><td class="amt">{{B_AMT1}}</td></tr>
-            <tr><td>{{B_M2}}</td><td>{{B_CH2}}</td><td>{{B_TAC2}}</td><td class="amt">{{B_AMT2}}</td></tr>
-            <tr><td>{{B_M3}}</td><td>{{B_CH3}}</td><td>{{B_TAC3}}</td><td class="amt">{{B_AMT3}}</td></tr>
-            <tr><td colspan="3" style="text-align:right;font-weight:700;">Total</td><td class="amt">{{BUDGET}}</td></tr>
+            <tr><td>{{PF_1_NAME}}</td><td>{{PF_1_DIM}}</td><td class="amt">{{PF_1_TARGET}}</td></tr>
+            <tr><td>{{PF_2_NAME}}</td><td>{{PF_2_DIM}}</td><td class="amt">{{PF_2_TARGET}}</td></tr>
+            <tr><td>{{PF_3_NAME}}</td><td>{{PF_3_DIM}}</td><td class="amt">{{PF_3_TARGET}}</td></tr>
+            <tr><td>{{PF_4_NAME}}</td><td>{{PF_4_DIM}}</td><td class="amt">{{PF_4_TARGET}}</td></tr>
+            <tr><td>{{PF_5_NAME}}</td><td>{{PF_5_DIM}}</td><td class="amt">{{PF_5_TARGET}}</td></tr>
           </tbody>
         </table>
+        <div class="derive">
+          <div class="drow"><b>{{PF_1_NAME}}</b> · <span class="chain">{{PF_1_DERIV}}</span></div>
+          <div class="drow"><b>{{PF_2_NAME}}</b> · <span class="chain">{{PF_2_DERIV}}</span></div>
+          <div class="drow"><b>{{PF_3_NAME}}</b> · <span class="chain">{{PF_3_DERIV}}</span></div>
+          <div class="drow"><b>{{PF_4_NAME}}</b> · <span class="chain">{{PF_4_DERIV}}</span></div>
+          <div class="drow"><b>{{PF_5_NAME}}</b> · <span class="chain">{{PF_5_DERIV}}</span></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <footer>Human-led, AI-scaffolded. Two plans — the team picks A or B. Budget allocation is part of the solution. Data as of {{DATA_AS_OF}}.</footer>
+  <footer>Human-led, AI-scaffolded. One plan — built directly from the team's concept keywords. Budget allocation is part of the solution. Data as of {{DATA_AS_OF}}.</footer>
 
 </div>
 

@@ -18,7 +18,7 @@ OUT = os.path.join(ROOT, "facilitator_guide_standalone.html")
 
 # the seven panels embedded in the guide (title -> file)
 DEMOS = ["insight-brief.html", "campaign-plan.html", "poster.html",
-         "proof.html", "proposal.html", "pitch-deck.html", "prompt-pack.html"]
+         "proposal.html", "pitch-deck.html", "prompt-pack.html"]
 
 def rd(p):
     return io.open(p, encoding="utf-8").read()

@@ -132,7 +132,7 @@ Everything lands in **one round folder**: `artifacts/Quest<ID>-<NN>/` (e.g. `art
 | `poster.html` (+ `poster-a|b|c.html`) | poster |
 | `proof.html` (one-screen pilot forecast; capture embedded) | prove |
 | **`proposal.html`** | showcase — **the umbrella**: one navigable document embedding the whole case (executive summary + insight, plan, poster, pilot metrics, deck and prompt-pack as full artifacts) |
-| `pitch-deck.html` + `prompt-pack.html` | showcase |
+| `pitch-deck.html` + `prompt-pack.html` + `storyboard.html` | showcase |
 
 > **`proposal.html` is the package** a judge reads start-to-finish; the deck is one of its views. Always generate the proposal.
 
@@ -151,6 +151,7 @@ Everything lands in **one round folder**: `artifacts/Quest<ID>-<NN>/` (e.g. `art
 │   ├── prove/                  # stage skill
 │   │   └── sub-skills/         # campaign-metrics · data-visualizer-pro (retained · dormant)
 │   ├── showcase/               # AUTO stage skill (proposal / pitch-deck / prompt-pack)
+│   │   └── sub-skills/         # campaign-storyboard (6-panel sheet → 16:9 viewer → storyboard.html)
 │   ├── agent-reach/            # live research (top-level)
 │   ├── facilitation/           # the co-creation engine (protocols + option menu)
 │   └── ascentium-brand/        # brand executor (+ brand-guideline.md)

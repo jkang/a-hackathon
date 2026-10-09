@@ -49,7 +49,7 @@
 
   /* journey map — lanes × activities (one unified grid, thin rules) */
   .journey{margin-top:14px;overflow-x:auto;padding-bottom:6px;}
-  .jr{display:grid;grid-template-columns:repeat(13,120px);gap:1px;
+  .jr{display:grid;grid-template-columns:repeat(12,120px);gap:1px;
       background:var(--line);border:1px solid var(--line);min-width:max-content;}
   .r1{grid-row:1;} .r2{grid-row:2;} .r3{grid-row:3;} .r4{grid-row:4;} .r5{grid-row:5;}
   .jr-stage{background:#FFF7F2;padding:8px 10px;display:flex;flex-direction:column;gap:2px;}
@@ -178,18 +178,15 @@
 │   ├── plan/                    # 策划门 → campaign-plan.html
 │   │   ├── references/ · templates/
 │   │   └── sub-skills/          # creative-concept
-│   ├── poster/                  # 海报（Create 阶段，独立）→ poster-a/b/c.html + poster.html
-│   ├── prove/                   # 论证门 → proof.html（单屏 pilot 指标）
-│   │   ├── references/ · templates/
-│   │   └── sub-skills/          # campaign-metrics · data-visualizer-pro（保留 · 休眠，不调用）
+│   ├── poster/                  # 海报（Create 阶段）→ poster-a/b/c.html + poster.html
 │   ├── showcase/                # 呈现门（AUTO）→ proposal / pitch-deck / prompt-pack
 │   │   └── references/ · scripts/ · templates/
 │   ├── agent-reach/             # 实时研究（insight 调用；CLI 需预装）
 │   ├── facilitation/            # 共创引擎（协议 · 节奏 · 话术 · 选项菜单 · 采集契约）
 │   └── ascentium-brand/         # 品牌执行器（brand-guideline.md + tokens.css 等）
 ├── agents/                      # facilitator(编排) · runner(自动) · researcher(研究)
-└── commands/                    # /start /insight /plan /poster /prove /showcase /evaluate /run</pre>
-    <div class="note"><b>说明</b>：四阶段 = <code>insight → plan → prove → showcase</code>；<code>poster</code> 与 <code>agent-reach</code> 平铺为顶层技能（逻辑上分属 <code>plan</code> / <code>insight</code>）。打开该目录时，opencode 会递归加载所有 <code>SKILL.md</code>。<code>package.json</code> / <code>node_modules</code> 为运行时产物，已 gitignore。</div>
+└── commands/                    # /start /insight /plan /poster /showcase /evaluate /run</pre>
+    <div class="note"><b>说明</b>：四阶段 = <code>insight → plan → poster → showcase</code>；<code>agent-reach</code> 平铺为顶层技能（逻辑上归 <code>insight</code>）。打开该目录时，opencode 会递归加载所有 <code>SKILL.md</code>。<code>package.json</code> / <code>node_modules</code> 为运行时产物，已 gitignore。</div>
   </section>
 
   <section id="usage">
@@ -218,13 +215,8 @@
           <code class="st-cmd">/poster</code>
           <div class="st-goal">3 种海报风格供选择</div>
         </div>
-        <div class="jr-stage r1" style="grid-column:span 1">
-          <div class="st-top"><span class="st-n">④</span><span class="st-name">PROVE</span></div>
-          <code class="st-cmd">/prove</code>
-          <div class="st-goal">pilot 指标 + 推演逻辑</div>
-        </div>
         <div class="jr-stage r1" style="grid-column:span 2">
-          <div class="st-top"><span class="st-n">⑤</span><span class="st-name">SHOWCASE</span></div>
+          <div class="st-top"><span class="st-n">④</span><span class="st-name">SHOWCASE</span></div>
           <code class="st-cmd">/showcase</code>
           <div class="st-goal">组装提案 / PPT / 提示词</div>
         </div>
@@ -237,9 +229,8 @@
         <div class="jr-cell jr-act r2">焦点包 · 关键洞察 + 种子洞察</div>
         <div class="jr-cell jr-act r2">创意发散</div>
         <div class="jr-cell jr-act r2">渠道策略</div>
-        <div class="jr-cell jr-act r2">营销方案（A/B）</div>
+        <div class="jr-cell jr-act r2">营销方案（A/B）+ pilot 预测</div>
         <div class="jr-cell jr-act r2">海报设计（9 段 × 3 风格）</div>
-        <div class="jr-cell jr-act r2">一版最合理预测 → 推演链 → 单屏</div>
         <div class="jr-cell jr-act r2">选 storyline</div>
         <div class="jr-cell jr-act r2">组装 deck + 媒体</div>
 
@@ -253,7 +244,6 @@
         <div class="jr-cell jr-skill r3"><code>channel-strategy</code></div>
         <div class="jr-cell jr-skill r3"><code>plan</code></div>
         <div class="jr-cell jr-skill r3"><code>poster</code></div>
-        <div class="jr-cell jr-skill r3"><code>prove</code></div>
         <div class="jr-cell jr-skill r3"><code>showcase</code></div>
         <div class="jr-cell jr-skill r3"><code>showcase</code></div>
 
@@ -267,7 +257,6 @@
         <div class="jr-cell jr-out r4">并入 <code>campaign-plan.html</code></div>
         <div class="jr-cell jr-out r4"><code>campaign-plan.html</code></div>
         <div class="jr-cell jr-out r4"><code>poster-a/b/c.html</code> · <code>poster.html</code></div>
-        <div class="jr-cell jr-out r4"><code>proof.html</code>（单屏）</div>
         <div class="jr-cell jr-out r4">并入 <code>proposal.html</code></div>
         <div class="jr-cell jr-out r4"><code>proposal.html</code> · <code>pitch-deck.html</code> · <code>prompt-pack.html</code></div>
 
@@ -281,7 +270,6 @@
         <div class="jr-cell jr-hitl r5"><span class="none">—</span></div>
         <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 1 套完整方案（A/B）</div>
         <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 从 3 张海报（A/B/C）选 1</div>
-        <div class="jr-cell jr-hitl r5"><span class="none">—</span></div>
         <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 storyline</div>
         <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选加分媒体（歌曲/视频/图片/无）</div>
       </div>
@@ -2012,197 +2000,7 @@
     </div>
 
     <div class="demo">
-      <div class="cap"><span>④ 论证 · pilot 指标 + 推演</span><span class="file">proof.html</span></div>
-      <iframe data-auto srcdoc="&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;UTF-8&quot;&gt;
-&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-&lt;title&gt;Pilot Forecast · Quest B · Chengdu Panda Base&lt;/title&gt;
-&lt;style&gt;
-  :root{
-    --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
-    --line:#E4E8E7; --bg:#F7F6F4; --card:#FFFFFF; --mut:#5A6663;
-    --accent: var(--ascentium-orange); --accent-tint:#CDE2E1; --accent-line:#83B8B4;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{font-family:&quot;Poppins&quot;,&quot;Noto Sans SC&quot;,&quot;PingFang SC&quot;,&quot;Microsoft YaHei&quot;,Arial,sans-serif;
-       background:var(--bg);color:var(--ascentium-midnight);-webkit-font-smoothing:antialiased;}
-  .page{max-width:1080px;margin:0 auto;padding:18px 24px 20px;min-height:100vh;display:flex;flex-direction:column;}
-  .brandbar{display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--accent);padding-bottom:11px;}
-  .brandbar .logo{font-weight:700;font-size:19px;}
-  .brandbar .logo span{color:var(--accent);}
-  .brandbar .tag{font-size:11px;font-weight:600;color:var(--mut);letter-spacing:.14em;text-transform:uppercase;}
-  h1{font-size:25px;font-weight:800;margin-top:10px;letter-spacing:-.01em;}
-  .sub{margin-top:5px;font-size:12.5px;color:var(--mut);}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin-top:10px;}
-  .card h2{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:9px;}
-  .funnel{display:grid;grid-template-columns:repeat(4,1fr);}
-  .fstep{padding:8px 12px 8px 18px;background:var(--accent-tint);border:1px solid var(--accent-line);}
-  .fstep:first-child{padding-left:15px;border-radius:11px 0 0 11px;}
-  .fstep:last-child{border-radius:0 11px 11px 0;}
-  .fstep:not(:first-child){border-left:none;}
-  .fstep .fl{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);}
-  .fstep .fv{font-size:18px;font-weight:800;margin-top:4px;line-height:1.05;}
-  .fstep .fn{font-size:10px;color:var(--mut);margin-top:3px;line-height:1.35;}
-  .tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
-  .tile{background:var(--bg);border:1px solid var(--line);border-radius:11px;padding:10px 12px;}
-  .tile .dm{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);}
-  .tile .v{font-size:22px;font-weight:800;margin-top:5px;line-height:1;}
-  .tile .n{font-size:11px;color:var(--mut);margin-top:6px;line-height:1.35;}
-  .deriv{display:grid;gap:8px;}
-  .drow{display:grid;grid-template-columns:180px 92px 1fr;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:7px 12px;}
-  .drow .m{font-size:12px;font-weight:600;}
-  .drow .t{font-size:14px;font-weight:800;color:var(--accent);text-align:right;}
-  .drow .chain{font-size:11px;color:#3B4442;line-height:1.5;}
-  .drow .chain b{color:var(--ascentium-midnight);}
-  .drow .chain .arr{color:var(--accent);font-weight:700;}
-  footer{margin-top:auto;border-top:1px dashed var(--line);padding-top:10px;font-size:10px;color:#9AA5A2;}
-&lt;/style&gt;
-&lt;/head&gt;
-&lt;body data-quest=&quot;B&quot; style=&quot;--accent:#077069;--accent-tint:#CDE2E1;--accent-line:#83B8B4;--accent-deep:#043835;&quot;&gt;
-&lt;div class=&quot;page&quot;&gt;
-
-  &lt;div class=&quot;brandbar&quot;&gt;
-    &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;tag&quot;&gt;Pilot Forecast · Quest B&lt;/div&gt;
-  &lt;/div&gt;
-
-  &lt;h1&gt;What the pilot must hit — and how we get there&lt;/h1&gt;
-  &lt;div class=&quot;sub&quot;&gt;Chengdu Research Base of Giant Panda Breeding — Global Brand &amp;amp; IP Division &amp;nbsp;|&amp;nbsp; Indonesia · United States (2 markets) &amp;nbsp;|&amp;nbsp; 3 months &amp;nbsp;|&amp;nbsp; MVP budget USD 1.1M &amp;nbsp;|&amp;nbsp; Plan A · The Numbered Drop&lt;/div&gt;
-
-  &lt;div class=&quot;card&quot;&gt;
-    &lt;h2&gt;1 · Pilot funnel — expected targets&lt;/h2&gt;
-    &lt;div class=&quot;funnel&quot;&gt;
-      &lt;div class=&quot;fstep&quot;&gt;&lt;div class=&quot;fl&quot;&gt;Reach&lt;/div&gt;&lt;div class=&quot;fv&quot;&gt;45M&lt;/div&gt;&lt;div class=&quot;fn&quot;&gt;creator + paid impressions&lt;/div&gt;&lt;/div&gt;
-      &lt;div class=&quot;fstep&quot;&gt;&lt;div class=&quot;fl&quot;&gt;Engagement&lt;/div&gt;&lt;div class=&quot;fv&quot;&gt;570K&lt;/div&gt;&lt;div class=&quot;fn&quot;&gt;landing-page visits&lt;/div&gt;&lt;/div&gt;
-      &lt;div class=&quot;fstep&quot;&gt;&lt;div class=&quot;fl&quot;&gt;Conversion&lt;/div&gt;&lt;div class=&quot;fv&quot;&gt;3.5%&lt;/div&gt;&lt;div class=&quot;fn&quot;&gt;visitor → member&lt;/div&gt;&lt;/div&gt;
-      &lt;div class=&quot;fstep&quot;&gt;&lt;div class=&quot;fl&quot;&gt;Outcome&lt;/div&gt;&lt;div class=&quot;fv&quot;&gt;20K&lt;/div&gt;&lt;div class=&quot;fn&quot;&gt;Founding members&lt;/div&gt;&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-  &lt;div class=&quot;card&quot;&gt;
-    &lt;h2&gt;2 · The metrics we expect the pilot to hit&lt;/h2&gt;
-    &lt;div class=&quot;tiles&quot;&gt;
-      &lt;div class=&quot;tile&quot;&gt;&lt;div class=&quot;dm&quot;&gt;reach&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;45M impressions&lt;/div&gt;&lt;div class=&quot;n&quot;&gt;Creator-led reach (3 months)&lt;/div&gt;&lt;/div&gt;
-      &lt;div class=&quot;tile&quot;&gt;&lt;div class=&quot;dm&quot;&gt;conversion&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;3.5%&lt;/div&gt;&lt;div class=&quot;n&quot;&gt;Visitor → member conversion&lt;/div&gt;&lt;/div&gt;
-      &lt;div class=&quot;tile&quot;&gt;&lt;div class=&quot;dm&quot;&gt;conversion&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;$18 blended&lt;/div&gt;&lt;div class=&quot;n&quot;&gt;CAC per Founding member&lt;/div&gt;&lt;/div&gt;
-      &lt;div class=&quot;tile&quot;&gt;&lt;div class=&quot;dm&quot;&gt;outcome&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;80%&lt;/div&gt;&lt;div class=&quot;n&quot;&gt;Drop sell-through (14 days)&lt;/div&gt;&lt;/div&gt;
-      &lt;div class=&quot;tile&quot;&gt;&lt;div class=&quot;dm&quot;&gt;outcome&lt;/div&gt;&lt;div class=&quot;v&quot;&gt;20,000&lt;/div&gt;&lt;div class=&quot;n&quot;&gt;Founding members acquired&lt;/div&gt;&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-  &lt;div class=&quot;card&quot;&gt;
-    &lt;h2&gt;3 · How each number is derived&lt;/h2&gt;
-    &lt;div class=&quot;deriv&quot;&gt;
-      &lt;div class=&quot;drow&quot;&gt;&lt;div class=&quot;m&quot;&gt;Creator-led reach (3 months)&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;45M impressions&lt;/div&gt;&lt;div class=&quot;chain&quot;&gt;&lt;b&gt;Creator economy ~$250B (2025) → ~$480B by 2027 (Goldman Sachs); iPanda ~1B views shows ambient panda demand.&lt;/b&gt; &lt;span class=&quot;arr&quot;&gt;&amp;rarr;&lt;/span&gt; 15 hero/mid creators across Indonesia + US; paid amplification at a blended $6.5 CPM &lt;span class=&quot;arr&quot;&gt;&amp;rarr;&lt;/span&gt; creator 13M (15 creators × ~600K avg × UGC ×1.4) + paid 32M ($210K ÷ $6.5 CPM × 1,000) ≈ 45M.&lt;/div&gt;&lt;/div&gt;
-      &lt;div class=&quot;drow&quot;&gt;&lt;div class=&quot;m&quot;&gt;Visitor → member conversion&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;3.5%&lt;/div&gt;&lt;div class=&quot;chain&quot;&gt;&lt;b&gt;D2C e-commerce converts at ~2–4%; creator-driven drops convert at the upper end.&lt;/b&gt; &lt;span class=&quot;arr&quot;&gt;&amp;rarr;&lt;/span&gt; warm creator audiences; a numbered run creates scarcity urgency &lt;span class=&quot;arr&quot;&gt;&amp;rarr;&lt;/span&gt; 3.5% × 570K landing visits ≈ 20,000 members (reach 45M → 1.27% CTR ≈ 570K).&lt;/div&gt;&lt;/div&gt;
-      &lt;div class=&quot;drow&quot;&gt;&lt;div class=&quot;m&quot;&gt;CAC per Founding member&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;$18 blended&lt;/div&gt;&lt;div class=&quot;chain&quot;&gt;&lt;b&gt;Creator-led acquisition blends below paid CPI; cause-led memberships acquire around $15–25.&lt;/b&gt; &lt;span class=&quot;arr&quot;&gt;&amp;rarr;&lt;/span&gt; $360K of the USD 1.1M is acquisition spend; creator content carries organic lift &lt;span class=&quot;arr&quot;&gt;&amp;rarr;&lt;/span&gt; acquisition spend $360K (paid media $210K + creator/content $150K) ÷ 20,000 members = $18.&lt;/div&gt;&lt;/div&gt;
-      &lt;div class=&quot;drow&quot;&gt;&lt;div class=&quot;m&quot;&gt;Drop sell-through (14 days)&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;80%&lt;/div&gt;&lt;div class=&quot;chain&quot;&gt;&lt;b&gt;Pop Mart 2025 revenue +184.7%; plush +560.6% — limited cute-IP drops routinely sell out.&lt;/b&gt; &lt;span class=&quot;arr&quot;&gt;&amp;rarr;&lt;/span&gt; a 12,000-unit numbered run across 2 drops; collector scarcity drives fast conversion &lt;span class=&quot;arr&quot;&gt;&amp;rarr;&lt;/span&gt; 9,600 units sold ÷ 12,000-unit numbered run = 80% within 14 days.&lt;/div&gt;&lt;/div&gt;
-      &lt;div class=&quot;drow&quot;&gt;&lt;div class=&quot;m&quot;&gt;Founding members acquired&lt;/div&gt;&lt;div class=&quot;t&quot;&gt;20,000&lt;/div&gt;&lt;div class=&quot;chain&quot;&gt;&lt;b&gt;Full-scale Victory Condition: 1M members / 12 months, 20% overseas = 200,000 overseas members.&lt;/b&gt; &lt;span class=&quot;arr&quot;&gt;&amp;rarr;&lt;/span&gt; the pilot proves ~10% of the overseas annual run; 2 markets extrapolate to ~8 markets &lt;span class=&quot;arr&quot;&gt;&amp;rarr;&lt;/span&gt; 200,000 overseas × 10% proven in the 2-market, 3-month pilot = 20,000.&lt;/div&gt;&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-  &lt;footer&gt;AI-computed from the insight + plan; benchmarks cited from the Quest Scout Report + live research. These are pilot targets for the 3-month window, not full-scale projections. Data as of 2026-10-07.&lt;/footer&gt;
-
-&lt;/div&gt;
-
-&lt;script type=&quot;application/json&quot; id=&quot;capture&quot;&gt;{
-  &quot;gate&quot;: &quot;prove&quot;,
-  &quot;quest&quot;: &quot;B&quot;,
-  &quot;round&quot;: &quot;QuestB-02&quot;,
-  &quot;source_plan&quot;: &quot;A&quot;,
-  &quot;plan_name&quot;: &quot;The Numbered Drop&quot;,
-  &quot;pilot&quot;: {
-    &quot;window&quot;: &quot;3 months&quot;,
-    &quot;markets&quot;: [
-      &quot;Indonesia&quot;,
-      &quot;United States&quot;
-    ],
-    &quot;budget&quot;: &quot;USD 1.1M (10% of USD 11M)&quot;
-  },
-  &quot;metrics&quot;: [
-    {
-      &quot;name&quot;: &quot;Creator-led reach (3 months)&quot;,
-      &quot;dimension&quot;: &quot;reach&quot;,
-      &quot;target&quot;: &quot;45M impressions&quot;,
-      &quot;derivation&quot;: {
-        &quot;benchmark_ref&quot;: &quot;Creator economy ~$250B (2025) → ~$480B by 2027 (Goldman Sachs); iPanda ~1B views shows ambient panda demand.&quot;,
-        &quot;formula&quot;: &quot;creator 13M (15 creators × ~600K avg × UGC ×1.4) + paid 32M ($210K ÷ $6.5 CPM × 1,000) ≈ 45M.&quot;,
-        &quot;assumptions&quot;: [
-          &quot;15 hero/mid creators across Indonesia + US&quot;,
-          &quot;paid amplification at a blended $6.5 CPM&quot;
-        ],
-        &quot;logic&quot;: &quot;Enough creator-led reach makes the drop discoverable where collectors already scroll.&quot;
-      }
-    },
-    {
-      &quot;name&quot;: &quot;Visitor → member conversion&quot;,
-      &quot;dimension&quot;: &quot;conversion&quot;,
-      &quot;target&quot;: &quot;3.5%&quot;,
-      &quot;derivation&quot;: {
-        &quot;benchmark_ref&quot;: &quot;D2C e-commerce converts at ~2–4%; creator-driven drops convert at the upper end.&quot;,
-        &quot;formula&quot;: &quot;3.5% × 570K landing visits ≈ 20,000 members (reach 45M → 1.27% CTR ≈ 570K).&quot;,
-        &quot;assumptions&quot;: [
-          &quot;warm creator audiences&quot;,
-          &quot;a numbered run creates scarcity urgency&quot;
-        ],
-        &quot;logic&quot;: &quot;A 3.5% conversion on warm drop traffic proves fandom converts to a paid membership, not just a like.&quot;
-      }
-    },
-    {
-      &quot;name&quot;: &quot;CAC per Founding member&quot;,
-      &quot;dimension&quot;: &quot;conversion&quot;,
-      &quot;target&quot;: &quot;$18 blended&quot;,
-      &quot;derivation&quot;: {
-        &quot;benchmark_ref&quot;: &quot;Creator-led acquisition blends below paid CPI; cause-led memberships acquire around $15–25.&quot;,
-        &quot;formula&quot;: &quot;acquisition spend $360K (paid media $210K + creator/content $150K) ÷ 20,000 members = $18.&quot;,
-        &quot;assumptions&quot;: [
-          &quot;$360K of the USD 1.1M is acquisition spend&quot;,
-          &quot;creator content carries organic lift&quot;
-        ],
-        &quot;logic&quot;: &quot;$18 sits below a typical paid CPI — the cheap acquisition is what makes the 1M-member goal affordable.&quot;
-      }
-    },
-    {
-      &quot;name&quot;: &quot;Drop sell-through (14 days)&quot;,
-      &quot;dimension&quot;: &quot;outcome&quot;,
-      &quot;target&quot;: &quot;80%&quot;,
-      &quot;derivation&quot;: {
-        &quot;benchmark_ref&quot;: &quot;Pop Mart 2025 revenue +184.7%; plush +560.6% — limited cute-IP drops routinely sell out.&quot;,
-        &quot;formula&quot;: &quot;9,600 units sold ÷ 12,000-unit numbered run = 80% within 14 days.&quot;,
-        &quot;assumptions&quot;: [
-          &quot;a 12,000-unit numbered run across 2 drops&quot;,
-          &quot;collector scarcity drives fast conversion&quot;
-        ],
-        &quot;logic&quot;: &quot;Fast sell-through proves the collectible mechanic — not discounting — is what moves product.&quot;
-      }
-    },
-    {
-      &quot;name&quot;: &quot;Founding members acquired&quot;,
-      &quot;dimension&quot;: &quot;outcome&quot;,
-      &quot;target&quot;: &quot;20,000&quot;,
-      &quot;derivation&quot;: {
-        &quot;benchmark_ref&quot;: &quot;Full-scale Victory Condition: 1M members / 12 months, 20% overseas = 200,000 overseas members.&quot;,
-        &quot;formula&quot;: &quot;200,000 overseas × 10% proven in the 2-market, 3-month pilot = 20,000.&quot;,
-        &quot;assumptions&quot;: [
-          &quot;the pilot proves ~10% of the overseas annual run&quot;,
-          &quot;2 markets extrapolate to ~8 markets&quot;
-        ],
-        &quot;logic&quot;: &quot;20,000 in 2 markets gives a defensible trajectory toward 1M members at full scale.&quot;
-      }
-    }
-  ],
-  &quot;source_note&quot;: &quot;Scout Report + live research · Data as of 2026-10-07&quot;
-}&lt;/script&gt;
-&lt;script&gt;(function(){function h(){try{parent.postMessage({__fit:Math.max(document.documentElement.scrollHeight,document.body.scrollHeight)},&quot;*&quot;);}catch(e){}}window.addEventListener(&quot;load&quot;,h);window.addEventListener(&quot;resize&quot;,h);setInterval(h,1500);})();&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-" height="640" title="Proof"></iframe>
-    </div>
-
-    <div class="demo">
-      <div class="cap"><span>⑤ 统一提案</span><span class="file">proposal.html</span></div>
+      <div class="cap"><span>④ 统一提案</span><span class="file">proposal.html</span></div>
       <iframe data-auto srcdoc="&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
@@ -5637,7 +5435,7 @@ function cp(btn){
     </div>
 
     <div class="demo">
-      <div class="cap"><span>⑥ 路演 PPT · 5 分钟</span><span class="file">pitch-deck.html</span></div>
+      <div class="cap"><span>⑤ 路演 PPT · 5 分钟</span><span class="file">pitch-deck.html</span></div>
       <iframe data-fixed srcdoc="&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
@@ -6708,7 +6506,7 @@ function cp(btn){
     </div>
 
     <div class="demo">
-      <div class="cap"><span>⑦ 加分媒体提示词</span><span class="file">prompt-pack.html</span></div>
+      <div class="cap"><span>⑥ 加分媒体提示词</span><span class="file">prompt-pack.html</span></div>
       <iframe data-auto srcdoc="&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
@@ -6772,24 +6570,22 @@ function cp(btn){
 
   &lt;!-- STORYBOARD --&gt;
   &lt;div class=&quot;card&quot;&gt;
-    &lt;h2&gt;Storyboard · 6 frames (3:2)&lt;/h2&gt;
-    &lt;div class=&quot;tool&quot;&gt;Tool: GPT (ChatGPT image generation) — or Midjourney / Runway&lt;/div&gt;
-    &lt;p class=&quot;back&quot; style=&quot;margin-bottom:10px;&quot;&gt;Run the shared &lt;b&gt;STYLE&lt;/b&gt; prompt once to lock the look, then one prompt per frame — so the six frames read as a single board.&lt;/p&gt;
-    &lt;div class=&quot;prompt&quot;&gt;&lt;span class=&quot;copy&quot; onclick=&quot;cp(this)&quot;&gt;Copy&lt;/span&gt;&lt;span class=&quot;lbl&quot;&gt;STYLE · shared look&lt;/span&gt;
-Cinematic feature-film still for a global panda conservation campaign. Keep ONE consistent look across all frames: deep-teal palette (background deep teal #043835, teal #077069), warm cream highlights (#F4EFE4) and mint accents (#CDE2E1); soft cinematic night / lamp lighting, shallow depth of field, 35mm film grain, high contrast. Clean modern sans-serif headline in white, UPPERCASE, top-left, with a one-line subtext below it; leave the left third clear for the headline. A small cream collector tag reading &quot;No. 001&quot; may appear. 3:2 aspect ratio (1536x1024). No watermark, no logo.&lt;/div&gt;
-    &lt;div class=&quot;prompt&quot; style=&quot;margin-top:10px;&quot;&gt;&lt;span class=&quot;copy&quot; onclick=&quot;cp(this)&quot;&gt;Copy&lt;/span&gt;&lt;span class=&quot;lbl&quot;&gt;FRAME 01 · ATTRACT&lt;/span&gt;
-Cinematic still: a young woman in a dim apartment at night, a city skyline through the window, lying on her bed and smiling as she watches a giant-panda live-cam on her phone (small red &quot;LIVE&quot; badge); the phone glow tints her face teal. A cream tag &quot;No. 001 / DROP 1&quot; floats at the lower-left. Headline (verbatim, uppercase): &quot;ALWAYS-ON FANDOM&quot;. Subtext: &quot;Live from Chengdu. Streaming straight to Jakarta 24/7.&quot; Secondary line: &quot;This isn't just a stream. It's a connection.&quot;&lt;/div&gt;
-    &lt;div class=&quot;prompt&quot; style=&quot;margin-top:10px;&quot;&gt;&lt;span class=&quot;copy&quot; onclick=&quot;cp(this)&quot;&gt;Copy&lt;/span&gt;&lt;span class=&quot;lbl&quot;&gt;FRAME 02 · TEASE&lt;/span&gt;
-Cinematic still: a cheerful collector-creator on a night livestream set, holding a sealed &quot;DROP 1&quot; kit box, a ring light and a phone on a tripod, floating chat reactions; a countdown overlay reads &quot;24:00:00&quot; and a cream tag &quot;No. 001&quot;. Headline (verbatim, uppercase): &quot;CREATOR COUNTDOWN&quot;. Subtext: &quot;DROP 1 · 24 hours. Serial number inside.&quot;&lt;/div&gt;
-    &lt;div class=&quot;prompt&quot; style=&quot;margin-top:10px;&quot;&gt;&lt;span class=&quot;copy&quot; onclick=&quot;cp(this)&quot;&gt;Copy&lt;/span&gt;&lt;span class=&quot;lbl&quot;&gt;FRAME 03 · CONVERT&lt;/span&gt;
-Cinematic still: a drop-day scene — a limited, numbered panda collectible on a pedestal under a dramatic spotlight, foreground phones showing &quot;SOLD OUT&quot;, a bold cream tag &quot;No. 001&quot;. Headline (verbatim, uppercase): &quot;THE NUMBERED DROP&quot;. Subtext: &quot;The only panda with a serial number.&quot;&lt;/div&gt;
-    &lt;div class=&quot;prompt&quot; style=&quot;margin-top:10px;&quot;&gt;&lt;span class=&quot;copy&quot; onclick=&quot;cp(this)&quot;&gt;Copy&lt;/span&gt;&lt;span class=&quot;lbl&quot;&gt;FRAME 04 · AMPLIFY&lt;/span&gt;
-Cinematic still: a collector's home shelf at night — several numbered panda figures lined up (No. 001, No. 002 …), the owner photographing it with a phone; warm lamp, soft bokeh. Headline (verbatim, uppercase): &quot;UNBOX &amp; SHELFIE&quot;. Subtext: &quot;Unbox. Display. Share. The collection grows.&quot;&lt;/div&gt;
-    &lt;div class=&quot;prompt&quot; style=&quot;margin-top:10px;&quot;&gt;&lt;span class=&quot;copy&quot; onclick=&quot;cp(this)&quot;&gt;Copy&lt;/span&gt;&lt;span class=&quot;lbl&quot;&gt;FRAME 05 · BELONG&lt;/span&gt;
-Cinematic still: a hand holding a cream Founding-membership card with a panda emblem (&quot;FOUNDING MEMBER · $30/yr&quot;) beside a numbered certificate &quot;No. 001&quot;; soft teal rim light, premium feel. Headline (verbatim, uppercase): &quot;FOUNDING MEMBERSHIP&quot;. Subtext: &quot;A rare beginning. Yours to keep.&quot;&lt;/div&gt;
-    &lt;div class=&quot;prompt&quot; style=&quot;margin-top:10px;&quot;&gt;&lt;span class=&quot;copy&quot; onclick=&quot;cp(this)&quot;&gt;Copy&lt;/span&gt;&lt;span class=&quot;lbl&quot;&gt;FRAME 06 · DEEPEN&lt;/span&gt;
-Cinematic still: a traveler arriving at the Chengdu panda-base gate in soft morning light — bamboo, a welcome banner, a phone showing the Panda Pass, a panda-keeper silhouette. Headline (verbatim, uppercase): &quot;COME MEET THEM&quot;. Subtext: &quot;Watch. Join. Then come meet them.&quot;&lt;/div&gt;
-    &lt;div class=&quot;back&quot;&gt;Bring back: &lt;b&gt;media/storyboard/frame-01 … frame-06 (3:2)&lt;/b&gt; → six 3:2 images (frame-01 … frame-06); the AI assembles them into the storyboard page.&lt;/div&gt;
+    &lt;h2&gt;Storyboard · one 6-panel sheet&lt;/h2&gt;
+    &lt;div class=&quot;tool&quot;&gt;Tool: GPT (ChatGPT image generation) — or Midjourney&lt;/div&gt;
+    &lt;p class=&quot;back&quot; style=&quot;margin-bottom:10px;&quot;&gt;One complete prompt. Paste it once and generate a &lt;b&gt;single 6-panel storyboard sheet&lt;/b&gt; — so all six frames share one look and one prompt carries the whole journey.&lt;/p&gt;
+    &lt;div class=&quot;prompt&quot;&gt;&lt;span class=&quot;copy&quot; onclick=&quot;cp(this)&quot;&gt;Copy&lt;/span&gt;Create one 16:9 storyboard sheet: a 3-column × 2-row grid of six cinematic panels that follow one fan's journey for the campaign &quot;THE NUMBERED DROP&quot; (Chengdu Panda Base, global panda-conservation IP).
+
+STYLE (all panels): cinematic feature-film still, ONE consistent look — deep-teal palette (background deep teal #043835, teal #077069), warm cream highlights (#F4EFE4) and mint accents (#CDE2E1); soft cinematic night / lamp lighting, shallow depth of field, 35mm film grain, high contrast. Clean modern sans-serif headline in white UPPERCASE top-left with a one-line subtext below it; leave the left third clear for the headline. A small cream collector tag reading &quot;No. 001&quot; may appear. No watermark, no logo.
+
+Panel 1 · ATTRACT — a young woman in a dim apartment at night, a city skyline through the window, smiling as she watches a giant-panda live-cam on her phone (small red &quot;LIVE&quot; badge); the phone glow tints her face teal. Headline &quot;ALWAYS-ON FANDOM&quot;; subtext &quot;Live from Chengdu. Streaming straight to Jakarta 24/7.&quot;
+Panel 2 · TEASE — a cheerful collector-creator on a night livestream set holding a sealed &quot;DROP 1&quot; kit box, ring light and phone on a tripod, floating chat reactions, a &quot;24:00:00&quot; countdown overlay. Headline &quot;CREATOR COUNTDOWN&quot;; subtext &quot;DROP 1 · 24 hours. Serial number inside.&quot;
+Panel 3 · CONVERT — a drop-day scene: a limited numbered panda collectible on a pedestal under a dramatic spotlight, foreground phones showing &quot;SOLD OUT&quot;. Headline &quot;THE NUMBERED DROP&quot;; subtext &quot;The only panda with a serial number.&quot;
+Panel 4 · AMPLIFY — a collector's home shelf at night with several numbered panda figures (No. 001, No. 002 …) and the owner photographing them; warm lamp, soft bokeh. Headline &quot;UNBOX &amp; SHELFIE&quot;; subtext &quot;Unbox. Display. Share. The collection grows.&quot;
+Panel 5 · BELONG — a hand holding a cream Founding-membership card with a panda emblem (&quot;FOUNDING MEMBER · $30/yr&quot;) beside a numbered certificate &quot;No. 001&quot;; soft teal rim light, premium feel. Headline &quot;FOUNDING MEMBERSHIP&quot;; subtext &quot;A rare beginning. Yours to keep.&quot;
+Panel 6 · DEEPEN — a traveler arriving at the Chengdu panda-base gate in soft morning light — bamboo, a welcome banner, a phone showing the Panda Pass, a panda-keeper silhouette. Headline &quot;COME MEET THEM&quot;; subtext &quot;Watch. Join. Then come meet them.&quot;
+
+Number the panels 1–6 top-left; keep one consistent style across all six; thin gutters between panels. 16:9.&lt;/div&gt;
+    &lt;div class=&quot;back&quot;&gt;Bring back: &lt;b&gt;media/storyboard/storyboard-sheet.png&lt;/b&gt; → one 6-panel sheet image; the AI embeds it in the storyboard page.&lt;/div&gt;
   &lt;/div&gt;
 
   &lt;footer&gt;Human-led, AI-scaffolded. Tool output is a bonus, not a required deliverable. Data as of 2026-10-07.&lt;/footer&gt;
@@ -6854,16 +6650,15 @@ opencode</code></pre>
 
   <section id="facilitator">
     <h2>6 · 现场 facilitator 模式（以 Quest B 为例）</h2>
-    <div class="note" style="margin-bottom:14px;">⏱ <b>50 分钟如何分配</b>：<b>40′</b> 用 Toolkit 完成全部产出（洞察 → 策划 → 海报 → 论证 → 呈现）；<b>10′</b> 整理 Showcase 输出、准备 Showcase 形式并提交。每个环节都是三步：<b>AI 出菜单 → 团队选择 → AI 执行</b>。</div>
+    <div class="note" style="margin-bottom:14px;">⏱ <b>50 分钟如何分配</b>：<b>40′</b> 用 Toolkit 完成全部产出（洞察 → 策划 → 海报 → 呈现）；<b>10′</b> 整理 Showcase 输出、准备 Showcase 形式并提交。每个环节都是三步：<b>AI 出菜单 → 团队选择 → AI 执行</b>。</div>
 
     <div class="card">
       <div class="eyebrow">命令流程（以 Quest B 为例）</div>
       <ol class="steps">
         <li><b><code>/start B</code> 开场</b>：读 Quest B 卡、讲清任务与四阶段、预告 research，<b>等团队确认</b>后再开始。</li>
         <li><b><code>/insight</code> 洞察</b> → <code>insight-brief.html</code></li>
-        <li><b><code>/plan</code> 策划</b> → <code>campaign-plan.html</code>（含 <code>poster</code>）</li>
+        <li><b><code>/plan</code> 策划</b> → <code>campaign-plan.html</code>（方案 + pilot 预测）</li>
         <li><b><code>/poster</code> 海报</b> → <code>poster-a/b/c.html</code> + <code>poster.html</code></li>
-        <li><b><code>/prove</code> 论证</b> → <code>proof.html</code>（单屏 pilot 指标 + 推演）</li>
         <li><b><code>/showcase</code> 呈现</b> → <code>proposal.html</code> + <code>pitch-deck.html</code> + <code>prompt-pack.html</code></li>
       </ol>
     </div>
@@ -6871,8 +6666,8 @@ opencode</code></pre>
     <div class="card">
       <div class="eyebrow">Facilitator 现场六件事</div>
       <ol class="steps">
-        <li><b>开场先讲清全景与分工。</b>用「用法总览」的旅程图带团队过一遍：4 个阶段 + 海报；每个环节都是「AI 出菜单 → 团队选择 → AI 执行」；<b>团队做判断，AI 做执行</b>。
-          <div class="say"><span class="k">Say to the team</span>Here's the whole flow: Insight → Plan → Poster → Prove → Showcase. At every step the AI drafts a grounded menu, you choose, then the AI executes. <b>You make the calls; the AI does the work.</b> 40 minutes to produce, 10 to package and submit.</div>
+        <li><b>开场先讲清全景与分工。</b>用「用法总览」的旅程图带团队过一遍：4 个阶段（洞察 → 策划 → 海报 → 呈现）；每个环节都是「AI 出菜单 → 团队选择 → AI 执行」；<b>团队做判断，AI 做执行</b>。
+          <div class="say"><span class="k">Say to the team</span>Here's the whole flow: Insight → Plan → Poster → Showcase. At every step the AI drafts a grounded menu, you choose, then the AI executes. <b>You make the calls; the AI does the work.</b> 40 minutes to produce, 10 to package and submit.</div>
         </li>
         <li><b>示范如何用 <code>/start</code> 开始与 AI 协作。</b>当场输入 <code>/start B</code>，让团队看到命令触发 Agent、读取题卡、讲清任务与四阶段，并<b>等待确认</b>；确认后再 research（约数分钟），并给出第一份带数据的「菜单」。
           <div class="say"><span class="k">Say to the team</span>I'll kick us off now — watch the screen. <i>(type <code>/start B</code>)</i> The AI reads Quest B, explains the plan, and waits for our go-ahead before it starts. Once we say go, it researches for a few minutes, then hands us the first data-backed menu. Every stage starts like this.</div>
@@ -6901,7 +6696,6 @@ opencode</code></pre>
           <tr><td>洞察</td><td><code>/insight</code></td><td><code>agent-reach</code> · <code>business-research</code> · <code>market-trends</code> · <code>audience-analysis</code> · <code>insight</code></td><td><a href="demo-examples/QuestB-02/insight-brief.html" target="_blank">insight-brief.html ↗</a></td></tr>
           <tr><td>策划</td><td><code>/plan</code></td><td><code>creative-concept</code> · <code>channel-strategy</code> · <code>plan</code></td><td><a href="demo-examples/QuestB-02/campaign-plan.html" target="_blank">campaign-plan.html ↗</a></td></tr>
           <tr><td>海报</td><td><code>/poster</code></td><td><code>poster</code></td><td><a href="demo-examples/QuestB-02/poster.html" target="_blank">poster.html ↗</a></td></tr>
-          <tr><td>论证</td><td><code>/prove</code></td><td><code>prove</code></td><td><a href="demo-examples/QuestB-02/proof.html" target="_blank">proof.html ↗</a></td></tr>
           <tr><td>呈现</td><td><code>/showcase</code></td><td><code>showcase</code></td><td><a href="demo-examples/QuestB-02/proposal.html" target="_blank">proposal.html ↗</a> · <a href="demo-examples/QuestB-02/pitch-deck.html" target="_blank">pitch-deck.html ↗</a></td></tr>
         </tbody>
       </table>

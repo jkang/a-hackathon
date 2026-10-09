@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}} · Campaign Storyboard (16:9)</title>
+<style>
+  /* ---- Storyboard dark surface set -------------------------------------------------
+     Brand anchors: --ascentium-midnight #0F1514, --ascentium-orange #FF6611, teal #077069.
+     The storyboard is an immersive dark viewer, so it uses the midnight family plus a few
+     darker surfaces (below). Accent ({{ACCENT}}) is injected from the quest card (quest-card.md). */
+  :root{
+    --ascentium-midnight:#0F1514; --ascentium-orange:#FF6611;
+    --sb-page:#050A0A; --sb-deck:#0B1211; --sb-card:#101B19; --sb-line:#1F2E2C;
+    --sb-cream:#F4EFE4; --sb-muted:#8FA8A3; --sb-text:#C7D4D1; --sb-faint:#5C6E6A;
+    --accent:#077069; --accent-tint:#CDE2E1; --accent-line:#83B8B4; --accent-deep:#043835;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:100%;height:100%;background:var(--sb-page);overflow:hidden;
+    font-family:"Poppins","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;color:var(--sb-cream);}
+  .stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(120% 90% at 50% 0%, color-mix(in srgb, var(--accent) 16%, var(--sb-page)) 0%, var(--sb-page) 62%);}
+  .deck{width:1280px;height:720px;position:relative;background:var(--sb-deck);border:1px solid #16211F;border-radius:14px;overflow:hidden;
+    box-shadow:0 24px 70px rgba(0,0,0,.6);transform-origin:center center;flex:none;}
+  .slide{position:absolute;inset:0;padding:30px 44px 44px;display:flex;flex-direction:column;}
+  .brandbar{display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--accent);padding-bottom:10px;flex:none;}
+  .logo{font-weight:800;font-size:18px;color:var(--sb-cream);} .logo span{color:var(--accent-tint);}
+  .tag{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sb-muted);}
+  .titlerow{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-top:12px;flex:none;}
+  h1{font-size:25px;font-weight:800;letter-spacing:-.01em;color:var(--sb-cream);}
+  h1 em{font-style:normal;color:var(--accent-tint);}
+  .range{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-tint);white-space:nowrap;}
+  .boardbox{flex:1;min-height:0;margin-top:16px;display:flex;align-items:center;justify-content:center;}
+  .boardbox img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;background:#0B1211;
+    border:1px solid var(--sb-line);border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.55);}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px;flex:none;}
+  .lchip{font-size:10.5px;font-weight:600;color:var(--accent-tint);border:1px solid var(--sb-line);
+    border-radius:999px;padding:5px 12px;background:var(--sb-card);}
+  .lchip b{color:var(--accent);font-weight:800;font-variant-numeric:tabular-nums;margin-right:5px;}
+  .hint{position:absolute;bottom:14px;right:44px;font-size:10px;color:var(--sb-faint);letter-spacing:.04em;}
+  @media print{ @page{size:A4 landscape;margin:6mm;} html,body{background:var(--sb-deck);overflow:visible;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .stage{position:static;display:block;} .deck{width:100%;height:auto;box-shadow:none;border-radius:0;}
+    .hint{display:none;} }
+</style>
+</head>
+<body data-quest="{{QUEST}}" style="--accent:{{ACCENT}};--accent-tint:{{ACCENT_TINT}};--accent-line:{{ACCENT_LINE}};--accent-deep:{{ACCENT_DEEP}};">
+<div class="stage"><div class="deck" id="deck">
+{{SLIDES}}
+  <div class="hint">F fullscreen &middot; print = one landscape page</div>
+</div></div>
+<script>
+(function(){
+  var deck=document.getElementById('deck');
+  function fit(){ var s=Math.min(window.innerWidth/1280, window.innerHeight/720); deck.style.transform='scale('+s+')'; }
+  document.addEventListener('keydown',function(e){
+    if(e.key==='f'||e.key==='F'){ if(!document.fullscreenElement){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();} else {document.exitFullscreen&&document.exitFullscreen();} }
+  });
+  window.addEventListener('resize',fit); fit();
+})();
+</script>
+</body>
+</html>

@@ -60,13 +60,9 @@ MENU · <stage> — pick <N> (30s), or +1 of your own
 
 > Market trends are **shown in full, not picked** — the AI curates the merged market read (shifts + hard facts + external opportunities/threats) into the brief.
 
-**Plan · creative idea** — "Pick 2–3 starters to build on (or remix)."
-1 Creator squads recruit crews · 2 Bundle a trip + tickets · 3 A branded standing section · 4 A founding-members club · 5 A live cams / behind-the-scenes play · 6 A loyalty/referral loop · 7 A "first time" concierge · 8 A family travel package
+**Plan · concept keywords** — the one input is an **example-led open ask, not a pick**: "Give me **1–2 concept keywords** to steer the campaign — e.g. *national pride · first-timers · family · creators · collectors · eco/cause · nostalgia · underdogs · belonging · unmissable* — or your own." The examples are inspiration; the team authors the keywords. There is **no A/B menu** and **no end-of-stage pick** in the Plan stage — the AI builds one campaign directly from the keywords.
 
-**Plan · pilot markets** — "Pick 2 markets."
-1 China · 2 Indonesia · 3 Thailand · 4 Vietnam · 5 Philippines · 6 India · 7 Japan · 8 Malaysia
-
-**Prove · forecast** — no menu: the AI produces the forecast directly (no team pick).
+**Plan · pilot forecast** — no menu: the AI produces the forecast as part of the plan (no team pick).
 1 Ticket-intent rate · 2 CAC per hold/member · 3 Creator reach · 4 Group-booking ratio · 5 Bundle attach · 6 Conversion rate · 7 Merch sell-through · 8 Organic reach
 
 **Showcase · storyline** — the 5 storylines are already a menu (Classic / Hero's Journey / Big Reveal / Demo / Trailer).

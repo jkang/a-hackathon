@@ -22,7 +22,6 @@ ARTIFACTS = {
     "SRCDOC_INSIGHT": "insight-brief.html",
     "SRCDOC_PLAN": "campaign-plan.html",
     "SRCDOC_POSTER": "poster.html",
-    "SRCDOC_PROOF": "proof.html",
     "SRCDOC_DECK": "pitch-deck.html",
     "SRCDOC_PROMPT": "prompt-pack.html",
 }

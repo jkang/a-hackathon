@@ -17,10 +17,10 @@ The **most-seen asset** of a campaign. It must be **self-contained**: a stranger
 
 ## Inputs
 
-- The `campaign-plan.html` capture — **the chosen plan** (`plans[chosen_plan]`): name, slogan, proposition, `offer` (a one-line `summary` + exactly 3 `cards` — offer / markets / access, or the membership tiers), pilot markets, budget, and its `visual_direction` + `one_liner`.
+- The `campaign-plan.html` capture — **the plan** (`plan`): name, slogan, proposition, `offer` (a one-line `summary` + exactly 3 `cards` — offer / markets / access, or the membership tiers), pilot markets, budget, and its `visual_direction` + `one_liner`.
 - The `insight-brief.html` capture — audience + moment (for the anchor).
 - **Resume (recover upstream).** If run on its own (`/poster`), find the latest round `artifacts/Quest<ID>-*` and read both captures from that folder; if the round is unambiguous, state it and continue — ask only when genuinely ambiguous. If either capture is missing, say so and ask the team to run `/plan` (or `/insight`) first.
-- **Reuse the chosen plan's `visual_direction` + `one_liner`** from the capture — do **not** re-derive them. The team's **single decision is the style pick** (Style A / B / C — Full-Bleed Hero / Belonging Passport / Midnight Minimal) — made **after** the three posters are built, **never** requested beforehand.
+- **Reuse the plan's `visual_direction` + `one_liner`** from the capture — do **not** re-derive them. The team's **single decision is the style pick** (Style A / B / C — Full-Bleed Hero / Belonging Passport / Midnight Minimal) — made **after** the three posters are built, **never** requested beforehand.
 
 ## Anatomy (top → bottom)
 
@@ -56,7 +56,7 @@ Offer **3 genuinely different designs**, each matched to a campaign tone. Keep o
 
 > The style names are **tone archetypes, not quest labels** — a quest card may rename them via `poster_styles` (see `quest-card.md`).
 >
-> **Do not conflate the plan with the style.** `chosen_plan` (A | B) is the **campaign** the team picked in the plan stage; `poster_style` (a | b | c) is the **poster design** picked here. Different letters, different concepts.
+> **Do not conflate the plan with the style.** The **plan** (the single campaign, built from the team's concept keywords) is the campaign content; `poster_style` (a | b | c) is the **poster design** picked here. Different concepts.
 
 - Set the accent from the quest card's `accent` (injected as `--accent` / `--accent-tint` / `--accent-line` / `--accent-deep` on `<body>`); the key visual comes from the card's `key_visual_svg`, re-art-ed per style.
 - Each style is a full, self-contained poster (all 9 anatomy sections) — never a partial.
@@ -65,7 +65,7 @@ Offer **3 genuinely different designs**, each matched to a campaign tone. Keep o
 
 ## Workflow
 
-1. Pull name / slogan / proposition / the structured `offer` (summary + 3 cards) / pilot markets / budget from **`plans[chosen_plan]`** in the `campaign-plan.html` capture, and **reuse that plan's `visual_direction` + `one_liner`**.
+1. Pull name / slogan / proposition / the structured `offer` (summary + 3 cards) / pilot markets / budget from **`plan`** in the `campaign-plan.html` capture, and **reuse that plan's `visual_direction` + `one_liner`**.
 2. Fill the shared content pack once into `templates/poster-page.html` (leave the `{{POSTER_STYLE}}` tokens) and the few fields in `templates/poster-tabs.html`; inject the accent vars (`--accent` / `--accent-tint` / `--accent-line` / `--accent-deep`) from the quest card, plus the key-visual motif and the `{{STYLE_*}}` names.
 3. Build the deliverable: `python3 scripts/build-posters.py --dir artifacts/Quest<ID>-<NN>/ [--default a]` → `poster-a.html` · `poster-b.html` · `poster-c.html` · `poster.html`. (Write into the current round folder — see `quest-card.md` → *Output layout*.)
 4. **Team previews the 3 styles and picks one** (HITL — the AI does not choose), via the tab page and/or the Showcase deck.

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build a standalone, self-contained Toolkit demo HTML.
 
-Reads the SCENES + logo from host-deck.html, base64-embeds the 18 screenshots
+Reads the SCENES + logo from host-deck.html, base64-embeds the screenshots
 from assets/video/, and writes toolkit-demo.html — one shareable file.
 
 Usage:  python3 build-toolkit-demo.py
