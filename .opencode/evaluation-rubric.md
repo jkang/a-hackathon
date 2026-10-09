@@ -47,7 +47,7 @@ Pct   = Total × 20                # out of 100
 
 **"Number defensibility."** Ideas and insights are usually strong; the *numbers* (pilot targets) are where pitches collapse under questioning. Fix with the derivation templates:
 
-- Pilot metrics & derivation chain: `prove/references/metrics-method.md`.
+- Pilot metrics & derivation chain: `plan/references/pilot-forecast.md`.
 - Price anchor & budget split: `plan/references/budget-model.md`.
 
 A number you can't show a derivation for (benchmark → assumption → formula) is a claim, not a case.

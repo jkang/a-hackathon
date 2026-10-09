@@ -21,8 +21,8 @@
 
 1. **场景是「营销商业方案」挑战，不是「AI 产品」挑战。** 一切技能以营销咨询口径设计，禁止直接套用 AI 产品 / FDE 口径。
 2. **低门槛、开箱即用。** 目标参与者为非技术业务管理者，50 分钟内可跑通；技能粒度采用 **分阶段打包（方案甲）**。
-3. **方案甲结构**：对外只暴露 4 个阶段技能 + 品牌 + Meta，降低选择成本。
-   - `insight`（洞察）→ `plan`（策划，战略与创意合并）→ `prove`（论证）→ `showcase`（呈现，AUTO）
+3. **方案甲结构**：对外暴露 3 个阶段技能 + `poster` + 品牌 + Meta，降低选择成本。
+   - `insight`（洞察）→ `plan`（策划，战略与创意合并；含 pilot 预测）→ `showcase`（呈现，AUTO）；`poster`（Create）独立；`prove`（论证）已休眠（pilot 预测并入 `plan`）
 4. **改造类技能一律「复制后在本库内改写」**，不直接引用外部源库；源库文件仅作原料，不改动源库。
 5. **品牌唯一来源**：`.opencode/skills/ascentium-brand/brand-guideline.md`（Ascentium Brand Guidelines R1.10，含 Design Tokens）。所有海报 / PPT / 看板 / 页面必须引用该文件，禁止凭记忆写样式。
 6. **不使用 Inspire 品牌技能**（那是另一套），本场景统一用 Ascentium 品牌。
@@ -45,7 +45,7 @@
 │   │   └── sub-skills/  creative-concept
 │   │       （references: marketing-plan · channel-strategy · pilot-experiment · budget-model）
 │   ├── poster/                        # Poster（Create 阶段，独立）→ poster-a/b/c.html + poster.html
-│   ├── prove/                         # 论证门 → proof.html（单屏 pilot 指标）
+│   ├── prove/                         # 论证门（休眠：pilot 预测已并入 plan；保留备用）
 │   │   └── sub-skills/  campaign-metrics · data-visualizer-pro（保留·休眠）
 │   ├── showcase/                      # 呈现门（AUTO）→ proposal / pitch-deck / prompt-pack / storyboard（内嵌 poster）
 │   │   └── sub-skills/                # campaign-storyboard（6 面板单图 → standalone 16:9 看板 → storyboard.html）
@@ -53,7 +53,7 @@
 │   ├── facilitation/                  # 共创引擎（协议库/节奏/话术/选项菜单/采集契约）
 │   └── ascentium-brand/               # 品牌执行器（tokens.css + 规则 + brand-guideline.md）
 ├── agents/                            # facilitator.md（编排）· runner.md（自动）· researcher.md（研究）
-├── commands/                          # start · insight · plan · poster · prove · showcase · evaluate · run
+├── commands/                          # start · insight · plan · poster · showcase · evaluate · run
 └── package.json · node_modules/       # opencode 运行时（已 gitignore）
 ```
 
@@ -66,14 +66,14 @@
 
 ## 4. 技能处置清单（锁定）
 
-**对外只暴露 4 个阶段技能 + 品牌 + Meta**（方案甲，分阶段打包）：
+**对外只暴露 3 个阶段技能 + poster + 品牌 + Meta**（方案甲，分阶段打包）：
 
 | 阶段技能 | 对接 Arsenal 能力 | 吸收/改造的 sources |
 |---|---|---|
 | `insight` | Market Research · Audience Analysis · Benchmark Analysis · Company Profiler (IP audit) | `business-research`、`market-trends`、`audience-analysis` |
-| `plan` | Creative Concept · Channel Strategy · MVP Pilot Design · Marketing Plan · Budget | `creative-concept`、`channel-strategy` |
+| `plan` | Creative Concept · Channel Strategy · MVP Pilot Design · Marketing Plan · Budget · Pilot Metrics | `creative-concept`、`channel-strategy` |
 | `poster`（Create 阶段，独立） | Poster（Create 阶段） | `ref-palette-slide` |
-| `prove` | Pilot Metrics（pilot 预期指标 + 推演逻辑；单屏） | `mvp-metrics-generator`→campaign-metrics、`data-visualizer-pro`（保留·休眠） |
+| ~~`prove`~~（已休眠） | Pilot Metrics 已并入 `plan`（pilot 预期指标 + 推演逻辑，渲染于 `campaign-plan.html`） | `mvp-metrics-generator`→campaign-metrics、`data-visualizer-pro`（保留·休眠） |
 | `showcase` | Showcase Report Agent (AUTO) | `html-ppt-generator` |
 
 支撑技能：`ascentium-brand`（品牌执行器）、`facilitation`（共创引擎）、`agent-reach`（实时研究）、`brainstorming`（plan 阶段发散子技能）。
@@ -190,3 +190,5 @@
 - 2026-10-09：**新增 `showcase` 子技能 `campaign-storyboard`**（生成独立 16:9 看板）。把 6 帧图片 + 走查文案装配为单文件 `storyboard.html`（**2 steps/页 · 3 页 · 深色沉浸 · 帧内嵌 data URI 自包含**）：新增 `skills/showcase/sub-skills/campaign-storyboard/{SKILL.md（name+英文触发词）,references/storyboard-method.md（帧/文案 schema · 6 步 journey · 版式/深色 token）,templates/{storyboard.html,storyboard.example.json},scripts/build-storyboard.py}`；脚本 `--dir/--spec/--frames/--out/--width/--per-page`，默认读 `media/storyboard/storyboard.json`，写 round 根 `storyboard.html`。同步：`skills/showcase/SKILL.md`（「No sub-skills」→ 子技能引用）· `skills/showcase/templates/prompt-pack.html`（新增 Storyboard 媒体类型：共享 STYLE + 6 帧提示词）· `skills/showcase/references/media-prompts.md`（工具表 + §3b Storyboard + 嵌入行）· `README.md`（§3 树 + §5 表）· `DESIGN.md`（§7.4 输出 + 吸收段 + §10 树）· 本文件 §3 树。冒烟验证：从既有 `demo-examples/QuestB-02/storyboard.html` 抽出 6 帧 → `build-storyboard.py --dir /tmp/sbtest` 重建（3 页 / 6 帧内嵌 / accent teal / 无残留占位符）。约定：pitch deck 的 `storyboard` beat 以 srcdoc 内嵌该文件，proposal 加「Storyboard」面板；**命名不带 quest**。
 - 2026-10-09：**Host 大屏 Toolkit 演示去掉「Commands」一步**。`hostdeck/host-deck.html` 的 `SCENES` 移除 `IMG-02`（`Commands · Eight commands run the whole loop`）→ 由 18 场景减为 17（`IMG-01` 直连 `IMG-03`）；`hostdeck/toolkit-video-scripts.md` 删 P02 行并顺延编号（P01–P17）、运行时 `~2:00` → `~1:53`、manifest 去掉 `IMG-02`、player contract `18 objects` → `17 objects`；重新运行 `hostdeck/build-toolkit-demo.py` 重建 `toolkit-demo.html`（`img-02.jpg` 保留在盘、不再内嵌）。
 - 2026-10-09：**Storyboard 的 prompt 改为「一条完整 prompt → 一张 6 面板单图」**（原为「共享 STYLE + 逐帧 6 条 prompt」，生成 6 张独立图）。① `skills/showcase/templates/prompt-pack.html`：Storyboard 卡由「STYLE + FRAME 01–06」7 段改为**单段完整 prompt**（`{{SB_PROMPT}}`），文案改为「paste it once → 单张 6 面板 sheet」。② `skills/showcase/references/media-prompts.md §3b`：重写为「one prompt → one 6-panel sheet（3×2 网格，style 一次锁定 + 六面板顺序 + verbatim 标题）」；工具表输出 `.png × 6` → `.png (one 6-panel sheet)`；嵌入表改为单图。③ **子技能 `campaign-storyboard` 改为单图模型**：`templates/storyboard.html`（单屏 16:9：brandbar + title + 居中 sheet + 六步 legend chip；不再分页/`per_page`）· `scripts/build-storyboard.py`（读 `board` 单图 → 内嵌 data URI → 单 `section`；移除 `--per-page` 分组；`--width` 默认 900→1600）· `templates/storyboard.example.json`（`steps[].file` → 顶层 `board`，steps 变为 `{n,label,headline}` legend）· `SKILL.md` + `references/storyboard-method.md` 全面改写。④ 同步：`skills/showcase/references/pitch-narrative.md`（signature「6-frame fan journey」→「6-panel fan-journey sheet」）· `skills/showcase/templates/pitch-deck.html`（CSS 注释）· `README.md`（§3 树）· `DESIGN.md §7.4` · 本文件 §3 树。⑤ `demo-examples/QuestB-02`：从旧 `storyboard.html` 抽出 6 帧拼成 3×2 单图 → 按新脚本重建 `storyboard.html`（1 sheet / 6 legend chips / accent teal / 无残留占位符）；`prompt-pack.html` 的 Storyboard 卡改为填入的单条完整 prompt。冒烟：`build-storyboard.py` 默认 `--dir` 布局与显式 `--spec/--frames/--out` 两种调用均通过。
+- 2026-10-09：**决策收尾统一为「回顾 + 打开产物讨论 + 内联选项」**。原收尾仅 `Reply with your pick (e.g. 1, 3, 5)`，未提示团队打开产物讨论。新标准两行收尾：① **"Open `{{ARTIFACT}}` and review it with your team — choose the options that fit, or add your own — then reply here to continue."**（`{{ARTIFACT}}` = 当前阶段 HTML，如 `insight-brief.html` / `campaign-plan.html` / `poster.html` / `proposal.html`）；② **"Reply with your pick (e.g. `1, 3, 5`), or type your own."** 撤销旧的「pick prompt 后不得再写有关打开文件的句子」限制。落点：`agents/facilitator.md`（Response format 第 3 块 · PD10 · How-to-run step 6）· `skills/facilitation/SKILL.md`（PD9）· `skills/facilitation/references/{option-menu,facilitator-scripts,capture-contract}.md` · 7 个 command（`insight`/`plan`/`showcase`/`poster`/`start` 收尾；`plan` 关键词轮改为「先打开 `insight-brief.html` 讨论再给关键词」）· `README.md`（§1 non-negotiables 4 与 §5 第 5 条）。原则不变：菜单仍打印在对话里，HTML 只作回顾/讨论的记录，绝非「必须打开才能看到选项」。
+- 2026-10-09：**收尾体验 + 全库一致性清理（review-first / bonus-media upgrade / A/B 与 prove 去残留）**。① **Plan 收尾改 review-first**：不再默认直跳下一步——`campaign-plan.html` 定稿后请团队**打开 review、反馈/修改**（收到即改：`facilitator` Dynamic dispatch 增「Change something in the plan」→ 改 capture、重生成受影响块）；满意后再 `/poster` → `/showcase`。② **Showcase 收尾改 upgrade-first**：`proposal.html` 打包后请团队 review deck，并**建议用 bonus media（歌/视频/图，来自 `prompt-pack.html`；未选则即时生成）增强创意视觉后嵌入**，再提交（不再直跳 submit；`showcase` step 6 更名「Rehearse + upgrade」，嵌入后翻转 capture 的 `bonus_media` 并重建 viewer；「showcase 只写一次」的文档改为「仅因嵌入加分媒体而回访」）。③ **一致性清理**：全库陈旧表述统一——**Plan 无 A/B**（由团队 1–2 concept keywords 直接生成**一套**完整 campaign；team 输入 = keywords，无 end-of-stage pick）；**`prove` 明确休眠**（pilot 预测并入 `plan`，移除 `/prove` 与所有 active-stage 表述，`prove/` 目录标注「休眠·保留」）；同步更新 mermaid / 流程表 / 目录树 / 命令表 / artifact 表 / consumer 表 / evaluation-rubric 引用路径。落点：`.opencode/commands/{plan,showcase,start}.md` · `agents/{facilitator,runner}.md` · `skills/{plan,showcase}/SKILL.md` · `skills/facilitation/references/facilitator-scripts.md` · `.opencode/README.md` · `quest-card.md` · `evaluation-rubric.md` · `DESIGN.md` · 根 `README.md` · 本文件 §2/§3/§4。

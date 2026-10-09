@@ -24,17 +24,19 @@ Each option should carry a **fact, number, or named behavior**; cite the source 
 
 > The team still **selects**; the AI **grounds** the options. Research effort sits with the AI; judgment sits with the team.
 
-## Deliver the menu in the chat (never send them to the HTML)
+## Deliver the menu in the chat (and invite them to the artifact)
 
-The menu lives in the **chat message**, not in an artifact. Print the numbered options directly in your response so the team can reply with numbers. **The HTML is the record of the outcome, not the interface for making the choice.**
+The menu lives in the **chat message**. Print the numbered options directly in your response so the team can reply with numbers. The artifact is the **record to review and discuss around** — never the place they have to go to see the options.
 
 Every turn that produces output ends with a short wrap-up:
 
 1. **Recap (2–4 lines)** — what you just did + the artifact produced (name + path) + the key takeaways.
 2. **The menu, inline** — print it in the message (numbered, with each option's supporting fact).
-3. **Pick prompt (one line) — aligned to the menu** — "Reply with your pick (e.g. `1, 3, 5`)." The example **must match the actual menu**: use its real option numbers and pick count (3-option single pick → *e.g. `1`*; 6–8-option pick-2–3 → *e.g. `1, 3, 5`*). Never cite numbers that aren't on the menu. Add nothing after it.
+3. **Discuss + pick prompt (two lines):**
+   - **"Open `{{ARTIFACT}}` and review it with your team — choose the options that fit, or add your own — then reply here to continue."**
+   - **"Reply with your pick (e.g. `1, 3, 5`), or type your own."** The example **must match the actual menu**: use its real option numbers and pick count (3-option single pick → *e.g. `1`*; 6–8-option pick-2–3 → *e.g. `1, 3, 5`*). Never cite numbers that aren't on the menu. Put nothing after it.
 
-> The options always live in the chat — surface them yourself; never route the team through an artifact to choose.
+> The options always live in the chat — surface them yourself. The artifact is for review/discussion, not a required stop to see the choices.
 
 ## Anatomy
 
@@ -82,4 +84,4 @@ MENU · <stage> — pick <N> (30s), or +1 of your own
 - ❌ Vague options ("do better marketing").
 - ❌ No "+1 own" escape hatch (menus shouldn't cap creativity).
 - ❌ The AI picking the options for the team instead of the team picking.
-- ❌ Routing the team through an artifact to see the options — the menu must be printed in the chat.
+- ❌ Sending the team to the artifact just to *see* the options — print the menu in the chat. (Inviting them to open it to review and discuss is expected; making it the only place to find the options is not.)

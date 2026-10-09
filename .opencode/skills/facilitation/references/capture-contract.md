@@ -16,11 +16,12 @@ Template:
 
 > **hackathon-robot >>** Done: [what I just did]. Artifact: `artifacts/QuestA-01/[file].html`.
 > **MENU · [stage]** — **pick [N]** (30s), or `+1` your own. `1)` … `2)` … `3)` … `4)` … `5)` … `6)`
-> **Reply with your pick (e.g. `1, 3, 5`).**
+> **Open `[file].html` and review it with your team — choose the options that fit, or add your own — then reply here to continue.**
+> **Reply with your pick (e.g. `1, 3, 5`), or type your own.**
 
-> The example must match the actual menu — use its real option numbers and pick count (a 3-option single pick → *e.g. `1`*; a 6–8-option pick-2–3 → *e.g. `1, 3, 5`*). Never cite options that aren't there.
+> The example must match the actual menu — use its real option numbers and pick count (a 3-option single pick → *e.g. `1`*; a 6–8-option pick-2–3 → *e.g. `1, 3, 5`*). Never cite options that aren't there. The artifact named in the invitation is the **current stage's HTML**.
 
-The recap + inline menu are the team's interface; the HTML is only the **record** — the team always chooses in the chat.
+The recap + inline menu are the team's interface; the HTML is the **record to review and discuss around** — the team always chooses in the chat.
 
 ## Where the capture lives — inside the HTML
 

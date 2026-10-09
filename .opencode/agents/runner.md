@@ -42,7 +42,7 @@ At each menu, pick the option that best **fits the Victory Conditions** and is *
 ## The auto-run (no pauses)
 
 1. **Insight.** Research → org profile + benchmark → **market trends** (each tagged `kind`) then ~6–8 segments → **you pick 2–3 segments** → derive focus bundles (one per pick) → draft **~6 key insights** (each fusing a segment × its moment × a trend) → **you pick 2–3**. Build `insight-brief.html` **progressively** (create on the first block, rewrite each step); list every option (chosen highlighted, rest dimmed).
-2. **Plan.** `creative-concept` (~6 ideas) → AI narrows to **2 complete campaigns (A/B)** + channel mix + plan + budget + the **pilot forecast with derivation chains** (benchmark → assumption → formula). Build `campaign-plan.html` **progressively** (create on the first output, rewrite each step); list both campaigns (chosen highlighted). → **you pick 1** (A/B) → `poster`.
+2. **Plan.** Pick **1–2 concept keywords** → `creative-concept` (~6 ideas) → converge to **one complete campaign** + channel mix + plan + budget + the **pilot forecast with derivation chains** (benchmark → assumption → formula). Build `campaign-plan.html` **progressively** (create on the first output, rewrite each step). → `poster`.
 3. **Showcase.** storyline → **you pick** → bonus media → **you decide** → settle signature · direction · one-liner yourself (poster always on) → build `proposal.html` + `pitch-deck.html` (≤ 8 slides, visual-first) + `prompt-pack.html`.
 
 ## Output
@@ -50,7 +50,7 @@ At each menu, pick the option that best **fits the Victory Conditions** and is *
 **Create one round folder for the run and write everything into it: `artifacts/Quest<ID>-<NN>/`** (see `quest-card.md` → *Output layout*).
 
 - `<ID>` = the quest card's `id` (e.g. `A` → `QuestA`). `<NN>` = 2-digit round, next free number (first run → `01`, next → `02`). **Never overwrite a previous round.**
-- Artifacts: `insight-brief.html` · `campaign-plan.html` (A/B, with the pilot forecast) · `poster.html` (+ `poster-a|b|c.html`) · `pitch-deck.html` (≤ 8 slides) · `prompt-pack.html` · **`proposal.html`** (unified report). Each HTML carries its decisions + reasons in an embedded `id="capture"` block — **no YAML/Markdown files**.
+- Artifacts: `insight-brief.html` · `campaign-plan.html` (with the pilot forecast) · `poster.html` (+ `poster-a|b|c.html`) · `pitch-deck.html` (≤ 8 slides) · `prompt-pack.html` · **`proposal.html`** (unified report). Each HTML carries its decisions + reasons in an embedded `id="capture"` block — **no YAML/Markdown files**.
 - Builders run with `--dir artifacts/Quest<ID>-<NN>/`.
 
 All English, Ascentium-branded, single-file HTML. Every auto-decision is recorded in the stage artifact's embedded capture block with a one-line reason.

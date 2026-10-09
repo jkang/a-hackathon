@@ -28,7 +28,7 @@ The final stage. The **team makes two decisions — the storyline and whether to
 3. **AI settles the rest (no decision).** The AI takes the **signature element** from the storyline's default, **reuses the plan's `visual_direction` + `one_liner`** (`plan` in the `campaign-plan.html` capture — do not re-derive), and **always includes the poster** in the deck (the `poster` beat, using `poster_style` from the capture — default `a` if none was picked).
 4. **Build (AI, AUTO, 5′).** Assemble the signature element + the deck (`pitch-deck.html` with `data-storyline` and `data-poster="yes"`) — **hard cap 8 slides, visual-first** (fewer text blocks, more full-bleed visual).
 5. **Embed (AI).** Embed any returned media files into the matching slide.
-6. **Rehearse (team, 1′).** 30-second dry run + tweaks.
+6. **Rehearse + upgrade (team, 1′).** 30-second dry run + tweaks. Then offer the **bonus-media upgrade**: to strengthen the deck's creative visuals, generate song / video / image from `prompt-pack.html` — **write it now if the team initially chose none** — and embed the returned files (flip the matching `bonus_media` flag in the capture, then rebuild the proposal viewer). Do **not** default straight to "submit".
 
 ## HITL checkpoints (mandatory)
 

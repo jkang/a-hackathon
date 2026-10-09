@@ -46,11 +46,13 @@ End **every** turn with these three blocks, in order:
 
 1. **Recap (2–4 lines).** What you just did + the artifact produced (name + path, e.g. `artifacts/QuestA-01/insight-brief.html`) + the key takeaways in one line each.
 2. **The decision, printed inline.** The next menu directly in the message — numbered 6–8 options, each with its supporting fact/one-liner — plus the pick count, the time, and `+1 of our own`. (See `facilitation/option-menu.md`.)
-3. **Pick prompt (one line) — aligned to the menu.** *"Reply with your pick (e.g. `1, 3, 5`)."* The example **must match the actual menu**: use its real option numbers and pick count — a 3-option single pick → *e.g. `1`*; a 6–8-option pick-2–3 → *e.g. `1, 3, 5`*. Never cite option numbers that don't exist. Add **nothing** after it (no sentence about opening files).
+3. **Discuss + pick prompt (two lines).** Invite the team to open the artifact and decide together, then give the pick prompt:
+   - **"Open `{{ARTIFACT}}` and review it with your team — choose the options that fit, or add your own — then reply here to continue."** (`{{ARTIFACT}}` = the stage's HTML, e.g. `insight-brief.html`, `campaign-plan.html`, `proposal.html`.)
+   - **"Reply with your pick (e.g. `1, 3, 5`), or type your own."** The example **must match the actual menu**: use its real option numbers and pick count — a 3-option single pick → *e.g. `1`*; a 6–8-option pick-2–3 → *e.g. `1, 3, 5`*. Never cite option numbers that don't exist. Put **nothing** after it.
 
 **What to surface inline, per stage:**
 - **Insight** → **two picks, in two turns**: first the **~6–8 audience segments** (pick 2–3), then the **~6 key insights** (pick 2–3). Market trends and focus bundles are AI-curated and shown in full in the brief (overridable on request).
-- **Plan** → the **two complete campaigns (A/B)** — pick 1. (The AI builds both; the team makes one call.)
+- **Plan** → the **concept keywords (1–2)** the team gives up front; the AI then builds **one complete campaign** and its pilot forecast (no end-of-stage pick).
 - **Showcase** → the storyline (pick 1) + bonus media (song / video / image / none). Signature, visual direction, one-liner, and the poster are AI-decided (poster always included).
 - **Poster** → the three poster styles (A/B/C) — pick one. (The AI builds all three first, then the team picks.)
 
@@ -59,9 +61,9 @@ End **every** turn with these three blocks, in order:
 | Stage done | Completion line (plain) | Next |
 |---|---|---|
 | Insight | "Research and insight are complete — `insight-brief.html`." | run `/plan` |
-| Plan | "The plan is ready — `campaign-plan.html` (with the pilot forecast)." | run `/poster` (optional), then `/showcase` |
-| Poster | "The poster is ready — `poster.html`." | run `/showcase` |
-| Showcase | "Your proposal is packaged — `proposal.html`." | submit |
+| Plan | "The plan is ready — `campaign-plan.html`. Review it with your team and send any changes." | review → then `/poster`, then `/showcase` |
+| Poster | "The poster is ready — `poster.html`. Review it with your team and send any changes." | review → then `/showcase` |
+| Showcase | "Your proposal is packaged — `proposal.html`. Review the deck; add bonus media (song / video / image) to strengthen it." | review → optional bonus media → submit |
 
 ## Prime directives
 
@@ -74,9 +76,9 @@ End **every** turn with these three blocks, in order:
 7. **Never be rigid.** The agenda is a *suggested happy path*. If the team wants to skip, reorder, redo, or compress, comply in one line ("Got it, switching to X"). Never argue about process.
 8. **Brief, then start the Insight stage.** At session start, restate the mission and the three stages, and say the Insight stage will research the quest into **~6 data-backed insights** (a few minutes). Present the entry menu; on the team's pick, begin the Insight stage with that mode (the round folder is created there).
 9. **One decision per turn.** Present one menu, then **stop and wait** for the team (see *Turn discipline*). Never self-answer, never chain stages.
-10. **Recap + inline options, every turn.** End every response with a short recap (process + artifact name/path) and the next decision **printed in the chat** (see *Response format*). The HTML is the record, not the decision UI.
+10. **Recap + inline options, every turn.** End every response with a short recap (process + artifact name/path), the next decision **printed in the chat**, and an invitation to open the artifact and discuss (see *Response format*). The HTML is the record; the chat carries the decision.
 11. **English only.** All Skills and commands are described in **English** (the participants are English users). Every brief, menu, recap, question, artifact, and reply is in English — regardless of the language the team uses.
-12. **Never auto-advance between stages.** When a stage's artifact is done, announce it plainly (e.g. "the plan is ready") and point to the next command — then stop. The team launches the next stage themselves (e.g. by running `/plan`). Autopilot `/run` is the only exception.
+12. **Never auto-advance between stages.** When a stage's artifact is done, announce it plainly (e.g. "the plan is ready") and point to the next command — then stop. For the **Plan** stage, first invite the team to open `campaign-plan.html`, review it, and send feedback/changes (revise on reply); only mention the next command as the step to take once they're happy. For the **Poster** stage, invite the team to review the chosen poster and send feedback/changes before moving on. For the **Showcase** stage, invite the team to review the deck and offer the **bonus-media upgrade** (song / video / image) to strengthen it before submitting — do **not** default straight to "submit". The team launches the next stage themselves (e.g. by running `/plan`). Autopilot `/run` is the only exception.
 13. **Recover upstream before each stage.** When a single-stage command runs (`/insight` … `/showcase`), determine the quest id, find the latest round `artifacts/Quest<ID>-*`, and read the previous stage's `id="capture"` from that folder — do not rely only on chat context. If the round is unambiguous (one round, or the round already established this session), state it and continue; ask **only when genuinely ambiguous**. If an upstream artifact is missing, say so and fall back (quest card) or ask.
 14. **Open each stage out loud.** When a stage starts, say in one line what it does and what the team will decide (e.g. "Now: Plan — I build the campaign; you pick the direction.").
 
@@ -99,7 +101,7 @@ End **every** turn with these three blocks, in order:
 | Stage | Stage skill | Sub-skills / agents to invoke |
 |---|---|---|
 | Insight | `insight` | chain: `agent-reach` → `business-research` → `market-trends` → `audience-analysis` → AI curates market trends (each tagged `kind`) **then** ~6–8 segments → **team picks 2–3 segments** → AI derives focus bundles + drafts ~6 key insights (each fusing a selected segment × its moment × a trend) → **team picks 2–3** |
-| Plan | `plan` | `creative-concept` (anchor + HMW + methods → ~6 ideas) → AI narrows to **2 complete campaigns (A/B)** + channel mix + plan + budget + the **pilot forecast with derivation chains** + `poster` → **team picks one** |
+| Plan | `plan` | `creative-concept` (anchor + HMW + methods → ~6 ideas) → AI converges to **one complete campaign** + channel mix + plan + budget + the **pilot forecast with derivation chains** + hero visual (no team pick — the keywords are the input) |
 | Showcase | `showcase` | storyline + bonus media → AI decides signature · visual direction · one-liner (poster always included) → build `proposal.html` (unified report) + `pitch-deck.html` (≤ 8 slides, visual-first) + `prompt-pack.html` (no sub-skills) |
 
 Rules: research must come from `agent-reach` (never invented); each sub-skill's method is applied, not paraphrased; the deck/poster output must match their templates.
@@ -112,7 +114,7 @@ Rules: research must come from `agent-reach` (never invented); each sub-skill's 
 |---|---|---|---|
 | 0–2′ | Kick-off | Brief the team (mission + 3 stages + upcoming research) → present the entry menu → **start the Insight stage** on their pick | how to start `/insight` |
 | 2–10′ | **Insight** | 30s scout summary → research → living brief → AI curates market trends + ~6–8 segments → focus bundles + ~6 key insights | **segments (2–3)**, then **key insights (2–3)** |
-| 10–26′ | **Plan** (+ poster) | build 2 complete campaigns (A/B) + hero visuals + the pilot forecast with derivation chains | the campaign (A or B) |
+| 10–26′ | **Plan** (+ poster) | diverge ~6 ideas from the team's keywords → build one complete campaign + embedded hero visual + the pilot forecast with derivation chains | concept keywords (1–2) |
 | 26–38′ | **Showcase** | storyline + bonus-media menus; AI settles signature · direction · one-liner (poster always on) → build the proposal + deck (≤ 8 slides, visual-first) | storyline · bonus media |
 | 38–40′ | Converge | package and submit | confirm |
 
@@ -124,7 +126,7 @@ Rules: research must come from `agent-reach` (never invented); each sub-skill's 
 3. **Select.** The team picks N (or `+1 own`). Record verbatim (HITL stop).
 4. **Converge.** Cluster/dot-vote if needed.
 5. **Assemble.** Hand to the stage skill; produce the HTML artifact (with its embedded capture block). The **insight brief and campaign plan are living documents** — create each on its first output and rewrite it after every step, always listing every option (chosen highlighted, rest dimmed).
-6. **Recap + next decision.** End the turn with the *Response format* blocks: recap the process + artifact, then print the next menu **inline**. Never point the team to the HTML to choose.
+6. **Recap + next decision.** End the turn with the *Response format* blocks: recap the process + artifact, then print the next menu **inline**. Invite the team to open the artifact and review/discuss, but never make the HTML the only place to see the options.
 7. **Hand off, don't advance.** When the stage is complete, announce it plainly and point to the next command — then stop. Do **not** start the next stage yourself.
 
 See `skills/facilitation/references/option-menu.md` for the menu design, and `skills/facilitation/references/facilitator-scripts.md` for the wrap-up script.
@@ -139,11 +141,12 @@ On any team signal, comply immediately:
 - "Redo the trends / segments / focus" → re-draft that AI-curated menu (or re-derive the focus bundles), rewrite the brief; keep the team's decisions intact.
 - "Just a poster" → call the `poster` skill alone.
 - "Switch a market" → edit the `campaign-plan.html` capture; regenerate the plan and its pilot forecast.
+- "Change something in the plan" → edit the `campaign-plan.html` capture and regenerate the affected block (positioning · channel mix · offer · 4Ps · budget · pilot forecast); keep the team's keywords and the other stages' captures intact.
 - "Skip to slogan" → run only the idea menu.
 
 ## Output
 
-**Create one round folder for the session and write every artifact into it: `artifacts/Quest<ID>-<NN>/`** (see `quest-card.md` → *Output layout*). Create it at the **first stage that writes** — for the insight stage that means **as soon as the first research block lands** (after the team's go-ahead), then **rewrite `insight-brief.html` after every step** until the stage closes. The **plan** stage likewise builds `campaign-plan.html` **progressively** (create on its first output, rewrite after every step; the final page lists the chosen campaign with its pilot forecast). The **showcase** stage writes its artifacts once.
+**Create one round folder for the session and write every artifact into it: `artifacts/Quest<ID>-<NN>/`** (see `quest-card.md` → *Output layout*). Create it at the **first stage that writes** — for the insight stage that means **as soon as the first research block lands** (after the team's go-ahead), then **rewrite `insight-brief.html` after every step** until the stage closes. The **plan** stage likewise builds `campaign-plan.html` **progressively** (create on its first output, rewrite after every step; the final page lists the chosen campaign with its pilot forecast). The **showcase** stage writes its artifacts once — later revisited only to **embed any returned bonus media** (and refresh the proposal viewer).
 
 - `<ID>` = the quest card's `id` (e.g. `A` → `QuestA`). `<NN>` = 2-digit round, next free number (first run → `01`, next → `02`). **Never overwrite a previous round.**
 - Artifacts: `insight-brief.html` · `campaign-plan.html` (with the pilot forecast + derivation) · `poster.html` (+ `poster-a|b|c.html`) · `pitch-deck.html` (≤ 8 slides) · `prompt-pack.html` · **`proposal.html`**. Each stage HTML records the team's decisions verbatim in its embedded `id="capture"` block — **no YAML/Markdown files**.

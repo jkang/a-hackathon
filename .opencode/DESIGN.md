@@ -34,11 +34,10 @@ Toolkit 目标：让**每组 14 个人的创意与判断**在 50 分钟内被充
 AI 给脚手架/问题  →  团队发散(人人出点子)  →  团队收敛(投票/合并)  →  AI 结构化+排版  →  下一关
 ```
 
-4 个阶段（对应 4 个 quest 技能）：
+3 个阶段（对应 3 个 quest 技能；`prove` 已休眠，pilot 预测并入 `plan`）：
 - **洞察门**（insight）：团队注入「市场真相」→ 收敛出「种子洞察」
-- **创意门**（plan）：AI 发散并搭出 **2 套完整方案（A/B）** → 团队**选 A 或 B**（1 次决策）
-- **论证门**（prove）：AI **直接出一版最合理的数字预测 + 推演**（无团队决策）
-- **呈现门**（showcase）：团队选视觉/主张 → AI 生成海报 + 路演稿
+- **创意门**（plan）：团队给 1–2 concept keywords → AI 发散 ~6 ideas、收敛并搭出**一套完整方案** + pilot 预测（无 end-of-stage pick）
+- **呈现门**（showcase）：团队选 storyline + 加分媒体 → AI 生成海报 + 路演稿
 
 ### 3.1 灵活调度模型（关键）
 
@@ -61,8 +60,8 @@ AI 给脚手架/问题  →  团队发散(人人出点子)  →  团队收敛(�
 | 2 | `insight` | 阶段技能 | brand + facilitation | insight-brief.html |
 | 3 | `plan` | 阶段技能 | insight | campaign-plan.html |
 | 3b | `poster` | 阶段技能（Create） | plan | poster.html |
-| 4 | `prove` | 阶段技能 | plan | proof.html |
-| 5 | `showcase` | 阶段技能 | 前三者 + poster | pitch-deck.html + prompt-pack.html（内嵌 poster） |
+| 4 | ~~`prove`~~（休眠） | 阶段技能（休眠·保留） | plan | （pilot 预测已并入 `campaign-plan.html`） |
+| 5 | `showcase` | 阶段技能 | plan + poster | pitch-deck.html + prompt-pack.html（内嵌 poster） |
 | 6 | `facilitator`（Agent） | 编排 | 全部 | 40 分钟一键串场 |
 | 7 | `README.md` | 说明 | — | Quest Playbook（交付物↔技能↔模板） |
 
@@ -76,10 +75,10 @@ AI 给脚手架/问题  →  团队发散(人人出点子)  →  团队收敛(�
 
 | # | 交付物（A 原话 / B 原话） | 覆盖技能 | 人的决定 |
 |---|---|---|---|
-| 1 | Pilot **campaign** concept（2 Asian markets, 3mo）／Pilot **membership** design（2 overseas markets, 3mo） | `plan`（creative-concept → `offer`） | 大创意 + 会员设计 |
-| 2 | Experiment plan & **measurement setup** | `plan`（`experiment.measurement_setup`）+ `prove` | 选市场 / 成功口径 |
-| 3 | Hero visual / poster ／ **Founding-member offer** + hero visual | `plan`（`plans[chosen_plan].offer`）+ **`poster`**（hero visual） | 视觉方向 |
-| 4 | **A most-reasonable pilot forecast + derivation logic**（一版最合理的数字预测；每条用 Scout Report 标杆佐证并写出推演链 benchmark → assumption → formula） | `prove`（单屏 `proof.html`，capture 内嵌） | —（AI 出） |
+| 1 | Pilot **campaign** concept（2 Asian markets, 3mo）／Pilot **membership** design（2 overseas markets, 3mo） | `plan`（creative-concept → `offer`） | concept keywords（1–2） |
+| 2 | Experiment plan & **measurement setup** | `plan`（`experiment.measurement_setup`） | 选市场 / 成功口径 |
+| 3 | Hero visual / poster ／ **Founding-member offer** + hero visual | `plan`（`plan.offer`）+ **`poster`**（hero visual） | 视觉方向 |
+| 4 | **A most-reasonable pilot forecast + derivation logic**（一版最合理的数字预测；每条用 Scout Report 标杆佐证并写出推演链 benchmark → assumption → formula） | `plan`（`references/pilot-forecast.md`，渲染于 `campaign-plan.html`） | —（AI 出） |
 
 **题卡 Arsenal 技能链 ↔ 本设计映射**：
 
@@ -87,14 +86,14 @@ AI 给脚手架/问题  →  团队发散(人人出点子)  →  团队收敛(�
 |---|---|---|
 | Insight: Market Research · Audience Analysis · Benchmark Analysis（A）／Company Profiler (IP audit) · Audience Analysis · Market Research（B） | `insight` | AI 脚手架（组织画像/标杆对照）+ 团队「市场真相」 |
 | Create: Creative Concept · MVP Pilot Design · Poster | `plan`（创意/试点）+ **`poster`**（海报） | 人发散投票 + AI 拼装 |
-| Prove: Cost-Benefit · Data Analysis & Viz | `prove` | Pilot 预期指标 + 推演逻辑（单屏看板）；Go/No-Go、成本收益、scale-up 已移除 |
+| Prove: Cost-Benefit · Data Analysis & Viz | `plan`（并入；原 `prove` 休眠） | Pilot 预期指标 + 推演逻辑（渲染于 `campaign-plan.html`）；Go/No-Go、成本收益、scale-up 已移除 |
 | ★ Showcase Report Agent (AUTO) | `showcase`（AUTO） | 一键聚合 |
 
 **本轮对照修正点（已回写 §7）**：
 1. 交付物 #2「experiment + measurement setup」显式落到 `campaign-plan.html` capture 的 `experiment.measurement_setup` 字段（原设计漏了测量口径）。
 2. 交付物 #3 B 的「Founding-member offer」落到 `campaign-plan.html` capture 的 `plans[chosen_plan].offer`（`summary` + 3 `cards`），并由 showcase 打上海报（原设计只做了「海报」，漏了「offer」本体）。
 3. 题卡明示「Budget allocation is part of the solution」→ capture 新增 `budget.allocation` 且为**人的决定**（原设计未显式）。
-4. **Prove 简化（本轮）**：只保留 pilot 预期指标 + 推演逻辑；移除 Go/No-Go、Cost-Benefit/ROI、scale-up、KPI 看板 mock。
+4. **Prove 简化 → 休眠**：只保留 pilot 预期指标 + 推演逻辑（已并入 `plan`）；移除 Go/No-Go、Cost-Benefit/ROI、scale-up、KPI 看板 mock；独立的 `prove` 技能与 `/prove` 命令已休眠/移除。
 5. 指标必须「用 Scout Report 标杆佐证」并写出推演链 → `metrics` 用 `benchmark_ref` + `derivation`（benchmark → assumption → formula）。
 
 
@@ -212,51 +211,40 @@ AI 必须在每个阶段**持续感知剩余时间 + 团队意图**，动态调�
 - **吸收/改造**：`business-research`（组织画像 + 标杆对照）；**新增 `market-trends`**（合并市场读数：趋势 + 硬事实 + 外部机会/威胁，各带 `kind`）；`audience-analysis` 能力升级为 **STP + JTBD + 渠道 + 规模潜力**；**移除 `swot-analysis`**（S/W 已并入组织画像的 assets/constraints，O/T 已由 `market-trends` 的 `kind` 承载）。
 
 ### 7.2 `plan`（创意门 · 14 分钟 · 最重）
-- **目标**：**先锚定（人群 × 时刻 × 趋势 × 渠道）再发散**，让创意有根；AI 把创意拼成 **2 套完整方案（A/B）**，团队**只做 1 次决策 —— 选 A 或 B**。
+- **目标**：**先锚定（人群 × 时刻 × 趋势 × 渠道）再发散**，让创意有根；团队给 **1–2 concept keywords**，AI 发散 ~6 ideas、收敛并搭出**一套完整 campaign** + pilot 预测；**无 end-of-stage pick**（keywords 即团队输入）。
 - **输入**：`insight-brief.html` capture（所选人群 + 所选焦点包 + key insights + moment）。
-- **输出**：`campaign-plan.html`（**渐进式生成**：第一段产出即建文件，之后每步重写；最终**两套方案 A/B 全量列出**，选中高亮；**内嵌主视觉**；capture 内嵌）。**不产独立 poster 文件**（`poster-a/b/c.html` + `poster.html` 由独立 `/poster` 阶段产出）。
-- **facilitate（AI 全跑，团队只决策 1 次）**：
-  1. **发散（AI）**：`creative-concept` —— 锚定 **人群 × 时刻 × 趋势 × 渠道** → 1 个 HMW → 创意方法 → **~6 个候选创意**。
-  2. **收敛 + 搭 A/B（AI）**：把 ~6 收敛为 **2 套完整、彼此不同的 campaign**（A/B）；各含 **渠道组合**（`references/channel-strategy.md`，由 人群 `channels` + 洞察趋势 + 时刻 推导）+ 定位(Moore) + **offer**（结构化：`summary` + 3 `cards`）+ 4Ps + 2 试点市场 + 实验计划 + 预算（题卡 War Chest）+ 各自的 `visual_direction` / `one_liner`。
-  3. **制图（AI）**：为每套 campaign 在 `campaign-plan.html` 内**嵌主视觉**（复用 `ascentium-brand`；**不产独立 poster 文件**）；独立 `/poster` 阶段负责产出 `poster-a/b/c.html` + `poster.html` 并让团队定风格。
-  4. **决策（团队 · 唯一 1 次）**：AI 内联呈现两套完整方案（A/B）→ 团队**选 1**（可 +1 自选）。
+- **输出**：`campaign-plan.html`（**渐进式生成**：第一段产出即建文件，之后每步重写；最终**一套完整方案** + **内嵌主视觉**；capture 内嵌）。**不产独立 poster 文件**（`poster-a/b/c.html` + `poster.html` 由独立 `/poster` 阶段产出）。
+- **facilitate（团队只输入 keywords，其余 AI 全跑）**：
+  1. **问 keywords（团队）**：给出示例清单，请团队给 **1–2 个 concept keywords**（或自拟）→ 停等。
+  2. **发散（AI）**：`creative-concept` —— 锚定 **人群 × 时刻 × 趋势 × 渠道** → 1 个 HMW → 创意方法 → **~6 个候选创意**（均体现 keywords）。
+  3. **收敛 + 搭建（AI）**：收敛为**一套完整 campaign**；含 **渠道组合**（`references/channel-strategy.md`，由 人群 `channels` + 洞察趋势 + 时刻 推导）+ 定位(Moore) + **offer**（结构化：`summary` + 3 `cards`）+ 4Ps + 2 试点市场 + 实验计划 + 预算（题卡 War Chest）+ pilot 预测（`references/pilot-forecast.md`）+ `visual_direction` / `one_liner`。
+  4. **制图（AI）**：在 `campaign-plan.html` 内**嵌主视觉**（复用 `ascentium-brand`；**不产独立 poster 文件**）；独立 `/poster` 阶段负责产出 `poster-a/b/c.html` + `poster.html` 并让团队定风格。
+  5. **收尾（无菜单）**：请团队打开 `campaign-plan.html` review、反馈/修改；满意后接 `/poster` → `/showcase`。
 - **capture（内嵌于 `campaign-plan.html` 的 `id="capture"` JSON 块）**：
   ```json
   quest, selected_segments, selected_insights
+  concept_keywords: ["…", "…"]                         # 团队输入
   anchor: {segment, job, trend, moment, channel, mechanic, desire}
   hmw
   ideas: [ {id, name, one_line, insight, mechanic} ]   # ~6，全量
-  ai_shortlist: [2, 5]                                  # AI 收敛
-  plans: {                                              # 两套完整方案
-    A: {name, slogan, proposition, offer:{summary, cards:[3×{title,detail}]}, positioning, channel_mix, mix, pilot, budget, visual_direction, one_liner},
-    B: {name, slogan, proposition, offer:{summary, cards:[3×{title,detail}]}, positioning, channel_mix, mix, pilot, budget, visual_direction, one_liner}
-  }
-  chosen_plan: "A"                                      # 团队唯一决策
-  poster_style: "a"                                     # 由 /poster 选定（默认 a）
+  plan: {name, slogan, proposition, offer:{summary, cards:[3×{title,detail}]}, positioning, channel_mix, mix, pilot, budget, pilot_forecast, visual_direction, one_liner}
+  poster_style: "a"                                    # 由 /poster 选定（默认 a）
   ```
-- **assemble**：`campaign-plan.html`（**两套方案全量** + 选中高亮：**锚点(人群·时刻·趋势·渠道·概念)** / 场景 / 定位(Moore) / **渠道组合** / A=活动概念·B=会员设计 + 创始 offer / 4Ps / 试点实验 + 测量设置 / 预算切分）。
+- **assemble**：`campaign-plan.html`（**一套完整方案**：**锚点(人群·时刻·趋势·渠道·概念)** / 场景 / 定位(Moore) / **渠道组合** / offer（活动概念或会员设计 + 创始 offer）/ 4Ps / 试点实验 + 测量设置 / 预算切分 / **pilot 预测 + 推演链**）。
 - **吸收/改造**：**移除 `opportunity-definition`**（其 5 要素与 insight/creative-concept/prove 重叠且未落产物）；新增 `channel-strategy`（**渠道组合**：由 人群 `channels` + 洞察趋势 + 时刻 推导，AI 策展、无团队决策）；`creative-concept`（人群×时刻×趋势×渠道 锚定 + HMW + 创意方法 → ~6 ideas）；`marketing-plan`（定位 + 4Ps，Place=分销）。
 
-### 7.3 `prove`（论证门 · 8 分钟）
-- **目标**：AI 依据 insights + plan **直接产出一版最合理的数字预测**（漏斗 reach→engagement→conversion→outcome + 指标目标 + 推演链），**无团队决策**。输出一屏 `proof.html`。**不含** Go/No-Go、成本收益/ROI、scale-up。
-- **输入**：`insight-brief.html` capture（所选洞察 + 标杆）+ `campaign-plan.html` capture（pilot 市场/窗口/budget）+ 题卡 Scout Report 标杆。
-- **输出**：`proof.html`（单屏，capture 内嵌）。
-- **facilitate（AI 全跑，无 HITL）**：
-  1. **选指标集（AI）**：从漏斗里挑最能证明本 pilot 假设的 3–5 个指标。
-  2. **定最合理的目标（AI）**：每条锚定 Scout Report 标杆，取保守可辩护的数值。
-  3. **写推演链（AI）**：`benchmark → assumption → formula → target` + 一句逻辑。
-  4. AI 出单屏（漏斗 + 指标卡 + 推演行）。
-- **capture（内嵌于 `proof.html` 的 `id="capture"` JSON 块）**：
-  ```json
-  pilot: {window, markets, budget}
-  metrics: [ {name, dimension, target, derivation: {benchmark_ref, formula, assumptions, logic}} ]
-  ```
-- **assemble**：`proof.html` 单屏（pilot 漏斗 + 指标卡 + 推演行），品牌随题卡 accent。
-- **保留但不再调用**：`sub-skills/campaign-metrics`、`sub-skills/data-visualizer-pro`、`references/cost-benefit.md` 留在库中（休眠），本门不调用。
+### 7.3 `prove`（论证门 · 已休眠）
+> **休眠（保留备用）**：hackathon 流程不再单独跑 Prove——pilot 预测 + 推演链已并入 `plan`（`plan/references/pilot-forecast.md`，渲染于 `campaign-plan.html`）。`/prove` 命令已移除；本技能与 `sub-skills/campaign-metrics`、`sub-skills/data-visualizer-pro`、`references/cost-benefit.md` 一并保留在盘、不再调用。以下为历史设计（复活时参考）：
+- **目标**（原）：AI 依据 insights + plan 直接产出一版最合理的数字预测（漏斗 + 指标目标 + 推演链），输出一屏 `proof.html`；不含 Go/No-Go、成本收益/ROI、scale-up。
+- **输入**（原）：`insight-brief.html` + `campaign-plan.html` capture + 题卡 Scout Report 标杆。
+- **输出**（原）：`proof.html`（单屏，capture 内嵌）。
+- **原 facilitate（AI 全跑，无 HITL）**：选指标集 → 定最合理目标（锚定标杆）→ 写推演链（`benchmark → assumption → formula → target`）→ 出单屏。
+- **原 capture**：`{pilot:{window,markets,budget}, metrics:[{name,dimension,target,derivation:{benchmark_ref,formula,assumptions,logic}}]}`。
+- **保留但不再调用**：`sub-skills/campaign-metrics`、`sub-skills/data-visualizer-pro`、`references/cost-benefit.md` 留在库中（休眠）。
 
 ### 7.4 `showcase`（呈现门 · 8 分钟 · AUTO）＝题卡「Showcase Report Agent (AUTO)」
 - **目标**：**多形态**呈现——5 种 storyline + signature element 承载核心创意 + 可选加分媒体（歌曲/视频/图片）。避免十组同一模板。
-- **输入**：上游三个 HTML 的内嵌 capture（`insight-brief.html` / `campaign-plan.html` / `proof.html`）。
+- **输入**：上游 HTML 的内嵌 capture（`insight-brief.html` / `campaign-plan.html`）。
 - **输出**：`pitch-deck.html`（可配置 storyline）+ `prompt-pack.html`（可选）+ `storyboard.html`（Hero's Journey 的独立 16:9 看板）；**内嵌** `poster`（由 `poster` 技能产出）。
 - **facilitate**：
   1. **团队选 storyline**（S1 Classic / S2 Hero's Journey / S3 Big Reveal / S4 Demo / S5 Trailer）——决定 deck 形状；signature 取该 storyline 默认（AI）。
@@ -303,9 +291,8 @@ AI 必须在每个阶段**持续感知剩余时间 + 团队意图**，动态调�
 |---|---|---|---|---|
 | 0–2′ | 开题 | AI | 30″ 战报速览 + 抛第一问 | — |
 | 2–10′ | 洞察门 | 人 | 研究 → living brief → AI 策展 → ~6 关键洞察 | 关键洞察（2–3） |
-| 10–22′ | 创意门 | 人 | 搭 2 套完整方案（A/B）+ 主视觉 | 选 A 或 B（1 次） |
-| 22–30′ | 论证门 | AI | 出一版最合理的数字预测 + 推演 | — |
-| 30–38′ | 呈现门 | 人 | 生成海报 + 路演稿 | 视觉方向 + 主张 |
+| 10–26′ | 创意门 | 人 | 由 keywords 搭一套完整方案 + 主视觉 + pilot 预测 | 给 concept keywords（1–2） |
+| 26–38′ | 呈现门 | 人 | 生成海报 + 路演稿 | storyline + 加分媒体 |
 | 38–40′ | 收敛提交 | AI | 一键打包 | 确认 |
 
 > run-sheet 官方为「40′ 产出 + 10′ Showcase 准备」= 50′；本设计以 40 分钟为创意核心。
@@ -325,7 +312,7 @@ AI 必须在每个阶段**持续感知剩余时间 + 团队意图**，动态调�
 │   ├── plan/                        # 策划门
 │   │   └── sub-skills/  creative-concept
 │   ├── poster/                      # 海报（Create 阶段，独立）
-│   ├── prove/                       # 论证门（单屏 pilot forecast A/B）
+│   ├── prove/                       # 论证门（休眠：pilot 预测已并入 plan；保留备用）
 │   │   └── sub-skills/  campaign-metrics · data-visualizer-pro（保留·休眠，不调用）
 │   ├── showcase/                    # 呈现门（AUTO）
 │   │   └── sub-skills/  campaign-storyboard（standalone 16:9 看板 → storyboard.html）
@@ -333,13 +320,13 @@ AI 必须在每个阶段**持续感知剩余时间 + 团队意图**，动态调�
 │   ├── facilitation/                # 共创引擎（含 option-menu）
 │   └── ascentium-brand/             # 品牌执行器（tokens + 规则 + brand-guideline.md）
 ├── agents/                          # facilitator.md · runner.md · researcher.md
-└── commands/                        # start · insight · plan · poster · prove · showcase · evaluate · run
+└── commands/                        # start · insight · plan · poster · showcase · evaluate · run
 ```
 
 **输出位置（运行约定）**：Facilitator 与 runner 两种模式都把本轮全部产物写入仓库根的 **`artifacts/Quest<ID>-<NN>/`**（每题一轮一子目录：`QuestA-01` → `QuestA-02` ……）。`/run` 新建轮次目录；`/start` **briefing 后直接进入 Insight 阶段**（自身不建目录、不产产物），由**第一个写产物的阶段**（Insight）建目录；单阶段命令并入该题最新轮次目录（无则建 `-01`）；**不覆盖旧轮次**。每轮含各阶段 HTML 产物（decisions 内嵌于各自 `id="capture"` 块，**无 YAML/Markdown**）；构建脚本以 `--dir artifacts/Quest<ID>-<NN>/` 运行。`artifacts/` 已 gitignore；签入示例在 `demo-examples/`。详见 `quest-card.md` → *Output layout*。
 
-> **opencode 发现约定 = 递归 `**/SKILL.md`**。四阶段技能 `insight` / `plan` / `prove` / `showcase` 各自带 `sub-skills/`；`poster`、`agent-reach` **平铺为顶层技能**（逻辑上归 `plan` / `insight`，被它们引用）。
-> 命名约定：**技能/Agent/Command 名一律不带 `quest`**（skill: `insight`/`plan`/`poster`/`prove`/`showcase`；agent: `facilitator`/`runner`/`researcher`；command: `/start`、`/run` 等）。
+> **opencode 发现约定 = 递归 `**/SKILL.md`**。阶段技能 `insight` / `plan` / `showcase`（`prove` 休眠）各自带 `sub-skills/`；`poster`、`agent-reach` **平铺为顶层技能**（逻辑上归 `plan` / `insight`，被它们引用）。
+> 命名约定：**技能/Agent/Command 名一律不带 `quest`**（skill: `insight`/`plan`/`poster`/`showcase`；agent: `facilitator`/`runner`/`researcher`；command: `/start`、`/run` 等）。
 
 每个技能目录：`SKILL.md`（frontmatter `name` + `description`，**触发词全英文**）+ `references/` +（可选）`templates/`、`scripts/`、`sub-skills/`。
 **语言约定（English-only）**：所有 SKILL.md 正文、references、templates、scripts 注释、capture JSON 字段、输出 HTML 文本，一律英文；中文字样仅在 `brand-guideline.md` 源文件与本 DESIGN.md / AGENTS.md 内部文档出现。
@@ -351,11 +338,11 @@ AI 必须在每个阶段**持续感知剩余时间 + 团队意图**，动态调�
 | 顺序 | 技能 | 验收标准 |
 |---|---|---|
 | 1 | `ascentium-brand` | 能输出 tokens.css + 三类模板；抽查色值=手册一致 |
-| 2 | `facilitation` | 协议/节奏/话术/采集契约齐全；4 个 quest 技能可调用 |
+| 2 | `facilitation` | 协议/节奏/话术/采集契约齐全；阶段技能可调用 |
 | 3 | `insight` | Quest A/B 各跑一遍：14 人洞察 → 种子洞察落 `insight-brief.html`（capture 内嵌） |
-| 4 | `plan` | 投票选赢家 → 完整方案框架（定位/4Ps/试点/预算） |
+| 4 | `plan` | 由 keywords 生成一套完整方案（定位/4Ps/试点/预算/pilot 预测） |
 | 5 | `poster` | 专业 campaign poster（9 段式：客户 logo/主视觉/offer/数据带/CTA+QR） |
-| 6 | `prove` | 一版最合理的数字预测 + 推演逻辑（单屏） |
+| 6 | ~~`prove`~~（休眠） | pilot 预测 + 推演逻辑（已并入 `plan`） |
 | 7 | `showcase` | 5 storylines 路演稿 + 媒体占位符（内嵌 poster） |
 | 8 | `facilitator` + `README` | 一键串全场 40 分钟，冒烟通过 |
 

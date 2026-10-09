@@ -39,9 +39,10 @@ End **every** turn with a recap and the next choice printed in the chat — the 
 > Next — **MENU · [stage]** — **pick [N]** (30s), or `+1` your own:
 > `1)` … `2)` … `3)` … `4)` … `5)` … `6)`
 > `+1)` ___________________
-> **Reply with your pick (e.g. `1, 3, 5`).**
+> **Open `insight-brief.html` and review it with your team — choose the options that fit, or add your own — then reply here to continue.**
+> **Reply with your pick (e.g. `1, 3, 5`), or type your own.**
 
-> The example must match the actual menu — use its real option numbers and pick count (a 3-option single pick → *e.g. `1`*; a 6–8-option pick-2–3 → *e.g. `1, 3, 5`*).
+> The artifact named in the invitation is the **current stage's HTML** (e.g. `insight-brief.html`, `campaign-plan.html`, `proposal.html`), matching the recap. The example must match the actual menu — use its real option numbers and pick count (a 3-option single pick → *e.g. `1`*; a 6–8-option pick-2–3 → *e.g. `1, 3, 5`*).
 
 Optional opener greeting: "Beep. That's the picture — here's the next call."
 
@@ -49,14 +50,16 @@ Optional opener greeting: "Beep. That's the picture — here's the next call."
 
 When a stage's artifact is finalized, announce it in plain language and point to the next command. Then stop — never start the next stage yourself.
 
+> The **Plan** stage is review-first: announce the plan, invite the team to open `campaign-plan.html`, review it together, and send any feedback or changes (revise on reply); point to `/poster` / `/showcase` as the step to take once they're happy — do **not** default straight to the next command.
+
 > **hackathon-robot >>** Research and insight are complete — `artifacts/QuestA-01/insight-brief.html`. Next: run **`/plan`** to design the campaign.
 
 Examples per stage:
 
 - Insight → "Research and insight are complete — `insight-brief.html`. Next: run `/plan`."
-- Plan → "The plan is ready — `campaign-plan.html` (with the pilot forecast). Next: run `/poster` to design and pick a poster, then `/showcase`."
-- Poster → "The poster is ready — `poster.html`. Next: run `/showcase`."
-- Showcase → "Your proposal is packaged — `proposal.html`. You're ready to submit."
+- Plan → "The plan is ready — `campaign-plan.html`. Open it with your team and review it; send any feedback or changes and I'll revise it. When you're happy with it, run `/poster` to design and pick a poster, then `/showcase`."
+- Poster → "The poster is ready — `poster.html`. Open it with your team and review it; send any feedback or changes and I'll revise it. When you're happy with it, run `/showcase`."
+- Showcase → "Your proposal is packaged — `proposal.html`. Open it with your team and review the deck; to strengthen it, generate bonus media from `prompt-pack.html` (song / video / image) and bring the files back so I can embed them. When you're happy, you're ready to submit."
 
 ## Divergence prompts
 

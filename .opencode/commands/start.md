@@ -14,7 +14,7 @@ Open a **facilitated (human-led)** session for this quest. This command **briefs
    - **The task.** The client, the mission, and the target market, in your own words.
    - **The plan — three stages, walked one at a time, with the team deciding at each step:**
      1. **Insight** — AI researches and curates the market read + segments; the team **picks 2–3 audience segments**, then **2–3 key insights**. → `insight-brief.html`
-     2. **Plan (+ optional poster)** — AI diverges ~6 ideas and builds **2 complete campaigns (A/B)**; the team **picks one**. The plan also carries the **pilot forecast** (expected metrics + how each number is derived). → `campaign-plan.html` (the poster is a separate optional step → `poster.html`).
+     2. **Plan (+ optional poster)** — the team gives **1–2 concept keywords**; the AI diverges ~6 ideas and builds **one complete campaign** from them. The plan also carries the **pilot forecast** (expected metrics + how each number is derived). → `campaign-plan.html` (the poster is a separate optional step → `poster.html`).
      3. **Showcase** — the team picks a storyline; AI assembles the proposal, pitch deck (≤ 8 slides, visual-first), and prompt pack. → `proposal.html` + `pitch-deck.html` + `prompt-pack.html`
    - **What happens next.** The first option below **starts the Insight stage**: it researches the quest into **~6 data-backed insights** for the team to choose from. Say plainly that this research **may take a few minutes**.
 3. **Present this exact menu — verbatim, do not reword/reorder/add:**
@@ -25,7 +25,7 @@ Open a **facilitated (human-led)** session for this quest. This command **briefs
    > 2. **Start `/insight` without live research** — reuse the card's Scout Report as the seed.
    > 3. **Start `/insight` from the Scout Report + add our own facts.**
 
-4. End with the pick prompt — **Reply with your pick (e.g. `1`).** — then STOP.
+4. End with: **"Open the quest card with your team and discuss — choose how to start, or add your own — then reply here to continue."** then **"Reply with your pick (e.g. `1`)."** — then STOP.
 
 **Turn 2 — start the Insight stage (do not just point at the command; do not print a "run `/insight`" line):**
 - Take the team's pick and **enter the `insight` skill** with that research mode (**1** → run the research chain; **2** → reuse the Scout Report; **3** → reuse + add facts): restate the quest in one or two lines, create the round folder `artifacts/Quest<ID>-<NN>/`, and start the brief.

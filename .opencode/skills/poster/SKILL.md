@@ -71,6 +71,7 @@ Offer **3 genuinely different designs**, each matched to a campaign tone. Keep o
 4. **Team previews the 3 styles and picks one** (HITL — the AI does not choose), via the tab page and/or the Showcase deck.
 5. Record the choice as `poster_style` (a | b | c) in the `campaign-plan.html` capture so the deck/proposal embed the right page.
 6. Self-check against `references/poster-method.md`.
+7. **Hand off for review (no further pick).** Announce the poster and invite the team to open `poster.html`, review the chosen style, and send feedback/changes (revise on reply). Point to `/showcase` as the step to take **once they're happy** — do **not** default straight to `/showcase`.
 
 ## Brand
 

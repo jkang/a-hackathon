@@ -1,6 +1,6 @@
 # Quest Card — the single source of quest truth
 
-This toolkit is a **reusable marketing-hackathon engine**. The stage skills, sub-skills, `facilitation` engine, and `ascentium-brand` executor are **quest-agnostic**: they know *how* to run insight → plan → prove → showcase, but they do **not** know *which* client, mission, market, budget, or Victory Conditions a run is about.
+This toolkit is a **reusable marketing-hackathon engine**. The stage skills, sub-skills, `facilitation` engine, and `ascentium-brand` executor are **quest-agnostic**: they know *how* to run insight → plan → showcase, but they do **not** know *which* client, mission, market, budget, or Victory Conditions a run is about.
 
 All quest-specific facts live in **one place**: the **quest card** (the challenge brief handed to each team). The skills read the card — never their own hard-coded assumptions.
 
@@ -63,8 +63,7 @@ quest:
 |---|---|
 | `/start`, `/run` | `quest.id`, `client`, `mission`, `market_scope` |
 | `insight` stage | `scout_report` + `client` + `market_scope` (the research chain) |
-| `plan` stage | `how_might_we`, `war_chest.mvp_unlock`, `victory_conditions`, `pilot_market_hints` |
-| `prove` stage | `scout_report.benchmarks`, `war_chest.mvp_unlock`, `war_chest.pilot_window`, `war_chest.pilot_markets_hint` |
+| `plan` stage | `how_might_we`, `war_chest.mvp_unlock`, `victory_conditions`, `pilot_market_hints`, `scout_report.benchmarks`, `war_chest.pilot_window` (the pilot forecast) |
 | `showcase` stage | `accent`, `key_visual_motif`, `key_visual_svg`, `poster_styles` |
 | **every HTML template** | `accent` + `accent_values` (injected as `--accent` / `--accent-tint` / `--accent-line` / `--accent-deep`) and `key_visual_svg` |
 
@@ -89,7 +88,7 @@ artifacts/Quest<ID>-<NN>/
 - **`/run`** creates a new round folder at the start and writes every artifact into it. **`/start`** briefs and then **starts the Insight stage**; it writes nothing itself — the **first stage that writes** (Insight) creates the round folder. A **single-stage command** (`/insight` … `/showcase`) writes into the **latest** round for that quest — create `-01` if none exists.
 - The `insight` stage creates the folder **as soon as its first research block lands**, then **rewrites `insight-brief.html` after every step** (a living brief); the `plan` stage likewise builds `campaign-plan.html` **progressively**. Later stages write their artifact once.
 - **Never overwrite a previous round.** A repeat run always increments `<NN>`.
-- Round contents (**HTML only** — no YAML/Markdown): `insight-brief.html` · `campaign-plan.html` · `poster.html` (+ `poster-a|b|c.html`) · `proof.html` · `pitch-deck.html` · `prompt-pack.html` · `proposal.html`. Each stage HTML carries its decisions in an embedded `<script type="application/json" id="capture">` block.
+- Round contents (**HTML only** — no YAML/Markdown): `insight-brief.html` · `campaign-plan.html` · `poster.html` (+ `poster-a|b|c.html`) · `pitch-deck.html` · `prompt-pack.html` · `proposal.html`. Each stage HTML carries its decisions in an embedded `<script type="application/json" id="capture">` block.
 - Builder steps run with `--dir artifacts/Quest<ID>-<NN>/` (`build-posters.py`, `build-proposal.py`).
 
 `artifacts/` is gitignored (live run output); checked-in examples live under `demo-examples/`.

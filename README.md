@@ -67,20 +67,19 @@ runs from this folder. Full manual: [`.opencode/README.md`](./.opencode/README.m
 | Skill | Stage | Output |
 |---|---|---|
 | `insight` | Insight stage | `insight-brief.html` — market trends → segments → key insights (team's two picks) |
-| `plan` | Plan stage | `campaign-plan.html` — two A/B options for the team to pick |
+| `plan` | Plan stage | `campaign-plan.html` — one complete campaign built from the team's concept keywords (incl. the pilot forecast) |
 | `poster` | Create | `poster.html` + `poster-a/b/c.html` (three styles) |
-| `prove` | Prove stage | `proof.html` — one-screen pilot metrics with derivation logic |
 | `showcase` | Showcase (AUTO) | `proposal.html` · `pitch-deck.html` · `prompt-pack.html` |
 | `ascentium-brand` | support | Design tokens + brand rules (single source of truth: `brand-guideline.md`) |
 | `facilitation` | support | Co-creation protocols, pacing, scripts, option menu, capture contract |
 | `agent-reach` | support | Live research (used by `insight`) |
 
 Sub-skills sit under their stage: `insight/sub-skills/` (business-research · market-trends · audience-analysis),
-`plan/sub-skills/` (creative-concept), `prove/sub-skills/` (campaign-metrics · data-visualizer-pro — retained, dormant).
+`plan/sub-skills/` (creative-concept). The `prove` skill (and its `campaign-metrics` · `data-visualizer-pro` sub-skills) is **dormant** — the pilot forecast now lives in `plan`.
 
 **Agents** — `agents/`: `facilitator.md` (orchestrator) · `runner.md` (automated run) · `researcher.md` (research).
 
-**Commands** — `commands/`: `/start` · `/insight` · `/plan` · `/poster` · `/prove` · `/showcase` · `/evaluate` · `/run`.
+**Commands** — `commands/`: `/start` · `/insight` · `/plan` · `/poster` · `/showcase` · `/evaluate` · `/run`.
 
 ## Sample outputs — `demo-examples/`
 

@@ -23,8 +23,8 @@ Human-led at the input: the keywords are the team's; the campaign is the AI's ex
 
 Write into the current round folder `artifacts/Quest<ID>-<NN>/`: **`campaign-plan.html` only** (built progressively; the single plan; decisions in its embedded `id="capture"` block). No poster files here and no YAML — the poster is created by `/poster`.
 
-**End every turn with a wrap-up (see `facilitator` → *Response format*):** on the **keyword turn**, a 1–2 line recap + the inline **example prompt** (an open ask, not a menu). On the **build turn**, a 2–4 line recap + the artifact name/path — **no menu**; the plan is complete.
+**End every turn with a wrap-up (see `facilitator` → *Response format*):** on the **keyword turn**, a 1–2 line recap, then **"Open `insight-brief.html` with your team and discuss — then reply here with your concept keywords to continue."** + the inline **example prompt** (an open ask, not a menu). On the **build turn**, a 2–4 line recap + the artifact name/path — **no menu**; the plan is ready for review.
 
-**Stage completion.** When the campaign is built and `campaign-plan.html` is complete (with its pilot forecast + derivation) → **"The plan is ready — `artifacts/Quest<ID>-<NN>/campaign-plan.html`. Next: run `/poster` to design and pick the campaign poster, then `/showcase` to assemble the proposal and deck."** Then STOP (do not advance into the next stage).
+**Stage completion.** When the campaign is built and `campaign-plan.html` is complete (with its pilot forecast + derivation) → **"The plan is ready — `artifacts/Quest<ID>-<NN>/campaign-plan.html`. Open it with your team and review it together; send any feedback or changes and I'll revise it. When you're happy with it, run `/poster` to design and pick the campaign poster, then `/showcase` to assemble the proposal and deck."** Then STOP (do not advance into the next stage).
 
 **Language: English only.** Reply to the team in **English**, regardless of the language they use.

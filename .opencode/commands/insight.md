@@ -24,8 +24,8 @@ Use the `insight` skill with `facilitation` (option menu) and `agent-reach` (or 
 **The stage is exactly two decisions — the segments (2–3), then the key insights (2–3).** Market trends and focus bundles are AI-curated, shown in full, and overridable on request.
 
 **End every turn with a wrap-up (see `facilitator` → *Response format*):** a 2–4 line recap of what you did + the artifact name/path, then the **next decision printed inline in the chat**.
-- After research → the **~6–8 segments** (pick 2–3). End with: **Reply with your pick (e.g. `1, 3, 5`).**
-- After the segment pick → the **~6 key insights** (pick 2–3). End with: **Reply with your pick (e.g. `1, 3, 5`).**
+- After research → the **~6–8 segments** (pick 2–3). End with: **"Open `insight-brief.html` and review it with your team — choose the options that fit, or add your own — then reply here to continue."** then **"Reply with your pick (e.g. `1, 3, 5`), or type your own."**
+- After the segment pick → the **~6 key insights** (pick 2–3). End with the **same two lines**.
 Nothing after the pick prompt.
 
 **Stage completion.** When the key-insights pick is finalized and `insight-brief.html` is complete, end with: **"Research and insight are complete — `artifacts/Quest<ID>-<NN>/insight-brief.html`. Next: run `/plan` to design the campaign."** Then STOP (do not advance into the next stage).
