@@ -13,12 +13,12 @@ import io, json, os, re
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 GUIDE = os.path.join(ROOT, "facilitator_guide.html")
-V2 = os.path.join(ROOT, "demo-examples", "QuestA-v2")
+V2 = os.path.join(ROOT, "demo-examples", "QuestB-02")
 OUT = os.path.join(ROOT, "facilitator_guide_standalone.html")
 
-# the six panels embedded in the guide (title -> file)
+# the seven panels embedded in the guide (title -> file)
 DEMOS = ["insight-brief.html", "campaign-plan.html", "poster.html",
-         "proof.html", "proposal.html", "pitch-deck.html"]
+         "proof.html", "proposal.html", "pitch-deck.html", "prompt-pack.html"]
 
 def rd(p):
     return io.open(p, encoding="utf-8").read()
@@ -84,7 +84,7 @@ def repl(m):
     return '<iframe%ssrcdoc="%s"%s></iframe>' % (pre, esc(prep(fn)), post)
 
 guide, n_if = re.subn(
-    r'<iframe([^>]*?)src="demo-examples/QuestA-v2/([^"]+)"([^>]*?)></iframe>',
+    r'<iframe([^>]*?)src="demo-examples/QuestB-02/([^"]+)"([^>]*?)></iframe>',
     repl, guide)
 
 # 2) drop the "open ↗" links (their target files are gone)

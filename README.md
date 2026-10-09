@@ -26,7 +26,7 @@ Ascentium Hackathon/
 │   ├── hostdeck/host-deck.html       HOST big-screen guide deck
 │   └── build-hackathon-standalone.py bundler: event page → single file
 ├── .opencode/                        the participant toolkit (opencode project config)
-├── demo-examples/                    signed-in sample outputs (Quest A v2)
+├── demo-examples/                    signed-in sample outputs (Quest B)
 │
 ├── facilitator_guide.html            Facilitator guide
 ├── facilitator_guide_standalone.html Facilitator guide, single self-contained file
@@ -84,13 +84,13 @@ Sub-skills sit under their stage: `insight/sub-skills/` (business-research · ma
 
 ## Sample outputs — `demo-examples/`
 
-Signed-in reference outputs from a Quest A run, used by the facilitator guide and as a
+Signed-in reference outputs from a Quest B run, used by the facilitator guide and as a
 worked example. Live runs are written to a per-round `artifacts/Quest<ID>-<NN>/` folder
 (gitignored) and never overwrite an earlier round.
 
-`demo-examples/QuestA-v2/`: `insight-brief.html` · `campaign-plan.html` · `poster.html` ·
+`demo-examples/QuestB-02/`: `insight-brief.html` · `campaign-plan.html` · `poster.html` ·
 `poster-a.html` · `poster-b.html` · `poster-c.html` · `proof.html` · `proposal.html` ·
-`pitch-deck.html` · `prompt-pack.html`.
+`pitch-deck.html` · `prompt-pack.html` · `storyboard.html`.
 
 ## Host & facilitator decks
 
@@ -105,6 +105,6 @@ worked example. Live runs are written to a per-round `artifacts/Quest<ID>-<NN>/`
 | Script | Produces |
 |---|---|
 | `Hackathon-Design/build-hackathon-standalone.py` | `Hackathon-Design/ascentium-hackathon-standalone.html` (inlines `assets/`). |
-| `build-facilitator-standalone.py` | `facilitator_guide_standalone.html` (inlines the Quest A demo outputs). |
+| `build-facilitator-standalone.py` | `facilitator_guide_standalone.html` (inlines the Quest B demo outputs). |
 
 Both are plain `python3` scripts with no dependencies: `python3 Hackathon-Design/build-hackathon-standalone.py`.
