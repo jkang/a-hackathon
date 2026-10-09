@@ -2,8 +2,8 @@
 """
 Build a single-file, shareable version of the Facilitator Guide.
 
-Inlines every file facilitator_guide.html references (the Quest A demo outputs
-under demo-examples/QuestA-v2/) so the result can be emailed / dropped
+Inlines every file facilitator_guide.html references (the demo outputs
+under demo-examples/QuestB-02/) so the result can be emailed / dropped
 into a chat and opened with a double-click — no repo, no server, no sibling files.
 
 Usage:  python3 build-facilitator-standalone.py
