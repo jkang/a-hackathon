@@ -51,7 +51,7 @@ Each page pairs one screenshot (right) with a caption (left). Durations are in s
 | P03 | IMG-05 | 7 | Insight | Start the research | Choose how to open the Insight gate: live research, a fast start, or your own facts. |
 | P04 | IMG-06 | 8 | Insight | Insights come as directions to build on | Six data-backed directions; the team picks two or three. |
 | P05 | IMG-07 | 7 | The brief | The choice becomes the brief | Selected insights, focus bundles, and the seed insight on one screen. |
-| P06 | IMG-081 | 6 | Plan | Insight complete — on to the plan | Run /plan; the team provides 1–2 concept keywords. |
+| P06 | IMG-081 | 6 | Plan | Start the plan with keywords | Run /plan and provide keywords ideas. |
 | P07 | IMG-082 | 8 | Plan | One complete campaign, built from your keywords | The AI builds the campaign — positioning, channel mix, pilot markets, and budget. |
 | P08 | IMG-083 | 7 | Plan | The campaign, written up | Concept, offer, campaign moments, budget, and the pilot forecast on one page. |
 | P09 | IMG-091 | 5 | Poster | Plan complete — on to the poster | Run /poster and the campaign poster begins. |
@@ -74,7 +74,7 @@ Each page pairs one screenshot (right) with a caption (left). Durations are in s
 3. Insight — start the research.
 4. Insights come as directions; the team picks two or three.
 5. The choice becomes the brief.
-6. Insight complete — on to the plan.
+6. Start the plan with keywords.
 7. One complete campaign, built from the team's keywords.
 8. The campaign, written up.
 9. Plan complete — on to the poster.
