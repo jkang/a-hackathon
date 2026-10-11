@@ -7,7 +7,7 @@ Run the whole quest end-to-end **automatically** — no questions, no human inpu
 **Quest: $ARGUMENTS** (if empty, read the quest card / `quest-card.md` for the challenge).
 
 1. **Insight** — research → org profile + benchmark → merged market trends + segments → pick 2–3 segments → derive focus bundles (one per pick) + draft ~6 key insights → pick 2–3; build `insight-brief.html` progressively, listing every option.
-2. **Plan** — pick 1–2 concept keywords → `creative-concept` (~6 ideas) → build one complete campaign + channel mix + plan + budget + the **pilot forecast** (funnel metrics + derivation chains) → `poster`.
-3. **Showcase** — pick a storyline → build `proposal.html` (unified report) + `pitch-deck.html` (≤ 8 slides, visual-first) + `prompt-pack.html`.
+2. **Plan** — pick 1–2 concept keywords → `creative-concept` (~6 ideas) → build one complete campaign + channel mix + plan + budget + the **pilot forecast** (funnel metrics + derivation chains) → `mediakit` (poster: pick a style; storyboard: SVG design draft).
+3. **Showcase** — pick a storyline → build `proposal.html` (unified report incl. the Storyboard panel) + `pitch-deck.html` (8 beats, visual-first, dark baseline) + `prompt-pack.html`.
 
 **Output: `artifacts/Quest<ID>-<NN>/`** — create the new round folder for this run and write all artifacts there; record every decision + its reason in each artifact's embedded `id="capture"` block (no YAML/Markdown files). Grounded, no fabricated numbers; **English only** (artifacts and any reply); Ascentium-branded.

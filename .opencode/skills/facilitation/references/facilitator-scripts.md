@@ -10,7 +10,7 @@ Per stage:
 
 - **Insight** — "Now: **Insight** — I research the market and curate segments + insights; you make two picks (segments, then insights)."
 - **Plan** — "Now: **Plan** — you give me **1–2 concept keywords**; I build one complete campaign from them, with the pilot forecast."
-- **Poster** — "Now: **Poster** — I build three poster styles (A/B/C); you pick one."
+- **Media Kit** — "Now: **Media Kit** — I build three poster styles (A/B/C); you pick one — then I build the storyboard."
 - **Showcase** — "Now: **Showcase** — I assemble the proposal + deck (≤ 8 slides); you pick a storyline and whether to add bonus media."
 
 ## Question templates (choice-first)
@@ -22,7 +22,7 @@ Per stage:
 - **Insight — key insights (decision 2)**: "Here are **~6 insights**, each a **segment × moment × trend** tension. **Pick 2–3 to carry into the plan** — or `+1` of your own."
 - **Plan — concept keywords (the single input, open ask)**: "Give me **1–2 concept keywords** to steer the campaign — e.g. *national pride · first-timers · family · creators · collectors · eco/cause · nostalgia · underdogs · belonging · unmissable* — or your own. I'll run the creative methods on them and build one complete campaign." (This is an example-led open ask, not a pick menu.)
 - **Plan — pilot forecast (part of the build, no menu)**: the AI produces it as part of the plan — just recap: "Here's the pilot forecast the AI derived from our insights + plan — every number shows its benchmark → assumption → formula."
-- **Showcase stage**: "**5 storylines** on the menu — **pick 1**. Bonus media: **song / video / image / none** — pick one. The AI settles the signature, direction, and one-liner; the poster is always included."
+- **Showcase stage**: "**5 storylines** on the menu — **pick 1**. Bonus media: **song / video / image / none** — pick one. The AI settles the signature, direction, and one-liner; the poster + storyboard are always included, on a dark deck."
 
 **Menu opener (pattern):**
 
@@ -50,16 +50,16 @@ Optional opener greeting: "Beep. That's the picture — here's the next call."
 
 When a stage's artifact is finalized, announce it in plain language and point to the next command. Then stop — never start the next stage yourself.
 
-> The **Plan** stage is review-first: announce the plan, invite the team to open `campaign-plan.html`, review it together, and send any feedback or changes (revise on reply); point to `/poster` / `/showcase` as the step to take once they're happy — do **not** default straight to the next command.
+> The **Plan** stage is review-first: announce the plan, invite the team to open `campaign-plan.html`, review it together, and send any feedback or changes (revise on reply); point to `/mediakit` / `/showcase` as the step to take once they're happy — do **not** default straight to the next command.
 
 > **hackathon-robot >>** Research and insight are complete — `artifacts/QuestA-01/insight-brief.html`. Next: run **`/plan`** to design the campaign.
 
 Examples per stage:
 
 - Insight → "Research and insight are complete — `insight-brief.html`. Next: run `/plan`."
-- Plan → "The plan is ready — `campaign-plan.html`. Open it with your team and review it; send any feedback or changes and I'll revise it. When you're happy with it, run `/poster` to design and pick a poster, then `/showcase`."
-- Poster → "The poster is ready — `poster.html`. Open it with your team and review it; send any feedback or changes and I'll revise it. When you're happy with it, run `/showcase`."
-- Showcase → "Your proposal is packaged — `proposal.html`. Before you submit, the bonus media still needs generating: open `prompt-pack.html`, take each ready-made prompt to its tool — song → Suno, video → Runway Gen-3, image → GPT — and bring the files back so I can embed them into the deck. Then you're ready to submit."
+- Plan → "The plan is ready — `campaign-plan.html`. Open it with your team and review it; send any feedback or changes and I'll revise it. When you're happy with it, run `/mediakit` to build the media kit (poster + storyboard), then `/showcase`."
+- Media Kit → "Your media kit is ready — `poster.html` (the chosen style) + `storyboard.html` (the 6-panel journey sheet). Review them with your team; to make the storyboard more visualized, take the prompt in `storyboard.html` to Kimi / GPT and bring the sheet back. When you're happy, run `/showcase`."
+- Showcase → "Your proposal is packaged — `proposal.html`. Before you submit, the bonus media still needs generating: open `prompt-pack.html`, take each ready-made prompt to its tool — song → Suno, video → Runway Gen-3, image / storyboard → GPT or Kimi — and bring the files back so I can embed them into the deck. Then you're ready to submit."
 
 ## Divergence prompts
 

@@ -8,8 +8,8 @@ Bonus (optional) layer. Each group **optionally** generates a song, a video, or 
 |---|---|---|---|
 | Song | **Suno** (suno.com) | Udio | `.mp3` |
 | Video | **Runway Gen-3** (runwayml.com) | Kling | `.mp4` |
-| Image | **GPT** (ChatGPT image generation) | — | `.png` |
-| Storyboard | **GPT** (ChatGPT image generation) | Midjourney | `.png` (one 6-panel sheet) |
+| Image | **GPT** (ChatGPT image generation) | Kimi | `.png` |
+| Storyboard | **Kimi** (kimi.moonshot.cn) | GPT (ChatGPT image generation) | `.png` (one 6-panel sheet) |
 
 ---
 
@@ -85,9 +85,11 @@ no watermark, no logo. 16:9.
 
 ---
 
-## 3b. Storyboard — GPT (one 6-panel sheet)
+## 3b. Storyboard — Kimi / GPT (one 6-panel sheet)
 
-The **Hero's Journey** signature. A storyboard is **one image** — a **6-panel sheet** (3 columns × 2 rows) that follows the fan journey, one panel per step — so the pitch shows the idea as a visual sequence, not a paragraph. It is generated from **one complete prompt**, not one prompt per frame.
+The storyboard is **shipped by default as an inline SVG design draft** (from the `mediakit` stage) — no external image required. This section is the **optional upgrade** to a rendered sheet.
+
+A rendered storyboard is **one image** — a **6-panel sheet** (3 columns × 2 rows) that follows the fan journey, one panel per step — so the pitch shows the idea as a visual sequence, not a paragraph. It is generated from **one complete prompt**, not one prompt per frame. The ready prompt is **already built into `storyboard.html`** (the "Get a richer sheet" overlay, press **P**); copy it into **Kimi** (kimi.moonshot.cn) or **GPT**.
 
 **The one prompt** — a single block that locks the style once and describes all six panels in order. Fill every slot, then paste it **once**:
 
@@ -114,7 +116,7 @@ Number the panels 1–6 top-left; use one consistent style across all six; keep 
 - Give the brand hex color; keep the left third clear for the headline.
 - Panels run in journey order: `Attract → Tease → Convert → Amplify → Belong → Deepen`.
 - High contrast, "no watermark, no logo", 16:9.
-- Download one `.png` (`storyboard-sheet.png`); the AI assembles it into the **storyboard page** in the deck and the **Storyboard panel** in the proposal.
+- Download one `.png` (`storyboard-sheet.png`); bring it back — the AI drops it at `media/storyboard/storyboard-sheet.png`, re-runs the storyboard build, and the **rendered sheet replaces the SVG design draft** in the storyboard page (deck) and the **Storyboard panel** (proposal).
 
 ---
 
@@ -125,7 +127,7 @@ The deck already has **media placeholder slots** (rendered as dashed "embed here
 | Media | Deck placeholder | Beat | Inserted element |
 |---|---|---|---|
 | Image (GPT) | `{{MEDIA_IMAGE}}` | `poster` (and `keyvisual`) | `<img src="media/hero.png">` |
-| Storyboard (GPT) | one sheet image | `storyboard` page | `<img src="media/storyboard/storyboard-sheet.png">` → the 6-panel board |
+| Storyboard (Kimi / GPT) | one sheet image | `visuals` / `storyboard` beat | drop at `media/storyboard/storyboard-sheet.png` → replaces the SVG draft |
 | Video (Runway) | `{{MEDIA_VIDEO}}` | `storyboard` | `<video controls src="media/video.mp4">` |
 | Song (Suno) | `{{MEDIA_SONG}}` | `lyric` | `<audio controls src="media/song.mp3">` |
 | Any bonus | `{{MEDIA_ASK}}` | `ask` | any of the above |

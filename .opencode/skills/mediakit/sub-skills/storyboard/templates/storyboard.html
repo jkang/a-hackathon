@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{TITLE}} · Campaign Storyboard (16:9)</title>
+<title>{{TITLE}} · Storyboard (16:9)</title>
 <style>
   /* ---- Storyboard dark surface set -------------------------------------------------
      Brand anchors: --ascentium-midnight #0F1514, --ascentium-orange #FF6611, teal #077069.
@@ -33,27 +33,65 @@
   .boardbox{flex:1;min-height:0;margin-top:16px;display:flex;align-items:center;justify-content:center;}
   .boardbox img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;background:#0B1211;
     border:1px solid var(--sb-line);border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.55);}
+  .boardbox svg.sheet{display:block;max-width:100%;max-height:100%;width:auto;height:auto;
+    border:1px solid var(--sb-line);border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.55);background:#0A1110;}
   .legend{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px;flex:none;}
   .lchip{font-size:10.5px;font-weight:600;color:var(--accent-tint);border:1px solid var(--sb-line);
     border-radius:999px;padding:5px 12px;background:var(--sb-card);}
   .lchip b{color:var(--accent);font-weight:800;font-variant-numeric:tabular-nums;margin-right:5px;}
-  .hint{position:absolute;bottom:14px;right:44px;font-size:10px;color:var(--sb-faint);letter-spacing:.04em;}
+  .hint{position:absolute;bottom:14px;left:44px;font-size:10px;color:var(--sb-faint);letter-spacing:.04em;}
+  .upgrade{position:absolute;bottom:11px;right:44px;}
+  /* embedded mode (?embed=1) — hide our own chrome so the host deck shows just the sheet */
+  body.embed .hint,body.embed .upgrade{display:none;}
+  .upgrade button{font:inherit;font-family:inherit;font-size:10.5px;font-weight:700;color:var(--accent);
+    background:transparent;border:1px solid var(--accent-line);border-radius:999px;padding:6px 14px;cursor:pointer;letter-spacing:.04em;}
+  .upgrade button:hover{background:color-mix(in srgb, var(--accent) 16%, transparent);}
+  /* prompt overlay */
+  .poverlay{position:absolute;inset:0;background:rgba(3,7,7,.9);backdrop-filter:blur(6px);z-index:5;
+    display:none;flex-direction:column;padding:38px 48px;}
+  .poverlay.on{display:flex;}
+  .poverlay .ph{display:flex;align-items:baseline;justify-content:space-between;gap:18px;border-bottom:2px solid var(--accent);padding-bottom:10px;}
+  .poverlay h2{font-size:19px;font-weight:800;color:var(--sb-cream);}
+  .poverlay .pclose{font:inherit;font-family:inherit;font-size:12px;font-weight:700;color:var(--sb-cream);background:transparent;border:1px solid var(--sb-line);border-radius:8px;padding:5px 12px;cursor:pointer;}
+  .poverlay .note{font-size:12px;color:var(--sb-muted);margin-top:10px;line-height:1.5;}
+  .poverlay .promptbox{position:relative;margin-top:12px;flex:1;min-height:0;overflow:auto;background:#070D0D;border:1px solid var(--sb-line);border-radius:12px;padding:16px 18px;}
+  .poverlay pre{white-space:pre-wrap;word-break:break-word;font-family:"SF Mono",Consolas,Menlo,monospace;font-size:12.5px;line-height:1.65;color:var(--sb-text);}
+  .poverlay .copy{position:absolute;top:12px;right:12px;font:inherit;font-family:inherit;font-size:11px;font-weight:700;color:#fff;background:var(--accent);border:none;border-radius:7px;padding:6px 12px;cursor:pointer;}
   @media print{ @page{size:A4 landscape;margin:6mm;} html,body{background:var(--sb-deck);overflow:visible;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
     .stage{position:static;display:block;} .deck{width:100%;height:auto;box-shadow:none;border-radius:0;}
-    .hint{display:none;} }
+    .hint,.upgrade,.poverlay{display:none!important;} }
 </style>
 </head>
 <body data-quest="{{QUEST}}" style="--accent:{{ACCENT}};--accent-tint:{{ACCENT_TINT}};--accent-line:{{ACCENT_LINE}};--accent-deep:{{ACCENT_DEEP}};">
 <div class="stage"><div class="deck" id="deck">
 {{SLIDES}}
-  <div class="hint">F fullscreen &middot; print = one landscape page</div>
+  <div class="hint">F fullscreen · print = one landscape page</div>
+  <div class="upgrade"><button id="upBtn">Get a richer sheet ↗</button></div>
+  <div class="poverlay" id="poverlay">{{PROMPT_OVERLAY}}</div>
 </div></div>
 <script>
 (function(){
   var deck=document.getElementById('deck');
   function fit(){ var s=Math.min(window.innerWidth/1280, window.innerHeight/720); deck.style.transform='scale('+s+')'; }
+  if(/[?&]embed\b/.test(location.search)) document.body.classList.add('embed');
+  var ov=document.getElementById('poverlay');
+  var up=document.getElementById('upBtn');
+  function toggle(force){ if(!ov) return; var on=(typeof force==='boolean')?force:!ov.classList.contains('on'); ov.classList.toggle('on', on); }
+  if(up) up.addEventListener('click', function(){ toggle(true); });
+  if(ov){ ov.addEventListener('click', function(e){ if(e.target===ov) toggle(false); }); }
+  var closeBtn=document.getElementById('pclose'); if(closeBtn) closeBtn.addEventListener('click', function(){ toggle(false); });
+  var copyBtn=document.getElementById('pcopy');
+  if(copyBtn) copyBtn.addEventListener('click', function(){
+    var pre=document.getElementById('pprompt'); if(!pre) return;
+    var t=pre.innerText;
+    function done(){ copyBtn.textContent='Copied'; setTimeout(function(){ copyBtn.textContent='Copy prompt'; }, 1500); }
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(done); }
+    else { var r=document.createRange(); r.selectNodeContents(pre); var s=window.getSelection(); s.removeAllRanges(); s.addRange(r); document.execCommand('copy'); s.removeAllRanges(); done(); }
+  });
   document.addEventListener('keydown',function(e){
     if(e.key==='f'||e.key==='F'){ if(!document.fullscreenElement){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();} else {document.exitFullscreen&&document.exitFullscreen();} }
+    else if((e.key==='p'||e.key==='P')){ toggle(); }
+    else if(e.key==='Escape'){ toggle(false); }
   });
   window.addEventListener('resize',fit); fit();
 })();

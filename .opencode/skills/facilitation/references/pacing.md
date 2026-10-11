@@ -7,7 +7,7 @@ The default **happy path**. It is a suggestion, not a script (see Prime Directiv
 | 0–2′   | Kick-off      | AI    | confirm brief (mission · 3 stages · research time) → wait for go-ahead → 30s scout summary + first question | —                               |
 | 2–8′   | Insight stage  | AI    | research → living brief → merged market trends + ~6–8 segments → focus bundles + ~6 key insights | segments (2–3), then key insights (2–3) |
 | 8–30′  | Creative stage | AI    | ask concept keywords → diverge ~6 ideas → build 1 complete campaign + visual + the pilot forecast | concept keywords (1–2) |
-| 30–38′ | Showcase stage | human | build deck (≤ 8 slides) + proposal (poster always on) | storyline + bonus media         |
+| 30–38′ | Showcase stage | human | build deck (≤ 8 slides) + proposal (poster + storyboard, dark deck) | storyline + bonus media         |
 | 38–40′ | Converge      | AI    | package and submit                        | confirm                         |
 
 > The run-sheet allows "45′ hands-on + 10′ converge". This design uses **40 minutes** as the creative core and leaves 5–10 min as a submission buffer.
@@ -27,7 +27,7 @@ Switch automatically when remaining time < the standard stage budget, or when th
 - **Diverge downgrade**: silent brainstorm → ask just 2–3 active members for ideas (saves ~2′).
 - **Converge downgrade**: dot-vote → facilitator proposes 2 candidates and asks for a nod (saves ~2′).
 - **Stage skip**: if the team says "we have enough insight", skip the divergence and reuse quest-card data as the seed.
-- **Stage merge**: under ~8 min left, merge Plan + Showcase and assemble the poster + deck in parallel.
+- **Stage merge**: under ~8 min left, merge Plan + Showcase and assemble the media kit (poster + storyboard) + deck in parallel.
 
 ## Dynamic dispatch (human has full control)
 
@@ -38,7 +38,7 @@ The AI must continuously sense remaining time + team intent. On any of these sig
 | "Enough research, go straight to creative" | skip insight divergence; fall back to quest-card data as seed; enter `plan` |
 | "We have only 8 minutes" | enter fast mode; compress stages; assemble in parallel |
 | "That vote was wrong — redo it" | re-run the dot-vote protocol only (not the whole stage) |
-| "We just want a poster" | call `showcase` alone, using the existing stage HTML captures |
+| "We just want the media assets" | call `mediakit` alone (poster + storyboard), using the existing captures |
 | "Switch the pilot market" | edit the `campaign-plan.html` capture's pilot field; regenerate the plan and its pilot forecast |
 | "Skip the research, just do a slogan" | call HMW + silent brainstorm from `facilitation` only |
 

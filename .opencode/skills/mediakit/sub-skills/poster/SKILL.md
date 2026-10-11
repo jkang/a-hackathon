@@ -11,7 +11,7 @@ The **most-seen asset** of a campaign. It must be **self-contained**: a stranger
 
 ## When to use
 
-- During the Create/Plan stage (the poster belongs with the creative concept, not the showcase).
+- **Invoked by the `mediakit` stage** (the poster is the first asset of the media kit; the storyboard follows).
 - When the team wants the hero visual, or the Big Reveal storyline needs a poster.
 - Standalone: "make a poster for this campaign".
 
@@ -19,7 +19,7 @@ The **most-seen asset** of a campaign. It must be **self-contained**: a stranger
 
 - The `campaign-plan.html` capture — **the plan** (`plan`): name, slogan, proposition, `offer` (a one-line `summary` + exactly 3 `cards` — offer / markets / access, or the membership tiers), pilot markets, budget, and its `visual_direction` + `one_liner`.
 - The `insight-brief.html` capture — audience + moment (for the anchor).
-- **Resume (recover upstream).** If run on its own (`/poster`), find the latest round `artifacts/Quest<ID>-*` and read both captures from that folder; if the round is unambiguous, state it and continue — ask only when genuinely ambiguous. If either capture is missing, say so and ask the team to run `/plan` (or `/insight`) first.
+- **Resume (recover upstream).** Inside the `mediakit` stage (or when run on its own via `/mediakit`), find the latest round `artifacts/Quest<ID>-*` and read both captures from that folder; if the round is unambiguous, state it and continue — ask only when genuinely ambiguous. If either capture is missing, say so and ask the team to run `/plan` (or `/insight`) first.
 - **Reuse the plan's `visual_direction` + `one_liner`** from the capture — do **not** re-derive them. The team's **single decision is the style pick** (Style A / B / C — Full-Bleed Hero / Belonging Passport / Midnight Minimal) — made **after** the three posters are built, **never** requested beforehand.
 
 ## Anatomy (top → bottom)
@@ -61,17 +61,17 @@ Offer **3 genuinely different designs**, each matched to a campaign tone. Keep o
 - Set the accent from the quest card's `accent` (injected as `--accent` / `--accent-tint` / `--accent-line` / `--accent-deep` on `<body>`); the key visual comes from the card's `key_visual_svg`, re-art-ed per style.
 - Each style is a full, self-contained poster (all 9 anatomy sections) — never a partial.
 - **The team picks one**; record it as `poster_style` in the `campaign-plan.html` capture (and in the showcase capture).
-- The style pick happens in the **`poster` stage** (the tab page `poster.html` / the standalone pages); the **Showcase deck** simply **embeds the chosen poster** — it does not re-ask for the style.
+- The style pick happens in the **`mediakit` stage** (the tab page `poster.html` / the standalone pages); the **Showcase deck** simply **embeds the chosen poster** — it does not re-ask for the style.
 
 ## Workflow
 
 1. Pull name / slogan / proposition / the structured `offer` (summary + 3 cards) / pilot markets / budget from **`plan`** in the `campaign-plan.html` capture, and **reuse that plan's `visual_direction` + `one_liner`**.
 2. Fill the shared content pack once into `templates/poster-page.html` (leave the `{{POSTER_STYLE}}` tokens) and the few fields in `templates/poster-tabs.html`; inject the accent vars (`--accent` / `--accent-tint` / `--accent-line` / `--accent-deep`) from the quest card, plus the key-visual motif and the `{{STYLE_*}}` names.
-3. Build the deliverable: `python3 scripts/build-posters.py --dir artifacts/Quest<ID>-<NN>/ [--default a]` → `poster-a.html` · `poster-b.html` · `poster-c.html` · `poster.html`. (Write into the current round folder — see `quest-card.md` → *Output layout*.)
+3. Build the deliverable: `python3 .opencode/skills/mediakit/sub-skills/poster/scripts/build-posters.py --dir artifacts/Quest<ID>-<NN>/ [--default a]` → `poster-a.html` · `poster-b.html` · `poster-c.html` · `poster.html`. (Write into the current round folder — see `quest-card.md` → *Output layout*.)
 4. **Team previews the 3 styles and picks one** (HITL — the AI does not choose), via the tab page and/or the Showcase deck.
 5. Record the choice as `poster_style` (a | b | c) in the `campaign-plan.html` capture so the deck/proposal embed the right page.
 6. Self-check against `references/poster-method.md`.
-7. **Hand off for review (no further pick).** Announce the poster and invite the team to open `poster.html`, review the chosen style, and send feedback/changes (revise on reply). Point to `/showcase` as the step to take **once they're happy** — do **not** default straight to `/showcase`.
+7. **Hand off to the storyboard, then review (no further pick).** Announce the poster and invite the team to open `poster.html`, review the chosen style, and send feedback/changes (revise on reply). The `mediakit` stage then builds the **storyboard**; point to `/showcase` as the step to take **once the team is happy** — do **not** default straight to `/showcase`.
 
 ## Brand
 

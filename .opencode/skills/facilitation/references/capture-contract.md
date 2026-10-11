@@ -52,7 +52,7 @@ There are **no separate data files** (no `.yaml`, no `.md`). Each stage records 
 
 ```json
 {
-  "gate": "insight | plan | showcase",
+  "gate": "insight | plan | mediakit | showcase",
   "quest": "A",
   "menu": ["1) …", "2) …", "…"],
   "inputs": [{"type": "selection", "chosen": [1, 4, 6], "own": ["+1 custom"]}],

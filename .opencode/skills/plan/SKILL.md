@@ -24,7 +24,7 @@ The stage opens with **exactly one team input**: **1–2 concept keywords** that
 ## When to use
 
 - After `insight` (reads the `insight-brief.html` capture: `selected_segments` + `focus_bundles` + `key_insights` + `segments` + `moment_of_truth`).
-- When the team wants only the poster — use the `poster` skill directly.
+- When the team wants only the media assets — use the `mediakit` skill directly.
 
 ## Inputs
 
@@ -40,8 +40,8 @@ The stage opens with **exactly one team input**: **1–2 concept keywords** that
 1. **Ask the keywords (team, up front).** Present a short **example list** (e.g. *national pride · first-timers · family · creators · collectors · eco/cause · nostalgia · underdogs · belonging · unmissable*) and ask for **1–2 keywords that should steer the campaign** — or their own. STOP and wait. Do not build yet.
 2. **Diverge (AI).** On the reply, run the **`creative-concept`** sub-skill **on the concepts**: anchor (the chosen focus bundle's audience × moment) + reframe into **one HMW** that folds in the keywords, then run creative-thinking methods (SCAMPER · analogies · reverse · mash-ups · Crazy 8 · brainwriting) to generate **~6 candidate ideas** (name · one-line · insight · mechanic), each visibly reflecting the team's keywords.
 3. **Converge + build (AI).** Converge the ~6 into **ONE complete campaign** aligned to the keywords, threading the **campaign kernel** (`audience · moment · trend · channel · concept`): **positioning** (Moore, `references/marketing-plan.md`), the **channel mix** (`references/channel-strategy.md` — grounded in the segment's `channels` + the insight's trend), **offering** (a structured `offer`: a one-line `summary` + exactly **3** `cards` — offer / markets / access, or the membership **tiers**), **4Ps**, **2 pilot markets** (card-consistent, `references/pilot-experiment.md`), the **pilot experiment** (hypothesis / treatment / control / measurement), the **budget** (`references/budget-model.md`, from the card's War Chest), and the **pilot forecast** — **3–5 funnel metrics**, each with its derivation chain (`benchmark → assumption → formula → target`, `references/pilot-forecast.md`). The plan carries its own **`visual_direction`** + **`one_liner`**.
-4. **Render (AI).** Design a hero visual for the campaign and **embed it inside `campaign-plan.html`** — do **not** write standalone poster files here; those are produced only by the `/poster` stage.
-5. **Complete (no decision).** Write the capture (`concept_keywords` + the single `plan` + its `pilot_forecast`, the `ideas` for the record). Hand off for **review**: invite the team to open `campaign-plan.html`, send feedback or changes (revise on reply), then run `/poster` and `/showcase`. No menu.
+4. **Render (AI).** Design a hero visual for the campaign and **embed it inside `campaign-plan.html`** — do **not** write standalone poster files here; those are produced only by the `/mediakit` stage.
+5. **Complete (no decision).** Write the capture (`concept_keywords` + the single `plan` + its `pilot_forecast`, the `ideas` for the record). Hand off for **review**: invite the team to open `campaign-plan.html`, send feedback or changes (revise on reply), then run `/mediakit` and `/showcase`. No menu.
 
 ## HITL checkpoint (mandatory)
 
@@ -50,7 +50,7 @@ The AI executes the keywords into the campaign but **never picks the keywords** 
 
 ## Output
 
-- `campaign-plan.html` — the **single plan** presented in full, with the team's **concept keywords** shown. DOC_TYPE "Campaign Plan" / "Membership Design". **The only artifact of this stage** — no separate data file and **no poster files** (the hero visual is embedded inline; the standalone poster is created by the `/poster` skill).
+- `campaign-plan.html` — the **single plan** presented in full, with the team's **concept keywords** shown. DOC_TYPE "Campaign Plan" / "Membership Design". **The only artifact of this stage** — no separate data file and **no poster files** (the hero visual is embedded inline; the standalone poster + storyboard are created by the `/mediakit` skill).
 - Two template slots take small HTML fragments: `{{CONCEPT_KEYWORDS}}` = one `<span class="pill">…</span>` per keyword; `{{IDEAS_ROWS}}` = one `<div class="idea-row"><span class="n">n</span><div><b>name</b> — one-line · mechanic · keyword</div></div>` per candidate idea. The **Pilot Forecast** block uses `{{PF_n_NAME}}` / `{{PF_n_DIM}}` / `{{PF_n_TARGET}}` / `{{PF_n_DERIV}}` — fill 3–5 rows and **delete the unused rows**.
 - The structured capture is embedded: an invisible `<script type="application/json" id="capture">` block just before `</body>`. The `showcase` stage reads it.
 
@@ -84,7 +84,7 @@ The AI executes the keywords into the campaign but **never picks the keywords** 
 </script>
 ```
 
-> **Keys**: `concept_keywords` = the team's 1–2 keywords (the creative driver). There is a **single** `plan` object (no `plans` / `chosen_plan`). `offer.cards` = exactly **3** cards (offer / markets / access — or the membership **tiers**). `visual_direction` + `one_liner` live **inside the plan**; `poster_style` (a | b | c) is written later by the `/poster` stage (default `a`).
+> **Keys**: `concept_keywords` = the team's 1–2 keywords (the creative driver). There is a **single** `plan` object (no `plans` / `chosen_plan`). `offer.cards` = exactly **3** cards (offer / markets / access — or the membership **tiers**). `visual_direction` + `one_liner` live **inside the plan**; `poster_style` (a | b | c) is written later by the `/mediakit` stage (default `a`).
 
 ## Assemble (AI fills the framework; the team authors the keywords)
 

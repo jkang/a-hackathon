@@ -68,18 +68,18 @@ runs from this folder. Full manual: [`.opencode/README.md`](./.opencode/README.m
 |---|---|---|
 | `insight` | Insight stage | `insight-brief.html` — market trends → segments → key insights (team's two picks) |
 | `plan` | Plan stage | `campaign-plan.html` — one complete campaign built from the team's concept keywords (incl. the pilot forecast) |
-| `poster` | Create | `poster.html` + `poster-a/b/c.html` (three styles) |
-| `showcase` | Showcase (AUTO) | `proposal.html` · `pitch-deck.html` · `prompt-pack.html` |
+| `mediakit` | Create (media kit) | `poster.html` + `poster-a/b/c.html` (three styles) · `storyboard.html` (6-panel sheet; SVG design draft + AI-upgrade prompt) |
+| `showcase` | Showcase (AUTO) | `proposal.html` · `pitch-deck.html` · `prompt-pack.html` (dark deck embedding the poster + storyboard) |
 | `ascentium-brand` | support | Design tokens + brand rules (single source of truth: `brand-guideline.md`) |
 | `facilitation` | support | Co-creation protocols, pacing, scripts, option menu, capture contract |
 | `agent-reach` | support | Live research (used by `insight`) |
 
 Sub-skills sit under their stage: `insight/sub-skills/` (business-research · market-trends · audience-analysis),
-`plan/sub-skills/` (creative-concept). The `prove` skill (and its `campaign-metrics` · `data-visualizer-pro` sub-skills) is **dormant** — the pilot forecast now lives in `plan`.
+`plan/sub-skills/` (creative-concept), `mediakit/sub-skills/` (poster · storyboard). The `prove` skill (and its `campaign-metrics` · `data-visualizer-pro` sub-skills) is **dormant** — the pilot forecast now lives in `plan`.
 
 **Agents** — `agents/`: `facilitator.md` (orchestrator) · `runner.md` (automated run) · `researcher.md` (research).
 
-**Commands** — `commands/`: `/start` · `/insight` · `/plan` · `/poster` · `/showcase` · `/evaluate` · `/run`.
+**Commands** — `commands/`: `/start` · `/insight` · `/plan` · `/mediakit` · `/showcase` · `/evaluate` · `/run`.
 
 ## Sample outputs — `demo-examples/`
 
@@ -88,7 +88,7 @@ worked example. Live runs are written to a per-round `artifacts/Quest<ID>-<NN>/`
 (gitignored) and never overwrite an earlier round.
 
 `demo-examples/QuestB-02/`: `insight-brief.html` · `campaign-plan.html` · `poster.html` ·
-`poster-a.html` · `poster-b.html` · `poster-c.html` · `proof.html` · `proposal.html` ·
+`poster-a.html` · `poster-b.html` · `poster-c.html` · `proposal.html` ·
 `pitch-deck.html` · `prompt-pack.html` · `storyboard.html`.
 
 ## Host & facilitator decks

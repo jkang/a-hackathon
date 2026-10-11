@@ -31,7 +31,7 @@ Four non-negotiables:
 You can also run a single stage, or evaluate a finished proposal:
 
 ```
-/insight     /plan     /poster     /showcase     /evaluate
+/insight     /plan     /mediakit     /showcase     /evaluate
 ```
 
 **Output location.** Every run writes into a **round folder**: `artifacts/Quest<ID>-<NN>/` — e.g. `artifacts/QuestA-01/`, then `QuestA-02` for the next run. `/run` creates a new round; `/start` starts the Insight stage, and the first stage that writes (Insight) creates the round; a single-stage command writes into the latest round for that quest. See `quest-card.md` → *Output layout*.
@@ -45,7 +45,7 @@ You can also run a single stage, or evaluate a finished proposal:
 | `/start [quest]` | Open a facilitated session — brief the team, then **start the Insight stage** on their pick | `facilitator` |
 | `/insight` | Insight stage only | `facilitator` |
 | `/plan` | Plan / creative stage only | `facilitator` |
-| `/poster` | Campaign poster only | `facilitator` |
+| `/mediakit` | Media kit — poster (3 styles, pick 1) + storyboard (SVG draft + AI-upgrade prompt) | `facilitator` |
 | `/showcase` | Showcase stage only (unified proposal + deck + prompt-pack) | `facilitator` |
 | `/evaluate` | Score a proposal with the rubric | current agent |
 | `/run [quest]` | **Autopilot** — run the whole quest end-to-end, AI decides every choice | `runner` |
@@ -75,8 +75,11 @@ flowchart TD
     H1b --> HO2["complete · STOP — team runs /plan"]
     HO2 --> P["2 · PLAN — diverges ~6 ideas → builds one complete campaign (+ pilot forecast)"]
     P --> HK{"👤 give 1–2 concept keywords"}
-    HK --> HO3["complete · STOP — open the plan, review + send feedback; then team runs /poster"]
-    HO3 --> S["3 · SHOWCASE — 5 storylines"]
+    HK --> HO3["complete · STOP — open the plan, review + send feedback; then team runs /mediakit"]
+    HO3 --> MK["3 · MEDIA KIT — poster (3 styles) + storyboard (SVG design draft)"]
+    MK --> HMK{"👤 pick 1 poster style"}
+    HMK --> HO4["complete · STOP — review poster + storyboard; then team runs /showcase"]
+    HO4 --> S["4 · SHOWCASE — 5 storylines"]
     S --> H7{"👤 pick storyline"}
     H7 --> H9{"👤 bonus media?"}
     H9 --> B["build proposal + deck (+ prompt-pack)"]
@@ -84,18 +87,19 @@ flowchart TD
 
     classDef ai fill:#FFF0E7,stroke:#FF6611,color:#0F1514;
     classDef hitl fill:#CDE2E1,stroke:#077069,color:#0F1514;
-    class A,I,P,S,B,H0,HO2,HO3 ai;
-    class HR,H1,H1b,HK,H7,H9 hitl;
+    class A,I,P,S,B,H0,HO2,HO3,MK,HO4 ai;
+    class HR,H1,H1b,HK,HMK,H7,H9 hitl;
 ```
 
-Legend — **teal diamonds = HITL (the team decides)** · orange boxes = the AI does. Each stage ends by **handing off** (it does not auto-advance — the team runs the next command). Artifacts land after each stage (`insight-brief` → `campaign-plan` → `poster` (optional) → `proposal` + `pitch-deck`).
+Legend — **teal diamonds = HITL (the team decides)** · orange boxes = the AI does. Each stage ends by **handing off** (it does not auto-advance — the team runs the next command). Artifacts land after each stage (`insight-brief` → `campaign-plan` → media kit (`poster` + `storyboard`) → `proposal` + `pitch-deck`).
 
 | Time | Stage | You do | The team decides |
 |---|---|---|---|
 | 0–2′ | **Kick-off** | Brief the team (mission + 3 stages + upcoming research) → present the entry menu and start `/insight` on their pick | start `/insight` (with research · without · reuse + add facts) |
 | 2–10′ | **Insight** | 30-second scout summary → research (or reuse the card) → living brief → AI curates market trends (tagged by kind) → ~6–8 segments → derives focus bundles + drafts ~6 key insights (segment × moment × trend) | segments (2–3), then key insights (2–3) |
 | 10–26′ | **Plan** | Diverge ~6 ideas from the team's keywords → build one complete campaign + embedded hero visual + the pilot forecast | concept keywords (1–2) |
-| 26–38′ | **Showcase** | Storyline + bonus-media menus; AI settles signature · direction · one-liner (poster always on) → build the proposal + deck (+ prompt-pack) | storyline · bonus media |
+| 26–32′ | **Media Kit** | AI builds 3 poster styles + the storyboard (SVG design draft + AI-upgrade prompt) | pick 1 poster style |
+| 32–38′ | **Showcase** | Storyline + bonus-media menus; AI settles signature · direction · one-liner · theme (poster + storyboard always in the dark deck) → build the proposal + deck (+ prompt-pack) | storyline · bonus media |
 | 38–40′ | **Converge** | Package and confirm | confirm |
 
 **At every stage:** `research → menu → team picks → capture (HITL stop) → assemble → next stage`. **One menu per turn** — present it, then stop and wait. Announce a 3-minute and 1-minute warning, then move.
@@ -107,7 +111,7 @@ The agenda is a **suggested happy path**. On any team signal, comply in one line
 - **"Enough research, go creative"** → skip insight divergence; reuse card data as the seed; enter `plan`.
 - **"Only 8 minutes"** → fast mode: compress, assemble in parallel.
 - **"Redo the vote"** → re-run only the dot-vote protocol.
-- **"Just a poster"** → run the `poster` skill alone.
+- **"Just the media assets"** → run the `mediakit` skill alone (poster + storyboard).
 - **"Switch a market"** → edit the `campaign-plan.html` capture; regenerate the plan and its pilot forecast.
 - **"Skip to slogan"** → run only the idea menu.
 
@@ -125,9 +129,9 @@ Everything lands in **one round folder**: `artifacts/Quest<ID>-<NN>/` (e.g. `art
 |---|---|
 | `insight-brief.html` (capture embedded) | insight |
 | `campaign-plan.html` (capture embedded) | plan |
-| `poster.html` (+ `poster-a|b|c.html`) | poster |
-| **`proposal.html`** | showcase — **the umbrella**: one navigable document embedding the whole case (executive summary + insight, plan, poster, deck and prompt-pack as full artifacts) |
-| `pitch-deck.html` + `prompt-pack.html` + `storyboard.html` | showcase |
+| `poster.html` (+ `poster-a|b|c.html`) + `storyboard.html` | media kit |
+| **`proposal.html`** | showcase — **the umbrella**: one navigable document embedding the whole case (executive summary + insight, plan, poster, storyboard, deck and prompt-pack as full artifacts) |
+| `pitch-deck.html` + `prompt-pack.html` | showcase |
 
 > **`proposal.html` is the package** a judge reads start-to-finish; the deck is one of its views. Always generate the proposal.
 
@@ -142,16 +146,16 @@ Everything lands in **one round folder**: `artifacts/Quest<ID>-<NN>/` (e.g. `art
 │   │   └── sub-skills/         # business-research · market-trends · audience-analysis
 │   ├── plan/                   # stage skill
 │   │   └── sub-skills/         # creative-concept
-│   ├── poster/                 # Create-stage deliverable skill (poster-a/b/c.html)
+│   ├── mediakit/               # media-kit stage skill (poster + storyboard)
+│   │   └── sub-skills/         # poster (3 styles → pick 1) · storyboard (6-panel sheet → 16:9 viewer)
 │   ├── prove/                  # dormant skill (pilot forecast now lives in plan)
 │   │   └── sub-skills/         # campaign-metrics · data-visualizer-pro (retained · dormant)
 │   ├── showcase/               # AUTO stage skill (proposal / pitch-deck / prompt-pack)
-│   │   └── sub-skills/         # campaign-storyboard (6-panel sheet → 16:9 viewer → storyboard.html)
 │   ├── agent-reach/            # live research (top-level)
 │   ├── facilitation/           # the co-creation engine (protocols + option menu)
 │   └── ascentium-brand/        # brand executor (+ brand-guideline.md)
 ├── agents/                     # facilitator.md · runner.md · researcher.md
-├── commands/                   # start · insight · plan · poster · showcase · evaluate · run
+├── commands/                   # start · insight · plan · mediakit · showcase · evaluate · run
 ├── quest-card.md               # quest config contract (data + visual params) + output layout
 ├── evaluation-rubric.md        # 7-dimension pitch scorecard
 ├── README.md                   # this manual
@@ -160,7 +164,7 @@ Everything lands in **one round folder**: `artifacts/Quest<ID>-<NN>/` (e.g. `art
 
 Run outputs (gitignored): **`artifacts/Quest<ID>-<NN>/`** at the repo root — one folder per round.
 
-opencode discovers skills by scanning **`**/SKILL.md`** inside `skills/` (nested sub-skills are fine). Naming is **always without `quest`** (skills `insight`/`plan`/`poster`/`showcase`; agents `facilitator`/`researcher`; commands `/start` …).
+opencode discovers skills by scanning **`**/SKILL.md`** inside `skills/` (nested sub-skills are fine). Naming is **always without `quest`** (skills `insight`/`plan`/`mediakit`/`showcase`; agents `facilitator`/`researcher`; commands `/start` …).
 
 ---
 
