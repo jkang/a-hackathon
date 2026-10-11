@@ -63,6 +63,16 @@ All three carry the **same** 9 sections. Vary: colour balance, typographic scale
 - Equal ratios + `preserveAspectRatio="xMidYMid slice"` ⇒ **no crop, ever**.
 - Changing the band height means changing the `viewBox` to match (or switching to `meet`). Never mix a 4:3 art with a wide `slice` frame — that cropped the old stadium illustration top-and-bottom.
 
+## The richer-poster prompt (per style)
+
+The tab page (`poster.html`) carries a **"Get a richer poster"** overlay (press **P**) with a **prompt per style**, keyed to the active tab.
+
+- **Content script, not a visual spec** — it lists what the poster must carry (masthead · name · slogan · proposition · the offer and its prices · 3 proof points · 4 numbers with sources · CTA + hashtag + URL · footer) and states the style's *job* as **context only**; art direction, layout, palette and typography are explicitly the other tool's call. Do not prescribe the visuals — that caps a stronger tool.
+- **Input hint (locked)** — both the overlay note and the prompt must say: best results come from feeding the tool **`campaign-plan.html`** first (add `insight-brief.html`). The prompt is also filled with the plan's values so it works standalone.
+- **Format (locked)** — one self-contained **`.html`**; **HTML only, never PPT / PPTX / Keynote / Slides**.
+
+Fill `{{RICHER_PROMPT_A|B|C}}` when building the poster set; the standalone `poster-a|b|c.html` pages stay clean (no overlay).
+
 ## Choosing a style (HITL)
 
 - Present all three; do **not** decide.

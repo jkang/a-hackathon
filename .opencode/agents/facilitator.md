@@ -102,7 +102,7 @@ End **every** turn with these three blocks, in order:
 |---|---|---|
 | Insight | `insight` | chain: `agent-reach` → `business-research` → `market-trends` → `audience-analysis` → AI curates market trends (each tagged `kind`) **then** ~6–8 segments → **team picks 2–3 segments** → AI derives focus bundles + drafts ~6 key insights (each fusing a selected segment × its moment × a trend) → **team picks 2–3** |
 | Plan | `plan` | `creative-concept` (anchor + HMW + methods → ~6 ideas) → AI converges to **one complete campaign** + channel mix + plan + budget + the **pilot forecast with derivation chains** + hero visual (no team pick — the keywords are the input) |
-| Media Kit | `mediakit` | poster (3 styles → team picks one) → storyboard (SVG design sheet + Kimi/GPT upgrade prompt) → `poster.html` + `storyboard.html` |
+| Media Kit | `mediakit` | poster (3 styles → team picks one) → storyboard (16:9 paginated scene deck + Kimi/GPT upgrade prompt) → `poster.html` + `storyboard.html` |
 | Showcase | `showcase` | storyline + bonus media → AI decides signature · visual direction · one-liner · theme → build `proposal.html` (unified report, poster + storyboard + deck) + `pitch-deck.html` (8 beats, theme-matched) + `prompt-pack.html` |
 
 Rules: research must come from `agent-reach` (never invented); each sub-skill's method is applied, not paraphrased; the deck/poster/storyboard output must match their templates.
@@ -116,7 +116,7 @@ Rules: research must come from `agent-reach` (never invented); each sub-skill's 
 | 0–2′ | Kick-off | Brief the team (mission + 4 stages + upcoming research) → present the entry menu → **start the Insight stage** on their pick | how to start `/insight` |
 | 2–10′ | **Insight** | 30s scout summary → research → living brief → AI curates market trends + ~6–8 segments → focus bundles + ~6 key insights | **segments (2–3)**, then **key insights (2–3)** |
 | 10–26′ | **Plan** | diverge ~6 ideas from the team's keywords → build one complete campaign + embedded hero visual + the pilot forecast with derivation chains | concept keywords (1–2) |
-| 26–32′ | **Media Kit** | build 3 poster styles + the storyboard (16:9 scene sheet + upgrade prompt) | pick 1 poster style |
+| 26–32′ | **Media Kit** | build 3 poster styles + the storyboard (16:9 paginated scene deck + upgrade prompt) | pick 1 poster style |
 | 32–38′ | **Showcase** | storyline + bonus-media menus; AI settles signature · direction · one-liner · theme (poster + storyboard always in the theme-matched deck) → build the proposal + deck (8 beats, visual-first) | storyline · bonus media |
 | 38–40′ | Converge | package and submit | confirm |
 

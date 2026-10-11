@@ -1,35 +1,207 @@
 {
-  "quest": "A",
-  "brand": "The Date-Certain Pass",
-  "crumb": "Campaign Media Kit · Storyboard · Quest A",
-  "h1": "From the first spark to a shared memory",
-  "accent": {"accent": "#FF6611", "tint": "#FFF0E7", "line": "#FFD1B8", "deep": "#B24000"},
-  "theme": {"surface": "light"},
+  "quest": "B",
+  "brand": "The Panda Family",
+  "crumb": "Campaign Media Kit · Storyboard · Quest B · Chengdu Panda Base",
+  "h1": "From watching the cam to meeting the family",
+  "slogan": "Adopt the family. Collect the fun.",
+  "premise": "The fan journey runs from ambient live-cam affection to a named panda your household adopts, a season of drops you collect together, and a trip to meet the family in Chengdu.",
+  "accent": {
+    "accent": "#077069",
+    "tint": "#CDE2E1",
+    "line": "#83B8B4",
+    "deep": "#043835"
+  },
+  "theme": {
+    "surface": "light"
+  },
   "board": "",
-  "width": 1600,
+  "per_page": 2,
+  "cover_art": "meet",
+  "one_liner": "The world's most-loved animal — now part of your family.",
+  "facts": [
+    {
+      "n": "$161.8B",
+      "c": "character / entertainment licensing market"
+    },
+    {
+      "n": "30.08M",
+      "c": "visa-free entries into China, 2025 (+49.5%)"
+    },
+    {
+      "n": ">40%",
+      "c": "of live-cam viewers are outside China"
+    },
+    {
+      "n": "$59/yr",
+      "c": "The Family membership (up to 4)"
+    }
+  ],
   "chapters": [
-    {"id": "I", "name": "The Hook"},
-    {"id": "II", "name": "The Offer"},
-    {"id": "III", "name": "Belonging"}
+    {
+      "id": "I",
+      "name": "The Hook",
+      "blurb": "Ambient panda love becomes a reason to belong."
+    },
+    {
+      "id": "II",
+      "name": "The Offer",
+      "blurb": "Adopt a named panda; make it the whole household's."
+    },
+    {
+      "id": "III",
+      "name": "Belonging",
+      "blurb": "Collect the season together; meet the family in Chengdu."
+    }
   ],
   "steps": [
-    {"n": "01", "chapter": "I", "title": "The moment the trip feels possible",
-     "scene": "an everyday family scene, a phone glowing between them",
-     "ui": {"screen": "Next big memory", "title": "Flights + tickets, one plan", "lines": ["Split it month by month", "Hold today's price"], "cta": "Start a plan"}},
-    {"n": "02", "chapter": "I", "title": "It stops being an ad",
-     "scene": "a parent sees the family trip on a screen, someone reacts beside them",
-     "ui": {"screen": "Fare freeze", "title": "Lock your fare", "lines": ["Hold the price for 12 months"], "cta": "Freeze it"}},
-    {"n": "03", "chapter": "II", "title": "The pass that holds the date",
-     "scene": "a packed stadium rising, one family among the crowd",
-     "ui": {"screen": "The Date-Certain Pass", "title": "Book the memory", "lines": ["Seats + fare, date secured"], "cta": "Reserve"}},
-    {"n": "04", "chapter": "II", "title": "One decision for the whole family",
-     "scene": "a family agreeing at home around one tablet",
-     "ui": {"screen": "Founding family bundle", "title": "One price, all in", "lines": ["4 people · flexible dates"], "cta": "Choose bundle"}},
-    {"n": "05", "chapter": "III", "title": "Reassurance made visible",
-     "scene": "a calm moment on the phone, a confirmation on screen",
-     "ui": {"screen": "Flex-date", "title": "Read first", "lines": ["Refund window · no penalties"], "cta": "See terms"}},
-    {"n": "06", "chapter": "III", "title": "The trip becomes a shared memory",
-     "scene": "three friends at the venue, camera up",
-     "ui": {"screen": "Our Doha memory", "title": "Saved", "lines": ["Photos + tickets in one place"], "cta": "Open album"}}
-  ]
+    {
+      "n": "01",
+      "chapter": "I",
+      "art": "cam",
+      "title": "A million viewers, no way to belong",
+      "scene": "a household watching the always-on panda cam together, a warm glow from the shared screen",
+      "quote": "We've watched them for years. I just wish there was a way to actually be part of it.",
+      "action": "Turn ambient affection into a membership front door",
+      "source": "iPanda · ~9.5M subscribers, >40% outside China",
+      "meta": {
+        "stage": "Trigger",
+        "moment": "The always-on cam",
+        "emotion": "Warm, habitual affection",
+        "goal": "Recognise the audience and open a door"
+      },
+      "ui": {
+        "screen": "The cam",
+        "title": "You have watched them for years",
+        "lines": [
+          "Now meet the family that already feels yours"
+        ],
+        "cta": "Join the family"
+      }
+    },
+    {
+      "n": "02",
+      "chapter": "I",
+      "art": "plan",
+      "title": "The trip suddenly feels possible",
+      "scene": "a parent planning the Chengdu trip on a phone, visa-free, beside a child",
+      "quote": "The moment it stopped being a far-away dream was when the visa went away.",
+      "action": "Meet the trip at the booking moment",
+      "source": "China NBS 2026 · 30.08M visa-free entries (+49.5%)",
+      "meta": {
+        "stage": "Consideration",
+        "moment": "The visa-free planning window",
+        "emotion": "Curious, hopeful",
+        "goal": "Capture trip intent before the OTA booking"
+      },
+      "ui": {
+        "screen": "Plan the trip",
+        "title": "Chengdu, visa-free",
+        "lines": [
+          "30.08M visa-free entries (+49.5%)",
+          "~$1,580 spend per trip"
+        ],
+        "cta": "Start planning"
+      }
+    },
+    {
+      "n": "03",
+      "chapter": "II",
+      "art": "adopt",
+      "title": "Adopt a panda of your own",
+      "scene": "an adopted panda portrait beside a numbered family certificate, confetti in the air",
+      "quote": "We didn't buy merchandise. We adopted someone.",
+      "action": "Make adoption the paid moment",
+      "source": "Licensing International 2026 · 77% of character revenue is classic IP",
+      "meta": {
+        "stage": "Acquisition",
+        "moment": "The adoption decision",
+        "emotion": "Proud, delighted",
+        "goal": "Convert affection into a paid membership"
+      },
+      "ui": {
+        "screen": "Adopt",
+        "title": "Meet your panda",
+        "lines": [
+          "A named panda · the members' cam",
+          "A numbered family certificate"
+        ],
+        "cta": "Adopt · $30/yr"
+      }
+    },
+    {
+      "n": "04",
+      "chapter": "II",
+      "art": "home",
+      "title": "One joyful membership for the house",
+      "scene": "a family agreeing around one tablet at home, the household tier on screen",
+      "quote": "One membership for all of us felt generous — that's what made it easy.",
+      "action": "Sell the household tier, not a single seat",
+      "source": "Plan capture · The Family $59/yr (up to 4)",
+      "meta": {
+        "stage": "Acquisition",
+        "moment": "The household decision",
+        "emotion": "Generous, united",
+        "goal": "Lift average order value to the household tier"
+      },
+      "ui": {
+        "screen": "The Family · $59/yr",
+        "title": "One membership, up to 4",
+        "lines": [
+          "Kids' conservation pack + sticker album",
+          "2 fun drops a year"
+        ],
+        "cta": "Choose the Family"
+      }
+    },
+    {
+      "n": "05",
+      "chapter": "III",
+      "art": "drop",
+      "title": "The drop the family collects together",
+      "scene": "a household opening a numbered seasonal card drop, confetti, kids reaching in",
+      "quote": "The drop is the reason we come back every season — together.",
+      "action": "Recur the season — the drop is the retention engine",
+      "source": "Reuters / Pop Mart 2025 · revenue +184.7%",
+      "meta": {
+        "stage": "Retention",
+        "moment": "The seasonal drop",
+        "emotion": "Excited, together",
+        "goal": "Drive repeat engagement and drop sell-through"
+      },
+      "ui": {
+        "screen": "Season 01 drop",
+        "title": "Build the album together",
+        "lines": [
+          "Numbered seasonal card · 14-day window"
+        ],
+        "cta": "Collect the drop"
+      }
+    },
+    {
+      "n": "06",
+      "chapter": "III",
+      "art": "meet",
+      "title": "Meet the family in Chengdu",
+      "scene": "the family meeting a real giant panda at the Base, joyful reunion, cameras up",
+      "quote": "After a year of watching, standing there in person made it real.",
+      "action": "Bundle the trip to convert belonging into travel",
+      "source": "Plan capture · Family Trip +$99 at the OTA moment",
+      "meta": {
+        "stage": "Advocacy",
+        "moment": "The in-person meeting",
+        "emotion": "Overjoyed, loyal",
+        "goal": "Turn membership into shared memory and referrals"
+      },
+      "ui": {
+        "screen": "Family Trip · +$99",
+        "title": "Meet the family",
+        "lines": [
+          "Guided Chengdu experience",
+          "Bundled at the OTA booking moment"
+        ],
+        "cta": "Add the trip"
+      }
+    }
+  ],
+  "richer": ""
 }

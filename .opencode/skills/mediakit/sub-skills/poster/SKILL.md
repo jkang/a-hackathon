@@ -41,7 +41,7 @@ See `references/poster-method.md` for the full method and checklist.
 ## Output
 
 - `poster-a.html` · `poster-b.html` · `poster-c.html` — **three standalone, clean single-poster pages** (portrait, ~1080px, single-file, inline tokens + inline SVG). One page = one design, nothing else — easy to **screenshot / crop / embed**.
-- `poster.html` — the **tab page**: a slim tab bar (Style A / B / C) that switches between the three standalone pages in an iframe + an "open standalone ↗" link. This is the browsable entry point.
+- `poster.html` — the **tab page**: a slim tab bar (Style A / B / C) that switches between the three standalone pages + an "open standalone ↗" link, and a **"Get a richer poster"** overlay (press **P**) carrying a **per-style content-script prompt** (visuals left open, `campaign-plan.html` recommended as input, HTML only). This is the browsable entry point.
 - Built with `scripts/build-posters.py` from two templates (`templates/poster-page.html` = one poster, `templates/poster-tabs.html` = the tab shell). Fill the content once; the script emits all four files.
 
 ## Three styles (scenario-driven — not three colourways)
@@ -67,7 +67,7 @@ Offer **3 genuinely different designs**, each matched to a campaign tone. Keep o
 
 1. Pull name / slogan / proposition / the structured `offer` (summary + 3 cards) / pilot markets / budget from **`plan`** in the `campaign-plan.html` capture, and **reuse that plan's `visual_direction` + `one_liner`**.
 2. Fill the shared content pack once into `templates/poster-page.html` (leave the `{{POSTER_STYLE}}` tokens) and the few fields in `templates/poster-tabs.html`; inject the accent vars (`--accent` / `--accent-tint` / `--accent-line` / `--accent-deep`) from the quest card, plus the key-visual motif and the `{{STYLE_*}}` names.
-3. Build the deliverable: `python3 .opencode/skills/mediakit/sub-skills/poster/scripts/build-posters.py --dir artifacts/Quest<ID>-<NN>/ [--default a]` → `poster-a.html` · `poster-b.html` · `poster-c.html` · `poster.html`. (Write into the current round folder — see `quest-card.md` → *Output layout*.)
+3. Build the deliverable: fill the three per-style **richer-poster prompts** (`{{RICHER_PROMPT_A|B|C}}` in the tabs template — a content script for that style: what the poster must carry, visuals left open, `campaign-plan.html` as the recommended input, HTML only), then run `python3 .opencode/skills/mediakit/sub-skills/poster/scripts/build-posters.py --dir artifacts/Quest<ID>-<NN>/ [--default a]` → `poster-a.html` · `poster-b.html` · `poster-c.html` · `poster.html`. (Write into the current round folder — see `quest-card.md` → *Output layout*.)
 4. **Team previews the 3 styles and picks one** (HITL — the AI does not choose), via the tab page and/or the Showcase deck.
 5. Record the choice as `poster_style` (a | b | c) in the `campaign-plan.html` capture so the deck/proposal embed the right page.
 6. Self-check against `references/poster-method.md`.

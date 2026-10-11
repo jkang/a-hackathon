@@ -1,6 +1,6 @@
 ---
 name: mediakit
-description: Run the MEDIA KIT stage of the Ascentium mini-hackathon quest — the campaign's visual-asset stage. It produces the two hero visuals: (1) the POSTER (the AI builds all three styles at once; the team's single decision is which one to keep), then (2) the STORYBOARD (the AI renders a 16:9 scene sheet — 6–8 scenes in 3 chapters — as an inline SVG design, self-contained, and emits one complete prompt the team can take to Kimi / GPT for a more visualized rendered sheet). Reads the `campaign-plan.html` + `insight-brief.html` captures. One team decision only (the poster style). Triggers: "media kit", "mediakit", "campaign poster", "hero visual", "storyboard", "fan journey sheet", "make the media assets".
+description: Run the MEDIA KIT stage of the Ascentium mini-hackathon quest — the campaign's visual-asset stage. It produces the two hero visuals: (1) the POSTER (the AI builds all three styles at once; the team's single decision is which one to keep), then (2) the STORYBOARD (the AI renders the fan journey as a 16:9 PAGINATED deck — a cover + one page per 1–2 rich scenes, 6 scenes in 3 chapters, each with scene art · a phone/UI inset · a fan quote · a stage/moment/emotion/goal block · an action + source line — as an inline SVG design, self-contained, and emits one complete prompt the team can take to Kimi / GPT for a more visualized rendered sheet). Reads the `campaign-plan.html` + `insight-brief.html` captures. One team decision only (the poster style). Triggers: "media kit", "mediakit", "campaign poster", "hero visual", "storyboard", "fan journey sheet", "make the media assets".
 ---
 
 # Media Kit — the campaign's visual-asset stage
@@ -8,7 +8,7 @@ description: Run the MEDIA KIT stage of the Ascentium mini-hackathon quest — t
 The stage that produces the campaign's **visual assets**, in order:
 
 1. **Poster** — the AI builds **all three styles at once**; the team's **single decision** is which one to keep.
-2. **Storyboard** — the AI renders the fan journey as **one 16:9 scene sheet (6–8 scenes in 3 chapters)**: by default an **inline SVG design** (self-contained, no external image), plus **one complete prompt** the team can take to **Kimi / GPT** for a more visualized rendered sheet.
+2. **Storyboard** — the AI renders the fan journey as a **16:9 paginated scene deck** (a cover + one page per 1–2 rich scenes, 6 scenes in 3 chapters): by default **inline SVG art** (self-contained, no external image), plus **one complete prompt** the team can take to **Kimi / GPT** for a more visualized rendered sheet.
 
 > This stage absorbed the old `poster` stage and the `campaign-storyboard` sub-skill (previously under `showcase`). The Showcase deck now embeds **both** assets (the poster is always on; the storyboard is the Hero's-Journey signature or a secondary visual beat).
 
@@ -30,21 +30,21 @@ The stage that produces the campaign's **visual assets**, in order:
 
 1. **Build all three posters (AI).** Invoke the **`poster` sub-skill** (`sub-skills/poster/`): fill the shared content pack once, emit `poster-a.html` · `poster-b.html` · `poster-c.html` + the `poster.html` tab page.
 2. **DECIDE (team) — the single decision.** Present the **three styles (Style A · Full-Bleed Hero / Style B · Belonging Passport / Style C · Midnight Minimal)** inline → the team **picks one** (or `+1 own`). Record it as **`poster_style` (a | b | c)** in the `campaign-plan.html` capture.
-3. **Build the storyboard (AI).** Invoke the **`storyboard` sub-skill** (`sub-skills/storyboard/`): render the fan journey as one 16:9 scene sheet (6–8 scenes in 3 chapters) — **inline SVG design by default** — and emit the **one complete prompt** for a Kimi / GPT upgrade. Write `storyboard.html` at the round root.
+3. **Build the storyboard (AI).** Invoke the **`storyboard` sub-skill** (`sub-skills/storyboard/`): render the fan journey as a **16:9 paginated deck** (cover + one page per 1–2 rich scenes, 6 scenes in 3 chapters, each with scene art · a phone/UI inset · a fan quote · a stage/moment/emotion/goal block · an action + source line) — **inline SVG art by default** — and emit the **one complete prompt** for a Kimi / GPT upgrade. Write `storyboard.html` at the round root.
 4. **Hand off for review (no further pick).** Announce both assets; invite the team to open `poster.html` and `storyboard.html`, review them, and send feedback/changes (revise on reply). Point to `/showcase` as the step to take **once they're happy** — do **not** default straight to `/showcase`.
 
 ## Output
 
 - `poster-a.html` · `poster-b.html` · `poster-c.html` — three standalone, clean single-poster pages (portrait, single-file).
 - `poster.html` — the tab page switching between the three styles (the browsable entry point).
-- `storyboard.html` — the standalone 16:9 storyboard viewer (theme set from the campaign plan) showing the scene sheet (inline SVG design by default) + the upgrade prompt.
+- `storyboard.html` — the standalone 16:9 storyboard deck (theme set from the campaign plan) paging through the cover + the rich scene cards (inline SVG art by default) + the upgrade prompt.
 
 Write into the current round folder `artifacts/Quest<ID>-<NN>/` (see `quest-card.md` → *Output layout*).
 
 ## Sub-skills
 
 - **`sub-skills/poster/`** — the poster deliverable (three styles → the team picks one). See `sub-skills/poster/SKILL.md` + `references/poster-method.md`.
-- **`sub-skills/storyboard/`** — the 16:9 scene sheet (6–8 scenes / 3 chapters; inline SVG design by default; Kimi/GPT upgrade prompt). See `sub-skills/storyboard/SKILL.md` + `references/storyboard-method.md`.
+- **`sub-skills/storyboard/`** — the 16:9 paginated scene deck (6–8 scenes / 3 chapters, 1–2 per page; inline SVG art by default; Kimi/GPT upgrade prompt). See `sub-skills/storyboard/SKILL.md` + `references/storyboard-method.md`.
 
 ## Brand
 

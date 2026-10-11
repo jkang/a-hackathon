@@ -6,7 +6,9 @@
 <!-- Campaign poster · TAB PAGE (content-driven height → embeds & auto-fits cleanly).
      The three posters are inlined below (one shown at a time); the standalone pages
      poster-a.html / poster-b.html / poster-c.html are the croppable single files.
-     Built by scripts/build-posters.py. -->
+     Also carries the per-style "richer poster script" prompt (press P) — content-only,
+     visuals left open, campaign-plan.html recommended as input.
+     Built by scripts/build-posters.py from templates/poster-page.html + this file. -->
 <title>Campaign Poster · {{HEADLINE}} · {{QUEST}}</title>
 {{PAGE_STYLE}}
 <style>
@@ -17,9 +19,12 @@
   .bar .logo{font-size:18px;font-weight:800;} .bar .logo span{color:var(--accent);}
   .bar .title{font-size:12px;color:#9AA5A2;font-weight:600;}
   .bar .title b{color:#fff;font-weight:800;}
-  .bar .open{margin-left:auto;font-size:12px;font-weight:700;color:var(--accent);text-decoration:none;
-        border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:7px 14px;white-space:nowrap;}
-  .bar .open:hover{background:rgba(255,255,255,.08);}
+  .bar .spacer{flex:1;}
+  .bar .open,.bar .rich{font-size:12px;font-weight:700;text-decoration:none;
+        border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:7px 14px;white-space:nowrap;cursor:pointer;}
+  .bar .open{color:var(--accent);} .bar .open:hover{background:rgba(255,255,255,.08);}
+  .bar .rich{color:var(--accent-tint);background:rgba(255,255,255,.06);font-family:inherit;}
+  .bar .rich:hover{background:rgba(255,255,255,.14);}
   .tabs{display:flex;gap:8px;padding:12px 20px;background:#fff;border-bottom:1px solid var(--line);overflow-x:auto;}
   .tabs button{text-align:left;font:inherit;background:#fff;border:1.5px solid var(--line);border-radius:12px;
         padding:10px 16px;cursor:pointer;flex:none;min-width:210px;}
@@ -32,7 +37,28 @@
   .stack{padding:26px 12px 40px;display:flex;flex-direction:column;align-items:center;}
   .stack .poster{display:none;}
   .stack .poster.on{display:block;}
-  @media print{ .bar,.tabs{display:none;} .stack{padding:0;} }
+
+  /* ---- richer poster script (overlay) ---- */
+  .roverlay{position:fixed;inset:0;background:rgba(6,10,10,.94);z-index:50;display:none;flex-direction:column;padding:28px 36px;}
+  .roverlay.on{display:flex;}
+  .roverlay .rh{display:flex;align-items:baseline;justify-content:space-between;gap:18px;border-bottom:2px solid var(--accent);padding-bottom:9px;}
+  .roverlay h2{font-size:19px;font-weight:800;color:#F4EFE4;font-family:"Poppins","Noto Sans SC",Arial,sans-serif;}
+  .roverlay .rclose{font:inherit;font-family:inherit;font-size:12px;font-weight:700;color:#F4EFE4;background:transparent;
+        border:1px solid #2B3A38;border-radius:8px;padding:5px 12px;cursor:pointer;}
+  .roverlay .rnote{font-size:12.5px;color:#9DB3AE;margin-top:10px;line-height:1.55;max-width:1080px;
+        font-family:"Poppins","Noto Sans SC",Arial,sans-serif;}
+  .roverlay .rnote b{color:#F4EFE4;} .roverlay .rnote code{color:var(--accent-tint);font-size:12px;}
+  .roverlay .rpromptbox{position:relative;margin-top:12px;flex:1;min-height:0;overflow:auto;background:#070D0D;
+        border:1px solid #22312F;border-radius:12px;padding:15px 17px;}
+  .roverlay .rcopy{position:sticky;top:0;float:right;font:inherit;font-family:inherit;font-size:11px;font-weight:700;
+        color:#fff;background:var(--accent);border:none;border-radius:7px;padding:6px 12px;cursor:pointer;}
+  .roverlay pre.rprompt{display:none;white-space:pre-wrap;word-break:break-word;margin-top:4px;
+        font-family:"SF Mono",Consolas,Menlo,monospace;font-size:12.5px;line-height:1.6;color:#C7D4D1;}
+  .roverlay pre.rprompt.on{display:block;}
+  .roverlay .rwhich{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#7C9A94;
+        font-family:"Poppins",Arial,sans-serif;margin-bottom:6px;}
+
+  @media print{ .bar,.tabs,.roverlay{display:none!important;} .stack{padding:0;} }
 </style>
 </head>
 <body data-quest="{{QUEST}}" style="--accent:{{ACCENT}};--accent-tint:{{ACCENT_TINT}};--accent-line:{{ACCENT_LINE}};--accent-deep:{{ACCENT_DEEP}};">
@@ -42,6 +68,8 @@
 <div class="bar">
   <div class="logo">Ascentium<span>.</span></div>
   <div class="title">Campaign Poster — <b>{{HEADLINE}}</b> · "{{TAGLINE}}" · {{CLIENT_NAME}}</div>
+  <div class="spacer"></div>
+  <button class="rich" id="rbtn">Get a richer poster ↗</button>
   <a class="open" id="open" href="poster-{{POSTER_STYLE_DEFAULT}}.html" target="_blank">Open standalone ↗</a>
 </div>
 
@@ -55,12 +83,39 @@
 {{POSTER_STACK}}
 </div>
 
+<div class="roverlay" id="roverlay">
+  <div class="rh">
+    <h2>Write a richer poster script</h2>
+    <button class="rclose" id="rclose">Close</button>
+  </div>
+  <div class="rnote">
+    The poster already ships complete in all three styles above. To have another AI produce a <b>richer version</b>,
+    paste the prompt for the style you picked into <b>Kimi</b> / <b>GPT</b>. It writes the <b>poster's content script
+    only</b> — the art direction, layout, palette and typography are left open for that tool to invent.
+    <b>Best results: give it <code>campaign-plan.html</code> as input first</b> (add <code>insight-brief.html</code>
+    if you have it) — it holds the campaign name, slogan, proposition, offer and proof. The prompt asks for a
+    <b>self-contained .html</b> file (HTML only, never a PPT/slide file) so it opens by double-clicking.
+  </div>
+  <div class="rpromptbox">
+    <button class="rcopy" id="rcopy">Copy prompt</button>
+    <div class="rwhich" id="rwhich">Style A · {{STYLE_A}}</div>
+    <pre class="rprompt" id="rprompt-a" data-style="a">{{RICHER_PROMPT_A}}</pre>
+    <pre class="rprompt" id="rprompt-b" data-style="b">{{RICHER_PROMPT_B}}</pre>
+    <pre class="rprompt" id="rprompt-c" data-style="c">{{RICHER_PROMPT_C}}</pre>
+  </div>
+</div>
+
 <script>
 (function(){
   var stack = document.getElementById('stack');
   var open  = document.getElementById('open');
   var tabs  = Array.prototype.slice.call(document.querySelectorAll('#tabs button'));
   var posters = Array.prototype.slice.call(stack.querySelectorAll('.poster'));
+  var blocks = Array.prototype.slice.call(document.querySelectorAll('.roverlay pre.rprompt'));
+  var which = document.getElementById('rwhich');
+  var styleNames = {};
+  tabs.forEach(function(b){ styleNames[b.getAttribute('data-style')] = (b.querySelector('.t') || {}).textContent || ''; });
+  var current = '{{POSTER_STYLE_DEFAULT}}';
 
   function keyFromLocation(){
     var m = (location.hash || '').match(/style-([abc])/i);
@@ -70,14 +125,40 @@
   }
   function apply(){
     var key = keyFromLocation() || '{{POSTER_STYLE_DEFAULT}}';
+    current = key;
     tabs.forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-style') === key); });
     posters.forEach(function(p){ p.classList.toggle('on', p.getAttribute('data-style') === key); });
     open.setAttribute('href', 'poster-' + key + '.html');
+    blocks.forEach(function(pre){ pre.classList.toggle('on', pre.getAttribute('data-style') === key); });
+    if(which) which.textContent = 'STYLE ' + key.toUpperCase() + ' · ' + (styleNames[key] || '');
   }
   tabs.forEach(function(b){
     b.addEventListener('click', function(){ location.hash = 'style-' + b.getAttribute('data-style'); apply(); });
   });
   window.addEventListener('hashchange', apply);
+
+  // richer-poster overlay (press P)
+  var ov = document.getElementById('roverlay');
+  function toggle(force){
+    var on = (typeof force === 'boolean') ? force : !ov.classList.contains('on');
+    ov.classList.toggle('on', on);
+  }
+  var rb = document.getElementById('rbtn'); if(rb) rb.addEventListener('click', function(){ toggle(true); });
+  var rc = document.getElementById('rclose'); if(rc) rc.addEventListener('click', function(){ toggle(false); });
+  if(ov) ov.addEventListener('click', function(e){ if(e.target===ov) toggle(false); });
+  var cp = document.getElementById('rcopy');
+  if(cp) cp.addEventListener('click', function(){
+    var pre = document.querySelector('.roverlay pre.rprompt.on'); if(!pre) return;
+    var t = pre.innerText;
+    function done(){ cp.textContent='Copied'; setTimeout(function(){ cp.textContent='Copy prompt'; }, 1500); }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(done); }
+    else { var r=document.createRange(); r.selectNodeContents(pre); var s=window.getSelection();
+           s.removeAllRanges(); s.addRange(r); document.execCommand('copy'); s.removeAllRanges(); done(); }
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='p'||e.key==='P'){ toggle(); }
+    else if(e.key==='Escape'){ toggle(false); }
+  });
   apply();
 })();
 </script>

@@ -81,11 +81,11 @@
 
   <!-- STORYBOARD -->
   <div class="card">
-    <h2>Storyboard · one 16:9 scene sheet</h2>
+    <h2>Storyboard · a richer story script → one self-contained HTML</h2>
     <div class="tool">Tool: {{STORYBOARD_TOOL}}</div>
-    <p class="back" style="margin-bottom:10px;">The storyboard ships as an <b>SVG design sheet</b>. For a richer board, paste this one complete prompt once into <b>Kimi</b> / <b>GPT</b> to generate a <b>single 16:9 storyboard sheet</b> — every scene shares one look and one prompt carries the whole journey.</p>
+    <p class="back" style="margin-bottom:10px;">The storyboard ships as a <b>paginated 16:9 deck with inline SVG art</b>. For a richer board, paste this prompt into <b>Kimi</b> / <b>GPT</b> — <b>with <code>campaign-plan.html</code> as input</b>. It writes the <b>story script only</b> (the visuals are left open for that tool to invent) and returns a <b>single self-contained .html</b>. <b>HTML only</b>: do not take a PPT / PPTX / Keynote / Google Slides export — those may not open on the room's machines.</p>
     <div class="prompt"><span class="copy" onclick="cp(this)">Copy</span>{{SB_PROMPT}}</div>
-    <div class="back">Bring back: <b>{{STORYBOARD_FILE}}</b> → one 16:9 sheet image; the AI replaces the SVG sheet with the rendered one.</div>
+    <div class="back">Bring back: <b>{{STORYBOARD_FILE}}</b> (a <b>.html</b> file) → the AI inlines it as a page alongside the SVG scenes.</div>
   </div>
 
   <footer>Human-led, AI-scaffolded. Tool output is a bonus, not a required deliverable. Data as of {{DATA_AS_OF}}.</footer>

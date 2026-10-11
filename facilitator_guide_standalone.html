@@ -127,7 +127,7 @@
   <header class="hero" id="what">
     <div class="tag">Facilitator Guide</div>
     <h1>Ascentium Mini-Hackathon</h1>
-    <p>5 分钟读懂，50 分钟带队完成。营销商业方案挑战 —— 不是 AI 产品挑战。</p>
+    <p>5 分钟读懂，50 分钟带队完成 · 营销商业方案挑战 · 开箱即用、全部英文。</p>
   </header>
 
   <section id="duty">
@@ -179,7 +179,8 @@
 │   │   ├── references/ · templates/
 │   │   └── sub-skills/          # creative-concept
 │   ├── mediakit/                # 物料门（Create 阶段）→ poster-a/b/c.html + poster.html + storyboard.html
-│   ├── showcase/                # 呈现门（AUTO）→ proposal / pitch-deck / prompt-pack
+│   │   └── sub-skills/          # poster（海报 3 风格）· storyboard（16:9 场景稿，6–8 场 / 3 章）
+│   ├── showcase/                # 呈现门（AUTO，主题匹配 poster + storyboard）→ proposal / pitch-deck / prompt-pack
 │   │   └── references/ · scripts/ · templates/
 │   ├── agent-reach/             # 实时研究（insight 调用；CLI 需预装）
 │   ├── facilitation/            # 共创引擎（协议 · 节奏 · 话术 · 选项菜单 · 采集契约）
@@ -2000,7 +2001,12 @@
     </div>
 
     <div class="demo">
-      <div class="cap"><span>④ 统一提案</span><span class="file">proposal.html</span></div>
+      <div class="cap"><span>④ 故事板 · 16:9 场景稿（6–8 场 / 3 章）</span><span class="file">storyboard.html</span></div>
+      <iframe data-auto src="demo-examples/QuestB-02/storyboard.html" height="640" title="Storyboard"></iframe>
+    </div>
+
+    <div class="demo">
+      <div class="cap"><span>⑤ 统一提案</span><span class="file">proposal.html</span></div>
       <iframe data-auto srcdoc="&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
@@ -5435,7 +5441,7 @@ function cp(btn){
     </div>
 
     <div class="demo">
-      <div class="cap"><span>⑤ 路演 PPT · 5 分钟</span><span class="file">pitch-deck.html</span></div>
+      <div class="cap"><span>⑥ 路演 PPT · 5 分钟</span><span class="file">pitch-deck.html</span></div>
       <iframe data-fixed srcdoc="&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
@@ -6506,7 +6512,7 @@ function cp(btn){
     </div>
 
     <div class="demo">
-      <div class="cap"><span>⑥ 加分媒体提示词</span><span class="file">prompt-pack.html</span></div>
+      <div class="cap"><span>⑦ 加分媒体提示词</span><span class="file">prompt-pack.html</span></div>
       <iframe data-auto srcdoc="&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
@@ -6744,7 +6750,7 @@ opencode</code></pre>
       <ul>
         <li><b>把 14 人分成几组并行推进。</b>研究取证 / 创意发散 / 测算指标 / 视觉排版 / 撰写讲稿 —— 让每人认领一项，而不是集体旁观 AI 操作。</li>
         <li><b>主动邀请发言较少的人承担任务。</b>「这项交给你，可以吗？」一句话就能让他加入。</li>
-        <li><b>Showcase 准备要并行推进。</b>不必等所有产出定稿：一边安排 2–3 人搭建故事线、演练讲稿，另一边继续优化海报、试做音频 / 视频等加分内容 —— 活动结束前每人都有明确任务。</li>
+        <li><b>Showcase 准备要并行推进。</b>不必等所有产出定稿：一边安排 2–3 人搭建故事线、演练讲稿，另一边继续优化海报 / 故事板、试做音频 / 视频等加分内容 —— 活动结束前每人都有明确任务。</li>
         <li><b>决策始终留给团队。</b>市场、创意、指标、视觉 —— AI 只提供建议和默认值，最终由团队决定。</li>
       </ul>
     </div>
@@ -6763,6 +6769,8 @@ opencode</code></pre>
       <div class="eyebrow">⑤ 结束前 · 锦上添花</div>
       <ul>
         <li><b>海报 3 种风格可选</b>（默认名）：A · Full-Bleed Hero（满版主视觉）· B · Belonging Passport（护照 / 会员卡风）· C · Midnight Minimal（极简）；风格名可由题卡改写（Quest B 示例保留默认名）。deck 内嵌已选风格的海报页（整屏完整展示）。</li>
+        <li><b>deck 主题跟随海报 + 故事板</b>：所选海报风格决定 deck 背景（A → 浅色 · B → 奶油 · C → 深色），故事板与之同底 —— 演示时整屏视觉统一，最沉浸。</li>
+        <li><b>故事板可升级</b>：默认产出是 16:9 场景稿（SVG）；把 <code>storyboard.html</code> 内置的一条完整 prompt 带到 <b>Kimi / GPT</b> 生成更可视化的单图，拿回后 AI 会替换进 deck 与 proposal。</li>
         <li><b>音频 / 视频 / 图片</b>：<code>prompt-pack.html</code> 提供了现成 prompt，复制到对应工具即可 ——</li>
       </ul>
       <pre><code>歌（Suno）   Anthemic panda-conservation anthem … "COME MEET THEM — watch, join, then come meet them."
@@ -6801,7 +6809,7 @@ opencode</code></pre>
       <div class="eyebrow">② 选一道题试跑（Quest A 或 Quest B · 2 遍）</div>
       <ul>
         <li>每位 Facilitator <b>只需认领并熟悉一道题</b>（Quest A 或 Quest B），把它完整跑 2 遍 —— 不用两个 case 都演练。</li>
-        <li>确认能产出预期结果：<code>proposal.html</code>（方案）+ <code>pitch-deck.html</code>（路演稿）。</li>
+        <li>确认能产出预期结果：<code>proposal.html</code>（含海报 + 故事板 + 路演稿的统一提案）+ <code>pitch-deck.html</code>（路演稿）。</li>
         <li>记录卡点与耗时，沉淀成话术与降级方案，现场直接照用。</li>
       </ul>
     </div>

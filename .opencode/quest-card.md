@@ -90,6 +90,7 @@ artifacts/Quest<ID>-<NN>/
 - The `insight` stage creates the folder **as soon as its first research block lands**, then **rewrites `insight-brief.html` after every step** (a living brief); the `plan` stage likewise builds `campaign-plan.html` **progressively**. Later stages write their artifact once.
 - **Never overwrite a previous round.** A repeat run always increments `<NN>`.
 - Round contents (**HTML only** — no YAML/Markdown): `insight-brief.html` · `campaign-plan.html` · `poster.html` (+ `poster-a|b|c.html`) · `storyboard.html` · `pitch-deck.html` · `prompt-pack.html` · `proposal.html`. Each stage HTML carries its decisions in an embedded `<script type="application/json" id="capture">` block.
+- **Format rule (locked): every deliverable is a single self-contained HTML file that opens by double-clicking.** Never produce, request, or hand off a **PPT / PPTX / Keynote / Google Slides** file or any slide-deck export — those may not open on the room's machines. Bonus media (song / video / image) may be embedded data or a local asset; **any AI-generated "richer" asset must come back as HTML**, not as a deck file.
 - Builder steps run with `--dir artifacts/Quest<ID>-<NN>/` (`build-posters.py`, `build-storyboard.py`, `build-proposal.py`).
 
 `artifacts/` is gitignored (live run output); checked-in examples live under `demo-examples/`.
