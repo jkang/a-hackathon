@@ -1,5 +1,5 @@
 ---
-description: Create the campaign media kit — the poster (pick 1 of 3 styles) + the storyboard (SVG design draft + AI-upgrade prompt).
+description: Create the campaign media kit — the poster (pick 1 of 3 styles) + the storyboard (SVG design sheet + AI-upgrade prompt).
 agent: facilitator
 ---
 

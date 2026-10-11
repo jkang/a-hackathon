@@ -5,13 +5,13 @@ agent: facilitator
 
 Run **only the SHOWCASE stage**.
 
-> **Stage opening.** We're now in the **Showcase** stage: I assemble the proposal + pitch deck (dark, using your poster + storyboard); you **pick a storyline** and decide whether to add **bonus media**.
+> **Stage opening.** We're now in the **Showcase** stage: I assemble the proposal + pitch deck (themed to match your poster + storyboard); you **pick a storyline** and decide whether to add **bonus media**.
 
 > **One decision per turn.** Present one menu, then **STOP and wait** for the team's reply. **Never answer your own menu; never run another stage.** (See `facilitator` → *Turn discipline*.)
 
 Use the `showcase` skill with `facilitation` (option menu). Requires the captures embedded in `insight-brief.html` + `campaign-plan.html`, plus the media kit from the `mediakit` stage (`poster-<style>.html` + `storyboard.html`).
 
-**Recover upstream (resume) — do this first.** Determine the quest id and find the latest round `artifacts/Quest<ID>-*`. If it's unambiguous (a single round, or the round already established in this session), state it in one line and continue — no need to ask. Ask **only when genuinely ambiguous**. Read the `insight-brief.html` + `campaign-plan.html` captures (and `poster_style` from `campaign-plan.html`), and locate `poster-<style>.html` + `storyboard.html`. If an upstream artifact is missing, say which and ask the team to run the missing stage first. **Media-kit fallback:** if no poster exists, build a **default poster (style A)**; if no storyboard exists, build a **default storyboard (SVG design draft)** — so the deck's visual beats are always present.
+**Recover upstream (resume) — do this first.** Determine the quest id and find the latest round `artifacts/Quest<ID>-*`. If it's unambiguous (a single round, or the round already established in this session), state it in one line and continue — no need to ask. Ask **only when genuinely ambiguous**. Read the `insight-brief.html` + `campaign-plan.html` captures (and `poster_style` from `campaign-plan.html`), and locate `poster-<style>.html` + `storyboard.html`. If an upstream artifact is missing, say which and ask the team to run the missing stage first. **Media-kit fallback:** if no poster exists, build a **default poster (style A)**; if no storyboard exists, build a **default storyboard (SVG design sheet)** — so the deck's visual beats are always present.
 
 **This stage has exactly TWO team decisions — the storyline and bonus media.** The AI decides everything else.
 

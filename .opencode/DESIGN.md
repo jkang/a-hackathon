@@ -38,7 +38,7 @@ AI 给脚手架/问题  →  团队发散(人人出点子)  →  团队收敛(�
 - **洞察门**（insight）：团队注入「市场真相」→ 收敛出「种子洞察」
 - **创意门**（plan）：团队给 1–2 concept keywords → AI 发散 ~6 ideas、收敛并搭出**一套完整方案** + pilot 预测（无 end-of-stage pick）
 - **物料门**（mediakit）：AI 出 3 款海报（团队选 1）→ 再出 storyboard（SVG 设计稿 + AI 升级 prompt）
-- **呈现门**（showcase）：团队选 storyline + 加分媒体 → AI 生成深色路演稿（内嵌 poster + storyboard）
+- **呈现门**（showcase）：团队选 storyline + 加分媒体 → AI 生成主题匹配 poster + storyboard 的路演稿（内嵌二者）
 
 ### 3.1 灵活调度模型（关键）
 
@@ -256,11 +256,11 @@ AI 必须在每个阶段**持续感知剩余时间 + 团队意图**，动态调�
   6. 团队 30″ 预演 + 微调；**storyboard 可升级**：把 `storyboard.html` 内的一条完整 prompt 带到 Kimi/GPT 生成单图，拿回替换 SVG 设计稿。
 - **capture**：`{storyline, include_poster, poster_style, signature, visuals, visual_direction, one_liner, bonus_media, tweaks}`（仅 `storyline` 与 `bonus_media` 为团队决策；`include_poster` 恒为 true，`visuals` 记录非 signature 的物料，其余为 AI 决定）。
 - **assemble（8 beats，主题匹配 poster + storyboard）**：title → context → insight → audience → **signature**（poster 全幅 / storyboard 全幅 16:9 / prototype / lyric）→ **visuals**（非 signature 物料的缩略卡）→ strategy → ask。
-  - **poster beat**：内嵌 `poster-<style>.html`，**完整展示**（按高度缩放、不裁切），旁列 campaign 文案。
-  - **storyboard beat**：**全幅 16:9**，内嵌 `storyboard.html`（自身深色，与 deck 融为一体）。
+  - **poster beat**：内嵌 `poster-<style>.html?embed=1`，**完整展示**（按高度缩放、不裁切），旁列 campaign 文案。
+  - **storyboard beat**：**全幅 16:9**，内嵌 `storyboard.html?embed=1`（主题与 deck 一致，融为一体）。
   - **visuals beat**：填充 `{{VIS_POSTER}}` / `{{VIS_STORYBOARD}}`（Classic/Big Reveal → storyboard；Hero's Journey → poster；Demo/Trailer → 两者）。
   - **proposal.html**：统一 viewer（侧栏导航：Executive Summary · Insight Brief · Plan & Offering · Campaign Poster · **Storyboard** · Pitch Deck · Media Prompt Pack）。
-- **signature element（创意载体）**：poster（整屏海报，完整展示）/ storyboard（6 面板故事板，全幅 16:9）/ prototype（手机 mock）/ lyric（anthem 歌词）——对应 5 storylines；`visuals` 副 beat 承载其余物料。
+- **signature element（创意载体）**：poster（整屏海报，完整展示）/ storyboard（16:9 场景稿，6–8 场 / 3 章，全幅）/ prototype（手机 mock）/ lyric（anthem 歌词）——对应 5 storylines；`visuals` 副 beat 承载其余物料。
 - **加分媒体工具**：歌曲 **Suno**、视频 **Runway Gen-3**、图片 **GPT**、故事板 **Kimi / GPT**（每类 1 主 1 备）。
 - **吸收/改造**：`pitch-narrative.md`（5 storylines + beat 库 + 主题匹配）、`media-prompts.md`（工具指南）。deck 直接由 `templates/pitch-deck.html` 产出；proposal 由 `templates/proposal.html` + `scripts/build-proposal.py` 装配；poster/storyboard 本体见 `mediakit` 技能。
 
@@ -315,7 +315,7 @@ AI 必须在每个阶段**持续感知剩余时间 + 团队意图**，动态调�
 │   ├── plan/                        # 策划门
 │   │   └── sub-skills/  creative-concept
 │   ├── mediakit/                    # 物料门（Create 阶段；海报 + 故事板）
-│   │   └── sub-skills/  poster（海报 3 风格）· storyboard（6 面板看板 → storyboard.html）
+│   │   └── sub-skills/  poster（海报 3 风格）· storyboard（16:9 场景稿 → storyboard.html）
 │   ├── prove/                       # 论证门（休眠：pilot 预测已并入 plan；保留备用）
 │   │   └── sub-skills/  campaign-metrics · data-visualizer-pro（保留·休眠，不调用）
 │   ├── showcase/                    # 呈现门（AUTO；主题匹配 poster + storyboard 的 deck + proposal + prompt-pack）
@@ -344,9 +344,9 @@ AI 必须在每个阶段**持续感知剩余时间 + 团队意图**，动态调�
 | 2 | `facilitation` | 协议/节奏/话术/采集契约齐全；阶段技能可调用 |
 | 3 | `insight` | Quest A/B 各跑一遍：14 人洞察 → 种子洞察落 `insight-brief.html`（capture 内嵌） |
 | 4 | `plan` | 由 keywords 生成一套完整方案（定位/4Ps/试点/预算/pilot 预测） |
-| 5 | `mediakit` | 专业 campaign poster（9 段式）+ storyboard（6 面板，默认为 SVG 设计稿） |
+| 5 | `mediakit` | 专业 campaign poster（9 段式）+ storyboard（16:9 场景稿，6–8 场 / 3 章，默认为 SVG 设计） |
 | 6 | ~~`prove`~~（休眠） | pilot 预测 + 推演逻辑（已并入 `plan`） |
-| 7 | `showcase` | 5 storylines 深色路演稿 + proposal（内嵌 poster + storyboard） |
+| 7 | `showcase` | 5 storylines 主题匹配路演稿 + proposal（内嵌 poster + storyboard） |
 | 8 | `facilitator` + `README` | 一键串全场 40 分钟，冒烟通过 |
 
 ---

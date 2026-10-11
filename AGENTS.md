@@ -45,7 +45,7 @@
 │   │   └── sub-skills/  creative-concept
 │   │       （references: marketing-plan · channel-strategy · pilot-experiment · budget-model）
 │   ├── mediakit/                      # 物料门（Create 阶段）→ poster-a/b/c.html + poster.html + storyboard.html
-│   │   └── sub-skills/  poster（海报 3 风格）· storyboard（6 面板看板，默认 SVG 设计稿）
+│   │   └── sub-skills/  poster（海报 3 风格）· storyboard（16:9 场景稿，6–8 场 / 3 章，默认 SVG 设计）
 │   ├── prove/                         # 论证门（休眠：pilot 预测已并入 plan；保留备用）
 │   │   └── sub-skills/  campaign-metrics · data-visualizer-pro（保留·休眠）
 │   ├── showcase/                      # 呈现门（AUTO）→ proposal / pitch-deck / prompt-pack（主题匹配 poster + storyboard，内嵌二者）
@@ -72,7 +72,7 @@
 |---|---|---|
 | `insight` | Market Research · Audience Analysis · Benchmark Analysis · Company Profiler (IP audit) | `business-research`、`market-trends`、`audience-analysis` |
 | `plan` | Creative Concept · Channel Strategy · MVP Pilot Design · Marketing Plan · Budget · Pilot Metrics | `creative-concept`、`channel-strategy` |
-| `mediakit`（Create 阶段） | Poster（Create 阶段） | `ref-palette-slide`（poster 造型）+ 6 面板 storyboard（SVG 设计稿 + AI 升级 prompt） |
+| `mediakit`（Create 阶段） | Poster（Create 阶段） | `ref-palette-slide`（poster 造型）+ storyboard（16:9 场景稿，SVG 设计 + AI 升级 prompt） |
 | ~~`prove`~~（已休眠） | Pilot Metrics 已并入 `plan`（pilot 预期指标 + 推演逻辑，渲染于 `campaign-plan.html`） | `mvp-metrics-generator`→campaign-metrics、`data-visualizer-pro`（保留·休眠） |
 | `showcase` | Showcase Report Agent (AUTO) | `html-ppt-generator` |
 

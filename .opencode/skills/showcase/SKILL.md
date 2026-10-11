@@ -16,7 +16,7 @@ The final stage. The **team makes two decisions — the storyline and whether to
 
 - The captures embedded in `insight-brief.html`, `campaign-plan.html`.
 - **The media kit** — `poster-<style>.html` (+ `poster.html`) and `storyboard.html` from the `mediakit` stage.
-- **Resume (recover upstream).** If run on its own (`/showcase`), find the latest round `artifacts/Quest<ID>-*` and read those captures (plus `poster_style` from the `campaign-plan.html` capture) from that folder; if the round is unambiguous, state it and continue — ask only when genuinely ambiguous. If a capture is missing, say which and ask the team to run the missing stage first. **Media-kit fallback:** if no `poster-<style>.html` exists, build a **default poster (style A)**; if no `storyboard.html` exists, build a **default storyboard (SVG design draft)** — so the deck's visual beats are always present.
+- **Resume (recover upstream).** If run on its own (`/showcase`), find the latest round `artifacts/Quest<ID>-*` and read those captures (plus `poster_style` from the `campaign-plan.html` capture) from that folder; if the round is unambiguous, state it and continue — ask only when genuinely ambiguous. If a capture is missing, say which and ask the team to run the missing stage first. **Media-kit fallback:** if no `poster-<style>.html` exists, build a **default poster (style A)**; if no `storyboard.html` exists, build a **default storyboard (SVG design sheet)** — so the deck's visual beats are always present.
 - **Team decisions (only two): storyline** (S1–S5) and **bonus media** (song / video / image / none).
 - **AI-decided** (never asked): the **signature element** (taken from the storyline's default), the **visual direction**, the **one-liner**, and the **deck theme** (matched to the poster style + the storyboard surface).
 
@@ -41,7 +41,7 @@ The deck's theme is **set to match the chosen poster style and the storyboard su
   - poster → `<div class="vframe poster"><iframe src="poster-<style>.html?embed=1"></iframe></div><div class="vlabel">Campaign poster</div>`
   - storyboard → `<div class="vframe board"><iframe src="storyboard.html?embed=1"></iframe></div><div class="vlabel">Storyboard</div>`
   - set `{{VISUALS_LABEL}}` to what the beat shows (e.g. `the storyboard`, `the poster`, `the poster &amp; storyboard`).
-- **Hard cap 8 slides.** No proof/metrics slide (the pilot forecast + derivation chains live in `campaign-plan.html` and the proposal).
+- **Hard cap 8 beats.** No proof/metrics slide (the pilot forecast + derivation chains live in `campaign-plan.html` and the proposal).
 
 ## Flow (uses the `facilitation` engine)
 

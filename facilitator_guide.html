@@ -178,15 +178,15 @@
 │   ├── plan/                    # 策划门 → campaign-plan.html
 │   │   ├── references/ · templates/
 │   │   └── sub-skills/          # creative-concept
-│   ├── poster/                  # 海报（Create 阶段）→ poster-a/b/c.html + poster.html
+│   ├── mediakit/                # 物料门（Create 阶段）→ poster-a/b/c.html + poster.html + storyboard.html
 │   ├── showcase/                # 呈现门（AUTO）→ proposal / pitch-deck / prompt-pack
 │   │   └── references/ · scripts/ · templates/
 │   ├── agent-reach/             # 实时研究（insight 调用；CLI 需预装）
 │   ├── facilitation/            # 共创引擎（协议 · 节奏 · 话术 · 选项菜单 · 采集契约）
 │   └── ascentium-brand/         # 品牌执行器（brand-guideline.md + tokens.css 等）
 ├── agents/                      # facilitator(编排) · runner(自动) · researcher(研究)
-└── commands/                    # /start /insight /plan /poster /showcase /evaluate /run</pre>
-    <div class="note"><b>说明</b>：四阶段 = <code>insight → plan → poster → showcase</code>；<code>agent-reach</code> 平铺为顶层技能（逻辑上归 <code>insight</code>）。打开该目录时，opencode 会递归加载所有 <code>SKILL.md</code>。<code>package.json</code> / <code>node_modules</code> 为运行时产物，已 gitignore。</div>
+└── commands/                    # /start /insight /plan /mediakit /showcase /evaluate /run</pre>
+    <div class="note"><b>说明</b>：四阶段 = <code>insight → plan → mediakit → showcase</code>；<code>agent-reach</code> 平铺为顶层技能（逻辑上归 <code>insight</code>）。打开该目录时，opencode 会递归加载所有 <code>SKILL.md</code>。<code>package.json</code> / <code>node_modules</code> 为运行时产物，已 gitignore。</div>
   </section>
 
   <section id="usage">
@@ -208,12 +208,12 @@
         <div class="jr-stage r1" style="grid-column:span 3">
           <div class="st-top"><span class="st-n">②</span><span class="st-name">PLAN</span></div>
           <code class="st-cmd">/plan</code>
-          <div class="st-goal">发散创意 → 收敛 A/B 方案</div>
+          <div class="st-goal">发散创意 → 收敛 1 套完整方案</div>
         </div>
         <div class="jr-stage r1" style="grid-column:span 1">
-          <div class="st-top"><span class="st-n">③</span><span class="st-name">POSTER</span></div>
-          <code class="st-cmd">/poster</code>
-          <div class="st-goal">3 种海报风格供选择</div>
+          <div class="st-top"><span class="st-n">③</span><span class="st-name">MEDIA KIT</span></div>
+          <code class="st-cmd">/mediakit</code>
+          <div class="st-goal">3 款海报选 1 + 故事板</div>
         </div>
         <div class="jr-stage r1" style="grid-column:span 2">
           <div class="st-top"><span class="st-n">④</span><span class="st-name">SHOWCASE</span></div>
@@ -229,8 +229,8 @@
         <div class="jr-cell jr-act r2">焦点包 · 关键洞察 + 种子洞察</div>
         <div class="jr-cell jr-act r2">创意发散</div>
         <div class="jr-cell jr-act r2">渠道策略</div>
-        <div class="jr-cell jr-act r2">营销方案（A/B）+ pilot 预测</div>
-        <div class="jr-cell jr-act r2">海报设计（9 段 × 3 风格）</div>
+        <div class="jr-cell jr-act r2">营销方案（1 套）+ pilot 预测</div>
+        <div class="jr-cell jr-act r2">海报（3 风格）+ 故事板</div>
         <div class="jr-cell jr-act r2">选 storyline</div>
         <div class="jr-cell jr-act r2">组装 deck + 媒体</div>
 
@@ -243,7 +243,7 @@
         <div class="jr-cell jr-skill r3"><code>creative-concept</code></div>
         <div class="jr-cell jr-skill r3"><code>channel-strategy</code></div>
         <div class="jr-cell jr-skill r3"><code>plan</code></div>
-        <div class="jr-cell jr-skill r3"><code>poster</code></div>
+        <div class="jr-cell jr-skill r3"><code>mediakit</code></div>
         <div class="jr-cell jr-skill r3"><code>showcase</code></div>
         <div class="jr-cell jr-skill r3"><code>showcase</code></div>
 
@@ -256,7 +256,7 @@
         <div class="jr-cell jr-out r4">并入 <code>campaign-plan.html</code></div>
         <div class="jr-cell jr-out r4">并入 <code>campaign-plan.html</code></div>
         <div class="jr-cell jr-out r4"><code>campaign-plan.html</code></div>
-        <div class="jr-cell jr-out r4"><code>poster-a/b/c.html</code> · <code>poster.html</code></div>
+        <div class="jr-cell jr-out r4"><code>poster-a/b/c.html</code> · <code>poster.html</code> · <code>storyboard.html</code></div>
         <div class="jr-cell jr-out r4">并入 <code>proposal.html</code></div>
         <div class="jr-cell jr-out r4"><code>proposal.html</code> · <code>pitch-deck.html</code> · <code>prompt-pack.html</code></div>
 
@@ -268,7 +268,7 @@
         <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 2–3 关键洞察</div>
         <div class="jr-cell jr-hitl r5"><span class="none">—</span></div>
         <div class="jr-cell jr-hitl r5"><span class="none">—</span></div>
-        <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 1 套完整方案（A/B）</div>
+        <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 给 1–2 concept keywords</div>
         <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 从 3 张海报（A/B/C）选 1</div>
         <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选 storyline</div>
         <div class="jr-cell jr-hitl r5"><span class="h">👤</span> 选加分媒体（歌曲/视频/图片/无）</div>
@@ -292,7 +292,7 @@
     </div>
 
     <div class="demo">
-      <div class="cap"><span>② 策划方案 · A/B 两套</span><span class="file">campaign-plan.html</span><a href="demo-examples/QuestB-02/campaign-plan.html" target="_blank">打开 ↗</a></div>
+      <div class="cap"><span>② 策划方案</span><span class="file">campaign-plan.html</span><a href="demo-examples/QuestB-02/campaign-plan.html" target="_blank">打开 ↗</a></div>
       <iframe data-auto src="demo-examples/QuestB-02/campaign-plan.html" height="720" title="Campaign Plan"></iframe>
     </div>
 
@@ -355,7 +355,7 @@ opencode</code></pre>
 
   <section id="facilitator">
     <h2>6 · 现场 facilitator 模式（以 Quest B 为例）</h2>
-    <div class="note" style="margin-bottom:14px;">⏱ <b>50 分钟如何分配</b>：<b>40′</b> 用 Toolkit 完成全部产出（洞察 → 策划 → 海报 → 呈现）；<b>10′</b> 整理 Showcase 输出、准备 Showcase 形式并提交。每个环节都是三步：<b>AI 出菜单 → 团队选择 → AI 执行</b>。</div>
+    <div class="note" style="margin-bottom:14px;">⏱ <b>50 分钟如何分配</b>：<b>40′</b> 用 Toolkit 完成全部产出（洞察 → 策划 → 物料 → 呈现）；<b>10′</b> 整理 Showcase 输出、准备 Showcase 形式并提交。每个环节都是三步：<b>AI 出菜单 → 团队选择 → AI 执行</b>。</div>
 
     <div class="card">
       <div class="eyebrow">命令流程（以 Quest B 为例）</div>
@@ -363,7 +363,7 @@ opencode</code></pre>
         <li><b><code>/start B</code> 开场</b>：读 Quest B 卡、讲清任务与四阶段、预告 research，<b>等团队确认</b>后再开始。</li>
         <li><b><code>/insight</code> 洞察</b> → <code>insight-brief.html</code></li>
         <li><b><code>/plan</code> 策划</b> → <code>campaign-plan.html</code>（方案 + pilot 预测）</li>
-        <li><b><code>/poster</code> 海报</b> → <code>poster-a/b/c.html</code> + <code>poster.html</code></li>
+        <li><b><code>/mediakit</code> 物料</b> → <code>poster-a/b/c.html</code> + <code>poster.html</code> + <code>storyboard.html</code></li>
         <li><b><code>/showcase</code> 呈现</b> → <code>proposal.html</code> + <code>pitch-deck.html</code> + <code>prompt-pack.html</code></li>
       </ol>
     </div>
@@ -371,8 +371,8 @@ opencode</code></pre>
     <div class="card">
       <div class="eyebrow">Facilitator 现场六件事</div>
       <ol class="steps">
-        <li><b>开场先讲清全景与分工。</b>用「用法总览」的旅程图带团队过一遍：4 个阶段（洞察 → 策划 → 海报 → 呈现）；每个环节都是「AI 出菜单 → 团队选择 → AI 执行」；<b>团队做判断，AI 做执行</b>。
-          <div class="say"><span class="k">Say to the team</span>Here's the whole flow: Insight → Plan → Poster → Showcase. At every step the AI drafts a grounded menu, you choose, then the AI executes. <b>You make the calls; the AI does the work.</b> 40 minutes to produce, 10 to package and submit.</div>
+        <li><b>开场先讲清全景与分工。</b>用「用法总览」的旅程图带团队过一遍：4 个阶段（洞察 → 策划 → 物料 → 呈现）；每个环节都是「AI 出菜单 → 团队选择 → AI 执行」；<b>团队做判断，AI 做执行</b>。
+          <div class="say"><span class="k">Say to the team</span>Here's the whole flow: Insight → Plan → Media Kit → Showcase. At every step the AI drafts a grounded menu, you choose, then the AI executes. <b>You make the calls; the AI does the work.</b> 40 minutes to produce, 10 to package and submit.</div>
         </li>
         <li><b>示范如何用 <code>/start</code> 开始与 AI 协作。</b>当场输入 <code>/start B</code>，让团队看到命令触发 Agent、读取题卡、讲清任务与四阶段，并<b>等待确认</b>；确认后再 research（约数分钟），并给出第一份带数据的「菜单」。
           <div class="say"><span class="k">Say to the team</span>I'll kick us off now — watch the screen. <i>(type <code>/start B</code>)</i> The AI reads Quest B, explains the plan, and waits for our go-ahead before it starts. Once we say go, it researches for a few minutes, then hands us the first data-backed menu. Every stage starts like this.</div>
@@ -390,7 +390,7 @@ opencode</code></pre>
           <div class="say"><span class="k">Say to the team</span>20 minutes left — let's lock this and move on; we can refine later. One rule: get a complete first pass of the Showcase first, then improve. A finished draft beats a perfect half.</div>
         </li>
       </ol>
-      <div class="note"><b>两台设备怎么用（辅助）</b>：<b>主设备</b>接主显示器、作为最终 Showcase 的产出机，Facilitator 的示范也在这台；<b>备用设备</b>先跟着流程走，中间产出更好时 <b>AirDrop</b> 给主设备，让主设备据此执行下一步；后期可并行做 Poster 优化 / 某环节 rerun，完成后再 AirDrop 回主设备整合。Facilitator 负责两台的沟通、分享与同步 —— 最终只输出 <b>一份</b>团队 Showcase。</div>
+      <div class="note"><b>两台设备怎么用（辅助）</b>：<b>主设备</b>接主显示器、作为最终 Showcase 的产出机，Facilitator 的示范也在这台；<b>备用设备</b>先跟着流程走，中间产出更好时 <b>AirDrop</b> 给主设备，让主设备据此执行下一步；后期可并行做物料优化（海报/故事板）/ 某环节 rerun，完成后再 AirDrop 回主设备整合。Facilitator 负责两台的沟通、分享与同步 —— 最终只输出 <b>一份</b>团队 Showcase。</div>
     </div>
 
     <div class="card">
@@ -400,7 +400,7 @@ opencode</code></pre>
         <tbody>
           <tr><td>洞察</td><td><code>/insight</code></td><td><code>agent-reach</code> · <code>business-research</code> · <code>market-trends</code> · <code>audience-analysis</code> · <code>insight</code></td><td><a href="demo-examples/QuestB-02/insight-brief.html" target="_blank">insight-brief.html ↗</a></td></tr>
           <tr><td>策划</td><td><code>/plan</code></td><td><code>creative-concept</code> · <code>channel-strategy</code> · <code>plan</code></td><td><a href="demo-examples/QuestB-02/campaign-plan.html" target="_blank">campaign-plan.html ↗</a></td></tr>
-          <tr><td>海报</td><td><code>/poster</code></td><td><code>poster</code></td><td><a href="demo-examples/QuestB-02/poster.html" target="_blank">poster.html ↗</a></td></tr>
+          <tr><td>物料</td><td><code>/mediakit</code></td><td><code>mediakit</code></td><td><a href="demo-examples/QuestB-02/poster.html" target="_blank">poster.html ↗</a> · <a href="demo-examples/QuestB-02/storyboard.html" target="_blank">storyboard.html ↗</a></td></tr>
           <tr><td>呈现</td><td><code>/showcase</code></td><td><code>showcase</code></td><td><a href="demo-examples/QuestB-02/proposal.html" target="_blank">proposal.html ↗</a> · <a href="demo-examples/QuestB-02/pitch-deck.html" target="_blank">pitch-deck.html ↗</a></td></tr>
         </tbody>
       </table>
@@ -467,15 +467,15 @@ opencode</code></pre>
     <div class="card">
       <div class="eyebrow">⑤ 结束前 · 锦上添花</div>
       <ul>
-        <li><b>海报 3 种风格可选</b>（默认名）：A · Full-Bleed Hero（满版主视觉）· B · Belonging Passport（护照 / 会员卡风）· C · Midnight Minimal（极简）；风格名可由题卡改写（Quest B 示例保留默认名）。在 pitch-deck 的海报页点按钮即可切换。</li>
+        <li><b>海报 3 种风格可选</b>（默认名）：A · Full-Bleed Hero（满版主视觉）· B · Belonging Passport（护照 / 会员卡风）· C · Midnight Minimal（极简）；风格名可由题卡改写（Quest B 示例保留默认名）。deck 内嵌已选风格的海报页（整屏完整展示）。</li>
         <li><b>音频 / 视频 / 图片</b>：<code>prompt-pack.html</code> 提供了现成 prompt，复制到对应工具即可 ——</li>
       </ul>
       <pre><code>歌（Suno）   Anthemic panda-conservation anthem … "COME MEET THEM — watch, join, then come meet them."
  视频（Runway） Cinematic 8s single shot — a collector at night on the panda live-cam, a numbered drop "No. 001" appears…
- 图（GPT）     6-frame storyboard (3:2) — deep teal #077069 + cream, one shared STYLE prompt + one prompt per frame…</code></pre>
+ 图 / 故事板（GPT or Kimi）  16:9 scene sheet（6–8 scenes / 3 chapters）— deep teal #077069 + cream, one complete prompt…</code></pre>
       <ul>
         <li>生成后将文件放回本地目录，AI 会嵌入 deck 对应位置。</li>
-        <li><b>结束前确认交付物</b>：<code>proposal.html</code>（含 poster + pilot 指标）已生成 —— 这就是要提交的方案。</li>
+        <li><b>结束前确认交付物</b>：<code>proposal.html</code>（含 poster + storyboard + deck + pilot 指标）已生成 —— 这就是要提交的方案。</li>
       </ul>
     </div>
 

@@ -16,7 +16,7 @@ Open a **facilitated (human-led)** session for this quest. This command **briefs
      1. **Insight** — AI researches and curates the market read + segments; the team **picks 2–3 audience segments**, then **2–3 key insights**. → `insight-brief.html`
      2. **Plan** — the team gives **1–2 concept keywords**; the AI diverges ~6 ideas and builds **one complete campaign** from them. The plan also carries the **pilot forecast** (expected metrics + how each number is derived). → `campaign-plan.html`
      3. **Media Kit** — the AI builds the **poster** in three styles (the team picks one), then the **storyboard** (a 16:9 scene sheet — 6–8 scenes in 3 chapters — as an SVG design with an AI-upgrade prompt). → `poster.html` + `storyboard.html`
-     4. **Showcase** — the team picks a storyline; AI assembles the proposal, pitch deck (8 beats, visual-first, dark, using the poster + storyboard), and prompt pack. → `proposal.html` + `pitch-deck.html` + `prompt-pack.html`
+     4. **Showcase** — the team picks a storyline; AI assembles the proposal, pitch deck (8 beats, visual-first, theme-matched, using the poster + storyboard), and prompt pack. → `proposal.html` + `pitch-deck.html` + `prompt-pack.html`
    - **What happens next.** The first option below **starts the Insight stage**: it researches the quest into **~6 data-backed insights** for the team to choose from. Say plainly that this research **may take a few minutes**.
 3. **Present this exact menu — verbatim, do not reword/reorder/add:**
 

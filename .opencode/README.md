@@ -45,7 +45,7 @@ You can also run a single stage, or evaluate a finished proposal:
 | `/start [quest]` | Open a facilitated session — brief the team, then **start the Insight stage** on their pick | `facilitator` |
 | `/insight` | Insight stage only | `facilitator` |
 | `/plan` | Plan / creative stage only | `facilitator` |
-| `/mediakit` | Media kit — poster (3 styles, pick 1) + storyboard (SVG draft + AI-upgrade prompt) | `facilitator` |
+| `/mediakit` | Media kit — poster (3 styles, pick 1) + storyboard (SVG design sheet + AI-upgrade prompt) | `facilitator` |
 | `/showcase` | Showcase stage only (unified proposal + deck + prompt-pack) | `facilitator` |
 | `/evaluate` | Score a proposal with the rubric | current agent |
 | `/run [quest]` | **Autopilot** — run the whole quest end-to-end, AI decides every choice | `runner` |
@@ -76,7 +76,7 @@ flowchart TD
     HO2 --> P["2 · PLAN — diverges ~6 ideas → builds one complete campaign (+ pilot forecast)"]
     P --> HK{"👤 give 1–2 concept keywords"}
     HK --> HO3["complete · STOP — open the plan, review + send feedback; then team runs /mediakit"]
-    HO3 --> MK["3 · MEDIA KIT — poster (3 styles) + storyboard (SVG design draft)"]
+    HO3 --> MK["3 · MEDIA KIT — poster (3 styles) + storyboard (SVG design sheet)"]
     MK --> HMK{"👤 pick 1 poster style"}
     HMK --> HO4["complete · STOP — review poster + storyboard; then team runs /showcase"]
     HO4 --> S["4 · SHOWCASE — 5 storylines"]
@@ -95,10 +95,10 @@ Legend — **teal diamonds = HITL (the team decides)** · orange boxes = the AI 
 
 | Time | Stage | You do | The team decides |
 |---|---|---|---|
-| 0–2′ | **Kick-off** | Brief the team (mission + 3 stages + upcoming research) → present the entry menu and start `/insight` on their pick | start `/insight` (with research · without · reuse + add facts) |
+| 0–2′ | **Kick-off** | Brief the team (mission + 4 stages + upcoming research) → present the entry menu and start `/insight` on their pick | start `/insight` (with research · without · reuse + add facts) |
 | 2–10′ | **Insight** | 30-second scout summary → research (or reuse the card) → living brief → AI curates market trends (tagged by kind) → ~6–8 segments → derives focus bundles + drafts ~6 key insights (segment × moment × trend) | segments (2–3), then key insights (2–3) |
 | 10–26′ | **Plan** | Diverge ~6 ideas from the team's keywords → build one complete campaign + embedded hero visual + the pilot forecast | concept keywords (1–2) |
-| 26–32′ | **Media Kit** | AI builds 3 poster styles + the storyboard (SVG design draft + AI-upgrade prompt) | pick 1 poster style |
+| 26–32′ | **Media Kit** | AI builds 3 poster styles + the storyboard (SVG design sheet + AI-upgrade prompt) | pick 1 poster style |
 | 32–38′ | **Showcase** | Storyline + bonus-media menus; AI settles signature · direction · one-liner · theme (poster + storyboard always in the theme-matched deck) → build the proposal + deck (+ prompt-pack) | storyline · bonus media |
 | 38–40′ | **Converge** | Package and confirm | confirm |
 

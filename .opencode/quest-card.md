@@ -1,6 +1,6 @@
 # Quest Card — the single source of quest truth
 
-This toolkit is a **reusable marketing-hackathon engine**. The stage skills, sub-skills, `facilitation` engine, and `ascentium-brand` executor are **quest-agnostic**: they know *how* to run insight → plan → showcase, but they do **not** know *which* client, mission, market, budget, or Victory Conditions a run is about.
+This toolkit is a **reusable marketing-hackathon engine**. The stage skills, sub-skills, `facilitation` engine, and `ascentium-brand` executor are **quest-agnostic**: they know *how* to run insight → plan → mediakit → showcase, but they do **not** know *which* client, mission, market, budget, or Victory Conditions a run is about.
 
 All quest-specific facts live in **one place**: the **quest card** (the challenge brief handed to each team). The skills read the card — never their own hard-coded assumptions.
 

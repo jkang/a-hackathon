@@ -119,7 +119,7 @@ The deck already has **media placeholder slots** (rendered as dashed "embed here
 | Media | Deck placeholder | Beat | Inserted element |
 |---|---|---|---|
 | Image (GPT) | `{{MEDIA_IMAGE}}` | `poster` (and `keyvisual`) | `<img src="media/hero.png">` |
-| Storyboard (Kimi / GPT) | one sheet image | `visuals` / `storyboard` beat | drop at `media/storyboard/storyboard-sheet.png` → replaces the SVG draft |
+| Storyboard (Kimi / GPT) | one sheet image | `visuals` / `storyboard` beat | drop at `media/storyboard/storyboard-sheet.png` → replaces the SVG sheet |
 | Video (Runway) | `{{MEDIA_VIDEO}}` | `storyboard` | `<video controls src="media/video.mp4">` |
 | Song (Suno) | `{{MEDIA_SONG}}` | `lyric` | `<audio controls src="media/song.mp3">` |
 | Any bonus | `{{MEDIA_ASK}}` | `ask` | any of the above |

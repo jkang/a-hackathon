@@ -80,7 +80,7 @@ Exactly **two**:
 
 ## Anti-patterns
 
-- More than 8 slides, or a metrics/proof slide (the numbers live in the plan + proposal).
+- More than 8 beats, or a metrics/proof slide (the numbers live in the plan + proposal).
 - A deck with no signature element (the idea is just text) — the "flat" failure mode.
 - Cropping the poster, or embedding the storyboard at a size that breaks its 16:9 stage.
 - Same template feel for every group — the storyline pick exists to prevent this.

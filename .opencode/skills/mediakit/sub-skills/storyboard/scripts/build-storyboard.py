@@ -316,7 +316,7 @@ def overlay_html(prompt):
     return (
         '<div class="ph"><h2>Make the storyboard more visualized</h2>'
         '<button class="pclose" id="pclose">Close</button></div>'
-        '<div class="note">This sheet is an <b>SVG design draft</b> (the full storyboard, generated in-page). '
+        '<div class="note">This sheet is an <b>SVG design sheet</b> (the full storyboard, generated in-page). '
         'For a richer, rendered board, copy the prompt below into <b>Kimi</b> (kimi.moonshot.cn) or <b>GPT</b>, '
         'generate one 16:9 sheet image, and bring the file back — the AI swaps it into this page.</div>'
         '<div class="promptbox"><button class="copy" id="pcopy">Copy prompt</button>'
