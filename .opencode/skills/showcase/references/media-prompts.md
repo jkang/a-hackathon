@@ -9,7 +9,7 @@ Bonus (optional) layer. Each group **optionally** generates a song, a video, or 
 | Song | **Suno** (suno.com) | Udio | `.mp3` |
 | Video | **Runway Gen-3** (runwayml.com) | Kling | `.mp4` |
 | Image | **GPT** (ChatGPT image generation) | Kimi | `.png` |
-| Storyboard | **Kimi** (kimi.moonshot.cn) | GPT (ChatGPT image generation) | `.png` (one 6-panel sheet) |
+| Storyboard | **Kimi** (kimi.moonshot.cn) | GPT (ChatGPT image generation) | `.png` (one 16:9 sheet) |
 
 ---
 
@@ -85,40 +85,32 @@ no watermark, no logo. 16:9.
 
 ---
 
-## 3b. Storyboard — Kimi / GPT (one 6-panel sheet)
+## 3b. Storyboard — Kimi / GPT (one 16:9 scene sheet)
 
-The storyboard is **shipped by default as an inline SVG design draft** (from the `mediakit` stage) — no external image required. This section is the **optional upgrade** to a rendered sheet.
+The storyboard is **shipped by default as an inline SVG design sheet** (from the `mediakit` stage) — no external image required. This section is the **optional upgrade** to a rendered sheet.
 
-A rendered storyboard is **one image** — a **6-panel sheet** (3 columns × 2 rows) that follows the fan journey, one panel per step — so the pitch shows the idea as a visual sequence, not a paragraph. It is generated from **one complete prompt**, not one prompt per frame. The ready prompt is **already built into `storyboard.html`** (the "Get a richer sheet" overlay, press **P**); copy it into **Kimi** (kimi.moonshot.cn) or **GPT**.
+A rendered storyboard is **one image** — a **16:9 sheet** split into vertical chapters, each stacking its scene panels (a cinematic scene + a small phone/UI inset showing the app state at that moment) — so the pitch shows the idea as a visual sequence, not a paragraph. It is generated from **one complete prompt**, not one prompt per panel. The ready prompt is **already built into `storyboard.html`** (the "Get a richer sheet" overlay, press **P**); copy it into **Kimi** (kimi.moonshot.cn) or **GPT**.
 
-**The one prompt** — a single block that locks the style once and describes all six panels in order. Fill every slot, then paste it **once**:
+**The one prompt** — a single block that locks the style once and describes the chapters + every panel in order. Fill every slot, then paste it **once**:
 
 ```
-Create one 16:9 storyboard sheet: a 3-column × 2-row grid of six cinematic panels that follow
-one fan's journey for the campaign "{{CAMPAIGN NAME}}".
+Create ONE 16:9 storyboard DESIGN SHEET for the campaign "{{CAMPAIGN NAME}}".
+LAYOUT: split into {{3}} vertical chapters ({{chapter names}}); each chapter stacks its scene panels;
+        each panel = a cinematic scene + a small phone/UI inset (the app state at that moment).
+STYLE: brand accent {{#FF6611}}, cinematic lighting, shallow depth of field, subtle film grain; keep a
+       clear left margin per panel for a bold title; one consistent style; no watermark, no logo.
 
-STYLE (all panels): {{style — palette with the brand hex {{#FF6611}}, lighting, lens/film grain}}.
-Keep the left third of each panel clear for a white UPPERCASE headline. High contrast, no watermark, no logo.
+Panel {{n}} · {{title}} — {{scene}}; phone inset: "{{ui.title}} / {{ui.lines}} / {{ui.cta}}"
+… (6–8 panels)
 
-Panel 1 · ATTRACT — {{scene 1}}; headline "{{verbatim}}"
-Panel 2 · TEASE — {{scene 2}}; headline "{{verbatim}}"
-Panel 3 · CONVERT — {{scene 3}}; headline "{{verbatim}}"
-Panel 4 · AMPLIFY — {{scene 4}}; headline "{{verbatim}}"
-Panel 5 · BELONG — {{scene 5}}; headline "{{verbatim}}"
-Panel 6 · DEEPEN — {{scene 6}}; headline "{{verbatim}}"
-
-Number the panels 1–6 top-left; use one consistent style across all six; keep thin gutters between panels. 16:9.
+16:9. No watermark, no logo.
 ```
 
 **Rules:**
-- **One prompt, one sheet** — all six panels come from this single block, so the look stays consistent. There are no per-frame prompts.
-- Spell out every headline verbatim (GPT renders text reliably when given the exact words).
-- Give the brand hex color; keep the left third clear for the headline.
-- Panels run in journey order: `Attract → Tease → Convert → Amplify → Belong → Deepen`.
-- High contrast, "no watermark, no logo", 16:9.
-- Download one `.png` (`storyboard-sheet.png`); bring it back — the AI drops it at `media/storyboard/storyboard-sheet.png`, re-runs the storyboard build, and the **rendered sheet replaces the SVG design draft** in the storyboard page (deck) and the **Storyboard panel** (proposal).
-
----
+- **One prompt, one sheet** — every panel comes from this single block, so the look stays consistent. No per-panel prompts.
+- Spell out every panel's scene + phone inset verbatim (GPT renders text reliably when given the exact words).
+- Give the brand hex color; keep a clear left margin for each panel title.
+- **6–8 panels in 3 chapters** — more panels slow generation for little gain.
 
 ## 4. Embedding back
 

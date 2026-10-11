@@ -11,7 +11,7 @@ The deck is the **Showcase Report Agent (AUTO)** output. To avoid "every group s
 | # | Storyline | Signature element | `visuals` fills | Best for |
 |---|---|---|---|---|
 | S1 | **Classic** | poster | storyboard | data-driven, rational |
-| S2 | **Hero's Journey** | **storyboard (6-panel fan-journey sheet)** | poster | emotional, consumer campaigns |
+| S2 | **Hero's Journey** | **storyboard (16:9 scene sheet, 6–8 scenes)** | poster | emotional, consumer campaigns |
 | S3 | **Big Reveal** | poster | storyboard | bold, iconic |
 | S4 | **Demo** | **prototype mock screens** | poster + storyboard | product / membership campaigns |
 | S5 | **Trailer** | **lyric / anthem** | poster + storyboard | entertainment, experiential |
@@ -43,7 +43,7 @@ Brand flat illustrations (inline SVG, no external assets) render on the **title*
 | Element | What it is | Template beat |
 |---|---|---|
 | Poster | the chosen full-bleed hero poster (complete) | `data-beat="poster"` |
-| Storyboard | the 6-panel fan-journey sheet (full-bleed 16:9) | `data-beat="storyboard"` |
+| Storyboard | the 16:9 scene sheet (full-bleed) | `data-beat="storyboard"` |
 | Prototype | 3 phone mock screens of the product | `data-beat="prototype"` |
 | Lyric / anthem | a jingle sheet with a chantable hook | `data-beat="lyric"` |
 | Visuals (secondary) | thumbnails of the kit asset(s) not already the signature | `data-beat="visuals"` |

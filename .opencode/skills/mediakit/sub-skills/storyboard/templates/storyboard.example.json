@@ -1,17 +1,35 @@
 {
-  "quest": "B",
-  "brand": "The Numbered Drop",
-  "crumb": "Campaign Media Kit · Storyboard · Chengdu Panda Base",
-  "h1": "How we attract the target audience",
-  "accent": {"accent": "#077069", "tint": "#CDE2E1", "line": "#83B8B4", "deep": "#043835"},
-  "board": "storyboard-sheet.png",
+  "quest": "A",
+  "brand": "The Date-Certain Pass",
+  "crumb": "Campaign Media Kit · Storyboard · Quest A",
+  "h1": "From the first spark to a shared memory",
+  "accent": {"accent": "#FF6611", "tint": "#FFF0E7", "line": "#FFD1B8", "deep": "#B24000"},
+  "theme": {"surface": "light"},
+  "board": "",
   "width": 1600,
+  "chapters": [
+    {"id": "I", "name": "The Hook"},
+    {"id": "II", "name": "The Offer"},
+    {"id": "III", "name": "Belonging"}
+  ],
   "steps": [
-    {"n": "01", "label": "Attract", "headline": "Live from Chengdu. Streaming straight to Jakarta 24/7.", "scene": "a fan scrolls a live panda cam at night, phone glow on their face"},
-    {"n": "02", "label": "Tease", "headline": "DROP 1 · 24 hours. Serial number inside.", "scene": "a countdown card on a phone, a teaser number ticking down"},
-    {"n": "03", "label": "Convert", "headline": "The only panda with a serial number.", "scene": "a numbered collectible card revealed in hand"},
-    {"n": "04", "label": "Amplify", "headline": "Unbox. Display. Share. The collection grows.", "scene": "a fan unboxes the drop and films it for social"},
-    {"n": "05", "label": "Belong", "headline": "A rare beginning. Yours to keep.", "scene": "a membership badge on a phone, the fan smiling"},
-    {"n": "06", "label": "Deepen", "headline": "Watch. Join. Then come meet them.", "scene": "the fan arrives at the Chengdu Panda Base gate"}
+    {"n": "01", "chapter": "I", "title": "The moment the trip feels possible",
+     "scene": "an everyday family scene, a phone glowing between them",
+     "ui": {"screen": "Next big memory", "title": "Flights + tickets, one plan", "lines": ["Split it month by month", "Hold today's price"], "cta": "Start a plan"}},
+    {"n": "02", "chapter": "I", "title": "It stops being an ad",
+     "scene": "a parent sees the family trip on a screen, someone reacts beside them",
+     "ui": {"screen": "Fare freeze", "title": "Lock your fare", "lines": ["Hold the price for 12 months"], "cta": "Freeze it"}},
+    {"n": "03", "chapter": "II", "title": "The pass that holds the date",
+     "scene": "a packed stadium rising, one family among the crowd",
+     "ui": {"screen": "The Date-Certain Pass", "title": "Book the memory", "lines": ["Seats + fare, date secured"], "cta": "Reserve"}},
+    {"n": "04", "chapter": "II", "title": "One decision for the whole family",
+     "scene": "a family agreeing at home around one tablet",
+     "ui": {"screen": "Founding family bundle", "title": "One price, all in", "lines": ["4 people · flexible dates"], "cta": "Choose bundle"}},
+    {"n": "05", "chapter": "III", "title": "Reassurance made visible",
+     "scene": "a calm moment on the phone, a confirmation on screen",
+     "ui": {"screen": "Flex-date", "title": "Read first", "lines": ["Refund window · no penalties"], "cta": "See terms"}},
+    {"n": "06", "chapter": "III", "title": "The trip becomes a shared memory",
+     "scene": "three friends at the venue, camera up",
+     "ui": {"screen": "Our Doha memory", "title": "Saved", "lines": ["Photos + tickets in one place"], "cta": "Open album"}}
   ]
 }

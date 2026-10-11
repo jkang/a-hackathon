@@ -1,110 +1,88 @@
-# Storyboard method — draft sheet, legend, prompt, theme
+# Storyboard method — the 16:9 scene sheet
 
 ## 1. What this produces
 
-A single self-contained HTML that presents the campaign's fan journey as **one 6-panel storyboard sheet** on a **16:9** screen. It is the Hero's-Journey signature: the pitch deck's `storyboard` beat embeds it; the proposal shows it as a panel.
+A single self-contained HTML that presents the campaign's fan journey as **one 16:9 storyboard sheet**. The sheet is an **inline SVG generated in-page** — no external image required — so the storyboard (the deliverable) exists out of the box. The page also carries **one complete prompt** the team can take to **Kimi / GPT** for a richer, rendered sheet; if that image comes back it **replaces** the SVG.
 
-Two render modes, chosen automatically:
+So the default output is **both**: the storyboard HTML (SVG design sheet) **and** the prompt.
 
-1. **SVG design draft (default).** The skill draws the six panels itself as a schematic **inline SVG** sheet — numbered panels, step labels, a simple scene sketch, and each panel's headline. No external image required; the storyboard exists out of the box.
-2. **Rendered sheet (upgrade).** If a generated image is present, it is embedded instead. The team produces it from the built-in **one complete prompt** (Kimi / GPT) and brings it back.
+## 2. The outline — chapters + scenes (derived from the campaign)
 
-## 2. The inputs
+The story is told as **6 scenes (default; up to 8), grouped into 3 chapters (default)**. Each **scene panel** is a card:
 
-1. **The journey steps** — six `{ n · label · headline · scene }` items:
+| element | what it is |
+|---|---|
+| **number** | the scene's order (01… ) |
+| **title** | the scene's punchy line (e.g. "The pass that holds the date") |
+| **scene** | a cinematic scene illustration (SVG) of that moment |
+| **UI inset** | a phone / app screenshot showing the **product state at that moment** (`ui`: screen · title · lines · CTA) |
 
-| # | label | what its panel shows |
-|---|---|---|
-| 01 | Attract | the ambient entry point — the always-on feed / first touch |
-| 02 | Tease | the hook — a creator countdown / anticipation |
-| 03 | Convert | the core offer moment — the sale / conversion |
-| 04 | Amplify | social proof — unboxing, UGC, word of mouth |
-| 05 | Belong | the membership / community step |
-| 06 | Deepen | the offline / long-term payoff (e.g. the visit) |
+> Keep it **6–8 scenes**: more scenes make both the design sheet and the prompt slower to produce, for little extra story.
 
-`headline` is the panel caption (rendered in the draft and written verbatim into the prompt); `scene` is a one-line description used by the prompt (and as the draft's scene hint).
+Default chapter arc (map to the campaign): **I. The Hook** (scenes 1–2) → **II. The Offer** (scenes 3–4) → **III. Belonging** (scenes 5–6). Rename the chapters to fit the campaign.
 
-2. **Optional rendered sheet** — `media/storyboard/storyboard-sheet` (`.png`/`.jpg`). When present it replaces the SVG draft.
+## 3. Theme — set from the campaign plan, not fixed
 
-## 3. The spec (`media/storyboard/storyboard.json`)
+`theme.surface` is **`light` or `dark`**, chosen by the AI from the campaign plan's **`visual_direction`** (and the chosen poster style) — not hard-coded. Optional palette overrides:
+
+```json
+"theme": {"surface":"light", "page":"#F1ECE2", "card":"#FFFFFF", "line":"#E3DCCE",
+          "title":"#16130D", "text":"#4A463D", "muted":"#8B8574"}
+```
+
+`accent` (the 4 tokens) still comes from the quest card. Any omitted key falls back to a sensible default for the surface.
+
+## 4. The spec (`media/storyboard/storyboard.json`)
 
 ```json
 {
-  "quest": "B",
-  "brand": "The Numbered Drop",
-  "crumb": "Campaign Media Kit · Storyboard · Chengdu Panda Base",
-  "h1": "How we attract the target audience",
-  "accent": {"accent":"#077069","tint":"#CDE2E1","line":"#83B8B4","deep":"#043835"},
+  "quest": "A",
+  "brand": "The Date-Certain Pass",
+  "crumb": "Campaign Media Kit · Storyboard · Quest A",
+  "h1": "From the first spark to a shared memory",
+  "accent": {"accent":"#FF6611","tint":"#FFF0E7","line":"#FFD1B8","deep":"#B24000"},
+  "theme": {"surface": "light"},
   "board": "storyboard-sheet.png",
-  "width": 1600,
-  "upgrade_prompt": "…optional; derived from the steps if omitted…",
+  "chapters": [ {"id":"I","name":"The Hook"}, {"id":"II","name":"The Offer"}, {"id":"III","name":"Belonging"} ],
   "steps": [
-    {"n":"01","label":"Attract","headline":"…","scene":"…"}
+    {"n":"01","chapter":"I","title":"The moment the trip feels possible",
+     "scene":"an everyday family scene, a phone glowing between them",
+     "ui":{"screen":"Next big memory","title":"Flights + tickets, one plan",
+           "lines":["Split it month by month","Hold today's price"],"cta":"Start a plan"}}
   ]
 }
 ```
 
-- `accent` comes from the quest card (`quest-card.md`): teal for Quest B, orange for Quest A.
-- `board` is **optional**; when omitted (or unresolvable) the SVG design draft is rendered. When present it is resolved relative to `--frames` (default `media/storyboard`); `.png/.jpg/.jpeg/.webp` are tried.
-- `upgrade_prompt` is optional; if absent it is derived from `brand` + `accent` + the six steps.
+- `board` is **optional**; when omitted (or unresolvable) the **SVG design sheet** is rendered. When present it is embedded instead (resolved relative to `--frames`, default `media/storyboard`).
+- `upgrade_prompt` is optional; if absent it is derived from `brand` + `accent` + the chapters/scenes.
 
-## 4. The upgrade prompt (one complete prompt → one sheet)
+## 5. The upgrade prompt (one prompt → one sheet)
 
-The draft page carries a copyable prompt (the **"Get a richer sheet"** overlay, press **P**). Paste it **once** into **Kimi** (kimi.moonshot.cn) or **GPT**; it returns **one** 6-panel 16:9 image:
+The page carries a copyable prompt (the **"Get a richer sheet"** overlay, press **P**). Paste it once into **Kimi** (kimi.moonshot.cn) or **GPT**; it returns **one 16:9 sheet**:
 
 ```
-Create ONE 16:9 storyboard sheet: a 3-column × 2-row grid of six cinematic panels that follow
-one fan's journey for the campaign "{{BRAND}}".
-
-STYLE (all panels): brand accent {{#ACCENT}}, cinematic lighting, shallow depth of field, subtle
-film grain. Keep the left third of each panel clear for a white UPPERCASE headline. High contrast,
-no watermark, no logo.
-
-Panel 1 · ATTRACT — {{scene 1}}; headline "{{verbatim}}"
-Panel 2 · TEASE — {{scene 2}}; headline "{{verbatim}}"
-Panel 3 · CONVERT — {{scene 3}}; headline "{{verbatim}}"
-Panel 4 · AMPLIFY — {{scene 4}}; headline "{{verbatim}}"
-Panel 5 · BELONG — {{scene 5}}; headline "{{verbatim}}"
-Panel 6 · DEEPEN — {{scene 6}}; headline "{{verbatim}}"
-
-Number the panels 1–6 top-left; use one consistent style across all six; keep thin gutters between
-panels. 16:9. No watermark, no logo.
+Create ONE 16:9 storyboard DESIGN SHEET for the campaign "{{BRAND}}".
+LAYOUT: split into {{N}} vertical chapters ({{chapter names}}); each chapter stacks its scene panels;
+        each panel = a cinematic scene + a small phone/UI inset (the app state at that moment).
+STYLE: brand accent {{#ACCENT}}, cinematic lighting, shallow depth of field, subtle film grain; keep a
+       clear left margin per panel for a bold title; one consistent style; no watermark, no logo.
+Panel {{n}} · {{title}} — {{scene}}; phone inset: "{{ui.title}} / {{ui.lines}} / {{ui.cta}}"
+…
+16:9. No watermark, no logo.
 ```
 
-**Rules:** one prompt, one sheet (consistent look); spell out every headline verbatim; give the
-brand hex; keep the left third clear; journey order `Attract → Tease → Convert → Amplify → Belong →
-Deepen`. Download one image, drop it at `media/storyboard/storyboard-sheet.png`, and re-run the
-build to embed it.
+Download one image, drop it at `media/storyboard/storyboard-sheet.png`, and re-run the build to embed it.
 
-## 5. Layout
+## 6. Layout (16:9 sheet)
 
-- One **16:9 stage (1280×720)**, auto-scaled with `transform: scale(min(w/1280, h/720))` so it fills any screen.
-- Top: brandbar + title row (`h1` + `6 panels · one sheet`).
-- Middle: the sheet — the SVG draft (or the embedded image) centered, `object-fit: contain` (never cropped), on a hairline card.
-- Bottom: a **step legend** of six chips (`01 Attract` …).
-- **P** toggles the upgrade-prompt overlay · **F** fullscreen · **Print** = one landscape page.
-
-## 6. Theme — immersive dark
-
-The storyboard is deliberately dark so the cinematic sheet reads with depth. Surfaces are the **midnight family**, accent comes from the quest card:
-
-| token | value | use |
-|---|---|---|
-| `--sb-page` | `#050A0A` | page behind the deck |
-| `--sb-deck` | `#0B1211` | deck background |
-| `--sb-card` | `#101B19` | card panel |
-| `--sb-line` | `#1F2E2C` | hairlines / card border |
-| `--sb-cream` | `#F4EFE4` | titles |
-| `--sb-text` | `#C7D4D1` | body |
-| `--sb-muted` | `#8FA8A3` | crumb / meta |
-| `--accent` | from the card | brandbar, legend, draft scene |
-
-A soft **radial accent glow** sits behind the deck, giving the immersive ambience without competing with the sheet.
+- Sheet viewBox **1600 × 900** (16:9). Columns = chapters; each column has a **chapter header** (roman numeral + name) and its **scene cards** stacked.
+- Each scene card = number badge + title + a **scene band** (gradient sky, lit skyline, foreground figures — the middle figure in the accent) + a **phone inset** (screen label · title · lines · CTA pill).
+- One sheet, print = one landscape page; **F** fullscreen; the viewer auto-scales to any screen.
 
 ## 7. Quality bar & anti-patterns
 
-- **Draft first** — a storyboard is always produced (SVG draft), never blocked on an external tool.
-- **One look** — the draft uses one style across all six panels; a rendered sheet is one image from one prompt.
-- **Sequenced** — the six panels tell one journey; the legend names the moment, it does not restate the headline.
-- **Self-contained** — the sheet is inline SVG or an embedded data URI; no `frames/` folder dependency at view time.
-- ❌ Six separately generated frames stitched with mixed styles · ❌ light background · ❌ cropped panels · ❌ relative image paths.
+- **Draft first** — a storyboard is always produced (SVG sheet); never blocked on an external tool.
+- **Themed, not fixed** — surfaces come from the campaign plan (`theme`), the accent from the quest card.
+- **6–8 scenes / 3 chapters** — a tight arc; every panel carries a title, a scene and a UI inset.
+- **Self-contained** — the sheet is inline SVG or an embedded data URI; no `frames/` dependency at view time.
+- ❌ More than 8 scenes · ❌ a panel without a title, scene, or UI inset · ❌ a fixed palette that ignores the plan · ❌ relative image paths.

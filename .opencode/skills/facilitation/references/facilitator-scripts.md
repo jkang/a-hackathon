@@ -58,7 +58,7 @@ Examples per stage:
 
 - Insight → "Research and insight are complete — `insight-brief.html`. Next: run `/plan`."
 - Plan → "The plan is ready — `campaign-plan.html`. Open it with your team and review it; send any feedback or changes and I'll revise it. When you're happy with it, run `/mediakit` to build the media kit (poster + storyboard), then `/showcase`."
-- Media Kit → "Your media kit is ready — `poster.html` (the chosen style) + `storyboard.html` (the 6-panel journey sheet). Review them with your team; to make the storyboard more visualized, take the prompt in `storyboard.html` to Kimi / GPT and bring the sheet back. When you're happy, run `/showcase`."
+- Media Kit → "Your media kit is ready — `poster.html` (the chosen style) + `storyboard.html` (the 16:9 scene sheet). Review them with your team; to make the storyboard more visualized, take the prompt in `storyboard.html` to Kimi / GPT and bring the sheet back. When you're happy, run `/showcase`."
 - Showcase → "Your proposal is packaged — `proposal.html`. Before you submit, the bonus media still needs generating: open `prompt-pack.html`, take each ready-made prompt to its tool — song → Suno, video → Runway Gen-3, image / storyboard → GPT or Kimi — and bring the files back so I can embed them into the deck. Then you're ready to submit."
 
 ## Divergence prompts

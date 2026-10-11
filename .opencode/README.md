@@ -147,7 +147,7 @@ Everything lands in **one round folder**: `artifacts/Quest<ID>-<NN>/` (e.g. `art
 │   ├── plan/                   # stage skill
 │   │   └── sub-skills/         # creative-concept
 │   ├── mediakit/               # media-kit stage skill (poster + storyboard)
-│   │   └── sub-skills/         # poster (3 styles → pick 1) · storyboard (6-panel sheet → 16:9 viewer)
+│   │   └── sub-skills/         # poster (3 styles → pick 1) · storyboard (16:9 SVG scene sheet)
 │   ├── prove/                  # dormant skill (pilot forecast now lives in plan)
 │   │   └── sub-skills/         # campaign-metrics · data-visualizer-pro (retained · dormant)
 │   ├── showcase/               # AUTO stage skill (proposal / pitch-deck / prompt-pack)
