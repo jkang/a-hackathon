@@ -3,7 +3,7 @@
 Build a single-file, shareable version of the Facilitator Guide.
 
 Inlines every file facilitator_guide.html references (the demo outputs
-under demo-examples/QuestB-02/) so the result can be emailed / dropped
+under demo-examples/QuestB-01/) so the result can be emailed / dropped
 into a chat and opened with a double-click — no repo, no server, no sibling files.
 
 Usage:  python3 build-facilitator-standalone.py
@@ -13,12 +13,12 @@ import io, json, os, re
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 GUIDE = os.path.join(ROOT, "facilitator_guide.html")
-V2 = os.path.join(ROOT, "demo-examples", "QuestB-02")
+V2 = os.path.join(ROOT, "demo-examples", "QuestB-01")
 OUT = os.path.join(ROOT, "facilitator_guide_standalone.html")
 
 # the seven panels embedded in the guide (title -> file)
 DEMOS = ["insight-brief.html", "campaign-plan.html", "poster.html",
-         "proposal.html", "pitch-deck.html", "prompt-pack.html"]
+         "storyboard.html", "proposal.html", "pitch-deck.html", "prompt-pack.html"]
 
 def rd(p):
     return io.open(p, encoding="utf-8").read()
@@ -51,7 +51,12 @@ def prep(name):
                       "/* single-file build: styles inlined */")
 
     if name == "pitch-deck.html":
-        # inline the poster + make the A/B/C picker swap srcdoc instead of src
+        # current structure: embed-mode iframes → inline the poster + storyboard
+        c = c.replace('src="poster-a.html?embed=1"',
+                      'srcdoc="' + esc(posters["a"]) + '"')
+        c = c.replace('src="storyboard.html?embed=1"',
+                      'srcdoc="' + esc(storyboard) + '"')
+        # legacy structure: a poster picker swapping poster-*.html via JS
         c = c.replace(
             '<iframe id="posterFrame" src="poster-a.html" title="Campaign poster"></iframe>',
             '<iframe id="posterFrame" srcdoc="' + esc(posters["a"]) + '" title="Campaign poster"></iframe>')
@@ -63,9 +68,14 @@ def prep(name):
                       "frame.setAttribute('srcdoc', POSTERS[b.getAttribute('data-pstyle')]);")
 
     if name == "proposal.html":
-        # proposal inlines a poster page + a pitch-deck; both still point at
-        # poster-a.html. Depth here is one extra srcdoc layer, hence double esc().
+        # proposal already inlines its panels (via build-proposal.py); the nested
+        # pitch-deck still points at the embed-mode poster/storyboard files.
+        # Depth here is one extra srcdoc layer, hence double esc().
         c = c.replace('href=&quot;poster-a.html&quot;', 'href=&quot;#&quot;')
+        c = c.replace('src=&quot;poster-a.html?embed=1&quot;',
+                      'srcdoc=&quot;' + esc(esc(posters["a"])) + '&quot;')
+        c = c.replace('src=&quot;storyboard.html?embed=1&quot;',
+                      'srcdoc=&quot;' + esc(esc(storyboard)) + '&quot;')
         c = c.replace('src=&quot;poster-a.html&quot;',
                       'srcdoc=&quot;' + esc(esc(posters["a"])) + '&quot;')
 
@@ -73,6 +83,7 @@ def prep(name):
 
 
 posters = {k: rd(os.path.join(V2, "poster-%s.html" % k)) for k in "abc"}
+storyboard = rd(os.path.join(V2, "storyboard.html"))
 
 guide = rd(GUIDE)
 
@@ -84,7 +95,7 @@ def repl(m):
     return '<iframe%ssrcdoc="%s"%s></iframe>' % (pre, esc(prep(fn)), post)
 
 guide, n_if = re.subn(
-    r'<iframe([^>]*?)src="demo-examples/QuestB-02/([^"]+)"([^>]*?)></iframe>',
+    r'<iframe([^>]*?)src="demo-examples/QuestB-01/([^"]+)"([^>]*?)></iframe>',
     repl, guide)
 
 # 2) drop the "open ↗" links (their target files are gone)

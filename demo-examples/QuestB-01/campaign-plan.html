@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Membership Design · Quest B · Chengdu Panda Base</title>
+<style>
+  :root{
+    --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
+    --orange-1:#FFF0E7; --orange-2:#FFD1B8;
+    --teal:#077069; --teal-1:#CDE2E1; --teal-3:#398D87;
+    --line:#E4E8E7; --bg:#F7F6F4; --card:#FFFFFF; --mut:#5A6663;
+    --accent: var(--ascentium-orange);
+    --accent-tint: var(--orange-1);
+    --accent-line: var(--orange-2);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"Poppins","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+       background:var(--bg);color:var(--ascentium-midnight);-webkit-font-smoothing:antialiased;}
+  .page{width:80%;max-width:1600px;margin:0 auto;padding:40px 28px 56px;}
+  .brandbar{display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--accent);padding-bottom:14px;}
+  .brandbar .logo{font-weight:700;font-size:20px;letter-spacing:-.01em;}
+  .brandbar .logo span{color:var(--accent);}
+  .brandbar .tag{font-size:12px;font-weight:600;color:var(--mut);letter-spacing:.14em;text-transform:uppercase;}
+  h1{font-size:32px;font-weight:800;line-height:1.15;margin-top:22px;letter-spacing:-.01em;}
+  .sub{margin-top:8px;font-size:13px;color:var(--mut);font-weight:500;}
+  .seed{margin-top:20px;background:var(--accent-tint);border:1px solid var(--accent-line);border-radius:12px;padding:16px 20px;}
+  .seed .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
+  .seed p{font-size:16px;font-weight:600;line-height:1.5;margin-top:6px;}
+  .kw{margin-top:12px;background:#fff;border:1.5px solid var(--accent);border-radius:12px;padding:14px 20px;}
+  .kw .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
+  .kw .kws{margin-top:8px;}
+  .kw .cv{font-size:12.5px;color:var(--mut);margin-top:9px;line-height:1.5;}
+  .anchor{margin-top:12px;background:var(--ascentium-midnight);color:#fff;border-radius:12px;padding:16px 20px;}
+  .anchor .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-tint);}
+  .anchor p{font-size:14.5px;font-weight:600;line-height:1.5;margin-top:6px;color:#fff;}
+  .anchor p b{color:var(--accent-tint);}
+  .hero-vis{margin-top:14px;border-radius:16px;overflow:hidden;border:1px solid var(--accent-line);}
+  .hero-vis svg{display:block;width:100%;height:auto;}
+  .moments{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px;}
+  .moment{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--card);}
+  .moment .t{font-size:10.5px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;}
+  .moment .v{font-size:12.5px;margin-top:5px;line-height:1.5;color:#3B4442;}
+  .moment .v b{color:var(--ascentium-midnight);}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+  .card h2{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;}
+  .card p,.card li{font-size:13px;line-height:1.6;}
+  .card ul{list-style:none;}
+  .card li{padding:3px 0 3px 14px;position:relative;}
+  .card li::before{content:"▸";position:absolute;left:0;color:var(--accent);}
+  .wide{grid-column:1 / -1;}
+  .idea-row{display:grid;grid-template-columns:26px 1fr;gap:8px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:12.5px;line-height:1.5;}
+  .idea-row:last-child{border-bottom:0;}
+  .idea-row .n{font-weight:800;color:var(--accent);}
+  .idea-row b{color:var(--ascentium-midnight);}
+  .plan{margin-top:26px;border:2px solid var(--accent);border-radius:16px;padding:18px 20px 22px;background:#fff;box-shadow:0 4px 18px rgba(15,21,20,.06);}
+  .vhead{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;}
+  .vhead .vt{font-size:14px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ascentium-midnight);}
+  .vhead .vsub{font-size:12px;color:var(--mut);font-weight:500;}
+  .hero-idea{background:var(--ascentium-midnight);color:#fff;border-radius:14px;padding:20px 22px;}
+  .hero-idea h2{color:#B9C4C1;}
+  .hero-idea .name{font-size:24px;font-weight:800;letter-spacing:-.01em;color:#fff;}
+  .hero-idea .slogan{font-size:15px;color:var(--accent-tint);margin-top:6px;font-weight:600;}
+  .hero-idea .prop{font-size:13.5px;color:#D6DCDA;margin-top:12px;line-height:1.6;}
+  table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:4px;}
+  th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);}
+  th{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);}
+  td.amt{text-align:right;font-weight:700;color:var(--accent);}
+  .derive{margin-top:14px;display:grid;gap:7px;}
+  .drow{font-size:12px;line-height:1.55;color:#3B4442;border-top:1px dashed var(--line);padding-top:7px;}
+  .drow b{color:var(--ascentium-midnight);}
+  .drow .chain{color:var(--accent);font-weight:600;}
+  .pill{display:inline-block;font-size:11.5px;font-weight:600;background:var(--accent-tint);
+        border:1px solid var(--accent-line);color:var(--accent);border-radius:999px;padding:4px 11px;margin:3px 5px 0 0;}
+  footer{margin-top:30px;border-top:1px dashed var(--line);padding-top:12px;font-size:10.5px;color:#9AA5A2;line-height:1.6;}
+</style>
+</head>
+<body data-quest="B" style="--accent:#077069;--accent-tint:#CDE2E1;--accent-line:#83B8B4;--accent-deep:#043835;">
+<div class="page">
+
+  <div class="brandbar">
+    <div class="logo">Ascentium<span>.</span></div>
+    <div class="tag">Membership Design · Quest B</div>
+  </div>
+
+  <h1>PANDA STUDIO — The World's Creators, Starring Hua Hua &amp; Fu Bao</h1>
+  <div class="sub">Chengdu Research Base of Giant Panda Breeding — Global Brand &amp; IP Division &nbsp;|&nbsp; MVP pilot · Japan &amp; South Korea · 3 months &nbsp;|&nbsp; Budget USD 1.1M</div>
+
+  <div class="seed">
+    <div class="lbl">Seed Insight</div>
+    <p>"The panda is the world's most-followed animal, but its fandom peaks in moments the Base doesn't own — a beloved panda's anniversary livestream and the daily flood of creator content (~1bn Hua Hua views on accounts the Base can't measure, credit or reward). One always-on global membership that IS the ritual — gating the peak moments and sharing revenue with creators — turns peak devotion and free reach into an owned, recurring, worldwide paying community."</p>
+  </div>
+
+  <div class="kw">
+    <div class="lbl">Concept Direction · the team's keywords</div>
+    <div class="kws"><span class="pill">AI creators</span><span class="pill">revenue share</span><span class="pill">starring Hua Hua &amp; Fu Bao</span></div>
+    <p class="cv">The team steered the campaign to an <b>AI short-video competition</b> with <b>Hua Hua &amp; Fu Bao as the key characters</b> and <b>revenue sharing</b>. The AI converged the six candidate ideas below into ONE campaign around that steering: the competition is the content engine, the revenue share is the creator incentive, and the Studio Membership is the home.</p>
+  </div>
+
+  <div class="anchor">
+    <div class="lbl">Creative Brief · the campaign kernel (audience · moment · trend · channel · concept)</div>
+    <p>For <b>The Devoted 福宝/香香 Generation</b> and <b>Panda Creators &amp; UGC Accounts</b>, whose job is <b>to keep the bond with a beloved panda alive — and be recognized for creating it</b>, at <b>the monthly creator drop and the anniversary / homecoming livestream</b>, riding <b>short-video fandom that is massive but under-owned</b>, our campaign intercepts via <b>short-video creator platforms (TikTok / YouTube / Douyin), amplified on JP/KR super-fan channels</b> with <b>an AI short-video competition where creators make Hua Hua &amp; Fu Bao the stars and share the revenue</b> — so they <b>belong to the pandas, and get paid and recognized for it</b>.</p>
+  </div>
+
+  <div class="hero-vis">
+    <svg viewBox="0 0 1200 300" role="img" aria-label="Panda Studio — the world's creators, starring Hua Hua and Fu Bao">
+      <defs>
+        <linearGradient id="pbg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#0F1514"/>
+          <stop offset="1" stop-color="#043835"/>
+        </linearGradient>
+      </defs>
+      <rect width="1200" height="300" fill="url(#pbg)"/>
+      <circle cx="250" cy="150" r="185" fill="#077069" opacity=".22"/>
+      <text x="42" y="64" font-family="Poppins,Arial,sans-serif" font-size="19" font-weight="700" fill="#CDE2E1" letter-spacing="3">THE WORLD'S CREATORS · STARRING HUA HUA &amp; FU BAO</text>
+      <!-- panda -->
+      <g transform="translate(250,165)">
+        <circle cx="-64" cy="-74" r="35" fill="#0F1514"/>
+        <circle cx="64" cy="-74" r="35" fill="#0F1514"/>
+        <ellipse cx="0" cy="0" rx="86" ry="76" fill="#F7F6F4"/>
+        <ellipse cx="-31" cy="-8" rx="23" ry="27" fill="#0F1514"/>
+        <ellipse cx="31" cy="-8" rx="23" ry="27" fill="#0F1514"/>
+        <circle cx="-31" cy="-10" r="7" fill="#CDE2E1"/>
+        <circle cx="31" cy="-10" r="7" fill="#CDE2E1"/>
+        <ellipse cx="0" cy="30" rx="12" ry="9" fill="#0F1514"/>
+        <path d="M-22 46 q22 17 44 0" stroke="#0F1514" stroke-width="5" fill="none" stroke-linecap="round"/>
+      </g>
+      <!-- clapperboard -->
+      <g transform="translate(720,96) rotate(-5)">
+        <rect x="0" y="44" width="330" height="160" rx="12" fill="#F7F6F4"/>
+        <rect x="0" y="0" width="330" height="48" rx="8" fill="#0F1514"/>
+        <g fill="#FF6611">
+          <polygon points="10,0 46,0 30,48 0,48"/>
+          <polygon points="82,0 118,0 102,48 66,48"/>
+          <polygon points="154,0 190,0 174,48 138,48"/>
+          <polygon points="226,0 262,0 246,48 210,48"/>
+          <polygon points="298,0 330,0 330,48 282,48"/>
+        </g>
+        <text x="165" y="146" text-anchor="middle" font-family="Poppins,Arial,sans-serif" font-size="46" font-weight="800" fill="#043835" letter-spacing="1">PANDA</text>
+        <text x="165" y="188" text-anchor="middle" font-family="Poppins,Arial,sans-serif" font-size="34" font-weight="700" fill="#077069" letter-spacing="10">STUDIO</text>
+      </g>
+      <!-- filmstrip -->
+      <g>
+        <rect x="0" y="258" width="1200" height="42" fill="#043835"/>
+        <g fill="#CDE2E1" opacity=".55">
+          <rect x="24" y="270" width="20" height="12" rx="2"/><rect x="84" y="270" width="20" height="12" rx="2"/>
+          <rect x="144" y="270" width="20" height="12" rx="2"/><rect x="204" y="270" width="20" height="12" rx="2"/>
+          <rect x="264" y="270" width="20" height="12" rx="2"/><rect x="324" y="270" width="20" height="12" rx="2"/>
+          <rect x="384" y="270" width="20" height="12" rx="2"/><rect x="444" y="270" width="20" height="12" rx="2"/>
+          <rect x="504" y="270" width="20" height="12" rx="2"/><rect x="564" y="270" width="20" height="12" rx="2"/>
+          <rect x="624" y="270" width="20" height="12" rx="2"/><rect x="684" y="270" width="20" height="12" rx="2"/>
+          <rect x="744" y="270" width="20" height="12" rx="2"/><rect x="804" y="270" width="20" height="12" rx="2"/>
+          <rect x="864" y="270" width="20" height="12" rx="2"/><rect x="924" y="270" width="20" height="12" rx="2"/>
+          <rect x="984" y="270" width="20" height="12" rx="2"/><rect x="1044" y="270" width="20" height="12" rx="2"/>
+          <rect x="1104" y="270" width="20" height="12" rx="2"/><rect x="1164" y="270" width="20" height="12" rx="2"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <div class="card wide" style="margin-top:22px;">
+    <h2>Scenario · Campaign Moments (time · place · event)</h2>
+    <div class="moments">
+      <div class="moment"><div class="t">Moment 1 · the monthly cycle</div><div class="v"><b>Phone / creator feed</b> — the studio drop: creators publish AI films starring Hua Hua &amp; Fu Bao; the best are licensed.</div></div>
+      <div class="moment"><div class="t">Moment 2 · the anniversary</div><div class="v"><b>YouTube · LINE · Naver/KakaoTalk · Douyin</b> — the anniversary / homecoming premiere: winning films go live and the membership opens at peak emotion.</div></div>
+      <div class="moment"><div class="t">Moment 3 · gifting &amp; the trip window</div><div class="v"><b>D2F shop · OTA partners</b> — gift a membership; book the "meet the stars" Chengdu trip the films made them crave.</div></div>
+    </div>
+  </div>
+
+  <div class="card wide" style="margin-top:16px;">
+    <h2>Divergence · the ~6 idea candidates the AI explored (keyword-driven)</h2>
+    <div class="idea-row"><span class="n">1</span><div><b>Panda Studio</b> — an always-on AI short-video studio where creators direct Hua Hua &amp; Fu Bao · open competition + official footage + revenue share · <i>AI creators · revenue share</i></div></div>
+    <div class="idea-row"><span class="n">2</span><div><b>The Panda Film Festival</b> — a quarterly AI short-film contest whose winning films premiere as official content · juried cycle + premiere night · <i>AI creators · unmissable</i></div></div>
+    <div class="idea-row"><span class="n">3</span><div><b>The Remix Kit</b> — an official AI footage kit of Hua Hua &amp; Fu Bao that creators remix, earning on every publish · licensed assets + per-publish share · <i>creators · revenue share</i></div></div>
+    <div class="idea-row"><span class="n">4</span><div><b>Hua Hua &amp; Fu Bao: The Series</b> — an episodic official series co-made with creators, one episode per drop · episodic drops + membership · <i>characters · creators</i></div></div>
+    <div class="idea-row"><span class="n">5</span><div><b>The Studio Membership</b> — fans join to watch, vote and go behind the scenes; creators get a cut · paid community + voting + drops · <i>belonging · revenue share</i></div></div>
+    <div class="idea-row"><span class="n">6</span><div><b>Premiere Night</b> — a global synced watch party on the anniversary where the winning films debut · livestream event + membership CTA · <i>unmissable · belonging</i></div></div>
+  </div>
+
+  <section class="plan">
+    <div class="vhead">
+      <span class="vt">The Plan</span>
+      <span class="vsub">One campaign · generated directly from the team's keywords</span>
+    </div>
+    <div class="grid">
+      <div class="hero-idea">
+        <h2>The Big Idea</h2>
+        <div class="name">PANDA STUDIO</div>
+        <div class="slogan">The world's creators, starring Hua Hua &amp; Fu Bao — make the film, share the take, join the studio.</div>
+        <div class="prop">An always-on AI short-video competition where the world's creators make Hua Hua &amp; Fu Bao the stars. The winning films premiere at the anniversary livestream, creators share the revenue, and every fan can join the Studio Membership to watch, vote and belong. The reach the Base never owned becomes an owned, paying community.</div>
+      </div>
+      <div class="card">
+        <h2>Positioning</h2>
+        <p>For <b>devoted panda fans and the creators who already make panda content</b>, who <b>want their bond with Hua Hua &amp; Fu Bao to keep going — and to be rewarded for the content they make</b>, <b>Panda Studio</b> is an <b>open AI short-video competition and membership</b> that <b>turns fandom into a paid, always-on bond</b>. Unlike fan accounts and third-party merch, we <b>own the funnel, pay the creators, and keep Hua Hua &amp; Fu Bao at the centre</b>.</p>
+        <h2 style="margin-top:14px;">Target Segments</h2>
+        <span class="pill">The Devoted 福宝/香香 Generation</span><span class="pill">Panda Creators &amp; UGC Accounts</span>
+      </div>
+      <div class="card">
+        <h2>Channel &amp; Moment</h2>
+        <ul>
+          <li><b>Primary:</b> Short-video creator platforms — TikTok / YouTube / Douyin (the competition runs where the fandom already lives).</li>
+          <li><b>Support:</b> JP/KR super-fan channels — X, LINE, Naver/KakaoTalk (the anniversary livestream); community + CRM — email, WeChat, Xiaohongshu (membership &amp; drops); OTA/travel partners (the "meet the stars" trip).</li>
+          <li><b>Why:</b> Insight 4 — creators already generate the reach but own none of it; Insight 2 — the fandom peaks at the anniversary livestream with no funnel. A creator competition on short-video owns the reach and routes the peak to a membership.</li>
+          <li><b>Moment:</b> the monthly creator drop + the anniversary premiere livestream.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Offering &amp; Mix (4Ps)</h2>
+        <ul>
+          <li><b>Product:</b> an always-on AI short-video studio + competition (creators star Hua Hua &amp; Fu Bao) and the Studio Membership — behind-the-scenes, members-only premieres, a vote, a numbered seasonal drop.</li>
+          <li><b>Price:</b> Studio Membership $29/yr (founders $19 first year); the Creator Pass is free with a 20% revenue share; premiere drops $19 each.</li>
+          <li><b>Place:</b> official web/app + YouTube/TikTok/Douyin channels; the D2F shop; travel partners (OTA) for the "meet the stars" trip; licensed retail.</li>
+          <li><b>Promotion:</b> monthly competition cycle → anniversary premiere livestream → membership CTA; creator seeding and member referral.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>The Offer</h2>
+        <p>A global AI short-video studio where creators star Hua Hua &amp; Fu Bao and share the revenue — and fans join a membership to watch, vote and belong.</p>
+        <ul>
+          <li><b>Create · the Studio Pass:</b> creators get the official Hua Hua/Fu Bao footage kit + AI tooling, enter the monthly competition, and keep a 20% revenue share on every membership and merch sale their film drives.</li>
+          <li><b>Belong · the Studio Membership ($29/yr):</b> behind-the-scenes, members-only premieres, a vote on the winning film, and a numbered seasonal drop.</li>
+          <li><b>Collect · the Premiere Drops ($19):</b> a numbered AI film drop each cycle; the winning film ships as a licensed collectible + merch line.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Pilot Experiment</h2>
+        <ul>
+          <li><b>Hypothesis:</b> If we launch an AI short-video competition starring Hua Hua &amp; Fu Bao with a revenue share, and route the anniversary livestream to a paid Studio Membership in Japan and South Korea, then creator submissions and membership sign-ups will beat a no-campaign baseline — proving panda love converts into an owned, paying global membership.</li>
+          <li><b>Treatment:</b> both markets get the localized Panda Studio competition, the official Hua Hua/Fu Bao footage kit, the anniversary premiere livestream, and the membership checkout.</li>
+          <li><b>Control:</b> a held-out market (Indonesia / SEA) with no campaign, plus the prior-year baseline for the same window.</li>
+          <li><b>Measurement setup:</b> instrument the studio funnel (submission → watch → vote → sign-up → pay) per market; a weekly dashboard; a mid-point (6-week) check.</li>
+        </ul>
+      </div>
+      <div class="card wide">
+        <h2>Budget Allocation · USD 1.1M (10% of the USD 11M War Chest)</h2>
+        <table>
+          <thead><tr><th>Market</th><th>Channel</th><th>Tactic</th><th style="text-align:right;">Amount</th></tr></thead>
+          <tbody>
+            <tr><td>Japan</td><td>Creator program + content</td><td>creator seeding + AI film production + revenue-share pool</td><td class="amt">260,000</td></tr>
+            <tr><td>Japan</td><td>Paid social (YouTube/TikTok/X)</td><td>anniversary premiere + membership drive</td><td class="amt">170,000</td></tr>
+            <tr><td>South Korea</td><td>Creator program + community</td><td>creator seeding + revenue-share pool (Naver/KakaoTalk)</td><td class="amt">210,000</td></tr>
+            <tr><td>South Korea</td><td>Paid social + livestream</td><td>anniversary premiere + membership drive</td><td class="amt">150,000</td></tr>
+            <tr><td>Both</td><td>Localization</td><td>Japanese + Korean language &amp; cultural adaptation</td><td class="amt">90,000</td></tr>
+            <tr><td>Both</td><td>OTA / travel partnership</td><td>members → "meet the stars" Chengdu trip</td><td class="amt">80,000</td></tr>
+            <tr><td>Both</td><td>Measurement &amp; tools</td><td>studio funnel analytics + attribution</td><td class="amt">70,000</td></tr>
+            <tr><td>Both</td><td>Contingency</td><td>buffer for what the pilot teaches</td><td class="amt">70,000</td></tr>
+            <tr><td colspan="3" style="text-align:right;font-weight:700;">Total</td><td class="amt">1,100,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card wide">
+        <h2>Pilot Forecast · expected metrics + derivation (benchmark → assumption → formula → target)</h2>
+        <table>
+          <thead><tr><th>Metric</th><th>Funnel</th><th style="text-align:right;">Target</th></tr></thead>
+          <tbody>
+            <tr><td>Creator-led reach (3 months)</td><td>reach</td><td class="amt">45M impressions</td></tr>
+            <tr><td>Creator submissions</td><td>engagement</td><td class="amt">650 films</td></tr>
+            <tr><td>Anniversary premiere audience</td><td>engagement</td><td class="amt">1.2M live views</td></tr>
+            <tr><td>Landing → member conversion</td><td>conversion</td><td class="amt">3.5%</td></tr>
+            <tr><td>Founding members acquired</td><td>outcome</td><td class="amt">20,000 (CAC ≈ $21)</td></tr>
+          </tbody>
+        </table>
+        <div class="derive">
+          <div class="drow"><b>Creator-led reach (3 months)</b> · <span class="chain">benchmark: Hua Hua ~1bn Douyin views — the panda's short-video fandom already exists (Xinhua, Jul 2025) → assumption: ~120 recruited creators in JP+KR emit ~150 films, plus paid amplification at a blended $7 CPM → formula: organic ≈ 150 films × ~200K views ≈ 30M; paid $320K ÷ $7 CPM × 1,000 ≈ 46M; de-duplicated ≈ 45M → target: 45M impressions</span></div>
+          <div class="drow"><b>Creator submissions</b> · <span class="chain">benchmark: AI film jams and creator contests draw thousands of entries; the panda creator base is large (Hua Hua 1bn views; Everland 1.32M subs) → assumption: a $270K revenue-share pool + an official Hua Hua/Fu Bao footage kit is a real incentive; ~0.5% of engaged creators submit → formula: engaged creators ≈ 130K × 0.5% ≈ 650 films → target: 650 films</span></div>
+          <div class="drow"><b>Anniversary premiere audience</b> · <span class="chain">benchmark: 6,000 fans attended Fu Bao's send-off at 4am; 70× lottery odds for Xiang Xiang's last day (Hankyung; dotdotnews) → assumption: the scheduled anniversary premiere converts that offline ritual online; ~22% of the JP+KR engaged base (5.5M cumulative visitors + 1.32M Everland subs) → formula: ≈ 22% × 5.5M addressable fandom ≈ 1.2M live views → target: 1.2M live views</span></div>
+          <div class="drow"><b>Landing → member conversion</b> · <span class="chain">benchmark: ZSL converts day tickets via a 14-day upgrade; D2C membership pages convert at 2–4% → assumption: warm creator audiences + a founding offer + a livestream CTA at peak emotion push us to the upper band → formula: 45M reach × 1.3% CTR = 585K landing visits; 3.5% × 585K ≈ 20,000 → target: 3.5%</span></div>
+          <div class="drow"><b>Founding members acquired</b> · <span class="chain">benchmark: idol fan clubs ~$40/yr; conservation "adopt an animal" ~$50/yr → we price under both → assumption: a founding offer at $29/yr, with ~25% upgrading to the $59 collector tier in year one → formula: 585K visits × 3.5% = 20,475 ≈ 20,000 members; CAC = (paid $320K + localization $90K) ÷ 20,000 ≈ $21 → target: 20,000 members (CAC ≈ $21)</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>Human-led, AI-scaffolded. One plan — built directly from the team's concept keywords. Budget allocation is part of the solution. Data as of 2026-09.</footer>
+
+</div>
+
+<script type="application/json" id="capture">
+{
+  "gate": "plan",
+  "quest": "B",
+  "round": "QuestB-01",
+  "doc_type": "Membership Design",
+  "data_as_of": "2026-09",
+  "selected_segments": [1, 7],
+  "selected_insights": [2, 4],
+  "concept_keywords": ["AI creators", "revenue share"],
+  "seed_insight": "The panda is the world's most-followed animal, but its fandom peaks in moments the Base doesn't own — a beloved panda's anniversary livestream and the daily flood of creator content (~1bn Hua Hua views on accounts the Base can't measure, credit or reward). One always-on global membership that IS the ritual — gating the peak moments and sharing revenue with creators — turns peak devotion and free reach into an owned, recurring, worldwide paying community.",
+  "anchor": {"segment": "The Devoted 福宝/香香 Generation + Panda Creators & UGC Accounts", "job": "keep the bond with a beloved panda alive — and be recognized for creating it", "trend": "short-video fandom is massive but under-owned + East-Asia panda love already converts to cash", "moment": "the monthly creator drop and the anniversary / homecoming livestream", "channel": "short-video creator platforms (TikTok / YouTube / Douyin), amplified on JP/KR super-fan channels", "mechanic": "an AI short-video competition where creators make Hua Hua & Fu Bao the stars and share the revenue", "desire": "belong to the pandas, and get paid and recognized for it"},
+  "hmw": "How might we let the world's creators make Hua Hua & Fu Bao the stars of an AI short-video competition — and share the revenue — so their reach becomes an owned, paying panda membership?",
+  "ideas": [
+    {"id": 1, "name": "Panda Studio", "one_line": "An always-on AI short-video studio where creators direct Hua Hua & Fu Bao.", "insight": "Insight 4 — creators build the reach but own none of it.", "mechanic": "open competition + official footage kit + revenue share."},
+    {"id": 2, "name": "The Panda Film Festival", "one_line": "A quarterly AI short-film contest whose winning films premiere as official content.", "insight": "Insight 2 — the fandom peaks at ritual moments with no funnel.", "mechanic": "juried cycle + premiere night."},
+    {"id": 3, "name": "The Remix Kit", "one_line": "An official AI footage kit of Hua Hua & Fu Bao that creators remix, earning on every publish.", "insight": "Insight 4 — the value leaks to platforms without official assets.", "mechanic": "licensed assets + per-publish share."},
+    {"id": 4, "name": "Hua Hua & Fu Bao: The Series", "one_line": "An episodic official series co-made with creators, one episode per drop.", "insight": "Insight 2 — ritual drops convert attention, if there's a home.", "mechanic": "episodic drops + membership."},
+    {"id": 5, "name": "The Studio Membership", "one_line": "Fans join to watch, vote and go behind the scenes; creators get a cut.", "insight": "Insight 2 — peak emotion needs somewhere to belong.", "mechanic": "paid community + voting + numbered drops."},
+    {"id": 6, "name": "Premiere Night", "one_line": "A global synced watch party on the anniversary where the winning films debut.", "insight": "Insight 2 — the anniversary is the highest-leverage moment.", "mechanic": "livestream event + membership CTA."}
+  ],
+  "convergence": "The AI converged ideas 1, 2 and 5 — the competition is the content engine, the revenue share is the creator incentive, and the Studio Membership is the home. The team's keywords drive the mechanic: creators make Hua Hua & Fu Bao the stars (AI creators) and the take is shared (revenue share) — so the panda reach the Base never owned becomes an owned, paying community.",
+  "plan": {
+    "name": "PANDA STUDIO",
+    "slogan": "The world's creators, starring Hua Hua & Fu Bao — make the film, share the take, join the studio.",
+    "proposition": "An always-on AI short-video competition where the world's creators make Hua Hua & Fu Bao the stars. The winning films premiere at the anniversary livestream, creators share the revenue, and every fan can join the Studio Membership to watch, vote and belong.",
+    "offer": {
+      "summary": "A global AI short-video studio where creators star Hua Hua & Fu Bao and share the revenue — and fans join a membership to watch, vote and belong.",
+      "cards": [
+        {"title": "Create · the Studio Pass", "detail": "Creators get the official Hua Hua/Fu Bao footage kit + AI tooling, enter the monthly competition, and keep a 20% revenue share on every membership and merch sale their film drives."},
+        {"title": "Belong · the Studio Membership ($29/yr)", "detail": "Behind-the-scenes, members-only premieres, a vote on the winning film, and a numbered seasonal drop."},
+        {"title": "Collect · the Premiere Drops ($19)", "detail": "A numbered AI film drop each cycle; the winning film ships as a licensed collectible + merch line."}
+      ]
+    },
+    "positioning": "For devoted panda fans and the creators who already make panda content, who want their bond with Hua Hua & Fu Bao to keep going — and to be rewarded for the content they make, Panda Studio is an open AI short-video competition and membership that turns fandom into a paid, always-on bond. Unlike fan accounts and third-party merch, we own the funnel, pay the creators, and keep Hua Hua & Fu Bao at the centre.",
+    "channel_mix": {
+      "primary": "Short-video creator platforms — TikTok / YouTube / Douyin (the competition runs where the fandom already lives).",
+      "support": ["JP/KR super-fan channels — X, LINE, Naver/KakaoTalk (the anniversary livestream)", "Community + CRM — email, WeChat, Xiaohongshu (membership & drops)", "OTA / travel partners — the 'meet the stars' trip upsell"],
+      "why": "Insight 4 — creators already generate the reach but own none of it; Insight 2 — the fandom peaks at the anniversary livestream with no funnel. A creator competition on short-video owns the reach and routes the peak to a membership.",
+      "moment": "the monthly creator drop + the anniversary premiere livestream"
+    },
+    "mix": {
+      "product": "an always-on AI short-video studio + competition (creators star Hua Hua & Fu Bao) and the Studio Membership — behind-the-scenes, members-only premieres, a vote, a numbered seasonal drop.",
+      "price": "Studio Membership $29/yr (founders $19 first year); the Creator Pass is free with a 20% revenue share; premiere drops $19 each.",
+      "place": "official web/app + YouTube/TikTok/Douyin channels; the D2F shop; travel partners (OTA) for the 'meet the stars' trip; licensed retail.",
+      "promotion": "monthly competition cycle → anniversary premiere livestream → membership CTA; creator seeding and member referral."
+    },
+    "pilot": {
+      "markets": ["Japan", "South Korea"],
+      "hypothesis": "If we launch an AI short-video competition starring Hua Hua & Fu Bao with a revenue share, and route the anniversary livestream to a paid Studio Membership in Japan and South Korea, then creator submissions and membership sign-ups will beat a no-campaign baseline — proving panda love converts into an owned, paying global membership.",
+      "treatment": "Both markets get the localized Panda Studio competition, the official Hua Hua/Fu Bao footage kit, the anniversary premiere livestream, and the membership checkout.",
+      "control": "A held-out market (Indonesia / SEA) with no campaign, plus the prior-year baseline for the same window.",
+      "measurement_setup": "Instrument the studio funnel (submission → watch → vote → sign-up → pay) per market; a weekly dashboard; a mid-point (6-week) check."
+    },
+    "budget": {
+      "total": "USD 1.1M",
+      "allocation": [
+        {"market": "Japan", "channel": "Creator program + content", "tactic": "creator seeding + AI film production + revenue-share pool", "amount": "260,000"},
+        {"market": "Japan", "channel": "Paid social (YouTube/TikTok/X)", "tactic": "anniversary premiere + membership drive", "amount": "170,000"},
+        {"market": "South Korea", "channel": "Creator program + community", "tactic": "creator seeding + revenue-share pool (Naver/KakaoTalk)", "amount": "210,000"},
+        {"market": "South Korea", "channel": "Paid social + livestream", "tactic": "anniversary premiere + membership drive", "amount": "150,000"},
+        {"market": "Both", "channel": "Localization", "tactic": "Japanese + Korean language & cultural adaptation", "amount": "90,000"},
+        {"market": "Both", "channel": "OTA / travel partnership", "tactic": "members → 'meet the stars' Chengdu trip", "amount": "80,000"},
+        {"market": "Both", "channel": "Measurement & tools", "tactic": "studio funnel analytics + attribution", "amount": "70,000"},
+        {"market": "Both", "channel": "Contingency", "tactic": "buffer for what the pilot teaches", "amount": "70,000"}
+      ]
+    },
+    "pilot_forecast": [
+      {"name": "Creator-led reach (3 months)", "dimension": "reach", "target": "45M impressions",
+       "derivation": {"benchmark_ref": "Hua Hua ~1bn Douyin views — the panda's short-video fandom already exists (Xinhua, Jul 2025).", "assumption": "~120 recruited creators in JP+KR emit ~150 films, plus paid amplification at a blended $7 CPM.", "formula": "organic ≈ 150 films × ~200K views ≈ 30M; paid $320K ÷ $7 CPM × 1,000 ≈ 46M; de-duplicated ≈ 45M."}},
+      {"name": "Creator submissions", "dimension": "engagement", "target": "650 films",
+       "derivation": {"benchmark_ref": "AI film jams and creator contests draw thousands of entries; the panda creator base is large (Hua Hua 1bn views; Everland 1.32M subs).", "assumption": "a $270K revenue-share pool + an official Hua Hua/Fu Bao footage kit is a real incentive; ~0.5% of engaged creators submit.", "formula": "engaged creators ≈ 130K × 0.5% ≈ 650 films."}},
+      {"name": "Anniversary premiere audience", "dimension": "engagement", "target": "1.2M live views",
+       "derivation": {"benchmark_ref": "6,000 fans attended Fu Bao's send-off at 4am; 70× lottery odds for Xiang Xiang's last day (Hankyung; dotdotnews).", "assumption": "the scheduled anniversary premiere converts that offline ritual online; ~22% of the JP+KR engaged base (5.5M cumulative visitors + 1.32M Everland subs).", "formula": "≈ 22% × 5.5M addressable fandom ≈ 1.2M live views."}},
+      {"name": "Landing → member conversion", "dimension": "conversion", "target": "3.5%",
+       "derivation": {"benchmark_ref": "ZSL converts day tickets via a 14-day upgrade; D2C membership pages convert at 2–4%.", "assumption": "warm creator audiences + a founding offer + a livestream CTA at peak emotion push us to the upper band.", "formula": "45M reach × 1.3% CTR = 585K landing visits; 3.5% × 585K ≈ 20,000 members."}},
+      {"name": "Founding members acquired", "dimension": "outcome", "target": "20,000 (CAC ≈ $21)",
+       "derivation": {"benchmark_ref": "idol fan clubs ~$40/yr; conservation 'adopt an animal' ~$50/yr — we price under both.", "assumption": "a founding offer at $29/yr, with ~25% upgrading to the $59 collector tier in year one.", "formula": "585K visits × 3.5% = 20,475 ≈ 20,000 members; CAC = (paid $320K + localization $90K) ÷ 20,000 ≈ $21."}}
+    ],
+    "visual_direction": "Cinematic 'studio' look on a panda-black canvas with a warm teal spotlight; a clapperboard and a filmstrip frame Hua Hua & Fu Bao as stars; bold uppercase studio titles with a credits-roll footer. Accent: teal (Quest B).",
+    "one_liner": "The world's creators, starring Hua Hua & Fu Bao — make the film, share the take, join the studio."
+  },
+  "budget_envelope": {"total": "USD 11M", "mvp_unlock": "USD 1.1M (10%)", "pilot_window": "3 months", "scope": "2 overseas markets"},
+  "poster_style": "a",
+  "poster_style_name": "Full-Bleed Hero",
+  "media_kit": {"poster": "poster-a.html", "poster_tabs": "poster.html", "storyboard": "storyboard.html", "theme_surface": "dark"},
+  "status": "complete"
+}
+</script>
+</body>
+</html>

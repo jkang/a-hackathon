@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insight Brief · Quest B · Chengdu Panda Base</title>
+<style>
+  :root{
+    --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
+    --orange-1:#FFF0E7; --orange-2:#FFD1B8; --orange-3:#FFA370;
+    --teal:#077069; --teal-1:#CDE2E1; --teal-3:#398D87;
+    --sky:#1877F2; --sky-1:#BDD5EF;
+    --line:#E4E8E7; --bg:#F7F6F4; --card:#FFFFFF; --mut:#5A6663;
+    --accent: var(--teal);
+    --accent-tint: var(--teal-1);
+    --accent-line: #83B8B4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"Poppins","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+       background:var(--bg);color:var(--ascentium-midnight);-webkit-font-smoothing:antialiased;}
+  .page{width:80%;max-width:1600px;margin:0 auto;padding:40px 28px 56px;}
+  .brandbar{display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--accent);padding-bottom:14px;}
+  .brandbar .logo{font-weight:700;font-size:20px;letter-spacing:-.01em;}
+  .brandbar .logo span{color:var(--accent);}
+  .brandbar .tag{font-size:12px;font-weight:600;color:var(--mut);letter-spacing:.14em;text-transform:uppercase;}
+  h1{font-size:34px;font-weight:800;line-height:1.15;margin-top:22px;letter-spacing:-.01em;}
+  .client{margin-top:8px;font-size:13px;color:var(--mut);font-weight:500;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+  .card h2{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;
+           display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;}
+  .card h2 .count{font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:none;color:var(--accent);}
+  .card ul{list-style:none;}
+  .card li{font-size:13.5px;line-height:1.6;padding:4px 0 4px 14px;position:relative;}
+  .card li::before{content:"▸";position:absolute;left:0;color:var(--accent);}
+  .wide{grid-column:1 / -1;}
+
+  .bench{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);}
+  .bench .b{border-radius:10px;padding:10px 12px;border:1px solid var(--line);}
+  .bench .gold{background:#F7ECD2;border-color:#EAD9AC;}
+  .bench .red{background:#FBE4E1;border-color:#F0C4BE;}
+  .bench .sky{background:var(--sky-1);border-color:#A9C6EA;}
+  .bench .bt{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px;}
+  .bench .gold .bt{color:#B98A1D;} .bench .red .bt{color:#C0392B;} .bench .sky .bt{color:var(--sky);}
+  .bench p{font-size:11.5px;line-height:1.5;}
+
+  .state{position:relative;}
+  .state .tag{position:absolute;top:10px;right:12px;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+              border-radius:999px;padding:2px 8px;}
+  .state .tag.sel{color:#fff;background:var(--accent);}
+  .state.is-sel{border:2px solid var(--accent);background:var(--accent-tint);}
+  .state.is-parked{opacity:.5;}
+  .state.is-parked:hover{opacity:.85;}
+
+  .trends{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .trend{border-radius:10px;background:var(--bg);border:1px solid var(--line);padding:11px 14px;}
+  .trend .t{font-size:13px;font-weight:700;color:var(--ascentium-midnight);}
+  .trend .w{font-size:12px;color:var(--mut);margin-top:3px;line-height:1.5;}
+  .trend .kind{display:inline-block;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+               color:var(--accent);border:1px solid var(--accent-line);border-radius:999px;padding:1px 7px;margin-bottom:5px;}
+  .trend .src{font-size:10px;color:#9AA5A2;margin-top:5px;line-height:1.4;}
+
+  .segments{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;}
+  .seg{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card);}
+  .seg .name{font-size:15px;font-weight:700;color:var(--accent);padding-right:56px;}
+  .seg .who{font-size:11px;color:var(--mut);margin-top:2px;line-height:1.5;}
+  .seg .job{font-size:12.5px;margin-top:9px;line-height:1.5;color:var(--ascentium-midnight);}
+  .seg .job b{color:var(--accent);}
+  .seg .row{font-size:11.5px;margin-top:7px;line-height:1.5;color:#3B4442;}
+  .seg .row b{color:var(--ascentium-midnight);}
+
+  .bundles{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .bundle{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card);}
+  .bundle .bid{font-size:10px;font-weight:800;letter-spacing:.08em;color:var(--accent);}
+  .bundle .bn{font-size:15px;font-weight:700;margin-top:5px;color:var(--ascentium-midnight);}
+  .bundle .brow{font-size:11.5px;margin-top:7px;line-height:1.5;color:#3B4442;}
+  .bundle .brow b{color:var(--accent);}
+  .bundle .bwhy{font-size:11.5px;margin-top:8px;line-height:1.5;color:var(--mut);}
+
+  .seed{margin-top:26px;background:var(--accent-tint);border:1px solid var(--accent-line);border-radius:12px;padding:20px 24px;}
+  .seed .lbl{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
+  .seed p{font-size:19px;font-weight:600;line-height:1.5;margin-top:8px;}
+
+  .kinsights{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px;}
+  .kin{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card);position:relative;}
+  .kin .id{font-size:10px;font-weight:800;letter-spacing:.08em;color:var(--accent);}
+  .kin .anchor{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;}
+  .kin .anchor span{font-size:9.5px;font-weight:700;letter-spacing:.03em;color:var(--accent);
+                    border:1px solid var(--accent-line);border-radius:999px;padding:1px 8px;background:var(--card);}
+  .kin .t{font-size:13.5px;font-weight:600;line-height:1.5;margin-top:7px;padding-right:56px;}
+  .kin .ev{font-size:11px;color:var(--mut);margin-top:7px;line-height:1.45;}
+  .kin.is-sel{border:2px solid var(--accent);background:var(--accent-tint);}
+
+  .pending{border:1px dashed var(--accent-line);border-radius:12px;background:var(--bg);
+           padding:18px 20px;font-size:13px;color:var(--mut);font-style:italic;}
+  footer{margin-top:26px;border-top:1px dashed var(--line);padding-top:12px;font-size:10.5px;color:#9AA5A2;line-height:1.6;}
+</style>
+</head>
+<body data-quest="B" style="--accent:#077069;--accent-tint:#CDE2E1;--accent-line:#83B8B4;--accent-deep:#043835;">
+<div class="page">
+
+  <div class="brandbar">
+    <div class="logo">Ascentium<span>.</span></div>
+    <div class="tag">Insight Brief · Quest B</div>
+  </div>
+
+  <h1>PANDA GOES GLOBAL — From Zoo Visit to World Membership</h1>
+  <div class="client">Client · Chengdu Research Base of Giant Panda Breeding — Global Brand &amp; IP Division &nbsp;|&nbsp; Quest B &nbsp;|&nbsp; Data as of 2026-09</div>
+
+  <div class="grid">
+
+    <!-- ===== CONTEXT: scout summary + benchmark ===== -->
+    <div class="card wide">
+      <h2>Scout Summary</h2>
+      <ul>
+        <li><b>The asset:</b> 200+ giant pandas — the world's largest conservation &amp; breeding population; ¥55 entry. Demand already fills the base: 15–20K weekday, 30–42K summer, weekend peaks 45K — the capacity ceiling.</li>
+        <li><b>Global superstars, capped funnel:</b> "He Hua 花花" is a national icon (~1bn Douyin views); "Fu Bao 福宝" returned from Korea (Apr 2024) and went viral worldwide. Yet international visitors are only ~5% of footfall.</li>
+        <li><b>The Gap:</b> fame is global, monetization is local — no membership program, no global store, no English-first content engine. 487K international visitors in 2025 (+70.7% YoY), but the ¥55 gate captures almost none of the downstream spend.</li>
+      </ul>
+      <div class="bench">
+        <div class="b gold"><div class="bt">Gold Standard</div><p>Japan · Xiang Xiang — ~¥2.7B economic contribution in &lt;6 years. Korea · Fu Bao — 2.7M merch units, +60%. One panda can mint billions.</p></div>
+        <div class="b red"><div class="bt">Cautionary Tale</div><p>The Gap: global love, local capture. Third parties monetize the fandom; on-site demand is capped (~45K/weekend); conservation-first values mean over-commercialization invites backlash.</p></div>
+        <div class="b sky"><div class="bt">Your Arena</div><p>Global panda fandom &amp; the cultural-IP economy — 200+ pandas, 1bn+ annual social views, a ¥55 gate that captures almost none of the value downstream.</p></div>
+      </div>
+    </div>
+
+    <div class="card wide">
+      <h2>Org / IP Profile <span class="count">assets = strengths · constraints = weaknesses</span></h2>
+      <ul>
+        <li><b>Assets:</b> world's largest captive panda population (200+); two global superstar IPs (Hua Hua, Fu Bao); proven monetization in Japan/Korea; government-backed conservation authority; Chengdu as the recognized global panda capital; an inbound surge (487K intl visitors 2025, +70.7% YoY).</li>
+        <li><b>Constraints:</b> no membership program; no global store; no English-first content engine; international just ~5% of footfall; on-site capacity ceiling (~45K/weekend); conservation-first brand mandate limits aggressive commercialization; the ¥55 gate captures almost none of the ~¥1,500/visitor city-wide spend.</li>
+      </ul>
+    </div>
+
+    <!-- ===== MARKET TRENDS (merged market read) — shown in full; NO pick ===== -->
+    <div class="card wide">
+      <h2>Market Trends — the market read <span class="count">shown in full · no pick</span></h2>
+      <div class="trends">
+        <div class="trend">
+          <span class="kind">fact</span>
+          <div class="t">East Asia panda love already converts to hard cash</div>
+          <div class="w">Demand is proven in our target markets — capture it via membership, don't create it.</div>
+          <div class="src">Xiang Xiang ~¥2.7B in &lt;6 yrs; Fu Bao 2.7M merch units in Korea (+60%). Quest card / dotdotnews &amp; Hankyung, 2024.</div>
+        </div>
+        <div class="trend">
+          <span class="kind">opportunity</span>
+          <div class="t">"Cute" cultural IP is now a global export</div>
+          <div class="w">Panda is the original cute IP and there is a proven global merch appetite to ride.</div>
+          <div class="src">Labubu's rise; Japan IP-merch US$21.4bn (2025)→US$50.4bn (2033); panda plush 50K+ units to 50+ countries. NYT Jun 2025; Grand View Research 2026; Xinhua Nov 2024.</div>
+        </div>
+        <div class="trend">
+          <span class="kind">fact</span>
+          <div class="t">Short-video fandom is massive but under-owned</div>
+          <div class="w">Reach exists — scattered across fan accounts with no official membership funnel.</div>
+          <div class="src">Hua Hua ~1bn Douyin views, ~1.6bn Weibo engagements, 670K super-topic. Xinhua, Jul 2025.</div>
+        </div>
+        <div class="trend">
+          <span class="kind">fact</span>
+          <div class="t">Membership is the proven recurring-revenue model for wildlife attractions</div>
+          <div class="w">The model can be copied — pricing, tiering and ticket-upgrade mechanics.</div>
+          <div class="src">San Diego Zoo Wildlife Alliance US$202.6M from admissions+memberships (2024); ZSL from £28/yr with 14-day upgrade. SDZWA 2024; ZSL.</div>
+        </div>
+        <div class="trend">
+          <span class="kind">shift</span>
+          <div class="t">China's visa-free surge makes the panda pilgrimage frictionless</div>
+          <div class="w">Removes the biggest "come see her" barrier — intercept it now.</div>
+          <div class="src">40.6M foreign entries 2025 (+27.2%); 55 visa-free countries; top sources Japan, Korea, Vietnam, Malaysia, Singapore, US. NIA via China Daily, Dec 2025.</div>
+        </div>
+        <div class="trend">
+          <span class="kind">opportunity</span>
+          <div class="t">Panda diplomacy keeps creating fresh local fandom</div>
+          <div class="w">Each arrival is a pre-scheduled, media-rich acquisition moment in a target market.</div>
+          <div class="src">Bao Li &amp; Qing Bao debuted at Smithsonian National Zoo, Jan 2025. NPR, Jan 2025.</div>
+        </div>
+        <div class="trend">
+          <span class="kind">opportunity</span>
+          <div class="t">Livestream commerce is a battle-tested global channel</div>
+          <div class="w">A live "panda cam → shop" engine sells merch + memberships at scale.</div>
+          <div class="src">China livestream e-commerce ≈US$807bn (2024), 833M users; Douyin e-commerce GMV US$487bn. USDA FAS GAIN, 2025.</div>
+        </div>
+        <div class="trend">
+          <span class="kind">threat</span>
+          <div class="t">Over-commercialization is a documentable reputational risk</div>
+          <div class="w">Frame the membership as conservation stewardship — or viral love can invert into backlash.</div>
+          <div class="src">Zoo messaging criticized as "ethics washing"; Hua Hua's popularity already forced entry restrictions. Frontiers in Communication, Dec 2024.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== AUDIENCE SEGMENTS — DECISION 1 (the team picks 2–3) ===== -->
+    <div class="card wide">
+      <h2>Audience Segments — the team picks 2–3 <span class="count">8 segments · 2 chosen (1 · 7)</span></h2>
+      <div class="segments">
+
+        <div class="seg state is-sel">
+          <div class="tag sel">Chosen</div>
+          <div class="name">1 · The Devoted 福宝/香香 Generation</div>
+          <div class="who">Japan &amp; Korea super-fans, female 20s–40s; attached to <i>specific</i> pandas (70× lottery odds for Xiang Xiang's last day; 6,000 saw Fu Bao off at 4am).</div>
+          <div class="job"><b>Job:</b> F keep up with a beloved panda now in China · S be recognized in a tight fandom · E preserve a bond "returning to China" was meant to end.</div>
+          <div class="row"><b>Barrier:</b> no China/English-first content engine or overseas membership; must physically travel.</div>
+          <div class="row"><b>Trigger:</b> a birthday/anniversary livestream; a new panda loan to their country.</div>
+          <div class="row"><b>Reach:</b> YouTube, X, Instagram, LINE (JP), Naver/KakaoTalk (KR), fan cafés.</div>
+          <div class="row"><b>Prize:</b> Korea 1.32M Everland subs / 5.5M cumulative panda visitors (~1 in 10 Koreans); Japan ~¥2.7B from one panda → low millions [inference].</div>
+        </div>
+
+        <div class="seg state is-parked">
+          <div class="name">2 · Mobile-First SEA Families &amp; Gen Z</div>
+          <div class="who">18–35 urban households in Indonesia, Malaysia, Thailand, Vietnam, Philippines; mobile-first, shareability-driven, value-conscious.</div>
+          <div class="job"><b>Job:</b> F find an affordable, photo-worthy family experience · S post a cute/cultural moment that signals good taste · E joy and family bonding.</div>
+          <div class="row"><b>Barrier:</b> no language-local content; no online membership; distance/cost.</div>
+          <div class="row"><b>Trigger:</b> a viral TikTok/IG clip (77% of SEA Gen Z pick destinations trending online); cheap fares.</div>
+          <div class="row"><b>Reach:</b> TikTok, Instagram, YouTube, Shopee/Lazada, LINE.</div>
+          <div class="row"><b>Prize:</b> rising outbound pocket; Indonesia alone &gt;10M overseas Chinese → tens of millions addressable [inference].</div>
+        </div>
+
+        <div class="seg state is-parked">
+          <div class="name">3 · The Chengdu Pilgrims (China outbound)</div>
+          <div class="who">Mainland Gen Z + young families from tier-1/2 cities; heavy Douyin/Xiaohongshu/Weibo; trip motivated by a specific panda.</div>
+          <div class="job"><b>Job:</b> F see Hua Hua/the pandas in person and get the merch · S share the pilgrimage as a status/funny moment · E national pride fused with "cute therapy."</div>
+          <div class="row"><b>Barrier:</b> capacity ceiling (45K weekends, entry restrictions); merch sold out locally.</div>
+          <div class="row"><b>Trigger:</b> Hua Hua's birthday / national events; a new celebrity panda; livestream drops.</div>
+          <div class="row"><b>Reach:</b> Douyin, Xiaohongshu/RED, Weibo, WeChat, Ctrip/Qunar, Taobao.</div>
+          <div class="row"><b>Prize:</b> 442K visitors in 7 days (Spring Festival 2024); 1bn Douyin views → tens of millions reachable.</div>
+        </div>
+
+        <div class="seg state is-parked">
+          <div class="name">4 · Western Zoo-Household Members</div>
+          <div class="who">US/UK/EU families and existing zoo members (SD Zoo, ZSL-type); mid-income, conservation-aware, habitual annual-pass buyers.</div>
+          <div class="job"><b>Job:</b> F a reliable, repeatable family day out that also "does good" · S be seen as a responsible parent/supporter · E give children wonder; feel part of saving an icon.</div>
+          <div class="row"><b>Barrier:</b> no tie to a <i>specific</i> Chinese panda; distance; zoo-ethics scepticism; no membership offered.</div>
+          <div class="row"><b>Trigger:</b> a local panda arrival (Bao Li/Qing Bao); a giftable "adopt a panda" pack.</div>
+          <div class="row"><b>Reach:</b> Facebook, Instagram, YouTube, email, local-zoo partnerships, online shop.</div>
+          <div class="row"><b>Prize:</b> SDZWA admissions+memberships US$202.6M (2024); ZSL from £28/yr; US zoo attendance 180M+/yr [inference].</div>
+        </div>
+
+        <div class="seg state is-parked">
+          <div class="name">5 · Conservation-First Donors</div>
+          <div class="who">WWF-style symbolic adopters, 30–60, higher income, values-driven, global; buy with heart, not feet.</div>
+          <div class="job"><b>Job:</b> F contribute directly to conservation, transparently · S signal environmental care to peers · E feel personally part of keeping an icon alive (only ~1,860 wild pandas).</div>
+          <div class="row"><b>Barrier:</b> distrust of commercial "zoo money"; unclear impact; fear of a gimmick.</div>
+          <div class="row"><b>Trigger:</b> a transparent conservation ledger + physical adoption pack; holiday gifting.</div>
+          <div class="row"><b>Reach:</b> email, Instagram, Facebook, charity platforms, NGO partnerships.</div>
+          <div class="row"><b>Prize:</b> WWF "Adopt a Panda" from £5/mo; WWF reaches 100+ countries with millions of supporters → high-volume, low-ticket [inference].</div>
+        </div>
+
+        <div class="seg state is-parked">
+          <div class="name">6 · Diaspora Chinese Communities</div>
+          <div class="who">Overseas Chinese in Indonesia (&gt;10M), US (~2.4M), Canada, Australia, Singapore; parents wanting cultural continuity.</div>
+          <div class="job"><b>Job:</b> F a fun way to teach kids Chinese culture/roots · S share cultural pride within the community · E belonging, nostalgia, roots.</div>
+          <div class="row"><b>Barrier:</b> fragmented identity; no obvious membership product; language mismatch.</div>
+          <div class="row"><b>Trigger:</b> Lunar New Year; panda milestones; heritage festivals.</div>
+          <div class="row"><b>Reach:</b> WeChat, Xiaohongshu, community associations, TikTok, Instagram.</div>
+          <div class="row"><b>Prize:</b> Indonesian Chinese &gt;10M; total diaspora ~42.5M (OCAC) [inference].</div>
+        </div>
+
+        <div class="seg state is-sel">
+          <div class="tag sel">Chosen</div>
+          <div class="name">7 · Panda Creators &amp; UGC Accounts</div>
+          <div class="who">Amateur + pro creators on TikTok/YouTube/Douyin/IG making panda content; global; motivated by views and cuteness.</div>
+          <div class="job"><b>Job:</b> F reliably earn engagement with wholesome, safe content · S be recognized as a go-to panda authority · E the joy of sharing cuteness; creator community.</div>
+          <div class="row"><b>Barrier:</b> no official asset/toolkit; copyright ambiguity; no revenue share.</div>
+          <div class="row"><b>Trigger:</b> an official content-licensing kit, creator challenges, exclusive footage, revenue share.</div>
+          <div class="row"><b>Reach:</b> TikTok, YouTube, Douyin, Instagram, Reddit, Twitch.</div>
+          <div class="row"><b>Prize:</b> Hua Hua 1bn Douyin views; Everland 1.32M subs / 500M views → a large creator ecosystem [inference].</div>
+        </div>
+
+        <div class="seg state is-parked">
+          <div class="name">8 · Corporate &amp; Brand Licensing Partners</div>
+          <div class="who">FMCG, fashion, toy and hospitality brands seeking panda IP collaborations; global BD/procurement.</div>
+          <div class="job"><b>Job:</b> F license a beloved IP to lift sales/awareness · S associate the brand with wholesome conservation · E differentiation + a "doing good" halo.</div>
+          <div class="row"><b>Barrier:</b> no central licensing office; rights complexity; backlash fear.</div>
+          <div class="row"><b>Trigger:</b> proven merch traction, clear brand guidelines, a licensable SKU catalogue.</div>
+          <div class="row"><b>Reach:</b> brand partnerships, trade shows, licensing agents, LinkedIn, direct BD.</div>
+          <div class="row"><b>Prize:</b> target US$28M/yr international licensing; Japanese IP merch US$21.4bn; panda plush already 50K units to 50+ countries.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== FOCUS BUNDLES — derived one per SELECTED segment ===== -->
+    <div class="card wide">
+      <h2>Focus Bundles — from the selected segments <span class="count">1 per selected segment</span></h2>
+      <div class="bundles">
+        <div class="bundle">
+          <div class="bid">BUNDLE 1 · SEGMENT 1</div>
+          <div class="bn">The Bond That Outlives the Visit</div>
+          <div class="brow"><b>Audience:</b> The Devoted 福宝/香香 Generation · <b>Moment:</b> the anniversary/birthday of a beloved panda — and its return home · <b>Trend:</b> T1 — East Asia panda love already converts to hard cash.</div>
+          <div class="bwhy">Why: fans already gather — and pay — at ritual moments (¥2.7B around one panda; 70× lottery odds). A membership tied to that ritual converts devotion into recurring revenue without requiring a physical trip.</div>
+        </div>
+        <div class="bundle">
+          <div class="bid">BUNDLE 2 · SEGMENT 7</div>
+          <div class="bn">The Official Creator Engine</div>
+          <div class="brow"><b>Audience:</b> Panda Creators &amp; UGC Accounts · <b>Moment:</b> a creator challenge / official footage drop · <b>Trend:</b> T3 — short-video fandom is massive but under-owned.</div>
+          <div class="bwhy">Why: creators already generate the reach for free (~1bn Hua Hua views) from accounts the brand can't measure, credit or reward. An official kit + revenue share converts that UGC into an owned, measurable acquisition channel.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== KEY INSIGHTS — DECISION 2 ===== -->
+    <div class="card wide">
+      <h2>Key Insights — the team picks 2–3 <span class="count">derived from the focus bundles · 2 chosen (2 · 4)</span></h2>
+      <div class="kinsights">
+        <div class="kin">
+          <div class="id">INSIGHT 1</div>
+          <div class="anchor"><span>Segment 1</span><span>Moment · the panda goes home</span><span>Trend T1</span></div>
+          <div class="t">Devoted JP/KR fans keep up with a beloved panda now in China — but their bond ends the moment it goes home, because no official channel lets them keep it alive.</div>
+          <div class="ev">Tension: peak devotion with no renewal moment. → A paid membership should BE that annual ritual — always-on footage + the panda's life — replacing the ended visit.</div>
+        </div>
+        <div class="kin is-sel">
+          <div class="id">INSIGHT 2 · CHOSEN</div>
+          <div class="anchor"><span>Segment 1</span><span>Moment · anniversary livestream</span><span>Trend T3</span></div>
+          <div class="t">Fans show up in overwhelming numbers at ritual moments (70× lottery odds; 6,000 at 4am) — but at those peaks the only action is to watch for free, never to join or belong.</div>
+          <div class="ev">Tension: metered peak intent with zero funnel. → Gate the ritual (a members-only livestream + drop) to convert peak emotion into membership.</div>
+        </div>
+        <div class="kin">
+          <div class="id">INSIGHT 3</div>
+          <div class="anchor"><span>Segment 1</span><span>Moment · a new panda loan</span><span>Trend T6</span></div>
+          <div class="t">Panda diplomacy pre-schedules a media-rich fandom moment in each market — but fans welcome every new panda with no account that carries their fandom across pandas.</div>
+          <div class="ev">Tension: fandom is rebuilt from zero every cycle. → One global membership that travels with every panda is the durable asset.</div>
+        </div>
+        <div class="kin is-sel">
+          <div class="id">INSIGHT 4 · CHOSEN</div>
+          <div class="anchor"><span>Segment 7</span><span>Moment · creator challenge / drop</span><span>Trend T3</span></div>
+          <div class="t">Creators already generate the reach (~1bn Hua Hua views) — but they work without official assets, clear rights or revenue share, so the value leaks to the platforms.</div>
+          <div class="ev">Tension: the most valuable channel is run by volunteers the brand can't measure or reward. → An official Creator Kit + revenue share turns UGC into an owned funnel.</div>
+        </div>
+        <div class="kin">
+          <div class="id">INSIGHT 5</div>
+          <div class="anchor"><span>Segment 7</span><span>Moment · a viral/livestream spike</span><span>Trend T7</span></div>
+          <div class="t">A panda moment goes viral again and again — but the spike converts to likes, not to a purchase, because there is no official shop or membership checkout at the moment of peak intent.</div>
+          <div class="ev">Tension: heat without a till. → Put shop + membership checkout at the exact live/viral moment (livestream commerce) to capture intent while it is hot.</div>
+        </div>
+        <div class="kin">
+          <div class="id">INSIGHT 6</div>
+          <div class="anchor"><span>Segment 7</span><span>Moment · a new arrival / viral wave</span><span>Trend T2</span></div>
+          <div class="t">Cute-IP merch is a proven global export (Japan IP merch US$21.4bn→50.4bn; Labubu) — but the panda's own viral reach isn't converted into licensed product because there is no licensing office.</div>
+          <div class="ev">Tension: viral reach with no product line behind it. → Ride the creator + IP economy with an official licensing pipeline and creator revenue share.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="seed">
+    <div class="lbl">Seed Insight · AI-drafted from the chosen segments + insights</div>
+    <p>The panda is the world's most-followed animal, but its fandom peaks in moments the Base doesn't own — a beloved panda's anniversary livestream (70× lottery odds; 6,000 at 4am) and the daily flood of creator content (~1bn Hua Hua views on accounts the Base can't measure, credit or reward). Both peak emotion and free reach currently convert to attention only, because there's no official membership to join at the moment of intent and no reward for the creators who build the reach. The opportunity: one always-on global membership that IS the ritual — gate the peak moments, share revenue with creators — so devotion and UGC compound into an owned, recurring, worldwide paying community.</p>
+  </div>
+
+  <footer>
+    Sources: Quest B card (Scout Report, Data as of 2026-09) + live research (Xinhua, NPR, SDZWA, ZSL, NIA/China Daily, USDA FAS, Frontiers in Communication). Data as of 2026-09. Generated by the Ascentium Hackathon toolkit — human-led, AI-scaffolded.
+  </footer>
+
+</div>
+
+<script type="application/json" id="capture">
+{
+  "gate": "insight",
+  "quest": "B",
+  "client": "Chengdu Research Base of Giant Panda Breeding — Global Brand & IP Division",
+  "mission": "Turn the world's most famous zoo into a global membership brand — from a one-off ¥55 visit to a worldwide paying membership.",
+  "org_profile": {
+    "assets": [
+      "World's largest captive giant panda population (200+)",
+      "Two global superstar IPs: Hua Hua (~1bn Douyin views) and Fu Bao (viral worldwide)",
+      "Proven monetization in Japan/Korea (Xiang Xiang ~¥2.7B; Fu Bao 2.7M merch units)",
+      "Government-backed conservation authority; Chengdu as global panda capital",
+      "Inbound surge: 487K international visitors in 2025 (+70.7% YoY)"
+    ],
+    "constraints": [
+      "No membership program; no global store; no English-first content engine",
+      "International visitors only ~5% of footfall",
+      "On-site capacity ceiling (~45K/weekend)",
+      "Conservation-first mandate limits aggressive commercialization",
+      "The ¥55 gate captures almost none of the ~¥1,500/visitor city-wide spend"
+    ]
+  },
+  "benchmark": {
+    "gold_standard": "Japan · Xiang Xiang — ~¥2.7B economic contribution in <6 years; Korea · Fu Bao — 2.7M merch units (+60%).",
+    "cautionary_tale": "The Gap: global fame, local monetization; third parties capture the fandom; capacity ceiling + over-commercialization risk.",
+    "arena": "Global panda fandom & the cultural-IP economy — 200+ pandas, 1bn+ annual social views, a ¥55 gate."
+  },
+  "trends": [
+    {"id": 1, "trend": "East Asia panda love already converts to hard cash", "why_it_matters": "Demand is proven in our target markets — capture it via membership, don't create it.", "kind": "fact", "source": "Xiang Xiang ~¥2.7B in <6 yrs; Fu Bao 2.7M merch units in Korea (+60%). Quest card / dotdotnews & Hankyung, 2024."},
+    {"id": 2, "trend": "\"Cute\" cultural IP is now a global export", "why_it_matters": "Panda is the original cute IP and there is a proven global merch appetite to ride.", "kind": "opportunity", "source": "Labubu's rise; Japan IP-merch US$21.4bn (2025)→US$50.4bn (2033); panda plush 50K+ units to 50+ countries. NYT Jun 2025; Grand View Research 2026; Xinhua Nov 2024."},
+    {"id": 3, "trend": "Short-video fandom is massive but under-owned", "why_it_matters": "Reach exists — scattered across fan accounts with no official membership funnel.", "kind": "fact", "source": "Hua Hua ~1bn Douyin views, ~1.6bn Weibo engagements, 670K super-topic. Xinhua, Jul 2025."},
+    {"id": 4, "trend": "Membership is the proven recurring-revenue model for wildlife attractions", "why_it_matters": "The model can be copied — pricing, tiering and ticket-upgrade mechanics.", "kind": "fact", "source": "San Diego Zoo Wildlife Alliance US$202.6M from admissions+memberships (2024); ZSL from £28/yr with 14-day upgrade. SDZWA 2024; ZSL."},
+    {"id": 5, "trend": "China's visa-free surge makes the panda pilgrimage frictionless", "why_it_matters": "Removes the biggest 'come see her' barrier — intercept it now.", "kind": "shift", "source": "40.6M foreign entries 2025 (+27.2%); 55 visa-free countries; top sources Japan, Korea, Vietnam, Malaysia, Singapore, US. NIA via China Daily, Dec 2025."},
+    {"id": 6, "trend": "Panda diplomacy keeps creating fresh local fandom", "why_it_matters": "Each arrival is a pre-scheduled, media-rich acquisition moment in a target market.", "kind": "opportunity", "source": "Bao Li & Qing Bao debuted at Smithsonian National Zoo, Jan 2025. NPR, Jan 2025."},
+    {"id": 7, "trend": "Livestream commerce is a battle-tested global channel", "why_it_matters": "A live 'panda cam → shop' engine sells merch + memberships at scale.", "kind": "opportunity", "source": "China livestream e-commerce ≈US$807bn (2024), 833M users; Douyin e-commerce GMV US$487bn. USDA FAS GAIN, 2025."},
+    {"id": 8, "trend": "Over-commercialization is a documentable reputational risk", "why_it_matters": "Frame the membership as conservation stewardship — or viral love can invert into backlash.", "kind": "threat", "source": "Zoo messaging criticized as 'ethics washing'; Hua Hua's popularity already forced entry restrictions. Frontiers in Communication, Dec 2024."}
+  ],
+  "segments": [
+    {"id": 1, "name": "The Devoted 福宝/香香 Generation", "who": "Japan & Korea super-fans, female 20s–40s; attached to specific pandas (70× lottery odds for Xiang Xiang's last day; 6,000 saw Fu Bao off at 4am).", "job_functional": "Keep up with a beloved panda now in China.", "job_social": "Be recognized inside a tight fandom that values devotion.", "job_emotional": "Preserve an emotional bond that 'returning to China' was supposed to end.", "barrier": "No China/English-first content engine or overseas membership; must physically travel.", "trigger": "A birthday/anniversary livestream; a new panda loan to their country.", "channels": "YouTube, X, Instagram, LINE (JP), Naver/KakaoTalk (KR), fan cafés", "size_potential": "Korea 1.32M Everland subs / 5.5M cumulative panda visitors; Japan ~¥2.7B from one panda → low millions [inference]", "source": "Hankyung Apr 2024; dotdotnews Aug 2024", "selected": true},
+    {"id": 2, "name": "Mobile-First SEA Families & Gen Z", "who": "18–35 urban households in Indonesia, Malaysia, Thailand, Vietnam, Philippines; mobile-first, shareability-driven, value-conscious.", "job_functional": "Find an affordable, photo-worthy family experience.", "job_social": "Post a cute/cultural moment that signals good taste.", "job_emotional": "Joy and family bonding through something wholesome.", "barrier": "No language-local content; no online membership; distance/cost.", "trigger": "A viral TikTok/IG clip (77% of SEA Gen Z pick destinations trending online); cheap fares.", "channels": "TikTok, Instagram, YouTube, Shopee/Lazada, LINE", "size_potential": "Rising outbound pocket; Indonesia >10M overseas Chinese → tens of millions addressable [inference]", "source": "Vero/BurdaLuxury Gen Z study Jun–Jul 2025; Statista 2025", "selected": false},
+    {"id": 3, "name": "The Chengdu Pilgrims (China outbound)", "who": "Mainland Gen Z + young families from tier-1/2 cities; heavy Douyin/Xiaohongshu/Weibo; trip motivated by a specific panda.", "job_functional": "See Hua Hua/the pandas in person and get the merch.", "job_social": "Share the pilgrimage as a status/funny moment.", "job_emotional": "National pride fused with 'cute therapy'.", "barrier": "Capacity ceiling (45K weekends, entry restrictions); merch sold out locally.", "trigger": "Hua Hua's birthday / national events; a new celebrity panda; livestream drops.", "channels": "Douyin, Xiaohongshu/RED, Weibo, WeChat, Ctrip/Qunar, Taobao", "size_potential": "442K visitors in 7 days (Spring Festival 2024); 1bn Douyin views → tens of millions reachable", "source": "Quest card; Xinhua Jul 2025", "selected": false},
+    {"id": 4, "name": "Western Zoo-Household Members", "who": "US/UK/EU families and existing zoo members (SD Zoo, ZSL-type); mid-income, conservation-aware, habitual annual-pass buyers.", "job_functional": "A reliable, repeatable family day out that also 'does good'.", "job_social": "Be seen as a responsible parent/supporter.", "job_emotional": "Give children wonder; feel part of saving an icon.", "barrier": "No tie to a specific Chinese panda; distance; zoo-ethics scepticism; no membership offered.", "trigger": "A local panda arrival (Bao Li/Qing Bao); a giftable 'adopt a panda' pack.", "channels": "Facebook, Instagram, YouTube, email, local-zoo partnerships, online shop", "size_potential": "SDZWA admissions+memberships US$202.6M (2024); ZSL from £28/yr; US zoo attendance 180M+/yr [inference]", "source": "SDZWA 2024 Financials; ZSL; NPR 2025", "selected": false},
+    {"id": 5, "name": "Conservation-First Donors", "who": "WWF-style symbolic adopters, 30–60, higher income, values-driven, global; buy with heart, not feet.", "job_functional": "Contribute directly to panda conservation, transparently.", "job_social": "Signal environmental care to peers.", "job_emotional": "Feel personally part of keeping an icon alive (only ~1,860 wild pandas).", "barrier": "Distrust of commercial 'zoo money'; unclear impact; fear of a gimmick.", "trigger": "A transparent conservation ledger + physical adoption pack; holiday gifting.", "channels": "email, Instagram, Facebook, charity platforms, NGO partnerships", "size_potential": "WWF 'Adopt a Panda' from £5/mo; WWF reaches 100+ countries, millions of supporters → high-volume low-ticket [inference]", "source": "WWF UK Adopt-a-Panda; WWF Panda Nation", "selected": false},
+    {"id": 6, "name": "Diaspora Chinese Communities", "who": "Overseas Chinese in Indonesia (>10M), US (~2.4M), Canada, Australia, Singapore; parents wanting cultural continuity.", "job_functional": "A fun way to teach kids Chinese culture/roots.", "job_social": "Share cultural pride within the community.", "job_emotional": "Belonging, nostalgia, roots.", "barrier": "Fragmented identity; no obvious membership product; language mismatch.", "trigger": "Lunar New Year; panda milestones; heritage festivals.", "channels": "WeChat, Xiaohongshu, community associations, TikTok, Instagram", "size_potential": "Indonesian Chinese >10M; total diaspora ~42.5M (OCAC) [inference]", "source": "Statista Nov 2025; US Census/OCAC", "selected": false},
+    {"id": 7, "name": "Panda Creators & UGC Accounts", "who": "Amateur + pro creators on TikTok/YouTube/Douyin/IG making panda content; global; motivated by views and cuteness.", "job_functional": "Reliably earn engagement with wholesome, safe content.", "job_social": "Be recognized as a go-to panda authority.", "job_emotional": "The joy of sharing cuteness; belonging to a creator community.", "barrier": "No official asset/toolkit; copyright ambiguity; no revenue share.", "trigger": "An official content-licensing kit, creator challenges, exclusive footage, revenue share.", "channels": "TikTok, YouTube, Douyin, Instagram, Reddit, Twitch", "size_potential": "Hua Hua 1bn Douyin views; Everland 1.32M subs / 500M views → a large creator ecosystem [inference]", "source": "Xinhua Jul 2025; Hankyung Apr 2024", "selected": true},
+    {"id": 8, "name": "Corporate & Brand Licensing Partners", "who": "FMCG, fashion, toy and hospitality brands seeking panda IP collaborations; global BD/procurement.", "job_functional": "License a beloved IP to lift sales/awareness.", "job_social": "Associate the brand with wholesome conservation.", "job_emotional": "Differentiation + a 'doing good' halo.", "barrier": "No central licensing office; rights complexity; backlash fear.", "trigger": "Proven merch traction, clear brand guidelines, a licensable SKU catalogue.", "channels": "brand partnerships, trade shows, licensing agents, LinkedIn, direct BD", "size_potential": "Target US$28M/yr international licensing; Japanese IP merch US$21.4bn; panda plush 50K units to 50+ countries", "source": "Quest card Victory Conditions; Grand View Research 2026; Xinhua Nov 2024", "selected": false}
+  ],
+  "selected_segments": [1, 7],
+  "focus_bundles": [
+    {"id": 1, "name": "The Bond That Outlives the Visit", "segment_id": 1, "moment": {"when": "the anniversary/birthday of a beloved panda — and its return home", "where": "YouTube, LINE (JP), Naver/KakaoTalk (KR)", "event": "a ritual livestream where the fandom peaks"}, "trend_id": 1, "why": "Fans already gather and pay at ritual moments (¥2.7B around one panda; 70× lottery odds); a membership tied to the ritual converts devotion into recurring revenue without a trip."},
+    {"id": 2, "name": "The Official Creator Engine", "segment_id": 7, "moment": {"when": "a creator challenge / official footage drop", "where": "TikTok, YouTube, Douyin, Instagram", "event": "a scheduled content drop creators rally around"}, "trend_id": 3, "why": "Creators already generate the reach for free (~1bn Hua Hua views) from accounts the brand can't measure, credit or reward; an official kit + revenue share owns the channel."}
+  ],
+  "moment_of_truth": {"when": "the anniversary / homecoming of a beloved panda", "where": "YouTube · LINE · Naver/KakaoTalk · Douyin · TikTok", "event": "a ritual livestream + drop where the fandom peaks", "why": "peak devotion converts to payment only if there is an official membership to join at that exact moment"},
+  "key_insights": [
+    {"id": 1, "segment_id": 1, "trend_id": 1, "moment": "the panda goes home", "text": "Devoted JP/KR fans keep up with a beloved panda now in China — but their bond ends the moment it goes home, because no official channel lets them keep it alive.", "implication": "Peak devotion has no renewal moment; a paid membership must BE the annual ritual — always-on footage + the panda's life — replacing the ended visit."},
+    {"id": 2, "segment_id": 1, "trend_id": 3, "moment": "a birthday/anniversary livestream", "text": "Fans show up in overwhelming numbers at ritual moments (70× lottery odds; 6,000 at 4am) — but at those peaks the only action is to watch for free, not to join or belong.", "implication": "Metered peak intent with zero funnel; gate the ritual (a members-only livestream + drop) to convert peak emotion into membership."},
+    {"id": 3, "segment_id": 1, "trend_id": 6, "moment": "a new panda loan to their country", "text": "Panda diplomacy pre-schedules a media-rich fandom moment in each market — but fans welcome every new panda with no account that carries their fandom across pandas.", "implication": "Fandom is rebuilt from zero each cycle; one global membership that travels with every panda is the durable asset."},
+    {"id": 4, "segment_id": 7, "trend_id": 3, "moment": "a creator challenge / footage drop", "text": "Creators already generate the reach (~1bn Hua Hua views) — but they work without official assets, clear rights or revenue share, so the value leaks to the platforms.", "implication": "The most valuable channel is run by volunteers the brand can't measure or reward; an official Creator Kit + revenue share turns UGC into an owned funnel."},
+    {"id": 5, "segment_id": 7, "trend_id": 7, "moment": "a viral / livestream spike", "text": "A panda moment goes viral again and again — but the spike converts to likes, not to a purchase, because there is no official shop or membership checkout at the moment of peak intent.", "implication": "Put shop + membership checkout at the exact live/viral moment (livestream commerce) to capture intent while it is hot."},
+    {"id": 6, "segment_id": 7, "trend_id": 2, "moment": "a new arrival / viral wave", "text": "Cute-IP merch is a proven global export (Japan IP merch US$21.4bn→50.4bn; Labubu) — but the panda's own viral reach isn't converted into licensed product because there is no licensing office.", "implication": "Ride the creator + IP economy with an official licensing pipeline and creator revenue share."}
+  ],
+  "selected_insights": [2, 4],
+  "seed_insight": "The panda is the world's most-followed animal, but its fandom peaks in moments the Base doesn't own — a beloved panda's anniversary livestream (70× lottery odds; 6,000 at 4am) and the daily flood of creator content (~1bn Hua Hua views on accounts the Base can't measure, credit or reward). Both peak emotion and free reach currently convert to attention only, because there's no official membership to join at the moment of intent and no reward for the creators who build the reach. The opportunity: one always-on global membership that IS the ritual — gate the peak moments, share revenue with creators — so devotion and UGC compound into an owned, recurring, worldwide paying community.",
+  "source_note": "Quest B card (Scout Report, Data as of 2026-09) + live research (Exa/Jina), 2026-10."
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+{
+  "quest": "B",
+  "brand": "Panda Studio",
+  "crumb": "Campaign Media Kit · Storyboard · Quest B · Chengdu Panda Base",
+  "h1": "From panda fandom to a studio the world pays to join",
+  "slogan": "The world's creators, starring Hua Hua & Fu Bao.",
+  "premise": "The fan journey runs from a creator's daily panda scroll to an AI short film starring Hua Hua & Fu Bao, a revenue share that pays them, a membership fans join to watch and vote — and the anniversary premiere that turns peak devotion into members.",
+  "accent": {
+    "accent": "#077069",
+    "tint": "#CDE2E1",
+    "line": "#83B8B4",
+    "deep": "#043835"
+  },
+  "theme": {
+    "surface": "dark"
+  },
+  "cover_art": "meet",
+  "one_liner": "Make the film, share the take, join the studio.",
+  "per_page": 2,
+  "facts": [
+    { "n": "$29/yr", "c": "Studio Membership (founders $19)" },
+    { "n": "20%", "c": "revenue share paid to creators" },
+    { "n": "650", "c": "creator films in the 3-month pilot" },
+    { "n": "20,000", "c": "founding members · Japan + Korea" }
+  ],
+  "chapters": [
+    { "id": "I", "name": "The Spark", "blurb": "A creator's daily panda scroll becomes a film with the official stars." },
+    { "id": "II", "name": "The Take", "blurb": "Creators submit and share the revenue; fans join to watch and vote." },
+    { "id": "III", "name": "The Bond", "blurb": "The anniversary premiere and the trip turn membership into belonging." }
+  ],
+  "steps": [
+    {
+      "n": "01",
+      "chapter": "I",
+      "art": "cam",
+      "title": "A world already filming the pandas",
+      "scene": "a creator at home watching Hua Hua & Fu Bao clips, a phone full of panda footage",
+      "quote": "I've been editing panda clips for years. I'd love to do it with the real thing.",
+      "action": "Turn the daily panda scroll into an open studio call",
+      "source": "Hua Hua ~1bn Douyin views (Xinhua, Jul 2025)",
+      "meta": {
+        "stage": "Trigger",
+        "moment": "The daily creator scroll",
+        "emotion": "Curious, inspired",
+        "goal": "Open the studio to the world's creators"
+      },
+      "ui": {
+        "screen": "Panda Studio",
+        "title": "You already film them",
+        "lines": ["Now film Hua Hua & Fu Bao"],
+        "cta": "Enter the studio"
+      }
+    },
+    {
+      "n": "02",
+      "chapter": "I",
+      "art": "plan",
+      "title": "Make Hua Hua & Fu Bao the stars",
+      "scene": "a creator planning an AI short film on a phone, the official footage kit on screen",
+      "quote": "The moment they handed us the real footage, it stopped being fan art.",
+      "action": "Give creators the official kit — own the reach",
+      "source": "Creators make the reach; the Base owns none of it (Insight 4)",
+      "meta": {
+        "stage": "Consideration",
+        "moment": "The open call",
+        "emotion": "Excited, empowered",
+        "goal": "Recruit creators onto the Studio Pass"
+      },
+      "ui": {
+        "screen": "The kit",
+        "title": "Official Hua Hua & Fu Bao footage",
+        "lines": ["+ AI tooling", "Monthly competition"],
+        "cta": "Start your film"
+      }
+    },
+    {
+      "n": "03",
+      "chapter": "II",
+      "art": "adopt",
+      "title": "Your film, your take",
+      "scene": "a creator's submission accepted, a numbered creator certificate and a revenue-share line",
+      "quote": "Getting paid for the film changed everything — this is a job now, not a hobby.",
+      "action": "Pay creators — the 20% revenue share is the retention engine",
+      "source": "Plan capture · Studio Pass: 20% revenue share",
+      "meta": {
+        "stage": "Acquisition",
+        "moment": "The submission",
+        "emotion": "Proud, recognised",
+        "goal": "Convert creators into a paid creator crew"
+      },
+      "ui": {
+        "screen": "Studio Pass",
+        "title": "Your film is live",
+        "lines": ["20% revenue share", "Creator No. 0142"],
+        "cta": "Share the take"
+      }
+    },
+    {
+      "n": "04",
+      "chapter": "II",
+      "art": "home",
+      "title": "The membership fans join to vote",
+      "scene": "a household around a tablet joining the Studio Membership and voting on the winning film",
+      "quote": "For $29 a year we get to actually vote — it feels like we're part of the studio.",
+      "action": "Convert fans to members at peak emotion",
+      "source": "ZSL converts day visitors via a ticket upgrade; D2C pages 2–4%",
+      "meta": {
+        "stage": "Acquisition",
+        "moment": "The membership decision",
+        "emotion": "Belonging, engaged",
+        "goal": "Convert fans into paying Studio Members"
+      },
+      "ui": {
+        "screen": "Studio Membership · $29/yr",
+        "title": "Watch, vote, go behind the scenes",
+        "lines": ["Founders $19", "Numbered seasonal drop"],
+        "cta": "Join the studio"
+      }
+    },
+    {
+      "n": "05",
+      "chapter": "III",
+      "art": "drop",
+      "title": "Premiere night — the winning film",
+      "scene": "the anniversary premiere livestream, the winning film premiering and a numbered collectible drop",
+      "quote": "We watched the winning film live with a million other people. That was the moment.",
+      "action": "Gate the anniversary premiere — the year's peak membership moment",
+      "source": "6,000 saw Fu Bao off at 4am; 70× lottery odds (Hankyung; dotdotnews)",
+      "meta": {
+        "stage": "Retention",
+        "moment": "The anniversary premiere",
+        "emotion": "Excited, together",
+        "goal": "Drive the drop + renew memberships"
+      },
+      "ui": {
+        "screen": "Premiere · Season 01",
+        "title": "The winning film + the drop",
+        "lines": ["Numbered collectible · 14-day window"],
+        "cta": "Collect the drop"
+      }
+    },
+    {
+      "n": "06",
+      "chapter": "III",
+      "art": "meet",
+      "title": "Meet the stars in Chengdu",
+      "scene": "a member family meeting Hua Hua & Fu Bao at the Base, cameras up, joyful",
+      "quote": "After a year in the studio, standing in front of them made it real.",
+      "action": "Bundle the trip — belonging becomes travel",
+      "source": "Plan capture · members → 'meet the stars' Chengdu trip (OTA)",
+      "meta": {
+        "stage": "Advocacy",
+        "moment": "The in-person meeting",
+        "emotion": "Overjoyed, loyal",
+        "goal": "Turn members into travel + referrals"
+      },
+      "ui": {
+        "screen": "Meet the stars · +$99",
+        "title": "Chengdu, with the studio",
+        "lines": ["Guided meet-the-stars experience", "Bundled at the OTA moment"],
+        "cta": "Book the trip"
+      }
+    }
+  ],
+  "richer": ""
+}

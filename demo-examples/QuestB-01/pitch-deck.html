@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PANDA STUDIO · Pitch Deck · B</title>
+<style>
+  :root{
+    --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
+    --d-bg:#0F1514; --d-bg-2:#0B1211; --d-card:#101B19; --d-card-2:#0E1716;
+    --d-line:#22312F; --d-line-2:#1A2725; --d-title:#F4EFE4; --d-text:#C7D4D1; --d-muted:#8FA8A3;
+    --c-gold:#E2B457; --c-red:#F08A7E; --c-sky:#7FB0E8;
+    --accent: var(--ascentium-orange); --accent-tint:#FFF0E7;
+  }
+  body[data-theme="light"]{
+    --d-bg:#F4F1EA; --d-bg-2:#EFEAE0; --d-card:#FFFFFF; --d-card-2:#FBF8F2;
+    --d-line:#E6E1D8; --d-line-2:#EFEBE2; --d-title:#14110C; --d-text:#4A463D; --d-muted:#8B8574;
+    --c-gold:#B7791F; --c-red:#C0392B; --c-sky:#2A6FB0;
+  }
+  body[data-theme="cream"]{
+    --d-bg:#FFF6EC; --d-bg-2:#F8EEDD; --d-card:#FFFFFF; --d-card-2:#FDF7EE;
+    --d-line:#EADFCB; --d-line-2:#F1E8D8; --d-title:#14110C; --d-text:#5A4A34; --d-muted:#9A8B6E;
+    --c-gold:#B7791F; --c-red:#C0392B; --c-sky:#2A6FB0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:100%;height:100%;}
+  body{font-family:"Poppins","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+       background:var(--d-bg);color:var(--d-title);overflow:hidden;}
+  .stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(120% 90% at 50% 0%, color-mix(in srgb, var(--accent) 12%, var(--d-bg)) 0%, var(--d-bg) 62%);}
+  .deck{width:1000px;height:562px;position:relative;background:var(--d-bg);overflow:hidden;flex:none;
+        border:1px solid var(--d-line-2);border-radius:14px;box-shadow:0 24px 70px rgba(0,0,0,.35);transform-origin:center center;}
+  .slide{position:absolute;inset:0;padding:44px 54px;display:flex;flex-direction:column;
+         opacity:0;pointer-events:none;transition:opacity .35s ease;}
+  .slide.on{opacity:1;pointer-events:auto;}
+  .slide.bleed{padding:0;}
+  .logo{position:absolute;top:22px;right:34px;font-size:13px;font-weight:700;color:var(--d-title);z-index:3;}
+  .logo span{color:var(--accent);}
+  .beat{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);}
+  h2{font-size:36px;font-weight:800;line-height:1.08;letter-spacing:-.01em;margin-top:12px;max-width:860px;color:var(--d-title);}
+  h2.sm{font-size:28px;}
+  p.lead{font-size:15.5px;line-height:1.55;margin-top:14px;max-width:840px;color:var(--d-text);}
+  .nav{position:absolute;bottom:15px;left:54px;right:54px;display:flex;align-items:center;gap:14px;z-index:6;}
+  .dots{display:flex;gap:6px;}
+  .dot{width:8px;height:8px;border-radius:999px;background:color-mix(in srgb, var(--d-title) 20%, transparent);transition:all .25s;}
+  .dot.on{background:var(--accent);width:22px;}
+  .pgnum{font-size:11px;color:var(--d-muted);font-weight:600;letter-spacing:.06em;}
+  .hint{font-size:10px;color:var(--d-muted);margin-left:auto;}
+
+  .box{border:1px solid var(--d-line);border-radius:12px;padding:14px 16px;background:var(--d-card);}
+  .box .h{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px;}
+  .box ul{list-style:none;}
+  .box li{font-size:12.5px;line-height:1.55;padding:2px 0 2px 12px;position:relative;color:var(--d-text);}
+  .box li::before{content:"▸";position:absolute;left:0;color:var(--accent);}
+  .box li b{color:var(--d-title);}
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;}
+
+  .statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px;}
+  .stat{border-radius:14px;padding:18px;border:1px solid var(--d-line);background:var(--d-card);}
+  .stat .l{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:9px;color:var(--d-muted);}
+  .stat.gold .l{color:var(--c-gold);} .stat.red .l{color:var(--c-red);} .stat.sky .l{color:var(--c-sky);}
+  .stat .n{font-size:40px;font-weight:800;line-height:1;color:var(--d-title);}
+  .stat.gold .n{color:var(--c-gold);} .stat.red .n{color:var(--c-red);} .stat.sky .n{color:var(--c-sky);}
+  .stat .c{font-size:12px;margin-top:9px;line-height:1.5;color:var(--d-text);}
+
+  .trends{display:grid;gap:8px;margin-top:16px;}
+  .trend{border:1px solid var(--d-line);border-radius:10px;padding:10px 14px;background:var(--d-card);}
+  .trend .t{font-size:13px;font-weight:700;color:var(--d-title);}
+  .trend .w{font-size:11.5px;color:var(--d-muted);margin-top:2px;line-height:1.45;}
+
+  .segs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px;}
+  .seg{border:1px solid var(--d-line);border-radius:12px;padding:13px 15px;background:var(--d-card);}
+  .seg .name{font-size:14px;font-weight:800;color:var(--accent);}
+  .seg .who{font-size:10.5px;color:var(--d-muted);margin-top:2px;line-height:1.4;}
+  .seg .job{font-size:11.5px;margin-top:8px;line-height:1.45;color:var(--d-text);}
+  .seg .job b{color:var(--accent);}
+  .seg .row{font-size:10.5px;margin-top:5px;line-height:1.4;color:var(--d-muted);}
+  .seg .row b{color:var(--d-title);}
+  .moment-band{background:var(--accent);color:#fff;border-radius:12px;padding:14px 20px;margin-top:auto;}
+  .moment-band .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.85;}
+  .moment-band .txt{font-size:15px;font-weight:700;margin-top:6px;}
+
+  .title-illo{position:absolute;right:0;top:0;bottom:0;width:44%;overflow:hidden;opacity:.5;}
+  .title-text{position:relative;z-index:2;max-width:60%;margin-top:auto;}
+  .title-text .slogan{font-size:22px;font-weight:700;margin-top:14px;color:var(--accent);}
+  .title-text .meta{font-size:12.5px;margin-top:22px;color:var(--d-muted);line-height:1.5;}
+  .illo{display:block;} .illo svg{width:100%;height:100%;display:block;}
+
+  .postwrap{display:grid;grid-template-columns:1fr 322px;gap:34px;align-items:center;flex:1;min-height:0;}
+  .postcopy{min-width:0;}
+  .postcopy h2{font-size:40px;margin-top:10px;}
+  .postcopy .slogan{font-size:19px;font-weight:700;color:var(--accent);margin-top:12px;}
+  .postcopy p.lead{margin-top:14px;}
+  .postcopy .pills{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap;}
+  .pill{font-size:11.5px;font-weight:600;background:color-mix(in srgb, var(--d-title) 6%, transparent);border:1px solid var(--d-line);color:var(--d-text);border-radius:999px;padding:4px 12px;}
+  .postframe{position:relative;height:500px;width:322px;justify-self:end;}
+  .postframe::before{content:"";position:absolute;inset:-26px -26px;border-radius:20px;
+     background:radial-gradient(60% 55% at 50% 40%, color-mix(in srgb, var(--accent) 28%, transparent) 0%, transparent 70%);}
+  .postinner{position:relative;height:500px;width:322px;overflow:hidden;border-radius:12px;border:1px solid var(--d-line);
+     background:var(--d-bg);box-shadow:0 20px 50px rgba(0,0,0,.28);}
+  .postinner iframe{width:1080px;height:1680px;border:0;transform:scale(.298);transform-origin:top left;}
+
+  .sbwrap{position:absolute;inset:0;background:var(--d-bg);}
+  .sbwrap iframe{width:1000px;height:562px;border:0;display:block;}
+
+  .visrow{display:flex;justify-content:center;align-items:center;gap:26px;flex:1;min-height:0;}
+  .viscard{display:flex;flex-direction:column;gap:9px;align-items:center;}
+  .viscard:empty{display:none;}
+  .viscard .vlabel{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);}
+  .vframe{overflow:hidden;border-radius:12px;border:1px solid var(--d-line);background:var(--d-bg);box-shadow:0 16px 40px rgba(0,0,0,.28);position:relative;}
+  .vframe iframe{border:0;transform-origin:top left;}
+  .vframe.poster{width:200px;height:296px;}
+  .vframe.poster iframe{width:1080px;height:1680px;transform:scale(.1852);}
+  .vframe.board{width:560px;height:315px;background:var(--d-bg);}
+  .vframe.board iframe{width:1280px;height:720px;transform:scale(.4375);}
+
+  .phones{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px;}
+  .lyric{margin-top:20px;background:var(--d-card-2);border:1px solid var(--d-line);border-radius:14px;padding:24px 30px;max-width:840px;}
+  .lyric .hook{font-size:22px;font-weight:800;color:var(--accent);margin-bottom:12px;}
+  .lyric .line{font-size:14px;line-height:1.7;color:var(--d-text);}
+  .lyric .tag{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-top:12px;}
+
+  .posband{background:var(--d-card);border:1px solid var(--d-line);color:var(--d-text);border-radius:12px;padding:15px 20px;margin-top:14px;font-size:14.5px;font-weight:600;line-height:1.5;}
+  .posband b{color:var(--accent);}
+  .anchorband{background:color-mix(in srgb, var(--d-title) 5%, transparent);border:1px solid var(--d-line);border-radius:10px;padding:12px 18px;margin-top:12px;font-size:13.5px;font-weight:600;line-height:1.5;color:var(--d-text);}
+  .anchorband b{color:var(--accent);}
+  .strategyrow{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:12px;align-items:start;}
+  .quad{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .quad .q{border:1px solid var(--d-line);border-radius:12px;padding:12px 15px;background:var(--d-card);}
+  .quad .q .h{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+  .quad .q .v{font-size:12px;margin-top:6px;line-height:1.5;color:var(--d-text);}
+  .pills{display:flex;gap:8px;flex-wrap:wrap;}
+  .budget{margin-top:12px;display:grid;gap:9px;}
+  .brow{display:grid;grid-template-columns:150px 1fr 78px;align-items:center;gap:12px;font-size:12px;color:var(--d-text);}
+  .brow .nm{font-weight:600;}
+  .btrack{display:block;height:16px;background:color-mix(in srgb, var(--d-title) 10%, transparent);border-radius:6px;overflow:hidden;}
+  .bfill{display:block;height:100%;background:var(--accent);border-radius:6px;}
+  .brow .amt{text-align:right;font-weight:700;color:var(--accent);}
+
+  .ask{margin-top:auto;background:var(--accent);color:#fff;border-radius:12px;padding:20px 24px;font-size:21px;font-weight:800;line-height:1.3;max-width:860px;}
+
+  .media{position:relative;z-index:2;margin-top:14px;}
+  .media:empty{display:none;}
+  .media audio{width:100%;max-width:560px;display:block;}
+  .media video{width:100%;max-width:560px;border-radius:10px;display:block;}
+  .media img{max-width:100%;border-radius:12px;display:block;}
+  .mediaslot{border:1.5px dashed var(--d-line);border-radius:10px;padding:9px 13px;font-size:10.5px;color:var(--d-muted);}
+</style>
+</head>
+<body data-storyline="hero" data-theme="dark" data-quest="B" style="--accent:#077069;--accent-tint:#CDE2E1;--accent-line:#83B8B4;--accent-deep:#043835;">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="illo" viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice">
+    <circle cx="180" cy="180" r="150" fill="#077069" opacity=".16"/>
+    <g transform="translate(170,192)">
+      <circle cx="-48" cy="-56" r="26" fill="#0F1514"/>
+      <circle cx="48" cy="-56" r="26" fill="#0F1514"/>
+      <ellipse cx="0" cy="0" rx="64" ry="56" fill="#F7F6F4"/>
+      <ellipse cx="-24" cy="-8" rx="17" ry="20" fill="#0F1514"/>
+      <ellipse cx="24" cy="-8" rx="17" ry="20" fill="#0F1514"/>
+      <circle cx="-24" cy="-10" r="5" fill="#CDE2E1"/>
+      <circle cx="24" cy="-10" r="5" fill="#CDE2E1"/>
+      <ellipse cx="0" cy="22" rx="9" ry="6" fill="#0F1514"/>
+      <path d="M-16 34 q16 13 32 0" stroke="#0F1514" stroke-width="4" fill="none" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(316,150) rotate(-6)">
+      <rect x="0" y="30" width="150" height="96" rx="8" fill="#F7F6F4"/>
+      <rect x="0" y="0" width="150" height="32" rx="6" fill="#0F1514"/>
+      <g fill="#FF6611">
+        <polygon points="6,0 28,0 18,32 0,32"/><polygon points="40,0 62,0 52,32 30,32"/>
+        <polygon points="74,0 96,0 86,32 64,32"/><polygon points="108,0 130,0 120,32 98,32"/>
+      </g>
+      <text x="75" y="80" text-anchor="middle" font-family="Poppins,Arial,sans-serif" font-size="20" font-weight="800" fill="#043835">PANDA</text>
+      <text x="75" y="100" text-anchor="middle" font-family="Poppins,Arial,sans-serif" font-size="13" font-weight="700" fill="#077069" letter-spacing="4">STUDIO</text>
+    </g>
+  </symbol>
+</svg>
+
+<div class="stage">
+  <div class="deck">
+
+    <section class="slide" data-beat="title">
+      <div class="title-illo illo"><svg><use href="#illo"/></svg></div>
+      <div class="logo">Ascentium<span>.</span></div>
+      <div class="title-text">
+        <div class="beat">Proposal Showcase · Quest B</div>
+        <h2 style="margin-top:18px;font-size:52px;line-height:1.02;">PANDA STUDIO</h2>
+        <div class="slogan">"The world's creators, starring Hua Hua &amp; Fu Bao."</div>
+        <p class="lead">An always-on AI short-video competition where creators make Hua Hua &amp; Fu Bao the stars and share the revenue — and fans join a membership to watch, vote and belong.</p>
+        <div class="meta">Chengdu Research Base of Giant Panda Breeding — Global Brand &amp; IP Division<br>3-month MVP pilot · Japan &amp; South Korea · USD 1.1M</div>
+      </div>
+    </section>
+
+    <section class="slide" data-beat="context">
+      <div class="logo">Ascentium<span>.</span></div>
+      <div class="beat">01 · The Client &amp; The Problem</div>
+      <h2 class="sm">The pandas are Earth's most-beloved IP — and the Base captures almost none of that love.</h2>
+      <div class="statgrid">
+        <div class="stat gold"><div class="l">Gold standard</div><div class="n">¥2.7B</div><div class="c">Japan: Xiang Xiang's economic contribution in &lt;6 yrs; Korea: Fu Bao 2.7M merch units (+60%) — one panda can mint billions.</div></div>
+        <div class="stat red"><div class="l">Cautionary tale</div><div class="n">~5%</div><div class="c">of visitors are international. The ¥55 gate captures almost none of the love — third parties monetize the fandom.</div></div>
+        <div class="stat sky"><div class="l">Your arena</div><div class="n">487K</div><div class="c">international visitors in 2025 (+70.7% YoY) — the arena is open, and short-video fandom is already global.</div></div>
+      </div>
+      <div class="twocol">
+        <div class="box"><div class="h">Chengdu Panda Base · evidence</div><ul><li>200+ giant pandas — the world's largest population; ¥55 entry; weekend peaks 45K (the capacity ceiling).</li><li>Hua Hua ~1bn Douyin views; Fu Bao viral worldwide — fame is global, monetization is local.</li><li>No membership program, no global store, no English-first content engine.</li></ul></div>
+        <div class="box"><div class="h">Org / IP profile</div><ul><li><b>Assets:</b> world's largest panda population; two global superstar IPs (Hua Hua, Fu Bao); proven monetization in JP/KR; a +70.7% inbound surge.</li><li><b>Constraints:</b> no membership/store/content engine; international just ~5%; a ~45K/weekend ceiling; a conservation-first mandate.</li></ul></div>
+      </div>
+    </section>
+
+    <section class="slide" data-beat="insight">
+      <div class="logo">Ascentium<span>.</span></div>
+      <div class="beat">02 · The Insight</div>
+      <h2 class="sm">"The panda is the world's most-followed animal, but its fandom peaks in moments the Base doesn't own — a beloved panda's anniversary livestream and the daily flood of creator content (~1bn Hua Hua views on accounts the Base can't measure, credit or reward)."</h2>
+      <div class="trends">
+        <div class="trend"><div class="t">Short-video fandom is massive but under-owned</div><div class="w">~1bn Hua Hua views sit on accounts the Base can't measure or reward — reach exists, the funnel doesn't.</div></div>
+        <div class="trend"><div class="t">East Asia panda love already converts to hard cash</div><div class="w">Xiang Xiang ~¥2.7B; Fu Bao 2.7M units — capture the demand, don't create it.</div></div>
+        <div class="trend"><div class="t">"Cute" cultural IP is now a global export</div><div class="w">Labubu's rise; Japan IP-merch US$21.4bn→50.4bn — a proven merch appetite to ride.</div></div>
+      </div>
+      <p class="lead" style="margin-top:auto;">So the reach and the demand already exist — what's missing is an owned funnel, and a reason for creators to build it with the Base.</p>
+    </section>
+
+    <section class="slide" data-beat="audience">
+      <div class="logo">Ascentium<span>.</span></div>
+      <div class="beat">03 · The Audience — who &amp; their job</div>
+      <h2 class="sm">Two fan segments, one emotional job each</h2>
+      <div class="segs">
+        <div class="seg"><div class="name">The Devoted 福宝/香香 Generation</div><div class="who">JP &amp; Korea super-fans, female 20s–40s; bonded to specific pandas (70× lottery odds; 6,000 at 4am).</div><div class="job"><b>Job:</b> keep the bond with a beloved panda alive.</div><div class="row"><b>Barrier:</b> no China/English-first content or overseas membership.</div><div class="row"><b>Trigger:</b> a birthday/anniversary livestream; a new panda loan.</div></div>
+        <div class="seg"><div class="name">Panda Creators &amp; UGC Accounts</div><div class="who">Amateur + pro creators on TikTok / YouTube / Douyin / IG; motivated by views and cuteness.</div><div class="job"><b>Job:</b> be recognised as a panda authority — and paid for it.</div><div class="row"><b>Barrier:</b> no official assets, unclear rights, no revenue share.</div><div class="row"><b>Trigger:</b> an official kit, creator challenges, revenue share.</div></div>
+      </div>
+      <div class="moment-band"><div class="lbl">Moment of truth</div><div class="txt">the anniversary / homecoming livestream of a beloved panda — plus the daily creator drop</div></div>
+    </section>
+
+    <section class="slide" data-beat="poster">
+      <div class="logo">Ascentium<span>.</span></div>
+      <div class="postwrap">
+        <div class="postcopy">
+          <div class="beat">04 · The Big Idea — Hero Poster</div>
+          <h2>PANDA STUDIO</h2>
+          <div class="slogan">"The world's creators, starring Hua Hua &amp; Fu Bao."</div>
+          <p class="lead">An always-on AI short-video studio: creators direct Hua Hua &amp; Fu Bao in a monthly competition and share 20% of the revenue; fans join a $29/yr membership to watch, vote and belong.</p>
+          <div class="pills"><span class="pill">Poster · Style A</span><span class="pill">Chengdu Panda Base · Global IP</span></div>
+          <div class="media"><div class="mediaslot">Key-visual image (GPT) — embed here</div></div>
+        </div>
+        <div class="postframe"><div class="postinner"><iframe src="poster-a.html?embed=1" title="Campaign poster"></iframe></div></div>
+      </div>
+    </section>
+
+    <section class="slide bleed" data-beat="storyboard">
+      <div class="sbwrap"><iframe src="storyboard.html?embed=1" title="Campaign storyboard"></iframe></div>
+    </section>
+
+    <section class="slide" data-beat="visuals">
+      <div class="logo">Ascentium<span>.</span></div>
+      <div class="beat">Also in the media kit — the poster</div>
+      <div class="visrow">
+        <div class="viscard"><div class="vframe poster"><iframe src="poster-a.html?embed=1"></iframe></div><div class="vlabel">Campaign poster · Style A</div></div>
+        <div class="viscard"></div>
+      </div>
+    </section>
+
+    <section class="slide" data-beat="prototype"></section>
+    <section class="slide" data-beat="lyric"></section>
+
+    <section class="slide" data-beat="strategy">
+      <div class="logo">Ascentium<span>.</span></div>
+      <div class="beat">05 · The Strategy &amp; The Plan</div>
+      <h2 class="sm">Positioning, the 4 Ps — and where the money goes</h2>
+      <div class="anchorband">For <b>devoted panda fans and the creators who already film the pandas</b>, at <b>the anniversary livestream and the monthly creator drop</b>, our campaign intercepts via <b>short-video creator platforms</b> — an AI short-video competition where creators make Hua Hua &amp; Fu Bao the stars and share the revenue.</div>
+      <div class="posband">Unlike fan accounts and third-party merch, <b>Panda Studio owns the funnel, pays the creators, and keeps Hua Hua &amp; Fu Bao at the centre</b> — a paid, always-on bond, conservation-first.</div>
+      <div class="strategyrow">
+        <div class="quad">
+          <div class="q"><div class="h">Product</div><div class="v">The AI short-video studio + competition, and the Studio Membership (behind-the-scenes, voting, a numbered drop).</div></div>
+          <div class="q"><div class="h">Price</div><div class="v">Membership $29/yr (founders $19); Creator Pass free with a 20% revenue share; Premiere Drops $19.</div></div>
+          <div class="q"><div class="h">Place</div><div class="v">Official web/app + YouTube/TikTok/Douyin; the D2F shop; travel partners (OTA) for the trip; licensed retail.</div></div>
+          <div class="q"><div class="h">Promotion</div><div class="v">Monthly competition → anniversary premiere → membership CTA; creator seeding + member referral.</div></div>
+        </div>
+        <div>
+          <div class="pills"><span class="pill">The Devoted 福宝/香香 Generation</span><span class="pill">Panda Creators &amp; UGC</span></div>
+          <div class="budget">
+            <div class="brow"><span class="nm">Creator program &amp; content</span><span class="btrack"><span class="bfill" style="width:43%"></span></span><span class="amt">$470K</span></div>
+            <div class="brow"><span class="nm">Paid social &amp; livestream</span><span class="btrack"><span class="bfill" style="width:29%"></span></span><span class="amt">$320K</span></div>
+            <div class="brow"><span class="nm">Localization · OTA · measurement</span><span class="btrack"><span class="bfill" style="width:28%"></span></span><span class="amt">$310K</span></div>
+          </div>
+          <p class="lead" style="margin-top:12px;font-size:13px;">Pilot: Japan &amp; South Korea · 3 months · 45M creator-led reach → 20,000 founding members (CAC ≈ $21).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-beat="ask">
+      <div class="logo">Ascentium<span>.</span></div>
+      <div class="beat">06 · The Ask</div>
+      <h2 class="sm" style="margin-top:16px;">Approve the pilot.</h2>
+      <div class="ask">Fund the USD 1.1M, 3-month pilot in Japan &amp; South Korea — launch Panda Studio, run the first creator competition, and open membership at the anniversary premiere.</div>
+    </section>
+
+    <div class="nav">
+      <div class="dots" id="dots"></div>
+      <div class="pgnum" id="pgnum">1 / 8</div>
+      <div class="hint">← → to navigate · F fullscreen</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var STORYLINES = {
+    classic: ["title","context","insight","audience","poster","visuals","strategy","ask"],
+    hero:    ["title","context","insight","audience","storyboard","visuals","strategy","ask"],
+    reveal:  ["title","context","insight","audience","poster","visuals","strategy","ask"],
+    demo:    ["title","context","insight","audience","prototype","visuals","strategy","ask"],
+    trailer: ["title","context","insight","audience","lyric","visuals","strategy","ask"]
+  };
+  var key = (document.body.getAttribute('data-storyline') || 'classic').trim().toLowerCase();
+  var order = (STORYLINES[key] || STORYLINES.classic).slice();
+  var deck = document.querySelector('.deck');
+  var all = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var slides = order.map(function(b){ return all.filter(function(s){return s.dataset.beat===b;})[0]; }).filter(Boolean);
+  all.forEach(function(s){ if(slides.indexOf(s) < 0) s.style.display='none'; });
+  var dots = document.getElementById('dots');
+  var pgnum = document.getElementById('pgnum');
+  function fit(){
+    var s = Math.min(window.innerWidth/1000, window.innerHeight/562);
+    deck.style.transform = 'scale('+s+')';
+  }
+  window.addEventListener('resize', fit);
+  slides.forEach(function(){ var d=document.createElement('span'); d.className='dot'; dots.appendChild(d); });
+  var dotsEl = dots.children;
+  var i = 0;
+  function show(n){
+    i = (n + slides.length) % slides.length;
+    slides.forEach(function(s,k){ s.classList.toggle('on', k===i); });
+    for(var k=0;k<dotsEl.length;k++){ dotsEl[k].className = 'dot' + (k===i ? ' on' : ''); }
+    pgnum.textContent = (i+1) + ' / ' + slides.length;
+  }
+  document.addEventListener('keydown', function(e){
+    if(e.key==='ArrowRight' || e.key===' ' || e.key==='PageDown') show(i+1);
+    else if(e.key==='ArrowLeft' || e.key==='PageUp') show(i-1);
+    else if(e.key==='f' || e.key==='F'){
+      if(!document.fullscreenElement){ if(document.documentElement.requestFullscreen) document.documentElement.requestFullscreen(); }
+      else { if(document.exitFullscreen) document.exitFullscreen(); }
+    }
+  });
+  fit(); show(0);
+})();
+</script>
+</body>
+</html>

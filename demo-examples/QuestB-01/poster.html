@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campaign Poster · PANDA STUDIO · B</title>
+<style>
+  :root{
+    --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
+    --orange-1:#FFF0E7; --orange-2:#FFD1B8; --orange-3:#FFA370;
+    --teal:#077069; --teal-1:#CDE2E1; --teal-2:#83B8B4; --teal-4:#043835;
+    --line:#E4E8E7; --mut:#5A6663; --cream:#FFF6EC;
+    --accent: var(--ascentium-orange);
+    --accent-tint: var(--orange-1);
+    --accent-line: var(--orange-2);
+    --accent-deep:#B24000;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#DEDAD4;}
+  body{font-family:"Poppins","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+       color:var(--ascentium-midnight);padding:28px 12px;display:flex;justify-content:center;}
+
+  .poster{width:1080px;max-width:100%;background:#fff;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.25);}
+
+  .mast{display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative;z-index:3;}
+  .mast .logo{font-weight:800;letter-spacing:-.01em;}
+  .mast .client{font-weight:700;border-radius:999px;white-space:nowrap;}
+  .kicker{font-weight:800;letter-spacing:.2em;text-transform:uppercase;}
+  .name{font-weight:800;line-height:.94;letter-spacing:-.02em;}
+  .tagline{font-weight:700;}
+  .art{position:relative;overflow:hidden;aspect-ratio:1200/500;}
+  .art svg{display:block;width:100%;height:100%;}
+  .lead{font-weight:600;line-height:1.5;}
+  .sec-h{font-weight:800;letter-spacing:.2em;text-transform:uppercase;}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .card{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:#fff;}
+  .card .t{font-weight:800;}
+  .card .d{line-height:1.5;color:#3B4442;}
+  .bullets{list-style:none;}
+  .bullets li{position:relative;line-height:1.55;}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);}
+  .stat{text-align:center;}
+  .stat .n{font-weight:800;line-height:1;}
+  .stat .c{line-height:1.4;}
+  .cta{display:flex;align-items:center;gap:26px;}
+  .cta .btn{font-weight:800;border-radius:999px;white-space:nowrap;}
+  .cta .meta{flex:1;}
+  .cta .hash{font-weight:800;letter-spacing:-.01em;}
+  .cta .url{line-height:1.4;}
+  .qr{background:#fff;border-radius:10px;flex:none;}
+  .qr svg{display:block;width:100%;height:100%;}
+  .foot{display:flex;justify-content:space-between;gap:24px;}
+  .foot .partners{font-weight:700;}
+  .foot .src{text-align:right;}
+
+  /* ===== STYLE A — FULL-BLEED HERO (bold editorial) ===== */
+  .p-a{background:#fff;}
+  .p-a .hero{background:var(--accent);color:#fff;padding:42px 54px 0;}
+  .p-a .mast .logo{font-size:26px;}
+  .p-a .mast .client{font-size:14px;background:rgba(0,0,0,.16);padding:7px 16px;}
+  .p-a .kicker{font-size:15px;opacity:.92;margin-top:32px;}
+  .p-a .name{font-size:98px;margin-top:10px;}
+  .p-a .tagline{font-size:27px;margin-top:14px;}
+  .p-a .art{margin-top:26px;border-radius:18px 18px 0 0;}
+  .p-a .body{padding:38px 54px 6px;}
+  .p-a .lead{font-size:21px;max-width:920px;}
+  .p-a .sec-h{font-size:12px;color:var(--accent);margin-top:32px;}
+  .p-a .cards{margin-top:14px;}
+  .p-a .card .t{font-size:15px;color:var(--accent);}
+  .p-a .card .d{font-size:13px;margin-top:6px;}
+  .p-a .bullets{margin-top:14px;}
+  .p-a .bullets li{font-size:14.5px;padding:5px 0 5px 20px;}
+  .p-a .bullets li::before{content:"";position:absolute;left:0;top:11px;width:9px;height:9px;border-radius:3px;background:var(--accent);}
+  .p-a .stats{background:var(--ascentium-midnight);color:#fff;margin-top:30px;}
+  .p-a .stat{padding:26px 16px;border-right:1px solid rgba(255,255,255,.12);}
+  .p-a .stat:last-child{border-right:none;}
+  .p-a .stat .n{font-size:40px;color:var(--accent-tint);}
+  .p-a .stat .c{font-size:11.5px;margin-top:8px;opacity:.85;}
+  .p-a .cta{background:var(--accent);color:#fff;padding:32px 54px;}
+  .p-a .cta .btn{background:#fff;color:var(--accent);font-size:21px;padding:16px 36px;}
+  .p-a .cta .hash{font-size:26px;}
+  .p-a .cta .url{font-size:14px;opacity:.92;margin-top:5px;}
+  .p-a .qr{width:104px;height:104px;padding:7px;}
+  .p-a .foot{padding:20px 54px;border-top:1px solid var(--line);}
+  .p-a .foot .partners{font-size:12px;}
+  .p-a .foot .src{font-size:10.5px;color:var(--mut);max-width:540px;}
+
+  /* ===== STYLE B — BELONGING PASSPORT (studio pass · cream) ===== */
+  .toprule{display:none;}
+  .p-b{background:var(--cream);}
+  .p-b .toprule{display:block;height:12px;background:var(--accent);}
+  .p-b .hero{padding:34px 54px 0;color:var(--ascentium-midnight);}
+  .p-b .mast .logo{font-size:25px;color:var(--ascentium-midnight);}
+  .p-b .mast .logo span{color:var(--accent);}
+  .p-b .mast .client{font-size:13px;color:var(--accent-deep);border:1.5px solid var(--accent-line);padding:6px 15px;background:#fff;}
+  .p-b .kicker{font-size:13px;color:var(--accent);margin-top:30px;letter-spacing:.24em;}
+  .p-b .name{font-size:88px;margin-top:8px;letter-spacing:-.03em;}
+  .p-b .tagline{font-size:25px;margin-top:12px;color:var(--accent-deep);font-style:italic;}
+  .p-b .art{margin-top:24px;border-radius:14px;border:1.5px dashed var(--accent-line);}
+  .p-b .body{padding:34px 54px 6px;}
+  .p-b .lead{font-size:20px;max-width:920px;}
+  .p-b .sec-h{font-size:12px;color:var(--accent-deep);margin-top:30px;padding-bottom:8px;border-bottom:2px dashed var(--accent-line);}
+  .p-b .cards{margin-top:16px;}
+  .p-b .card{background:#fff;border:1.5px dashed var(--accent-line);border-radius:12px;position:relative;}
+  .p-b .card::before,.p-b .card::after{content:"";position:absolute;top:50%;width:12px;height:12px;border-radius:999px;background:var(--cream);border:1.5px dashed var(--accent-line);}
+  .p-b .card::before{left:-7px;transform:translateY(-50%);}
+  .p-b .card::after{right:-7px;transform:translateY(-50%);}
+  .p-b .card .t{font-size:15px;color:var(--accent-deep);}
+  .p-b .card .d{font-size:13px;margin-top:6px;}
+  .p-b .bullets{margin-top:16px;}
+  .p-b .bullets li{font-size:14.5px;padding:6px 0 6px 24px;}
+  .p-b .bullets li::before{content:"✓";position:absolute;left:0;top:6px;color:var(--accent);font-weight:800;font-size:13px;}
+  .p-b .stats{background:#fff;border:1.5px dashed var(--accent-line);border-radius:14px;margin:28px 54px 0;}
+  .p-b .stat{padding:22px 14px;border-right:1px dashed var(--accent-line);}
+  .p-b .stat:last-child{border-right:none;}
+  .p-b .stat .n{font-size:36px;color:var(--accent-deep);}
+  .p-b .stat .c{font-size:11px;margin-top:8px;color:var(--mut);}
+  .p-b .cta{background:var(--accent);color:#fff;padding:30px 54px;margin-top:28px;}
+  .p-b .cta .btn{background:#fff;color:var(--accent-deep);font-size:20px;padding:15px 34px;}
+  .p-b .cta .hash{font-size:25px;}
+  .p-b .cta .url{font-size:13.5px;opacity:.94;margin-top:5px;}
+  .p-b .qr{width:100px;height:100px;padding:7px;}
+  .p-b .foot{padding:20px 54px;border-top:2px dashed var(--accent-line);}
+  .p-b .foot .partners{font-size:12px;}
+  .p-b .foot .src{font-size:10.5px;color:var(--mut);max-width:540px;}
+
+  /* ===== STYLE C — MIDNIGHT MINIMAL (Swiss typographic) ===== */
+  .p-c{background:var(--ascentium-midnight);color:#fff;}
+  .p-c .hero{padding:46px 54px 0;}
+  .p-c .mast .logo{font-size:25px;color:#fff;}
+  .p-c .mast .client{font-size:13px;color:#fff;border:1px solid rgba(255,255,255,.32);padding:6px 15px;}
+  .p-c .kicker{font-size:13px;color:var(--accent);margin-top:38px;}
+  .p-c .name{font-size:104px;margin-top:12px;}
+  .p-c .tagline{font-size:26px;margin-top:16px;color:var(--accent);font-weight:600;}
+  .p-c .art{margin-top:30px;}
+  .p-c .body{padding:36px 54px 6px;}
+  .p-c .lead{font-size:20px;max-width:880px;color:#CDD4D2;}
+  .p-c .sec-h{font-size:12px;color:var(--accent);margin-top:34px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.14);}
+  .p-c .cards{margin-top:18px;gap:0;}
+  .p-c .card{background:transparent;border:none;border-right:1px solid rgba(255,255,255,.14);border-radius:0;padding:6px 22px 6px 0;}
+  .p-c .card:last-child{border-right:none;}
+  .p-c .card .t{font-size:15px;color:#fff;}
+  .p-c .card .d{font-size:13px;margin-top:8px;color:#B9C4C1;}
+  .p-c .bullets{margin-top:16px;}
+  .p-c .bullets li{font-size:14.5px;padding:6px 0 6px 20px;color:#DDE3E1;}
+  .p-c .bullets li::before{content:"—";position:absolute;left:0;color:var(--accent);font-weight:800;}
+  .p-c .stats{margin-top:30px;border-top:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14);}
+  .p-c .stat{padding:26px 16px;border-right:1px solid rgba(255,255,255,.12);text-align:left;}
+  .p-c .stat:last-child{border-right:none;}
+  .p-c .stat .n{font-size:40px;color:var(--accent);}
+  .p-c .stat .c{font-size:11px;margin-top:8px;color:#9AA5A2;}
+  .p-c .cta{background:var(--accent);color:#fff;padding:30px 54px;}
+  .p-c .cta .btn{background:var(--ascentium-midnight);color:#fff;font-size:20px;padding:15px 34px;}
+  .p-c .cta .hash{font-size:25px;}
+  .p-c .cta .url{font-size:13.5px;opacity:.94;margin-top:5px;}
+  .p-c .qr{width:100px;height:100px;padding:7px;}
+  .p-c .foot{padding:20px 54px 26px;}
+  .p-c .foot .partners{font-size:12px;color:#fff;}
+  .p-c .foot .src{font-size:10.5px;color:#8A9492;max-width:540px;}
+
+  @media print{
+    @page{size:A3;margin:8mm;}
+    html,body{background:#fff;padding:0;display:block;}
+    .poster{box-shadow:none;margin:0 auto;width:100%;}
+  }
+  body.embed{background:transparent;padding:0;display:block;}
+  body.embed .poster{box-shadow:none;width:100%;max-width:none;}
+</style>
+<style>
+  /* ---- tab shell (loaded after the poster style so these rules win) ---- */
+  html,body{background:#DEDAD4;}
+  body{display:block;padding:0;}
+  .bar{display:flex;align-items:center;gap:18px;padding:12px 20px;background:var(--ascentium-midnight);color:#fff;}
+  .bar .logo{font-size:18px;font-weight:800;} .bar .logo span{color:var(--accent);}
+  .bar .title{font-size:12px;color:#9AA5A2;font-weight:600;}
+  .bar .title b{color:#fff;font-weight:800;}
+  .bar .spacer{flex:1;}
+  .bar .open,.bar .rich{font-size:12px;font-weight:700;text-decoration:none;
+        border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:7px 14px;white-space:nowrap;cursor:pointer;}
+  .bar .open{color:var(--accent);} .bar .open:hover{background:rgba(255,255,255,.08);}
+  .bar .rich{color:var(--accent-tint);background:rgba(255,255,255,.06);font-family:inherit;}
+  .bar .rich:hover{background:rgba(255,255,255,.14);}
+  .tabs{display:flex;gap:8px;padding:12px 20px;background:#fff;border-bottom:1px solid var(--line);overflow-x:auto;}
+  .tabs button{text-align:left;font:inherit;background:#fff;border:1.5px solid var(--line);border-radius:12px;
+        padding:10px 16px;cursor:pointer;flex:none;min-width:210px;}
+  .tabs button .t{font-size:13.5px;font-weight:800;color:var(--ascentium-midnight);}
+  .tabs button .d{font-size:11px;color:var(--mut);margin-top:2px;}
+  .tabs button .k{display:inline-block;font-size:10px;font-weight:800;color:var(--accent);letter-spacing:.1em;margin-right:6px;}
+  .tabs button:hover{border-color:var(--accent-tint);}
+  .tabs button.on{border-color:var(--accent);background:var(--accent-tint);}
+  .tabs button.on .t{color:var(--accent);}
+  .stack{padding:26px 12px 40px;display:flex;flex-direction:column;align-items:center;}
+  .stack .poster{display:none;}
+  .stack .poster.on{display:block;}
+
+  /* ---- richer poster script (overlay) ---- */
+  .roverlay{position:fixed;inset:0;background:rgba(6,10,10,.94);z-index:50;display:none;flex-direction:column;padding:28px 36px;}
+  .roverlay.on{display:flex;}
+  .roverlay .rh{display:flex;align-items:baseline;justify-content:space-between;gap:18px;border-bottom:2px solid var(--accent);padding-bottom:9px;}
+  .roverlay h2{font-size:19px;font-weight:800;color:#F4EFE4;font-family:"Poppins","Noto Sans SC",Arial,sans-serif;}
+  .roverlay .rclose{font:inherit;font-family:inherit;font-size:12px;font-weight:700;color:#F4EFE4;background:transparent;
+        border:1px solid #2B3A38;border-radius:8px;padding:5px 12px;cursor:pointer;}
+  .roverlay .rnote{font-size:12.5px;color:#9DB3AE;margin-top:10px;line-height:1.55;max-width:1080px;
+        font-family:"Poppins","Noto Sans SC",Arial,sans-serif;}
+  .roverlay .rnote b{color:#F4EFE4;} .roverlay .rnote code{color:var(--accent-tint);font-size:12px;}
+  .roverlay .rpromptbox{position:relative;margin-top:12px;flex:1;min-height:0;overflow:auto;background:#070D0D;
+        border:1px solid #22312F;border-radius:12px;padding:15px 17px;}
+  .roverlay .rcopy{position:sticky;top:0;float:right;font:inherit;font-family:inherit;font-size:11px;font-weight:700;
+        color:#fff;background:var(--accent);border:none;border-radius:7px;padding:6px 12px;cursor:pointer;}
+  .roverlay pre.rprompt{display:none;white-space:pre-wrap;word-break:break-word;margin-top:4px;
+        font-family:"SF Mono",Consolas,Menlo,monospace;font-size:12.5px;line-height:1.6;color:#C7D4D1;}
+  .roverlay pre.rprompt.on{display:block;}
+  .roverlay .rwhich{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#7C9A94;
+        font-family:"Poppins",Arial,sans-serif;margin-bottom:6px;}
+
+  @media print{ .bar,.tabs,.roverlay{display:none!important;} .stack{padding:0;} }
+</style>
+</head>
+<body data-quest="B" style="--accent:#077069;--accent-tint:#CDE2E1;--accent-line:#83B8B4;--accent-deep:#043835;">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <!-- STYLE A · full-bleed studio scene — panda + clapperboard + filmstrip (1200x500) -->
+  <symbol id="art-a" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice">
+    <defs><linearGradient id="ag" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#077069"/><stop offset="1" stop-color="#043835"/></linearGradient></defs>
+    <rect width="1200" height="500" fill="url(#ag)"/>
+    <circle cx="330" cy="240" r="225" fill="#CDE2E1" opacity=".13"/>
+    <text x="60" y="84" font-family="Poppins,Arial,sans-serif" font-size="22" font-weight="700" fill="#CDE2E1" letter-spacing="4">THE WORLD'S CREATORS</text>
+    <g transform="translate(330,252)">
+      <circle cx="-70" cy="-80" r="38" fill="#0F1514"/>
+      <circle cx="70" cy="-80" r="38" fill="#0F1514"/>
+      <ellipse cx="0" cy="0" rx="92" ry="82" fill="#F7F6F4"/>
+      <ellipse cx="-34" cy="-10" rx="24" ry="28" fill="#0F1514"/>
+      <ellipse cx="34" cy="-10" rx="24" ry="28" fill="#0F1514"/>
+      <circle cx="-34" cy="-12" r="7.5" fill="#CDE2E1"/>
+      <circle cx="34" cy="-12" r="7.5" fill="#CDE2E1"/>
+      <ellipse cx="0" cy="30" rx="13" ry="9" fill="#0F1514"/>
+      <path d="M-24 48 q24 18 48 0" stroke="#0F1514" stroke-width="5" fill="none" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(700,128) rotate(-5)">
+      <rect x="0" y="46" width="360" height="176" rx="12" fill="#F7F6F4"/>
+      <rect x="0" y="0" width="360" height="50" rx="8" fill="#0F1514"/>
+      <g fill="#FF6611">
+        <polygon points="12,0 50,0 34,50 0,50"/><polygon points="88,0 126,0 110,50 72,50"/>
+        <polygon points="164,0 202,0 186,50 148,50"/><polygon points="240,0 278,0 262,50 224,50"/>
+        <polygon points="316,0 354,0 338,50 300,50"/>
+      </g>
+      <text x="180" y="156" text-anchor="middle" font-family="Poppins,Arial,sans-serif" font-size="50" font-weight="800" fill="#043835">PANDA</text>
+      <text x="180" y="204" text-anchor="middle" font-family="Poppins,Arial,sans-serif" font-size="36" font-weight="700" fill="#077069" letter-spacing="11">STUDIO</text>
+    </g>
+    <rect x="0" y="432" width="1200" height="68" fill="#043835"/>
+    <g fill="#CDE2E1" opacity=".5">
+      <rect x="30" y="450" width="22" height="13" rx="2"/><rect x="96" y="450" width="22" height="13" rx="2"/>
+      <rect x="162" y="450" width="22" height="13" rx="2"/><rect x="228" y="450" width="22" height="13" rx="2"/>
+      <rect x="294" y="450" width="22" height="13" rx="2"/><rect x="360" y="450" width="22" height="13" rx="2"/>
+      <rect x="426" y="450" width="22" height="13" rx="2"/><rect x="492" y="450" width="22" height="13" rx="2"/>
+      <rect x="558" y="450" width="22" height="13" rx="2"/><rect x="624" y="450" width="22" height="13" rx="2"/>
+      <rect x="690" y="450" width="22" height="13" rx="2"/><rect x="756" y="450" width="22" height="13" rx="2"/>
+      <rect x="822" y="450" width="22" height="13" rx="2"/><rect x="888" y="450" width="22" height="13" rx="2"/>
+      <rect x="954" y="450" width="22" height="13" rx="2"/><rect x="1020" y="450" width="22" height="13" rx="2"/>
+      <rect x="1086" y="450" width="22" height="13" rx="2"/><rect x="1152" y="450" width="22" height="13" rx="2"/>
+    </g>
+  </symbol>
+
+  <!-- STYLE B · belonging passport — a perforated STUDIO PASS ticket with a panda stamp (1200x500) -->
+  <symbol id="art-b" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice">
+    <rect width="1200" height="500" fill="#FFF6EC"/>
+    <path d="M40 430 C 340 320, 860 320, 1160 140" fill="none" stroke="#077069" stroke-width="3" stroke-dasharray="2 13"/>
+    <g transform="translate(1116,144) rotate(24)"><path d="M0 0 l46 16 -46 16 10 -16z" fill="#077069"/></g>
+    <g transform="rotate(-4 600 250)">
+      <rect x="200" y="110" width="800" height="280" rx="18" fill="#FFFFFF" stroke="#DCD3C7" stroke-width="2"/>
+      <line x1="780" y1="110" x2="780" y2="390" stroke="#83B8B4" stroke-width="3" stroke-dasharray="8 8"/>
+      <circle cx="780" cy="110" r="11" fill="#FFF6EC"/><circle cx="780" cy="390" r="11" fill="#FFF6EC"/>
+      <rect x="238" y="146" width="150" height="14" rx="7" fill="#077069"/>
+      <text x="238" y="212" font-family="Poppins,Arial,sans-serif" font-size="44" font-weight="800" fill="#043835" letter-spacing="2">STUDIO PASS</text>
+      <rect x="238" y="238" width="330" height="10" rx="5" fill="#E4E8E7"/>
+      <rect x="238" y="258" width="270" height="10" rx="5" fill="#E4E8E7"/>
+      <rect x="238" y="278" width="300" height="10" rx="5" fill="#E4E8E7"/>
+      <g fill="#0F1514"><rect x="238" y="318" width="60" height="12" rx="6"/><rect x="312" y="318" width="60" height="12" rx="6"/><rect x="386" y="318" width="60" height="12" rx="6"/></g>
+      <g fill="#0F1514"><rect x="828" y="150" width="4" height="150"/><rect x="846" y="150" width="4" height="150"/><rect x="864" y="150" width="4" height="150"/><rect x="874" y="150" width="8" height="150"/><rect x="900" y="150" width="4" height="150"/><rect x="916" y="150" width="4" height="150"/><rect x="936" y="150" width="4" height="150"/></g>
+      <g transform="translate(500,345)">
+        <circle r="62" fill="none" stroke="#077069" stroke-width="4" stroke-dasharray="6 6"/>
+        <circle cx="-20" cy="-20" r="12" fill="#0F1514"/><circle cx="20" cy="-20" r="12" fill="#0F1514"/>
+        <ellipse cx="0" cy="2" rx="28" ry="26" fill="#FFFFFF" stroke="#0F1514" stroke-width="2"/>
+        <ellipse cx="-11" cy="0" rx="8" ry="9" fill="#0F1514"/><ellipse cx="11" cy="0" rx="8" ry="9" fill="#0F1514"/>
+        <ellipse cx="0" cy="14" rx="5" ry="4" fill="#0F1514"/>
+      </g>
+    </g>
+  </symbol>
+
+  <!-- STYLE C · midnight minimal — hairline panda + clapperboard, one motif (1200x500) -->
+  <symbol id="art-c" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice">
+    <rect width="1200" height="500" fill="#0F1514"/>
+    <line x1="60" y1="112" x2="1140" y2="112" stroke="#272C2C" stroke-width="2"/>
+    <line x1="60" y1="392" x2="1140" y2="392" stroke="#272C2C" stroke-width="2"/>
+    <text x="60" y="80" font-family="Poppins,Arial,sans-serif" font-size="20" font-weight="700" fill="#CDE2E1" letter-spacing="5">PANDA STUDIO · FOUNDING 2026</text>
+    <g transform="translate(330,256)">
+      <circle cx="-40" cy="-46" r="18" fill="#077069"/>
+      <circle cx="40" cy="-46" r="18" fill="#077069"/>
+      <ellipse cx="0" cy="0" rx="52" ry="46" fill="none" stroke="#CDE2E1" stroke-width="3"/>
+      <circle cx="-18" cy="-6" r="6" fill="#077069"/>
+      <circle cx="18" cy="-6" r="6" fill="#077069"/>
+      <ellipse cx="0" cy="20" rx="7" ry="5" fill="#CDE2E1"/>
+    </g>
+    <g transform="translate(720,256) rotate(-5)">
+      <rect x="-90" y="0" width="180" height="96" fill="none" stroke="#CDE2E1" stroke-width="3"/>
+      <rect x="-90" y="-30" width="180" height="30" fill="none" stroke="#077069" stroke-width="3"/>
+      <g stroke="#077069" stroke-width="3"><line x1="-90" y1="0" x2="-54" y2="-30"/><line x1="-30" y1="0" x2="6" y2="-30"/><line x1="30" y1="0" x2="66" y2="-30"/></g>
+      <line x1="-90" y1="60" x2="90" y2="60" stroke="#272C2C" stroke-width="2"/>
+      <text x="0" y="150" text-anchor="middle" font-family="Poppins,Arial,sans-serif" font-size="18" font-weight="700" fill="#CDE2E1" letter-spacing="6">PANDA STUDIO</text>
+    </g>
+  </symbol>
+</svg>
+
+<div class="bar">
+  <div class="logo">Ascentium<span>.</span></div>
+  <div class="title">Campaign Poster — <b>PANDA STUDIO</b> · "The world's creators, starring Hua Hua &amp; Fu Bao." · Chengdu Panda Base · Global IP</div>
+  <div class="spacer"></div>
+  <button class="rich" id="rbtn">Get a richer poster ↗</button>
+  <a class="open" id="open" href="poster-a.html" target="_blank">Open standalone ↗</a>
+</div>
+
+<div class="tabs" id="tabs">
+  <button data-style="a" class="on"><span class="k">STYLE A</span><span class="t">Full-Bleed Hero</span><div class="d">Bold editorial · full-bleed teal hero, wide key art, dark stats band.</div></button>
+  <button data-style="b"><span class="k">STYLE B</span><span class="t">Belonging Passport</span><div class="d">Cream paper · a perforated STUDIO PASS ticket, stamp motifs, checklist offer.</div></button>
+  <button data-style="c"><span class="k">STYLE C</span><span class="t">Midnight Minimal</span><div class="d">Swiss typographic · dark canvas, huge type, hairline rules, one motif.</div></button>
+</div>
+
+<div class="stack" id="stack">
+<article class="poster p-a" data-style="a">
+  <div class="toprule"></div>
+  <div class="hero">
+    <div class="mast">
+      <div class="logo">Ascentium<span>.</span></div>
+      <div class="client">Chengdu Panda Base · Global IP</div>
+    </div>
+    <div class="kicker">Global membership · The founding studio</div>
+    <div class="name">PANDA STUDIO</div>
+    <div class="tagline">"The world's creators, starring Hua Hua &amp; Fu Bao."</div>
+    <div class="art"><svg><use href="#art-a"/></svg></div>
+  </div>
+  <div class="body">
+    <div class="lead">An always-on AI short-video competition where the world's creators make Hua Hua &amp; Fu Bao the stars — creators share the revenue, and every fan joins a membership to watch, vote and belong.</div>
+    <div class="sec-h">The Offer</div>
+    <div class="cards">
+      <div class="card"><div class="t">Create · Studio Pass</div><div class="d">The official Hua Hua / Fu Bao footage kit + AI tooling — and a 20% revenue share on every sale your film drives.</div></div>
+      <div class="card"><div class="t">Belong · Studio Membership $29/yr</div><div class="d">Behind-the-scenes, members-only premieres, a vote on the winning film, and a numbered seasonal drop. Founders $19.</div></div>
+      <div class="card"><div class="t">Collect · Premiere Drops $19</div><div class="d">A numbered AI film drop each cycle; the winning film ships as a licensed collectible + merch line.</div></div>
+    </div>
+    <div class="sec-h">Why it works</div>
+    <ul class="bullets"><li>Creators already make the reach — ~1bn Hua Hua views — the Base finally owns the funnel.</li><li>Revenue share turns scattered fan accounts into a paid, loyal creator crew.</li><li>The anniversary livestream converts peak devotion into members — conservation-first, no sell-out.</li></ul>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="n">$29/yr</div><div class="c">Studio Membership (founders $19)</div></div>
+    <div class="stat"><div class="n">20%</div><div class="c">revenue share paid to creators</div></div>
+    <div class="stat"><div class="n">650</div><div class="c">creator films in the 3-month pilot</div></div>
+    <div class="stat"><div class="n">20,000</div><div class="c">founding members · Japan + Korea</div></div>
+  </div>
+  <div class="cta">
+    <div class="btn">Join the Studio</div>
+    <div class="meta"><div class="hash">#PandaStudio</div><div class="url">pandastudio.chengdu/join · scan to become a founder</div></div>
+    <div class="qr"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Scan to join the Studio"><rect width="100" height="100" fill="#fff"/><g fill="#0F1514"><rect x="6" y="6" width="24" height="24" rx="3"/><rect x="11" y="11" width="14" height="14" rx="2" fill="#fff"/><rect x="14" y="14" width="8" height="8"/><rect x="70" y="6" width="24" height="24" rx="3"/><rect x="75" y="11" width="14" height="14" rx="2" fill="#fff"/><rect x="78" y="14" width="8" height="8"/><rect x="6" y="70" width="24" height="24" rx="3"/><rect x="11" y="75" width="14" height="14" rx="2" fill="#fff"/><rect x="14" y="78" width="8" height="8"/><rect x="40" y="8" width="6" height="6"/><rect x="52" y="8" width="6" height="6"/><rect x="40" y="20" width="6" height="6"/><rect x="58" y="22" width="6" height="6"/><rect x="40" y="40" width="6" height="6"/><rect x="52" y="46" width="6" height="6"/><rect x="64" y="40" width="6" height="6"/><rect x="76" y="46" width="6" height="6"/><rect x="88" y="40" width="6" height="6"/><rect x="8" y="44" width="6" height="6"/><rect x="20" y="44" width="6" height="6"/><rect x="40" y="58" width="6" height="6"/><rect x="58" y="58" width="6" height="6"/><rect x="70" y="58" width="6" height="6"/><rect x="82" y="58" width="6" height="6"/><rect x="40" y="70" width="6" height="6"/><rect x="52" y="82" width="6" height="6"/><rect x="70" y="82" width="6" height="6"/><rect x="84" y="84" width="6" height="6"/><rect x="46" y="88" width="6" height="6"/><rect x="60" y="70" width="6" height="6"/><rect x="84" y="70" width="6" height="6"/></g></svg></div>
+  </div>
+  <div class="foot">
+    <div class="partners">Chengdu Research Base of Giant Panda Breeding · Global Brand &amp; IP Division</div>
+    <div class="src">Sources: Xinhua · Hankyung · dotdotnews · SDZWA · ZSL · Data as of 2026-09</div>
+  </div>
+</article>
+<article class="poster p-b" data-style="b">
+  <div class="toprule"></div>
+  <div class="hero">
+    <div class="mast">
+      <div class="logo">Ascentium<span>.</span></div>
+      <div class="client">Chengdu Panda Base · Global IP</div>
+    </div>
+    <div class="kicker">Global membership · The founding studio</div>
+    <div class="name">PANDA STUDIO</div>
+    <div class="tagline">"The world's creators, starring Hua Hua &amp; Fu Bao."</div>
+    <div class="art"><svg><use href="#art-b"/></svg></div>
+  </div>
+  <div class="body">
+    <div class="lead">An always-on AI short-video competition where the world's creators make Hua Hua &amp; Fu Bao the stars — creators share the revenue, and every fan joins a membership to watch, vote and belong.</div>
+    <div class="sec-h">The Offer</div>
+    <div class="cards">
+      <div class="card"><div class="t">Create · Studio Pass</div><div class="d">The official Hua Hua / Fu Bao footage kit + AI tooling — and a 20% revenue share on every sale your film drives.</div></div>
+      <div class="card"><div class="t">Belong · Studio Membership $29/yr</div><div class="d">Behind-the-scenes, members-only premieres, a vote on the winning film, and a numbered seasonal drop. Founders $19.</div></div>
+      <div class="card"><div class="t">Collect · Premiere Drops $19</div><div class="d">A numbered AI film drop each cycle; the winning film ships as a licensed collectible + merch line.</div></div>
+    </div>
+    <div class="sec-h">Why it works</div>
+    <ul class="bullets"><li>Creators already make the reach — ~1bn Hua Hua views — the Base finally owns the funnel.</li><li>Revenue share turns scattered fan accounts into a paid, loyal creator crew.</li><li>The anniversary livestream converts peak devotion into members — conservation-first, no sell-out.</li></ul>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="n">$29/yr</div><div class="c">Studio Membership (founders $19)</div></div>
+    <div class="stat"><div class="n">20%</div><div class="c">revenue share paid to creators</div></div>
+    <div class="stat"><div class="n">650</div><div class="c">creator films in the 3-month pilot</div></div>
+    <div class="stat"><div class="n">20,000</div><div class="c">founding members · Japan + Korea</div></div>
+  </div>
+  <div class="cta">
+    <div class="btn">Join the Studio</div>
+    <div class="meta"><div class="hash">#PandaStudio</div><div class="url">pandastudio.chengdu/join · scan to become a founder</div></div>
+    <div class="qr"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Scan to join the Studio"><rect width="100" height="100" fill="#fff"/><g fill="#0F1514"><rect x="6" y="6" width="24" height="24" rx="3"/><rect x="11" y="11" width="14" height="14" rx="2" fill="#fff"/><rect x="14" y="14" width="8" height="8"/><rect x="70" y="6" width="24" height="24" rx="3"/><rect x="75" y="11" width="14" height="14" rx="2" fill="#fff"/><rect x="78" y="14" width="8" height="8"/><rect x="6" y="70" width="24" height="24" rx="3"/><rect x="11" y="75" width="14" height="14" rx="2" fill="#fff"/><rect x="14" y="78" width="8" height="8"/><rect x="40" y="8" width="6" height="6"/><rect x="52" y="8" width="6" height="6"/><rect x="40" y="20" width="6" height="6"/><rect x="58" y="22" width="6" height="6"/><rect x="40" y="40" width="6" height="6"/><rect x="52" y="46" width="6" height="6"/><rect x="64" y="40" width="6" height="6"/><rect x="76" y="46" width="6" height="6"/><rect x="88" y="40" width="6" height="6"/><rect x="8" y="44" width="6" height="6"/><rect x="20" y="44" width="6" height="6"/><rect x="40" y="58" width="6" height="6"/><rect x="58" y="58" width="6" height="6"/><rect x="70" y="58" width="6" height="6"/><rect x="82" y="58" width="6" height="6"/><rect x="40" y="70" width="6" height="6"/><rect x="52" y="82" width="6" height="6"/><rect x="70" y="82" width="6" height="6"/><rect x="84" y="84" width="6" height="6"/><rect x="46" y="88" width="6" height="6"/><rect x="60" y="70" width="6" height="6"/><rect x="84" y="70" width="6" height="6"/></g></svg></div>
+  </div>
+  <div class="foot">
+    <div class="partners">Chengdu Research Base of Giant Panda Breeding · Global Brand &amp; IP Division</div>
+    <div class="src">Sources: Xinhua · Hankyung · dotdotnews · SDZWA · ZSL · Data as of 2026-09</div>
+  </div>
+</article>
+<article class="poster p-c" data-style="c">
+  <div class="toprule"></div>
+  <div class="hero">
+    <div class="mast">
+      <div class="logo">Ascentium<span>.</span></div>
+      <div class="client">Chengdu Panda Base · Global IP</div>
+    </div>
+    <div class="kicker">Global membership · The founding studio</div>
+    <div class="name">PANDA STUDIO</div>
+    <div class="tagline">"The world's creators, starring Hua Hua &amp; Fu Bao."</div>
+    <div class="art"><svg><use href="#art-c"/></svg></div>
+  </div>
+  <div class="body">
+    <div class="lead">An always-on AI short-video competition where the world's creators make Hua Hua &amp; Fu Bao the stars — creators share the revenue, and every fan joins a membership to watch, vote and belong.</div>
+    <div class="sec-h">The Offer</div>
+    <div class="cards">
+      <div class="card"><div class="t">Create · Studio Pass</div><div class="d">The official Hua Hua / Fu Bao footage kit + AI tooling — and a 20% revenue share on every sale your film drives.</div></div>
+      <div class="card"><div class="t">Belong · Studio Membership $29/yr</div><div class="d">Behind-the-scenes, members-only premieres, a vote on the winning film, and a numbered seasonal drop. Founders $19.</div></div>
+      <div class="card"><div class="t">Collect · Premiere Drops $19</div><div class="d">A numbered AI film drop each cycle; the winning film ships as a licensed collectible + merch line.</div></div>
+    </div>
+    <div class="sec-h">Why it works</div>
+    <ul class="bullets"><li>Creators already make the reach — ~1bn Hua Hua views — the Base finally owns the funnel.</li><li>Revenue share turns scattered fan accounts into a paid, loyal creator crew.</li><li>The anniversary livestream converts peak devotion into members — conservation-first, no sell-out.</li></ul>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="n">$29/yr</div><div class="c">Studio Membership (founders $19)</div></div>
+    <div class="stat"><div class="n">20%</div><div class="c">revenue share paid to creators</div></div>
+    <div class="stat"><div class="n">650</div><div class="c">creator films in the 3-month pilot</div></div>
+    <div class="stat"><div class="n">20,000</div><div class="c">founding members · Japan + Korea</div></div>
+  </div>
+  <div class="cta">
+    <div class="btn">Join the Studio</div>
+    <div class="meta"><div class="hash">#PandaStudio</div><div class="url">pandastudio.chengdu/join · scan to become a founder</div></div>
+    <div class="qr"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Scan to join the Studio"><rect width="100" height="100" fill="#fff"/><g fill="#0F1514"><rect x="6" y="6" width="24" height="24" rx="3"/><rect x="11" y="11" width="14" height="14" rx="2" fill="#fff"/><rect x="14" y="14" width="8" height="8"/><rect x="70" y="6" width="24" height="24" rx="3"/><rect x="75" y="11" width="14" height="14" rx="2" fill="#fff"/><rect x="78" y="14" width="8" height="8"/><rect x="6" y="70" width="24" height="24" rx="3"/><rect x="11" y="75" width="14" height="14" rx="2" fill="#fff"/><rect x="14" y="78" width="8" height="8"/><rect x="40" y="8" width="6" height="6"/><rect x="52" y="8" width="6" height="6"/><rect x="40" y="20" width="6" height="6"/><rect x="58" y="22" width="6" height="6"/><rect x="40" y="40" width="6" height="6"/><rect x="52" y="46" width="6" height="6"/><rect x="64" y="40" width="6" height="6"/><rect x="76" y="46" width="6" height="6"/><rect x="88" y="40" width="6" height="6"/><rect x="8" y="44" width="6" height="6"/><rect x="20" y="44" width="6" height="6"/><rect x="40" y="58" width="6" height="6"/><rect x="58" y="58" width="6" height="6"/><rect x="70" y="58" width="6" height="6"/><rect x="82" y="58" width="6" height="6"/><rect x="40" y="70" width="6" height="6"/><rect x="52" y="82" width="6" height="6"/><rect x="70" y="82" width="6" height="6"/><rect x="84" y="84" width="6" height="6"/><rect x="46" y="88" width="6" height="6"/><rect x="60" y="70" width="6" height="6"/><rect x="84" y="70" width="6" height="6"/></g></svg></div>
+  </div>
+  <div class="foot">
+    <div class="partners">Chengdu Research Base of Giant Panda Breeding · Global Brand &amp; IP Division</div>
+    <div class="src">Sources: Xinhua · Hankyung · dotdotnews · SDZWA · ZSL · Data as of 2026-09</div>
+  </div>
+</article>
+</div>
+
+<div class="roverlay" id="roverlay">
+  <div class="rh">
+    <h2>Write a richer poster script</h2>
+    <button class="rclose" id="rclose">Close</button>
+  </div>
+  <div class="rnote">
+    The poster already ships complete in all three styles above. To have another AI produce a <b>richer version</b>,
+    paste the prompt for the style you picked into <b>Kimi</b> / <b>GPT</b>. It writes the <b>poster's content script
+    only</b> — the art direction, layout, palette and typography are left open for that tool to invent.
+    <b>Best results: give it <code>campaign-plan.html</code> as input first</b> (add <code>insight-brief.html</code>
+    if you have it) — it holds the campaign name, slogan, proposition, offer and proof. The prompt asks for a
+    <b>self-contained .html</b> file (HTML only, never a PPT/slide file) so it opens by double-clicking.
+  </div>
+  <div class="rpromptbox">
+    <button class="rcopy" id="rcopy">Copy prompt</button>
+    <div class="rwhich" id="rwhich">Style A · Full-Bleed Hero</div>
+    <pre class="rprompt" id="rprompt-a" data-style="a">You are designing ONE campaign poster and delivering it as a single self-contained .html file (HTML only, never a PPT / PPTX / Keynote / Slides file). Best results come from reading campaign-plan.html as the source of truth first (add insight-brief.html if you have it); the content below is what the poster must carry.
+
+POSTER CONTENT (all of it must appear):
+- Masthead: creator "Ascentium." + client "Chengdu Panda Base · Global IP" + edition "Founding Studio".
+- Name: PANDA STUDIO. Tagline: "The world's creators, starring Hua Hua & Fu Bao."
+- Key visual: the campaign motif — the world's creators filming Hua Hua & Fu Bao (panda + clapperboard + filmstrip).
+- Lead: An always-on AI short-video competition where the world's creators make Hua Hua & Fu Bao the stars; creators share the revenue; fans join a membership to watch, vote and belong.
+- Offer (3 cards): Studio Pass (free, 20% revenue share) · Studio Membership $29/yr (founders $19) · Premiere Drops $19.
+- Proof (3 bullets): creators already make the reach (about 1bn Hua Hua views); revenue share turns fan accounts into a paid creator crew; the anniversary livestream converts peak devotion into members.
+- Four numbers with sources: $29/yr membership · 20% creator revenue share · 650 creator films (3-month pilot) · 20,000 founding members (Japan + Korea). Sources: Xinhua; Hankyung; SDZWA; ZSL (2024-2025).
+- Call to action: "Join the Studio" · #PandaStudio · pandastudio.chengdu/join (include a QR code).
+- Footer: partners, sources, and "Data as of 2026-09".
+
+STYLE, AS CONTEXT ONLY (you decide the art direction, layout, palette and typography): a bold, full-bleed editorial hero poster with mass-reach, high-energy feel.
+
+Deliver exactly one self-contained .html file. HTML only — do not output a slide or deck file.</pre>
+    <pre class="rprompt" id="rprompt-b" data-style="b">You are designing ONE campaign poster and delivering it as a single self-contained .html file (HTML only, never a PPT / PPTX / Keynote / Slides file). Best results come from reading campaign-plan.html as the source of truth first (add insight-brief.html if you have it); the content below is what the poster must carry.
+
+POSTER CONTENT (all of it must appear):
+- Masthead: creator "Ascentium." + client "Chengdu Panda Base · Global IP" + edition "Founding Studio".
+- Name: PANDA STUDIO. Tagline: "The world's creators, starring Hua Hua & Fu Bao."
+- Key visual: the campaign motif — the world's creators filming Hua Hua & Fu Bao (panda + clapperboard + filmstrip), ideally as a "studio pass / ticket" object.
+- Lead: An always-on AI short-video competition where the world's creators make Hua Hua & Fu Bao the stars; creators share the revenue; fans join a membership to watch, vote and belong.
+- Offer (3 cards): Studio Pass (free, 20% revenue share) · Studio Membership $29/yr (founders $19) · Premiere Drops $19.
+- Proof (3 bullets): creators already make the reach (about 1bn Hua Hua views); revenue share turns fan accounts into a paid creator crew; the anniversary livestream converts peak devotion into members.
+- Four numbers with sources: $29/yr membership · 20% creator revenue share · 650 creator films (3-month pilot) · 20,000 founding members (Japan + Korea). Sources: Xinhua; Hankyung; SDZWA; ZSL (2024-2025).
+- Call to action: "Join the Studio" · #PandaStudio · pandastudio.chengdu/join (include a QR code).
+- Footer: partners, sources, and "Data as of 2026-09".
+
+STYLE, AS CONTEXT ONLY (you decide the art direction, layout, palette and typography): a warm cream "belonging passport / membership ticket" feel — perforations, stamps, a checklist-style offer — suited to a loyalty membership.
+
+Deliver exactly one self-contained .html file. HTML only — do not output a slide or deck file.</pre>
+    <pre class="rprompt" id="rprompt-c" data-style="c">You are designing ONE campaign poster and delivering it as a single self-contained .html file (HTML only, never a PPT / PPTX / Keynote / Slides file). Best results come from reading campaign-plan.html as the source of truth first (add insight-brief.html if you have it); the content below is what the poster must carry.
+
+POSTER CONTENT (all of it must appear):
+- Masthead: creator "Ascentium." + client "Chengdu Panda Base · Global IP" + edition "Founding Studio".
+- Name: PANDA STUDIO. Tagline: "The world's creators, starring Hua Hua & Fu Bao."
+- Key visual: the campaign motif — one minimal panda + clapperboard motif (panda + clapperboard + filmstrip), restrained.
+- Lead: An always-on AI short-video competition where the world's creators make Hua Hua & Fu Bao the stars; creators share the revenue; fans join a membership to watch, vote and belong.
+- Offer (3 cards): Studio Pass (free, 20% revenue share) · Studio Membership $29/yr (founders $19) · Premiere Drops $19.
+- Proof (3 bullets): creators already make the reach (about 1bn Hua Hua views); revenue share turns fan accounts into a paid creator crew; the anniversary livestream converts peak devotion into members.
+- Four numbers with sources: $29/yr membership · 20% creator revenue share · 650 creator films (3-month pilot) · 20,000 founding members (Japan + Korea). Sources: Xinhua; Hankyung; SDZWA; ZSL (2024-2025).
+- Call to action: "Join the Studio" · #PandaStudio · pandastudio.chengdu/join (include a QR code).
+- Footer: partners, sources, and "Data as of 2026-09".
+
+STYLE, AS CONTEXT ONLY (you decide the art direction, layout, palette and typography): a dark, Swiss-typographic minimal poster — huge type, hairline rules, generous negative space, a premium brand-led feel.
+
+Deliver exactly one self-contained .html file. HTML only — do not output a slide or deck file.</pre>
+  </div>
+</div>
+
+<script>
+(function(){
+  var stack = document.getElementById('stack');
+  var open  = document.getElementById('open');
+  var tabs  = Array.prototype.slice.call(document.querySelectorAll('#tabs button'));
+  var posters = Array.prototype.slice.call(stack.querySelectorAll('.poster'));
+  var blocks = Array.prototype.slice.call(document.querySelectorAll('.roverlay pre.rprompt'));
+  var which = document.getElementById('rwhich');
+  var styleNames = {};
+  tabs.forEach(function(b){ styleNames[b.getAttribute('data-style')] = (b.querySelector('.t') || {}).textContent || ''; });
+  var current = 'a';
+
+  function keyFromLocation(){
+    var m = (location.hash || '').match(/style-([abc])/i);
+    if(m) return m[1].toLowerCase();
+    var q = (location.search || '').match(/[?&]style=([abc])/i);
+    return q ? q[1].toLowerCase() : null;
+  }
+  function apply(){
+    var key = keyFromLocation() || 'a';
+    current = key;
+    tabs.forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-style') === key); });
+    posters.forEach(function(p){ p.classList.toggle('on', p.getAttribute('data-style') === key); });
+    open.setAttribute('href', 'poster-' + key + '.html');
+    blocks.forEach(function(pre){ pre.classList.toggle('on', pre.getAttribute('data-style') === key); });
+    if(which) which.textContent = 'STYLE ' + key.toUpperCase() + ' · ' + (styleNames[key] || '');
+  }
+  tabs.forEach(function(b){
+    b.addEventListener('click', function(){ location.hash = 'style-' + b.getAttribute('data-style'); apply(); });
+  });
+  window.addEventListener('hashchange', apply);
+
+  var ov = document.getElementById('roverlay');
+  function toggle(force){
+    var on = (typeof force === 'boolean') ? force : !ov.classList.contains('on');
+    ov.classList.toggle('on', on);
+  }
+  var rb = document.getElementById('rbtn'); if(rb) rb.addEventListener('click', function(){ toggle(true); });
+  var rc = document.getElementById('rclose'); if(rc) rc.addEventListener('click', function(){ toggle(false); });
+  if(ov) ov.addEventListener('click', function(e){ if(e.target===ov) toggle(false); });
+  var cp = document.getElementById('rcopy');
+  if(cp) cp.addEventListener('click', function(){
+    var pre = document.querySelector('.roverlay pre.rprompt.on'); if(!pre) return;
+    var t = pre.innerText;
+    function done(){ cp.textContent='Copied'; setTimeout(function(){ cp.textContent='Copy prompt'; }, 1500); }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(done); }
+    else { var r=document.createRange(); r.selectNodeContents(pre); var s=window.getSelection();
+           s.removeAllRanges(); s.addRange(r); document.execCommand('copy'); s.removeAllRanges(); done(); }
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='p'||e.key==='P'){ toggle(); }
+    else if(e.key==='Escape'){ toggle(false); }
+  });
+  apply();
+})();
+</script>
+</body>
+</html>
