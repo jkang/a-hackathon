@@ -15,7 +15,7 @@ The technical build is specified in section 7.
 | Field | Value |
 |---|---|
 | Title | The Marketing AI Toolkit (document title only; no on-screen title bar) |
-| Runtime | ~1:45 (16 pages, timed auto-advance) |
+| Runtime | ~1:52 (17 pages, timed auto-advance) |
 | Stage | 1000 × 562 (16:9), full-bleed inside the deck |
 | Audience | 8 guilds, non-technical business managers |
 | Tone | Calm, concrete, business. Show the loop, name the skills, stop at each decision. |
@@ -28,7 +28,7 @@ The technical build is specified in section 7.
 
 ## 2. Global conventions
 
-- **Page** — `P01`–`P16`, played in order. Each page shows one image with a caption.
+- **Page** — `P01`–`P17`, played in order. Each page shows one image with a caption.
 - **Timing** — `dur` is seconds; the engine auto-advances after `dur`. Dwell is short
   (5–8s per page). The host can pause anytime.
 - **Copy fields** — `eyebrow` (label), `head` (large), `sub` (one supporting line),
@@ -49,21 +49,22 @@ Each page pairs one screenshot (right) with a caption (left). Durations are in s
 | P01 | IMG-01 | 6 | The toolkit | The toolkit sits in your editor | One workspace, pre-loaded with the quest card and the skills. |
 | P02 | IMG-04 | 5 | Start | Type /start and name the quest | The toolkit reads the quest card and opens the first gate. |
 | P03 | IMG-05 | 7 | Insight | Start the research | Choose how to open the Insight gate: live research, a fast start, or your own facts. |
-| P04 | IMG-06 | 8 | Insight | Insights come as directions to build on | Six data-backed directions; the team picks two or three. |
+| P04 | IMG-06 | 8 | Insight | Insights come as directions to build on | Six data-backed directions; the team picks two or three — or adds their own. |
 | P05 | IMG-07 | 7 | The brief | The choice becomes the brief | Selected insights, focus bundles, and the seed insight on one screen. |
-| P06 | IMG-081 | 6 | Plan | Start the plan with keywords | Run /plan and provide keywords ideas. |
-| P07 | IMG-082 | 8 | Plan | One complete campaign, built from your keywords | The AI builds the campaign — positioning, channel mix, pilot markets, and budget. |
+| P06 | IMG-081 | 6 | Plan | Start the plan with keywords | Run /plan and provide the concept keywords for the campaign. |
+| P07 | IMG-082 | 8 | Plan | One complete campaign, built from your keywords | The team gives 1–2 concept keywords; the AI builds the campaign — positioning, channel mix, pilot markets, and budget. |
 | P08 | IMG-083 | 7 | Plan | The campaign, written up | Concept, offer, campaign moments, budget, and the pilot forecast on one page. |
-| P09 | IMG-091 | 5 | Poster | Plan complete — on to the poster | Run /poster and the campaign poster begins. |
-| P10 | IMG-092 | 7 | Poster | Three poster styles, one choice | Full-Bleed Hero, Belonging Passport, or Midnight Minimal. The team keeps one. |
-| P11 | IMG-093 | 7 | Poster | The chosen poster | The selected style rendered on the Ascentium brand. |
-| P12 | IMG-111 | 6 | Showcase | Poster complete — on to Showcase | Run /showcase to assemble the proposal and pitch deck. |
-| P13 | IMG-112 | 7 | Showcase | Pick the storyline | Classic, Hero’s Journey, Big Reveal, Demo, or Trailer — plus optional bonus media. |
-| P14 | IMG-121 | 6 | Showcase | The package, plus media prompts | Proposal, poster, deck, and a prompt pack ready to generate the bonus media. |
-| P15 | IMG-122 | 6 | Showcase | Provide the media, optimize the deck | Bring the generated asset back; the AI embeds it and refreshes the deck. |
-| P16 | IMG-131 | 7 | The package | One proposal, one deck, ready to pitch | A five-minute pitch, brand-compliant end to end. |
+| P09 | IMG-091 | 5 | Media kit | Plan complete — on to the media kit | Run /mediakit to design the campaign poster and the storyboard. |
+| P10 | IMG-092 | 7 | Media kit | Three poster styles, one choice | Full-Bleed Hero, Belonging Passport, or Midnight Minimal. The team keeps one. |
+| P11 | IMG-093 | 7 | Media kit | The chosen poster | The selected style rendered on the Ascentium brand. |
+| P12 | IMG-101 | 7 | Media kit | The storyboard, scene by scene | The fan journey told as a 16:9 sheet — six scenes in three chapters. |
+| P13 | IMG-111 | 6 | Showcase | Storyboard complete — on to Showcase | Refine the storyboard if you like, then run /showcase to assemble the deck. |
+| P14 | IMG-112 | 7 | Showcase | Pick the storyline | Classic, Hero’s Journey, Big Reveal, Demo, or Trailer — plus the optional bonus media. |
+| P15 | IMG-121 | 6 | Showcase | The package, plus media prompts | Proposal, poster, storyboard, deck, and a prompt pack ready to generate the bonus media. |
+| P16 | IMG-122 | 6 | Showcase | Provide the media, optimize the deck | Bring the generated asset back; the AI embeds it and refreshes the deck. |
+| P17 | IMG-131 | 7 | The package | One proposal, one deck, ready to pitch | A five-minute pitch, brand-compliant end to end. |
 
-**Total: ~105s (~1:45).**
+**Total: ~112s (~1:52).**
 
 ---
 
@@ -77,14 +78,15 @@ Each page pairs one screenshot (right) with a caption (left). Durations are in s
 6. Start the plan with keywords.
 7. One complete campaign, built from the team's keywords.
 8. The campaign, written up.
-9. Plan complete — on to the poster.
+9. Plan complete — on to the media kit.
 10. Three poster styles, one choice.
 11. The chosen poster.
-12. Poster complete — on to Showcase.
-13. Pick the storyline.
-14. The package, plus media prompts.
-15. Provide the media, optimize the deck.
-16. One proposal, one deck, ready to pitch.
+12. The storyboard, scene by scene.
+13. Storyboard complete — on to Showcase.
+14. Pick the storyline.
+15. The package, plus media prompts.
+16. Provide the media, optimize the deck.
+17. One proposal, one deck, ready to pitch.
 
 ---
 
@@ -104,14 +106,15 @@ slot's placeholder label so the deck still runs.
 | IMG-081 | P06 | Run `/plan` — team provide concept keywords | screenshot | `img-081.jpg` |
 | IMG-082 | P07 | Plan · one complete campaign | screenshot | `img-082.jpg` |
 | IMG-083 | P08 | `campaign-plan.html` — the campaign | screenshot | `img-083.jpg` |
-| IMG-091 | P09 | Poster handoff — run `/poster` | screenshot | `img-091.jpg` |
-| IMG-092 | P10 | Pick the poster style A/B/C | screenshot | `img-092.jpg` |
+| IMG-091 | P09 | Run `/mediakit` — design the poster and storyboard | screenshot | `img-091.jpg` |
+| IMG-092 | P10 | Pick the poster style A/B/C and continue | screenshot | `img-092.jpg` |
 | IMG-093 | P11 | `poster.html` — poster selected | screenshot | `img-093.jpg` |
-| IMG-111 | P12 | Showcase handoff — run `/showcase` | screenshot | `img-111.jpg` |
-| IMG-112 | P13 | Pick the showcase storyline | screenshot | `img-112.jpg` |
-| IMG-121 | P14 | See the showcase pitch deck and bonus media prompts | screenshot | `img-121.jpg` |
-| IMG-122 | P15 | Provide media and optimize the pitch deck | screenshot | `img-122.jpg` |
-| IMG-131 | P16 | Final pitch deck ready | screenshot | `img-131.jpg` |
+| IMG-101 | P12 | `storyboard.html` — view the visual storyboard | screenshot | `img-101.jpg` |
+| IMG-111 | P13 | Refine storyboard and run `/showcase` | screenshot | `img-111.jpg` |
+| IMG-112 | P14 | Pick the showcase storyline & bonus media types | screenshot | `img-112.jpg` |
+| IMG-121 | P15 | See the showcase pitch deck and bonus media prompts | screenshot | `img-121.jpg` |
+| IMG-122 | P16 | Provide media and optimize the pitch deck | screenshot | `img-122.jpg` |
+| IMG-131 | P17 | Final pitch deck ready | screenshot | `img-131.jpg` |
 
 **Notes**
 - No reused deck assets in the video — every page is a supplied screenshot.
@@ -141,7 +144,7 @@ A self-contained scene engine in `host-deck.html`; no external libraries.
 </section>
 ```
 
-**Scene data** — a JS `SCENES` array of 16 objects: `{ id, dur, eyebrow, head, sub, img, alt,
+**Scene data** — a JS `SCENES` array of 17 objects: `{ id, dur, eyebrow, head, sub, img, alt,
 skills[] }`. Copy is data, not markup. Image paths are `assets/video/<file>`. There is **no
 intro/outro card** — `SCENES[0]` is IMG-01 and the video starts playing on entry.
 
@@ -154,7 +157,7 @@ intro/outro card** — `SCENES[0]` is IMG-01 and the video starts playing on ent
   changes. Implemented with a `MutationObserver` on the slide's `class`, so the deck's
   `show()` is untouched.
 - Missing image → an `IMG-xx` placeholder tile renders in its place.
-- No persistent on-screen title bar; only the page counter (`01 / 16`) shows top-left.
+- No persistent on-screen title bar; only the page counter (`01 / 17`) shows top-left.
   Keyboard is left to the deck (←/→ change slides, F fullscreen).
 
 **Brand rules** — colours, fonts, radius, and spacing come from the existing `:root` tokens.
@@ -167,7 +170,7 @@ buttons, and page count are unchanged.
 
 ## 8. Standalone demo
 
-`toolkit-demo.html` — the same 16-page video as a single shareable file. Every screenshot is
+`toolkit-demo.html` — the same 17-page video as a single shareable file. Every screenshot is
 base64-embedded, so the file has no external dependencies and can be sent on its own.
 
 - Generated by `build-toolkit-demo.py` (re-run it after changing the images or `SCENES`):
