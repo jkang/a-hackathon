@@ -93,15 +93,15 @@ Pick the kind that matches the moment. The cover uses `cover_art` (default: scen
 - `facts` (up to 4) fills the cover strip; `cover_art` picks the cover illustration.
 - `upgrade_prompt` is optional; if absent it is derived from `brand` + `accent` + the chapters/scenes.
 
-## 6. The upgrade prompt (a richer STORY SCRIPT — visuals left open)
+## 6. The upgrade prompt (a richer storyboard)
 
-The page carries a copyable prompt (the **"Write a richer story script"** overlay, press **P**).
+The page carries a copyable prompt (the **"Write a richer storyboard"** overlay, press **P**).
 
-**What it is:** a **story-script brief** — the narrative to be realised, **not a visual specification**. It tells the other tool *what happens* scene by scene (beats, on-screen copy, fan quotes, the four fields, the action + evidence) and explicitly leaves **art direction, layout, palette and typography to that tool**. Prescribing the visuals here would only cap a stronger tool.
+**What it is:** a clean, complete brief — what happens scene by scene (beats, on-screen copy, fan quotes, the four fields, action + evidence). No meta-commentary.
 
-**Input hint (in the note and in the prompt):** best results come from feeding the target tool **`campaign-plan.html`** first (its capture holds name, slogan, proposition, offer, audiences, moments, budget); add **`insight-brief.html`** for audience + market context.
+**Input hint — shown ABOVE the prompt (not inside it):** feed the target tool **`campaign-plan.html`** first (its capture holds name, slogan, proposition, offer, audiences, moments, budget); add **`insight-brief.html`** for audience + market context. Then paste the prompt.
 
-**Format:** the prompt asks for **one self-contained `.html`** — *HTML only; never PPT / PPTX / Keynote / Slides or any slide-deck export* (those may not open on the room's machines). Save the answer as `media/storyboard/storyboard-richer.html` and re-run the build — it is inlined as a **page** in the same deck.
+**Format:** the prompt asks for **one image per step** and **one complete, self-contained `.html`** (every image embedded) — *HTML only; never PPT / PPTX / Keynote / Slides or any slide-deck export* (those may not open on the room's machines). Save the answer as `media/storyboard/storyboard-richer.html` and re-run the build — it is inlined as a **page** in the same deck.
 
 ## 7. Layout (16:9 pages)
 

@@ -85,27 +85,17 @@ no watermark, no logo. 16:9.
 
 ---
 
-## 3b. Storyboard — Kimi / GPT (a richer story script → one self-contained HTML)
+## 3b. Storyboard — Kimi / GPT (a richer storyboard → one self-contained HTML)
 
 The storyboard is **shipped by default as a paginated 16:9 deck with inline SVG art** (from the `mediakit` stage) — no external image required. This section is the **optional upgrade** to a richer board.
 
 > **Format rule — HTML only.** Every deliverable in this toolkit is a **single self-contained HTML file** that opens by double-clicking. Never ask for, produce, or hand off a **PPT / PPTX / Keynote / Google Slides** file (or any slide-deck export) — those formats may not open on the room's machines.
 
-> **Content rule — a story script, not a visual spec.** The prompt describes **what happens** scene by scene and deliberately leaves **art direction, layout, palette and typography to the other tool**. Prescribing the visuals caps a stronger tool's output and produces worse work. (The same rule applies to the **richer-poster prompt** carried in `poster.html` — press **P** there.)
+**Give the model this input first (best results).** Feed **`campaign-plan.html`** (its capture block holds the campaign name, slogan, proposition, offer, audiences, moments and budget); add **`insight-brief.html`** for audience + market context — **then paste the prompt**. The prompt is **already built into `storyboard.html`** (the "Write a richer storyboard" overlay, press **P** — the input hint is printed **above** the prompt box). It returns **one self-contained `.html`**; save it as `media/storyboard/storyboard-richer.html` and re-run the build — it is inlined as a page in the same deck.
 
-The prompt is **already built into `storyboard.html`** (the "Write a richer story script" overlay, press **P**). Paste it into **Kimi** (kimi.moonshot.cn) or **GPT**, **giving it `campaign-plan.html` as input first** (add `insight-brief.html` for audience + market context). It returns **one self-contained `.html`**; save it as `media/storyboard/storyboard-richer.html` and re-run the build — it is inlined as a page in the same deck.
-
-**The one prompt** — the story content in one block; the look stays the other tool's decision:
+**The one prompt** — the story content in one block:
 
 ```
-You are writing the STORY SCRIPT for a campaign storyboard — the narrative only.
-Do NOT design the visuals: the art direction, layout, palette and typography are entirely your call.
-Nothing below is a visual spec.
-
-=== GIVE THE MODEL THIS INPUT FIRST (best results) ===
-Attach or paste the campaign plan — the contents of campaign-plan.html (campaign name, slogan,
-proposition, offer, audiences, moments, budget). If you have it, paste insight-brief.html as well.
-
 === THE CAMPAIGN === {{CAMPAIGN NAME}}, {{slogan}}
 
 === WHAT TO WRITE: THE FAN JOURNEY, SCENE BY SCENE ===
@@ -122,14 +112,14 @@ quote "{{quote}}"; {{stage}} · {{moment}} · {{emotion}} · {{goal}}; action {{
 One complete, self-contained .html file that opens by double-clicking — all CSS and illustration inline,
 no external files, no CDN, no build step. HTML ONLY: no PPT / PPTX / Keynote / Google Slides export.
 It should page through a cover and then the scenes, at 16:9, scaled to any screen.
-
-Everything visual — style, art, colour, layout — is your decision.
+Design it completely — the art, the colour, the typography and the layout — to fit the campaign.
+Generate one image for each step, and output the entire Storyboard as one complete, self-contained HTML file with every image embedded.
 ```
 
 **Rules:**
 - **One prompt, one file** — every scene comes from this single block, so the narrative stays consistent.
-- **Never prescribe the visuals** — no palette, no "cinematic lighting", no layout instructions. Give the story and its content; let the tool design.
-- **Feed `campaign-plan.html` first** — and say so in the prompt itself.
+- **No meta-commentary** — do not preface the prompt with "you are writing a story script / don't design the visuals / not a visual spec". Give a clean brief.
+- **Feed `campaign-plan.html` first** — the input hint sits **above** the prompt (in the overlay note), not inside it.
 - **HTML only** — if the tool offers a "download as PPT/slides", decline it; save the raw `.html`.
 - **6–8 scenes in 3 chapters** — more scenes slow generation for little gain.
 

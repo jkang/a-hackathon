@@ -501,15 +501,6 @@ def default_prompt(spec, steps, chapters):
     brand = spec.get("brand", "the campaign")
     ch_names = " / ".join("%s. %s" % (c.get("id", ""), c.get("name", "")) for c in chapters)
     lines = [
-        'You are writing the STORY SCRIPT for a campaign storyboard — the narrative only.',
-        'Do NOT design the visuals: the art direction, layout, palette and typography are entirely your call. '
-        'Nothing below is a visual spec.',
-        '',
-        '=== GIVE THE MODEL THIS INPUT FIRST (best results) ===',
-        'Attach or paste the campaign plan — the contents of campaign-plan.html (its capture block holds the '
-        'campaign name, slogan, proposition, offer, audiences, moments and budget). If you have it, paste '
-        'insight-brief.html as well for the audience and the market context. Then paste this prompt.',
-        '',
         '=== THE CAMPAIGN ===',
         '%s.' % brand,
         '',
@@ -552,8 +543,9 @@ def default_prompt(spec, steps, chapters):
         'Keynote / Google Slides file or any slide-deck export.',
         'It should page through a cover and then the scenes, at 16:9, scaled to any screen.',
         '',
-        'Everything visual — the style, the art, the colour, the layout — is your decision. Do not restrict '
-        'yourself to any look suggested above.',
+        'Design it completely — the art, the colour, the typography and the layout — to fit the campaign.',
+        '',
+        'Generate one image for each step, and output the entire Storyboard as one complete, self-contained HTML file with every image embedded.',
     ]
     return "\n".join(lines)
 
@@ -562,14 +554,14 @@ def overlay_html(prompt):
     if not prompt:
         return ""
     return (
-        '<div class="ph"><h2>Write a richer story script</h2>'
+        '<div class="ph"><h2>Write a richer storyboard</h2>'
         '<button class="pclose" id="pclose">Close</button></div>'
-        '<div class="note">This deck is the full storyboard, drawn in-page as <b>inline SVG art</b> — every scene, '
-        'phone inset, quote and metric is already here. To have another AI write a <b>richer version</b>, paste '
-        'this prompt into <b>Kimi</b> (kimi.moonshot.cn) or <b>GPT</b>. It writes the <b>story script only</b> — '
-        'the art direction is left open for that tool to invent. <b>Best results: give it '
-        '<code>campaign-plan.html</code> as input first</b> (add <code>insight-brief.html</code> if you have it). '
-        'It returns a <b>self-contained .html</b> (HTML only, never a PPT/slide file); save it as '
+        '<div class="note"><b>=== GIVE THE MODEL THIS INPUT FIRST (best results) ===</b><br>'
+        'Attach or paste the campaign plan — the contents of <code>campaign-plan.html</code> (its capture block '
+        'holds the campaign name, slogan, proposition, offer, audiences, moments and budget). If you have it, '
+        'paste <code>insight-brief.html</code> as well for the audience and the market context. <b>Then paste '
+        'this prompt</b> into <b>Kimi</b> (kimi.moonshot.cn) or <b>GPT</b>. It returns a '
+        '<b>self-contained .html</b> (HTML only, never a PPT/slide file); save it as '
         '<b>media/storyboard/storyboard-richer.html</b> and re-run the build to add it as a page.</div>'
         '<div class="promptbox"><button class="copy" id="pcopy">Copy prompt</button>'
         '<pre id="pprompt">%s</pre></div>' % esc(prompt)

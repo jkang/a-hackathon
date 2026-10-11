@@ -7,7 +7,7 @@
      The three posters are inlined below (one shown at a time); the standalone pages
      poster-a.html / poster-b.html / poster-c.html are the croppable single files.
      Also carries the per-style "richer poster script" prompt (press P) — content-only,
-     visuals left open, campaign-plan.html recommended as input.
+     input hint sits above the prompt; campaign-plan.html recommended as input.
      Built by scripts/build-posters.py from templates/poster-page.html + this file. -->
 <title>Campaign Poster · {{HEADLINE}} · {{QUEST}}</title>
 {{PAGE_STYLE}}
@@ -85,16 +85,16 @@
 
 <div class="roverlay" id="roverlay">
   <div class="rh">
-    <h2>Write a richer poster script</h2>
+    <h2>Write a richer poster</h2>
     <button class="rclose" id="rclose">Close</button>
   </div>
   <div class="rnote">
-    The poster already ships complete in all three styles above. To have another AI produce a <b>richer version</b>,
-    paste the prompt for the style you picked into <b>Kimi</b> / <b>GPT</b>. It writes the <b>poster's content script
-    only</b> — the art direction, layout, palette and typography are left open for that tool to invent.
-    <b>Best results: give it <code>campaign-plan.html</code> as input first</b> (add <code>insight-brief.html</code>
-    if you have it) — it holds the campaign name, slogan, proposition, offer and proof. The prompt asks for a
-    <b>self-contained .html</b> file (HTML only, never a PPT/slide file) so it opens by double-clicking.
+    <b>=== GIVE THE MODEL THIS INPUT FIRST (best results) ===</b><br>
+    Attach or paste the campaign plan — the contents of <code>campaign-plan.html</code> (its capture block holds the
+    campaign name, slogan, proposition, offer, audiences and proof). If you have it, paste <code>insight-brief.html</code>
+    as well. <b>Then paste this prompt</b> for the style you picked into <b>Kimi</b> / <b>GPT</b>. The poster already ships
+    complete in all three styles above — this asks a stronger tool for a richer take. It returns a
+    <b>self-contained .html</b> (HTML only, never a PPT/slide file) that opens by double-clicking.
   </div>
   <div class="rpromptbox">
     <button class="rcopy" id="rcopy">Copy prompt</button>

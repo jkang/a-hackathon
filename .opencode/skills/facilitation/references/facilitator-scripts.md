@@ -11,7 +11,7 @@ Per stage:
 - **Insight** — "Now: **Insight** — I research the market and curate segments + insights; you make two picks (segments, then insights)."
 - **Plan** — "Now: **Plan** — you give me **1–2 concept keywords**; I build one complete campaign from them, with the pilot forecast."
 - **Media Kit** — "Now: **Media Kit** — I build three poster styles (A/B/C); you pick one — then I build the storyboard."
-- **Showcase** — "Now: **Showcase** — I assemble the proposal + deck (8 beats); you pick a storyline and whether to add bonus media."
+- **Showcase** — "Now: **Showcase** — I assemble the proposal + deck (8 beats); you pick a storyline **and** whether to add bonus media — **both together in one reply**."
 
 ## Question templates (choice-first)
 

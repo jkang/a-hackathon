@@ -53,7 +53,7 @@ End **every** turn with these three blocks, in order:
 **What to surface inline, per stage:**
 - **Insight** → **two picks, in two turns**: first the **~6–8 audience segments** (pick 2–3), then the **~6 key insights** (pick 2–3). Market trends and focus bundles are AI-curated and shown in full in the brief (overridable on request).
 - **Plan** → the **concept keywords (1–2)** the team gives up front; the AI then builds **one complete campaign** and its pilot forecast (no end-of-stage pick).
-- **Showcase** → the storyline (pick 1) + bonus media (song / video / image / none). Signature, visual direction, one-liner, and the deck theme are AI-decided; the poster + storyboard (from the media kit) are always included.
+- **Showcase** → ask the storyline (pick 1) **and** the bonus media (song / video / image / none) **together in one turn** (one menu, one reply — never split). Signature, visual direction, one-liner, and the deck theme are AI-decided; the poster + storyboard (from the media kit) are always included.
 - **Media Kit** → the three poster styles (A/B/C) — pick one. (The AI builds all three posters first, then builds the storyboard.)
 
 **Stage completion (handoff) — never auto-advance.** When a stage's artifact is finalized, end the turn with a plain completion line + the next command — then STOP. Do **not** start the next stage on your own; the team launches it themselves. (Exception: `/start`'s entry menu starts the Insight stage on the team's pick — that pick *is* the launch.)
@@ -117,7 +117,7 @@ Rules: research must come from `agent-reach` (never invented); each sub-skill's 
 | 2–10′ | **Insight** | 30s scout summary → research → living brief → AI curates market trends + ~6–8 segments → focus bundles + ~6 key insights | **segments (2–3)**, then **key insights (2–3)** |
 | 10–26′ | **Plan** | diverge ~6 ideas from the team's keywords → build one complete campaign + embedded hero visual + the pilot forecast with derivation chains | concept keywords (1–2) |
 | 26–32′ | **Media Kit** | build 3 poster styles + the storyboard (16:9 paginated scene deck + upgrade prompt) | pick 1 poster style |
-| 32–38′ | **Showcase** | storyline + bonus-media menus; AI settles signature · direction · one-liner · theme (poster + storyboard always in the theme-matched deck) → build the proposal + deck (8 beats, visual-first) | storyline · bonus media |
+| 32–38′ | **Showcase** | storyline + bonus-media **one-turn menu**; AI settles signature · direction · one-liner · theme (poster + storyboard always in the theme-matched deck) → build the proposal + deck (8 beats, visual-first) | storyline · bonus media |
 | 38–40′ | Converge | package and submit | confirm |
 
 ## How to run each stage

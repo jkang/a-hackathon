@@ -80,15 +80,14 @@ flowchart TD
     MK --> HMK{"👤 pick 1 poster style"}
     HMK --> HO4["complete · STOP — review poster + storyboard; then team runs /showcase"]
     HO4 --> S["4 · SHOWCASE — 5 storylines"]
-    S --> H7{"👤 pick storyline"}
-    H7 --> H9{"👤 bonus media?"}
-    H9 --> B["build proposal + deck (+ prompt-pack)"]
+    S --> H7{"👤 storyline + bonus media (one turn)"}
+    H7 --> B["build proposal + deck (+ prompt-pack)"]
     B --> D([review deck → optional bonus media → submit])
 
     classDef ai fill:#FFF0E7,stroke:#FF6611,color:#0F1514;
     classDef hitl fill:#CDE2E1,stroke:#077069,color:#0F1514;
     class A,I,P,S,B,H0,HO2,HO3,MK,HO4 ai;
-    class HR,H1,H1b,HK,HMK,H7,H9 hitl;
+    class HR,H1,H1b,HK,HMK,H7 hitl;
 ```
 
 Legend — **teal diamonds = HITL (the team decides)** · orange boxes = the AI does. Each stage ends by **handing off** (it does not auto-advance — the team runs the next command). Artifacts land after each stage (`insight-brief` → `campaign-plan` → media kit (`poster` + `storyboard`) → `proposal` + `pitch-deck`).
@@ -99,7 +98,7 @@ Legend — **teal diamonds = HITL (the team decides)** · orange boxes = the AI 
 | 2–10′ | **Insight** | 30-second scout summary → research (or reuse the card) → living brief → AI curates market trends (tagged by kind) → ~6–8 segments → derives focus bundles + drafts ~6 key insights (segment × moment × trend) | segments (2–3), then key insights (2–3) |
 | 10–26′ | **Plan** | Diverge ~6 ideas from the team's keywords → build one complete campaign + embedded hero visual + the pilot forecast | concept keywords (1–2) |
 | 26–32′ | **Media Kit** | AI builds 3 poster styles + the storyboard (SVG design sheet + AI-upgrade prompt) | pick 1 poster style |
-| 32–38′ | **Showcase** | Storyline + bonus-media menus; AI settles signature · direction · one-liner · theme (poster + storyboard always in the theme-matched deck) → build the proposal + deck (+ prompt-pack) | storyline · bonus media |
+| 32–38′ | **Showcase** | Storyline + bonus-media menu (**one turn**); AI settles signature · direction · one-liner · theme (poster + storyboard always in the theme-matched deck) → build the proposal + deck (+ prompt-pack) | storyline · bonus media (together) |
 | 38–40′ | **Converge** | Package and confirm | confirm |
 
 **At every stage:** `research → menu → team picks → capture (HITL stop) → assemble → next stage`. **One menu per turn** — present it, then stop and wait. Announce a 3-minute and 1-minute warning, then move.

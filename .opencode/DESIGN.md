@@ -248,13 +248,12 @@ AI 必须在每个阶段**持续感知剩余时间 + 团队意图**，动态调�
 - **输入**：上游 HTML 的内嵌 capture（`insight-brief.html` / `campaign-plan.html`）+ 物料门产物（`poster-<style>.html` / `poster.html` / `storyboard.html`）。
 - **输出**：`proposal.html`（统一 viewer，含 Storyboard 面板）+ `pitch-deck.html`（可配置 storyline，**主题匹配 poster + storyboard**）+ `prompt-pack.html`；**内嵌** poster 与 storyboard（由 `mediakit` 技能产出）。
 - **facilitate**：
-  1. **团队选 storyline**（S1 Classic / S2 Hero's Journey / S3 Big Reveal / S4 Demo / S5 Trailer）——决定 deck 的 signature；signature 取该 storyline 默认（AI）。
-  2. **团队选加分媒体**（歌曲/视频/图片/无）。
-  3. AI 决定视觉方向 + 一句话主张 + deck 主题（light/cream/dark，匹配所选海报风格 + storyboard 表面），并拼装 signature + deck（`data-storyline` 驱动，AUTO；**poster + storyboard 恒出现**：signature 全幅 + `visuals` 副 beat）。
-  4. **加分媒体（团队已选）**：AI 写 `prompt-pack.html`（Suno/Runway/GPT/Kimi 提示词脚本）→ 团队到工具站生成 → 拿回文件。
-  5. AI 把结果**按 storyline 分散嵌入对应 slide**（图→poster、视频→visuals/storyboard、歌→lyric）。
-  6. 团队 30″ 预演 + 微调；**storyboard 可升级**：把 `storyboard.html` 内的一条完整 prompt 带到 Kimi/GPT 生成单图，拿回替换 SVG 设计稿。
-- **capture**：`{storyline, include_poster, poster_style, signature, visuals, visual_direction, one_liner, bonus_media, tweaks}`（仅 `storyline` 与 `bonus_media` 为团队决策；`include_poster` 恒为 true，`visuals` 记录非 signature 的物料，其余为 AI 决定）。
+  1. **团队一次性选 storyline + 加分媒体（同一轮、同一菜单，一次回答两者）**：storyline（S1 Classic / S2 Hero's Journey / S3 Big Reveal / S4 Demo / S5 Trailer，选 1，决定 deck 的 signature；signature 取该 storyline 默认，AI）+ 加分媒体（歌曲/视频/图片/无）——**不拆成两轮**。
+  2. AI 决定视觉方向 + 一句话主张 + deck 主题（light/cream/dark，匹配所选海报风格 + storyboard 表面），并拼装 signature + deck（`data-storyline` 驱动，AUTO；**poster + storyboard 恒出现**：signature 全幅 + `visuals` 副 beat）。
+  3. **加分媒体（团队已选）**：AI 写 `prompt-pack.html`（Suno/Runway/GPT/Kimi 提示词脚本）→ 团队到工具站生成 → 拿回文件。
+  4. AI 把结果**按 storyline 分散嵌入对应 slide**（图→poster、视频→visuals/storyboard、歌→lyric）。
+  5. 团队 30″ 预演 + 微调；**storyboard 可升级**：把 `storyboard.html` 内的一条完整 prompt 带到 Kimi/GPT 生成单图，拿回替换 SVG 设计稿。
+- **capture**：`{storyline, include_poster, poster_style, signature, visuals, visual_direction, one_liner, bonus_media, tweaks}`（仅 `storyline` 与 `bonus_media` 为团队决策、**同一轮一起问**；`include_poster` 恒为 true，`visuals` 记录非 signature 的物料，其余为 AI 决定）。
 - **assemble（8 beats，主题匹配 poster + storyboard）**：title → context → insight → audience → **signature**（poster 全幅 / storyboard 全幅 16:9 / prototype / lyric）→ **visuals**（非 signature 物料的缩略卡）→ strategy → ask。
   - **poster beat**：内嵌 `poster-<style>.html?embed=1`，**完整展示**（按高度缩放、不裁切），旁列 campaign 文案。
   - **storyboard beat**：**全幅 16:9**，内嵌 `storyboard.html?embed=1`（主题与 deck 一致，融为一体）。

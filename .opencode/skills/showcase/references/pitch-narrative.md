@@ -71,10 +71,12 @@ One configurable `templates/pitch-deck.html` with all beats; `<body data-storyli
 
 ## Human decisions
 
-Exactly **two**:
+Exactly **two** — asked **together in ONE turn**:
 
 - Which **storyline** (S1–S5).
 - Whether to attempt **bonus media** (song / video / image / none) and which generated result to use.
+
+> Present both as a single menu; the team answers both at once — never split them into two turns.
 
 > The **signature element** (the storyline's default), the **visual direction**, the **one-liner**, and the **deck theme** are **AI-decided**; the **poster** and **storyboard** are always included.
 

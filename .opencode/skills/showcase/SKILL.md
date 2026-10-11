@@ -5,7 +5,7 @@ description: Run the SHOWCASE stage of the Ascentium mini-hackathon quest — th
 
 # Quest Showcase — the SHOWCASE stage (AUTO)
 
-The final stage. The **team makes two decisions — the storyline and whether to attempt bonus media**; the AI **decides everything else and builds the artifacts**. Mirrors the quest card's "★ Proposal Showcase — Showcase Report Agent (AUTO)".
+The final stage. The **team makes two choices — the storyline and whether to attempt bonus media — asked together in ONE turn**; the AI **decides everything else and builds the artifacts**. Mirrors the quest card's "★ Proposal Showcase — Showcase Report Agent (AUTO)".
 
 ## When to use
 
@@ -17,7 +17,7 @@ The final stage. The **team makes two decisions — the storyline and whether to
 - The captures embedded in `insight-brief.html`, `campaign-plan.html`.
 - **The media kit** — `poster-<style>.html` (+ `poster.html`) and `storyboard.html` from the `mediakit` stage.
 - **Resume (recover upstream).** If run on its own (`/showcase`), find the latest round `artifacts/Quest<ID>-*` and read those captures (plus `poster_style` from the `campaign-plan.html` capture) from that folder; if the round is unambiguous, state it and continue — ask only when genuinely ambiguous. If a capture is missing, say which and ask the team to run the missing stage first. **Media-kit fallback:** if no `poster-<style>.html` exists, build a **default poster (style A)**; if no `storyboard.html` exists, build a **default storyboard (16:9 paginated deck, inline SVG art)** — so the deck's visual beats are always present.
-- **Team decisions (only two): storyline** (S1–S5) and **bonus media** (song / video / image / none).
+- **Team choices (only two, asked together in one turn): storyline** (S1–S5) and **bonus media** (song / video / image / none).
 - **AI-decided** (never asked): the **signature element** (taken from the storyline's default), the **visual direction**, the **one-liner**, and the **deck theme** (matched to the poster style + the storyboard surface).
 
 ## Deck — the 8-beat shape (theme-matched)
@@ -45,21 +45,22 @@ The deck's theme is **set to match the chosen poster style and the storyboard su
 
 ## Flow (uses the `facilitation` engine)
 
-> **Choice-first**: the storyline and the bonus-media choice are presented as **menus** — the team selects (see `facilitation` → `option-menu.md`). Everything else the AI settles directly.
+> **Choice-first, ONE turn**: the storylines AND the bonus-media choice are presented **together in a single menu** — the team answers both at once (see `facilitation` → `option-menu.md`). Everything else the AI settles directly.
 
-1. **Storyline pick (team, 1′).** AI presents the **menu of 5 storylines** (see `references/pitch-narrative.md`): Classic / Hero's Journey / Big Reveal / Demo / Trailer — pick 1. This sets the deck's signature and opening order.
-2. **Bonus media (team, optional, 1′).** The team decides whether to attempt **bonus media** (song / video / image / none). The AI **always writes `prompt-pack.html`** (copy-paste prompts for Suno / Runway / GPT / Kimi) so the prompts are ready for the team to generate externally and bring back — even if they initially chose none.
-3. **AI settles the rest (no decision).** The AI takes the **signature element** from the storyline's default and **reuses the plan's `visual_direction` + `one_liner`** (`plan` in the `campaign-plan.html` capture — do not re-derive). The deck theme **matches the chosen poster style + the storyboard surface** (A→light · B→cream · C→dark); the accent comes from the quest card.
-4. **Build (AI, AUTO, 5′).** Assemble the deck (`pitch-deck.html` with `data-storyline` + `data-theme`) — **8 beats, visual-first, theme-matched**. The poster + storyboard beats embed the media-kit files (relative iframes).
-5. **Embed (AI).** Embed any returned media files into the matching beat.
-6. **Rehearse + media (team, 1′).** 30-second dry run + tweaks. Then — because the AI **cannot generate the media itself** — remind the team to **open `prompt-pack.html`** and run each ready-made prompt in its tool: **song → Suno · video → Runway Gen-3 · image / storyboard → GPT or Kimi**; the team brings the files back, and the AI embeds them (flip the matching `bonus_media` flag, then rebuild the proposal viewer). **Write `prompt-pack.html` now if the team initially chose none.** Do **not** default straight to "ready to submit" — the media reminder comes first.
+1. **Storyline + bonus media — ONE turn (team, 2′).** Present **ONE menu carrying BOTH choices together** — the **5 storylines** (pick 1: Classic / Hero's Journey / Big Reveal / Demo / Trailer, per `references/pitch-narrative.md`) **and** whether to attempt **bonus media** (song / video / image / none) — and the team replies to **both in the same answer**. **Never split them into two turns.** This one reply sets the signature and the media decision. The AI **always writes `prompt-pack.html`** (copy-paste prompts for Suno / Runway / GPT / Kimi) so the prompts are ready for the team to generate externally and bring back — even if they initially chose none.
+2. **AI settles the rest (no decision).** The AI takes the **signature element** from the storyline's default and **reuses the plan's `visual_direction` + `one_liner`** (`plan` in the `campaign-plan.html` capture — do not re-derive). The deck theme **matches the chosen poster style + the storyboard surface** (A→light · B→cream · C→dark); the accent comes from the quest card.
+3. **Build (AI, AUTO, 5′).** Assemble the deck (`pitch-deck.html` with `data-storyline` + `data-theme`) — **8 beats, visual-first, theme-matched**. The poster + storyboard beats embed the media-kit files (relative iframes).
+4. **Embed (AI).** Embed any returned media files into the matching beat.
+5. **Rehearse + media (team, 1′).** 30-second dry run + tweaks. Then — because the AI **cannot generate the media itself** — remind the team to **open `prompt-pack.html`** and run each ready-made prompt in its tool: **song → Suno · video → Runway Gen-3 · image / storyboard → GPT or Kimi**; the team brings the files back, and the AI embeds them (flip the matching `bonus_media` flag, then rebuild the proposal viewer). **Write `prompt-pack.html` now if the team initially chose none.** Do **not** default straight to "ready to submit" — the media reminder comes first.
 
 ## HITL checkpoints (mandatory)
 
-Exactly **two** team decisions:
+Exactly **two** choices — **presented together and answered in ONE turn**:
 
-- The team picks the **storyline**.
-- The team decides whether to attempt **bonus media** (and, later, which generated result to use).
+- The **storyline** (pick 1).
+- Whether to attempt **bonus media** (and, later, which generated result to use).
+
+> Ask them as a single menu; the team replies to both at once. Do not make the bonus-media choice a separate turn.
 
 Everything else is AI-decided: the **signature element** (the storyline's default), the **visual direction**, the **one-liner**, and the **deck theme**. The AI must not ask the team to choose any of these.
 

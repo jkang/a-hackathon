@@ -67,8 +67,8 @@ All three carry the **same** 9 sections. Vary: colour balance, typographic scale
 
 The tab page (`poster.html`) carries a **"Get a richer poster"** overlay (press **P**) with a **prompt per style**, keyed to the active tab.
 
-- **Content script, not a visual spec** — it lists what the poster must carry (masthead · name · slogan · proposition · the offer and its prices · 3 proof points · 4 numbers with sources · CTA + hashtag + URL · footer) and states the style's *job* as **context only**; art direction, layout, palette and typography are explicitly the other tool's call. Do not prescribe the visuals — that caps a stronger tool.
-- **Input hint (locked)** — both the overlay note and the prompt must say: best results come from feeding the tool **`campaign-plan.html`** first (add `insight-brief.html`). The prompt is also filled with the plan's values so it works standalone.
+- **The prompt** — a clean, complete brief asking a stronger tool for a richer poster in the chosen style: it lists what the poster must carry (masthead · name · slogan · proposition · the offer and its prices · 3 proof points · 4 numbers with sources · CTA + hashtag + URL · footer) and states the style as context. **No meta-commentary** — do not preface it with "content script only / don't design the visuals / not a visual spec".
+- **Input hint (locked)** — the **overlay note (above the prompt)** says: best results come from feeding the tool **`campaign-plan.html`** first (add `insight-brief.html`). The input hint is **not** part of the prompt; the prompt is also filled with the plan's values so it works standalone.
 - **Format (locked)** — one self-contained **`.html`**; **HTML only, never PPT / PPTX / Keynote / Slides**.
 
 Fill `{{RICHER_PROMPT_A|B|C}}` when building the poster set; the standalone `poster-a|b|c.html` pages stay clean (no overlay).
