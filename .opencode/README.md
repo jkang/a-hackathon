@@ -99,7 +99,7 @@ Legend — **teal diamonds = HITL (the team decides)** · orange boxes = the AI 
 | 2–10′ | **Insight** | 30-second scout summary → research (or reuse the card) → living brief → AI curates market trends (tagged by kind) → ~6–8 segments → derives focus bundles + drafts ~6 key insights (segment × moment × trend) | segments (2–3), then key insights (2–3) |
 | 10–26′ | **Plan** | Diverge ~6 ideas from the team's keywords → build one complete campaign + embedded hero visual + the pilot forecast | concept keywords (1–2) |
 | 26–32′ | **Media Kit** | AI builds 3 poster styles + the storyboard (SVG design draft + AI-upgrade prompt) | pick 1 poster style |
-| 32–38′ | **Showcase** | Storyline + bonus-media menus; AI settles signature · direction · one-liner · theme (poster + storyboard always in the dark deck) → build the proposal + deck (+ prompt-pack) | storyline · bonus media |
+| 32–38′ | **Showcase** | Storyline + bonus-media menus; AI settles signature · direction · one-liner · theme (poster + storyboard always in the theme-matched deck) → build the proposal + deck (+ prompt-pack) | storyline · bonus media |
 | 38–40′ | **Converge** | Package and confirm | confirm |
 
 **At every stage:** `research → menu → team picks → capture (HITL stop) → assemble → next stage`. **One menu per turn** — present it, then stop and wait. Announce a 3-minute and 1-minute warning, then move.

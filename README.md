@@ -69,7 +69,7 @@ runs from this folder. Full manual: [`.opencode/README.md`](./.opencode/README.m
 | `insight` | Insight stage | `insight-brief.html` — market trends → segments → key insights (team's two picks) |
 | `plan` | Plan stage | `campaign-plan.html` — one complete campaign built from the team's concept keywords (incl. the pilot forecast) |
 | `mediakit` | Create (media kit) | `poster.html` + `poster-a/b/c.html` (three styles) · `storyboard.html` (6-panel sheet; SVG design draft + AI-upgrade prompt) |
-| `showcase` | Showcase (AUTO) | `proposal.html` · `pitch-deck.html` · `prompt-pack.html` (dark deck embedding the poster + storyboard) |
+| `showcase` | Showcase (AUTO) | `proposal.html` · `pitch-deck.html` · `prompt-pack.html` (theme-matched deck embedding the poster + storyboard) |
 | `ascentium-brand` | support | Design tokens + brand rules (single source of truth: `brand-guideline.md`) |
 | `facilitation` | support | Co-creation protocols, pacing, scripts, option menu, capture contract |
 | `agent-reach` | support | Live research (used by `insight`) |

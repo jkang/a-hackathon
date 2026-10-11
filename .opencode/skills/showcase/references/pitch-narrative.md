@@ -20,13 +20,18 @@ The deck is the **Showcase Report Agent (AUTO)** output. To avoid "every group s
 
 > **Both assets always appear.** The storyline's signature is one full beat; the `visuals` beat carries the kit asset(s) that aren't the signature. The poster and the storyboard are therefore in every deck.
 
-## Baseline theme — dark midnight
+## Theme — matched to the poster + storyboard
 
-The deck uses a **dark midnight baseline** (the same family as the storyboard viewer: `--deck:#0B1211`, `--card:#101B19`, `--line:#1F2E2C`, cream text, accent from the quest card). This makes the deck's background match the poster and the storyboard, and frames them with impact:
+The deck is themed to **match the chosen poster style and the storyboard surface**, so its background reads as one continuous canvas with the poster and the storyboard (immersive during the pitch). Set `data-theme` on the deck body:
 
-- **Poster beat** — the chosen style (`poster-<style>.html`) shown **complete** (scaled to fit height, never cropped) on a framed card with an accent glow, beside the campaign copy.
-- **Storyboard beat** — **full-bleed 16:9**, embedding `storyboard.html` (which is itself dark, so it blends).
-- **`visuals` beat** — thumbnail cards of the remaining kit asset(s) (poster thumb / storyboard thumb).
+| `data-theme` | Background | Matches |
+|---|---|---|
+| `light` | warm near-white (`#F4F1EA`) | poster Style A · a light storyboard |
+| `cream` | cream (`#FFF6EC`) | poster Style B |
+| `dark` | midnight (`#0F1514`) | poster Style C · a dark storyboard |
+
+- The accent comes from the quest card (`--accent` + tints, injected on `<body>`); optional inline `--d-*` overrides tune the surfaces.
+- The **poster beat** embeds `poster-<style>.html?embed=1` (embed mode drops the poster's page margin) and the **storyboard beat** embeds `storyboard.html?embed=1`, so both fill their frames on the deck background.
 
 ## Beat library (visual-first)
 
@@ -62,7 +67,7 @@ The AI writes the prompts (see `references/media-prompts.md` + `templates/prompt
 
 ## The deck template
 
-One configurable `templates/pitch-deck.html` with all beats; the `<body data-storyline="...">` selects the order (8 beats). Single-file, full-screen auto-scale, ←/→ nav, F fullscreen, dark midnight baseline.
+One configurable `templates/pitch-deck.html` with all beats; `<body data-storyline="..." data-theme="light|cream|dark">` selects the order (8 beats) and the theme. Single-file, full-screen auto-scale, ←/→ nav, F fullscreen.
 
 ## Human decisions
 

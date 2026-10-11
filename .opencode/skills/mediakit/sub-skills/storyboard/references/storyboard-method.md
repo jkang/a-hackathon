@@ -32,6 +32,8 @@ Default chapter arc (map to the campaign): **I. The Hook** (scenes 1–2) → **
 
 `accent` (the 4 tokens) still comes from the quest card. Any omitted key falls back to a sensible default for the surface.
 
+> **Match the poster style.** Set `theme.surface` to the chosen poster style's surface (A → light, B → light/cream, C → dark) so the **showcase deck** can inherit the same background and the pitch stays immersive.
+
 ## 4. The spec (`media/storyboard/storyboard.json`)
 
 ```json

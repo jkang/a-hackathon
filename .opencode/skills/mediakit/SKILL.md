@@ -48,4 +48,4 @@ Write into the current round folder `artifacts/Quest<ID>-<NN>/` (see `quest-card
 
 ## Brand
 
-Uses `ascentium-brand`. The accent comes from the quest card's `accent` token (orange is the brand default; teal for quests that declare it) — never a self-invented colour. The poster follows the plan's `visual_direction` + `one_liner`; the deck (later) reuses both assets with the same accent and a dark midnight baseline.
+Uses `ascentium-brand`. The accent comes from the quest card's `accent` token (orange is the brand default; teal for quests that declare it) — never a self-invented colour. The poster follows the plan's `visual_direction` + `one_liner`; the storyboard's theme matches the chosen poster style's surface (A/B→light, C→dark), so the showcase deck can inherit the same background.

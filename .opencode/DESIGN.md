@@ -62,7 +62,7 @@ AI 给脚手架/问题  →  团队发散(人人出点子)  →  团队收敛(�
 | 3 | `plan` | 阶段技能 | insight | campaign-plan.html |
 | 3b | `mediakit` | 阶段技能（Create · 媒体物料包） | plan | poster.html（+poster-a/b/c）+ storyboard.html |
 | 4 | ~~`prove`~~（休眠） | 阶段技能（休眠·保留） | plan | （pilot 预测已并入 `campaign-plan.html`） |
-| 5 | `showcase` | 阶段技能 | plan + mediakit | pitch-deck.html + prompt-pack.html（内嵌 poster + storyboard，深色基线） |
+| 5 | `showcase` | 阶段技能 | plan + mediakit | pitch-deck.html + prompt-pack.html（内嵌 poster + storyboard，主题匹配二者） |
 | 6 | `facilitator`（Agent） | 编排 | 全部 | 40 分钟一键串场 |
 | 7 | `README.md` | 说明 | — | Quest Playbook（交付物↔技能↔模板） |
 
@@ -246,23 +246,23 @@ AI 必须在每个阶段**持续感知剩余时间 + 团队意图**，动态调�
 ### 7.4 `showcase`（呈现门 · 8 分钟 · AUTO）＝题卡「Showcase Report Agent (AUTO)」
 - **目标**：**多形态**呈现——5 种 storyline + signature element 承载核心创意 + 可选加分媒体（歌曲/视频/图片）。避免十组同一模板。
 - **输入**：上游 HTML 的内嵌 capture（`insight-brief.html` / `campaign-plan.html`）+ 物料门产物（`poster-<style>.html` / `poster.html` / `storyboard.html`）。
-- **输出**：`proposal.html`（统一 viewer，含 Storyboard 面板）+ `pitch-deck.html`（可配置 storyline，**深色午夜基线**）+ `prompt-pack.html`；**内嵌** poster 与 storyboard（由 `mediakit` 技能产出）。
+- **输出**：`proposal.html`（统一 viewer，含 Storyboard 面板）+ `pitch-deck.html`（可配置 storyline，**主题匹配 poster + storyboard**）+ `prompt-pack.html`；**内嵌** poster 与 storyboard（由 `mediakit` 技能产出）。
 - **facilitate**：
   1. **团队选 storyline**（S1 Classic / S2 Hero's Journey / S3 Big Reveal / S4 Demo / S5 Trailer）——决定 deck 的 signature；signature 取该 storyline 默认（AI）。
   2. **团队选加分媒体**（歌曲/视频/图片/无）。
-  3. AI 决定视觉方向 + 一句话主张 + deck 主题（深色午夜基线，匹配 storyboard 观看器），并拼装 signature + deck（`data-storyline` 驱动，AUTO；**poster + storyboard 恒出现**：signature 全幅 + `visuals` 副 beat）。
+  3. AI 决定视觉方向 + 一句话主张 + deck 主题（light/cream/dark，匹配所选海报风格 + storyboard 表面），并拼装 signature + deck（`data-storyline` 驱动，AUTO；**poster + storyboard 恒出现**：signature 全幅 + `visuals` 副 beat）。
   4. **加分媒体（团队已选）**：AI 写 `prompt-pack.html`（Suno/Runway/GPT/Kimi 提示词脚本）→ 团队到工具站生成 → 拿回文件。
   5. AI 把结果**按 storyline 分散嵌入对应 slide**（图→poster、视频→visuals/storyboard、歌→lyric）。
   6. 团队 30″ 预演 + 微调；**storyboard 可升级**：把 `storyboard.html` 内的一条完整 prompt 带到 Kimi/GPT 生成单图，拿回替换 SVG 设计稿。
 - **capture**：`{storyline, include_poster, poster_style, signature, visuals, visual_direction, one_liner, bonus_media, tweaks}`（仅 `storyline` 与 `bonus_media` 为团队决策；`include_poster` 恒为 true，`visuals` 记录非 signature 的物料，其余为 AI 决定）。
-- **assemble（8 beats，深色午夜基线）**：title → context → insight → audience → **signature**（poster 全幅 / storyboard 全幅 16:9 / prototype / lyric）→ **visuals**（非 signature 物料的缩略卡）→ strategy → ask。
+- **assemble（8 beats，主题匹配 poster + storyboard）**：title → context → insight → audience → **signature**（poster 全幅 / storyboard 全幅 16:9 / prototype / lyric）→ **visuals**（非 signature 物料的缩略卡）→ strategy → ask。
   - **poster beat**：内嵌 `poster-<style>.html`，**完整展示**（按高度缩放、不裁切），旁列 campaign 文案。
   - **storyboard beat**：**全幅 16:9**，内嵌 `storyboard.html`（自身深色，与 deck 融为一体）。
   - **visuals beat**：填充 `{{VIS_POSTER}}` / `{{VIS_STORYBOARD}}`（Classic/Big Reveal → storyboard；Hero's Journey → poster；Demo/Trailer → 两者）。
   - **proposal.html**：统一 viewer（侧栏导航：Executive Summary · Insight Brief · Plan & Offering · Campaign Poster · **Storyboard** · Pitch Deck · Media Prompt Pack）。
 - **signature element（创意载体）**：poster（整屏海报，完整展示）/ storyboard（6 面板故事板，全幅 16:9）/ prototype（手机 mock）/ lyric（anthem 歌词）——对应 5 storylines；`visuals` 副 beat 承载其余物料。
 - **加分媒体工具**：歌曲 **Suno**、视频 **Runway Gen-3**、图片 **GPT**、故事板 **Kimi / GPT**（每类 1 主 1 备）。
-- **吸收/改造**：`pitch-narrative.md`（5 storylines + beat 库 + 深色基线）、`media-prompts.md`（工具指南）。deck 直接由 `templates/pitch-deck.html` 产出；proposal 由 `templates/proposal.html` + `scripts/build-proposal.py` 装配；poster/storyboard 本体见 `mediakit` 技能。
+- **吸收/改造**：`pitch-narrative.md`（5 storylines + beat 库 + 主题匹配）、`media-prompts.md`（工具指南）。deck 直接由 `templates/pitch-deck.html` 产出；proposal 由 `templates/proposal.html` + `scripts/build-proposal.py` 装配；poster/storyboard 本体见 `mediakit` 技能。
 
 ---
 
@@ -318,7 +318,7 @@ AI 必须在每个阶段**持续感知剩余时间 + 团队意图**，动态调�
 │   │   └── sub-skills/  poster（海报 3 风格）· storyboard（6 面板看板 → storyboard.html）
 │   ├── prove/                       # 论证门（休眠：pilot 预测已并入 plan；保留备用）
 │   │   └── sub-skills/  campaign-metrics · data-visualizer-pro（保留·休眠，不调用）
-│   ├── showcase/                    # 呈现门（AUTO；深色基线 deck + proposal + prompt-pack）
+│   ├── showcase/                    # 呈现门（AUTO；主题匹配 poster + storyboard 的 deck + proposal + prompt-pack）
 │   ├── agent-reach/                 # 实时研究（insight 调用）
 │   ├── facilitation/                # 共创引擎（含 option-menu）
 │   └── ascentium-brand/             # 品牌执行器（tokens + 规则 + brand-guideline.md）

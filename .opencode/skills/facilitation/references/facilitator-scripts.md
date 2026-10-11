@@ -22,7 +22,7 @@ Per stage:
 - **Insight — key insights (decision 2)**: "Here are **~6 insights**, each a **segment × moment × trend** tension. **Pick 2–3 to carry into the plan** — or `+1` of your own."
 - **Plan — concept keywords (the single input, open ask)**: "Give me **1–2 concept keywords** to steer the campaign — e.g. *national pride · first-timers · family · creators · collectors · eco/cause · nostalgia · underdogs · belonging · unmissable* — or your own. I'll run the creative methods on them and build one complete campaign." (This is an example-led open ask, not a pick menu.)
 - **Plan — pilot forecast (part of the build, no menu)**: the AI produces it as part of the plan — just recap: "Here's the pilot forecast the AI derived from our insights + plan — every number shows its benchmark → assumption → formula."
-- **Showcase stage**: "**5 storylines** on the menu — **pick 1**. Bonus media: **song / video / image / none** — pick one. The AI settles the signature, direction, and one-liner; the poster + storyboard are always included, on a dark deck."
+- **Showcase stage**: "**5 storylines** on the menu — **pick 1**. Bonus media: **song / video / image / none** — pick one. The AI settles the signature, direction, and one-liner; the poster + storyboard are always included, on a theme-matched deck."
 
 **Menu opener (pattern):**
 

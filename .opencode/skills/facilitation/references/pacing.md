@@ -7,7 +7,7 @@ The default **happy path**. It is a suggestion, not a script (see Prime Directiv
 | 0–2′   | Kick-off      | AI    | confirm brief (mission · 3 stages · research time) → wait for go-ahead → 30s scout summary + first question | —                               |
 | 2–8′   | Insight stage  | AI    | research → living brief → merged market trends + ~6–8 segments → focus bundles + ~6 key insights | segments (2–3), then key insights (2–3) |
 | 8–30′  | Creative stage | AI    | ask concept keywords → diverge ~6 ideas → build 1 complete campaign + visual + the pilot forecast | concept keywords (1–2) |
-| 30–38′ | Showcase stage | human | build deck (≤ 8 slides) + proposal (poster + storyboard, dark deck) | storyline + bonus media         |
+| 30–38′ | Showcase stage | human | build deck (≤ 8 slides) + proposal (poster + storyboard, theme-matched deck) | storyline + bonus media         |
 | 38–40′ | Converge      | AI    | package and submit                        | confirm                         |
 
 > The run-sheet allows "45′ hands-on + 10′ converge". This design uses **40 minutes** as the creative core and leaves 5–10 min as a submission buffer.

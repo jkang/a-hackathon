@@ -169,6 +169,9 @@
     html,body{background:#fff;padding:0;display:block;}
     .poster{box-shadow:none;margin:0 auto;width:100%;}
   }
+  /* embedded mode (?embed=1) — no page chrome, so the host deck shows only the poster */
+  body.embed{background:transparent;padding:0;display:block;}
+  body.embed .poster{box-shadow:none;width:100%;max-width:none;}
 </style>
 </head>
 <body data-quest="{{QUEST}}" style="--accent:{{ACCENT}};--accent-tint:{{ACCENT_TINT}};--accent-line:{{ACCENT_LINE}};--accent-deep:{{ACCENT_DEEP}};">
@@ -295,5 +298,6 @@
   </div>
 </article>
 
+<script>if(/[?&]embed\b/.test(location.search))document.body.classList.add('embed');</script>
 </body>
 </html>
