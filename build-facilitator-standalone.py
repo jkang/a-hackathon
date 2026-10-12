@@ -17,8 +17,9 @@ V2 = os.path.join(ROOT, "demo-examples", "QuestB-01")
 OUT = os.path.join(ROOT, "facilitator_guide_standalone.html")
 
 # the seven panels embedded in the guide (title -> file)
-DEMOS = ["insight-brief.html", "campaign-plan.html", "poster.html",
-         "storyboard.html", "proposal.html", "pitch-deck.html", "prompt-pack.html"]
+DEMOS = ["insight-brief.html", "campaign-plan.html",
+         "PANDA-STUDIO-campaign-poster.html", "PANDA-STUDIO-campaign-storyboard.html",
+         "proposal.html", "pitch-deck.html", "prompt-pack.html"]
 
 def rd(p):
     return io.open(p, encoding="utf-8").read()
@@ -37,6 +38,15 @@ INJECT = ("<script>(function(){function h(){try{parent.postMessage("
           "catch(e){}}window.addEventListener(\"load\",h);window.addEventListener(\"resize\",h);"
           "setInterval(h,1500);})();</scr" + "ipt>")
 
+# the richer (= AI-upgraded) media-kit assets the demo deck embeds. srcdoc
+# iframes have no query string, so their ?embed=1 check never fires — force it.
+EMBED_GUARD = ("<script>if(/[?&]embed\\b/.test(location.search))"
+               "document.body.classList.add('embed');</script>")
+
+def force_embed(s):
+    return s.replace(EMBED_GUARD,
+                     "<script>document.body.classList.add('embed');</script>")
+
 
 def prep(name):
     """Return a demo's HTML with its own sub-references inlined / neutralised."""
@@ -51,7 +61,12 @@ def prep(name):
                       "/* single-file build: styles inlined */")
 
     if name == "pitch-deck.html":
-        # current structure: embed-mode iframes → inline the poster + storyboard
+        # current structure: embed-mode iframes → inline the richer poster + storyboard
+        c = c.replace('src="PANDA-STUDIO-campaign-poster.html?embed=1"',
+                      'srcdoc="' + esc(force_embed(richer_poster)) + '"')
+        c = c.replace('src="PANDA-STUDIO-campaign-storyboard.html?embed=1"',
+                      'srcdoc="' + esc(force_embed(richer_board)) + '"')
+        # default media-kit files (kept for safety)
         c = c.replace('src="poster-a.html?embed=1"',
                       'srcdoc="' + esc(posters["a"]) + '"')
         c = c.replace('src="storyboard.html?embed=1"',
@@ -73,17 +88,19 @@ def prep(name):
         # Depth here is one extra srcdoc layer, hence double esc().
         c = c.replace('href=&quot;poster-a.html&quot;', 'href=&quot;#&quot;')
         c = c.replace('src=&quot;poster-a.html?embed=1&quot;',
-                      'srcdoc=&quot;' + esc(esc(posters["a"])) + '&quot;')
+                      'srcdoc=&quot;' + esc(esc(force_embed(posters["a"]))) + '&quot;')
         c = c.replace('src=&quot;storyboard.html?embed=1&quot;',
-                      'srcdoc=&quot;' + esc(esc(storyboard)) + '&quot;')
+                      'srcdoc=&quot;' + esc(esc(force_embed(storyboard))) + '&quot;')
         c = c.replace('src=&quot;poster-a.html&quot;',
-                      'srcdoc=&quot;' + esc(esc(posters["a"])) + '&quot;')
+                      'srcdoc=&quot;' + esc(esc(force_embed(posters["a"]))) + '&quot;')
 
     return c.replace("</body>", INJECT + "\n</body>")
 
 
 posters = {k: rd(os.path.join(V2, "poster-%s.html" % k)) for k in "abc"}
 storyboard = rd(os.path.join(V2, "storyboard.html"))
+richer_poster = rd(os.path.join(V2, "PANDA-STUDIO-campaign-poster.html"))
+richer_board = rd(os.path.join(V2, "PANDA-STUDIO-campaign-storyboard.html"))
 
 guide = rd(GUIDE)
 
