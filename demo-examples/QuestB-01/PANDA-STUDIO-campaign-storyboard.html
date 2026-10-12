@@ -69,6 +69,11 @@ html,body{height:100%;background:#EFE7D6;overflow:hidden;font-family:"Helvetica 
 .scene .act .k{font-size:9.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#FFC93C;}
 .scene .act .a{margin-top:4px;font-size:12.5px;font-weight:700;line-height:1.4;}
 .scene .act .e{margin-top:3px;font-size:10px;color:#9FC2BB;line-height:1.45;}
+/* embedded mode (?embed=1) — the host deck frames the stage; hide the outer chrome */
+body.embed{background:transparent;}
+body.embed #stage{border-radius:0;box-shadow:none;}
+body.embed #chrome{display:none;}
+body.embed .slide{bottom:0;}
 </style></head>
 <body>
 <div id="viewport"><div id="stage">
@@ -228,5 +233,6 @@ html,body{height:100%;background:#EFE7D6;overflow:hidden;font-family:"Helvetica 
   addEventListener('resize',fit); fit(); go(0);
   window.__go=go;
 })();
+if(/[?&]embed\b/.test(location.search))document.body.classList.add('embed');
 </script>
 </body></html>

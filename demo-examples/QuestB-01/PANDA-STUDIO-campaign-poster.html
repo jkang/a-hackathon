@@ -83,6 +83,10 @@
   .foot .p{font-size:12px;font-weight:700;}
   .foot .s{font-size:10.5px;color:var(--mut);text-align:right;line-height:1.6;}
 
+  /* embedded mode (?embed=1) — the host deck renders the poster; drop the outer chrome */
+  body.embed{background:transparent;padding:0;display:block;}
+  body.embed .poster{box-shadow:none;border-radius:0;}
+
   @media print{ html,body{background:#fff;padding:0;display:block;} .poster{box-shadow:none;margin:0 auto;width:100%;border-radius:0;} @page{size:A3;margin:8mm;} }
 </style>
 </head>
@@ -161,5 +165,6 @@
   </footer>
 
 </article>
+<script>if(/[?&]embed\b/.test(location.search))document.body.classList.add('embed');</script>
 </body>
 </html>
