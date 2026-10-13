@@ -117,7 +117,7 @@
     <div class="logo">Ascentium<span>.</span></div>
     <nav>
       <a href="#duty">职责</a><a href="#what">是什么</a><a href="#tree">目录</a><a href="#usage">用法</a>
-      <a href="#install">安装</a><a href="#facilitator">现场</a><a href="#tips">tips</a><a href="#prep">行前准备</a>
+      <a href="#install">安装</a><a href="#facilitator">现场</a><a href="#tips">tips</a><a href="#prep">行前准备</a><a href="#scripts">话术</a>
     </nav>
   </div>
 </div>
@@ -6356,6 +6356,846 @@ opencode</code></pre>
         <li><b>小道具</b>：便签、白板笔、计时牌；如需抽签，准备抽签箱与签条。</li>
         <li><b>提交准备</b>：共享文件夹 / 提交通道二维码提前就绪。</li>
       </ul>
+    </div>
+
+    <h2 id="scripts" style="margin-top:30px;">两条题的 Facilitator 话术（双语 · 直接可读）</h2>
+    <div class="note"><b>用法</b>：两条题各配一份<b>双语话术</b>——开场、流程介绍、Insight / Plan / Media Kit / Showcase 的「这一步在做什么」与「团队需要选择什么」，Showcase 末尾的<b>加分媒体创作引导话术</b>，以及参考附录（受众与洞察候选）。下方直接内嵌预览；点「打开 ↗」可在新标签查看完整可视化版本，供 Facilitator 现场照读。</div>
+
+    <div class="demo">
+      <div class="cap"><span>① Quest A · Doha 2030</span><span class="file">doha-quest-facilitator-script.html</span></div>
+      <iframe data-auto srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;title&gt;Doha 2030 · Quest A · Facilitator Script · Ascentium Mini-Hackathon&lt;/title&gt;
+&lt;style&gt;
+  :root{
+    --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
+    --line:#E4E8E7; --bg:#F7F6F4; --card:#FFFFFF; --mut:#5A6663;
+    --accent:#FF6611; --accent-tint:#FFF0E7; --accent-line:#FFD1B8; --accent-deep:#B24000;
+    --zh-bg:#E6F2F1; --zh-fg:#05554F; --zh-line:#BFDEDA;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:&quot;Poppins&quot;,&quot;Noto Sans SC&quot;,&quot;PingFang SC&quot;,&quot;Microsoft YaHei&quot;,Arial,sans-serif;
+       background:var(--bg);color:var(--ascentium-midnight);line-height:1.7;-webkit-font-smoothing:antialiased;}
+  a{color:var(--accent);}
+
+  .topbar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);
+          border-bottom:1px solid var(--line);}
+  .topbar .in{display:flex;align-items:center;gap:14px;padding:12px 32px;flex-wrap:wrap;}
+  .logo{font-weight:800;font-size:18px;} .logo span{color:var(--accent);}
+  .topbar .back{margin-left:auto;font-size:12px;font-weight:600;color:var(--mut);text-decoration:none;
+        border:1px solid var(--line);border-radius:999px;padding:5px 13px;background:#fff;}
+  .topbar .back:hover{border-color:var(--accent-line);color:var(--accent);background:var(--accent-tint);}
+
+  .page{max-width:1000px;margin:0 auto;padding:34px 32px 84px;}
+  header.hero{border-bottom:3px solid var(--accent);padding-bottom:18px;}
+  .tag{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);}
+  header.hero h1{font-size:33px;font-weight:800;letter-spacing:-.02em;margin-top:6px;}
+  header.hero p{font-size:14px;color:var(--mut);margin-top:8px;}
+
+  .toc{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px;}
+  .toc a{font-size:12px;font-weight:600;color:var(--mut);text-decoration:none;border:1px solid var(--line);
+        border-radius:999px;padding:4px 12px;background:#fff;}
+  .toc a:hover{border-color:var(--accent-line);color:var(--accent);background:var(--accent-tint);}
+
+  main{margin-top:6px;}
+  h2{font-size:20px;font-weight:800;margin-top:34px;padding:12px 16px;background:var(--accent-tint);
+     border:1px solid var(--accent-line);border-radius:12px;color:var(--ascentium-midnight);scroll-margin-top:72px;}
+  h3{font-size:15px;font-weight:800;margin-top:22px;color:var(--accent-deep);letter-spacing:.01em;}
+  h4{font-size:14px;font-weight:800;margin-top:18px;color:var(--ascentium-midnight);}
+
+  blockquote{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;
+             margin-top:10px;box-shadow:0 1px 2px rgba(15,21,20,.03);}
+  blockquote p{margin:8px 0;font-size:14px;}
+  blockquote p:first-child{margin-top:0;}
+  blockquote p:last-child{margin-bottom:0;}
+  blockquote p.lang-en,blockquote p.lang-zh{background:transparent;}
+
+  .lang-label{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:10.5px;font-weight:800;
+        letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep);background:var(--accent-tint);
+        border:1px solid var(--accent-line);border-radius:999px;padding:3px 12px;}
+  .lang-label.zh{color:var(--zh-fg);background:var(--zh-bg);border-color:var(--zh-line);}
+
+  .tag{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+       border-radius:6px;padding:2px 8px;margin-right:8px;vertical-align:1px;}
+  p.lang-en .tag{background:var(--accent-tint);color:var(--accent-deep);}
+  p.lang-zh .tag{background:var(--zh-bg);color:var(--zh-fg);}
+  header.hero .tag{background:none;padding:0;margin:0;}
+
+  .facilitator-note{background:#FAFBFA;border:1px dashed var(--line);border-radius:12px;padding:12px 16px;
+        margin-top:12px;font-size:13px;color:#2B3A38;}
+  .facilitator-note .fn-tag{display:block;font-size:10px;font-weight:800;letter-spacing:.12em;
+        text-transform:uppercase;color:var(--accent);margin-bottom:4px;}
+
+  ul,ol{margin:10px 0 0 0;padding-left:22px;}
+  li{margin:7px 0;font-size:14px;}
+  li&gt;p{margin:4px 0;}
+  p{font-size:14px;}
+  hr{border:none;border-top:1px dashed var(--line);margin:28px 0;}
+  strong{color:var(--ascentium-midnight);}
+  code{font-family:&quot;SF Mono&quot;,Consolas,Menlo,monospace;font-size:12.5px;background:var(--accent-tint);
+       color:var(--accent-deep);border-radius:5px;padding:1px 6px;}
+
+  footer{margin-top:44px;border-top:1px dashed var(--line);padding-top:14px;font-size:11px;color:#9AA5A2;}
+
+  @media (max-width:760px){
+    .page{padding:24px 18px 64px;}
+    header.hero h1{font-size:26px;}
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class=&quot;topbar&quot;&gt;
+  &lt;div class=&quot;in&quot;&gt;
+    &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+    &lt;a class=&quot;back&quot; href=&quot;facilitator_guide.html&quot;&gt;← Facilitator Guide&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;page&quot;&gt;
+  &lt;header class=&quot;hero&quot;&gt;
+    &lt;div class=&quot;tag&quot;&gt;Facilitator Script · Quest A&lt;/div&gt;
+    &lt;h1&gt;Doha 2030 · Quest A&lt;/h1&gt;
+    &lt;p&gt;Short bilingual facilitator script · 简短双语话术 · 门票与球迷互动营销&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;nav class=&quot;toc&quot;&gt;&lt;a href=&quot;#1-short-opening&quot;&gt;1. Short Opening / 简短开场&lt;/a&gt;&lt;a href=&quot;#2-short-process-introduction&quot;&gt;2. Short Process Introduction / 简短流程介绍&lt;/a&gt;&lt;a href=&quot;#transition&quot;&gt;Transition / 转场&lt;/a&gt;&lt;a href=&quot;#3-insight-short-bilingual-version-insight&quot;&gt;3. Insight — Short Bilingual Version / Insight 双语短版&lt;/a&gt;&lt;a href=&quot;#4-plan-short-bilingual-version&quot;&gt;4. Plan — Short Bilingual Version&lt;/a&gt;&lt;a href=&quot;#5-media-kit-short-bilingual-version-media-kit&quot;&gt;5. Media Kit — Short Bilingual Version / Media Kit 双语短版&lt;/a&gt;&lt;a href=&quot;#6-showcase-short-bilingual-version&quot;&gt;6. Showcase — Short Bilingual Version&lt;/a&gt;&lt;a href=&quot;#bilingual-reference-appendix-quest-a-specifics&quot;&gt;Bilingual Reference Appendix (Quest A Specifics)&lt;/a&gt;&lt;/nav&gt;
+
+  &lt;main&gt;
+&lt;h2 id=&quot;1-short-opening&quot;&gt;1. Short Opening / 简短开场&lt;/h2&gt;
+&lt;div class=&quot;lang-label&quot;&gt;English&lt;/div&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;Welcome, everyone.&lt;br&gt;
+Today, we will work with AI to co-create a ticketing and fan engagement campaign idea for the Doha 2030 Asian Games and turn it into a clear business proposal.&lt;br&gt;
+AI will help us research, benchmark, develop options and produce the campaign materials. The team will make the key strategic and creative decisions.&lt;br&gt;
+Our challenge is to turn Asia’s sports enthusiasm into stadium attendance. We will select two Asian pilot markets and develop a three-month pilot (with a $1.5M budget) that can prove how to fill the stands and pave the way to bringing 400,000 Asian fans to Doha.&lt;br&gt;
+At the end, we will bring the complete idea together in a five-minute Showcase and present it to the decision-makers.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;lang-label zh&quot;&gt;中文&lt;/div&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;欢迎大家。&lt;br&gt;
+今天，我们会与 AI 一起为 Doha 2030 亚运会共创一个门票与球迷互动（Ticketing &amp;amp; Fan Engagement）的 Campaign idea，并把它发展成一份清晰的商业提案。&lt;br&gt;
+AI 会帮助我们完成对标研究、生成选项和制作 Campaign 物料。团队负责作出关键的战略与创意决策。&lt;br&gt;
+我们的挑战，是把全亚洲对体育的热情转化为多哈赛场的上座率。我们将选择两个亚洲试点市场，并设计一个预算为 150 万美元的三个月试点计划，用来验证如何填满看台，并为最终吸引 40 万亚洲球迷赴多哈观赛打下基础。&lt;br&gt;
+最后，我们会把完整方案整合成一个五分钟的 Showcase，向决策者进行展示。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class=&quot;facilitator-note&quot;&gt;&lt;span class=&quot;fn-tag&quot;&gt;Facilitator note / 主持提示：&lt;/span&gt;Keep this opening to approximately 45 seconds. / 将开场控制在约 45 秒。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;2-short-process-introduction&quot;&gt;2. Short Process Introduction / 简短流程介绍&lt;/h2&gt;
+&lt;div class=&quot;lang-label&quot;&gt;English&lt;/div&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;We will move through four steps: Insight, Plan, Media Kit and Showcase.&lt;br&gt;
+&lt;strong&gt;First, Insight.&lt;/strong&gt; AI will research the Hangzhou 2023 success and Nagoya 2026 lessons, analyze audience segments, and present insights. We will select the priority Asian audiences and strategic insights that give the campaign the strongest foundation.&lt;br&gt;
+&lt;strong&gt;Second, Plan.&lt;/strong&gt; We will turn those choices into a campaign concept, offer, channel approach, two pilot markets, and a three-month pilot plan with benchmark-backed metrics.&lt;br&gt;
+&lt;strong&gt;Third, Media Kit.&lt;/strong&gt; AI will create campaign poster options and a storyboard. We will select the poster direction that communicates the idea most clearly.&lt;br&gt;
+&lt;strong&gt;Finally, Showcase.&lt;/strong&gt; We will organise the proposal into a clear presentation, select the storyline and decide whether an additional media element will strengthen the pitch.&lt;br&gt;
+At each decision point, review the options, discuss the evidence and select the combination that best supports the campaign.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;lang-label zh&quot;&gt;中文&lt;/div&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;整个流程包括四个步骤：Insight、Plan、Media Kit 和 Showcase。&lt;br&gt;
+&lt;strong&gt;第一步，Insight。&lt;/strong&gt; AI 会研究杭州 2023 的成功经验与名古屋 2026 的教训，分析受众并提供洞察选项。我们会选择能够为 Campaign 建立最强基础的亚洲目标受众和战略洞察。&lt;br&gt;
+&lt;strong&gt;第二步，Plan。&lt;/strong&gt; 我们会把这些选择发展成 Campaign concept、Offer、渠道方案、两个试点市场以及基于数据测算的三个月试点计划。&lt;br&gt;
+&lt;strong&gt;第三步，Media Kit。&lt;/strong&gt; AI 会生成 Campaign Poster 选项和 Storyboard。我们会选择最能清楚表达 Campaign idea 的 Poster 方向。&lt;br&gt;
+&lt;strong&gt;最后，Showcase。&lt;/strong&gt; 我们会把方案整理成一个清晰的演示故事，选择 Storyline，并决定是否增加一个媒体元素来强化 Pitch。&lt;br&gt;
+在每一个决策点，请查看选项、讨论证据，并选择最能支持 Campaign 的组合。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class=&quot;facilitator-note&quot;&gt;&lt;span class=&quot;fn-tag&quot;&gt;Facilitator note / 主持提示：&lt;/span&gt;Keep this process introduction to approximately 60 seconds. Point to the four steps as you name them. / 将流程介绍控制在约 60 秒，并在介绍时指出四个步骤。&lt;/p&gt;
+&lt;h2 id=&quot;transition&quot;&gt;Transition / 转场&lt;/h2&gt;
+&lt;div class=&quot;lang-label&quot;&gt;English&lt;/div&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;Let us begin with the challenge and the Insight stage.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;lang-label zh&quot;&gt;中文&lt;/div&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;让我们从 Challenge 和 Insight 阶段开始。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;3-insight-short-bilingual-version-insight&quot;&gt;3. Insight — Short Bilingual Version / Insight 双语短版&lt;/h2&gt;
+&lt;h3 id=&quot;what-happens&quot;&gt;What happens / 这一步在做什么&lt;/h3&gt;
+&lt;div class=&quot;lang-label&quot;&gt;English&lt;/div&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;In the Insight stage, AI will benchmark Hangzhou 2023 (92% attendance) against Nagoya 2026 (&amp;lt;30% sold rate), identify Asian audience segments, and connect each selected audience to market trends such as Qatar's visa-free policy and stopover travel hub advantages.&lt;br&gt;
+AI will then combine our selections into the final Insight Brief for the Plan stage.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;lang-label zh&quot;&gt;中文&lt;/div&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;在 Insight 阶段，AI 会对比杭州 2023（92% 上座率）与名古屋 2026（售票率不到 30%）的数据教训，识别亚洲潜在受众，并结合卡塔尔免签、航空枢纽等市场优势。&lt;br&gt;
+AI 随后会把我们的选择整合成最终 Insight Brief，供 Plan 阶段使用。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;how-the-skills-work-skills&quot;&gt;How the Skills Work / Skills 如何运作&lt;/h3&gt;
+&lt;div class=&quot;lang-label&quot;&gt;English — facilitator script&lt;/div&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;You may notice that one short instruction can trigger several connected actions. This is possible because the toolkit contains a set of predefined Skills.&lt;br&gt;
+For Quest A, the Insight Skill guides AI through benchmark analysis (Hangzhou vs Nagoya), Asian audience segmentation, and Key Insight development. It presents the relevant choices, waits for the team's decisions and records the selected results in the Insight Brief.&lt;br&gt;
+Prompt starts the work, Skills provide the method, and the team provides strategic judgment.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;lang-label zh&quot;&gt;中文参考&lt;/div&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;大家可能会注意到，我们只输入一条简短指令，AI 就会连续完成多项相互关联的工作。这是因为 Toolkit 中预先定义了一组 Skills。&lt;br&gt;
+在 Quest A 中，Insight Skill 会引导 AI 完成杭州与名古屋的对标研究、亚洲受众分群和 Key Insight 提炼。它会展示选项，等待团队决策，并将选中的结果记录进 Insight Brief。&lt;br&gt;
+Prompt 用来启动工作，Skills 提供执行方法，团队则在决策点提供判断。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;what-the-team-selects&quot;&gt;What the team selects / 团队需要选择什么&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Two or three audience segments&lt;/strong&gt; from the AI-generated audience options.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Two or three key insights&lt;/strong&gt; from the AI-generated insight options.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;quick-selection-criteria&quot;&gt;Quick selection criteria / 快速选择标准&lt;/h3&gt;
+&lt;p&gt;For the audience segments, ask / 选择受众时请判断：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Do they have strong passion for specific sports/stars (e.g., badminton, esports, table tennis)? / 他们是否对特定项目或明星（如羽毛球、电竞、乒乓球等）有极高热情？&lt;/li&gt;
+&lt;li&gt;Can Qatar's visa-free and flight connectivity easily convert them? / 卡塔尔免签和航线网络能否顺畅促成他们的出行转化？&lt;/li&gt;
+&lt;li&gt;Is there a realistic path from awareness to ticket/package purchase? / 是否存在从关注到购买门票/打包产品的现实路径？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For the Key Insights, ask / 选择 Key Insights 时请判断：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Is it backed by data from Hangzhou or Nagoya benchmarks? / 是否有杭州或名古屋的数据/教训作为支持？&lt;/li&gt;
+&lt;li&gt;Does it explain how to manufacture demand in local Asian markets? / 是否解释了如何在亚洲区域市场中“制造”观赛需求？&lt;/li&gt;
+&lt;li&gt;Does it lead to an actionable campaign concept? / 是否能够导出极具落地的创意概念？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;decision-prompt&quot;&gt;Decision prompt / 选择话术&lt;/h3&gt;
+&lt;div class=&quot;lang-label&quot;&gt;English&lt;/div&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;Please select two or three audience segments that give the campaign the strongest foundation, then select the two or three Key Insights that should guide the plan.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;lang-label zh&quot;&gt;中文&lt;/div&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;请选择 2–3 个能够为 Campaign 建立最强基础的受众，并选择 2–3 条应当指导策划的 Key Insights。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;4-plan-short-bilingual-version&quot;&gt;4. Plan — Short Bilingual Version&lt;/h2&gt;
+&lt;h3 id=&quot;what-happens_1&quot;&gt;What happens / 这一步在做什么&lt;/h3&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p class=&quot;lang-en&quot;&gt;&lt;span class=&quot;tag&quot;&gt;English:&lt;/span&gt; In the Plan stage, AI turns our selected audiences and Key Insights into one complete ticketing campaign. It develops the concept, ticketing offer/package, two Asian pilot markets (e.g., India, Indonesia, Japan, SEA hubs), budget allocation ($1.5M), channel plan, and benchmark-derived conversion metrics.&lt;br&gt;
+&lt;strong&gt;中文：&lt;/strong&gt; 在 Plan 阶段，AI 会把已选受众和 Key Insights 转化为一套完整门票营销方案，包括创意概念、门票/旅游 Bundle、2 个亚洲试点市场、150 万美元预算分配、渠道路径以及基于对标公式测算出的 ROI 指标。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;what-the-team-selects_1&quot;&gt;What the team selects / 团队需要选择什么&lt;/h3&gt;
+&lt;p&gt;The team supplies &lt;strong&gt;one or two Concept Keywords&lt;/strong&gt;. Examples: &lt;strong&gt;Golden Ticket / 金色圣旨 · Away Stand Pride / 客队远征荣光 · Stopover Arena / 观赛过境站 · Fan Pilgrimage / 朝圣之旅 · Home-away Fusion / 融合主场&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;decision-prompt_1&quot;&gt;Decision prompt / 选择话术&lt;/h3&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p class=&quot;lang-en&quot;&gt;&lt;span class=&quot;tag&quot;&gt;English:&lt;/span&gt; Please choose one or two keywords that connect our selected Asian audiences and insights, and give the ticket campaign a bold creative direction.&lt;br&gt;
+&lt;strong&gt;中文：&lt;/strong&gt; 请选择 1–2 个能够连接已选亚洲受众和洞察、并为门票营销方案提供强烈创意方向的关键词。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;5-media-kit-short-bilingual-version-media-kit&quot;&gt;5. Media Kit — Short Bilingual Version / Media Kit 双语短版&lt;/h2&gt;
+&lt;h3 id=&quot;what-happens_2&quot;&gt;What happens / 这一步在做什么&lt;/h3&gt;
+&lt;div class=&quot;lang-label&quot;&gt;English&lt;/div&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;In the Media Kit stage, AI creates the campaign's visual assets. It builds three poster styles side by side and renders a storyboard that shows the fan journey in scenes.&lt;br&gt;
+The team reviews the options and selects the poster direction that communicates the campaign idea most clearly.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;lang-label zh&quot;&gt;中文&lt;/div&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;在 Media Kit 阶段，AI 会制作 Campaign 的视觉物料：同时生成三款 Poster 风格，并渲染一份展示球迷旅程的场景故事板。&lt;br&gt;
+团队审阅这些选项，并选择最能清楚表达 Campaign idea 的 Poster 方向。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;what-the-team-selects_2&quot;&gt;What the team selects / 团队需要选择什么&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;One poster style / 一款海报风格&lt;/strong&gt; from the three options (A / B / C).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The storyboard is produced automatically and carried into the Showcase. / 故事板由 AI 自动产出，并纳入 Showcase。&lt;/p&gt;
+&lt;h3 id=&quot;how-to-choose&quot;&gt;How to choose / 如何选择&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Which poster makes the ticket idea instantly clear? / 哪一款能让人一眼看懂门票创意？&lt;/li&gt;
+&lt;li&gt;Which works at stadium and mobile scale? / 哪一款在赛场大屏与手机端都成立？&lt;/li&gt;
+&lt;li&gt;Which fits the selected audience and idea? / 哪一款最贴合已选受众与 Campaign idea？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;decision-prompt_2&quot;&gt;Decision prompt / 选择话术&lt;/h3&gt;
+&lt;div class=&quot;lang-label&quot;&gt;English&lt;/div&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;Please select the poster style that communicates the campaign idea most clearly.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;lang-label zh&quot;&gt;中文&lt;/div&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;请选择最能清楚表达 Campaign idea 的 Poster 风格。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;6-showcase-short-bilingual-version&quot;&gt;6. Showcase — Short Bilingual Version&lt;/h2&gt;
+&lt;h3 id=&quot;what-happens_3&quot;&gt;What happens / 这一步在做什么&lt;/h3&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p class=&quot;lang-en&quot;&gt;&lt;span class=&quot;tag&quot;&gt;English:&lt;/span&gt; In the Showcase stage, AI brings the complete story together: the Nagoya lesson, audience, Key Insights, campaign concept, ticket/travel package, $1.5M pilot plan, poster and pitch deck. The goal is to prove to OCA and Doha decision-makers that our 5% MVP can unlock the full $30M war chest.&lt;br&gt;
+&lt;strong&gt;中文：&lt;/strong&gt; 在 Showcase 阶段，AI 会把名古屋教训、受众、Key Insights、Campaign idea、门票/观赛 Package、150 万美元试点方案、Poster 和 Pitch Deck 整合为一份完整的商业 Pitch。目标是在 5 分钟内向决策者证明：我们的 5% MVP 试点能够打通路径，解锁后续 3000 万美元的完整预算。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;what-the-team-selects_3&quot;&gt;What the team selects / 团队需要选择什么&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Storyline / 故事线&lt;/strong&gt; — select one: Classic / 经典结构 · Hero's Journey (The Asian Fan's Pilgrimage) / 英雄旅程 · Big Reveal / 大揭晓 · Demo / 演示型 · Trailer / 预告片型.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Bonus Media / 加分媒体&lt;/strong&gt; — select one: Chant/Song / 助威歌曲 · Video / 8秒视频 · Image / 视觉图 · None / 不使用.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;decision-prompt_3&quot;&gt;Decision prompt / 选择话术&lt;/h3&gt;
+&lt;div class=&quot;lang-label&quot;&gt;English&lt;/div&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;Please select one Storyline and decide whether one additional media element will strengthen the pitch.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;lang-label zh&quot;&gt;中文&lt;/div&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;请选择一个 Storyline，并决定是否增加一个媒体元素来强化展示。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;inspiring-the-team-to-create-bonus-media&quot;&gt;Inspiring the team to create bonus media / 引导团队创作加分媒体&lt;/h3&gt;
+&lt;div class=&quot;lang-label&quot;&gt;English — facilitator script&lt;/div&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;Bonus media is optional, but one strong element can make the pitch memorable. Treat it as a creative stretch, not extra homework — aim for one bold idea that amplifies the campaign, not a polished production.&lt;br&gt;
+To spark ideas, ask each sub-group to pitch one media idea in 60 seconds, always tied to the campaign idea and hashtag: a chant the away crowd would actually sing, an 8-second moment a fan would share, or one image that captures the idea.&lt;br&gt;
+Then dot-vote and keep the single strongest idea. Take the ready-made prompt from &lt;code&gt;prompt-pack.html&lt;/code&gt; — song → Suno, video → Runway, image → GPT / Kimi — generate it, bring the file back, and the AI embeds it into the deck.&lt;br&gt;
+Keep it time-boxed: one format, one idea, five minutes to generate, then rehearse with it. If it does not land, drop it — the business case stands on its own.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;lang-label zh&quot;&gt;中文参考&lt;/div&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;加分媒体是可选项，但一个有力的元素能让 Pitch 更令人记住。把它当作一次创意发挥，而不是额外作业——目标是有一个响亮的好点子来强化 Campaign，而不是做一场精致的制作。&lt;br&gt;
+激发灵感：请每个小组用 60 秒提出一个媒体点子，并且必须紧扣 Campaign 的核心创意与话题标签：客队球迷真的会唱出来的助威口号、一个球迷愿意分享的 8 秒瞬间，或一张能表达创意核心的图片。&lt;br&gt;
+然后用点投票留下唯一最强的点子。从 &lt;code&gt;prompt-pack.html&lt;/code&gt; 里取出现成的提示词——歌曲 → Suno，视频 → Runway，图片 → GPT / Kimi——生成后把文件带回，由 AI 嵌入 deck。&lt;br&gt;
+控制时间：一种形式、一个点子、五分钟生成，然后带着它彩排。如果效果不佳就放弃——商业方案本身已经成立。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class=&quot;facilitator-note&quot;&gt;&lt;span class=&quot;fn-tag&quot;&gt;Facilitator note / 主持提示：&lt;/span&gt;Keep this step to about 5 minutes and move the team toward a decision; a single well-chosen element beats several unfinished ones. / 将这一步控制在约 5 分钟，并推动团队尽快做出决定；一个选得准的元素胜过多条没做完的内容。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;bilingual-reference-appendix-quest-a-specifics&quot;&gt;Bilingual Reference Appendix (Quest A Specifics)&lt;/h2&gt;
+&lt;h3 id=&quot;a-quest-a-audience-candidates-examples&quot;&gt;A. Quest A Audience Candidates Examples / 亚洲受众候选参考&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Die-hard Niche Sports Fanatic (e.g., Badminton / Kabaddi / Esports)&lt;/strong&gt;&lt;br&gt;
+Fans whose favorite sports sold out instantly in Nagoya, willing to travel anywhere to support national stars.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;小众强项死忠粉（羽毛球/卡巴迪/电竞等）&lt;/strong&gt;：在名古屋迅速售罄的项目粉丝，愿意为了国家队明星飞赴任何赛场。&lt;/p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;&lt;strong&gt;The &quot;Qatar Stopover&quot; Global Asian Traveler&lt;/strong&gt;&lt;br&gt;
+Mobile-first Asian travelers taking international trips who can easily add a 2-day Doha Asian Games experience to their itinerary.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;“过境多哈”的亚洲跨国游客&lt;/strong&gt;：习惯中转旅行的年轻受众，极易被“过境免签+看一场顶级赛事”的打卡 Bundle 吸引。&lt;/p&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;&lt;strong&gt;Diaspora &amp;amp; Expat Fan Communities in the Gulf (GCC)&lt;/strong&gt;&lt;br&gt;
+South/Southeast Asian professionals living in/near Qatar, ready to organize massive &quot;away crowds&quot; for their home nations.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;海湾地区（GCC）的亚洲侨民与外派群体&lt;/strong&gt;：生活在卡塔尔及周边国家的南亚/东南亚人群，能迅速被激活形成庞大的“客队方阵”。&lt;/p&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;&lt;strong&gt;Gen-Z Sports &amp;amp; Cultural Creators / Fan Club Leaders&lt;/strong&gt;&lt;br&gt;
+KOLs and fan community organizers who can package travel + ticket deals directly to tens of thousands of followers.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Z 世代体育/文化社群领袖&lt;/strong&gt;：具备自媒体号召力的球迷会会长及 KOL，能够直接带货“机酒门票套餐”。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;b-quest-a-key-insight-examples&quot;&gt;B. Quest A Key Insight Examples / 洞察参考示例&lt;/h3&gt;
+&lt;h4 id=&quot;insight-1-demand-doesnt-appear-by-itself-it-must-be-manufactured-local-by-local&quot;&gt;Insight 1 — Demand Doesn't Appear by Itself; It Must Be Manufactured Local-by-Local&lt;/h4&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;Nagoya left Asia's mobile-first youth unmined by relying on traditional ticketing, resulting in &amp;lt;30% sold rates, whereas Hangzhou actively built regional sponsor and merch pipelines.&lt;br&gt;
+&lt;strong&gt;Campaign Implication:&lt;/strong&gt; Build market-specific bundled packages (Flight + Hotel + Guaranteed Match Ticket) pushed through local mobile-first channels.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;insight-2-the-away-crowd-craves-national-pride-belonging-in-overseas-arenas&quot;&gt;Insight 2 — The &quot;Away Crowd&quot; Craves National Pride &amp;amp; Belonging in Overseas Arenas&lt;/h4&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;Asian sports fans traveling abroad don't just buy a ticket; they buy a community experience to chant and showcase national pride in an international venue.&lt;br&gt;
+&lt;strong&gt;Campaign Implication:&lt;/strong&gt; Sell &quot;Away Team Fan Zones&quot; with exclusive national fan kits, flag-waving rituals, and group seating.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;insight-3-frictionless-transit-unlocks-spontaneous-fan-trips&quot;&gt;Insight 3 — Frictionless Transit Unlocks Spontaneous Fan Trips&lt;/h4&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;Qatar's visa-free policy and Qatar Airways hub network eliminate traditional travel friction, yet fans aren't aware how easy a 48-hour Asian Games stopover can be.&lt;br&gt;
+&lt;strong&gt;Campaign Implication:&lt;/strong&gt; Launch a 1-click &quot;Asian Games Transit Pass&quot; targeting stopover travelers at Hamad International Airport.&lt;/p&gt;
+&lt;/blockquote&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;Ascentium Mini-Hackathon · 2026-10-13 深圳 · Facilitator Script（双语）· 人决策 + AI 执行&lt;/footer&gt;
+&lt;/div&gt;
+
+&lt;script&gt;(function(){function h(){try{parent.postMessage({__fit:Math.max(document.documentElement.scrollHeight,document.body.scrollHeight)},&quot;*&quot;);}catch(e){}}window.addEventListener(&quot;load&quot;,h);window.addEventListener(&quot;resize&quot;,h);setInterval(h,1500);})();&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" height="620" title="Quest A Facilitator Script"></iframe>
+    </div>
+
+    <div class="demo">
+      <div class="cap"><span>② Quest B · Chengdu Panda Base</span><span class="file">panda-quest-facilitator-script.html</span></div>
+      <iframe data-auto srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;title&gt;Chengdu Panda Base · Quest B · Facilitator Script · Ascentium Mini-Hackathon&lt;/title&gt;
+&lt;style&gt;
+  :root{
+    --ascentium-orange:#FF6611; --ascentium-midnight:#0F1514;
+    --line:#E4E8E7; --bg:#F7F6F4; --card:#FFFFFF; --mut:#5A6663;
+    --accent:#FF6611; --accent-tint:#FFF0E7; --accent-line:#FFD1B8; --accent-deep:#B24000;
+    --zh-bg:#E6F2F1; --zh-fg:#05554F; --zh-line:#BFDEDA;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:&quot;Poppins&quot;,&quot;Noto Sans SC&quot;,&quot;PingFang SC&quot;,&quot;Microsoft YaHei&quot;,Arial,sans-serif;
+       background:var(--bg);color:var(--ascentium-midnight);line-height:1.7;-webkit-font-smoothing:antialiased;}
+  a{color:var(--accent);}
+
+  .topbar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);
+          border-bottom:1px solid var(--line);}
+  .topbar .in{display:flex;align-items:center;gap:14px;padding:12px 32px;flex-wrap:wrap;}
+  .logo{font-weight:800;font-size:18px;} .logo span{color:var(--accent);}
+  .topbar .back{margin-left:auto;font-size:12px;font-weight:600;color:var(--mut);text-decoration:none;
+        border:1px solid var(--line);border-radius:999px;padding:5px 13px;background:#fff;}
+  .topbar .back:hover{border-color:var(--accent-line);color:var(--accent);background:var(--accent-tint);}
+
+  .page{max-width:1000px;margin:0 auto;padding:34px 32px 84px;}
+  header.hero{border-bottom:3px solid var(--accent);padding-bottom:18px;}
+  .tag{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);}
+  header.hero h1{font-size:33px;font-weight:800;letter-spacing:-.02em;margin-top:6px;}
+  header.hero p{font-size:14px;color:var(--mut);margin-top:8px;}
+
+  .toc{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px;}
+  .toc a{font-size:12px;font-weight:600;color:var(--mut);text-decoration:none;border:1px solid var(--line);
+        border-radius:999px;padding:4px 12px;background:#fff;}
+  .toc a:hover{border-color:var(--accent-line);color:var(--accent);background:var(--accent-tint);}
+
+  main{margin-top:6px;}
+  h2{font-size:20px;font-weight:800;margin-top:34px;padding:12px 16px;background:var(--accent-tint);
+     border:1px solid var(--accent-line);border-radius:12px;color:var(--ascentium-midnight);scroll-margin-top:72px;}
+  h3{font-size:15px;font-weight:800;margin-top:22px;color:var(--accent-deep);letter-spacing:.01em;}
+  h4{font-size:14px;font-weight:800;margin-top:18px;color:var(--ascentium-midnight);}
+
+  blockquote{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;
+             margin-top:10px;box-shadow:0 1px 2px rgba(15,21,20,.03);}
+  blockquote p{margin:8px 0;font-size:14px;}
+  blockquote p:first-child{margin-top:0;}
+  blockquote p:last-child{margin-bottom:0;}
+  blockquote p.lang-en,blockquote p.lang-zh{background:transparent;}
+
+  .lang-label{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:10.5px;font-weight:800;
+        letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep);background:var(--accent-tint);
+        border:1px solid var(--accent-line);border-radius:999px;padding:3px 12px;}
+  .lang-label.zh{color:var(--zh-fg);background:var(--zh-bg);border-color:var(--zh-line);}
+
+  .tag{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+       border-radius:6px;padding:2px 8px;margin-right:8px;vertical-align:1px;}
+  p.lang-en .tag{background:var(--accent-tint);color:var(--accent-deep);}
+  p.lang-zh .tag{background:var(--zh-bg);color:var(--zh-fg);}
+  header.hero .tag{background:none;padding:0;margin:0;}
+
+  .facilitator-note{background:#FAFBFA;border:1px dashed var(--line);border-radius:12px;padding:12px 16px;
+        margin-top:12px;font-size:13px;color:#2B3A38;}
+  .facilitator-note .fn-tag{display:block;font-size:10px;font-weight:800;letter-spacing:.12em;
+        text-transform:uppercase;color:var(--accent);margin-bottom:4px;}
+
+  ul,ol{margin:10px 0 0 0;padding-left:22px;}
+  li{margin:7px 0;font-size:14px;}
+  li&gt;p{margin:4px 0;}
+  p{font-size:14px;}
+  hr{border:none;border-top:1px dashed var(--line);margin:28px 0;}
+  strong{color:var(--ascentium-midnight);}
+  code{font-family:&quot;SF Mono&quot;,Consolas,Menlo,monospace;font-size:12.5px;background:var(--accent-tint);
+       color:var(--accent-deep);border-radius:5px;padding:1px 6px;}
+
+  footer{margin-top:44px;border-top:1px dashed var(--line);padding-top:14px;font-size:11px;color:#9AA5A2;}
+
+  @media (max-width:760px){
+    .page{padding:24px 18px 64px;}
+    header.hero h1{font-size:26px;}
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class=&quot;topbar&quot;&gt;
+  &lt;div class=&quot;in&quot;&gt;
+    &lt;div class=&quot;logo&quot;&gt;Ascentium&lt;span&gt;.&lt;/span&gt;&lt;/div&gt;
+    &lt;a class=&quot;back&quot; href=&quot;facilitator_guide.html&quot;&gt;← Facilitator Guide&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;page&quot;&gt;
+  &lt;header class=&quot;hero&quot;&gt;
+    &lt;div class=&quot;tag&quot;&gt;Facilitator Script · Quest B&lt;/div&gt;
+    &lt;h1&gt;Chengdu Panda Base · Quest B&lt;/h1&gt;
+    &lt;p&gt;Short bilingual facilitator script · 简短双语话术 · 全球化 IP 会员 Campaign&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;nav class=&quot;toc&quot;&gt;&lt;a href=&quot;#1-short-opening&quot;&gt;1. Short Opening / 简短开场&lt;/a&gt;&lt;a href=&quot;#2-short-process-introduction&quot;&gt;2. Short Process Introduction / 简短流程介绍&lt;/a&gt;&lt;a href=&quot;#transition&quot;&gt;Transition / 转场&lt;/a&gt;&lt;a href=&quot;#3-insight-short-bilingual-version-insight&quot;&gt;3. Insight — Short Bilingual Version / Insight 双语短版&lt;/a&gt;&lt;a href=&quot;#4-plan-short-bilingual-version&quot;&gt;4. Plan — Short Bilingual Version&lt;/a&gt;&lt;a href=&quot;#5-media-kit-short-bilingual-version-media-kit&quot;&gt;5. Media Kit — Short Bilingual Version / Media Kit 双语短版&lt;/a&gt;&lt;a href=&quot;#6-showcase-short-bilingual-version&quot;&gt;6. Showcase — Short Bilingual Version&lt;/a&gt;&lt;a href=&quot;#bilingual-reference-appendix&quot;&gt;Bilingual Reference Appendix&lt;/a&gt;&lt;/nav&gt;
+
+  &lt;main&gt;
+&lt;h2 id=&quot;1-short-opening&quot;&gt;1. Short Opening / 简短开场&lt;/h2&gt;
+&lt;div class=&quot;lang-label&quot;&gt;English&lt;/div&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;Welcome, everyone.&lt;br&gt;
+Today, we will work with AI to co-create a campaign idea for the Chengdu Panda Base and turn it into a clear business proposal.&lt;br&gt;
+AI will help us research, develop options and produce the campaign materials. The team will make the key strategic and creative decisions.&lt;br&gt;
+Our challenge is to turn global interest in pandas into a conservation-first membership campaign. We will select two overseas pilot markets and develop a three-month pilot that can demonstrate audience interest, participation and commercial potential.&lt;br&gt;
+At the end, we will bring the complete idea together in a five-minute Showcase and present it to the decision-makers.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;lang-label zh&quot;&gt;中文&lt;/div&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;欢迎大家。&lt;br&gt;
+今天，我们会与 AI 一起为成都熊猫基地共创一个 Campaign idea，并把它发展成一份清晰的商业提案。&lt;br&gt;
+AI 会帮助我们完成研究、生成选项和制作 Campaign 物料。团队负责作出关键的战略与创意决策。&lt;br&gt;
+我们的挑战，是把全球对熊猫的关注转化为一个以保护为核心的会员 Campaign。我们将选择两个海外试点市场，并设计一个三个月的试点，用来验证受众兴趣、参与度和商业潜力。&lt;br&gt;
+最后，我们会把完整方案整合成一个五分钟的 Showcase，向决策者进行展示。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class=&quot;facilitator-note&quot;&gt;&lt;span class=&quot;fn-tag&quot;&gt;Facilitator note / 主持提示：&lt;/span&gt;Keep this opening to approximately 45 seconds. / 将开场控制在约 45 秒。&lt;/p&gt;
+&lt;h2 id=&quot;2-short-process-introduction&quot;&gt;2. Short Process Introduction / 简短流程介绍&lt;/h2&gt;
+&lt;div class=&quot;lang-label&quot;&gt;English&lt;/div&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;We will move through four steps: Insight, Plan, Media Kit and Showcase.&lt;br&gt;
+&lt;strong&gt;First, Insight.&lt;/strong&gt; AI will research the opportunity and present audience and insight options. We will select the audiences and insights that give the campaign the strongest foundation.&lt;br&gt;
+&lt;strong&gt;Second, Plan.&lt;/strong&gt; We will turn those choices into a campaign concept, offer, channel approach and three-month pilot plan.&lt;br&gt;
+&lt;strong&gt;Third, Media Kit.&lt;/strong&gt; AI will create campaign poster options and a storyboard. We will select the poster direction that communicates the idea most clearly.&lt;br&gt;
+&lt;strong&gt;Finally, Showcase.&lt;/strong&gt; We will organise the proposal into a clear presentation, select the storyline and decide whether an additional media element will strengthen the pitch.&lt;br&gt;
+At each decision point, review the options, discuss the evidence and select the combination that best supports the campaign.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;lang-label zh&quot;&gt;中文&lt;/div&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;整个流程包括四个步骤：Insight、Plan、Media Kit 和 Showcase。&lt;br&gt;
+&lt;strong&gt;第一步，Insight。&lt;/strong&gt; AI 会研究市场机会，并提供受众和洞察选项。我们会选择能够为 Campaign 建立最强基础的受众和洞察。&lt;br&gt;
+&lt;strong&gt;第二步，Plan。&lt;/strong&gt; 我们会把这些选择发展成 Campaign concept、Offer、渠道方案和三个月试点计划。&lt;br&gt;
+&lt;strong&gt;第三步，Media Kit。&lt;/strong&gt; AI 会生成 Campaign Poster 选项和 Storyboard。我们会选择最能清楚表达 Campaign idea 的 Poster 方向。&lt;br&gt;
+&lt;strong&gt;最后，Showcase。&lt;/strong&gt; 我们会把方案整理成一个清晰的演示故事，选择 Storyline，并决定是否增加一个媒体元素来强化 Pitch。&lt;br&gt;
+在每一个决策点，请查看选项、讨论证据，并选择最能支持 Campaign 的组合。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class=&quot;facilitator-note&quot;&gt;&lt;span class=&quot;fn-tag&quot;&gt;Facilitator note / 主持提示：&lt;/span&gt;Keep this process introduction to approximately 60 seconds. Point to the four steps as you name them. / 将流程介绍控制在约 60 秒，并在介绍时指出四个步骤。&lt;/p&gt;
+&lt;h2 id=&quot;transition&quot;&gt;Transition / 转场&lt;/h2&gt;
+&lt;div class=&quot;lang-label&quot;&gt;English&lt;/div&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;Let us begin with the challenge and the Insight stage.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;lang-label zh&quot;&gt;中文&lt;/div&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;让我们从 Challenge 和 Insight 阶段开始。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;3-insight-short-bilingual-version-insight&quot;&gt;3. Insight — Short Bilingual Version / Insight 双语短版&lt;/h2&gt;
+&lt;h3 id=&quot;what-happens&quot;&gt;What happens / 这一步在做什么&lt;/h3&gt;
+&lt;div class=&quot;lang-label&quot;&gt;English&lt;/div&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;In the Insight stage, AI will organise the market evidence, identify potential audience segments and connect each selected audience to a relevant moment and market trend.&lt;br&gt;
+AI will then combine our selections into the final Insight Brief for the Plan stage.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;lang-label zh&quot;&gt;中文&lt;/div&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;在 Insight 阶段，AI 会整理市场证据、识别潜在受众，并把每一个已选受众与相关的关键时刻和市场趋势连接起来。&lt;br&gt;
+AI 随后会把我们的选择整合成最终 Insight Brief，供 Plan 阶段使用。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;how-the-skills-work-skills&quot;&gt;How the Skills Work / Skills 如何运作&lt;/h3&gt;
+&lt;div class=&quot;lang-label&quot;&gt;English — facilitator script&lt;/div&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;You may notice that one short instruction can trigger several connected actions. This is possible because the toolkit contains a set of predefined Skills.&lt;br&gt;
+Each Skill works like a prepared playbook for one type of work. It tells AI what information to read, which steps to follow, what options to develop, when to pause for a team decision and what final document to produce.&lt;br&gt;
+For example, the Insight Skill guides AI through research, audience analysis and Key Insight development. It presents the relevant choices, waits for the team's decisions and records the selected results in the Insight Brief. The next Skill then reads those decisions and continues from them.&lt;br&gt;
+The prompt starts the work. The Skills provide the method and connect the stages. The team continues to provide the judgment at every important decision point.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;lang-label zh&quot;&gt;中文参考&lt;/div&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;大家可能会注意到，我们只输入一条简短指令，AI 就会连续完成多项相互关联的工作。这是因为 Toolkit 中预先定义了一组 Skills。&lt;br&gt;
+每个 Skill 都像一份针对特定工作的标准工作手册。它会告诉 AI 应该读取哪些信息、按照什么顺序推进、需要生成哪些选项、什么时候暂停并请团队作出选择，以及最终需要产出什么文件。&lt;br&gt;
+例如，Insight Skill 会引导 AI 完成研究、受众分析和 Key Insight 提炼。它会展示相关选项，等待团队作出决定，并把选中的结果记录进 Insight Brief。下一个 Skill 会读取这些决定，在此基础上继续推进。&lt;br&gt;
+Prompt 用来启动工作，Skills 提供执行方法并连接各个阶段，团队则在每个重要决策点提供判断。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class=&quot;facilitator-note&quot;&gt;&lt;span class=&quot;fn-tag&quot;&gt;Facilitator note / 主持提示：&lt;/span&gt;Keep this explanation to approximately 45 seconds. / 将这段说明控制在约 45 秒。&lt;/p&gt;
+&lt;h3 id=&quot;what-the-team-selects&quot;&gt;What the team selects / 团队需要选择什么&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Two or three audience segments&lt;/strong&gt; from the AI-generated audience options.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Two or three key insights&lt;/strong&gt; from the AI-generated insight options.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;从 AI 生成的受众选项中选择 &lt;strong&gt;2–3 个 Audience Segments&lt;/strong&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;从 AI 生成的洞察选项中选择 &lt;strong&gt;2–3 条 Key Insights&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Market Trends and Focus Bundles are supporting evidence prepared by AI. They are reviewed by the team and do not require an additional selection.&lt;/p&gt;
+&lt;p&gt;Market Trends 和 Focus Bundles 是 AI 整理的支持材料。团队需要查看这些内容，但不需要另外作出选择。&lt;/p&gt;
+&lt;h3 id=&quot;quick-selection-criteria&quot;&gt;Quick selection criteria / 快速选择标准&lt;/h3&gt;
+&lt;p&gt;For the audience segments, ask / 选择受众时请判断：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Do they have a clear reason to care? / 他们是否有明确的关注理由？&lt;/li&gt;
+&lt;li&gt;Can the campaign reach them in the pilot markets? / Campaign 能否在试点市场中触达他们？&lt;/li&gt;
+&lt;li&gt;Is there a realistic path from interest to membership? / 是否存在从兴趣转化为会员的现实路径？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For the Key Insights, ask / 选择 Key Insights 时请判断：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Is the insight supported by evidence? / 这条洞察是否有证据支持？&lt;/li&gt;
+&lt;li&gt;Does it reveal a specific audience tension or unmet need? / 是否揭示了具体的受众矛盾或未满足需求？&lt;/li&gt;
+&lt;li&gt;Does it suggest a useful direction for the campaign? / 是否能够为 Campaign 提供有用方向？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;how-to-choose-the-key-insights-key-insights&quot;&gt;How to choose the Key Insights / 如何合理选择 Key Insights&lt;/h3&gt;
+&lt;div class=&quot;lang-label&quot;&gt;English&lt;/div&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;Compare each candidate against five questions: &lt;strong&gt;Audience&lt;/strong&gt; (it connects to a selected segment), &lt;strong&gt;Moment&lt;/strong&gt; (it identifies when and where the need becomes important), &lt;strong&gt;Evidence&lt;/strong&gt; (it is supported by a market fact, behaviour or trend), &lt;strong&gt;Tension&lt;/strong&gt; (it reveals a meaningful gap between what the audience wants and what happens today) and &lt;strong&gt;Action&lt;/strong&gt; (it suggests what the campaign should change, offer or enable).&lt;br&gt;
+Use this test: &lt;strong&gt;Because&lt;/strong&gt; [audience evidence], &lt;strong&gt;but&lt;/strong&gt; [tension at the important moment], &lt;strong&gt;so&lt;/strong&gt; the campaign should [strategic implication].&lt;br&gt;
+When you state a choice, say: We selected this insight because it connects [audience need], [moment of truth] and [supporting evidence or trend]. It suggests that our campaign should [strategic implication].&lt;br&gt;
+Before confirming, the team should be able to explain each selection in one sentence, using evidence and a clear campaign implication.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;lang-label zh&quot;&gt;中文&lt;/div&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;请使用五个问题比较每个候选：&lt;strong&gt;Audience 受众&lt;/strong&gt;（是否对应已选受众）、&lt;strong&gt;Moment 时刻&lt;/strong&gt;（是否指出需求在何时、何地变得重要）、&lt;strong&gt;Evidence 证据&lt;/strong&gt;（是否有市场事实、行为或趋势支持）、&lt;strong&gt;Tension 矛盾&lt;/strong&gt;（是否揭示受众需求与当前体验之间的重要差距）、&lt;strong&gt;Action 行动方向&lt;/strong&gt;（是否指出 Campaign 应改变、提供或实现什么）。&lt;br&gt;
+使用这个句式检查：&lt;strong&gt;因为&lt;/strong&gt; [受众证据]，&lt;strong&gt;但是&lt;/strong&gt; [关键时刻的矛盾]，&lt;strong&gt;所以&lt;/strong&gt; Campaign 应该 [战略启示]。&lt;br&gt;
+陈述选择时使用：我们选择这条洞察，因为它连接了 [受众需求]、[关键时刻] 和 [支持证据或趋势]。它表明我们的 Campaign 应该 [战略启示]。&lt;br&gt;
+在确认之前，团队应当能够用一句话说明每个选择的证据和清晰的 Campaign 启示。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;decision-prompt&quot;&gt;Decision prompt / 选择话术&lt;/h3&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;Please select two or three audience segments and explain briefly why they matter. After AI develops the key insights, select the two or three insights that should guide the campaign plan.&lt;br&gt;
+请选择 2–3 个 Audience Segments，并简要说明它们为什么重要。AI 生成 Key Insights 后，请再选择 2–3 条应当指导 Campaign Plan 的洞察。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;4-plan-short-bilingual-version&quot;&gt;4. Plan — Short Bilingual Version&lt;/h2&gt;
+&lt;h3 id=&quot;what-happens_1&quot;&gt;What happens / 这一步在做什么&lt;/h3&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p class=&quot;lang-en&quot;&gt;&lt;span class=&quot;tag&quot;&gt;English:&lt;/span&gt; In the Plan stage, AI turns our selected audiences and Key Insights into one complete campaign. It develops the concept, offer, channels, two pilot markets, budget, three-month pilot and forecast metrics.&lt;br&gt;
+&lt;strong&gt;中文：&lt;/strong&gt; 在 Plan 阶段，AI 会把已选受众和 Key Insights 转化为一套完整 Campaign，包括创意概念、Offer、渠道、两个试点市场、预算、三个月试点和预测指标。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;what-the-team-selects_1&quot;&gt;What the team selects / 团队需要选择什么&lt;/h3&gt;
+&lt;p&gt;The team supplies &lt;strong&gt;one or two Concept Keywords&lt;/strong&gt;. This is the only Plan-stage team choice. AI uses the keywords to generate and combine campaign ideas, then builds one complete plan.&lt;/p&gt;
+&lt;p&gt;团队需要提供 &lt;strong&gt;1–2 个 Concept Keywords（概念关键词）&lt;/strong&gt;。这是 Plan 阶段唯一的团队选择。AI 会根据这些关键词生成并整合创意，形成一套完整方案。&lt;/p&gt;
+&lt;h3 id=&quot;how-to-choose&quot;&gt;How to choose / 如何选择&lt;/h3&gt;
+&lt;p&gt;Choose keywords that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;respond to the selected Key Insights;&lt;/li&gt;
+&lt;li&gt;express the feeling or behaviour the campaign should create;&lt;/li&gt;
+&lt;li&gt;can shape the offer, experience and visual direction;&lt;/li&gt;
+&lt;li&gt;create a useful combination rather than repeating the same meaning.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;选择能够：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;回应已选 Key Insights；&lt;/li&gt;
+&lt;li&gt;表达 Campaign 希望创造的感受或行为；&lt;/li&gt;
+&lt;li&gt;指导 Offer、体验和视觉方向；&lt;/li&gt;
+&lt;li&gt;形成互补组合，避免重复表达同一个含义。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Examples / 示例：&lt;strong&gt;Belonging / 归属感 · Ritual / 仪式感 · Guardianship / 守护 · Impact / 影响力 · Journey / 旅程 · Collectibility / 收藏性 · Connection / 连接&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;decision-prompt_1&quot;&gt;Decision prompt / 选择话术&lt;/h3&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p class=&quot;lang-en&quot;&gt;&lt;span class=&quot;tag&quot;&gt;English:&lt;/span&gt; Please choose one or two keywords that connect our selected audiences and insights and give the campaign a clear creative direction.&lt;br&gt;
+&lt;strong&gt;中文：&lt;/strong&gt; 请选择 1–2 个能够连接已选受众和洞察、并为 Campaign 提供清晰创意方向的关键词。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;5-media-kit-short-bilingual-version-media-kit&quot;&gt;5. Media Kit — Short Bilingual Version / Media Kit 双语短版&lt;/h2&gt;
+&lt;h3 id=&quot;what-happens_2&quot;&gt;What happens / 这一步在做什么&lt;/h3&gt;
+&lt;div class=&quot;lang-label&quot;&gt;English&lt;/div&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;In the Media Kit stage, AI creates the campaign's visual assets. It builds three poster styles side by side and renders a storyboard that shows the fan journey in scenes.&lt;br&gt;
+The team reviews the options and selects the poster direction that communicates the campaign idea most clearly.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;lang-label zh&quot;&gt;中文&lt;/div&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;在 Media Kit 阶段，AI 会制作 Campaign 的视觉物料：同时生成三款 Poster 风格，并渲染一份展示球迷旅程的场景故事板。&lt;br&gt;
+团队审阅这些选项，并选择最能清楚表达 Campaign idea 的 Poster 方向。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;what-the-team-selects_2&quot;&gt;What the team selects / 团队需要选择什么&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;One poster style / 一款海报风格&lt;/strong&gt; from the three options (A / B / C).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The storyboard is produced automatically and carried into the Showcase. / 故事板由 AI 自动产出，并纳入 Showcase。&lt;/p&gt;
+&lt;h3 id=&quot;how-to-choose_1&quot;&gt;How to choose / 如何选择&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Which poster makes the campaign idea instantly clear? / 哪一款能让人一眼看懂 Campaign idea？&lt;/li&gt;
+&lt;li&gt;Which works at presentation and mobile scale? / 哪一款在演示大屏与手机端都成立？&lt;/li&gt;
+&lt;li&gt;Which fits the selected audience and idea? / 哪一款最贴合已选受众与创意方向？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;decision-prompt_2&quot;&gt;Decision prompt / 选择话术&lt;/h3&gt;
+&lt;div class=&quot;lang-label&quot;&gt;English&lt;/div&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;Please select the poster style that communicates the campaign idea most clearly.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;lang-label zh&quot;&gt;中文&lt;/div&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;请选择最能清楚表达 Campaign idea 的 Poster 风格。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;6-showcase-short-bilingual-version&quot;&gt;6. Showcase — Short Bilingual Version&lt;/h2&gt;
+&lt;h3 id=&quot;what-happens_3&quot;&gt;What happens / 这一步在做什么&lt;/h3&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p class=&quot;lang-en&quot;&gt;&lt;span class=&quot;tag&quot;&gt;English:&lt;/span&gt; In the Showcase stage, AI brings the complete story together: the opportunity, audience, Key Insights, campaign idea, offer, pilot plan, poster and storyboard. The purpose is to turn the work into a clear five-minute presentation that can convince the decision-makers.&lt;br&gt;
+&lt;strong&gt;中文：&lt;/strong&gt; 在 Showcase 阶段，AI 会把市场机会、受众、Key Insights、Campaign idea、Offer、试点方案、Poster 和 Storyboard 串成一个完整故事，形成一份能够在五分钟内说服决策者的展示。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;what-the-team-selects_3&quot;&gt;What the team selects / 团队需要选择什么&lt;/h3&gt;
+&lt;p&gt;The team makes two choices together:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Storyline / 故事线&lt;/strong&gt; — select one: Classic / 经典结构 · Hero's Journey / 英雄旅程 · Big Reveal / 大揭晓 · Demo / 演示型 · Trailer / 预告片型.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bonus Media / 加分媒体&lt;/strong&gt; — select one: Song / 歌曲 · Video / 视频 · Image / 图片 · None / 不使用.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;AI decides the supporting visual direction, presentation theme and detailed slide treatment.&lt;/p&gt;
+&lt;p&gt;AI 会根据团队的选择确定辅助视觉方向、演示主题和具体页面处理方式。&lt;/p&gt;
+&lt;h3 id=&quot;how-to-choose_2&quot;&gt;How to choose / 如何选择&lt;/h3&gt;
+&lt;p&gt;For the Storyline, ask:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Which structure makes the campaign easiest to understand?&lt;/li&gt;
+&lt;li&gt;Which structure gives our strongest asset the most impact?&lt;/li&gt;
+&lt;li&gt;Which structure fits a five-minute presentation?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;选择 Storyline 时，判断：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;哪种结构最容易让决策者理解 Campaign？&lt;/li&gt;
+&lt;li&gt;哪种结构最能突出方案中最强的内容？&lt;/li&gt;
+&lt;li&gt;哪种结构最适合五分钟展示？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For Bonus Media, ask:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Does it strengthen the campaign story?&lt;/li&gt;
+&lt;li&gt;Can the team generate and test it within the available time?&lt;/li&gt;
+&lt;li&gt;Will it support the presentation without distracting from the business case?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;选择 Bonus Media 时，判断：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;它是否能够强化 Campaign 故事？&lt;/li&gt;
+&lt;li&gt;团队能否在剩余时间内完成并测试？&lt;/li&gt;
+&lt;li&gt;它是否能够支持商业提案，同时保持表达重点清晰？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;what-it-produces&quot;&gt;What it produces / 会产出什么&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;proposal.html&lt;/code&gt;&lt;/strong&gt; — the unified proposal containing the complete work.&lt;br&gt;
+&lt;strong&gt;统一提案文件&lt;/strong&gt;：汇总完整方案和所有核心产物。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;pitch-deck.html&lt;/code&gt;&lt;/strong&gt; — the eight-slide presentation used for the five-minute pitch.&lt;br&gt;
+&lt;strong&gt;八页 Pitch Deck&lt;/strong&gt;：用于五分钟现场展示。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;prompt-pack.html&lt;/code&gt;&lt;/strong&gt; — prompts for optional song, video, image and visual upgrades.&lt;br&gt;
+&lt;strong&gt;媒体 Prompt Pack&lt;/strong&gt;：用于生成可选歌曲、视频、图片及视觉升级内容。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The selected poster and storyboard from the Media Kit are embedded in the Showcase story.&lt;/p&gt;
+&lt;p&gt;Media Kit 中选定的 Poster 和 Storyboard 会被纳入 Showcase 故事线。&lt;/p&gt;
+&lt;h3 id=&quot;visual-enhancement-after-the-toolkit&quot;&gt;Visual enhancement after the toolkit / 后续视觉优化&lt;/h3&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p class=&quot;lang-en&quot;&gt;&lt;span class=&quot;tag&quot;&gt;English:&lt;/span&gt; Once the campaign content is approved, we may use other image-generation or design models to improve the visual quality of the Poster, Storyboard and Pitch Deck. The models may refine the illustrations, character treatment, composition and presentation polish while preserving the approved strategy, facts, offer and storyline. Each final deliverable should remain a complete, directly shareable HTML file with all images embedded.&lt;br&gt;
+&lt;strong&gt;中文：&lt;/strong&gt; 当 Campaign 内容确认后，我们可以使用其他图像生成或设计模型，进一步优化 Poster、Storyboard 和 Pitch Deck 的视觉质量，包括插画、角色表现、构图和整体精致度。优化过程中需要保留已确认的策略、事实、Offer 和故事线。最终每个交付物都应保持为图片完全内嵌、可以直接分享的完整 HTML 文件。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;decision-prompt_3&quot;&gt;Decision prompt / 选择话术&lt;/h3&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p class=&quot;lang-en&quot;&gt;&lt;span class=&quot;tag&quot;&gt;English:&lt;/span&gt; We now need to decide how to tell the story and whether one additional media element will strengthen the presentation. Please select one Storyline and one Bonus Media option. AI will then assemble the proposal, pitch deck and prompt pack.&lt;br&gt;
+&lt;strong&gt;中文：&lt;/strong&gt; 现在我们需要决定如何讲述这个故事，以及是否需要一个额外媒体元素来增强展示。请选择一个 Storyline 和一个 Bonus Media 选项。AI 随后会生成 Proposal、Pitch Deck 和 Prompt Pack。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;inspiring-the-team-to-create-bonus-media&quot;&gt;Inspiring the team to create bonus media / 引导团队创作加分媒体&lt;/h3&gt;
+&lt;div class=&quot;lang-label&quot;&gt;English — facilitator script&lt;/div&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;Bonus media is optional, but one strong element can make the pitch memorable. Treat it as a creative stretch, not extra homework — aim for one bold idea that amplifies the campaign, not a polished production.&lt;br&gt;
+To spark ideas, ask each sub-group to pitch one media idea in 60 seconds, always tied to the campaign idea and hashtag: a chant or lullaby tied to a panda's story, an 8-second moment a fan would share, or one image that captures the feeling of belonging.&lt;br&gt;
+Then dot-vote and keep the single strongest idea. Take the ready-made prompt from &lt;code&gt;prompt-pack.html&lt;/code&gt; — song → Suno, video → Runway, image → GPT / Kimi — generate it, bring the file back, and the AI embeds it into the deck.&lt;br&gt;
+Keep it time-boxed: one format, one idea, five minutes to generate, then rehearse with it. If it does not land, drop it — the business case stands on its own.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;lang-label zh&quot;&gt;中文参考&lt;/div&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;加分媒体是可选项，但一个有力的元素能让 Pitch 更令人记住。把它当作一次创意发挥，而不是额外作业——目标是有一个响亮的好点子来强化 Campaign，而不是做一场精致的制作。&lt;br&gt;
+激发灵感：请每个小组用 60 秒提出一个媒体点子，并且必须紧扣 Campaign 的核心创意与话题标签：一首与某只熊猫故事相关的助威歌或摇篮曲、一个球迷愿意分享的 8 秒瞬间，或一张能表达“归属感”的图片。&lt;br&gt;
+然后用点投票留下唯一最强的点子。从 &lt;code&gt;prompt-pack.html&lt;/code&gt; 里取出现成的提示词——歌曲 → Suno，视频 → Runway，图片 → GPT / Kimi——生成后把文件带回，由 AI 嵌入 deck。&lt;br&gt;
+控制时间：一种形式、一个点子、五分钟生成，然后带着它彩排。如果效果不佳就放弃——商业方案本身已经成立。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class=&quot;facilitator-note&quot;&gt;&lt;span class=&quot;fn-tag&quot;&gt;Facilitator note / 主持提示：&lt;/span&gt;Keep this step to about 5 minutes and move the team toward a decision; a single well-chosen element beats several unfinished ones. / 将这一步控制在约 5 分钟，并推动团队尽快做出决定；一个选得准的元素胜过多条没做完的内容。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;bilingual-reference-appendix&quot;&gt;Bilingual Reference Appendix&lt;/h2&gt;
+&lt;p&gt;Use this section as a facilitator reference. The live options may change according to the research completed during the session.&lt;/p&gt;
+&lt;h3 id=&quot;a-audience-selection-english-and-chinese&quot;&gt;A. Audience Selection — English and Chinese&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Devoted Japan and Korea Panda Fans&lt;/strong&gt;&lt;br&gt;
+   Followers attached to a specific panda and motivated by anniversaries, homecomings and livestream rituals.&lt;br&gt;
+&lt;strong&gt;日本和韩国的忠实熊猫粉丝&lt;/strong&gt;：对特定熊猫有深厚情感，并受到生日、纪念日、回国事件和直播仪式的驱动。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Mobile-First Southeast Asian Families and Gen Z&lt;/strong&gt;&lt;br&gt;
+   Value-conscious audiences influenced by short video, shareable experiences and affordable travel.&lt;br&gt;
+&lt;strong&gt;移动优先的东南亚家庭与 Z 世代&lt;/strong&gt;：重视性价比，容易受到短视频、可分享体验和可负担旅行的影响。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Chengdu Panda Pilgrims&lt;/strong&gt;&lt;br&gt;
+   Visitors motivated by a specific celebrity panda, exclusive merchandise or a milestone event.&lt;br&gt;
+&lt;strong&gt;成都熊猫朝圣型游客&lt;/strong&gt;：因为特定明星熊猫、独家商品或重要纪念活动而专程到访的游客。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Western Zoo-Household Members&lt;/strong&gt;&lt;br&gt;
+   Families already familiar with annual passes, animal adoption and conservation-led membership.&lt;br&gt;
+&lt;strong&gt;西方动物园家庭会员&lt;/strong&gt;：熟悉年票、动物认养和以保护为导向的会员模式的家庭。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Conservation-First Donors&lt;/strong&gt;&lt;br&gt;
+   Values-led supporters seeking transparent evidence of conservation impact.&lt;br&gt;
+&lt;strong&gt;保护优先型捐赠者&lt;/strong&gt;：由价值观驱动，并希望清楚看到保护工作成果的支持者。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Overseas Chinese Families&lt;/strong&gt;&lt;br&gt;
+   Diaspora audiences seeking cultural connection, family learning and a sense of belonging.&lt;br&gt;
+&lt;strong&gt;海外华人家庭&lt;/strong&gt;：希望通过熊猫获得文化连接、家庭学习体验和归属感的海外华人受众。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Panda Creators and UGC Accounts&lt;/strong&gt;&lt;br&gt;
+   Creators seeking official content, clear usage rights, recognition and potential revenue share.&lt;br&gt;
+&lt;strong&gt;熊猫内容创作者与 UGC 账号&lt;/strong&gt;：希望获得官方素材、清晰授权、身份认可和潜在收益分享的创作者。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Corporate and Brand Licensing Partners&lt;/strong&gt;&lt;br&gt;
+   Organisations seeking a trusted, widely recognised IP for products, hospitality or brand collaboration.&lt;br&gt;
+&lt;strong&gt;企业与品牌授权合作伙伴&lt;/strong&gt;：希望借助可信且具有广泛认知度的 IP 开展产品、文旅或品牌合作的机构。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;b-key-insight-examples-english-and-chinese&quot;&gt;B. Key Insight Examples — English and Chinese&lt;/h3&gt;
+&lt;h4 id=&quot;insight-1-the-bond-ends-when-the-panda-goes-home&quot;&gt;Insight 1 — The Bond Ends When the Panda Goes Home&lt;/h4&gt;
+&lt;div class=&quot;lang-label&quot;&gt;English&lt;/div&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;Devoted Japan and Korea fans continue to follow a beloved panda after it returns to China. Their relationship loses its official continuation at the moment of return because there is no dedicated channel that helps them maintain the bond.&lt;br&gt;
+&lt;strong&gt;Campaign implication:&lt;/strong&gt; Make paid membership the continuation of the relationship through ongoing footage, life updates and an annual ritual.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;lang-label zh&quot;&gt;中文&lt;/div&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;日本和韩国的忠实粉丝会在喜爱的熊猫回到中国后继续关注它。然而，在熊猫回国这一关键时刻，粉丝缺少一个能够延续情感联系的官方渠道。&lt;br&gt;
+&lt;strong&gt;对 Campaign 的启示：&lt;/strong&gt; 把付费会员设计成这段关系的延续，通过持续影像、成长动态和年度纪念仪式维持粉丝参与。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;insight-2-peak-fandom-has-no-joining-mechanism&quot;&gt;Insight 2 — Peak Fandom Has No Joining Mechanism&lt;/h4&gt;
+&lt;div class=&quot;lang-label&quot;&gt;English&lt;/div&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;Fans participate in very large numbers during birthdays, anniversaries and livestream events. At the moment of highest emotional engagement, the available action is usually free viewing, with no clear path to join or belong.&lt;br&gt;
+&lt;strong&gt;Campaign implication:&lt;/strong&gt; Introduce a membership invitation, members-only livestream or limited drop at the moment of peak intent.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;lang-label zh&quot;&gt;中文&lt;/div&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;在熊猫生日、纪念日和直播活动期间，粉丝会形成高度集中的参与热潮。然而，在情绪和意愿最高的时刻，他们通常只能免费观看，缺少明确的加入路径和归属机制。&lt;br&gt;
+&lt;strong&gt;对 Campaign 的启示：&lt;/strong&gt; 在参与意愿最高的时刻设置会员入口、会员专属直播或限量发布，把情感热度转化为会员行动。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;insight-3-every-overseas-panda-arrival-rebuilds-the-audience&quot;&gt;Insight 3 — Every Overseas Panda Arrival Rebuilds the Audience&lt;/h4&gt;
+&lt;div class=&quot;lang-label&quot;&gt;English&lt;/div&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;A new panda arrival creates a predictable, media-rich fandom moment in each overseas market. Fans welcome each panda through separate local activity, while no shared account or membership carries their relationship across pandas and markets.&lt;br&gt;
+&lt;strong&gt;Campaign implication:&lt;/strong&gt; Create one global membership identity that follows the fan across different pandas, events and countries.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;lang-label zh&quot;&gt;中文&lt;/div&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;每当大熊猫抵达一个新的海外市场，都会形成一个可预期、媒体关注度很高的粉丝时刻。各地粉丝通常围绕每只熊猫重新建立本地参与，缺少一个能够跨熊猫、跨活动和跨市场延续关系的统一会员身份。&lt;br&gt;
+&lt;strong&gt;对 Campaign 的启示：&lt;/strong&gt; 建立一个全球统一的会员身份，让粉丝的参与能够跨越不同熊猫、事件和国家持续积累。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;insight-4-creators-generate-reach-without-an-official-partnership-system&quot;&gt;Insight 4 — Creators Generate Reach Without an Official Partnership System&lt;/h4&gt;
+&lt;div class=&quot;lang-label&quot;&gt;English&lt;/div&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;Panda creators already generate substantial reach and engagement. They often work without official content assets, clear usage rights, recognition or a revenue-sharing mechanism, which limits the Panda Base's ability to measure and develop this channel.&lt;br&gt;
+&lt;strong&gt;Campaign implication:&lt;/strong&gt; Build an official Creator Kit with approved assets, clear rights, recognition and a measurable partnership or revenue-sharing model.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;lang-label zh&quot;&gt;中文&lt;/div&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;熊猫内容创作者已经带来了大量传播和互动。然而，他们通常缺少官方内容素材、清晰的使用授权、官方认可和收益分享机制，这限制了熊猫基地衡量和发展这一渠道的能力。&lt;br&gt;
+&lt;strong&gt;对 Campaign 的启示：&lt;/strong&gt; 建立官方 Creator Kit，提供授权素材、清晰权益、身份认可，以及可衡量的合作或收益分享机制。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;insight-5-viral-attention-lacks-a-direct-transaction-path&quot;&gt;Insight 5 — Viral Attention Lacks a Direct Transaction Path&lt;/h4&gt;
+&lt;div class=&quot;lang-label&quot;&gt;English&lt;/div&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;Panda moments repeatedly create viral attention. At the point of peak interest, fans have no immediate path to purchase, join a membership or support conservation through an official transaction.&lt;br&gt;
+&lt;strong&gt;Campaign implication:&lt;/strong&gt; Place a membership, shop or conservation action directly inside the livestream or viral-content journey.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;lang-label zh&quot;&gt;中文&lt;/div&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;熊猫相关内容会持续形成病毒式传播。然而，在关注度最高的时刻，粉丝缺少能够立即购买、加入会员或通过官方交易支持保护工作的路径。&lt;br&gt;
+&lt;strong&gt;对 Campaign 的启示：&lt;/strong&gt; 在直播或热门内容的用户路径中直接加入会员、商城或保护行动入口，及时承接需求。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;insight-6-global-character-demand-lacks-a-structured-panda-ip-pipeline&quot;&gt;Insight 6 — Global Character Demand Lacks a Structured Panda IP Pipeline&lt;/h4&gt;
+&lt;div class=&quot;lang-label&quot;&gt;English&lt;/div&gt;
+&lt;blockquote class=&quot;en&quot;&gt;
+&lt;p&gt;Global demand for character merchandise and collectible IP is well established. Panda attention has yet to connect consistently to an international product and licensing pipeline with official provenance and conservation value.&lt;br&gt;
+&lt;strong&gt;Campaign implication:&lt;/strong&gt; Develop an official licensing and product system that combines collectability, authenticity and visible conservation contribution.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;lang-label zh&quot;&gt;中文&lt;/div&gt;
+&lt;blockquote class=&quot;zh&quot;&gt;
+&lt;p&gt;全球市场已经证明了角色商品和收藏型 IP 的需求。熊猫所获得的关注尚未稳定连接到一套具有官方来源、国际产品开发能力和保护价值的授权体系。&lt;br&gt;
+&lt;strong&gt;对 Campaign 的启示：&lt;/strong&gt; 建立官方授权与产品体系，把收藏价值、真实性和可见的保护贡献结合起来。&lt;/p&gt;
+&lt;/blockquote&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;Ascentium Mini-Hackathon · 2026-10-13 深圳 · Facilitator Script（双语）· 人决策 + AI 执行&lt;/footer&gt;
+&lt;/div&gt;
+
+&lt;script&gt;(function(){function h(){try{parent.postMessage({__fit:Math.max(document.documentElement.scrollHeight,document.body.scrollHeight)},&quot;*&quot;);}catch(e){}}window.addEventListener(&quot;load&quot;,h);window.addEventListener(&quot;resize&quot;,h);setInterval(h,1500);})();&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" height="620" title="Quest B Facilitator Script"></iframe>
     </div>
   </section>
 

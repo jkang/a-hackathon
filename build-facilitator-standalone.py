@@ -21,6 +21,9 @@ DEMOS = ["insight-brief.html", "campaign-plan.html",
          "PANDA-STUDIO-campaign-poster.html", "PANDA-STUDIO-campaign-storyboard.html",
          "proposal.html", "pitch-deck.html", "prompt-pack.html"]
 
+# the two bilingual facilitator scripts (live at the repo root)
+SCRIPTS = ["doha-quest-facilitator-script.html", "panda-quest-facilitator-script.html"]
+
 def rd(p):
     return io.open(p, encoding="utf-8").read()
 
@@ -115,8 +118,24 @@ guide, n_if = re.subn(
     r'<iframe([^>]*?)src="demo-examples/QuestB-01/([^"]+)"([^>]*?)></iframe>',
     repl, guide)
 
+# 1b) inline the two facilitator-script iframes (they live at the repo root)
+def repl_script(m):
+    pre, fn, post = m.group(1), m.group(2), m.group(3)
+    if fn not in SCRIPTS:
+        return m.group(0)
+    c = rd(os.path.join(ROOT, fn)).replace("</body>", INJECT + "\n</body>")
+    return '<iframe%ssrcdoc="%s"%s></iframe>' % (pre, esc(c), post)
+
+guide, n_sf = re.subn(
+    r'<iframe([^>]*?)src="([^"]+\.html)"([^>]*?)></iframe>',
+    repl_script, guide)
+
 # 2) drop the "open ↗" links (their target files are gone)
 guide, n_ln = re.subn(r'<a href="demo-examples/[^"]+" target="_blank">打开 ↗</a>', '', guide)
+guide, n_ln2 = re.subn(
+    r'<a href="(?:doha|panda)-quest-facilitator-script\.html" target="_blank">打开 ↗</a>',
+    '', guide)
+n_ln += n_ln2
 
 # 3) add a cross-origin auto-fit listener (postMessage from the iframes)
 listener = ('\n  window.addEventListener("message", function(e){var d=e.data;'
@@ -130,5 +149,5 @@ guide = guide.replace("<title>Facilitator Guide · Ascentium Mini-Hackathon</tit
                       "<title>Facilitator Guide · Ascentium Mini-Hackathon (single file)</title>")
 
 io.open(OUT, "w", encoding="utf-8").write(guide)
-print("iframes inlined: %d · open-links removed: %d · wrote %s (%d KB)"
-      % (n_if, n_ln, os.path.basename(OUT), os.path.getsize(OUT) // 1024))
+print("iframes inlined: %d (+%d scripts) · open-links removed: %d · wrote %s (%d KB)"
+      % (n_if, n_sf, n_ln, os.path.basename(OUT), os.path.getsize(OUT) // 1024))
